@@ -1,0 +1,3004 @@
+<!DOCTYPE html>
+<html class="desktop" dir="ltr" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>manuals:daq:twtooldll</title>
+<meta name="generator" content="DokuWiki">
+<meta name="robots" content="index,follow">
+<meta name="keywords" content="manuals,daq,twtooldll">
+<link rel="search" type="application/opensearchdescription+xml" href="http://wiki.tofwerk.com/lib/exe/opensearch.php" title="Tofwerk Documentation Wiki">
+<link rel="start" href="http://wiki.tofwerk.com/">
+<link rel="contents" href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll&amp;do=index" title="Sitemap">
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="http://wiki.tofwerk.com/feed.php">
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="http://wiki.tofwerk.com/feed.php?mode=list&amp;ns=manuals:daq">
+<link rel="alternate" type="text/html" title="Plain HTML" href="http://wiki.tofwerk.com/doku.php?do=export_xhtml&amp;id=manuals:daq:twtooldll">
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="http://wiki.tofwerk.com/doku.php?do=export_raw&amp;id=manuals:daq:twtooldll">
+<link rel="canonical" href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll">
+<link rel="stylesheet" type="text/css" href="TwToolDll_files/css.css">
+<script type="text/javascript">/*<![CDATA[*/var NS='manuals:daq';var SIG=' --- //[[tanner@tofwerk.com|Christian Tanner]] 20.10.2015 10:24//';var JSINFO = {"id":"manuals:daq:twtooldll","namespace":"manuals:daq"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="TwToolDll_files/js.php"></script><style id="iris-css">.iris-picker{display:block;position:relative}.iris-picker,.iris-picker *{-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input+.iris-picker{margin-top:4px}.iris-error{background-color:#ffafaf}.iris-border{border-radius:3px;border:1px solid #aaa;width:200px;background-color:#fff}.iris-picker-inner{position:absolute;top:0;right:0;left:0;bottom:0}.iris-border .iris-picker-inner{top:10px;right:10px;left:10px;bottom:10px}.iris-picker .iris-square-inner{position:absolute;left:0;right:0;top:0;bottom:0}.iris-picker .iris-square,.iris-picker .iris-slider,.iris-picker .iris-square-inner,.iris-picker .iris-palette{border-radius:3px;box-shadow:inset 0 0 5px rgba(0,0,0,.4);height:100%;width:12.5%;float:left;margin-right:5%}.iris-picker .iris-square{width:76%;margin-right:10%;position:relative}.iris-picker .iris-square-inner{width:auto;margin:0}.iris-ie-9 .iris-square,.iris-ie-9 .iris-slider,.iris-ie-9 .iris-square-inner,.iris-ie-9 .iris-palette{box-shadow:none;border-radius:0}.iris-ie-9 .iris-square,.iris-ie-9 .iris-slider,.iris-ie-9 .iris-palette{outline:1px solid rgba(0,0,0,.1)}.iris-ie-lt9 .iris-square,.iris-ie-lt9 .iris-slider,.iris-ie-lt9 .iris-square-inner,.iris-ie-lt9 .iris-palette{outline:1px solid #aaa}.iris-ie-lt9 .iris-square .ui-slider-handle{outline:1px solid #aaa;background-color:#fff;-ms-filter:"alpha(Opacity=30)"}.iris-ie-lt9 .iris-square .iris-square-handle{background:0;border:3px solid #fff;-ms-filter:"alpha(Opacity=50)"}.iris-picker .iris-strip{margin-right:0;position:relative}.iris-picker .iris-strip .ui-slider-handle{position:absolute;background:0;margin:0;right:-3px;left:-3px;border:4px solid #aaa;border-width:4px 3px;width:auto;height:6px;border-radius:4px;box-shadow:0 1px 2px rgba(0,0,0,.2);opacity:.9;z-index:5;cursor:ns-resize}.iris-strip .ui-slider-handle:before{content:" ";position:absolute;left:-2px;right:-2px;top:-3px;bottom:-3px;border:2px solid #fff;border-radius:3px}.iris-picker .iris-slider-offset{position:absolute;top:11px;left:0;right:0;bottom:-3px;width:auto;height:auto;background:transparent;border:0;border-radius:0}.iris-picker .iris-square-handle{background:transparent;border:5px solid #aaa;border-radius:50%;border-color:rgba(128,128,128,.5);box-shadow:none;width:12px;height:12px;position:absolute;left:-10px;top:-10px;cursor:move;opacity:1;z-index:10}.iris-picker .ui-state-focus .iris-square-handle{opacity:.8}.iris-picker .iris-square-handle:hover{border-color:#999}.iris-picker .iris-square-value:focus .iris-square-handle{box-shadow:0 0 2px rgba(0,0,0,.75);opacity:.8}.iris-picker .iris-square-handle:hover::after{border-color:#fff}.iris-picker .iris-square-handle::after{position:absolute;bottom:-4px;right:-4px;left:-4px;top:-4px;border:3px solid #f9f9f9;border-color:rgba(255,255,255,.8);border-radius:50%;content:" "}.iris-picker .iris-square-value{width:8px;height:8px;position:absolute}.iris-ie-lt9 .iris-square-value,.iris-mozilla .iris-square-value{width:1px;height:1px}.iris-palette-container{position:absolute;bottom:0;left:0;margin:0;padding:0}.iris-border .iris-palette-container{left:10px;bottom:10px}.iris-picker .iris-palette{margin:0;cursor:pointer}.iris-square-handle,.ui-slider-handle{border:0;outline:0}</style>
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div id="dw__toc">
+<h3 style="cursor: pointer;" class="toggle open"><strong><span>−</span></strong>Table of Contents</h3>
+<div aria-expanded="true" style="">
+
+<ul style="" class="toc">
+<li class="level1"><div class="li"><a href="#twtooldlldll_version_198">TwToolDll.dll version 1.98</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#general_functions">General functions</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#twtranslatereturnvalue">TwTranslateReturnValue</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#peak_fitting_functions">Peak fitting functions</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#twfitsinglepeak">TwFitSinglePeak</a></div></li>
+<li class="level3"><div class="li"><a href="#twfitsinglepeak2">TwFitSinglePeak2</a></div></li>
+<li class="level3"><div class="li"><a href="#twevalsinglepeak">TwEvalSinglePeak</a></div></li>
+<li class="level3"><div class="li"><a href="#twmultipeakfit">TwMultiPeakFit</a></div></li>
+<li class="level3"><div class="li"><a href="#twevalmultipeak">TwEvalMultiPeak</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#tof_resolving_power">TOF resolving power</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#twfitresolution">TwFitResolution</a></div></li>
+<li class="level3"><div class="li"><a href="#twevalresolution">TwEvalResolution</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#chemistry_functions">"Chemistry" functions</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#twgetmoleculemass">TwGetMoleculeMass</a></div></li>
+<li class="level3"><div class="li"><a href="#twgetisotopepattern">TwGetIsotopePattern</a></div></li>
+<li class="level3"><div class="li"><a href="#twgetisotopepattern2">TwGetIsotopePattern2</a></div></li>
+<li class="level3"><div class="li"><a href="#twdecomposemass">TwDecomposeMass</a></div></li>
+<li class="level3"><div class="li"><a href="#twgetcomposition">TwGetComposition</a></div></li>
+<li class="level3"><div class="li"><a href="#twnistlibrarysearch">TwNistLibrarySearch</a></div></li>
+<li class="level3"><div class="li"><a href="#twnistlibraryqueryresult">TwNistLibraryQueryResult</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#mass_calibration_functions">Mass calibration functions</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#twtof2mass_twmass2tof">TwTof2Mass/TwMass2Tof</a></div></li>
+<li class="level3"><div class="li"><a href="#twmasscalibrate">TwMassCalibrate</a></div></li>
+<li class="level3"><div class="li"><a href="#twbruteforcecalibrate">TwBruteForceCalibrate</a></div></li>
+<li class="level3"><div class="li"><a href="#twgetmasscalibinfo">TwGetMassCalibInfo</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#encoded_ims_helper_functions">Encoded IMS helper functions</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#twencimscorrelateprofile">TwEncImsCorrelateProfile</a></div></li>
+<li class="level3"><div class="li"><a href="#twencimscorrelatemultiprofiles">TwEncImsCorrelateMultiProfiles</a></div></li>
+<li class="level3"><div class="li"><a href="#twencimscleanup">TwEncImsCleanup</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#single_ion_histogramming_functions">Single ion histogramming functions</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#twsiinitializehistograms">TwSiInitializeHistograms</a></div></li>
+<li class="level3"><div class="li"><a href="#twsisetprocessingoptions">TwSiSetProcessingOptions</a></div></li>
+<li class="level3"><div class="li"><a href="#twsiprocessspectrum">TwSiProcessSpectrum</a></div></li>
+<li class="level3"><div class="li"><a href="#twsigethistogram">TwSiGetHistogram</a></div></li>
+<li class="level3"><div class="li"><a href="#twsigetsumhistogram">TwSiGetSumHistogram</a></div></li>
+<li class="level3"><div class="li"><a href="#twsiresethistograms">TwSiResetHistograms</a></div></li>
+<li class="level3"><div class="li"><a href="#twsicleanup">TwSiCleanup</a></div></li>
+<li class="level3"><div class="li"><a href="#twsifitphd">TwSiFitPhd</a></div></li>
+<li class="level3"><div class="li"><a href="#twsievalphd">TwSiEvalPhd</a></div></li>
+<li class="level3"><div class="li"><a href="#twsifitratefromphd">TwSiFitRateFromPhd</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#tps_helper_functions">TPS helper functions</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#twfindtpsip">TwFindTpsIp</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#previous_revisions">Previous revisions</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="twtooldlldll_version_198">TwToolDll.dll version 1.98</h1>
+<div class="level1">
+
+<p>
+TwToolDll.dll is a collection of functions that was used by Tofwerk 
+software (mainly TofDaqViewer) but was not accessible to TofDaq <abbr title="Atmospheric Pressure Interface / Application Programming Interface">API</abbr> users.
+</p>
+
+</div>
+<!-- EDIT1 SECTION "TwToolDll.dll version 1.98" [1-185] -->
+<h2 class="sectionedit2" id="general_functions">General functions</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT2 SECTION "General functions" [186-216] -->
+<h3 class="sectionedit3" id="twtranslatereturnvalue">TwTranslateReturnValue</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_DAQ_API <span class="kw4">char</span><span class="sy0">*</span> TwTranslateReturnValue<span class="br0">(</span>TwRetVal ReturnValue<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose">Purpose</h4>
+<div class="level4">
+
+<p>
+Translates a <code>TwRetVal</code> to a human readable string.
+</p>
+
+</div>
+
+<h4 id="parameters">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit4"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>ReturnValue</code>  </td><td class="col1 centeralign">  <code>TwRetVal</code>  </td><td class="col2 rightalign">  value returned from other <abbr title="Atmospheric Pressure Interface / Application Programming Interface">API</abbr> function </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT4 TABLE [432-548] -->
+</div>
+
+<h4 id="return_value">Return value</h4>
+<div class="level4">
+<div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0"> <code>char*</code> </td><td class="col1 rightalign">  <em>variable</em> </td><td class="col2"> string with a text representation of the return value. </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT5 TABLE [570-697] --><hr>
+
+<p>
+<br>
+
+</p>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT3 SECTION "TwTranslateReturnValue" [217-712] -->
+<h2 class="sectionedit6" id="peak_fitting_functions">Peak fitting functions</h2>
+<div class="level2">
+
+<p>
+This section lists the functions used for peak fitting. Peak parameters 
+are optimized using a Levenberg–Marquardt algorithm as implemented by 
+the library <a href="http://www.messen-und-deuten.de/lmfit/lmfit.html" class="urlextern" title="http://www.messen-und-deuten.de/lmfit/lmfit.html" rel="nofollow">lmfit</a>.
+  The general peak model used is an asymmetric pseudo-Voigt peak profile
+ on a sloped background (baseline). By toggling baseline and/or 
+asymmetry and/or restricting the peak shape to pure Gaussian or 
+Lorentzian the following peak types are possible:
+</p>
+
+</div>
+
+<h4 id="peak_functions">Peak functions</h4>
+<div class="level4">
+<div class="table sectionedit7"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  peak type index  </th><th class="col1 centeralign">  peak function  </th><th class="col2 centeralign">  symmetric  </th><th class="col3 centeralign">  baseline  </th><th class="col4"> </th><th class="col5 centeralign">  blOffset  </th><th class="col6 centeralign">  blSlope  </th><th class="col7 centeralign">  amplitude  </th><th class="col8 centeralign">  fwhmLo  </th><th class="col9 centeralign">  fwhmHi  </th><th class="col10 centeralign">  peakPos  </th><th class="col11 centeralign">  mu  </th><th class="col12 centeralign">  DOF  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  -1  </td><td class="col1 centeralign">  Gaussian through highest point and its neighbours  </td><td class="col2 centeralign">  yes  </td><td class="col3 centeralign">  no  </td><td class="col4"> </td><td class="col5 centeralign">  fixed (0.0)  </td><td class="col6 centeralign">   fixed (0.0)  </td><td class="col7 centeralign">  variable  </td><td class="col8 centeralign">  variable  </td><td class="col9 centeralign">  fixed (fwhmLo)  </td><td class="col10 centeralign">  variable  </td><td class="col11 centeralign">  fixed (0.0)  </td><td class="col12 centeralign">  3  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  0   </td><td class="col1 centeralign">  Gaussian  </td><td class="col2 centeralign">  yes  </td><td class="col3 centeralign">  no  </td><td class="col4"> </td><td class="col5 centeralign">  fixed (0.0)  </td><td class="col6 centeralign">   fixed (0.0)  </td><td class="col7 centeralign">  variable  </td><td class="col8 centeralign">  variable  </td><td class="col9 rightalign">  fixed (fwhmLo) </td><td class="col10 centeralign">  variable  </td><td class="col11 centeralign">  fixed (0.0)  </td><td class="col12 centeralign">  3  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  1   </td><td class="col1 centeralign">  Lorentzian  </td><td class="col2 centeralign">  yes  </td><td class="col3 centeralign">  no  </td><td class="col4"> </td><td class="col5 centeralign">  fixed (0.0)  </td><td class="col6 centeralign">   fixed (0.0)  </td><td class="col7 centeralign">  variable  </td><td class="col8 centeralign">  variable  </td><td class="col9 rightalign">  fixed (fwhmLo) </td><td class="col10 centeralign">  variable  </td><td class="col11 centeralign">  fixed (1.0)  </td><td class="col12 centeralign">  3  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  2   </td><td class="col1 centeralign">  pseudo-Voigt  </td><td class="col2 centeralign">  yes  </td><td class="col3 centeralign">  no  </td><td class="col4"> </td><td class="col5 centeralign">  fixed (0.0)  </td><td class="col6 centeralign">   fixed (0.0)  </td><td class="col7 centeralign">  variable  </td><td class="col8 centeralign">  variable  </td><td class="col9 rightalign">  fixed (fwhmLo) </td><td class="col10 centeralign">  variable  </td><td class="col11 centeralign">  variable  </td><td class="col12 centeralign">  4  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  3   </td><td class="col1 centeralign">  Gaussian  </td><td class="col2 centeralign">  yes  </td><td class="col3 centeralign">  yes  </td><td class="col4"> </td><td class="col5 centeralign">  variable  </td><td class="col6 centeralign">  variable   </td><td class="col7 centeralign">  variable  </td><td class="col8 centeralign">  variable  </td><td class="col9 rightalign">  fixed (fwhmLo) </td><td class="col10 centeralign">  variable  </td><td class="col11 centeralign">  fixed (0.0)  </td><td class="col12 centeralign">  5  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  4   </td><td class="col1 centeralign">  Lorentzian  </td><td class="col2 centeralign">  yes  </td><td class="col3 centeralign">  yes  </td><td class="col4"> </td><td class="col5 centeralign">  variable   </td><td class="col6 centeralign">  variable    </td><td class="col7 centeralign">  variable  </td><td class="col8 centeralign">  variable  </td><td class="col9 rightalign">  fixed (fwhmLo) </td><td class="col10 centeralign">  variable  </td><td class="col11 centeralign">  fixed (1.0)  </td><td class="col12 centeralign">  5  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  5   </td><td class="col1 centeralign">  pseudo-Voigt  </td><td class="col2 centeralign">  yes  </td><td class="col3 centeralign">  yes  </td><td class="col4"> </td><td class="col5 centeralign">  variable     </td><td class="col6 centeralign">   variable     </td><td class="col7 centeralign">  variable  </td><td class="col8 centeralign">  variable  </td><td class="col9 rightalign">  fixed (fwhmLo) </td><td class="col10 centeralign">  variable  </td><td class="col11 centeralign">  variable  </td><td class="col12 centeralign">  6  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  6   </td><td class="col1 centeralign">  Gaussian  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  no  </td><td class="col4"> </td><td class="col5 centeralign">  fixed (0.0)  </td><td class="col6 centeralign">   fixed (0.0)  </td><td class="col7 centeralign">  variable  </td><td class="col8 centeralign">  variable  </td><td class="col9 centeralign">  variable  </td><td class="col10 centeralign">  variable  </td><td class="col11 centeralign">  fixed (0.0)  </td><td class="col12 centeralign">  4  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  7   </td><td class="col1 centeralign">  Lorentzian  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  no  </td><td class="col4"> </td><td class="col5 centeralign">  fixed (0.0)  </td><td class="col6 centeralign">   fixed (0.0)  </td><td class="col7 centeralign">  variable  </td><td class="col8 centeralign">  variable  </td><td class="col9 centeralign">  variable  </td><td class="col10 centeralign">  variable  </td><td class="col11 centeralign">  fixed (1.0)  </td><td class="col12 centeralign">  4  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 centeralign">  8   </td><td class="col1 centeralign">  pseudo-Voigt  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  no  </td><td class="col4"> </td><td class="col5 centeralign">  fixed (0.0)  </td><td class="col6 centeralign">   fixed (0.0)  </td><td class="col7 centeralign">  variable  </td><td class="col8 centeralign">  variable  </td><td class="col9 centeralign">  variable  </td><td class="col10 centeralign">  variable  </td><td class="col11 centeralign">  variable  </td><td class="col12 centeralign">  5  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 centeralign">  9   </td><td class="col1 centeralign">  Gaussian  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  yes  </td><td class="col4"> </td><td class="col5 centeralign">  variable  </td><td class="col6 centeralign">  variable   </td><td class="col7 centeralign">  variable  </td><td class="col8 centeralign">  variable  </td><td class="col9 centeralign">  variable  </td><td class="col10 centeralign">  variable  </td><td class="col11 centeralign">  fixed (0.0)  </td><td class="col12 centeralign">  6  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 centeralign">  10  </td><td class="col1 centeralign">  Lorentzian  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  yes  </td><td class="col4"> </td><td class="col5 centeralign">  variable   </td><td class="col6 centeralign">  variable    </td><td class="col7 centeralign">  variable  </td><td class="col8 centeralign">  variable  </td><td class="col9 centeralign">  variable  </td><td class="col10 centeralign">  variable  </td><td class="col11 centeralign">  fixed (1.0)  </td><td class="col12 centeralign">  6  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 centeralign">  11  </td><td class="col1 centeralign">  pseudo-Voigt  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  yes  </td><td class="col4 leftalign">  </td><td class="col5 centeralign">  variable     </td><td class="col6 centeralign">   variable     </td><td class="col7 centeralign">  variable  </td><td class="col8 centeralign">  variable  </td><td class="col9 centeralign">  variable  </td><td class="col10 centeralign">  variable  </td><td class="col11 centeralign">  variable  </td><td class="col12 centeralign">  7  </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT7 TABLE [1237-3361] -->
+<p>
+<a href="http://wiki.tofwerk.com/lib/exe/detail.php?id=manuals%3Adaq%3Atwtooldll&amp;media=manuals:daq:peakfunctions.png" class="media" title="manuals:daq:peakfunctions.png"><img src="TwToolDll_files/fetch.png" class="medialeft" title=" Functional form of peak functions" alt=" Functional form of peak functions" width="700"></a>
+</p>
+
+<p>
+The function for type = -1 is not an actual peak fit but rather the 
+Gaussian function (symmetric, no baseline) defined by the maximum 
+intensity point and its neighbors. If no guess values are supplied to 
+the peak fit this function is used to generate guess values for 
+position, width and amplitude. The area under the fitted peak (without 
+contributions from the baseline) can be calculated as:
+<br>
+
+<br>
+
+<img src="TwToolDll_files/img_005.png" class="medialeft mathpublish" alt="area~=~amplitude~*~{{fwhmLo~+~fwhmHi}/2} * (0.506 mu + 1.064)" title="area~=~amplitude~*~{{fwhmLo~+~fwhmHi}/2} * (0.506 mu + 1.064)" style="display: inline-block; vertical-align:-16px">
+</p>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT6 SECTION "Peak fitting functions" [713-3914] -->
+<h3 class="sectionedit8" id="twfitsinglepeak">TwFitSinglePeak</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwFitSinglePeak<span class="br0">(</span><span class="kw4">int</span> nbrDataPoints<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> yVals<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> xVals<span class="sy0">,</span> <span class="kw4">int</span> peakType<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> blOffset<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> blSlope<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> amplitude<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> fwhmLo<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> fwhmHi<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> peakPos<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> mu<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose1">Purpose</h4>
+<div class="level4">
+
+<p>
+Performs the actual curve fit. All peak parameters are passed by 
+reference and their values will be used as guess values for the 
+optimization. To trigger automatic guess value generation set all peak 
+parameters to 0.0.
+</p>
+
+</div>
+
+<h4 id="parameters1">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit9"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>nbrDataPoints</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> data length </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>yVals</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of doubles of minimal length <code>nbrDataPoints</code> with intensity data </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>xVals</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2 leftalign"> array of doubles of minimal length <code>nbrDataPoints</code> with x axis data (can be <code>NULL</code>)  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>peakType</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 leftalign"> peak model to use (see table above)  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  <code>blOffset</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2 leftalign"> baseline offset at first data point (passed by reference)  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  <code>blSlope</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2 leftalign"> slope of baseline (passed by reference)  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  <code>amplitude</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2 leftalign"> peak amplitude (not area!) (passed by reference)  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  <code>fwhmLo</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2 leftalign"> left peak width  (passed by reference)  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  <code>fwhmHi</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2 leftalign"> right peak width  (passed by reference)  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 centeralign">  <code>peakPos</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2 leftalign"> peak position  (passed by reference)  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 centeralign">  <code>mu</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2 leftalign"> Gaussian/Lorentzian contribution  (passed by reference)  </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT9 TABLE [4441-5400] -->
+</div>
+
+<h4 id="return_value1">Return value</h4>
+<div class="level4">
+<div class="table sectionedit10"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="3"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2"> peak fit succeeded and parameters were updated </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwError</code> </td><td class="col1"> <code>yVals</code> is <code>NULL</code>, <code>nbrdataPoints &lt; = 0</code> or fit failed </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>TwOutOfBounds</code></td><td class="col1"> invalid <code>peakType</code> </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT10 TABLE [5423-5698] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT8 SECTION "TwFitSinglePeak" [3915-5708] -->
+<h3 class="sectionedit11" id="twfitsinglepeak2">TwFitSinglePeak2</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwFitSinglePeak2<span class="br0">(</span><span class="kw4">int</span> nbrDataPoints<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> yVals<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> xVals<span class="sy0">,</span> <span class="kw4">int</span> peakType<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> param<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose2">Purpose</h4>
+<div class="level4">
+
+<p>
+Convenience function which takes the 7 fit parameter as an array argument instead of explicit parameters.
+</p>
+
+</div>
+
+<h4 id="parameters2">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit12"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>nbrDataPoints</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> data length </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>yVals</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of doubles of minimal length <code>nbrDataPoints</code> with intensity data </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>xVals</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2 leftalign"> array of doubles of minimal length <code>nbrDataPoints</code> with x axis data (can be <code>NULL</code>)  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>peakType</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 leftalign"> peak model to use (see table above)  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  <code>param</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2 leftalign"> array of doubles of minimal length 7 (same order as in <code>TwFitSinglePeak</code>)  </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT12 TABLE [6024-6520] -->
+</div>
+
+<h4 id="return_value2">Return value</h4>
+<div class="level4">
+<div class="table sectionedit13"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="3"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2"> peak fit succeeded and parameters were updated </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwError</code> </td><td class="col1"> <code>yVals</code> is <code>NULL</code>, <code>nbrdataPoints &lt; = 0</code> or fit failed </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>TwOutOfBounds</code></td><td class="col1"> invalid <code>peakType</code> </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT13 TABLE [6543-6818] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT11 SECTION "TwFitSinglePeak2" [5709-6828] -->
+<h3 class="sectionedit14" id="twevalsinglepeak">TwEvalSinglePeak</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API <span class="kw4">double</span> TwEvalSinglePeak<span class="br0">(</span><span class="kw4">double</span> xVal<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> param<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose3">Purpose</h4>
+<div class="level4">
+
+<p>
+The actual fit function to evaluate the peak profile for a given x value and the peak parameters. <code>peakType</code> is not specified as this function always expects the full 7 parameters.
+</p>
+
+</div>
+
+<h4 id="parameters3">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit15"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>xVal</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2"> x value for which to evaluate the peak function </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>param</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2 leftalign"> array of doubles of minimal length 7 (same order as in <code>TwFitSinglePeak</code>)  </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT15 TABLE [7169-7395] -->
+</div>
+
+<h4 id="return_value3">Return value</h4>
+<div class="level4">
+<div class="table sectionedit16"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0"> <code>double</code> </td><td class="col1"> <em>variable</em> </td><td class="col2"> peak function value </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT16 TABLE [7418-7510] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT14 SECTION "TwEvalSinglePeak" [6829-7521] -->
+<h3 class="sectionedit17" id="twmultipeakfit">TwMultiPeakFit</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwMultiPeakFit <span class="br0">(</span><span class="kw4">int</span> nbrDataPoints<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> dataX<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> dataX<span class="sy0">,</span> <span class="kw4">int</span> nbrPeaks<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> mass<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> intensity<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> commonPar<span class="sy0">,</span> <span class="kw4">int</span> options<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose4">Purpose</h4>
+<div class="level4">
+
+<p>
+Multi peak fit function for determination of areas/intensities of 
+(partially) overlapping peaks. All peaks in a multi peak cluster share 
+common peak parameters except amplitude and position. Various options 
+allow for a more or less constrained fit (see description of <code>options</code> below).
+</p>
+
+</div>
+
+<h4 id="parameters4">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit18"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>nbrDataPoints</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> length of input data arrays <code>dataX</code> and <code>dataY</code> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>dataX</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> input data abscissa values (typically m/q values) </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>dataY</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> input data ordinate values (typically <abbr title="Mass Spectrometer">MS</abbr> intensities) </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>nbrPeaks</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> number of peaks in fit and length of arrays <code>mass</code> and <code>intensity</code> </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  <code>mass</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of length <code>nbrPeaks</code> holding the (known) positions of the peaks (note: these values are not optimized, see common mass shift parameter in <code>commonPar</code> </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  <code>intensity</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of length <code>nbrPeaks</code>
+ holding the initial guess for intensities on function call and the 
+optimized intensities on function return. If all values are 0.0 the 
+guess values for peak intensities is generated automatically. </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign" rowspan="7">  <code>commonPar</code>  </td><td class="col1 centeralign">  <code>double[6]</code>  </td><td class="col2 leftalign"> common peak parameters holding guess values on function call and optimized values on return (<code>options</code> determines which of the common parameters are optimized)  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <code>commonPar[0]</code> </td><td class="col1 leftalign"> offset of common baseline  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <code>commonPar[1]</code> </td><td class="col1 leftalign"> slope of common baseline  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> <code>commonPar[2]</code> </td><td class="col1 leftalign"> 'left' <abbr title="Full Width at Half Maximum">FWHM</abbr>  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> <code>commonPar[3]</code> </td><td class="col1"> 'right' <abbr title="Full Width at Half Maximum">FWHM</abbr> (same as left <abbr title="Full Width at Half Maximum">FWHM</abbr> for symmetric peaks) </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> <code>commonPar[4]</code> </td><td class="col1"> shape parameter <code>mu</code> (applies only for peak model pseudo-Voigt) </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0"> <code>commonPar[5]</code> </td><td class="col1 leftalign"> common mass shift of peaks (allows for minimal refinement of the peak positions due to imperfect mass calibration)  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 centeralign" rowspan="8">  <code>options</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2">
+ bit field specifiying peak model and optimization options. Note that if
+ a given parameter is not activated for optimization, the supplied 
+(guess) values are still used (e.g. specify a known baseline without 
+optimizing the parameters) </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 centeralign">  bits 0 and 1  </td><td class="col1"> peak model: 0=Gauss, 1=Lorentz, 2=pseudo-Voigt </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 centeralign">  bit 2  </td><td class="col1"> 0=symmetric peak model, 1=asymmetric peak model </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 centeralign">  bit 3  </td><td class="col1"> 0=no optimization of baseline parameters, 1=optimize baseline parameters </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0 centeralign">  bit 4  </td><td class="col1"> 0=no optimization of width (<abbr title="Full Width at Half Maximum">FWHM</abbr>) parameter(s), 1=optimize width (<abbr title="Full Width at Half Maximum">FWHM</abbr>) parameters </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0 centeralign">  bit 5  </td><td class="col1"> 0=no optimization of peak shape (mu) parameter, 1=optimize peak shape (mu) parameter (applies only to pseudo-Voigt) </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0 centeralign">  bit 6  </td><td class="col1"> 0=no optimization of common mass shift parameter, 1=optimize common mass shift parameter </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0 centeralign">  bit 7  </td><td class="col1"> 0=no constrain on amplitudes, 1=constrain sum of baseline and all peaks to total intensity in spectrum </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT18 TABLE [8068-10590] -->
+</div>
+
+<h4 id="return_value4">Return value</h4>
+<div class="level4">
+<div class="table sectionedit19"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="2"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2"> Success </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwError</code> </td><td class="col1"> Fit failed or invalid input parameters (NULL arrays, not enough data points for the fit's degrees of freedom,…) </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT19 TABLE [10616-10837] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT17 SECTION "TwMultiPeakFit" [7522-10847] -->
+<h3 class="sectionedit20" id="twevalmultipeak">TwEvalMultiPeak</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API <span class="kw4">double</span> TwEvalMultiPeak <span class="br0">(</span><span class="kw4">double</span> x<span class="sy0">,</span> <span class="kw4">int</span> nbrPeaks<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> mass<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> intensity<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> commonPar<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose5">Purpose</h4>
+<div class="level4">
+
+<p>
+Utility function to determine the multi peak function value at an arbitrary position <code>x</code>. Arguments <code>nbrPeaks</code>, <code>mass</code>, <code>intensity</code> and <code>commonPar</code> are the same as in the function <code>TwMultiPeakFit</code>. 
+</p>
+
+</div>
+
+<h4 id="parameters5">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit21"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>x</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2"> value to evaluate multi peak function </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>nbrPeaks</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> number of peaks in fit and length of arrays <code>mass</code> and <code>intensity</code> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>mass</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of length <code>nbrPeaks</code> holding the peak positions </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>intensity</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of length <code>nbrPeaks</code> holding the peak intensities </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  <code>commonPar</code>  </td><td class="col1 centeralign">  <code>double[6]</code>  </td><td class="col2"> common peak parameters (see <code>TwMultiPeakFit</code> documentation for details) </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT21 TABLE [11265-11770] -->
+</div>
+
+<h4 id="return_value5">Return value</h4>
+<div class="level4">
+<div class="table sectionedit22"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0"> <code>double</code> </td><td class="col1"> <em>variable</em> </td><td class="col2"> multi peak function value </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT22 TABLE [11795-11893] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT20 SECTION "TwEvalMultiPeak" [10848-11906] -->
+<h2 class="sectionedit23" id="tof_resolving_power">TOF resolving power</h2>
+<div class="level2">
+
+<p>
+An empirical function that describes the mass resolving power of TOFs as a function of mass is: <img src="TwToolDll_files/img_006.png" class="mediacenter mathpublish" alt="R(m)~=~R_0~-~{R_0 / {1+e^{{m-m_0}/dm}}}" title="R(m)~=~R_0~-~{R_0 / {1+e^{{m-m_0}/dm}}}" style="display: inline-block; vertical-align:-41px"><br>
+
+<a href="http://wiki.tofwerk.com/lib/exe/detail.php?id=manuals%3Adaq%3Atwtooldll&amp;media=manuals:daq:tof_resolving_power.png" class="media" title="manuals:daq:tof_resolving_power.png"><img src="TwToolDll_files/fetch_002.png" class="media" title=" TOF resolving power example" alt=" TOF resolving power example"></a>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT23 SECTION "TOF resolving power" [11907-12159] -->
+<h3 class="sectionedit24" id="twfitresolution">TwFitResolution</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwFitResolution<span class="br0">(</span><span class="kw4">int</span> nbrPoints<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> mass<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> resolution<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> R0<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> m0<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> dm<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose6">Purpose</h4>
+<div class="level4">
+
+<p>
+Fits the mass/resolution pairs to the resolving power function.
+</p>
+
+</div>
+
+<h4 id="parameters6">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit25"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>nbrPoints</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> number of mass/resolution pairs </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>mass</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of doubles of minimal length <code>nbrPoints</code> with mass values </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>resolution</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2 leftalign"> array of doubles of minimal length <code>nbrPoints</code> with resolution values  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>R0</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2 leftalign"> ultimate resolving power (passed by reference)  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  <code>m0</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2 leftalign"> mass where R(m) = 0.5*R<sub>0</sub> (passed by reference)  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  <code>dm</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2 leftalign"> slope parameter (passed by reference)  </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT25 TABLE [12438-12989] -->
+</div>
+
+<h4 id="return_value6">Return value</h4>
+<div class="level4">
+<div class="table sectionedit26"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="2"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2"> fit succeeded and parameters were updated </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwError</code> </td><td class="col1"> fit failed </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT26 TABLE [13012-13173] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT24 SECTION "TwFitResolution" [12160-13183] -->
+<h3 class="sectionedit27" id="twevalresolution">TwEvalResolution</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API <span class="kw4">double</span> TwEvalResolution<span class="br0">(</span><span class="kw4">double</span> R0<span class="sy0">,</span> <span class="kw4">double</span> m0<span class="sy0">,</span> <span class="kw4">double</span> dm<span class="sy0">,</span> <span class="kw4">double</span> mass<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose7">Purpose</h4>
+<div class="level4">
+
+<p>
+Actual resolving power function.
+</p>
+
+</div>
+
+<h4 id="parameters7">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit28"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>R0</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2 leftalign"> ultimate resolving power  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>m0</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2 leftalign"> mass where R(m) = 0.5*R<sub>0</sub>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>dm</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2 leftalign"> slope parameter   </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>mass</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2"> mass value for which to evaluate the function </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT28 TABLE [13392-13676] -->
+</div>
+
+<h4 id="return_value7">Return value</h4>
+<div class="level4">
+<div class="table sectionedit29"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0"> <code>double</code> </td><td class="col1"> <em>variable</em> </td><td class="col2"> function value </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT29 TABLE [13699-13786] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT27 SECTION "TwEvalResolution" [13184-13796] -->
+<h2 class="sectionedit30" id="chemistry_functions">"Chemistry" functions</h2>
+<div class="level2">
+
+<p>
+A collection of related function that parse a chemical (sum) formula and
+ calculate masses and isotope patterns. The formula parser understands 
+the (case sensitive) element labels and round and curly brackets (square
+ brackets are reserved for isotope specification). Numbers (multipliers)
+ have to follow either directly the element symbol or a closing bracket.
+ Specific isoptopes are specified in square brackets with the mass 
+number before the element label (e.g. [2H], [14C] or [235U]). Charge 
+indicators (+, -) have to be the last characters in the formula string, 
+multiple charges require multiple charge symbols (e.g. doubly charged 
+calcium is Ca++ and not Ca2+ which is the correct syntax for a singly 
+charged calcium dimer).
+</p>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT30 SECTION "Chemistry functions" [13797-14565] -->
+<h3 class="sectionedit31" id="twgetmoleculemass">TwGetMoleculeMass</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwGetMoleculeMass<span class="br0">(</span><span class="kw4">char</span><span class="sy0">*</span> molecule<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> mass<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose8">Purpose</h4>
+<div class="level4">
+
+<p>
+Parses the molecular formula and returns the mass/charge ratio (not mass
+ !) of the molecule/atom/ion. For charged species the rest mass of the 
+electron(s) (5.4858E-4 u) is added/subtracted.
+</p>
+
+</div>
+
+<h4 id="parameters8">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit32"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>molecule</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2"> molecule string </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>mass</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> mass/charge ratio of the specified sum formula (by reference) </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT32 TABLE [14919-15100] -->
+</div>
+
+<h4 id="return_value8">Return value</h4>
+<div class="level4">
+<div class="table sectionedit33"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="3"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2"> <code>molecule</code> was successfully parsed and <code>mass</code> set to the mass/charge value </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwInvalidParameter</code> </td><td class="col1"> <code>molecule</code> lead to a parse error (see parser rules above) </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>TwError</code> </td><td class="col1"> <code>molecule</code> or <code>mass</code> are <code>NULL</code> pointers </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT33 TABLE [15123-15461] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT31 SECTION "TwGetMoleculeMass" [14566-15470] -->
+<h3 class="sectionedit34" id="twgetisotopepattern">TwGetIsotopePattern</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwGetIsotopePattern<span class="br0">(</span><span class="kw4">char</span><span class="sy0">*</span> molecule<span class="sy0">,</span> <span class="kw4">double</span> abundanceLimit<span class="sy0">,</span> <span class="kw4">int</span><span class="sy0">*</span> nbrIsotopes<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> isoMass<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> isoAbundance<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose9">Purpose</h4>
+<div class="level4">
+
+<p>
+Parses the molecular formula and returns the isotope pattern. Either supply sufficiently large buffers for <code>isoMass</code> and <code>isoAbundance</code> and expect a <code>TwValueAdjusted</code> return value or call the function first with <code>*nbrIsotopes</code> set to 0 and <code>NULL</code> for <code>isoMass</code> and <code>isoAbundance</code> to get the number of isotopes generated, then allocate correspondingly sized arrays and call the function again (expect <code>TwSuccess</code>).
+</p>
+
+</div>
+
+<h4 id="parameters9">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit35"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>molecule</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2"> molecule string </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>abundanceLimit</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2"> absolute abundance limit for the generated pattern </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>nbrIsotopes</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> length of <code>isoMass</code> and <code>isoAbundance</code> arrays (by reference) </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>isoMass</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of doubles of minimal length <code>nbrIsotopes</code> holding the mass values of the pattern on function return </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  <code>isoAbundance</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of doubles of minimal length <code>nbrIsotopes</code> holding the abundance values of the pattern on function return </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT35 TABLE [16134-16715] -->
+</div>
+
+<h4 id="return_value9">Return value</h4>
+<div class="level4">
+<div class="table sectionedit36"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="4"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2"> <code>molecule</code> was successfully parsed and the number of generated isotopes matched the <code>*nbrIsotopes</code> value exactly </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwValueAdjusted</code> </td><td class="col1"> <code>molecule</code> was successfully parsed but <code>*nbrIsotopes</code> was adjusted. If <code>*nbrIsotopes</code> is smaller on function return than on function call this is essentially a “success”. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>TwInvalidParameter</code> </td><td class="col1"> <code>molecule</code> lead to a parse error (see parser rules above) </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>TwError</code> </td><td class="col1"> <code>molecule</code> or <code>nbrIsotopes</code> are <code>NULL</code>, <code>*nbrIsotopes</code> &gt; 0 and <code>isoMass</code> or <code>isoAbundance</code> are <code>NULL</code> </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT36 TABLE [16738-17401] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT34 SECTION "TwGetIsotopePattern" [15471-17411] -->
+<h3 class="sectionedit37" id="twgetisotopepattern2">TwGetIsotopePattern2</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwGetIsotopePattern2<span class="br0">(</span><span class="kw4">char</span><span class="sy0">*</span> molecule<span class="sy0">,</span> <span class="kw4">double</span> abundanceLimit<span class="sy0">,</span> <span class="kw4">int</span><span class="sy0">*</span> nbrIsotopes<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> isoMass<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> isoAbundance<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose10">Purpose</h4>
+<div class="level4">
+
+<p>
+Same as <code>TwGetIsotopePattern()</code> but using an exact algorithm and is therefore suitable only for rather small molecules.
+</p>
+
+</div>
+
+<h4 id="parameters10">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit38"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>molecule</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2"> molecule string </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>abundanceLimit</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2"> absolute abundance limit for the generated pattern </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>nbrIsotopes</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> length of <code>isoMass</code> and <code>isoAbundance</code> arrays (by reference) </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>isoMass</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of doubles of minimal length <code>nbrIsotopes</code> holding the mass values of the pattern on function return </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  <code>isoAbundance</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of doubles of minimal length <code>nbrIsotopes</code> holding the abundance values of the pattern on function return </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT38 TABLE [17770-18351] -->
+</div>
+
+<h4 id="return_value10">Return value</h4>
+<div class="level4">
+<div class="table sectionedit39"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="4"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2"> <code>molecule</code> was successfully parsed and the number of generated isotopes matched the <code>*nbrIsotopes</code> value exactly </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwValueAdjusted</code> </td><td class="col1"> <code>molecule</code> was successfully parsed but <code>*nbrIsotopes</code> was adjusted. If <code>*nbrIsotopes</code> is smaller on function return than on function call this is essentially a “success”. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>TwInvalidParameter</code> </td><td class="col1"> <code>molecule</code> lead to a parse error (see parser rules above) </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>TwError</code> </td><td class="col1"> <code>molecule</code> or <code>nbrIsotopes</code> are <code>NULL</code>, <code>*nbrIsotopes</code> &gt; 0 and <code>isoMass</code> or <code>isoAbundance</code> are <code>NULL</code> or algorithm exhausted available memory </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT39 TABLE [18374-19077] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT37 SECTION "TwGetIsotopePattern2" [17412-19086] -->
+<h3 class="sectionedit40" id="twdecomposemass">TwDecomposeMass</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwDecomposeMass<span class="br0">(</span><span class="kw4">double</span> targetMass<span class="sy0">,</span> <span class="kw4">double</span> tolerance<span class="sy0">,</span> <span class="kw4">int</span> nbrAtoms<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> atomMass<span class="sy0">,</span> <span class="kw4">char</span><span class="sy0">*</span> atomLabel<span class="sy0">,</span> <span class="kw4">int</span> nbrFilters<span class="sy0">,</span> <span class="kw4">int</span><span class="sy0">*</span> elementIndex1<span class="sy0">,</span> <span class="kw4">int</span><span class="sy0">*</span> elementIndex2<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> filterMinVal<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> filterMaxVal<span class="sy0">,</span> <span class="kw4">int</span><span class="sy0">*</span> nbrCompomers<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose11">Purpose</h4>
+<div class="level4">
+
+<p>
+Given a target mass, mass tolerance and a list of fragment masses 
+calculates possible sum formulas that amount to target mass +/- 
+tolerance. Filters specifying min/max values for absolute counts of a 
+fragment or for ratios between fragments can be specified in order to 
+reduce the amount of results and restrict hits to chemically reasonable 
+sum formulae. Typically <code>atomMass</code> and <code>atomLabels</code>
+ are the masses/labels of elements but you are free to use whatever you 
+like (isotopes, amino acids, common fragments etc.). The results are 
+reported as strings, so if you want to use the resulting strings 
+directly in <code>TwGetIsotopePattern</code> or <code>TwGetMoleculeMass </code> you have to make sure that your labels adhere to the parser syntax (see above).
+</p>
+
+</div>
+
+<h4 id="parameters11">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit41"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>targetMass</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2"> target mass </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>tolerance</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2"> tolerance of target mass </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>nbrAtoms</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> length of <code>atomMass</code> and <code>atomLabel</code> arrays </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>atomMass</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of doubles of length <code>nbrAtoms</code> holding the fragment masses </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  <code>atomLabel</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2"> char array of (variable length) labels all separated by <code>\0</code>. </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  <code>nbrFilters</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> number of filters </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  <code>elementIndex1</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> array of ints of length <code>nbrFilters</code>. Element index for count filters, first element index for ratio filters. </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  <code>elementIndex2</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> array of ints of length <code>nbrFilters</code>. -1 for count filters, second element for ratio filters. </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  <code>filterMinVal</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of doubles of length <code>nbrFilters</code>. Counts or ratios that are smaller than this value are filtered out. </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 centeralign">  <code>filterMaxVal</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of doubles of length <code>nbrFilters</code>. Counts or ratios that are larger than this value are filtered out. </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 centeralign">  <code>nbrCompomers</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> Number of compositions (sum formulae) generated (by reference). Use <code>TwGetComposition</code> to read the results. </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT41 TABLE [20166-21389] -->
+</div>
+
+<h4 id="return_value11">Return value</h4>
+<div class="level4">
+<div class="table sectionedit42"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="2"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2 leftalign"> decomposition was successful and the number of results was returned  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwError</code> </td><td class="col1"> <code>atomMass</code>, <code>atomLabel</code> or <code>nbrCompomers</code> are <code>NULL</code>, <code>*nbrFilters</code> &gt; 0 and <code>elementIndex1</code>, <code>elementIndex2</code>, <code>filterMinVal</code> or <code>filterMaxVal</code> are <code>NULL</code> </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT42 TABLE [21412-21763] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT40 SECTION "TwDecomposeMass" [19087-21772] -->
+<h3 class="sectionedit43" id="twgetcomposition">TwGetComposition</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwGetComposition<span class="br0">(</span><span class="kw4">int</span> index<span class="sy0">,</span> <span class="kw4">char</span><span class="sy0">*</span> sumFormula<span class="sy0">,</span> <span class="kw4">int</span><span class="sy0">*</span> sumFormulaLength<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> mass<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> massError<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose12">Purpose</h4>
+<div class="level4">
+
+<p>
+This function is used to read the results from a previous call to <code>TwDecomposeMass</code>.
+</p>
+
+</div>
+
+<h4 id="parameters12">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit44"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>index</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> result index to read (valid range: 0 - <code>nbrCompomers-1</code>) </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>sumFormula</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2 leftalign"> char buffer of minimal length <code>sumFormulaLength</code>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>sumFormulaLength</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> length of <code>sumFormula</code> char buffer, the function adjusts this value only if the result string is larger than <code>sumFormulaLength</code>. </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>mass</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> mass of the compomer (by reference) </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  <code>massError</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> mass error of the compomer (by reference) </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT44 TABLE [22076-22613] -->
+</div>
+
+<h4 id="return_value12">Return value</h4>
+<div class="level4">
+<div class="table sectionedit45"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="3"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2 leftalign"> compomer information was successfully read  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwValueAdjusted</code> </td><td class="col1"> the results string is longer than <code>sumFormulaLength</code>, call again with longer char buffer </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>TwError</code> </td><td class="col1"> no previous call to <code>TwDecomposeMass</code>, <code>sumFormula</code>, <code>sumFormulaLength</code>, <code>mass</code> or <code>massError</code> are <code>NULL</code> </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT45 TABLE [22636-23038] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT43 SECTION "TwGetComposition" [21773-23048] -->
+<h3 class="sectionedit46" id="twnistlibrarysearch">TwNistLibrarySearch</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwNistLibrarySearch<span class="br0">(</span><span class="kw4">int</span> nbrSticks<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> stickMass<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> stickIntensity<span class="sy0">,</span> bool interactive<span class="sy0">,</span> <span class="kw4">unsigned</span> <span class="kw4">int</span><span class="sy0">*</span> nbrResults<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose13">Purpose</h4>
+<div class="level4">
+
+<p>
+Triggers a library search using <abbr title="Mass Spectrometer">MS</abbr> Search from NIST <abbr title="Mass Spectrometer">MS</abbr>
+ library. NIST/EPA/NIH Mass Spectral Library must be installed or this 
+function will fail. An interactive mode is available where the user ends
+ up browsing results in NIST <abbr title="Mass Spectrometer">MS</abbr> 
+Search program as well as a non-interactive version where the search 
+results are read back into TwToolDll and can be accessed using the <code>TwNistLibraryQueryResult</code> function.
+</p>
+
+</div>
+
+<h4 id="parameters13">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit47"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>nbrSticks</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> length of arrays <code>stickMass</code> and <code>stickIntensity</code> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>stickMass</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2 leftalign"> array of length <code>nbrSticks</code> holding the masses of the spectrum to be searched  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>stickIntensity</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2 leftalign"> array of length <code>nbrSticks</code> holding the intensities of the spectrum to be searched  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>interactive</code>  </td><td class="col1 centeralign">  <code>bool</code>  </td><td class="col2"> flag whether to just launch the search and let the user browse in <abbr title="Mass Spectrometer">MS</abbr> Search (<code>true</code>) or to read the search results back (<code>false</code>) </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  <code>nbrResults</code>  </td><td class="col1 centeralign">  <code>unsigned int*</code>  </td><td class="col2">
+ number of hits (by reference) the search produced when in 
+non-interactive mode. Pass NULL for interactive mode or the window 
+handle of the window that should get focus when the “Switch to Caller” 
+button in <abbr title="Mass Spectrometer">MS</abbr> Search is pressed. 
+If no window handle is passed this function will use the first window 
+handle it finds belonging to the calling process (not necessarily the 
+main window). </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT47 TABLE [23692-24661] -->
+</div>
+
+<h4 id="return_value13">Return value</h4>
+<div class="level4">
+<div class="table sectionedit48"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="3"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2"> <abbr title="Mass Spectrometer">MS</abbr> Search was successfully launched. When in non-interactive mode <code>*nbrResults</code> holds the number of match results available for readout. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwFileNotFound</code> </td><td class="col1"> <abbr title="Mass Spectrometer">MS</abbr> Search program was not found. Check installation. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>TwError</code> </td><td class="col1 leftalign"> <code>nbrSticks</code> ⇐ 0, <code>stickMass</code> and/or <code>stickIntensity</code> are 'NULL', <code>interactive</code> is <code>false</code> and <code>nbrResults</code> is <code>NULL</code>  </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT48 TABLE [24684-25157] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT46 SECTION "TwNistLibrarySearch" [23049-25167] -->
+<h3 class="sectionedit49" id="twnistlibraryqueryresult">TwNistLibraryQueryResult</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwNistLibraryQueryResult<span class="br0">(</span><span class="kw4">int</span> index<span class="sy0">,</span> <span class="kw4">int</span> propertyIndex<span class="sy0">,</span> <span class="kw4">int</span><span class="sy0">*</span> valueLen<span class="sy0">,</span> <span class="kw4">char</span><span class="sy0">*</span> value<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose14">Purpose</h4>
+<div class="level4">
+
+<p>
+Used to query search results from a previous call to <code>TwNistLibrarySearch</code> with <code>interactive</code> set to false. All match properties are returned as strings (numerical values as well).
+</p>
+
+</div>
+
+<h4 id="parameters14">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit50"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>index</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> index of hit result to query. Valid range is 0 to <code>*nbrResults</code> from <code>TwNistLibrarySearch</code> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>propertyIndex</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 leftalign">
+ property to be returned for match. 0=substance name, 1=sum formula, 
+2=match factor, 3=reverse match factor, 4=probability, 5=CAS number, 
+6=(integer) molar weight, 7=originating library, 8=library ID  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>valueLen</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> length of char array <code>value</code>
+ (by reference). This should point to a value one less than actual array
+ size (\0 terminator). On function return holds the effective length of 
+the returned string (without terminator). </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>value</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2"> array of length <code>*valueLen</code> + 1. Holds the property value on successful function return. If set to NULL, can be used to query the required buffer size. </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT50 TABLE [25558-26392] -->
+</div>
+
+<h4 id="return_value14">Return value</h4>
+<div class="level4">
+<div class="table sectionedit51"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="5"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2"> Value successfully returned (<code>*valueLen</code> matched exactly the result length) </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwValueAdjusted</code> </td><td class="col1"> Value successfully returned (<code>*valueLen</code> was adjusted to the result length) </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>TwInvalidParameter</code> </td><td class="col1 leftalign"> propertyIndex &lt; 0 or &gt;8  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>TwOutOfBounds</code> </td><td class="col1"> index not in range of available search results (see <code>*nbrResults</code> in <code>TwNistLibrarySearch</code>) </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>TwError</code> </td><td class="col1"> <code>valueLen</code> is <code>NULL</code> </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT51 TABLE [26415-26949] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT49 SECTION "TwNistLibraryQueryResult" [25168-26960] -->
+<h2 class="sectionedit52" id="mass_calibration_functions">Mass calibration functions</h2>
+<div class="level2">
+
+<p>
+The mass calibration functions are defined as sample index (not <abbr title="Time Of Flight">TOF</abbr>!) as a function of mass (actually mass/charge). For some functions there exists an inverse function, for the others <em>m(i)</em> is solved numerically.
+</p>
+<div class="table sectionedit53"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  MassCalibMode      </th><th class="col1 centeralign">  MassCalibration Function  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  0                  </td><td class="col1"> <img src="TwToolDll_files/img.png" class="medianormal mathpublish" alt="i(m)~=~p1 sqrt{m}~+~p2" title="i(m)~=~p1 sqrt{m}~+~p2" style="display: inline-block; vertical-align:-13px"></td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  1                  </td><td class="col1"> <img src="TwToolDll_files/img_007.png" class="medianormal mathpublish" alt="i(m)~=~p1/sqrt{m}~+~p2" title="i(m)~=~p1/sqrt{m}~+~p2" style="display: inline-block; vertical-align:-32px"></td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  2                  </td><td class="col1"> <img src="TwToolDll_files/img_004.png" class="medianormal mathpublish" alt="i(m)~=~p1 m^p3~+~p2" title="i(m)~=~p1 m^p3~+~p2" style="display: inline-block; vertical-align:-13px"></td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  3                  </td><td class="col1"> <img src="TwToolDll_files/img_003.png" class="medianormal mathpublish" alt="i(m)~=~p1 sqrt{m}~+~p2~+~p3 (m-p4)^2" title="i(m)~=~p1 sqrt{m}~+~p2~+~p3 (m-p4)^2" style="display: inline-block; vertical-align:-13px"></td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  4                  </td><td class="col1"> <img src="TwToolDll_files/img_002.png" class="medianormal mathpublish" alt="i(m)~=~p1 sqrt{m}~+~p2~+~p3 m^2~+~p4 m~+~p5" title="i(m)~=~p1 sqrt{m}~+~p2~+~p3 m^2~+~p4 m~+~p5" style="display: inline-block; vertical-align:-13px"></td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  5                  </td><td class="col1"> <img src="TwToolDll_files/img_008.png" class="medianormal mathpublish" alt="m(i)~=~p1 i^2 + p2 i + p3" title="m(i)~=~p1 i^2 + p2 i + p3" style="display: inline-block; vertical-align:-13px"></td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT53 TABLE [27217-27634] -->
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT52 SECTION "Mass calibration functions" [26961-27638] -->
+<h3 class="sectionedit54" id="twtof2mass_twmass2tof">TwTof2Mass/TwMass2Tof</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_DAQ_API <span class="kw4">double</span> TwTof2Mass<span class="br0">(</span><span class="kw4">double</span> tofSample<span class="sy0">,</span> <span class="kw4">int</span> massCalibMode<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> p<span class="br0">)</span><span class="sy0">;</span>
+TOFWERK_DAQ_API <span class="kw4">double</span> TwMass2Tof<span class="br0">(</span><span class="kw4">double</span> mass<span class="sy0">,</span> <span class="kw4">int</span> massCalibMode<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> p<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose15">Purpose</h4>
+<div class="level4">
+
+<p>
+Convert between sample indices and mass. This function replaces 
+TwTof2Mass/TwMass2Tof in TofDaqDll.dll and TwH5Tof2Mass/TwH5Mass2Tof 
+from TwH5Dll.dll. 
+</p>
+
+</div>
+
+<h4 id="parameters15">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit55"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>tofSample/mass</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2 leftalign"> value to convert  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>massCalibMode</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> mass calibration function to use </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>p</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of doubles containing the calibration parameters (number depends on <code>MassCalibMode</code>) </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT55 TABLE [28045-28334] -->
+</div>
+
+<h4 id="return_value15">Return value</h4>
+<div class="level4">
+<div class="table sectionedit56"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value                   </th><th class="col2 centeralign">  meaning                     </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0"> <code>double</code> </td><td class="col1 leftalign"> <em>variable</em>   </td><td class="col2"> converted value </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT56 TABLE [28357-28481] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT54 SECTION "TwTof2Mass/TwMass2Tof" [27639-28490] -->
+<h3 class="sectionedit57" id="twmasscalibrate">TwMassCalibrate</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwMassCalibrate<span class="br0">(</span><span class="kw4">int</span> massCalibMode<span class="sy0">,</span> <span class="kw4">int</span> nbrPoints<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> mass<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> tof<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> weight<span class="sy0">,</span> <span class="kw4">int</span><span class="sy0">*</span> nbrParams<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> p<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> legacyA<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> legacyB<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose16">Purpose</h4>
+<div class="level4">
+
+<p>
+This function performs a mass calibration for a list of mass/tof/weight 
+tuples and returns the mass calibration parameters for a given 
+calibration mode. Legacy a and b parameters are optionally available. 
+Functionality is the same as in the <code>TwH5SetMassCalib</code> and <code>TwSetMassCalib</code> functions but this function does not alter the mass calibration of TofDaq recorder or a data file.
+</p>
+
+</div>
+
+<h4 id="parameters16">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit58"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>massCalibMode</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> mass calibration function to use (see table above) </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>nbrPoints</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> number of calibration points </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>mass</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of doubles of minimal length <code>nbrPoints</code> holding the mass values of the calibration points </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>tof</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of doubles of minimal length <code>nbrPoints</code> holding the tof sample indices of the calibration points </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  <code>weight</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of doubles of minimal length <code>nbrPoints</code> holding the relative weight of the calibration points (<code>NULL</code> leads to equal weighing of all points) </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  <code>nbrParam</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> length of parameter array <code>p</code> (by reference) </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  <code>p</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of doubles of minimal length <code>nbrParam</code>. Holds the calibration parameters on successful function return </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  <code>legacyA</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> legacy calibration parameter a (by reference, <code>NULL</code> if not required) </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  <code>legacyB</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> legacy calibration parameter b (by reference, <code>NULL</code> if not required) </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT58 TABLE [29142-30225] -->
+</div>
+
+<h4 id="return_value16">Return value</h4>
+<div class="level4">
+<div class="table sectionedit59"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="4"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2 leftalign"> calibration parameters successfully determined  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwValueAdjusted</code> </td><td class="col1"> <code>*nbrParam</code> on function call was larger than actual number of calibration parameters, adjusted to actual value </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>TwOutOfBounds</code> </td><td class="col1"> invalid <code>massCalibMode</code> </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>TwError</code> </td><td class="col1"> <code>*nbrParam</code> is smaller than actual number of calibration parameters or unspecified error </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT59 TABLE [30248-30714] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT57 SECTION "TwMassCalibrate" [28491-30723] -->
+<h3 class="sectionedit60" id="twbruteforcecalibrate">TwBruteForceCalibrate</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwBruteForceCalibrate<span class="br0">(</span><span class="kw4">int</span> specLength<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> spectrum<span class="sy0">,</span> <span class="kw4">int</span> nbrPeaks<span class="sy0">,</span> bool extendSearch<span class="sy0">,</span> <span class="kw4">int</span> triggerDelay<span class="sy0">,</span> <span class="kw4">int</span> pulseWidth<span class="sy0">,</span> <span class="kw4">double</span> sampleInterval<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> a<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> b<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose17">Purpose</h4>
+<div class="level4">
+
+<p>
+Brute force calibration stands for the determination of mass calibration parameters from a <abbr title="Time Of Flight">TOF</abbr> spectrum without the need to specify mass/<abbr title="Time Of Flight">TOF</abbr> pairs.
+</p>
+
+</div>
+
+<h4 id="parameters17">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit61"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>specLength</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> <code>spectrum</code> length </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>spectrum</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of doubles of lenghth <code>specLength</code> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>mass</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of doubles of minimal length <code>nbrPoints</code> holding the mass values of the calibration points </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>nbrPeaks</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> the <code>nbrPeaks</code> most intense peaks in <code>spectrum</code> are used for determination of calibration parameters </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  <code>extendSearch</code>  </td><td class="col1 centeralign">  <code>bool</code>  </td><td class="col2">
+ if false “typical” ranges of a and b for C- and H-TOFs (V- and W-modes)
+ are searched, if true a larger grid is scanned at the price of longer 
+computing time </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  <code>triggerDelay</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> trigger delay in ns (for pulser ringing removal) </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  <code>pulseWidth</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> width of <abbr title="Time Of Flight">TOF</abbr> extraction pulse in ns (for pulser ringing removal) </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  <code>sampleInterval</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2"> sample interval of <code>spectrum</code> in ns </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  <code>a</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2" rowspan="2"> mass calibration parameters a and b from brute force calibration </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 centeralign">  <code>b</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT61 TABLE [31159-32189] -->
+</div>
+
+<h4 id="return_value17">Return value</h4>
+<div class="level4">
+<div class="table sectionedit62"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="2"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2 leftalign"> calibration parameters successfully determined  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwError</code> </td><td class="col1"> <code>spectrum</code> is <code>NULL</code>, <code>nbrPeaks</code> &lt; 2, <code>specLength</code> &lt; 10*<code>nbrPeaks</code> </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT62 TABLE [32212-32445] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT60 SECTION "TwBruteForceCalibrate" [30724-32455] -->
+<h3 class="sectionedit63" id="twgetmasscalibinfo">TwGetMassCalibInfo</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwGetMassCalibInfo<span class="br0">(</span><span class="kw4">int</span> massCalibMode<span class="sy0">,</span> <span class="kw4">char</span><span class="sy0">*</span> description<span class="sy0">,</span> <span class="kw4">int</span><span class="sy0">*</span> nbrParams<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose18">Purpose</h4>
+<div class="level4">
+
+<p>
+This function can be used to query the description and number parameters of the available mass calibration functions.
+</p>
+
+</div>
+
+<h4 id="parameters18">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit64"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>massCalibMode</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> mass calibration function to use (see table above) </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>description</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2"> char array of minimal length 64. Holds a text representation of the calibration function used on return. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>nbrParams</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> number of calibration parameters for the given <code>massCalibMode</code> </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT64 TABLE [32763-33130] -->
+</div>
+
+<h4 id="return_value18">Return value</h4>
+<div class="level4">
+<div class="table sectionedit65"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="2"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2"> successfully queried calibration info </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwOutOfBounds</code> </td><td class="col1"> invalid <code>massCalibMode</code> </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT65 TABLE [33154-33332] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT63 SECTION "TwGetMassCalibInfo" [32456-33342] -->
+<h2 class="sectionedit66" id="encoded_ims_helper_functions">Encoded IMS helper functions</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT66 SECTION "Encoded IMS helper functions" [33343-33386] -->
+<h3 class="sectionedit67" id="twencimscorrelateprofile">TwEncImsCorrelateProfile</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwEncImsCorrelateProfile <span class="br0">(</span><span class="kw4">float</span><span class="sy0">*</span> profile<span class="sy0">,</span> <span class="kw4">int</span> opMode<span class="sy0">,</span> <span class="kw4">int</span><span class="sy0">*</span> par<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose19">Purpose</h4>
+<div class="level4">
+
+<p>
+This function correlates <code>profile</code> with the sequence defined by <code>seqParameter</code>.
+</p>
+
+</div>
+
+<h4 id="parameters19">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit68"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>sequence</code>  </td><td class="col1 centeralign">  <code>float*</code>  </td><td class="col2"> float array of length NbrSegments holding encoded data on function call and correlated data on return. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>opMode</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> <abbr title="Ion Mobility Spectrometer">IMS</abbr> operation mode (2 is the only valid value for now) </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>par</code>    </td><td class="col1 leftalign"> <code>int*</code>  </td><td class="col2"> array of sequence defining parameters. Required length depends on <code>opMode</code> (2 parameters for <code>opMode == 2</code>) </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT68 TABLE [33657-34059] -->
+</div>
+
+<h4 id="return_value19">Return value</h4>
+<div class="level4">
+<div class="table sectionedit69"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="2"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2"> success </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwOutOfbounds</code> </td><td class="col1"> invalid <code>opMode</code> value </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT69 TABLE [34084-34222] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT67 SECTION "TwEncImsCorrelateProfile" [33387-34234] -->
+<h3 class="sectionedit70" id="twencimscorrelatemultiprofiles">TwEncImsCorrelateMultiProfiles</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwEncImsCorrelateMultiProfiles <span class="br0">(</span><span class="kw4">void</span><span class="sy0">*</span> data<span class="sy0">,</span> <span class="kw4">int</span> dataType<span class="sy0">,</span> <span class="kw4">int</span> nbrProfiles<span class="sy0">,</span> <span class="kw4">int</span> calcMethod<span class="sy0">,</span> <span class="kw4">float</span> correlateThreshold<span class="sy0">,</span> <span class="kw4">int</span> opMode<span class="sy0">,</span> <span class="kw4">int</span><span class="sy0">*</span> par<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose20">Purpose</h4>
+<div class="level4">
+
+<p>
+This function correlates several profiles with the same sequence defined by <code>opmode</code> and <code>par</code>.
+ In the current version only a single (CPU based) calculation method is 
+available. You can specify the number of worker threads. A value of 0 
+creates as many threads as processors are available in the system. If 
+you specifiy more threads than you have processors the value is coerced 
+down and a debug message is printed. Various input data storage layouts 
+and data types are supported (p runs from 0 to the number of profiles - 
+1, s runs from 0 to (NbrSegments - 1):
+</p>
+<div class="table sectionedit71"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  value of <code>dataType</code>  </th><th class="col1 centeralign">  type of <code>data</code>  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  0  </td><td class="col1 centeralign">  float[p][s]  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  1  </td><td class="col1 centeralign">  float[s][p]  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  2  </td><td class="col1 centeralign">  float[s*nbrProfiles+ p]  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  3  </td><td class="col1 centeralign">  float[p*NbrSegments + s]  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  4  </td><td class="col1 centeralign">  double[p][s]  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  5  </td><td class="col1 centeralign">  double[s][p]  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  6  </td><td class="col1 centeralign">  double[s*nbrProfiles+ p]  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  7  </td><td class="col1 centeralign">  double[p*NbrSegments + s]  </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT71 TABLE [35049-35343] -->
+<p>
+Note that the actual calculation is always performed with single (float) precision even if the input data is of type double.
+</p>
+
+</div>
+
+<h4 id="parameters20">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit72"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>data</code>  </td><td class="col1 centeralign">  <code>void*</code>  </td><td class="col2"> pointer to the actual data to correlate. Actual type is defined by the data type part of <code>dataInfo</code> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>dataType</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> type of <code>data</code>, see table above </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>nbrProfiles</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> number of profiles to correlate </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>calcMethod</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> calculation method </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  <code>intensityThreshold</code>  </td><td class="col1 centeralign">  <code>float </code>  </td><td class="col2"> minimum intensity in a profile to qualify for processing, if intensity is lower, data is left unchanged </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  <code>opMode</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> <abbr title="Ion Mobility Spectrometer">IMS</abbr> operation mode (2 is the only valid value for now) </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  <code>par</code>    </td><td class="col1 leftalign"> <code>int*</code>  </td><td class="col2"> array of sequence defining parameters. Required length depends on <code>opMode</code> (2 parameters for <code>opMode == 2</code>) </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT72 TABLE [35489-36224] -->
+</div>
+
+<h4 id="return_value20">Return value</h4>
+<div class="level4">
+<div class="table sectionedit73"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="2"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2"> success </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwError</code> </td><td class="col1"> error </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT73 TABLE [36248-36361] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT70 SECTION "TwEncImsCorrelateMultiProfiles" [34235-36371] -->
+<h3 class="sectionedit74" id="twencimscleanup">TwEncImsCleanup</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwEncImsCleanup <span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose21">Purpose</h4>
+<div class="level4">
+
+<p>
+Cleans up the state of the <code>TwEncIms…</code> functions. If you use one of these functions, you should call <code>TwEncImsCleanup </code> before exiting your application. 
+</p>
+
+</div>
+
+<h4 id="return_value21">Return value</h4>
+<div class="level4">
+<div class="table sectionedit75"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="2"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2"> success </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwError</code> </td><td class="col1"> nothing to clean up </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT75 TABLE [36671-36798] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT74 SECTION "TwEncImsCleanup" [36372-36808] -->
+<h2 class="sectionedit76" id="single_ion_histogramming_functions">Single ion histogramming functions</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT76 SECTION "Single ion histogramming functions" [36809-36858] -->
+<h3 class="sectionedit77" id="twsiinitializehistograms">TwSiInitializeHistograms</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwSiInitializeHistograms <span class="br0">(</span><span class="kw4">int</span> nbrHistograms<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> loMass<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> hiMass<span class="sy0">,</span> <span class="kw4">int</span><span class="sy0">*</span> specType<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose22">Purpose</h4>
+<div class="level4">
+
+<p>
+Initializes the single ion histogramming. This function must be called before calling the functions <code>TwSiSetProcessingOptions</code>, <code>TwSiProcessSpectrum</code>, <code>TwSiGetHistogram</code>, <code>TwSiResetHistograms</code> or <code>TwSiCleanup</code>. Each mass range specified by <code>loMass</code> and <code>hiMass</code>
+ elements is associated with a spectrum type that allows to get separate
+ statistics for multi-spectrum acquisitions (bipolar or pulsed 
+experiments). 
+</p>
+
+</div>
+
+<h4 id="parameters21">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit78"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>nbrHistograms</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> number of histograms that are created </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>loMass</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of length <code>nbrHistograms</code> holding the lower borders of the mass ranges </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>hiMass</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of length <code>nbrHistograms</code> holding the upper borders of the mass ranges </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>specType</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> If <code>specType</code> is NULL, all mass ranges get a default spectrum type of 0 </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT78 TABLE [37500-37947] -->
+</div>
+
+<h4 id="return_value22">Return value</h4>
+<div class="level4">
+<div class="table sectionedit79"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="2"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2"> success </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwError</code> </td><td class="col1"> <code>loMass</code> or <code>hiMass</code> is NULL, <code>specType</code> contains a negative number or if an <code>TwSiInitialize…</code> function was called before without calling <code>TwSiCleanup</code> </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT79 TABLE [37972-38243] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT77 SECTION "TwSiInitializeHistograms" [36859-38254] -->
+<h3 class="sectionedit80" id="twsisetprocessingoptions">TwSiSetProcessingOptions</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwSiSetProcessingOptions <span class="br0">(</span><span class="kw4">char</span><span class="sy0">*</span> option<span class="sy0">,</span> <span class="kw4">double</span> value<span class="sy0">,</span> <span class="kw4">int</span> specType<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose23">Purpose</h4>
+<div class="level4">
+
+<p>
+Sets processing options on a per spectrum type basis. -1 can be used as 
+spectrum type wildcard to set the specified parameter for all defined 
+spectrum types. 
+</p>
+
+</div>
+
+<h4 id="parameters22">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit81"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>option</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2"> string identifying the option to set (see below for a list of valid options </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>value</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2"> value to set the for the given option </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>specType</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> spectrum type to set the option. -1 is a wildcard for all spectrum types. </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT81 TABLE [38606-38928] -->
+</div>
+
+<h4 id="options">Options</h4>
+<div class="level4">
+<div class="table sectionedit82"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name                             </th><th class="col1 centeralign">
+  description                                                           
+                                                                        
+                                                                        
+                                     </th><th class="col2 leftalign"> default value   </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 leftalign"> <code>MassCalibMode</code>                 </td><td class="col1 leftalign">
+ mass calibration mode in use (same as in TofDaqDll or TwH5Dll)         
+                                                                        
+                                                                        
+                                     </td><td class="col2 centeralign">  0.0            </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <code>MassCalibParam</code><em>n</em>           </td><td class="col1 leftalign"> mass calibration parameters <em>n</em>
+ = 1..number of calibration parameters for the given MassCalibMode      
+                                                                        
+                                                                        
+   </td><td class="col2 centeralign">  {1000.0, 0.0}  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <code>FullScale</code>                     </td><td class="col1 leftalign"> full digitizing range of the <abbr title="Analog-to-Digital Converter">ADC</abbr>
+ in the same units as the spectra to be analyzed (typically mV)         
+                                                                        
+                                                                        
+    </td><td class="col2 centeralign">  500.0          </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <code>NbrBits</code>                       </td><td class="col1 leftalign"> <abbr title="Analog-to-Digital Converter">ADC</abbr> resolution of the <abbr title="Analog-to-Digital Converter">ADC</abbr>
+ (8 for AP240, 14 for ADQ114 etc.)                                      
+                                                                        
+                                                                        
+           </td><td class="col2 centeralign">  8.0            </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> <code>SampleInterval</code>                </td><td class="col1 leftalign">
+ sample interval in ns                                                  
+                                                                        
+                                                                        
+                                     </td><td class="col2 centeralign">  1.0            </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> <code>PreampGain</code>                    </td><td class="col1 leftalign">
+ gain of external preamp                                                
+                                                                        
+                                                                        
+                                     </td><td class="col2 centeralign">  1.0            </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> <code>PreSamples</code>                    </td><td class="col1 leftalign">
+ number of samples before a threshold crosser taken into account        
+                                                                        
+                                                                        
+                                     </td><td class="col2 centeralign">  0.0            </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> <code>PostSamples</code>                   </td><td class="col1 leftalign">
+ number of samples after a negative threshold crosser taken into account
+                                                                        
+                                                                        
+                                     </td><td class="col2 centeralign">  0.0            </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> <code>BaselineAndThresholdFromData</code>  </td><td class="col1 leftalign"> 0.0: use the values set through options <code>Baseline</code> and <code>Threshold</code>; 1.0 baseline and threshold values are determined based on <code>NbrStdDevs</code> for every processed spectrum; 2.0 baseline and threshold are determined using a histogram based algorithm  </td><td class="col2 centeralign">  0.0            </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> <code>NbrStdDevs</code>                    </td><td class="col1 leftalign"> number of standard deviations of baseline noise that defines the threshold. Only relevant if <code>BaselineAndThresholdFromData</code> is active                                                                                                                     </td><td class="col2 centeralign">  6.0            </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> <code>Baseline</code>                      </td><td class="col1 leftalign"> baseline value used for calculation of intensities. Has no meaning if <code>BaselineAndThresholdFromData</code>
+ is &gt; 0.0                                                            
+                                                                        
+         </td><td class="col2 centeralign">  5.0            </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> <code>Threshold</code>                     </td><td class="col1 leftalign"> threshold value used for calculation of intensities. Has no meaning if <code>BaselineAndThresholdFromData</code>
+ is &gt; 0.0                                                            
+                                                                        
+        </td><td class="col2 centeralign">  8.0            </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> <code>NegativeSignal</code>                </td><td class="col1 leftalign">
+ indicates peak polarity with respect to the baseline                   
+                                                                        
+                                                                        
+                                     </td><td class="col2 centeralign">  0.0 (false)    </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> <code>BaselineAndThresholdInCodes</code>   </td><td class="col1 leftalign"> indicates whether the values in <code>Baseline</code> and <code>Threshold</code> are interpreted as <abbr title="Analog-to-Digital Converter">ADC</abbr>
+ codes or mV.                                                           
+                                                                        
+                       </td><td class="col2 centeralign">  1.0 (true)     </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT82 TABLE [38947-43596] -->
+</div>
+
+<h4 id="return_value23">Return value</h4>
+<div class="level4">
+<div class="table sectionedit83"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="3"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2"> success </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwError</code> </td><td class="col1"> <code>option</code> is NULL or not initialized </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>TwInvalidValue</code> </td><td class="col1"> invalid specType, unrecognized option or invalid value (see debug output for more details on what went wrong) </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT83 TABLE [43620-43906] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT80 SECTION "TwSiSetProcessingOptions" [38255-43917] -->
+<h3 class="sectionedit84" id="twsiprocessspectrum">TwSiProcessSpectrum</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwSiProcessSpectrum <span class="br0">(</span><span class="kw4">float</span><span class="sy0">*</span> spectrum<span class="sy0">,</span> <span class="kw4">int</span> nbrSamples<span class="sy0">,</span> <span class="kw4">int</span> specType<span class="sy0">,</span> <span class="kw4">float</span><span class="sy0">*</span> blFromData<span class="sy0">,</span> <span class="kw4">float</span><span class="sy0">*</span> thrFromData<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose24">Purpose</h4>
+<div class="level4">
+
+<p>
+Processes a spectrum according to the option set for it's spectrum type. Baseline and threshold are returned if needed.
+</p>
+
+</div>
+
+<h4 id="parameters23">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit85"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>spectrum</code>  </td><td class="col1 centeralign">  <code>float*</code>  </td><td class="col2"> array of length <code>nbrSamples</code> holding the spectrum to process </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>nbrSamples</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> spectrum length in samples </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>specType</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> spectrum type </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>blFromData</code>  </td><td class="col1 centeralign">  <code>float*</code>  </td><td class="col2"> returns the baseline value used for processing if not NULL (will be the same as option <code>Baseline</code> if <code>BaselineAndThresholdFromData</code> is not set)</td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  <code>thrFromData</code>  </td><td class="col1 centeralign">  <code>float*</code>  </td><td class="col2"> returns the threshold value used for processing if not NULL (will be the same as option <code>Threshold</code> if <code>BaselineAndThresholdFromData</code> is not set)</td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT85 TABLE [44264-44880] -->
+</div>
+
+<h4 id="return_value24">Return value</h4>
+<div class="level4">
+<div class="table sectionedit86"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="3"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2"> success </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwError</code> </td><td class="col1"> <code>spectrum</code> is NULL or not initialized </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>TwOutOfBounds</code> </td><td class="col1"> invalid <code>specType</code> </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT86 TABLE [44904-45102] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT84 SECTION "TwSiProcessSpectrum" [43918-45112] -->
+<h3 class="sectionedit87" id="twsigethistogram">TwSiGetHistogram</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwSiGetHistogram <span class="br0">(</span><span class="kw4">int</span> histogramIndex<span class="sy0">,</span> <span class="kw4">float</span><span class="sy0">*</span> intensity<span class="sy0">,</span> <span class="kw4">unsigned</span> <span class="kw4">int</span><span class="sy0">*</span> counts<span class="sy0">,</span> <span class="kw4">unsigned</span> <span class="kw4">int</span><span class="sy0">*</span> arrayLength<span class="sy0">,</span> <span class="kw4">unsigned</span> <span class="kw4">int</span><span class="sy0">*</span> spectrumCount<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> meanValue<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose25">Purpose</h4>
+<div class="level4">
+
+<p>
+Retrieves a histogram. To query the array sizes needed call this function with <code>intensity</code>=<code>counts</code>=<code>NULL</code>.
+</p>
+
+</div>
+
+<h4 id="parameters24">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit88"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>histogramIndex</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> index of histogram </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>intensity</code>  </td><td class="col1 centeralign">  <code>float*</code>  </td><td class="col2"> array of length <code>*arrayLength</code> which holds histogram abscissa values on return </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>counts</code>  </td><td class="col1 centeralign">  <code>float*</code>  </td><td class="col2"> array of length <code>*arrayLength</code> which holds histogram ordinate values on return </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>arrayLength</code>  </td><td class="col1 centeralign">  <code>unsigned int*</code>  </td><td class="col2"> length of <code>intensity</code> and <code>counts</code> arrays on function call, will be adjusted to the actual value on function return </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  <code>spectrumCount</code>  </td><td class="col1 centeralign">  <code>unsigned int*</code>  </td><td class="col2"> on return holds the number of spectra that were processed for this histogram </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  <code>meanValue</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> on return holds the mean histogram value i.e. sum(intensity[i]*counts[i]) / sum(counts[i]) </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT88 TABLE [45496-46242] -->
+</div>
+
+<h4 id="return_value25">Return value</h4>
+<div class="level4">
+<div class="table sectionedit89"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="3"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2"> success </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwValueAdjusted</code> </td><td class="col1"> on function call <code>*arrayLength</code> was larger than histogram size, on return <code>*arrayLength</code> holds the actual value of data copied to <code>intensity</code> and <code>counts</code>. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>TwError</code> </td><td class="col1"> not initialized, <code>histogramIndex</code> out of range, <code>*arrayLength</code> is smaller than histogram size </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT89 TABLE [46266-46667] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT87 SECTION "TwSiGetHistogram" [45113-46677] -->
+<h3 class="sectionedit90" id="twsigetsumhistogram">TwSiGetSumHistogram</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwSiGetSumHistogram <span class="br0">(</span><span class="kw4">int</span> specType<span class="sy0">,</span> <span class="kw4">float</span><span class="sy0">*</span> intensity<span class="sy0">,</span> <span class="kw4">unsigned</span> <span class="kw4">int</span><span class="sy0">*</span> counts<span class="sy0">,</span> <span class="kw4">unsigned</span> <span class="kw4">int</span><span class="sy0">*</span> arrayLength<span class="sy0">,</span> <span class="kw4">unsigned</span> <span class="kw4">int</span><span class="sy0">*</span> spectrumCount<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> meanValue<span class="sy0">,</span> <span class="kw4">double</span> minMass<span class="sy0">,</span> <span class="kw4">double</span> maxMass<span class="sy0">,</span> <span class="kw4">double</span> minRate<span class="sy0">,</span> <span class="kw4">double</span> maxRate<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose26">Purpose</h4>
+<div class="level4">
+
+<p>
+Retrieves a histogram that is a sum over all histograms of a given <code>specType</code> that fulfill the rate and mass range as specified by <code>minMass</code>, <code>maxMass</code>, <code>minRate</code> and <code>maxRate</code>. To query the array sizes needed call this function with <code>intensity</code>=<code>counts</code>=<code>NULL</code>.
+</p>
+
+</div>
+
+<h4 id="parameters25">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit91"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>specType</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> sum histograms of this <code>specType</code> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>intensity</code>  </td><td class="col1 centeralign">  <code>float*</code>  </td><td class="col2"> array of length <code>*arrayLength</code> which holds histogram abscissa values on return </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>counts</code>  </td><td class="col1 centeralign">  <code>float*</code>  </td><td class="col2"> array of length <code>*arrayLength</code> which holds histogram ordinate values on return </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>arrayLength</code>  </td><td class="col1 centeralign">  <code>unsigned int*</code>  </td><td class="col2"> length of <code>intensity</code> and <code>counts</code> arrays on function call, will be adjusted to the actual value on function return </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  <code>spectrumCount</code>  </td><td class="col1 centeralign">  <code>unsigned int*</code>  </td><td class="col2"> on return holds the number of spectra that were processed for the given <code>specType</code> </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  <code>meanValue</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> on return holds the mean histogram value i.e. sum(intensity[i]*counts[i]) / sum(counts[i]) </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  <code>minMass</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2"> minimum mass for histogram filtering </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  <code>maxMass</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2"> maximum mass for histogram filtering </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  <code>minRate</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2"> minimum event count rate for histogram filtering </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 centeralign">  <code>maxRate</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2"> maximum event count rate for histogram filtering </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT91 TABLE [47290-48367] -->
+</div>
+
+<h4 id="return_value26">Return value</h4>
+<div class="level4">
+<div class="table sectionedit92"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="3"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2"> success </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwValueAdjusted</code> </td><td class="col1"> on function call <code>*arrayLength</code> was larger than histogram size, on return <code>*arrayLength</code> holds the actual value of data copied to <code>intensity</code> and <code>counts</code>. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>TwError</code> </td><td class="col1"> not initialized, <code>histogramIndex</code> out of range, <code>*arrayLength</code> is smaller than histogram size </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT92 TABLE [48391-48792] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT90 SECTION "TwSiGetSumHistogram" [46678-48803] -->
+<h3 class="sectionedit93" id="twsiresethistograms">TwSiResetHistograms</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwSiResetHistograms <span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose27">Purpose</h4>
+<div class="level4">
+
+<p>
+Resets all histograms and spectrum counters to zero.
+</p>
+
+</div>
+
+<h4 id="return_value27">Return value</h4>
+<div class="level4">
+<div class="table sectionedit94"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="2"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2"> success </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwError</code> </td><td class="col1"> not initialized </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT94 TABLE [49005-49128] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT93 SECTION "TwSiResetHistograms" [48804-49138] -->
+<h3 class="sectionedit95" id="twsicleanup">TwSiCleanup</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwSiCleanup <span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose28">Purpose</h4>
+<div class="level4">
+
+<p>
+Cleans up the state in the <abbr title="Dynamic Link Library">DLL</abbr>. After a call to this function <code>TwSiInitializeHistograms</code> can be called again.
+</p>
+
+</div>
+
+<h4 id="return_value28">Return value</h4>
+<div class="level4">
+<div class="table sectionedit96"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="2"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2"> success </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwError</code> </td><td class="col1"> not initialized </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT96 TABLE [49383-49506] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT95 SECTION "TwSiCleanup" [49139-49516] -->
+<h3 class="sectionedit97" id="twsifitphd">TwSiFitPhd</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwSiFitPhd <span class="br0">(</span><span class="kw4">int</span> nbrPoints<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> intensity<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> counts<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> fwhm<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> a<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> par<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose29">Purpose</h4>
+<div class="level4">
+
+<p>
+Fits a (slightly modified) log-normal distribution to the data supplied in <code>intensity</code> and <code>counts</code>. Returns also the maximum position (<code>a</code>) and the full width at half max (<code>fwhm</code>) as these values are not directly parameters of the fit function. This function does not rely on state in the <abbr title="Dynamic Link Library">DLL</abbr> and therefore can be called without a preceding call to a <code>TwSiInitialize…</code> function.
+</p>
+
+</div>
+
+<h4 id="parameters26">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit98"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>nbrPoints</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> length of data arrays <code>intensity</code> and <code>counts</code> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>intensity</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of length <code>nbrPoints</code> holding histogram abscissa data </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>counts</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of length <code>nbrPoints</code> holding histogram ordinate data </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>fwhm</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> holds the <abbr title="Full Width at Half Maximum">FWHM</abbr> of the distribution on function return </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  <code>a</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> holds the position of the fitted maximum on function return </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  <code>par</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of length 4, can be used in a subsequent call to <code>TwSiEvalPhd</code> or <code>TwSiFitRateFromPhd</code> </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT98 TABLE [50119-50742] -->
+</div>
+
+<h4 id="return_value29">Return value</h4>
+<div class="level4">
+<div class="table sectionedit99"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="2"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2"> success </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwError</code> </td><td class="col1"> fit failed </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT99 TABLE [50765-50883] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT97 SECTION "TwSiFitPhd" [49517-50893] -->
+<h3 class="sectionedit100" id="twsievalphd">TwSiEvalPhd</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API <span class="kw4">double</span> TwSiEvalPhd <span class="br0">(</span><span class="kw4">double</span><span class="sy0">*</span> par<span class="sy0">,</span> <span class="kw4">double</span> intensity<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose30">Purpose</h4>
+<div class="level4">
+
+<p>
+Evaluates the single ion distribution defined by <code>par</code> at <code>intensity</code>.
+</p>
+
+</div>
+
+<h4 id="parameters27">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit101"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>par</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of length 4 from a previous call to <code>TwSiFitPhd </code> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>intensity</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2"> intensity value to evaluate </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT101 TABLE [51122-51312] -->
+</div>
+
+<h4 id="return_value30">Return value</h4>
+<div class="level4">
+<div class="table sectionedit102"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0"> <code>double</code> </td><td class="col1"> <em>variable</em> </td><td class="col2"> value of single ion distribution at value <code>intensity</code> </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT102 TABLE [51335-51463] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT100 SECTION "TwSiEvalPhd" [50894-51473] -->
+<h3 class="sectionedit103" id="twsifitratefromphd">TwSiFitRateFromPhd</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwSiFitRateFromPhd <span class="br0">(</span><span class="kw4">int</span> nbrPoints<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> intensity<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> counts<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> siPar<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> rate<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> fitCounts<span class="sy0">,</span> <span class="kw4">int</span><span class="sy0">*</span> nbrNIonTraces<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">**</span> nIonTrace<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose31">Purpose</h4>
+<div class="level4">
+
+<p>
+Takes a single ion distribution as input (<code>siPar</code>) and fits an event rate to a multi-ion histogram (<code>intensity</code> and <code>counts</code>) assuming poisson distribution of n-ion events. By setting <code>*nbrNIonTraces</code> to 0 and <code>nIonTrace</code> to NULL the number of needed n-ion event arrays can be queried.
+</p>
+
+</div>
+
+<h4 id="parameters28">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit104"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>nbrPoints</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> length of data arrays <code>intensity</code> and <code>counts</code> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>intensity</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of length <code>nbrPoints</code> holding histogram abscissa data </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>counts</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of length <code>nbrPoints</code> holding histogram ordinate data </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>siPar</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of length 4 describing the single ion distribution (from a previous call to <code>TwSiFitPhd</code>) </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  <code>rate</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> on return holds the fitted rate (ions/extraction) </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  <code>fitCounts</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of length <code>nbrPoints</code> holding the fitted multi-ion distribution </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  <code>nbrNIonTraces</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> number of arrays <code>nIonTrace</code> points to </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  <code>nIonTrace</code>  </td><td class="col1 centeralign">  <code>double**</code>  </td><td class="col2"> array of <code>nbrNIonTraces</code> <code>double*</code> each pointing to nbrPoints doubles. Holds the n-ion contributions to the total distribution. </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT104 TABLE [52046-52939] -->
+</div>
+
+<h4 id="return_value31">Return value</h4>
+<div class="level4">
+<div class="table sectionedit105"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="2"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2"> success </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwError</code> </td><td class="col1"> fit failed </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT105 TABLE [52963-53081] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT103 SECTION "TwSiFitRateFromPhd" [51474-53092] -->
+<h2 class="sectionedit106" id="tps_helper_functions">TPS helper functions</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT106 SECTION "TPS helper functions" [53093-53126] -->
+<h3 class="sectionedit107" id="twfindtpsip">TwFindTpsIp</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwFindTpsIp<span class="br0">(</span><span class="kw4">char</span><span class="sy0">*</span> tpsSerial<span class="sy0">,</span> <span class="kw4">int</span> timeout<span class="sy0">,</span> <span class="kw4">int</span><span class="sy0">*</span> hostStrLen<span class="sy0">,</span> <span class="kw4">char</span><span class="sy0">*</span> hostStr<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose32">Purpose</h4>
+<div class="level4">
+
+<p>
+Listens for “magic” UDP packets that TPS2 broadcast and returns the IP of the <abbr title="TOFMS Power Supply">TPS</abbr>.
+ Note that executing this function makes your program to a UDP server 
+and Windows firewall (or other personal firewall software) will query 
+for permission.
+</p>
+
+</div>
+
+<h4 id="parameters29">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit108"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>tpsSerial</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2 leftalign"> TPS2 serial number as printed on the case  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>timeout</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> timeout in ms to wait for magic packet </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>hostStrLen</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> size of string buffer <code>hostStr</code> (by reference), set to effective string length on successful return </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>hostStr</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2"> string buffer of size <code>*hostStrLen</code>, holds IP on successful return </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT108 TABLE [53550-53976] -->
+</div>
+
+<h4 id="return_value32">Return value</h4>
+<div class="level4">
+<div class="table sectionedit109"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="4"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2"> success </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwError</code> </td><td class="col1 leftalign"> <code>tpsSerial</code>,<code>hostStrLen</code> or <code>hostStr</code> are <code>NULL</code>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>TwTimeout</code> </td><td class="col1 leftalign"> the <abbr title="TOFMS Power Supply">TPS</abbr> with serial number <code>tpsSerial</code> was not found within <code>timeout</code> ms  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>TwValueAdjusted</code> </td><td class="col1"> <abbr title="TOFMS Power Supply">TPS</abbr> was found but the supplied string buffer was not large enough, <code>*hostStrLen</code> holds the minimum required size (no partial information is copied to <code>hostStr</code>) </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT109 TABLE [54000-54466] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT107 SECTION "TwFindTpsIp" [53127-54477] -->
+<h2 class="sectionedit110" id="previous_revisions">Previous revisions</h2>
+<div class="level2">
+
+<p>
+<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll197" class="wikilink1" title="manuals:daq:twtooldll197">TwToolDll 1.97</a>
+</p>
+
+<p>
+<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll196" class="wikilink1" title="manuals:daq:twtooldll196">TwToolDll 1.96</a>
+</p>
+
+<p>
+<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll195" class="wikilink1" title="manuals:daq:twtooldll195">TwToolDll 1.95</a>
+</p>
+
+<p>
+<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll194" class="wikilink1" title="manuals:daq:twtooldll194">TwToolDll 1.94</a>
+</p>
+
+<p>
+<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll193" class="wikilink1" title="manuals:daq:twtooldll193">TwToolDll 1.93</a>
+</p>
+
+<p>
+<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll192" class="wikilink1" title="manuals:daq:twtooldll192">TwToolDll 1.92</a>
+</p>
+
+<p>
+<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll191" class="wikilink1" title="manuals:daq:twtooldll191">TwToolDll 1.91</a>
+</p>
+
+<p>
+<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll190" class="wikilink1" title="manuals:daq:twtooldll190">TwToolDll 1.90</a>
+</p>
+
+<p>
+<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll189" class="wikilink1" title="manuals:daq:twtooldll189">TwToolDll 1.89</a>
+</p>
+
+<p>
+<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll188" class="wikilink1" title="manuals:daq:twtooldll188">TwToolDll 1.88</a>
+</p>
+
+<p>
+<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll187" class="wikilink1" title="manuals:daq:twtooldll187">TwToolDll 1.87</a>
+</p>
+
+</div>
+<!-- EDIT110 SECTION "Previous revisions" [54478-] --></div>
+
+
+</body></html>

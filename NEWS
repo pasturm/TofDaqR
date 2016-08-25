@@ -1,0 +1,110 @@
+TofDaqR 0.1.6
+--------------------------------------------------------------------------------
+
+* Minor corrections of extractor and drift distances in `tof()`
+
+* Added "HTOF-W" option in `tof()`.
+
+* Corrected bug when package was unloaded.
+
+* Some general code improvements in TofDaqWrapR.dll.
+
+* `DecodeEventList()` now returns sample indices instead of time stamps.
+
+* Updated some help pages.
+
+* Moved code of `tof()` function to TofDaqWrapR.dll.
+
+* Published TofDaqR to GitHub: https://github.com/pasturm/TofDaqR
+
+
+TofDaqR 0.1.5
+--------------------------------------------------------------------------------
+
+* Updated to TofDaq API 1.98.
+
+* Added `GetRegUserDataSourcesFromH5()`.
+
+
+TofDaqR 0.1.4
+--------------------------------------------------------------------------------
+
+* Extended `Tof2Mass()` and `Mass2Tof()` to work with vectors as first argument.
+
+* Added `InitializeDll()`.
+
+* Updated some help pages.
+
+* Corrected minor bug in `CleanupDll()` and `SetTimeout()` (no return value
+  instead of NULL).
+
+* Added `tof()` function to calculate time-of-flights.
+
+* Added undocumented option of histogram-based noise determination in
+  `SiSetProcessingOptions()`.
+
+* Added `ReleaseSharedMemory()` and `KeepSharedMemMapped()`.
+
+* Added additional TPS1 codes in `Tps1rc`.
+
+
+TofDaqR 0.1.3
+--------------------------------------------------------------------------------
+
+* Added all single ion histogramming functions (`Si...`) of TwToolDll.
+  Additionally, `SiProcessSpectrumFromShMem()` takes the spectrum directly from
+  shared memory.
+
+* Updated some help pages.
+
+* Corrected bug in `GetPeakParameters()` (label was always empty).
+
+* Added `SaveMassTableToFile()` function, which saves all peak parameters to a
+  mass table file.
+
+
+TofDaqR 0.1.2
+--------------------------------------------------------------------------------
+
+* Renamed all functions, i.e. the `Tw` (and `Tx`) has been removed. (This is a
+  breaking change, but because this package has currently no users (except the
+  author), it doesn't matter ;-).
+
+* Using NEWS (so that `news(package = "TofDaqR")` works) instead of markdown
+  format NEWS/NEWS.md.
+
+
+TofDaqR 0.1.1
+--------------------------------------------------------------------------------
+
+* Made DESCRIPTION to work in RStudio (description field is longer).
+
+* Corrected some bugs in documentation.
+
+* Does not unload TofDaqWrapR.dll when package is unloaded. This prevents some R
+  crashes when package is unloaded.
+
+* Added `TwMassCalibrate()`.
+
+* Added this NEWS file.
+
+* Updated `TwLoadIniFile()` and `TwSaveIniFile()` to accept an empty string as
+  an argument (-> "TwApiTmpIni.ini").
+
+* Corrected bug in `TwGetDescriptor()` (character parameters were not read
+  correctly).
+
+* Added `TxTps1rc`, a data frame giving the codes and names of some TPS modules.
+
+* Added `TwGetRegUserDataSources()` and `TwGetRegUserDataDesc()`.
+
+* Corrected the reading of the data description in `TwGetRegUserDataFromH5()`
+  and `TwGetUserDataFromH5()`.
+
+
+TofDaqR 0.1.0
+--------------------------------------------------------------------------------
+
+* First release of TofDaqR as a package.
+
+* TofDaq API 1.97.

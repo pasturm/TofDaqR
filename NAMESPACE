@@ -1,0 +1,6 @@
+useDynLib(TofDaqWrapR)
+
+exportPattern("^[[:alpha:]]+")
+
+importFrom(Rcpp,sourceCpp)
+useDynLib(TofDaqR)

@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html class="desktop" dir="ltr" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>manuals:daq:hdf5</title>
+<meta name="generator" content="DokuWiki">
+<meta name="robots" content="noindex,nofollow">
+<meta name="keywords" content="manuals,daq,hdf5">
+<link rel="search" type="application/opensearchdescription+xml" href="http://wiki.tofwerk.com/lib/exe/opensearch.php" title="Tofwerk Documentation Wiki">
+<link rel="start" href="http://wiki.tofwerk.com/">
+<link rel="contents" href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5&amp;do=index" title="Sitemap">
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="http://wiki.tofwerk.com/feed.php">
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="http://wiki.tofwerk.com/feed.php?mode=list&amp;ns=manuals:daq">
+<link rel="alternate" type="text/html" title="Plain HTML" href="http://wiki.tofwerk.com/doku.php?do=export_xhtml&amp;id=manuals:daq:hdf5">
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="http://wiki.tofwerk.com/doku.php?do=export_raw&amp;id=manuals:daq:hdf5">
+<link rel="canonical" href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5">
+<link rel="stylesheet" type="text/css" href="TofwerkHDF5_files/css.css">
+<script type="text/javascript">/*<![CDATA[*/var NS='manuals:daq';var SIG=' --- //[[tanner@tofwerk.com|Christian Tanner]] 20.10.2015 10:26//';var JSINFO = {"id":"manuals:daq:hdf5","namespace":"manuals:daq"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="TofwerkHDF5_files/js.php"></script><style id="iris-css">.iris-picker{display:block;position:relative}.iris-picker,.iris-picker *{-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input+.iris-picker{margin-top:4px}.iris-error{background-color:#ffafaf}.iris-border{border-radius:3px;border:1px solid #aaa;width:200px;background-color:#fff}.iris-picker-inner{position:absolute;top:0;right:0;left:0;bottom:0}.iris-border .iris-picker-inner{top:10px;right:10px;left:10px;bottom:10px}.iris-picker .iris-square-inner{position:absolute;left:0;right:0;top:0;bottom:0}.iris-picker .iris-square,.iris-picker .iris-slider,.iris-picker .iris-square-inner,.iris-picker .iris-palette{border-radius:3px;box-shadow:inset 0 0 5px rgba(0,0,0,.4);height:100%;width:12.5%;float:left;margin-right:5%}.iris-picker .iris-square{width:76%;margin-right:10%;position:relative}.iris-picker .iris-square-inner{width:auto;margin:0}.iris-ie-9 .iris-square,.iris-ie-9 .iris-slider,.iris-ie-9 .iris-square-inner,.iris-ie-9 .iris-palette{box-shadow:none;border-radius:0}.iris-ie-9 .iris-square,.iris-ie-9 .iris-slider,.iris-ie-9 .iris-palette{outline:1px solid rgba(0,0,0,.1)}.iris-ie-lt9 .iris-square,.iris-ie-lt9 .iris-slider,.iris-ie-lt9 .iris-square-inner,.iris-ie-lt9 .iris-palette{outline:1px solid #aaa}.iris-ie-lt9 .iris-square .ui-slider-handle{outline:1px solid #aaa;background-color:#fff;-ms-filter:"alpha(Opacity=30)"}.iris-ie-lt9 .iris-square .iris-square-handle{background:0;border:3px solid #fff;-ms-filter:"alpha(Opacity=50)"}.iris-picker .iris-strip{margin-right:0;position:relative}.iris-picker .iris-strip .ui-slider-handle{position:absolute;background:0;margin:0;right:-3px;left:-3px;border:4px solid #aaa;border-width:4px 3px;width:auto;height:6px;border-radius:4px;box-shadow:0 1px 2px rgba(0,0,0,.2);opacity:.9;z-index:5;cursor:ns-resize}.iris-strip .ui-slider-handle:before{content:" ";position:absolute;left:-2px;right:-2px;top:-3px;bottom:-3px;border:2px solid #fff;border-radius:3px}.iris-picker .iris-slider-offset{position:absolute;top:11px;left:0;right:0;bottom:-3px;width:auto;height:auto;background:transparent;border:0;border-radius:0}.iris-picker .iris-square-handle{background:transparent;border:5px solid #aaa;border-radius:50%;border-color:rgba(128,128,128,.5);box-shadow:none;width:12px;height:12px;position:absolute;left:-10px;top:-10px;cursor:move;opacity:1;z-index:10}.iris-picker .ui-state-focus .iris-square-handle{opacity:.8}.iris-picker .iris-square-handle:hover{border-color:#999}.iris-picker .iris-square-value:focus .iris-square-handle{box-shadow:0 0 2px rgba(0,0,0,.75);opacity:.8}.iris-picker .iris-square-handle:hover::after{border-color:#fff}.iris-picker .iris-square-handle::after{position:absolute;bottom:-4px;right:-4px;left:-4px;top:-4px;border:3px solid #f9f9f9;border-color:rgba(255,255,255,.8);border-radius:50%;content:" "}.iris-picker .iris-square-value{width:8px;height:8px;position:absolute}.iris-ie-lt9 .iris-square-value,.iris-mozilla .iris-square-value{width:1px;height:1px}.iris-palette-container{position:absolute;bottom:0;left:0;margin:0;padding:0}.iris-border .iris-palette-container{left:10px;bottom:10px}.iris-picker .iris-palette{margin:0;cursor:pointer}.iris-square-handle,.ui-slider-handle{border:0;outline:0}</style>
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div id="dw__toc">
+<h3 style="cursor: pointer;" class="toggle open"><strong><span>−</span></strong>Table of Contents</h3>
+<div aria-expanded="true" style="">
+
+<ul style="" class="toc">
+<li class="level1"><div class="li"><a href="#tofwerk_hdf5_data_format_198">Tofwerk HDF5 data format 1.98</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#introduction">Introduction</a></div></li>
+<li class="level2"><div class="li"><a href="#tofwerk_hdf5_basics">Tofwerk HDF5 basics</a></div></li>
+<li class="level2"><div class="li"><a href="#hdf5_user-block">HDF5 user-block</a></div></li>
+<li class="level2"><div class="li"><a href="#groups">Groups</a></div></li>
+<li class="level2"><div class="li"><a href="#attributes">Attributes</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#root_group_attributes">Root (/) group attributes</a></div></li>
+<li class="level3"><div class="li"><a href="#fullspectra_fullspectra2_group_attributes">FullSpectra / FullSpectra2 group attributes</a></div></li>
+<li class="level3"><div class="li"><a href="#rawdata_attributes">RawData attributes</a></div></li>
+<li class="level3"><div class="li"><a href="#timingdata_group_attributes">TimingData group attributes</a></div></li>
+<li class="level3"><div class="li"><a href="#fullspectra_eventlist_dataset_attributes">/FullSpectra/EventList dataset attributes</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#datasets">Datasets</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#acquisitionlog_log">/AcquisitionLog/Log</a></div></li>
+<li class="level3"><div class="li"><a href="#fullspectra_massaxis">/FullSpectra/MassAxis</a></div></li>
+<li class="level3"><div class="li"><a href="#fullspectra_sumspectrum">/FullSpectra/SumSpectrum</a></div></li>
+<li class="level3"><div class="li"><a href="#fullspectra2_sumspectrum">/FullSpectra2/SumSpectrum</a></div></li>
+<li class="level3"><div class="li"><a href="#fullspectra_tofdata">/FullSpectra/TofData</a></div></li>
+<li class="level3"><div class="li"><a href="#fullspectra_eventlist">/FullSpectra/EventList</a></div></li>
+<li class="level3"><div class="li"><a href="#fullspectra2_tofdata">/FullSpectra2/TofData</a></div></li>
+<li class="level3"><div class="li"><a href="#fullspectra_nbrmemories">/FullSpectra/NbrMemories</a></div></li>
+<li class="level3"><div class="li"><a href="#fullspectra_masscalibration">/FullSpectra/MassCalibration</a></div></li>
+<li class="level3"><div class="li"><a href="#peakdata_peakdata">/PeakData/PeakData</a></div></li>
+<li class="level3"><div class="li"><a href="#peakdata_peakdata2">/PeakData/PeakData2</a></div></li>
+<li class="level3"><div class="li"><a href="#peakdata_peaktable">/PeakData/PeakTable</a></div></li>
+<li class="level3"><div class="li"><a href="#rawdata">RawData</a></div></li>
+<li class="level3"><div class="li"><a href="#timingdata_buftimes">/TimingData/BufTimes</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#user_datasets">User datasets</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#asynchronous_user_data">asynchronous user data</a></div></li>
+<li class="level3"><div class="li"><a href="#synchronous_registered_user_data">synchronous (registered) user data</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#concluding_remarks">Concluding remarks</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#changes_from_initial_format_definition">changes from initial format definition</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#previous_versions">Previous versions</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="tofwerk_hdf5_data_format_198">Tofwerk HDF5 data format 1.98</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Tofwerk HDF5 data format 1.98" [1-44] -->
+<h2 class="sectionedit2" id="introduction">Introduction</h2>
+<div class="level2">
+
+<p>
+HDF5 is a general purpose library and file format for storing scientific
+ data. HDF5 was created to address the data management needs of 
+scientists and engineers working in high performance, data intensive 
+computing environments. As a result, the HDF5 library and format 
+emphasize storage and I/O efficiency. HDF5 can store two primary 
+objects: datasets and groups. A dataset is essentially a 
+multidimensional array of data elements, and a group is a structure for 
+organizing objects in an HDF5 file. Using these two basic objects, one 
+can create and store almost any kind of scientific data structure, such 
+as images, arrays of vectors, and structured and unstructured grids.
+The HDF5 file format and software tools are developed by the HDF Group, a
+ spin off  from the National Center for Supercomputing Applications 
+(NCSA) at the University of Illinois at Urbana-Champaign. For more 
+details about the HDF5 format in general, copyright and licensing 
+information visit  the <a href="http://www.hdfgroup.org/HDF5/" class="urlextern" title="http://www.hdfgroup.org/HDF5/" rel="nofollow"> HDF Group web page</a>.
+</p>
+
+</div>
+<!-- EDIT2 SECTION "Introduction" [45-1099] -->
+<h2 class="sectionedit3" id="tofwerk_hdf5_basics">Tofwerk HDF5 basics</h2>
+<div class="level2">
+
+<p>
+HDF5 has become the standard data format of the Tofwerk data acquisition
+ software (TofDAQ) starting at version 39.8 (November 2006). The 
+ancestor of Tofwerk HDF5 (Tofwerk binary data format v5) is no longer 
+developed but data import and conversion (e.g. to HDF5) is supported by 
+TofDAQ versions up to version 41.7. The following TofDaq generation 
+(1.xx) no longer provides support for the old binary format. Tofwerk 
+recommends all users to convert their existing binary files to HDF5 in 
+order to increase the longevity and readability of the acquired <abbr title="Time Of Flight Mass Spectrometer">TOFMS</abbr>
+ data.
+The HDF5 in general and therefore the Tofwerk variant as well is 
+designed to be self describing, i.e. no information other than found in 
+the file itself is needed to interpret the datasets.
+Groups are used to form logical units of different datasets and form a 
+directory tree (similar to the directory structure of file system). Meta
+ information is stored as attributes (name/value pairs). These 
+attributes are always attached to the group containing the dataset(s) 
+and not directly to the datasets (this is not a constraint of the HDF5 
+file format but rather a decision made for the Tofwerk flavor of HDF5 
+files).
+</p>
+
+<p>
+TofDaq recorder 1.87 introduced the concept of acqiring and storing data from a second <abbr title="Time Of Flight">TOF</abbr> (typically bipolar TOFs like <abbr title="Bipolar TOF">BTOF</abbr> or ZTOF). In order to accommodate this additional data a new root group <code>/FullSpectra2</code> having the same attributes as <code>/FullSpectra</code>, allowing for independent mass calibration and single ion signal for the second <abbr title="Time Of Flight">TOF</abbr>. The peak table (<code>/PeakData/PeakTable</code>) is the same for both TOFs, <code>/PeakData/PeakData2</code> holds the integrated data for the second <abbr title="Time Of Flight">TOF</abbr>. Data files are not explicitly flagged as bipolar, the existance of the <code>/FullSpectra2</code>
+ group should be taken as an indicator whether a data file contains 
+bipolar data or not. At the moment the same datasets are created for 
+both polarities according to <code>AutoSave…</code> parameters but this 
+is not guaranteed for future versions and a general reader should 
+therefore check for the presence of the datasets it wants to read.
+</p>
+
+<p>
+In version 1.89 of TofDaq the concept of an event list as an alternative (or supplement) to full <abbr title="Time Of Flight">TOF</abbr> spectra was introduced. Event list was extended to support compression in version 1.90.
+</p>
+
+</div>
+<!-- EDIT3 SECTION "Tofwerk HDF5 basics" [1100-3408] -->
+<h2 class="sectionedit4" id="hdf5_user-block">HDF5 user-block</h2>
+<div class="level2">
+
+<p>
+In addition to the information contained within the logical HDF5 file, 
+data can be written at the beginning of the physical file (<em>user-block</em> in HDF terminology). The <em>user-block</em>
+ is a fixed-length block of data located at the beginning of the file 
+and which is ignored by the HDF5 library. Its size can be any power of 2
+ starting at 512 bytes. In the Tofwerk HDF5 files the user-block is 
+plain text data and consists of a (text) header identifying the file as a
+ Tofwerk HDF5 file and optional user supplied text which is to long for 
+the acquisition log (see next section) or should be readable without 
+using a HDF5 capable reader (possible uses are lab journal, sample 
+descriptions etc.):
+</p><pre class="code">====================================================
+Tofwerk AG (http://www.tofwerk.com) HDF5 data file
+created: 12/20/2006 5:56:16 PM
+====================================================
+
+user supplied text will appear here...</pre>
+
+<p></p>
+
+</div>
+<!-- EDIT4 SECTION "HDF5 user-block" [3409-4375] -->
+<h2 class="sectionedit5" id="groups">Groups</h2>
+<div class="level2">
+
+<p>
+<a href="http://wiki.tofwerk.com/lib/exe/detail.php?id=manuals%3Adaq%3Ahdf5&amp;media=manuals:daq:hdf5_tree.png" class="media" title="manuals:daq:hdf5_tree.png"><img src="TofwerkHDF5_files/fetch_003.png" class="mediaright" title="Structure of an exemplary Tofwerk HDF5 file" alt="Structure of an exemplary Tofwerk HDF5 file"></a>
+The figure shows the “directory” structure of a Tofwerk HDF5 file as presented by <a href="http://hdfgroup.com/hdf-java-html/hdfview/" class="urlextern" title="http://hdfgroup.com/hdf-java-html/hdfview/" rel="nofollow"> HDFView</a> 2.3, a visual tool for browsing and editing HDF4 and HDF5 files. <a href="http://wiki.tofwerk.com/lib/exe/detail.php?id=manuals%3Adaq%3Ahdf5&amp;media=manuals:daq:hdf5_groupwithatt.png" class="media" title="manuals:daq:hdf5_groupwithatt.png"><img src="TofwerkHDF5_files/fetch_005.png" class="media" alt=""></a> and <a href="http://wiki.tofwerk.com/lib/exe/detail.php?id=manuals%3Adaq%3Ahdf5&amp;media=manuals:daq:hdf5_groupnoatt.png" class="media" title="manuals:daq:hdf5_groupnoatt.png"><img src="TofwerkHDF5_files/fetch_004.png" class="media" alt=""></a> represent groups with and without attached attributes, <a href="http://wiki.tofwerk.com/lib/exe/detail.php?id=manuals%3Adaq%3Ahdf5&amp;media=manuals:daq:hdf5_dataset.png" class="media" title="manuals:daq:hdf5_dataset.png"><img src="TofwerkHDF5_files/fetch_002.png" class="media" alt=""></a> stands for a dataset and <a href="http://wiki.tofwerk.com/lib/exe/detail.php?id=manuals%3Adaq%3Ahdf5&amp;media=manuals:daq:hdf5_table.png" class="media" title="manuals:daq:hdf5_table.png"><img src="TofwerkHDF5_files/fetch.png" class="media" alt=""></a>
+ represents a table (in HDF5 a table is a one-dimensional dataset of 
+compound data type, each dataset element corresponds to a table row and 
+each data type in the compound corresponds to a table column).
+</p>
+<ul>
+<li class="level1"><div class="li"> Root group (/) <br>
+serves as an attachment point for the other main groups and has 
+attributes attached to it that apply to more than one main group. In the
+ tree visualization the root group is represented as the file name 
+(Tofwerk HDF5 example.H5).</div>
+</li>
+<li class="level1"><div class="li"> AcquisitionLog group <br>
+has no attributes and contains a single table with the acquisition log.</div>
+</li>
+<li class="level1"><div class="li"> FullSpectra group <br>
+contains full mass spectra and has the attributes attached to it needed for the interpretation of the <abbr title="Time Of Flight Mass Spectrometer">TOFMS</abbr> data.</div>
+</li>
+<li class="level1"><div class="li"> RawData group <br>
+has a structure which is dependant on the <abbr title="Data Acquisition">DAQ</abbr>
+ hardware used for spectrum acquisition. The example shows the structure
+ for the Acqiris AP240 using the averager firmware. No attributes are 
+attached to the RawData group. The attributes attached to 
+/RawData/AP240/Ch1 and …/Ch2 are needed to convert from raw data to full
+ mass spectra.</div>
+</li>
+<li class="level1"><div class="li"> TimingData group <br>
+has attributes attached that describe the experiment timing and together
+ with the BufTimes dataset allows for the reconstruction of timestamps 
+for every saved mass spectrum.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "Groups" [4376-6159] -->
+<h2 class="sectionedit6" id="attributes">Attributes</h2>
+<div class="level2">
+
+<p>
+Attributes are small meta data objects describing the nature and/or 
+intended usage of a dataset or group. The attributes attached to a given
+ group must have a unique name as they are usually addressed by name. 
+Although the HDF5 library provides mechanisms to detect and cycle 
+through all attributes attached to an object, the preferred way to read 
+an attribute is to address it by its absolute name directly.
+</p>
+
+</div>
+<!-- EDIT6 SECTION "Attributes" [6160-6592] -->
+<h3 class="sectionedit7" id="root_group_attributes">Root (/) group attributes</h3>
+<div class="level3">
+<div class="table sectionedit8"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  attribute name          </th><th class="col1 centeralign">  attribute type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 leftalign"> TofDAQ Version           </td><td class="col1 leftalign"> 32-bit float     </td><td class="col2"> TofDaq version used for acquiring/converting the HDF5 file. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> TofDAQ Build Date        </td><td class="col1 leftalign"> string           </td><td class="col2"> TofDaq build date </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <abbr title="Data Acquisition">DAQ</abbr> Hardware             </td><td class="col1 leftalign"> string           </td><td class="col2"> <abbr title="Data Acquisition">DAQ</abbr> hardware/firmware used for data acquisition </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <abbr title="Data Acquisition">DAQ</abbr> Serial               </td><td class="col1 leftalign"> string           </td><td class="col2"> <abbr title="Data Acquisition">DAQ</abbr> hardware serial number </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> Timing Controller        </td><td class="col1 leftalign"> string           </td><td class="col2"> Timing controller used for data acquisition </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> Timing Controller Serial </td><td class="col1 leftalign"> string           </td><td class="col2"> Timing controller serial number </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> Computer ID              </td><td class="col1 leftalign"> string           </td><td class="col2"> Computer specific ID (Windows machine GUID) </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> HDF5 Library Version     </td><td class="col1 leftalign"> string           </td><td class="col2"> HDF5 library version used to create the file </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> HDF5 File Creation Time  </td><td class="col1 leftalign"> string           </td><td class="col2"> Date/time of acquisition/conversion (human readable, locale dependent) </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> Configuration File       </td><td class="col1 leftalign"> string           </td><td class="col2"> Configuration (.ini) file used for acquisition </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> CurrentRun               </td><td class="col1 leftalign"> 32-bit int       </td><td class="col2"> Current run out of NbrRuns </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> NbrRuns                  </td><td class="col1 leftalign"> 32-bit int       </td><td class="col2"> Total number of runs (each run generates a separate HDF5 file) </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> NbrSamples               </td><td class="col1 leftalign"> 32-bit int       </td><td class="col2"> Number of data points per mass spectrum (1<sup>st</sup> data dimension) </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> NbrRawSamples            </td><td class="col1 leftalign"> 32-bit int       </td><td class="col2"> Number of raw data points per mass spectrum </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 leftalign"> NbrPeaks                 </td><td class="col1 leftalign"> 32-bit int       </td><td class="col2"> Number of peaks defined at acquisition time </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 leftalign"> NbrWaveforms             </td><td class="col1 leftalign"> 32-bit int       </td><td class="col2"> Number of extractions summedinto one segment </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 leftalign"> NbrSegments              </td><td class="col1 leftalign"> 32-bit int       </td><td class="col2"> Number of segments (2<sup>nd</sup> data dimension) </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0 leftalign"> NbrBlocks                </td><td class="col1 leftalign"> 32-bit int       </td><td class="col2"> Number of blocks summed </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0 leftalign"> NbrMemories              </td><td class="col1 leftalign"> 32-bit int       </td><td class="col2"> Number of memories summed </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0 leftalign"> NbrBufs                  </td><td class="col1 leftalign"> 32-bit int       </td><td class="col2"> Number of bufs (3<sup>rd</sup> data dimension) </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0 leftalign"> NbrWrites                </td><td class="col1 leftalign"> 32-bit int       </td><td class="col2"> Number of writes (4<sup>th</sup> data dimension) </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0 leftalign"> IonMode                  </td><td class="col1 leftalign"> string           </td><td class="col2"> Polarity of experiment (<code>positive</code> or <code>negative</code>) </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT8 TABLE [6629-8774] -->
+</div>
+<!-- EDIT7 SECTION "Root (/) group attributes" [6593-8775] -->
+<h3 class="sectionedit9" id="fullspectra_fullspectra2_group_attributes">FullSpectra / FullSpectra2 group attributes</h3>
+<div class="level3">
+<div class="table sectionedit10"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  attribute name          </th><th class="col1 centeralign">  attribute type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 leftalign"> SampleInterval           </td><td class="col1 leftalign"> 32-bit float     </td><td class="col2"> Sample interval in seconds </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> MassCalibMode            </td><td class="col1 leftalign"> 32-bit int       </td><td class="col2"> Mass calibration mode determining the calibration function </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> MassCalibration Function </td><td class="col1 leftalign"> string           </td><td class="col2"> Text description of the calibration function used (sample index as a function of mass) </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> MassCalibration nbrParameters </td><td class="col1 leftalign"> 32-bit int       </td><td class="col2"> Number of calibration parameters in calibration function </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> MassCalibration a </td><td class="col1 leftalign"> 64-bit float       </td><td class="col2" rowspan="2">
+ Mass calibration parameters for standard 2-parameter calibration 
+function. These numbers are present even if the actual mass calibration 
+function used has more parameters (backwards compatibility to earlier 
+versions) </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> MassCalibration b </td><td class="col1 leftalign"> 64-bit float            </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> MassCalibration p1     </td><td class="col1 leftalign" rowspan="3"> 64-bit float       </td><td class="col2" rowspan="3"> Mass calibration parameters numbered from 1 to <code>MassCalibration nbrParameters</code>. p1 and p2 are identical to a and b for <code>MassCalibMode = 0</code>. In new software always use these numbers rather than the legacy <code>MassCalibration a</code> and <code>MassCalibration  b</code>. </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  …                   </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> MassCalibration p<em>n</em> </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> MassCalibration R0     </td><td class="col1 leftalign" rowspan="3"> 32-bit float       </td><td class="col2" rowspan="3"> Parameters related to mass resolving power. Refer to the document “Writing software for TOFs – Programmer Guide” for details. </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> MassCalibration m0     </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> MassCalibration dm     </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> Single Ion Signal      </td><td class="col1 leftalign"> 32-bit float       </td><td class="col2"> Single ion signal in units of mV·ns </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0"> MassCalibration nbrPoints </td><td class="col1 leftalign"> 32-bit int      </td><td class="col2"> Number of mass calibration points (mass/tof sample/weight tuples) </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 leftalign"> MassCalibration m1     </td><td class="col1 leftalign" rowspan="3"> 64-bit float       </td><td class="col2" rowspan="3"> mass (m/Q) values of calibration points numbered from 1 to <code>MassCalibration nbrPoints</code>.</td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 centeralign">  …                   </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0"> MassCalibration m<em>n</em> </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0 leftalign"> MassCalibration t1     </td><td class="col1 leftalign" rowspan="3"> 64-bit float       </td><td class="col2" rowspan="3"> <abbr title="Time Of Flight">TOF</abbr> sample values of calibration points numbered from 1 to <code>MassCalibration nbrPoints</code>.</td>
+	</tr>
+	<tr class="row19">
+		<td class="col0 centeralign">  …                   </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0"> MassCalibration t<em>n</em> </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0 leftalign"> MassCalibration w1     </td><td class="col1 leftalign" rowspan="3"> 64-bit float       </td><td class="col2" rowspan="3"> optional relative weights of calibration points numbered from 1 to <code>MassCalibration nbrPoints</code>.</td>
+	</tr>
+	<tr class="row22">
+		<td class="col0 centeralign">  …                   </td>
+	</tr>
+	<tr class="row23">
+		<td class="col0"> MassCalibration w<em>n</em> </td>
+	</tr>
+	<tr class="row24">
+		<td class="col0 leftalign"> ClockPeriod            </td><td class="col1 leftalign"> 32-bit float       </td><td class="col2"> time unit of time stamps in event list in seconds </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT10 TABLE [8830-11402] -->
+</div>
+<!-- EDIT9 SECTION "FullSpectra / FullSpectra2 group attributes" [8776-11402] -->
+<h3 class="sectionedit11" id="rawdata_attributes">RawData attributes</h3>
+<div class="level3">
+
+<p>
+The attributes attached to the RawData group (or subgroups thereof) are 
+specific to the data acquisition hardware used and needed for the 
+interpretation of the raw data dataset(s). Refer to the <abbr title="Data Acquisition">DAQ</abbr> hardware specific documentation for details.
+</p>
+
+</div>
+<!-- EDIT11 SECTION "RawData attributes" [11403-11675] -->
+<h3 class="sectionedit12" id="timingdata_group_attributes">TimingData group attributes</h3>
+<div class="level3">
+<div class="table sectionedit13"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  attribute name          </th><th class="col1 centeralign">  attribute type     </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 leftalign"> TimingMode               </td><td class="col1"> 32-bit uint </td><td class="col2"> Index of timing mode used for data acquisition </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> TofPeriod                </td><td class="col1"> 32-bit uint </td><td class="col2"> <abbr title="Time Of Flight">TOF</abbr> extraction period in units of ns </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> BlockDelay               </td><td class="col1"> 32-bit uint </td><td class="col2"> Delay from block start to first recorded trigger in units of ns </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> BlockDelay               </td><td class="col1"> 32-bit uint </td><td class="col2"> Period of 1 block in units of ns </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> BlockPulseOut            </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> 0: no block pulses emitted, 1: block pulses emitted </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> BlockPulseInvert         </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> 0: TTL pulse, 1: inverted TTL pulse </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> BlockPulseDelay          </td><td class="col1"> 32-bit uint </td><td class="col2"> Delay from block start to emission of block pulse in units of ns </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> BlockPulseWidth          </td><td class="col1"> 32-bit uint </td><td class="col2"> Block pulse width in units of ns </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> StartDelay               </td><td class="col1"> 32-bit uint </td><td class="col2"> Delay between <abbr title="Time Of Flight">TOF</abbr> extraction pulse and <abbr title="Data Acquisition">DAQ</abbr> trigger in units of ns </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> HV1Width                 </td><td class="col1"> 32-bit uint </td><td class="col2"> + <abbr title="Time Of Flight">TOF</abbr> extraction pulse width in units of ns </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> HV2Width                 </td><td class="col1"> 32-bit uint </td><td class="col2"> – <abbr title="Time Of Flight">TOF</abbr> extraction pulse width in units of ns </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> BankSwitchPeriod         </td><td class="col1"> 32-bit uint </td><td class="col2"> Memory bank switch every n extractions </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> AcquisitionTimeZero      </td><td class="col1"> 64-bit uint </td><td class="col2"> Start of acquisition (number of 100-nanosecond intervals since January 1, 1601 (UTC)), FILETIME structure compatible </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> DioStartEnable           </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> 0: ignore digital start signal, 1: listen to digital start signal </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 leftalign"> DioStartInvert           </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> 0: TTL logic, 1: inverted TTL logic </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 leftalign"> DioStartDelay            </td><td class="col1 leftalign"> 64-bit float  </td><td class="col2"> delay between start signal and acquisition start in units of s </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 leftalign"> DioStopEnable            </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> 0: ignore digital stop signal, 1: listen to digital stop signal </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0 leftalign"> DioStopInvert            </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> 0: TTL logic, 1: inverted TTL logic </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0 leftalign"> DioStopAcquisition       </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> 0: stops run, 1: stops acquisition </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0 leftalign"> DioReadyEnable           </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> 0: don't signal <abbr title="Data Acquisition">DAQ</abbr> ready state, 1: signal <abbr title="Data Acquisition">DAQ</abbr> ready </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0 leftalign"> DioReadyInvert           </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> 0: TTL logic, 1: inverted TTL logic </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0 leftalign"> DioActiveEnable          </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> 0: don't signal <abbr title="Data Acquisition">DAQ</abbr> active state, 1: signal <abbr title="Data Acquisition">DAQ</abbr> active </td>
+	</tr>
+	<tr class="row23">
+		<td class="col0 leftalign"> DioActiveInvert          </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> 0: TTL logic, 1: inverted TTL logic </td>
+	</tr>
+	<tr class="row24">
+		<td class="col0 leftalign"> DioWritePulseEnable      </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> 0: disable write pulses, 1: enable write pulses </td>
+	</tr>
+	<tr class="row25">
+		<td class="col0 leftalign"> DioWritePulseInvert      </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> 0: TTL logic, 1: inverted TTL logic </td>
+	</tr>
+	<tr class="row26">
+		<td class="col0 leftalign"> DioWritePulseWidth       </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> width of write pulse in units of ms </td>
+	</tr>
+	<tr class="row27">
+		<td class="col0 leftalign"> DioWritePulseDelay       </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> delay of write pulse in units of ms </td>
+	</tr>
+	<tr class="row28">
+		<td class="col0 leftalign"> DioEveryNthWritePulse    </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> issue every n-th write pulse </td>
+	</tr>
+	<tr class="row29">
+		<td class="col0 leftalign"> DioFirstWritePulse       </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> suppress the first n write pulses </td>
+	</tr>
+	<tr class="row30">
+		<td class="col0 leftalign"> Dio0Mode                 </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> state of digital input 0 is stored for 0: never, 1: every buf, 2: every write </td>
+	</tr>
+	<tr class="row31">
+		<td class="col0 leftalign"> Dio4Mode                 </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> calibrant valve operation mode. 0: off, 1: on, 2: pulsed, 3: manual </td>
+	</tr>
+	<tr class="row32">
+		<td class="col0 leftalign"> Dio4Invert               </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> 0: TTL logic, 1: inverted TTL logic </td>
+	</tr>
+	<tr class="row33">
+		<td class="col0 leftalign"> Dio4PulseWidth           </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> width of calibrant pulse in units of ms (relevant only for Dio4Mode=2) </td>
+	</tr>
+	<tr class="row34">
+		<td class="col0 leftalign"> Dio4PulseDelay           </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> delay of calibrant pulse in units of ms (relevant only for Dio4Mode=2) </td>
+	</tr>
+	<tr class="row35">
+		<td class="col0 leftalign"> Dio4EveryNthPulse        </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> issue every n-th calibrant pulse </td>
+	</tr>
+	<tr class="row36">
+		<td class="col0 leftalign"> Dio4FirstPulse           </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> suppress the first n calibrant pulses </td>
+	</tr>
+	<tr class="row37">
+		<td class="col0 leftalign"> Dio4LogMode              </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> log state of calibrant state. 0: never, 1: every buf, 2: every write </td>
+	</tr>
+	<tr class="row38">
+		<td class="col0 centeralign" colspan="3">  <strong>Timing mode specific attributes</strong>  </td>
+	</tr>
+	<tr class="row39">
+		<td class="col0 centeralign" colspan="3">  Timing mode = 1 or Timing mode = 2  </td>
+	</tr>
+	<tr class="row40">
+		<td class="col0 leftalign"> T1Purpose                </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> 0: disabled, 1: arbitrary <abbr title="Time Of Flight">TOF</abbr> pulse, 2: arbitrary block pulse, 3: end of block sync pulse, 4: block source pulse, 5: block train </td>
+	</tr>
+	<tr class="row41">
+		<td class="col0 leftalign"> T1Invert                 </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> 0: TTL pulse, 1: inverted TTL pulse </td>
+	</tr>
+	<tr class="row42">
+		<td class="col0 leftalign"> T1Delay                  </td><td class="col1"> 32-bit uint </td><td class="col2"> T1 pulse delay in units of ns </td>
+	</tr>
+	<tr class="row43">
+		<td class="col0 leftalign"> T1Width                  </td><td class="col1"> 32-bit uint </td><td class="col2"> T1 pulse width in units of ns </td>
+	</tr>
+	<tr class="row44">
+		<td class="col0 centeralign" colspan="3">  Timing mode = 6  </td>
+	</tr>
+	<tr class="row45">
+		<td class="col0 leftalign"> Ctr3Enable               </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> 0: enabled, 1: disabled </td>
+	</tr>
+	<tr class="row46">
+		<td class="col0 leftalign"> Ctr3Source               </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> Source of Counter3 0: 100MHz, 1: <abbr title="Time Of Flight">TOF</abbr>, 2: <abbr title="Data Acquisition">DAQ</abbr> trigger, 3: blocks </td>
+	</tr>
+	<tr class="row47">
+		<td class="col0 leftalign"> Ctr3Source               </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> Trigger of Counter3 0: <abbr title="Time Of Flight">TOF</abbr>, 1: <abbr title="Data Acquisition">DAQ</abbr> trigger, 2: blocks </td>
+	</tr>
+	<tr class="row48">
+		<td class="col0 leftalign"> Ctr3Arm                  </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> Arm signal of Counter3 0: <abbr title="Time Of Flight">TOF</abbr>, 1: <abbr title="Data Acquisition">DAQ</abbr> trigger, 2: blocks </td>
+	</tr>
+	<tr class="row49">
+		<td class="col0 leftalign"> Ctr3Count                </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> Number of counts, 0: continous </td>
+	</tr>
+	<tr class="row50">
+		<td class="col0 leftalign"> Ctr3LoCount              </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> low tick count </td>
+	</tr>
+	<tr class="row51">
+		<td class="col0 leftalign"> Ctr3HiCount              </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> high tick count </td>
+	</tr>
+	<tr class="row52">
+		<td class="col0 leftalign"> Ctr3Delay                </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> initial delay </td>
+	</tr>
+	<tr class="row53">
+		<td class="col0 leftalign"> Ctr3Invert               </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> 0: TTL pulse, 1: inverted TTL pulse </td>
+	</tr>
+	<tr class="row54">
+		<td class="col0 centeralign" colspan="3">  Timing mode = 7  </td>
+	</tr>
+	<tr class="row55">
+		<td class="col0 leftalign"> ImsOperationMode         </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> 0: <abbr title="Mass Spectrometer">MS</abbr> mode, 1: classical <abbr title="Ion Mobility Spectrometer">IMS</abbr>, 2: encoded <abbr title="Ion Mobility Spectrometer">IMS</abbr> </td>
+	</tr>
+	<tr class="row56">
+		<td class="col0 centeralign" colspan="3">  Timing mode = 7 and ImsOperationMode = 2  </td>
+	</tr>
+	<tr class="row57">
+		<td class="col0 leftalign"> ImsEncSeqPar<em>n</em>Buf<em>m</em>       </td><td class="col1 leftalign"> 64-bit int  </td><td class="col2"> <abbr title="Ion Mobility Spectrometer">IMS</abbr> sequence generation parameters, <em>n</em> = 1..2,  <em>m</em> = 1..NbrBufs </td>
+	</tr>
+	<tr class="row58">
+		<td class="col0 leftalign"> ImsEncFlushTube          </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> indicates whether drift tube flushing between bufs was enabled during data acquisition. Assume 0 if attribute is not present. </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT13 TABLE [11714-16977] -->
+</div>
+<!-- EDIT12 SECTION "TimingData group attributes" [11676-16979] -->
+<h3 class="sectionedit14" id="fullspectra_eventlist_dataset_attributes">/FullSpectra/EventList dataset attributes</h3>
+<div class="level3">
+
+<p>
+Contrary to most other attributes that are attached to a group, these attributes are attached directly to the dataset.
+</p>
+<div class="table sectionedit15"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  attribute name          </th><th class="col1 centeralign">  attribute type     </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 leftalign"> MaxElementLength         </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2 leftalign"> Maximum number of elements in VL data  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> Compression              </td><td class="col1"> 32-bit int </td><td class="col2"> Compression method/parameter (see table below) </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign" colspan="3">  if <code>Compression</code> &gt; 0  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> Compression ratio        </td><td class="col1"> 32-bit float </td><td class="col2"> ratio of compressed / uncompressed data size in % </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> Compression time (ms)    </td><td class="col1"> 32-bit float </td><td class="col2"> time spent compressing the data </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT15 TABLE [17151-17597] --><div class="table sectionedit16"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign" colspan="3">  bits of <code>Compression</code> attribute  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">    15…8  </td><td class="col1 centeralign">  7…4  </td><td class="col2 centeralign">  3…0  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <strong>compression method</strong>  </td><td class="col1 centeralign" colspan="2">  <strong>compression parameters</strong>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> 0 = no compression  </td><td class="col1 centeralign" colspan="2">  N/A (0)  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> 1 = zlib compression  </td><td class="col1 centeralign">  strategy (0:default, 1:filtered, 2:Huffman only, 3:RLE, 4:fixed)   </td><td class="col2 leftalign"> compression level (0:no compression, 1:best speed - 9:best compression)  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> 2 = LZ4 compression   </td><td class="col1 centeralign" colspan="2">  0: standard LZ4 compression (fast), 1-16 LZ4HC (better compression, slower)  </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT16 TABLE [17600-18052] -->
+<p>
+This means there are 68 valid values for <code>Compression</code> 
+attribute (1 for “no compression”, 50 (5 strategies*10 levels) for zlib 
+and 17 for LZ4). In order to decompress the data only the compression 
+method information is needed but not the compression parameters. 
+</p>
+
+</div>
+<!-- EDIT14 SECTION "/FullSpectra/EventList dataset attributes" [16980-18320] -->
+<h2 class="sectionedit17" id="datasets">Datasets</h2>
+<div class="level2">
+
+<p>
+In order to maximize disk I/O not all datasets are necessarily written 
+to the HDF5 file. The user can choose whether or not to write the 
+following datasets during data acquisition:
+</p>
+<div class="table sectionedit18"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> HDF5 dataset </th><th class="col1"> ini file entry controlling generation of dataset </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0"> RawData sets </td><td class="col1"> AutoSaveCh1 / AutoSaveCh2 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> /FullSpectra/TofData </td><td class="col1 leftalign"> AutoSaveCombined  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> /PeakData/PeakData   </td><td class="col1 leftalign"> AutoSavePeaks     </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> /FullSpectra/MassCalibration </td><td class="col1"> ReCalibration &gt; 1 </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> /FullSpectra/EventList </td><td class="col1"> AutoSaveEvents </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT18 TABLE [18524-18823] -->
+<p>
+If the TofData dataset is present the PeakData dataset is redundant as 
+it can easily be obtained by integrating the TofData dataset. If raw 
+data is present, TofData and PeakData are redundant as TofData can be 
+generated from the raw data and PeakData from the newly regenerated 
+TofData by integration.
+The Tofwerk HDF5 file format uses one- to four-dimensional data arrays. 
+As the base HDF5 libraries are written in C, the developers have adopted
+ C's row-major order for multidimensional arrays. If you are reading 
+HDF5 multidimensional data using the Fortran libraries or Matlab be 
+aware that these programs use column-major order.
+If you are not familiar with the terms Samples, Waveforms, Segments, 
+Bufs, Blocks, Memories and Writes please refer to the document 
+“Understanding  <abbr title="Time Of Flight">TOF</abbr> data”.
+</p>
+
+</div>
+<!-- EDIT17 SECTION "Datasets" [18321-19621] -->
+<h3 class="sectionedit19" id="acquisitionlog_log">/AcquisitionLog/Log</h3>
+<div class="level3">
+<div class="table sectionedit20"><table class="inline">
+	<tbody><tr class="row0">
+		<td class="col0">Dataset type </td><td class="col1"> Table (1D array of compound data type) </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"># of elements </td><td class="col1"> variable </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT20 TABLE [19653-19737] --><div class="table sectionedit21"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> column name </th><th class="col1"> data type </th><th class="col2"> description </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 leftalign"> timestamp   </td><td class="col1"> 64-bit uint </td><td class="col2"> FILETIME compatible timestamp </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> timestring  </td><td class="col1"> string </td><td class="col2"> Same time in human readable form, locale dependent </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> logtext     </td><td class="col1"> string </td><td class="col2"> Text describing the event </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT21 TABLE [19739-19973] -->
+<p>
+Two entries are automatically saved in the Log dataset upon data 
+acquisition: “Acquisition started” and “Acquisition 
+stopped”/“Acquisition aborted”.
+HDF5 files generated by converting a Tofwerk binary data file to HDF5 
+contain entries for the actual time of data acquisition 
+(“C:\someDir\someDataFile.bin recorded”) and for the time of conversion 
+(“HDF5 file created”).
+</p>
+
+</div>
+<!-- EDIT19 SECTION "/AcquisitionLog/Log" [19622-20365] -->
+<h3 class="sectionedit22" id="fullspectra_massaxis">/FullSpectra/MassAxis</h3>
+<div class="level3">
+<div class="table sectionedit23"><table class="inline">
+	<tbody><tr class="row0">
+		<td class="col0">Dataset type </td><td class="col1"> 1D array of  32-bit float </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"># of elements </td><td class="col1"> NbrSamples </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT23 TABLE [20399-20472] -->
+<p>
+The MassAxis holds a mass (m/Q) value for every sample on the <abbr title="Time Of Flight">TOF</abbr> dimension (1<sup>st</sup>
+ data dimension). The dataset is redundant and saved for convenience 
+only as the same data is easily obtained through the mass calibration 
+parameters. Note that a change of the calibration parameters does not 
+automatically update this dataset.
+</p>
+
+</div>
+<!-- EDIT22 SECTION "/FullSpectra/MassAxis" [20366-20810] -->
+<h3 class="sectionedit24" id="fullspectra_sumspectrum">/FullSpectra/SumSpectrum</h3>
+<div class="level3">
+<div class="table sectionedit25"><table class="inline">
+	<tbody><tr class="row0">
+		<td class="col0">Dataset type </td><td class="col1"> 1D array of  64-bit float </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"># of elements </td><td class="col1"> NbrSamples </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT25 TABLE [20847-20920] -->
+<p>
+The SumSpectrum dataset is the sum of all mass spectra in TofData. If 
+you want an average of all spectra instead divide all elements by 
+NbrSegments*NbrBufs*NbrWrites.
+</p>
+
+</div>
+<!-- EDIT24 SECTION "/FullSpectra/SumSpectrum" [20811-21089] -->
+<h3 class="sectionedit26" id="fullspectra2_sumspectrum">/FullSpectra2/SumSpectrum</h3>
+<div class="level3">
+
+<p>
+If present corresponds to the sum spectrum of the second <abbr title="Time Of Flight">TOF</abbr>. Use <code>/FullSpectra2</code> attributes for mass calibration and siongle ion signal.
+</p>
+
+</div>
+<!-- EDIT26 SECTION "/FullSpectra2/SumSpectrum" [21090-21265] -->
+<h3 class="sectionedit27" id="fullspectra_tofdata">/FullSpectra/TofData</h3>
+<div class="level3">
+<div class="table sectionedit28"><table class="inline">
+	<tbody><tr class="row0">
+		<td class="col0">Dataset type </td><td class="col1"> 4D array of  32-bit float </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"># of elements </td><td class="col1"> NbrWrites * NbrBufs * NbrSegments * NbrSamples </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT28 TABLE [21298-21407] -->
+<p>
+The TofData dataset contains all recorded full mass spectra. Each mass 
+spectrum is the sum of the three possible summation steps. If you want 
+an average per extraction value, divide all elements by 
+NbrWaveforms*NbrBlocks*NbrMemories. The unit of the intensities is mV 
+(for the default combine mode) at the <abbr title="MicroChannel Plate">MCP</abbr> signal out (before external preamps). Integration of this data along the <abbr title="Time Of Flight">TOF</abbr> axis leads to peak areas in mV·ns which can be divided by the single ion signal value to obtain ion counts.
+</p>
+
+</div>
+<!-- EDIT27 SECTION "/FullSpectra/TofData" [21266-21905] -->
+<h3 class="sectionedit29" id="fullspectra_eventlist">/FullSpectra/EventList</h3>
+<div class="level3">
+<div class="table sectionedit30"><table class="inline">
+	<tbody><tr class="row0">
+		<td class="col0">Dataset type </td><td class="col1"> 3D array of variable length(32-bit unsigned int or 8-bit unsigned int) </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"># of elements </td><td class="col1"> NbrWrites * NbrBufs * NbrSegments</td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT30 TABLE [21940-22080] -->
+<p>
+The event list is a standardized form to store events as produced by 
+TDCs or event-based ADCs (ndigo or AP240 SSR) for experiments with large
+ data dimension and little counts (sparse <abbr title="Time Of Flight">TOF</abbr> spectra) like <abbr title="Fast Ion Bombardment">FIB</abbr>, SIMS or <abbr title="Ion Mobility Spectrometer">IMS</abbr>.
+ The dataset contains a single (variable-length) element per segment 
+holding the events in a hardware independent format. To facilitate array
+ dimensioning for readout the attribute <code>MaxElementLength</code> is
+ attached to the dataset giving the maximum number of data in a single 
+element. The data type of variable-length elements is 32 bit unsigned 
+integer. If the data type of the dataset is 8-bit unsigned char then 
+that means that each element is compressed using zlib or LZ4 compression
+ (the actual compression method and compression level/strategy are 
+stored as attribute <code>Compression</code>, introduced in version 
+1.95) with the same compression level as the other datasets. Should you 
+encounter a data file that has 8-bit elements but no <code>Compression</code> attribute (from an early 1.95 beta version), default <code>Compression</code>
+ to 257 (zlib, level 1). In order to access such data a single VL 
+element is read, expanded using zlib's inflate function and the 
+resulting data interpreted 32-bit unsigned integers. The TwH5Dll <abbr title="Atmospheric Pressure Interface / Application Programming Interface">API</abbr>
+ hides this compression in a similar way from it's user as the HDF5 
+library hides the built-in compression feature for (non-VL) datasets. 
+Note that the <code>MaxElementLength</code> attribute does not change the meaning, i.e. it stands for the maximum number of 32 bit elements <strong>after</strong> decompression, not the maximum number of bytes for the compressed data. Each 32-bit unsigned int is either:
+</p>
+<div class="table sectionedit31"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign" colspan="4">  bits of 32-bit unsigned int  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  31…24  </td><td class="col1 centeralign">  23…16  </td><td class="col2 centeralign">  15…8  </td><td class="col3 centeralign">  7…0  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  data size  </td><td class="col1 centeralign" colspan="3">  time stamp  </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT31 TABLE [23706-23822] -->
+<p>
+or
+</p>
+<div class="table sectionedit32"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign" colspan="4">  bits of 32-bit unsigned int  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  31…24  </td><td class="col1 centeralign">  23…16  </td><td class="col2 centeralign">  15…8  </td><td class="col3 centeralign">  7…0  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign" colspan="4">  data  </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT32 TABLE [23826-23923] -->
+<p>
+A data word is always preceded by a time stamp word, giving the number 
+of data words to follow in the 8 MSBs. A data size of 0 means that it is
+ a time stamp only event, i.e. from a <abbr title="Time-to-Digital Converter">TDC</abbr>. Data samples are spaced by <code>SampleInterval</code>, the unit of the time stamp is given by <code>ClockPeriod</code>. The <code>data</code> part of the event stream has to be cast to 32 bit float and behaves the same as <code>/FullSpectra/TofData</code>.
+</p>
+
+</div>
+<!-- EDIT29 SECTION "/FullSpectra/EventList" [21906-24332] -->
+<h3 class="sectionedit33" id="fullspectra2_tofdata">/FullSpectra2/TofData</h3>
+<div class="level3">
+
+<p>
+If present corresponds to TofData from the second <abbr title="Time Of Flight">TOF</abbr>. Use <code>/FullSpectra2</code> attributes for mass calibration and single ion signal.
+</p>
+
+</div>
+<!-- EDIT33 SECTION "/FullSpectra2/TofData" [24333-24496] -->
+<h3 class="sectionedit34" id="fullspectra_nbrmemories">/FullSpectra/NbrMemories</h3>
+<div class="level3">
+<div class="table sectionedit35"><table class="inline">
+	<tbody><tr class="row0">
+		<td class="col0">Dataset type </td><td class="col1"> 2D array of  16-bit unsigned int </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"># of elements </td><td class="col1"> NbrWrites * NbrBufs </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT35 TABLE [24533-24622] -->
+<p>
+This dataset exists only if “variable NbrMemories” feature was enabled 
+during acquisition and contains the NbrMemories value for each recorded 
+buf. The NbrMemories attribute attached to the root group still exists 
+and has the initial value.
+</p>
+
+</div>
+<!-- EDIT34 SECTION "/FullSpectra/NbrMemories" [24497-24870] -->
+<h3 class="sectionedit36" id="fullspectra_masscalibration">/FullSpectra/MassCalibration</h3>
+<div class="level3">
+<div class="table sectionedit37"><table class="inline">
+	<tbody><tr class="row0">
+		<td class="col0">Dataset type </td><td class="col1"> 2D array of  64-bit float </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"># of elements </td><td class="col1"> NbrWrites * MassCalibration nbrParameters </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT37 TABLE [24911-25015] -->
+<p>
+This dataset exists only if Recalibration &gt; 1 (Automatic 
+recalibration set to “after every write” or “after every n-th write”). 
+For every write the mass calibration parameters are stored (n times the 
+same set for “after every n-th write”). The first entry corresponds to 
+the calibration parameters stored as an attribute of the /FullSpectra 
+group. Recalibrating a file which contains this dataset will only adjust
+ a and b stored as attributes and the values in this dataset are left 
+untouched. Rename or delete the dataset to some other name to use the 
+mass calibration stored as attributes.
+</p>
+
+</div>
+<!-- EDIT36 SECTION "/FullSpectra/MassCalibration" [24871-25622] -->
+<h3 class="sectionedit38" id="peakdata_peakdata">/PeakData/PeakData</h3>
+<div class="level3">
+<div class="table sectionedit39"><table class="inline">
+	<tbody><tr class="row0">
+		<td class="col0">Dataset type </td><td class="col1"> 4D array of  32-bit float </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"># of elements </td><td class="col1"> NbrWrites * NbrBufs * NbrSegments * NbrPeaks </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT39 TABLE [25653-25760] -->
+<p>
+The PeakData dataset holds the results obtained by integrating TofData. The unit of the values is ions/extraction.
+</p>
+
+</div>
+<!-- EDIT38 SECTION "/PeakData/PeakData" [25623-25877] -->
+<h3 class="sectionedit40" id="peakdata_peakdata2">/PeakData/PeakData2</h3>
+<div class="level3">
+
+<p>
+If present holds integrated TofData using the peak table <code>PeakData/PeakTable</code>. Mass calibration and single ion signal are taken from <code>/FullSpectra2</code> attributes.
+</p>
+
+</div>
+<!-- EDIT40 SECTION "/PeakData/PeakData2" [25878-26073] -->
+<h3 class="sectionedit41" id="peakdata_peaktable">/PeakData/PeakTable</h3>
+<div class="level3">
+<div class="table sectionedit42"><table class="inline">
+	<tbody><tr class="row0">
+		<td class="col0">Dataset type </td><td class="col1"> Table (1D array of compound data type) </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"># of elements </td><td class="col1"> NbrPeaks </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT42 TABLE [26105-26189] --><div class="table sectionedit43"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> column name </th><th class="col1"> data type </th><th class="col2"> description </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 leftalign"> label       </td><td class="col1"> string (length 64) </td><td class="col2"> Descriptive label for the ion </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> mass        </td><td class="col1 leftalign"> 32-bit float       </td><td class="col2"> mass (m/Q) of the ion </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> lower integration limit        </td><td class="col1 leftalign"> 32-bit float       </td><td class="col2" rowspan="2"> Upper and lower limit for peak integration (in mass (m/Q) units). </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> upper integration limit        </td><td class="col1 leftalign"> 32-bit float       </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT43 TABLE [26191-26548] -->
+<p>
+The PeakTable dataset is a 1:1 copy of the “Mass Table” in TofDaq at the
+ time of acquisition. This information is needed to (re)calculate 
+PeakData from TofData.
+</p>
+
+</div>
+<!-- EDIT41 SECTION "/PeakData/PeakTable" [26074-26716] -->
+<h3 class="sectionedit44" id="rawdata">RawData</h3>
+<div class="level3">
+
+<p>
+Raw data refers to the data in a format as read from the physical <abbr title="Data Acquisition">DAQ</abbr>
+ device. The actual data is stored as a 1D array containing the raw data
+ of the complete acquisition. As this dataset can become quite large 
+there are also two descriptor datasets stored alongside the actual raw 
+dataset: DescriptorOffset and DescriptorLength. Both of these datasets 
+are 2D arrays of 64-bit uints with dimensions NbrWrites * NbrBufs, 
+containing the offsets and length for the raw data of a given buf.
+</p>
+
+</div>
+<!-- EDIT44 SECTION "RawData" [26717-27223] -->
+<h3 class="sectionedit45" id="timingdata_buftimes">/TimingData/BufTimes</h3>
+<div class="level3">
+<div class="table sectionedit46"><table class="inline">
+	<tbody><tr class="row0">
+		<td class="col0">Dataset type </td><td class="col1"> 2D array of  64-bit float </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"># of elements </td><td class="col1"> NbrWrites * NbrBufs </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT46 TABLE [27256-27338] -->
+<p>
+The BufTimes dataset holds a time stamp for every buf in units of seconds. These timestamps come either directly from the <abbr title="Data Acquisition">DAQ</abbr> hardware (where available) or from the high-resolution performance counter of the PC.
+</p>
+
+</div>
+<!-- EDIT45 SECTION "/TimingData/BufTimes" [27224-27553] -->
+<h2 class="sectionedit47" id="user_datasets">User datasets</h2>
+<div class="level2">
+
+<p>
+Users can store additional data through the TofDaq <abbr title="Atmospheric Pressure Interface / Application Programming Interface">API</abbr>. Such user data can either be synchronous or asynchronous with respect to the acquired <abbr title="Time Of Flight">TOF</abbr> spectra.
+</p>
+
+</div>
+<!-- EDIT47 SECTION "User datasets" [27554-27734] -->
+<h3 class="sectionedit48" id="asynchronous_user_data">asynchronous user data</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="arbitrary_position_in_the_hdf_file_data">/Arbitrary/position/in the/HDF/file/Data</h4>
+<div class="level4">
+<div class="table sectionedit49"><table class="inline">
+	<tbody><tr class="row0">
+		<td class="col0">Dataset type </td><td class="col1"> 2D array of  64-bit float </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"># of elements </td><td class="col1"> variable * NbrElements (NbrElements is specified as a parameter in the call to <code>TwAddUserData</code>) </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT49 TABLE [27819-27979] -->
+</div>
+
+<h4 id="arbitrary_position_in_the_hdf_file_info">/Arbitrary/position/in the/HDF/file/Info</h4>
+<div class="level4">
+<div class="table sectionedit50"><table class="inline">
+	<tbody><tr class="row0">
+		<td class="col0">Dataset type </td><td class="col1"> 1D array of strings (length 255) </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"># of elements </td><td class="col1"> NbrElements (NbrElements is specified as a parameter in the call to <code>TwAddUserData</code>) </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT50 TABLE [28031-28187] -->
+<p>
+TofDaq 1.81 and higher allows to store asynchronous user data in the HDF5 file through the <abbr title="Atmospheric Pressure Interface / Application Programming Interface">API</abbr> function <code>TwAddUserData</code>.
+ This data is stored in a 2D dataset of 64-bit floats.  A 1D string 
+dataset describing meaning and/or units of each column in the 2D dataset
+ can be created as well (optional). The 2D dataset name is always 
+“Data”, the 1D string dataset is always “Info”.
+</p>
+
+</div>
+<!-- EDIT48 SECTION "asynchronous user data" [27735-28572] -->
+<h3 class="sectionedit51" id="synchronous_registered_user_data">synchronous (registered) user data</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="arbitrary_position_in_the_hdf_file_twdata">/Arbitrary/position/in the/HDF/file/TwData</h4>
+<div class="level4">
+<div class="table sectionedit52"><table class="inline">
+	<tbody><tr class="row0">
+		<td class="col0">Dataset type </td><td class="col1"> 2D (3D) array of  64-bit float </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"># of elements </td><td class="col1"> NbrWrites * (NbrBufs) * NbrElements (NbrElements is specified as a parameter in the call to <code>TwRegisterUserData…</code>) </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT52 TABLE [28670-28856] -->
+</div>
+
+<h4 id="arbitrary_position_in_the_hdf_file_twinfo">/Arbitrary/position/in the/HDF/file/TwInfo</h4>
+<div class="level4">
+<div class="table sectionedit53"><table class="inline">
+	<tbody><tr class="row0">
+		<td class="col0">Dataset type </td><td class="col1"> 1D array of strings (length 255) </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"># of elements </td><td class="col1"> NbrElements (NbrElements is specified as a parameter in the call to <code>TwRegisterUserData…</code>) </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT53 TABLE [28910-29074] -->
+<p>
+In TofDaq 1.82 this additional method to store user data was introduced.
+ Instead of writing user data immediately for every call to the <abbr title="Atmospheric Pressure Interface / Application Programming Interface">API</abbr> function to disk, the user data is written together with the <abbr title="Time Of Flight">TOF</abbr>
+ data. In order to do that, the user has to register his data source in 
+TofDaq. At the moment of registration the user has to decide how many 
+elements he wants to store and whether this data should be written to 
+disk for every write (<code>TwRegisterUserDataWrite</code>, TwData will be 2D) or for every buf (<code>TwRegisterUserDataBuf</code>, TwData will be 3D). Once a data source is registered it can be updated (<code>TwUpdateUserData</code>)
+ at any rate, TofDaq will always write the latest values to the data 
+file.
+In TofDaq 1.85 the concept of data source plugins was introduced which 
+relies on the same mechanism of data storage and produces the same 
+datasets.
+</p>
+
+</div>
+<!-- EDIT51 SECTION "synchronous (registered) user data" [28573-29924] -->
+<h2 class="sectionedit54" id="concluding_remarks">Concluding remarks</h2>
+<div class="level2">
+
+<p>
+This documents describes the Tofwerk HDF5 data format as implemented at 
+the time of writing. Any addition of groups, attributes or datasets (by 
+TofDaq or any other software) does not impair the readability of the 
+file in a software that is not aware of these additions, they will 
+simply be ignored. However, changes of groups, attributes or datasets 
+described in this document will result in software development efforts 
+for all software that reads Tofwerk HDF5 files and is therefore strongly
+ discouraged. The following chapter lists such changes along with the 
+TofDaq version number when the change was introduced.
+</p>
+
+</div>
+<!-- EDIT54 SECTION "Concluding remarks" [29925-30573] -->
+<h3 class="sectionedit55" id="changes_from_initial_format_definition">changes from initial format definition</h3>
+<div class="level3">
+
+<p>
+additions (attributes and/or datasets) are not listed here. 
+</p>
+
+</div>
+
+<h4 id="version_115">version 1.15</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> the format of the PeakTable dataset 
+changed in version 1.15 of TofDaqRec. Before, integration boundaries 
+were stored in samples, now they are stored in mass units (rationale: 
+PeakTable stays valid if mass calibration changes).</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="version_135">version 1.35</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Raw data is no longer stored in 4D 
+datasets. All raw datasets are 1D and contain the data and data type as 
+read from the dataset. The DescriptorOffset and DescriptorLength 
+datasets facilitate raw data access (only the chunk of raw data needed 
+can be read from the file). Effective from TofDaqRec versions 1.35 and 
+higher.</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="version_149">version 1.49</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Threshold and Baseline were stored 
+as absolute voltages before TofDaqRec 1.49. Later versions store 
+directly the number of bins as configured by the user.</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="version_175">version 1.75</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> The dataset 
+/FullSpectra/MassCalibration which is created when the “automatic 
+recalibration” feature is enabled was a table of length NbrWrites before
+ TofDaq 1.75. Later versions store the mass calibration parameters in a 
+2D dataset (64-bit floating point) of dimension NbrWrites * 
+NbrCalibrationParameters.</div>
+</li>
+<li class="level1"><div class="li"> As of TofDaq 1.75 the mass 
+calibration parameters (attributes of /FullSpectra group) are stored as 
+64-bit floats (32-bit floats before). See also changes in the TofDaq <abbr title="Atmospheric Pressure Interface / Application Programming Interface">API</abbr> concerning the changes in mass calibration handling.</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="version_177">version 1.77</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> The dataset (table) containing log 
+entries (/AcquisitionLog/Log) was changed to store the timestamps in the
+ same format as AcquisitionTimeZero (unsigned 64-bit integer giving the 
+100 ns intervals since January 1, 1601 (UTC)).</div>
+</li>
+<li class="level1"><div class="li"> AcquisitionTimeZero (/TimingData) is now stored as an unsigned 64-bit integer. Before it was stored as two 32-bit integers.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT55 SECTION "changes from initial format definition" [30574-32414] -->
+<h2 class="sectionedit56" id="previous_versions">Previous versions</h2>
+<div class="level2">
+
+<p>
+<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_197" class="wikilink1" title="manuals:daq:hdf5_197"> Tofwerk HDF5 data format 1.97</a>
+</p>
+
+<p>
+<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_196" class="wikilink1" title="manuals:daq:hdf5_196"> Tofwerk HDF5 data format 1.96</a>
+</p>
+
+<p>
+<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_195" class="wikilink1" title="manuals:daq:hdf5_195"> Tofwerk HDF5 data format 1.95</a>
+</p>
+
+<p>
+<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_194" class="wikilink1" title="manuals:daq:hdf5_194"> Tofwerk HDF5 data format 1.94</a>
+</p>
+
+<p>
+<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_193" class="wikilink1" title="manuals:daq:hdf5_193"> Tofwerk HDF5 data format 1.93</a>
+</p>
+
+<p>
+<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_190" class="wikilink1" title="manuals:daq:hdf5_190"> Tofwerk HDF5 data format 1.90</a>
+</p>
+
+<p>
+<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_189" class="wikilink1" title="manuals:daq:hdf5_189"> Tofwerk HDF5 data format 1.89</a>
+</p>
+
+<p>
+<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_188" class="wikilink1" title="manuals:daq:hdf5_188"> Tofwerk HDF5 data format 1.88</a>
+</p>
+
+<p>
+<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_187" class="wikilink1" title="manuals:daq:hdf5_187"> Tofwerk HDF5 data format 1.87</a>
+</p>
+
+<p>
+<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format.pdf (155.6 KB)">tofwerk_hdf5_data_format.pdf</a>
+</p>
+
+<p>
+<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.1.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.1.pdf (154.8 KB)">tofwerk_hdf5_data_format_v1.1.pdf</a>
+</p>
+
+<p>
+<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.2.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.2.pdf (155.9 KB)">tofwerk_hdf5_data_format_v1.2.pdf</a>
+</p>
+
+<p>
+<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.3.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.3.pdf (156.2 KB)">tofwerk_hdf5_data_format_v1.3.pdf</a>
+</p>
+
+<p>
+<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.4.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.4.pdf (160.8 KB)">tofwerk_hdf5_data_format_v1.4.pdf</a>
+</p>
+
+<p>
+<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.5.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.5.pdf (161.3 KB)">tofwerk_hdf5_data_format_v1.5.pdf</a>
+</p>
+
+<p>
+<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.6.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.6.pdf (164 KB)">tofwerk_hdf5_data_format_v1.6.pdf</a>
+</p>
+
+</div>
+<!-- EDIT56 SECTION "Previous versions" [32415-] --></div>
+
+
+</body></html>
