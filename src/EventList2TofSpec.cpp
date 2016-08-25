@@ -1,7 +1,6 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
-// adapted from TwH5File.cpp
 //' Converts events of an event list into a spectrum.
 //'
 //' \code{EventList2TofSpec} converts events of an event list (read with
