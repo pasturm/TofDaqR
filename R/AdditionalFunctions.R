@@ -174,3 +174,40 @@ KeepSharedMemMapped <- function(keepMapped) {
   rv <- .Call("KeepSharedMemMapped", keepMapped)
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
 }
+
+# EventList2TofSpec --------------------------------------------------------------
+#' Converts events of an event list into a spectrum.
+#'
+#' \code{EventList2TofSpec} converts events of an event list (read with
+#' \code{GetEventList...FromH5} functions) into a spectrum.
+#'
+#' Note: this function is not part of the TofDaq API, but is included in the
+#' package for convenience.
+#'
+#' @param events Event data, e.g. from \code{GetEventList...FromH5}.
+#' @param clockPeriod Clock period in ns, e.g. from
+#' \code{GetFloatAttributeFromH5(filename, "FullSpectra", "ClockPeriod")}.
+#' @param sampleInterval Sampling interval in ns, e.g. from \code{\link{GetH5Descriptor}}.
+#' @param nbrSamples Number of samples, e.g. from \code{\link{GetH5Descriptor}}.
+#' @return A vector containing the spectrum.
+EventList2TofSpec <- function(events, clockPeriod, sampleInterval, nbrSamples) {
+  .Call("EventList2TofSpec", events, clockPeriod, sampleInterval, nbrSamples)
+}
+
+# DecodeEventList --------------------------------------------------------------
+#' Decodes an event list.
+#'
+#' \code{DecodeEventList} decodes an event list read with \code{GetEventList...FromH5}
+#' functions into a time stamp vector and a data vector.
+#'
+#' Note: this function is not part of the TofDaq API, but is included in the
+#' package for convenience.
+#'
+#' @param events Event data, e.g. from \code{GetEventList...FromH5}.
+#' @param clockPeriod Clock period in ns, e.g. from
+#' \code{GetFloatAttributeFromH5(filename, "FullSpectra", "ClockPeriod")}.
+#' @param sampleInterval Sampling interval in ns, e.g. from \code{\link{GetH5Descriptor}}.
+#' @return A list with sample indices and data values (in mV).
+DecodeEventList <- function(events, clockPeriod, sampleInterval) {
+  .Call("DecodeEventList", events, clockPeriod, sampleInterval)
+}

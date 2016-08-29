@@ -1,3 +1,10 @@
+TofDaqR 0.1.7
+--------------------------------------------------------------------------------
+
+* Removed dependency on Rcpp package by moving `DecodeEventList()` and
+  `EventList2TofSpec()` to TofDaqWrapR.dll.
+
+
 TofDaqR 0.1.6
 --------------------------------------------------------------------------------
 
