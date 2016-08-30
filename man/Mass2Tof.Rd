@@ -30,6 +30,11 @@ massCalibMode \tab Mass calibration function \cr
 4 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 m^2 + p_4 m + p_5} \cr
 5 \tab \eqn{m = p_1 i^2 + p_2 i + p_3}
 }
+Note: Modes 3 and 4 are flawed. Don't use them. In mode 3 the fit does not
+converge well, because of a bug (parameters not correctly initialized).
+Mode 4 is two sequential fits, first mode 0, then a quadratic fit to the
+residuals, which is an inferior implementation of mode 3. Mode 1 is for FTMS
+data.
 }
 \examples{
 Mass2Tof(100, massCalibMode = 0, p = c(3,5))

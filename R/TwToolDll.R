@@ -182,6 +182,11 @@ GetIsotopePattern2 <- function(molecule, abundanceLimit) {
 #' 4 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 m^2 + p_4 m + p_5} \cr
 #' 5 \tab \eqn{m = p_1 i^2 + p_2 i + p_3}
 #' }
+#' Note: Modes 3 and 4 are flawed. Don't use them. In mode 3 the fit does not
+#' converge well, because of a bug (parameters not correctly initialized).
+#' Mode 4 is two sequential fits, first mode 0, then a quadratic fit to the
+#' residuals, which is an inferior implementation of mode 3. Mode 1 is for FTMS
+#' data.
 #'
 #' @param tofSample Vector of sample indices to convert.
 #' @param massCalibMode Mass calibration function to use. See below.
@@ -211,6 +216,11 @@ Tof2Mass <- function(tofSample, massCalibMode = 0, p) {
 #' 4 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 m^2 + p_4 m + p_5} \cr
 #' 5 \tab \eqn{m = p_1 i^2 + p_2 i + p_3}
 #' }
+#' Note: Modes 3 and 4 are flawed. Don't use them. In mode 3 the fit does not
+#' converge well, because of a bug (parameters not correctly initialized).
+#' Mode 4 is two sequential fits, first mode 0, then a quadratic fit to the
+#' residuals, which is an inferior implementation of mode 3. Mode 1 is for FTMS
+#' data.
 #'
 #' @param mass Vector of mass/charge values to convert.
 #' @param massCalibMode Mass calibration function to use. See below.
