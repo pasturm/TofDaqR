@@ -5,4 +5,5 @@
 
 .onUnload <- function(libpath) {
   CleanupDll()
+  library.dynam.unload("TofDaqWrapR", libpath)
 }
