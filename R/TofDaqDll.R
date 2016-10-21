@@ -6,6 +6,7 @@
 #' \code{InitializeDll} initializes the TofDaqDll.dll. It is usually not necessary
 #' to call \code{InitializeDll} explicitely, as it is called automatically by
 #' functions that need the DLL to be in an initialized state.
+#' @export
 InitializeDll <- function() {
   rv <- .Call("InitializeDll")
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -17,6 +18,7 @@ InitializeDll <- function() {
 #' \code{CleanupDll} deinitializes the TofDaqDll.dll (frees allocated memory,
 #' releases mapped shared memory and closes open files). This function is
 #' automatically called when the TofDaqR packages is unloaded.
+#' @export
 CleanupDll <- function() {
   invisible(.Call("CleanupDll"))
 }
@@ -25,6 +27,7 @@ CleanupDll <- function() {
 #' Gets the version number of the TofDaq API.
 #'
 #' \code{GetDllVersion} gets the version number of the TofDaq API.
+#' @export
 GetDllVersion <- function() {
   .Call("GetDllVersion")
 }
@@ -35,6 +38,7 @@ GetDllVersion <- function() {
 #' \code{TofDaqRunning} checks if TofDaq recorder application is running.
 #'
 #' @return \code{TRUE} or \code{FALSE}.
+#' @export
 TofDaqRunning <- function() {
   .Call("TofDaqRunning")
 }
@@ -45,6 +49,7 @@ TofDaqRunning <- function() {
 #' \code{DaqActive} checks if TofDaq recorder is currently acquiring data.
 #'
 #' @return \code{TRUE} or \code{FALSE}.
+#' @export
 DaqActive <- function() {
   .Call("DaqActive")
 }
@@ -53,6 +58,7 @@ DaqActive <- function() {
 #' Starts an acquisition.
 #'
 #' \code{StartAcquisition} starts an acquisition.
+#' @export
 StartAcquisition <- function() {
   rv <- .Call("StartAcquisition")
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -62,6 +68,7 @@ StartAcquisition <- function() {
 #' Stops the current acquisition.
 #'
 #' \code{StopAcquisition} stops the current acquisition.
+#' @export
 StopAcquisition <- function() {
   rv <- .Call("StopAcquisition")
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -71,6 +78,7 @@ StopAcquisition <- function() {
 #' Closes the TofDaq recorder application.
 #'
 #' \code{CloseTofDaqRec} closes the TofDaq recorder application.
+#' @export
 CloseTofDaqRec <- function() {
   rv <- .Call("CloseTofDaqRec")
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -82,6 +90,7 @@ CloseTofDaqRec <- function() {
 #' \code{InitializeDaqDevice} initializes the DAQ board (this is also done at
 #' startup of TofDaqRec.exe). This can take up to 8 seconds depending on the
 #' actual DAQ hardware.
+#' @export
 InitializeDaqDevice <- function() {
   rv <- .Call("InitializeDaqDevice")
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -94,6 +103,7 @@ InitializeDaqDevice <- function() {
 #' out. Default is 500 ms.
 #'
 #' @param timeout Timeout in ms. Default is 500 ms.
+#' @export
 SetTimeout <- function(timeout = 500) {
   invisible(.Call("SetTimeout", timeout))
 }
@@ -102,6 +112,7 @@ SetTimeout <- function(timeout = 500) {
 #' Gets the timeout.
 #'
 #' \code{GetTimeout} gets the current timeout value (in ms).
+#' @export
 GetTimeout <- function() {
   .Call("GetTimeout")
 }
@@ -111,6 +122,7 @@ GetTimeout <- function() {
 #'
 #' Auto setup routine for the DAQ device. Currently implemented only for
 #' AP240 averager and ndigo5G.
+#' @export
 AutoSetupDaqDevice <- function() {
   rv <- .Call("AutoSetupDaqDevice")
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -124,6 +136,7 @@ AutoSetupDaqDevice <- function() {
 #'
 #' @param action 0: arms mass calibration, 1: updates mass calibration using
 #' data acquired since previous arm.
+#' @export
 OnDemandMassCalibration <- function(action) {
   .Call("OnDemandMassCalibration", action)
 }
@@ -138,6 +151,7 @@ OnDemandMassCalibration <- function(action) {
 #' configuration window.
 #'
 #' @param ConfigWindowIndex Index of configuration tab to show (valid range: 0-6)
+#' @export
 ShowConfigWindow <- function(ConfigWindowIndex = 0) {
   rv <- .Call("ShowConfigWindow", ConfigWindowIndex)
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -151,6 +165,7 @@ ShowConfigWindow <- function(ConfigWindowIndex = 0) {
 #' @param IniFile Path/filename of the configuration file. If \code{IniFile} is
 #' an empty string, "TwApiTmpIni.ini" in the TofDaq recorder directory will be
 #' used.
+#' @export
 LoadIniFile <- function(IniFile) {
   rv <- .Call("LoadIniFile", IniFile)
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -164,6 +179,7 @@ LoadIniFile <- function(IniFile) {
 #' @param IniFile Path/filename of the configuration file. If \code{IniFile} is
 #' an empty string, "TwApiTmpIni.ini" in the TofDaq recorder directory will be
 #' used.
+#' @export
 SaveIniFile <- function(IniFile) {
   rv <- .Call("SaveIniFile", IniFile)
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -176,6 +192,7 @@ SaveIniFile <- function(IniFile) {
 #'
 #' @param Parameter Parameter name as a string. See
 #' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' @export
 GetDaqParameter <- function(Parameter) {
   .Call("GetDaqParameter", Parameter)
 }
@@ -188,6 +205,7 @@ GetDaqParameter <- function(Parameter) {
 #' @param Parameter Parameter name as a string. See
 #' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
 #' @param ValueString Value as a string.
+#' @export
 SetDaqParameter <- function(Parameter, ValueString) {
   rv <- .Call("SetDaqParameter", Parameter, ValueString)
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -210,6 +228,7 @@ SetDaqParameter <- function(Parameter, ValueString) {
 #' using \code{\link[bit64]{as.integer64}}.
 #'
 #' @return A list containing the TSharedMemoryDesc structure
+#' @export
 GetDescriptor <- function() {
   tmp <- .Call("GetDescriptor")
   if (is.null(tmp)) {
@@ -231,6 +250,7 @@ GetDescriptor <- function() {
 #'
 #' @param PeakIndex Index of peak.
 #' @return A list with the peak paramters \emph{label}, \emph{mass}, \emph{loMass} and \emph{hiMass}.
+#' @export
 GetPeakParameters <- function(PeakIndex) {
   rv <- .Call("GetPeakParameters", PeakIndex)
   if (rv$TwRetVal!=4) {
@@ -248,6 +268,7 @@ GetPeakParameters <- function(PeakIndex) {
 #' \code{ReleaseSharedMemory} manually releases the shared memory acquisition
 #' buffers. This is needed if \code{\link{KeepSharedMemMapped}} has been set to
 #' \code{TRUE}.
+#' @export
 ReleaseSharedMemory <- function() {
   rv <- .Call("ReleaseSharedMemory")
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -262,6 +283,7 @@ ReleaseSharedMemory <- function() {
 #' @param timeout Timeout in ms.
 #' @param WaitForEventReset If \code{TRUE} (default) waits for application to
 #' reset data available event before returning.
+#' @export
 WaitForNewData <- function(timeout, WaitForEventReset = TRUE) {
   rv <- .Call("WaitForNewData", timeout, WaitForEventReset)
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -274,6 +296,7 @@ WaitForNewData <- function(timeout, WaitForEventReset = TRUE) {
 #' If \code{NbrRuns > 1} this function waits for the end of the last acquisition.
 #'
 #' @param timeout Timeout in ms.
+#' @export
 WaitForEndOfAcquisition <- function(timeout) {
   rv <- .Call("WaitForEndOfAcquisition", timeout)
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -286,6 +309,7 @@ WaitForEndOfAcquisition <- function(timeout) {
 #'
 #' @param Normalize If \code{FALSE} the spectrum is reported as sum,
 #' if \code{TRUE} (default) the spectrum is normalized to counts per extraction.
+#' @export
 GetSumSpectrumFromShMem <- function(Normalize = TRUE) {
   .Call("GetSumSpectrumFromShMem", Normalize)
 }
@@ -307,6 +331,7 @@ GetSumSpectrumFromShMem <- function(Normalize = TRUE) {
 #' if \code{TRUE} (default) the spectrum is normalized to counts per extraction.
 #' @return A vector containing the mass spectrum or an array containing the
 #' block of mass spectra if \code{SegmentIndex = SegmentEndIndex = -1}.
+#' @export
 GetTofSpectrumFromShMem <- function(SegmentIndex = 0, SegmentEndIndex = 0,
                                       BufIndex, Normalize = TRUE) {
   .Call("GetTofSpectrumFromShMem", SegmentIndex, SegmentEndIndex, BufIndex, Normalize)
@@ -322,6 +347,7 @@ GetTofSpectrumFromShMem <- function(SegmentIndex = 0, SegmentEndIndex = 0,
 #' -1: mass/charge [Th] (2nd TOF), 2: time of flight [microsec],
 #' -2: time of flight [microsec] (2nd TOF), 3: frequency [kHz]).
 #' @return A vector containing the x-axis values.
+#' @export
 GetSpecXaxisFromShMem <- function(Type) {
   .Call("GetSpecXaxisFromShMem", Type)
 }
@@ -336,6 +362,7 @@ GetSpecXaxisFromShMem <- function(Type) {
 #' @param SegmentEndIndex Segment end index of data to fetch.
 #' @param BufIndex Buf index of data to fetch.
 #' @return A list containing the stick spectrum and corresponding masses.
+#' @export
 GetStickSpectrumFromShMem <- function(SegmentIndex = 0, SegmentEndIndex = 0, BufIndex) {
   .Call("GetStickSpectrumFromShMem", SegmentIndex, SegmentEndIndex, BufIndex)
 }
@@ -351,7 +378,7 @@ GetStickSpectrumFromShMem <- function(SegmentIndex = 0, SegmentEndIndex = 0, Buf
 #' read if \code{PeakIndex = -1}.
 #' @param BufIndex Buf index of data to fetch.
 #' @return A vector containing the segment profile(s).
-#'
+#' @export
 GetSegmentProfileFromShMem <- function(PeakIndex, BufIndex) {
   .Call("GetSegmentProfileFromShMem", PeakIndex, BufIndex)
 }
@@ -365,6 +392,7 @@ GetSegmentProfileFromShMem <- function(PeakIndex, BufIndex) {
 #' @param BufIndex Buf index.
 #' @param WriteIndex Write index.
 #' @return A time stamp (in seconds relative to acquisition start).
+#' @export
 GetBufTimeFromShMem <- function(BufIndex, WriteIndex) {
   .Call("GetBufTimeFromShMem", BufIndex, WriteIndex)
 }
@@ -380,9 +408,10 @@ GetBufTimeFromShMem <- function(BufIndex, WriteIndex) {
 #' Note: specifying the log entry time (for adding entries in the past) is not
 #' supported.
 #'
-#'  @param LogEntryText Log text (max. 255 characters).
+#' @param LogEntryText Log text (max. 255 characters).
 #'
-#'  @family Data storage functions
+#' @family Data storage functions
+#' @export
 AddLogEntry <- function(LogEntryText) {
   rv <- .Call("AddLogEntry", LogEntryText)
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -399,6 +428,7 @@ AddLogEntry <- function(LogEntryText) {
 #' @param Value Attribute value (integer type).
 #'
 #' @family Data storage functions
+#' @export
 AddAttributeInt <- function(Object, AttributeName, Value) {
   rv <- .Call("AddAttributeInt", Object, AttributeName, Value)
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -415,6 +445,7 @@ AddAttributeInt <- function(Object, AttributeName, Value) {
 #' @param Value Attribute value (numeric type).
 #'
 #' @family Data storage functions
+#' @export
 AddAttributeDouble <- function(Object, AttributeName, Value) {
   rv <- .Call("AddAttributeDouble", Object, AttributeName, Value)
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -431,6 +462,7 @@ AddAttributeDouble <- function(Object, AttributeName, Value) {
 #' @param Value Attribute string value (max. 255 characters).
 #'
 #' @family Data storage functions
+#' @export
 AddAttributeString <- function(Object, AttributeName, Value) {
   rv <- .Call("AddAttributeString", Object, AttributeName, Value)
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -455,6 +487,7 @@ AddAttributeString <- function(Object, AttributeName, Value) {
 #' If the dataset at Location already exists this parameter has no effect.
 #'
 #' @family Data storage functions
+#' @export
 AddUserData <- function(Location, NbrElements, ElementDescription, Data, CompressionLevel) {
   label <- ""
   for (i in 1:NbrElements) {
@@ -490,6 +523,7 @@ AddUserData <- function(Location, NbrElements, ElementDescription, Data, Compres
 #' If the dataset at Location already exists this parameter has no effect.
 #'
 #' @family Data storage functions
+#' @export
 AddUserDataMultiRow <- function(Location, NbrElements, NbrRows, ElementDescription, Data, CompressionLevel) {
   label <- ""
   for (i in 1:NbrElements) {
@@ -520,6 +554,7 @@ AddUserDataMultiRow <- function(Location, NbrElements, NbrRows, ElementDescripti
 #' compression, 1-9: increasing levels of compression (and CPU load)).
 #'
 #' @family Data storage functions
+#' @export
 RegisterUserDataBuf <- function(Location, NbrElements, ElementDescription, CompressionLevel) {
   label <- ""
   for (i in 1:NbrElements) {
@@ -551,6 +586,7 @@ RegisterUserDataBuf <- function(Location, NbrElements, ElementDescription, Compr
 #' compression, 1-9: increasing levels of compression (and CPU load)).
 #'
 #' @family Data storage functions
+#' @export
 RegisterUserDataWrite <- function(Location, NbrElements, ElementDescription, CompressionLevel) {
   label <- ""
   for (i in 1:NbrElements) {
@@ -579,6 +615,7 @@ RegisterUserDataWrite <- function(Location, NbrElements, ElementDescription, Com
 #' the dataset "TwInfo" is not created.
 #'
 #' @family Data storage functions
+#' @export
 RegisterUserDataNoStore <- function(Location, NbrElements, ElementDescription) {
   label <- ""
   for (i in 1:NbrElements) {
@@ -599,6 +636,7 @@ RegisterUserDataNoStore <- function(Location, NbrElements, ElementDescription) {
 #' @param Location Location of group in HDF5 file identifying the user data.
 #'
 #' @family Data storage functions
+#' @export
 UnregisterUserData <- function(Location) {
   rv <- .Call("UnregisterUserData", Location)
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -614,6 +652,7 @@ UnregisterUserData <- function(Location) {
 #' @param Data Vector of length \code{NbrElements} containing the new data.
 #'
 #' @family Data storage functions
+#' @export
 UpdateUserData <- function(Location, NbrElements, Data) {
   rv <- .Call("UpdateUserData", Location, NbrElements, Data)
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -629,6 +668,7 @@ UpdateUserData <- function(Location, NbrElements, Data) {
 #' @return Vector containing the registered user data.
 #'
 #' @family Data storage functions
+#' @export
 ReadRegUserData <- function(Location, NbrElements) {
   .Call("ReadRegUserData", Location, NbrElements)
 }
@@ -641,6 +681,7 @@ ReadRegUserData <- function(Location, NbrElements) {
 #' @param Location Location of group in HDF5 file identifying the registered data.
 #'
 #' @family Data storage functions
+#' @export
 QueryRegUserDataSize <- function(Location) {
   .Call("QueryRegUserDataSize", Location)
 }
@@ -656,6 +697,7 @@ QueryRegUserDataSize <- function(Location) {
 #' type 2: data source values are written to disk for every buf.
 #'
 #' @family Data storage functions
+#' @export
 GetRegUserDataSources <- function() {
   .Call("GetRegUserDataSources")
 }
@@ -668,6 +710,7 @@ GetRegUserDataSources <- function() {
 #' @param Location Location of group in HDF5 file identifying the registered data.
 #'
 #' @family Data storage functions
+#' @export
 GetRegUserDataDesc <- function(Location) {
   .Call("GetRegUserDataDesc", Location)
 }
@@ -682,6 +725,7 @@ GetRegUserDataDesc <- function(Location) {
 #' the recorder to close the file.
 #'
 #' @family Data storage functions
+#' @export
 KeepFileOpen <- function(keepOpen) {
   .Call("KeepFileOpen", keepOpen)
 }
@@ -696,6 +740,7 @@ KeepFileOpen <- function(keepOpen) {
 #' software running on the same PC.
 #'
 #' @family TPS functions
+#' @export
 TpsConnect <- function() {
   rv <- .Call("TpsConnect")
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -711,6 +756,7 @@ TpsConnect <- function() {
 #' @param type TPS type (0: 1st generation TPS, 1: 2nd generation TPS).
 #'
 #' @family TPS functions
+#' @export
 TpsConnect2 <- function(ip = "192.168.168.2", type = 1) {
   rv <- .Call("TpsConnect2", ip, type)
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -723,6 +769,7 @@ TpsConnect2 <- function(ip = "192.168.168.2", type = 1) {
 #' software.
 #'
 #' @family TPS functions
+#' @export
 TpsDisconnect <- function() {
   rv <- .Call("TpsDisconnect")
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -737,6 +784,7 @@ TpsDisconnect <- function() {
 #' @param moduleCode Module code.
 #'
 #' @family TPS functions
+#' @export
 TpsGetMonitorValue <- function(moduleCode) {
   .Call("TpsGetMonitorValue", moduleCode)
 }
@@ -750,6 +798,7 @@ TpsGetMonitorValue <- function(moduleCode) {
 #' @param moduleCode Module code.
 #'
 #' @family TPS functions
+#' @export
 TpsGetTargetValue <- function(moduleCode) {
   .Call("TpsGetTargetValue", moduleCode)
 }
@@ -763,6 +812,7 @@ TpsGetTargetValue <- function(moduleCode) {
 #' @param moduleCode Module code.
 #'
 #' @family TPS functions
+#' @export
 TpsGetLastSetValue <- function(moduleCode) {
   .Call("TpsGetLastSetValue", moduleCode)
 }
@@ -776,6 +826,7 @@ TpsGetLastSetValue <- function(moduleCode) {
 #' @param value Value to set.
 #'
 #' @family TPS functions
+#' @export
 TpsSetTargetValue <- function(moduleCode, value = 0) {
   rv <- .Call("TpsSetTargetValue", moduleCode, value)
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -787,6 +838,7 @@ TpsSetTargetValue <- function(moduleCode, value = 0) {
 #' \code{TpsGetNbrModules} gets the number of controllable modules.
 #'
 #' @family TPS functions
+#' @export
 TpsGetNbrModules <- function() {
   .Call("TpsGetNbrModules")
 }
@@ -797,6 +849,7 @@ TpsGetNbrModules <- function() {
 #' \code{TpsGetModuleCodes} gets the module codes of all controllable TPS modules.
 #'
 #' @family TPS functions
+#' @export
 TpsGetModuleCodes <- function() {
   .Call("TpsGetModuleCodes")
 }
@@ -807,6 +860,7 @@ TpsGetModuleCodes <- function() {
 #' \code{TpsInitialize} initializes the TPS.
 #'
 #' @family TPS functions
+#' @export
 TpsInitialize <- function() {
   rv <- .Call("TpsInitialize")
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -818,6 +872,7 @@ TpsInitialize <- function() {
 #' \code{TpsSetAllVoltages} sets all voltages.
 #'
 #' @family TPS functions
+#' @export
 TpsSetAllVoltages <- function() {
   rv <- .Call("TpsSetAllVoltages")
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -829,6 +884,7 @@ TpsSetAllVoltages <- function() {
 #' \code{TpsShutdown} shuts down the TPS.
 #'
 #' @family TPS functions
+#' @export
 TpsShutdown <- function() {
   rv <- .Call("TpsShutdown")
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -843,6 +899,7 @@ TpsShutdown <- function() {
 #' ion mode changable?, ion mode supported?, current ion mode?.
 #'
 #' @family TPS functions
+#' @export
 TpsGetStatus <- function() {
   if (is.null(.Call("TpsGetStatus"))) {rv <-  NULL} else {
     tmp <- intToBits(.Call("TpsGetStatus"))
@@ -871,6 +928,7 @@ TpsGetStatus <- function() {
 #' also immediately sets all values.
 #'
 #' @family TPS functions
+#' @export
 TpsLoadSetFile <- function(setfile) {
   rv <- .Call("TpsLoadSetFile", setfile)
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -884,6 +942,7 @@ TpsLoadSetFile <- function(setfile) {
 #' @param setfile Path/filename of the set file to save.
 #'
 #' @family TPS functions
+#' @export
 TpsSaveSetFile <- function(setfile) {
   rv <- .Call("TpsSaveSetFile", setfile)
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -900,6 +959,7 @@ TpsSaveSetFile <- function(setfile) {
 #' @return Returns 0 for Filament 1, 1 for Filament 2.
 #'
 #' @family TPS functions
+#' @export
 TpsGetActiveFilament <- function() {
   .Call("TpsGetActiveFilament")
 }
@@ -915,6 +975,7 @@ TpsGetActiveFilament <- function() {
 #' @param activeFilament 0 for Filament 1, 1 for Filament 2.
 #'
 #' @family TPS functions
+#' @export
 TpsSetActiveFilament <- function(activeFilament = 0) {
   rv <- .Call("TpsSetActiveFilament", activeFilament)
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -929,6 +990,7 @@ TpsSetActiveFilament <- function(activeFilament = 0) {
 #' @param moduleCode Module code.
 #'
 #' @family TPS functions
+#' @export
 TpsGetModuleLimits <- function(moduleCode) {
   .Call("TpsGetModuleLimits", moduleCode)
 }
@@ -943,6 +1005,7 @@ TpsGetModuleLimits <- function(moduleCode) {
 #' @param ionMode 0: positive ion mode, 1: negative ion mode
 #'
 #' @family TPS functions
+#' @export
 TpsChangeIonMode <- function(ionMode) {
   rv <- .Call("TpsChangeIonMode", ionMode)
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}

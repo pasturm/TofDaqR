@@ -21,6 +21,7 @@ Vector containing the registered user data.
 Other Data storage functions: \code{\link{AddAttributeDouble}},
   \code{\link{AddAttributeInt}},
   \code{\link{AddAttributeString}},
+  \code{\link{AddLogEntry}},
   \code{\link{AddUserDataMultiRow}},
   \code{\link{AddUserData}},
   \code{\link{GetRegUserDataDesc}},

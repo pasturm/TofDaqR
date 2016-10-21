@@ -36,6 +36,7 @@ TwRetVal <- c("TwDaqRecNotRunning",
 #' \dontrun{
 #' GetH5Descriptor("path/to/file.h5")
 #' }
+#' @export
 GetH5Descriptor <- function(filename) {
   .Call("GetH5Descriptor", filename)
 }
@@ -55,6 +56,7 @@ GetH5Descriptor <- function(filename) {
 #' \dontrun{
 #' GetSumSpectrumFromH5("path/to/file.h5")
 #' }
+#' @export
 GetSumSpectrumFromH5 <- function(filename, normalize = FALSE) {
   .Call("GetSumSpectrumFromH5", filename, normalize)
 }
@@ -88,6 +90,7 @@ GetSumSpectrumFromH5 <- function(filename, normalize = FALSE) {
 #' \dontrun{
 #' GetTofSpectrumFromH5("path/to/file.h5")
 #' }
+#' @export
 GetTofSpectrumFromH5 <- function(filename, segment.start = 0, segment.end = 0,
                                    buf.start = 0, buf.end = 0, write.start = 0,
                                    write.end = 0, buf.write.linked = FALSE,
@@ -125,6 +128,7 @@ GetTofSpectrumFromH5 <- function(filename, segment.start = 0, segment.end = 0,
 #' \dontrun{
 #' GetStickSpectrumFromH5("path/to/file.h5")
 #' }
+#' @export
 GetStickSpectrumFromH5 <- function(filename, segment.start = 0,
                                      segment.end = 0,  buf.start = 0,
                                      buf.end =0, write.start = 0, write.end = 0,
@@ -147,6 +151,7 @@ GetStickSpectrumFromH5 <- function(filename, segment.start = 0,
 #' \dontrun{
 #' GetPeakParametersFromH5("path/to/file.h5")
 #' }
+#' @export
 GetPeakParametersFromH5 <- function(filename, index = -1) {
   .Call("GetPeakParametersFromH5", filename, index)
 }
@@ -165,6 +170,7 @@ GetPeakParametersFromH5 <- function(filename, index = -1) {
 #' \dontrun{
 #' GetBufTimeFromH5("path/to/file.h5", bufIndex = 0, writeIndex = 0)
 #' }
+#' @export
 GetBufTimeFromH5 <- function(filename, bufIndex, writeIndex) {
   .Call("GetBufTimeFromH5", filename, bufIndex, writeIndex)
 }
@@ -189,6 +195,7 @@ GetBufTimeFromH5 <- function(filename, bufIndex, writeIndex) {
 #' \dontrun{
 #' GetSpecXaxisFromH5("path/to/file.h5")
 #' }
+#' @export
 # x-axis values, type 0: sample index, 1: mass/charge [Th], 2: time of flight [microsec], 3: frequency [kHz]
 GetSpecXaxisFromH5 <- function(filename, type = 1, writeIndex = 0) {
   .Call("GetSpecXaxisFromH5", filename, type, writeIndex)
@@ -217,6 +224,7 @@ GetSpecXaxisFromH5 <- function(filename, type = 1, writeIndex = 0) {
 #' GetSegmentProfileFromH5("path/to/file.h5", PeakIndex = -1, buf.start = 0,
 #' buf.end = 0, write.start = 0, write.end = 0)
 #' }
+#' @export
 GetSegmentProfileFromH5 <- function(filename, PeakIndex, buf.start, buf.end,
                                       write.start, write.end, buf.write.linked = FALSE) {
   .Call("GetSegmentProfileFromH5", filename, PeakIndex, buf.start, buf.end,
@@ -241,6 +249,7 @@ GetSegmentProfileFromH5 <- function(filename, PeakIndex, buf.start, buf.end,
 #' \dontrun{
 #' GetRegUserDataSourcesFromH5("path/to/file.h5")
 #' }
+#' @export
 GetRegUserDataSourcesFromH5 <- function(filename) {
   .Call("GetRegUserDataSourcesFromH5", filename)
 }
@@ -265,6 +274,7 @@ GetRegUserDataSourcesFromH5 <- function(filename) {
 #' \dontrun{
 #' GetRegUserDataFromH5("path/to/file.h5", location = )
 #' }
+#' @export
 GetRegUserDataFromH5 <- function(filename, location, bufIndex, writeIndex, readDescription = TRUE) {
   .Call("GetRegUserDataFromH5", filename, location, bufIndex, writeIndex, readDescription)
 }
@@ -283,6 +293,7 @@ GetRegUserDataFromH5 <- function(filename, location, bufIndex, writeIndex, readD
 #' @param bufCount Buf count.
 #' @param writeOffset Write offset.
 #' @param writeCount Write count.
+#' @export
 GetTofData <- function(filename, sampleOffset, sampleCount, segOffset, segCount,
                          bufOffset, bufCount, writeOffset, writeCount) {
   .Call("GetTofData", filename, sampleOffset, sampleCount, segOffset, segCount,
@@ -303,6 +314,7 @@ GetTofData <- function(filename, sampleOffset, sampleCount, segOffset, segCount,
 #' @param bufCount Buf count.
 #' @param writeOffset Write offset.
 #' @param writeCount Write count.
+#' @export
 GetTofData2 <- function(filename, sampleOffset, sampleCount, segOffset, segCount,
                          bufOffset, bufCount, writeOffset, writeCount) {
   .Call("GetTofData2", filename, sampleOffset, sampleCount, segOffset, segCount,
@@ -323,6 +335,7 @@ GetTofData2 <- function(filename, sampleOffset, sampleCount, segOffset, segCount
 #' @param bufCount Buf count.
 #' @param writeOffset Write offset.
 #' @param writeCount Write count.
+#' @export
 GetPeakData <- function(filename, peakOffset, peakCount, segOffset, segCount,
                            bufOffset, bufCount, writeOffset, writeCount) {
   .Call("GetPeakData", filename, peakOffset, peakCount, segOffset, segCount,
@@ -343,6 +356,7 @@ GetPeakData <- function(filename, peakOffset, peakCount, segOffset, segCount,
 #' @param bufCount Buf count.
 #' @param writeOffset Write offset.
 #' @param writeCount Write count.
+#' @export
 GetPeakData2 <- function(filename, peakOffset, peakCount, segOffset, segCount,
                           bufOffset, bufCount, writeOffset, writeCount) {
   .Call("GetPeakData2", filename, peakOffset, peakCount, segOffset, segCount,
@@ -359,6 +373,7 @@ GetPeakData2 <- function(filename, peakOffset, peakCount, segOffset, segCount,
 #' @param bufCount Buf count.
 #' @param writeOffset Write offset.
 #' @param writeCount Write count.
+#' @export
 GetTimingData <- function(filename, bufOffset, bufCount, writeOffset, writeCount) {
   .Call("GetTimingData", filename, bufOffset, bufCount, writeOffset, writeCount)
 }
@@ -379,6 +394,7 @@ GetTimingData <- function(filename, bufOffset, bufCount, writeOffset, writeCount
 #' \dontrun{
 #' GetIntAttributeFromH5("path/to/file.h5", location = , name = )
 #' }
+#' @export
 GetIntAttributeFromH5 <- function(filename, location, name) {
   .Call("GetIntAttributeFromH5", filename, location, name)
 }
@@ -401,6 +417,7 @@ GetIntAttributeFromH5 <- function(filename, location, name) {
 #' \dontrun{
 #' GetUintAttributeFromH5("path/to/file.h5", location = , name = )
 #' }
+#' @export
 GetUintAttributeFromH5 <- function(filename, location, name) {
   .Call("GetUintAttributeFromH5", filename, location, name)
 }
@@ -424,6 +441,7 @@ GetUintAttributeFromH5 <- function(filename, location, name) {
 #' \dontrun{
 #' GetInt64AttributeFromH5("path/to/file.h5", location = , name = )
 #' }
+#' @export
 GetInt64AttributeFromH5 <- function(filename, location, name) {
   bit64::as.integer64(.Call("GetInt64AttributeFromH5", filename, location, name))
 }
@@ -447,6 +465,7 @@ GetInt64AttributeFromH5 <- function(filename, location, name) {
 #' \dontrun{
 #' GetUint64AttributeFromH5("path/to/file.h5", location = , name = )
 #' }
+#' @export
 GetUint64AttributeFromH5 <- function(filename, location, name) {
   bit64::as.integer64(.Call("GetUint64AttributeFromH5", filename, location, name))
 }
@@ -467,6 +486,7 @@ GetUint64AttributeFromH5 <- function(filename, location, name) {
 #' \dontrun{
 #' GetFloatAttributeFromH5("path/to/file.h5", location = , name = )
 #' }
+#' @export
 GetFloatAttributeFromH5 <- function(filename, location, name) {
   .Call("GetFloatAttributeFromH5", filename, location, name)
 }
@@ -487,6 +507,7 @@ GetFloatAttributeFromH5 <- function(filename, location, name) {
 #' \dontrun{
 #' GetDoubleAttributeFromH5("path/to/file.h5", location = , name = )
 #' }
+#' @export
 GetDoubleAttributeFromH5 <- function(filename, location, name) {
   .Call("GetDoubleAttributeFromH5", filename, location, name)
 }
@@ -507,6 +528,7 @@ GetDoubleAttributeFromH5 <- function(filename, location, name) {
 #' \dontrun{
 #' GetStringAttributeFromH5("path/to/file.h5", location = , name = )
 #' }
+#' @export
 GetStringAttributeFromH5 <- function(filename, location, name) {
   .Call("GetStringAttributeFromH5", filename, location, name)
 }
@@ -525,6 +547,7 @@ GetStringAttributeFromH5 <- function(filename, location, name) {
 #' \dontrun{
 #' SetIntAttributeInH5("path/to/file.h5", location = , name = , attribute = )
 #' }
+#' @export
 SetIntAttributeInH5 <- function(filename, location, name, attribute) {
   .Call("SetIntAttributeInH5", filename, location, name, attribute)
 }
@@ -543,6 +566,7 @@ SetIntAttributeInH5 <- function(filename, location, name, attribute) {
 #' \dontrun{
 #' SetDoubleAttributeInH5("path/to/file.h5", location = , name = , attribute = )
 #' }
+#' @export
 SetDoubleAttributeInH5 <- function(filename, location, name, attribute) {
   .Call("SetDoubleAttributeInH5", filename, location, name, attribute)
 }
@@ -561,6 +585,7 @@ SetDoubleAttributeInH5 <- function(filename, location, name, attribute) {
 #' \dontrun{
 #' SetIntAttributeInH5("path/to/file.h5", location = , name = , attribute = )
 #' }
+#' @export
 SetStringAttributeInH5 <- function(filename, location, name, attribute) {
   .Call("SetStringAttributeInH5", filename, location, name, attribute)
 }
@@ -584,6 +609,7 @@ SetStringAttributeInH5 <- function(filename, location, name, attribute) {
 #' \dontrun{
 #' GetUserDataFromH5("path/to/file.h5", location = , rowIndex = )
 #' }
+#' @export
 GetUserDataFromH5 <- function(filename, location, rowIndex) {
   .Call("GetUserDataFromH5", filename, location, rowIndex)
 }
@@ -604,6 +630,7 @@ GetUserDataFromH5 <- function(filename, location, rowIndex) {
 #' \dontrun{
 #' GetAcquisitionLogFromH5("path/to/file.h5", index = )
 #' }
+#' @export
 GetAcquisitionLogFromH5 <- function(filename, index) {
   .Call("GetAcquisitionLogFromH5", filename, index)
 }
@@ -627,6 +654,7 @@ GetAcquisitionLogFromH5 <- function(filename, index) {
 #' GetEventListSpectrumFromH5("path/to/file.h5", segmentIndex = 0,
 #' bufIndex = 0, writeIndex = 0)
 #' }
+#' @export
 GetEventListSpectrumFromH5 <- function(filename, segmentIndex, bufIndex,
                                          writeIndex) {
   .Call("GetEventListSpectrumFromH5", filename, segmentIndex, bufIndex, writeIndex)

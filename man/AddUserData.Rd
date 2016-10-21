@@ -31,6 +31,7 @@ acquistion into the current data file. Creates datasets "Data" and "Info" at
 Other Data storage functions: \code{\link{AddAttributeDouble}},
   \code{\link{AddAttributeInt}},
   \code{\link{AddAttributeString}},
+  \code{\link{AddLogEntry}},
   \code{\link{AddUserDataMultiRow}},
   \code{\link{GetRegUserDataDesc}},
   \code{\link{GetRegUserDataSources}},

@@ -39,7 +39,7 @@ lines of user data at once.
 Other Data storage functions: \code{\link{AddAttributeDouble}},
   \code{\link{AddAttributeInt}},
   \code{\link{AddAttributeString}},
-  \code{\link{AddUserData}},
+  \code{\link{AddLogEntry}}, \code{\link{AddUserData}},
   \code{\link{GetRegUserDataDesc}},
   \code{\link{GetRegUserDataSources}},
   \code{\link{KeepFileOpen}},

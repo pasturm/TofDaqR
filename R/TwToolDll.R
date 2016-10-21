@@ -39,6 +39,7 @@
 #' @return List with peak parameters.
 #'
 #' @family Peak fitting functions
+#' @export
 FitSinglePeak <- function(yVals, xVals, peakType = 0, blOffset = 0, blSlope = 0,
                           amplitude = 0, fwhmLo = 0, fwhmHi = 0, peakPos = 0, mu = 0) {
   .Call("FitSinglePeak", yVals, xVals, peakType, blOffset, blSlope,
@@ -83,6 +84,7 @@ FitSinglePeak <- function(yVals, xVals, peakType = 0, blOffset = 0, blSlope = 0,
 #' @return List with peak parameters.
 #'
 #' @family Peak fitting functions
+#' @export
 FitSinglePeak2 <- function(yVals, xVals, peakType = 0, param = rep(0, 7)) {
   .Call("FitSinglePeak2", yVals, xVals, peakType, param)
 }
@@ -104,6 +106,7 @@ FitSinglePeak2 <- function(yVals, xVals, peakType = 0, param = rep(0, 7)) {
 #' @return Vector with y axis data.
 #'
 #' @family Peak fitting functions
+#' @export
 EvalSinglePeak <- function(xVals, blOffset = 0, blSlope = 0, amplitude, fwhmLo, fwhmHi = fwhmLo, peakPos, mu = 0) {
   .Call("EvalSinglePeak", xVals, blOffset, blSlope, amplitude, fwhmLo, fwhmHi, peakPos, mu)
 }
@@ -121,6 +124,7 @@ EvalSinglePeak <- function(xVals, blOffset = 0, blSlope = 0, amplitude, fwhmLo, 
 #'
 #' @examples
 #' GetMoleculeMass("CO2")
+#' @export
 GetMoleculeMass <- function(molecule) {
   .Call("GetMoleculeMass", molecule)
 }
@@ -139,6 +143,7 @@ GetMoleculeMass <- function(molecule) {
 #'
 #' @examples
 #' GetIsotopePattern("CO2", 1e-5)
+#' @export
 GetIsotopePattern <- function(molecule, abundanceLimit) {
   rv <- .Call("GetIsotopePattern", molecule, abundanceLimit)
   if (rv$TwRetVal!=4) {warning(TwRetVal[rv$TwRetVal+1])} else {rv$TwRetVal <- NULL}
@@ -162,6 +167,7 @@ GetIsotopePattern <- function(molecule, abundanceLimit) {
 #'
 #' @examples
 #' GetIsotopePattern2("CO2", 1e-5)
+#' @export
 GetIsotopePattern2 <- function(molecule, abundanceLimit) {
   rv <- .Call("GetIsotopePattern2", molecule, abundanceLimit)
   if (rv$TwRetVal!=4) {warning(TwRetVal[rv$TwRetVal+1])} else {rv$TwRetVal <- NULL}
@@ -198,6 +204,7 @@ GetIsotopePattern2 <- function(molecule, abundanceLimit) {
 #'
 #' @examples
 #' Tof2Mass(100000, massCalibMode = 0, p = c(3,5))
+#' @export
 Tof2Mass <- function(tofSample, massCalibMode = 0, p) {
   .Call("Tof2Mass", as.numeric(tofSample), massCalibMode, p)
 }
@@ -232,6 +239,7 @@ Tof2Mass <- function(tofSample, massCalibMode = 0, p) {
 #'
 #' @examples
 #' Mass2Tof(100, massCalibMode = 0, p = c(3,5))
+#' @export
 Mass2Tof <- function(mass, massCalibMode = 0, p) {
   .Call("Mass2Tof", as.numeric(mass), massCalibMode, p)
 }
@@ -262,6 +270,7 @@ Mass2Tof <- function(mass, massCalibMode = 0, p) {
 #' @param idx Vector of sample indices (of same length as \code{mass}).
 #' @param weight Vector of weights (if \code{NULL} (default) all weights are set equal).
 #' @return Vector of calibration parameters.
+#' @export
 MassCalibrate <- function(massCalibMode = 0, mass, idx, weight = NULL) {
   if (is.null(weight)) {
     weight <- rep(1, length(mass))
@@ -287,6 +296,7 @@ MassCalibrate <- function(massCalibMode = 0, mass, idx, weight = NULL) {
 #' specType is \code{NULL}, all mass ranges get a default spectrum type of 0.
 #'
 #' @family Single ion histogramming functions.
+#' @export
 SiInitializeHistograms <- function(loMass, hiMass, specType = NULL) {
   if (is.null(specType)) {specType <- rep(0, length(loMass))}
   # Note: it is easier to do this here than to pass NULL to the API.
@@ -333,6 +343,7 @@ SiInitializeHistograms <- function(loMass, hiMass, specType = NULL) {
 #' @param specType Spectrum type index. -1 is a wildcard for all spectrum types.
 #'
 #' @family Single ion histogramming functions.
+#' @export
 SiSetProcessingOptions <- function(option, value, specType = -1) {
   rv <- .Call("SiSetProcessingOptions", option, value, specType)
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -352,6 +363,7 @@ SiSetProcessingOptions <- function(option, value, specType = -1) {
 #' @return A list with the baseline and threshold value.
 #'
 #' @family Single ion histogramming functions.
+#' @export
 SiProcessSpectrum <- function(spectrum, specType = 0) {
   .Call("SiProcessSpectrum", spectrum, specType)
 }
@@ -372,6 +384,7 @@ SiProcessSpectrum <- function(spectrum, specType = 0) {
 #' the mean histogram value i.e. sum(intensity[i]*counts[i])/sum(counts[i]).
 #'
 #' @family Single ion histogramming functions.
+#' @export
 SiGetHistogram <- function(histogramIndex) {
   .Call("SiGetHistogram", histogramIndex)
 }
@@ -393,6 +406,7 @@ SiGetHistogram <- function(histogramIndex) {
 #' the mean histogram value i.e. sum(intensity[i]*counts[i])/sum(counts[i]).
 #'
 #' @family Single ion histogramming functions.
+#' @export
 SiGetSumHistogram <- function(specType, minMass, maxMass, minRate, maxRate) {
   .Call("SiGetSumHistogram", specType, minMass, maxMass, minRate, maxRate)
 }
@@ -403,6 +417,7 @@ SiGetSumHistogram <- function(specType, minMass, maxMass, minRate, maxRate) {
 #' \code{SiResetHistograms} resets all histograms and spectrum counters to zero.
 #'
 #' @family Single ion histogramming functions.
+#' @export
 SiResetHistograms <- function() {
   rv <- .Call("SiResetHistograms")
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -415,6 +430,7 @@ SiResetHistograms <- function() {
 #' function \code{\link{SiInitializeHistograms}} can be called again.
 #'
 #' @family Single ion histogramming functions.
+#' @export
 SiCleanup <- function() {
   rv <- .Call("SiCleanup")
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -435,6 +451,7 @@ SiCleanup <- function() {
 #' maximum and a vector with the values of the four fitting parameters.
 #'
 #' @family Single ion histogramming functions.
+#' @export
 SiFitPhd <- function(intensity, counts) {
   .Call("SiFitPhd", intensity, counts)
 }
@@ -449,6 +466,7 @@ SiFitPhd <- function(intensity, counts) {
 #' @return Vector with y-axis data.
 #'
 #' @family Single ion histogramming functions.
+#' @export
 SiEvalPhd <- function(par, intensity) {
   .Call("SiEvalPhd", par, intensity)
 }
@@ -467,6 +485,7 @@ SiEvalPhd <- function(par, intensity) {
 #' fitted multi-ion distribution.
 #'
 #' @family Single ion histogramming functions.
+#' @export
 SiFitRateFromPhd <- function(intensity, counts, siPar) {
   .Call("SiFitRateFromPhd", intensity, counts, siPar)
 }
@@ -487,6 +506,7 @@ SiFitRateFromPhd <- function(intensity, counts, siPar) {
 #'
 #' @examples
 #' FindTpsIp("910.33.0316", 500)
+#' @export
 FindTpsIp <- function(TpsSerial, timeout) {
   rv <- .Call("FindTpsIp", TpsSerial, timeout)
   if (rv$TwRetVal!=4) {warning(TwRetVal[rv$TwRetVal+1])} else {rv$TwRetVal <- NULL}

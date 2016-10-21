@@ -28,6 +28,7 @@ Use \code{\link{UpdateUserData}} to update the data.
 Other Data storage functions: \code{\link{AddAttributeDouble}},
   \code{\link{AddAttributeInt}},
   \code{\link{AddAttributeString}},
+  \code{\link{AddLogEntry}},
   \code{\link{AddUserDataMultiRow}},
   \code{\link{AddUserData}},
   \code{\link{GetRegUserDataDesc}},

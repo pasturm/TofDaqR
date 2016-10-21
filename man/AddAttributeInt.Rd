@@ -20,6 +20,7 @@ characters).}
 \seealso{
 Other Data storage functions: \code{\link{AddAttributeDouble}},
   \code{\link{AddAttributeString}},
+  \code{\link{AddLogEntry}},
   \code{\link{AddUserDataMultiRow}},
   \code{\link{AddUserData}},
   \code{\link{GetRegUserDataDesc}},

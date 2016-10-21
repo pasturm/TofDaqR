@@ -3,6 +3,7 @@
 #'
 #' Data frame of TPS1 codes (as used in tps1rc.cfg to communicate with the TPS
 #' through the API) and corresponding names.
+#' @export
 Tps1rc <- c(
   1, "RBP",
   2, "RG",
@@ -97,6 +98,7 @@ Tps1rc$codes <-  as.integer(Tps1rc$codes)
 #'
 #' @param filename Path/filename. If not specified, "TmpMassTable.txt" in the
 #' current working directory will be used.
+#' @export
 SaveMassTableToFile <- function(filename = "TmpMassTable.txt") {
   if (file.exists(filename)) {
     file.remove(filename)
@@ -126,6 +128,7 @@ SaveMassTableToFile <- function(filename = "TmpMassTable.txt") {
 #' @return A list with the baseline and threshold value.
 #'
 #' @family Single ion histogramming functions.
+#' @export
 SiProcessSpectrumFromShMem <- function(specType = 0, BufIndex) {
   .Call("SiProcessSpectrumFromShMem", specType, BufIndex)
 }
@@ -152,6 +155,7 @@ SiProcessSpectrumFromShMem <- function(specType = 0, BufIndex) {
 #' 720-726.
 #'
 #' @return Time-of-flight (s)
+#' @export
 tof <- function(toftype = "LTOF", drift = 6000, pulse = 1000, mass = 100, x = 0,
                     v = 0) {
   .Call("tof", toftype, drift, pulse, mass, x, v)
@@ -170,6 +174,7 @@ tof <- function(toftype = "LTOF", drift = 6000, pulse = 1000, mass = 100, x = 0,
 #' processing operation.
 #'
 #' @param keepMapped \code{TRUE} or \code{FALSE}.
+#' @export
 KeepSharedMemMapped <- function(keepMapped) {
   rv <- .Call("KeepSharedMemMapped", keepMapped)
   if (rv!=4) {return(warning(TwRetVal[rv+1]))} else {return(TwRetVal[5])}
@@ -190,6 +195,7 @@ KeepSharedMemMapped <- function(keepMapped) {
 #' @param sampleInterval Sampling interval in ns, e.g. from \code{\link{GetH5Descriptor}}.
 #' @param nbrSamples Number of samples, e.g. from \code{\link{GetH5Descriptor}}.
 #' @return A vector containing the spectrum.
+#' @export
 EventList2TofSpec <- function(events, clockPeriod, sampleInterval, nbrSamples) {
   .Call("EventList2TofSpec", events, clockPeriod, sampleInterval, nbrSamples)
 }
@@ -208,6 +214,7 @@ EventList2TofSpec <- function(events, clockPeriod, sampleInterval, nbrSamples) {
 #' \code{GetFloatAttributeFromH5(filename, "FullSpectra", "ClockPeriod")}.
 #' @param sampleInterval Sampling interval in ns, e.g. from \code{\link{GetH5Descriptor}}.
 #' @return A list with sample indices and data values (in mV).
+#' @export
 DecodeEventList <- function(events, clockPeriod, sampleInterval) {
   .Call("DecodeEventList", events, clockPeriod, sampleInterval)
 }

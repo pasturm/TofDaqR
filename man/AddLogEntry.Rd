@@ -6,15 +6,31 @@
 \usage{
 AddLogEntry(LogEntryText)
 }
+\arguments{
+\item{LogEntryText}{Log text (max. 255 characters).}
+}
 \description{
 \code{AddLogEntry} adds an entry to the acquisition log.
 }
 \details{
 Note: specifying the log entry time (for adding entries in the past) is not
 supported.
-
-@param LogEntryText Log text (max. 255 characters).
-
-@family Data storage functions
+}
+\seealso{
+Other Data storage functions: \code{\link{AddAttributeDouble}},
+  \code{\link{AddAttributeInt}},
+  \code{\link{AddAttributeString}},
+  \code{\link{AddUserDataMultiRow}},
+  \code{\link{AddUserData}},
+  \code{\link{GetRegUserDataDesc}},
+  \code{\link{GetRegUserDataSources}},
+  \code{\link{KeepFileOpen}},
+  \code{\link{QueryRegUserDataSize}},
+  \code{\link{ReadRegUserData}},
+  \code{\link{RegisterUserDataBuf}},
+  \code{\link{RegisterUserDataNoStore}},
+  \code{\link{RegisterUserDataWrite}},
+  \code{\link{UnregisterUserData}},
+  \code{\link{UpdateUserData}}
 }
 
