@@ -12,5 +12,5 @@
 #'
 #' @docType package
 #' @name TofDaqR
-#' @useDynLib TofDaqWrapR
+#' @useDynLib TofDaqR
 NULL

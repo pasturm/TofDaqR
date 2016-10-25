@@ -1,0 +1,3 @@
+PKG_LIBS = -L"${R_PACKAGE_DIR}/libs" -Wl,-rpath,"${R_PACKAGE_DIR}/libs" -ltwh5 -ltwtool
+PKG_CPPFLAGS =  -I../tools/TofDaq/include -BUILD_DLL
+CXX_STD = CXX11

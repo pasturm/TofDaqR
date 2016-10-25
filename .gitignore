@@ -3,7 +3,6 @@
 .RData
 src/*.o
 src/*.so
-/src-i386
-/src-x64
+src/*.dll
 *.Rproj
 .Rbuildignore

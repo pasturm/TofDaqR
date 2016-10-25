@@ -1,0 +1,7 @@
+# copy dlls to ${R_PACKAGE_DIR}
+mkdir -p "${R_PACKAGE_DIR}/libs${R_ARCH}"
+if [ "${R_ARCH}" = "/x64" ]; then
+cp ./tools/TofDaq/bin/windows_x64/* "${R_PACKAGE_DIR}/libs${R_ARCH}"
+elif [ "${R_ARCH}" = "/x86" ]; then
+cp ./tools/TofDaq/bin/windows_x86/* "${R_PACKAGE_DIR}/libs${R_ARCH}"
+fi

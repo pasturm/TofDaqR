@@ -1,0 +1,19 @@
+#! /bin/bash
+
+# restore TofDaqDll.R and original NAMESPACE, ./man and zzz.R
+if [ -e ./tools/TofDaqDll.R ]; then
+mv ./tools/TofDaqDll.R ./R/TofDaqDll.R
+fi
+if [ -e ./tools/AdditionalTofDaqDll.R ]; then
+mv ./tools/AdditionalTofDaqDll.R ./R/AdditionalTofDaqDll.R
+fi
+if [ -e ./tools/NAMESPACE.windows ]; then
+mv ./tools/NAMESPACE.windows NAMESPACE
+fi
+if [ -e ./tools/man.windows/ ]; then
+mv ./tools/man.windows/* ./man
+rm -r ./tools/man.windows
+fi
+if [ -e ./tools/zzz.R.windows ]; then
+mv ./tools/zzz.R.windows ./R/zzz.R
+fi

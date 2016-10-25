@@ -1,3 +1,16 @@
+TofDaqR 0.2.0
+--------------------------------------------------------------------------------
+
+* Major code refactoring for building the package: TofDaqWrapR.dll is not any
+  more compiled with Visual Studio. Instead, the C++ source files of the C++/R
+  wrapper are included in the package source and compiled with the GCC compiler.
+
+* As a result, TofDaqR can also be installed on linux and macOS (for using the
+  twtool and twh5 functions)!
+
+* TofDaq API 1.99r443
+
+
 TofDaqR 0.1.8
 --------------------------------------------------------------------------------
 
