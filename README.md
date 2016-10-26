@@ -17,7 +17,6 @@ install.packages("devtools")
 devtools::install_github("pasturm/TofDaqR")
 ```
 
-
 Notes:
 
 * On Windows, [Rtools](https://cran.r-project.org/bin/windows/Rtools/) is required to compile and install TofDaqR.
