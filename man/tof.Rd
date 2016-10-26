@@ -30,6 +30,9 @@ extraction/two-stage reflection TOFMS (with second-order space focusing).
 \details{
 \code{"HTOF-W"} is the W-mode and assumes hard mirror voltage = 2*pulse voltage.
 \code{x} and \code{v} can be vectors, but must be the same length.
+
+Note: this function is not part of the TofDaq API, but is included in the
+package for convenience.
 }
 \references{
 Laiko, V.V. and A.F. Dodonov (1994), Resolution and Spectral-line
