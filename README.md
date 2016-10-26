@@ -9,5 +9,11 @@ install.packages("devtools")
 devtools::install_github("pasturm/TofDaqR")
 ```
 
-Note: *Rtools* (https://cran.r-project.org/bin/windows/Rtools/) is required to 
-install TofDaqR.
+
+Notes:
+
+* On Windows, [Rtools](https://cran.r-project.org/bin/windows/Rtools/) is required to compile and install TofDaqR.
+
+* On Mac, [Xcode](https://developer.apple.com/xcode/) is required to compile and install TofDaqR.
+
+* On Linux `sudo apt-get intall r-base-dev` (or similar) is required to compile and install TofDaqR.
