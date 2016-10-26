@@ -8,7 +8,7 @@
 #endif
 
 // #ifdef _MSC_VER
-#if defined(_WIN32) && (defined(_MSC_VER) || defined(__GNUC__))
+#if defined(_MSC_VER) || defined(__GNUC__)
 #define TwAddAttributeDouble          _TwAddAttributeDouble
 #define TwAddAttributeInt             _TwAddAttributeInt
 #define TwAddAttributeString          _TwAddAttributeString
