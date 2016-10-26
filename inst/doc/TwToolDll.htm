@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html class="desktop" dir="ltr" lang="en"><head>
+<html dir="ltr" class="desktop" lang="en"><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <title>manuals:daq:twtooldll</title>
 <meta name="generator" content="DokuWiki">
-<meta name="robots" content="index,follow">
+<meta name="robots" content="noindex,nofollow">
 <meta name="keywords" content="manuals,daq,twtooldll">
 <link rel="search" type="application/opensearchdescription+xml" href="http://wiki.tofwerk.com/lib/exe/opensearch.php" title="Tofwerk Documentation Wiki">
 <link rel="start" href="http://wiki.tofwerk.com/">
@@ -15,7 +15,7 @@
 <link rel="alternate" type="text/plain" title="Wiki Markup" href="http://wiki.tofwerk.com/doku.php?do=export_raw&amp;id=manuals:daq:twtooldll">
 <link rel="canonical" href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll">
 <link rel="stylesheet" type="text/css" href="TwToolDll_files/css.css">
-<script type="text/javascript">/*<![CDATA[*/var NS='manuals:daq';var SIG=' --- //[[tanner@tofwerk.com|Christian Tanner]] 20.10.2015 10:24//';var JSINFO = {"id":"manuals:daq:twtooldll","namespace":"manuals:daq"};
+<script type="text/javascript">/*<![CDATA[*/var NS='manuals:daq';var SIG=' --- //[[tanner@tofwerk.com|Christian Tanner]] 25.10.2016 15:17//';var JSINFO = {"id":"manuals:daq:twtooldll","namespace":"manuals:daq"};
 /*!]]>*/</script>
 <script type="text/javascript" charset="utf-8" src="TwToolDll_files/js.php"></script><style id="iris-css">.iris-picker{display:block;position:relative}.iris-picker,.iris-picker *{-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input+.iris-picker{margin-top:4px}.iris-error{background-color:#ffafaf}.iris-border{border-radius:3px;border:1px solid #aaa;width:200px;background-color:#fff}.iris-picker-inner{position:absolute;top:0;right:0;left:0;bottom:0}.iris-border .iris-picker-inner{top:10px;right:10px;left:10px;bottom:10px}.iris-picker .iris-square-inner{position:absolute;left:0;right:0;top:0;bottom:0}.iris-picker .iris-square,.iris-picker .iris-slider,.iris-picker .iris-square-inner,.iris-picker .iris-palette{border-radius:3px;box-shadow:inset 0 0 5px rgba(0,0,0,.4);height:100%;width:12.5%;float:left;margin-right:5%}.iris-picker .iris-square{width:76%;margin-right:10%;position:relative}.iris-picker .iris-square-inner{width:auto;margin:0}.iris-ie-9 .iris-square,.iris-ie-9 .iris-slider,.iris-ie-9 .iris-square-inner,.iris-ie-9 .iris-palette{box-shadow:none;border-radius:0}.iris-ie-9 .iris-square,.iris-ie-9 .iris-slider,.iris-ie-9 .iris-palette{outline:1px solid rgba(0,0,0,.1)}.iris-ie-lt9 .iris-square,.iris-ie-lt9 .iris-slider,.iris-ie-lt9 .iris-square-inner,.iris-ie-lt9 .iris-palette{outline:1px solid #aaa}.iris-ie-lt9 .iris-square .ui-slider-handle{outline:1px solid #aaa;background-color:#fff;-ms-filter:"alpha(Opacity=30)"}.iris-ie-lt9 .iris-square .iris-square-handle{background:0;border:3px solid #fff;-ms-filter:"alpha(Opacity=50)"}.iris-picker .iris-strip{margin-right:0;position:relative}.iris-picker .iris-strip .ui-slider-handle{position:absolute;background:0;margin:0;right:-3px;left:-3px;border:4px solid #aaa;border-width:4px 3px;width:auto;height:6px;border-radius:4px;box-shadow:0 1px 2px rgba(0,0,0,.2);opacity:.9;z-index:5;cursor:ns-resize}.iris-strip .ui-slider-handle:before{content:" ";position:absolute;left:-2px;right:-2px;top:-3px;bottom:-3px;border:2px solid #fff;border-radius:3px}.iris-picker .iris-slider-offset{position:absolute;top:11px;left:0;right:0;bottom:-3px;width:auto;height:auto;background:transparent;border:0;border-radius:0}.iris-picker .iris-square-handle{background:transparent;border:5px solid #aaa;border-radius:50%;border-color:rgba(128,128,128,.5);box-shadow:none;width:12px;height:12px;position:absolute;left:-10px;top:-10px;cursor:move;opacity:1;z-index:10}.iris-picker .ui-state-focus .iris-square-handle{opacity:.8}.iris-picker .iris-square-handle:hover{border-color:#999}.iris-picker .iris-square-value:focus .iris-square-handle{box-shadow:0 0 2px rgba(0,0,0,.75);opacity:.8}.iris-picker .iris-square-handle:hover::after{border-color:#fff}.iris-picker .iris-square-handle::after{position:absolute;bottom:-4px;right:-4px;left:-4px;top:-4px;border:3px solid #f9f9f9;border-color:rgba(255,255,255,.8);border-radius:50%;content:" "}.iris-picker .iris-square-value{width:8px;height:8px;position:absolute}.iris-ie-lt9 .iris-square-value,.iris-mozilla .iris-square-value{width:1px;height:1px}.iris-palette-container{position:absolute;bottom:0;left:0;margin:0;padding:0}.iris-border .iris-palette-container{left:10px;bottom:10px}.iris-picker .iris-palette{margin:0;cursor:pointer}.iris-square-handle,.ui-slider-handle{border:0;outline:0}</style>
 </head>
@@ -23,11 +23,11 @@
 <div class="dokuwiki export">
 <!-- TOC START -->
 <div id="dw__toc">
-<h3 style="cursor: pointer;" class="toggle open"><strong><span>−</span></strong>Table of Contents</h3>
-<div aria-expanded="true" style="">
+<h3 class="toggle open" style="cursor: pointer;"><strong><span>−</span></strong>Table of Contents</h3>
+<div style="" aria-expanded="true">
 
-<ul style="" class="toc">
-<li class="level1"><div class="li"><a href="#twtooldlldll_version_198">TwToolDll.dll version 1.98</a></div>
+<ul class="toc" style="">
+<li class="level1"><div class="li"><a href="#twtooldlldll_version_199">TwToolDll.dll version 1.99</a></div>
 <ul class="toc">
 <li class="level2"><div class="li"><a href="#general_functions">General functions</a></div>
 <ul class="toc">
@@ -94,6 +94,14 @@
 <li class="level3"><div class="li"><a href="#twfindtpsip">TwFindTpsIp</a></div></li>
 </ul>
 </li>
+<li class="level2"><div class="li"><a href="#imaging_functions">Imaging functions</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#twgenerateimagedata">TwGenerateImageData</a></div></li>
+<li class="level3"><div class="li"><a href="#twimagepaletteoffset2value">TwImagePaletteOffset2Value</a></div></li>
+<li class="level3"><div class="li"><a href="#twimagevalue2paletteoffset">TwImageValue2PaletteOffset</a></div></li>
+<li class="level3"><div class="li"><a href="#twimagegetpalettergb">TwImageGetPaletteRGB</a></div></li>
+</ul>
+</li>
 <li class="level2"><div class="li"><a href="#previous_revisions">Previous revisions</a></div></li>
 </ul></li>
 </ul>
@@ -101,7 +109,7 @@
 </div>
 <!-- TOC END -->
 
-<h1 class="sectionedit1" id="twtooldlldll_version_198">TwToolDll.dll version 1.98</h1>
+<h1 class="sectionedit1" id="twtooldlldll_version_199">TwToolDll.dll version 1.99</h1>
 <div class="level1">
 
 <p>
@@ -110,7 +118,7 @@ software (mainly TofDaqViewer) but was not accessible to TofDaq <abbr title="Atm
 </p>
 
 </div>
-<!-- EDIT1 SECTION "TwToolDll.dll version 1.98" [1-185] -->
+<!-- EDIT1 SECTION "TwToolDll.dll version 1.99" [1-185] -->
 <h2 class="sectionedit2" id="general_functions">General functions</h2>
 <div class="level2">
 
@@ -258,7 +266,7 @@ contributions from the baseline) can be calculated as:
 
 <br>
 
-<img src="TwToolDll_files/img_005.png" class="medialeft mathpublish" alt="area~=~amplitude~*~{{fwhmLo~+~fwhmHi}/2} * (0.506 mu + 1.064)" title="area~=~amplitude~*~{{fwhmLo~+~fwhmHi}/2} * (0.506 mu + 1.064)" style="display: inline-block; vertical-align:-16px">
+<img src="TwToolDll_files/img_006.png" class="medialeft mathpublish" alt="area~=~amplitude~*~{{fwhmLo~+~fwhmHi}/2} * (0.506 mu + 1.064)" title="area~=~amplitude~*~{{fwhmLo~+~fwhmHi}/2} * (0.506 mu + 1.064)" style="display: inline-block; vertical-align:-16px">
 </p>
 
 <p>
@@ -707,7 +715,7 @@ Utility function to determine the multi peak function value at an arbitrary posi
 <div class="level2">
 
 <p>
-An empirical function that describes the mass resolving power of TOFs as a function of mass is: <img src="TwToolDll_files/img_006.png" class="mediacenter mathpublish" alt="R(m)~=~R_0~-~{R_0 / {1+e^{{m-m_0}/dm}}}" title="R(m)~=~R_0~-~{R_0 / {1+e^{{m-m_0}/dm}}}" style="display: inline-block; vertical-align:-41px"><br>
+An empirical function that describes the mass resolving power of TOFs as a function of mass is: <img src="TwToolDll_files/img_007.png" class="mediacenter mathpublish" alt="R(m)~=~R_0~-~{R_0 / {1+e^{{m-m_0}/dm}}}" title="R(m)~=~R_0~-~{R_0 / {1+e^{{m-m_0}/dm}}}" style="display: inline-block; vertical-align:-41px"><br>
 
 <a href="http://wiki.tofwerk.com/lib/exe/detail.php?id=manuals%3Adaq%3Atwtooldll&amp;media=manuals:daq:tof_resolving_power.png" class="media" title="manuals:daq:tof_resolving_power.png"><img src="TwToolDll_files/fetch_002.png" class="media" title=" TOF resolving power example" alt=" TOF resolving power example"></a>
 <br>
@@ -1475,13 +1483,13 @@ The mass calibration functions are defined as sample index (not <abbr title="Tim
 		<td class="col0 centeralign">  0                  </td><td class="col1"> <img src="TwToolDll_files/img.png" class="medianormal mathpublish" alt="i(m)~=~p1 sqrt{m}~+~p2" title="i(m)~=~p1 sqrt{m}~+~p2" style="display: inline-block; vertical-align:-13px"></td>
 	</tr>
 	<tr class="row2">
-		<td class="col0 centeralign">  1                  </td><td class="col1"> <img src="TwToolDll_files/img_007.png" class="medianormal mathpublish" alt="i(m)~=~p1/sqrt{m}~+~p2" title="i(m)~=~p1/sqrt{m}~+~p2" style="display: inline-block; vertical-align:-32px"></td>
+		<td class="col0 centeralign">  1                  </td><td class="col1"> <img src="TwToolDll_files/img_003.png" class="medianormal mathpublish" alt="i(m)~=~p1/sqrt{m}~+~p2" title="i(m)~=~p1/sqrt{m}~+~p2" style="display: inline-block; vertical-align:-32px"></td>
 	</tr>
 	<tr class="row3">
-		<td class="col0 centeralign">  2                  </td><td class="col1"> <img src="TwToolDll_files/img_004.png" class="medianormal mathpublish" alt="i(m)~=~p1 m^p3~+~p2" title="i(m)~=~p1 m^p3~+~p2" style="display: inline-block; vertical-align:-13px"></td>
+		<td class="col0 centeralign">  2                  </td><td class="col1"> <img src="TwToolDll_files/img_005.png" class="medianormal mathpublish" alt="i(m)~=~p1 m^p3~+~p2" title="i(m)~=~p1 m^p3~+~p2" style="display: inline-block; vertical-align:-13px"></td>
 	</tr>
 	<tr class="row4">
-		<td class="col0 centeralign">  3                  </td><td class="col1"> <img src="TwToolDll_files/img_003.png" class="medianormal mathpublish" alt="i(m)~=~p1 sqrt{m}~+~p2~+~p3 (m-p4)^2" title="i(m)~=~p1 sqrt{m}~+~p2~+~p3 (m-p4)^2" style="display: inline-block; vertical-align:-13px"></td>
+		<td class="col0 centeralign">  3                  </td><td class="col1"> <img src="TwToolDll_files/img_004.png" class="medianormal mathpublish" alt="i(m)~=~p1 sqrt{m}~+~p2~+~p3 (m-p4)^2" title="i(m)~=~p1 sqrt{m}~+~p2~+~p3 (m-p4)^2" style="display: inline-block; vertical-align:-13px"></td>
 	</tr>
 	<tr class="row5">
 		<td class="col0 centeralign">  4                  </td><td class="col1"> <img src="TwToolDll_files/img_002.png" class="medianormal mathpublish" alt="i(m)~=~p1 sqrt{m}~+~p2~+~p3 m^2~+~p4 m~+~p5" title="i(m)~=~p1 sqrt{m}~+~p2~+~p3 m^2~+~p4 m~+~p5" style="display: inline-block; vertical-align:-13px"></td>
@@ -2949,9 +2957,337 @@ for permission.
 </p>
 
 </div>
-<!-- EDIT107 SECTION "TwFindTpsIp" [53127-54477] -->
-<h2 class="sectionedit110" id="previous_revisions">Previous revisions</h2>
+<!-- EDIT107 SECTION "TwFindTpsIp" [53127-54478] -->
+<h2 class="sectionedit110" id="imaging_functions">Imaging functions</h2>
 <div class="level2">
+
+</div>
+<!-- EDIT110 SECTION "Imaging functions" [54479-54508] -->
+<h3 class="sectionedit111" id="twgenerateimagedata">TwGenerateImageData</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwGenerateImageData<span class="br0">(</span><span class="kw4">int</span> width<span class="sy0">,</span> <span class="kw4">int</span> height<span class="sy0">,</span> <span class="kw4">float</span><span class="sy0">*</span> dataIn<span class="sy0">,</span> <span class="kw4">int</span> palette<span class="sy0">,</span> <span class="kw4">unsigned</span> <span class="kw4">char</span><span class="sy0">*</span> paletteOffset<span class="sy0">,</span> bool<span class="sy0">*</span> paletteInvert<span class="sy0">,</span> <span class="kw4">float</span><span class="sy0">*</span> dataMinMax<span class="sy0">,</span> <span class="kw4">float</span><span class="sy0">*</span> gammaVal<span class="sy0">,</span> <span class="kw4">unsigned</span> <span class="kw4">char</span><span class="sy0">*</span> specialColours<span class="sy0">,</span> <span class="kw4">unsigned</span> <span class="kw4">char</span><span class="sy0">*</span> imageOut<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose33">Purpose</h4>
+<div class="level4">
+
+<p>
+Generates image data for 1, 3 or 4 data channels using a nonlinear 
+mapping. For palette = -1 or palette = -2 the input data channel are 
+directly mapped on the corresponding RGB(A) output channels. For <code>palette</code> &gt;= 0 one of the predefined palettes is used:
+</p>
+<ul>
+<li class="level1"><div class="li"> 0: gray scale</div>
+</li>
+<li class="level1"><div class="li"> 1: HSV (cyclic)</div>
+</li>
+<li class="level1"><div class="li"> 2: cubeYF</div>
+</li>
+<li class="level1"><div class="li"> 3: cube1</div>
+</li>
+<li class="level1"><div class="li"> 4: LinL</div>
+</li>
+<li class="level1"><div class="li"> 5: jet</div>
+</li>
+<li class="level1"><div class="li"> 6: hot</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="parameters30">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit112"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>width</code>  </td><td class="col1 centeralign">  <code>int </code>  </td><td class="col2 leftalign"> image width  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>height</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> image height </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>dataIn</code>  </td><td class="col1 centeralign">  <code>float*</code>  </td><td class="col2"> input data. Expected length: <code>width</code>*<code>height</code> for <code>palette</code>&gt;= 0, 3*<code>width</code>*<code>height</code> for  <code>palette</code> = -1, 4*<code>width</code>*<code>height</code> for  <code>palette</code> = -2 </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>palette</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> paletteIndex (0-6) or -1 for RGB or -2 for RGBA (see <code>dataIn</code>) </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  <code>paletteOffset</code>  </td><td class="col1 centeralign">  <code>unsigned char*</code>  </td><td class="col2 leftalign"> palette offset for every data channel. Expected length: 1 for <code>palette</code> &gt; 0, 3 for <code>palette</code> = -1, 4 for <code>palette</code> = -2  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  <code>paletteInvert</code>  </td><td class="col1 centeralign">  <code>bool*</code>  </td><td class="col2 leftalign"> palette invert flag for every data channel. Expected length: 1 for <code>palette</code> &gt; 0, 3 for <code>palette</code> = -1, 4 for <code>palette</code> = -2  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  <code>dataMinMax</code>  </td><td class="col1 centeralign">  <code>float*</code>  </td><td class="col2 leftalign"> data min/max values for every data channel. Expected length: 2 for <code>palette</code> &gt; 0, 6 for <code>palette</code> = -1, 8 for <code>palette</code> = -2. Passing <code>NULL</code> determines min and max values from the input data.  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  <code>gamma</code>  </td><td class="col1 centeralign">  <code>float*</code>  </td><td class="col2 leftalign"> gamma value for every data channel. Expected length: 1 for <code>palette</code> &gt; 0, 3 for <code>palette</code> = -1, 4 for <code>palette</code> = -2  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  <code>specialColours</code>  </td><td class="col1 centeralign">  <code>unsigned char*</code>  </td><td class="col2"> “special” colors RGB triples for &lt; min, &gt; max and NaNs. Expected length: 12 for <code>palette</code> = -2, 9 for other <code>palette</code> values. Passing <code>NULL</code> uses internal defaults (white for values &lt; min, black for values &gt; max, grey for NaNs) </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 centeralign">  <code>imageOut</code>  </td><td class="col1 centeralign">  <code>unsigned char*</code>  </td><td class="col2"> Image data out array. Expected length: 4*<code>width</code>*<code>height</code> for  <code>palette</code> = -2,  3*<code>width</code>*<code>height</code> for all other <code>palette</code> values. </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT112 TABLE [55200-56831] -->
+</div>
+
+<h4 id="return_value33">Return value</h4>
+<div class="level4">
+<div class="table sectionedit113"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="4"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2"> success </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwError</code> </td><td class="col1 leftalign"> <code>tpsSerial</code>,<code>hostStrLen</code> or <code>hostStr</code> are <code>NULL</code>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>TwTimeout</code> </td><td class="col1 leftalign"> the <abbr title="TOFMS Power Supply">TPS</abbr> with serial number <code>tpsSerial</code> was not found within <code>timeout</code> ms  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>TwValueAdjusted</code> </td><td class="col1"> <abbr title="TOFMS Power Supply">TPS</abbr> was found but the supplied string buffer was not large enough, <code>*hostStrLen</code> holds the minimum required size (no partial information is copied to <code>hostStr</code>) </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT113 TABLE [56855-57321] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT111 SECTION "TwGenerateImageData" [54509-57331] -->
+<h3 class="sectionedit114" id="twimagepaletteoffset2value">TwImagePaletteOffset2Value</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API <span class="kw4">double</span> TwImagePaletteOffset2Value<span class="br0">(</span><span class="kw4">unsigned</span> <span class="kw4">char</span> pixelValue<span class="sy0">,</span> <span class="kw4">double</span> min<span class="sy0">,</span> <span class="kw4">double</span> max<span class="sy0">,</span> <span class="kw4">double</span> gamma<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose34">Purpose</h4>
+<div class="level4">
+
+<p>
+Helper function to convert between a pixel's palette offset and the corresponding intensity.
+</p>
+
+</div>
+
+<h4 id="parameters31">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit115"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>pixelValue</code>  </td><td class="col1 centeralign">  <code>unsigned char</code>  </td><td class="col2 leftalign"> palette value  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>min</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2"> minimum intensity value for palette mapping </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>max</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> maximum intensity value for palette mapping </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>gamma</code>  </td><td class="col1 centeralign">  <code>double </code>  </td><td class="col2"> gamma value for palette mapping </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT115 TABLE [57640-57952] -->
+</div>
+
+<h4 id="return_value34">Return value</h4>
+<div class="level4">
+<div class="table sectionedit116"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0"> <code>double</code> </td><td class="col1"> <em>variable</em> </td><td class="col2"> intensity that produces <code>pixelValue</code> for <code>min</code>, <code>max</code> and <code>gamma</code> </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT116 TABLE [57976-58122] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT114 SECTION "TwImagePaletteOffset2Value" [57332-58134] -->
+<h3 class="sectionedit117" id="twimagevalue2paletteoffset">TwImageValue2PaletteOffset</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API <span class="kw4">unsigned</span> <span class="kw4">char</span> TwImageValue2PaletteOffset<span class="br0">(</span><span class="kw4">double</span> dataValue<span class="sy0">,</span> <span class="kw4">double</span> min<span class="sy0">,</span> <span class="kw4">double</span> max<span class="sy0">,</span> <span class="kw4">double</span> gamma<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose35">Purpose</h4>
+<div class="level4">
+
+<p>
+Helper function to convert between an intensity and a pixel's palette offset. 
+</p>
+
+</div>
+
+<h4 id="parameters32">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit118"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>dataValue</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2 leftalign"> palette value  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>min</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2"> minimum intensity value for palette mapping </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>max</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> maximum intensity value for palette mapping </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>gamma</code>  </td><td class="col1 centeralign">  <code>double </code>  </td><td class="col2"> gamma value for palette mapping </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT118 TABLE [58428-58732] -->
+</div>
+
+<h4 id="return_value35">Return value</h4>
+<div class="level4">
+<div class="table sectionedit119"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0"> <code>unsigned char</code> </td><td class="col1"> <em>variable</em> </td><td class="col2"> palette offset (pixel value) for <code>dataValue</code> using <code>min</code>, <code>max</code> and <code>gamma</code> </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT119 TABLE [58756-58919] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT117 SECTION "TwImageValue2PaletteOffset" [58135-58929] -->
+<h3 class="sectionedit120" id="twimagegetpalettergb">TwImageGetPaletteRGB</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwImageGetPaletteRGB<span class="br0">(</span><span class="kw4">int</span> palette<span class="sy0">,</span> <span class="kw4">unsigned</span> <span class="kw4">char</span> paletteValue<span class="sy0">,</span> <span class="kw4">unsigned</span> <span class="kw4">char</span><span class="sy0">*</span> rgb<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose36">Purpose</h4>
+<div class="level4">
+
+<p>
+Helper function to access the integrated color palettes.
+</p>
+
+</div>
+
+<h4 id="parameters33">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit121"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>palette</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> index of palette (0-6) </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>paletteValue</code>  </td><td class="col1 centeralign">  <code>unsigned char</code>  </td><td class="col2"> palette index to get RGB values </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>rgb</code>  </td><td class="col1 centeralign">  <code>unsigned char*</code>  </td><td class="col2"> array of length 3 that holds the red, green and blue components upon successful function return </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT121 TABLE [59189-59493] -->
+</div>
+
+<h4 id="return_value36">Return value</h4>
+<div class="level4">
+<div class="table sectionedit122"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value    </th><th class="col2 centeralign">  meaning  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="4"> <code>TwRetVal</code> </td><td class="col1"> <code>TwSuccess</code> </td><td class="col2"> success </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>TwSuccess</code> </td><td class="col1"> <code>rgb</code> was filled with the palette's colors </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>TwOutOfBounds</code> </td><td class="col1"> invalid <code>palette</code> was passed </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>TwError</code> </td><td class="col1"> <code>rgb</code> is <code>NULL</code> </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT122 TABLE [59516-59775] --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT120 SECTION "TwImageGetPaletteRGB" [58930-59788] -->
+<h2 class="sectionedit123" id="previous_revisions">Previous revisions</h2>
+<div class="level2">
+
+<p>
+<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll198" class="wikilink1" title="manuals:daq:twtooldll198">TwToolDll 1.98</a>
+</p>
 
 <p>
 <a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll197" class="wikilink1" title="manuals:daq:twtooldll197">TwToolDll 1.97</a>
@@ -2998,7 +3334,7 @@ for permission.
 </p>
 
 </div>
-<!-- EDIT110 SECTION "Previous revisions" [54478-] --></div>
+<!-- EDIT123 SECTION "Previous revisions" [59789-] --></div>
 
 
 </body></html>

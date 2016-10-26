@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="desktop" dir="ltr" lang="en"><head>
+<html dir="ltr" class="desktop" lang="en"><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <title>manuals:daq:tofdaqdll</title>
@@ -15,7 +15,7 @@
 <link rel="alternate" type="text/plain" title="Wiki Markup" href="http://wiki.tofwerk.com/doku.php?do=export_raw&amp;id=manuals:daq:tofdaqdll">
 <link rel="canonical" href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll">
 <link rel="stylesheet" type="text/css" href="TofDaqDll_files/css.css">
-<script type="text/javascript">/*<![CDATA[*/var NS='manuals:daq';var SIG=' --- //[[tanner@tofwerk.com|Christian Tanner]] 20.10.2015 10:23//';var JSINFO = {"id":"manuals:daq:tofdaqdll","namespace":"manuals:daq"};
+<script type="text/javascript">/*<![CDATA[*/var NS='manuals:daq';var SIG=' --- //[[tanner@tofwerk.com|Christian Tanner]] 25.10.2016 15:16//';var JSINFO = {"id":"manuals:daq:tofdaqdll","namespace":"manuals:daq"};
 /*!]]>*/</script>
 <script type="text/javascript" charset="utf-8" src="TofDaqDll_files/js.php"></script><style id="iris-css">.iris-picker{display:block;position:relative}.iris-picker,.iris-picker *{-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input+.iris-picker{margin-top:4px}.iris-error{background-color:#ffafaf}.iris-border{border-radius:3px;border:1px solid #aaa;width:200px;background-color:#fff}.iris-picker-inner{position:absolute;top:0;right:0;left:0;bottom:0}.iris-border .iris-picker-inner{top:10px;right:10px;left:10px;bottom:10px}.iris-picker .iris-square-inner{position:absolute;left:0;right:0;top:0;bottom:0}.iris-picker .iris-square,.iris-picker .iris-slider,.iris-picker .iris-square-inner,.iris-picker .iris-palette{border-radius:3px;box-shadow:inset 0 0 5px rgba(0,0,0,.4);height:100%;width:12.5%;float:left;margin-right:5%}.iris-picker .iris-square{width:76%;margin-right:10%;position:relative}.iris-picker .iris-square-inner{width:auto;margin:0}.iris-ie-9 .iris-square,.iris-ie-9 .iris-slider,.iris-ie-9 .iris-square-inner,.iris-ie-9 .iris-palette{box-shadow:none;border-radius:0}.iris-ie-9 .iris-square,.iris-ie-9 .iris-slider,.iris-ie-9 .iris-palette{outline:1px solid rgba(0,0,0,.1)}.iris-ie-lt9 .iris-square,.iris-ie-lt9 .iris-slider,.iris-ie-lt9 .iris-square-inner,.iris-ie-lt9 .iris-palette{outline:1px solid #aaa}.iris-ie-lt9 .iris-square .ui-slider-handle{outline:1px solid #aaa;background-color:#fff;-ms-filter:"alpha(Opacity=30)"}.iris-ie-lt9 .iris-square .iris-square-handle{background:0;border:3px solid #fff;-ms-filter:"alpha(Opacity=50)"}.iris-picker .iris-strip{margin-right:0;position:relative}.iris-picker .iris-strip .ui-slider-handle{position:absolute;background:0;margin:0;right:-3px;left:-3px;border:4px solid #aaa;border-width:4px 3px;width:auto;height:6px;border-radius:4px;box-shadow:0 1px 2px rgba(0,0,0,.2);opacity:.9;z-index:5;cursor:ns-resize}.iris-strip .ui-slider-handle:before{content:" ";position:absolute;left:-2px;right:-2px;top:-3px;bottom:-3px;border:2px solid #fff;border-radius:3px}.iris-picker .iris-slider-offset{position:absolute;top:11px;left:0;right:0;bottom:-3px;width:auto;height:auto;background:transparent;border:0;border-radius:0}.iris-picker .iris-square-handle{background:transparent;border:5px solid #aaa;border-radius:50%;border-color:rgba(128,128,128,.5);box-shadow:none;width:12px;height:12px;position:absolute;left:-10px;top:-10px;cursor:move;opacity:1;z-index:10}.iris-picker .ui-state-focus .iris-square-handle{opacity:.8}.iris-picker .iris-square-handle:hover{border-color:#999}.iris-picker .iris-square-value:focus .iris-square-handle{box-shadow:0 0 2px rgba(0,0,0,.75);opacity:.8}.iris-picker .iris-square-handle:hover::after{border-color:#fff}.iris-picker .iris-square-handle::after{position:absolute;bottom:-4px;right:-4px;left:-4px;top:-4px;border:3px solid #f9f9f9;border-color:rgba(255,255,255,.8);border-radius:50%;content:" "}.iris-picker .iris-square-value{width:8px;height:8px;position:absolute}.iris-ie-lt9 .iris-square-value,.iris-mozilla .iris-square-value{width:1px;height:1px}.iris-palette-container{position:absolute;bottom:0;left:0;margin:0;padding:0}.iris-border .iris-palette-container{left:10px;bottom:10px}.iris-picker .iris-palette{margin:0;cursor:pointer}.iris-square-handle,.ui-slider-handle{border:0;outline:0}</style>
 </head>
@@ -23,11 +23,11 @@
 <div class="dokuwiki export">
 <!-- TOC START -->
 <div id="dw__toc">
-<h3 style="cursor: pointer;" class="toggle open"><strong><span>−</span></strong>Table of Contents</h3>
-<div aria-expanded="true" style="">
+<h3 class="toggle open" style="cursor: pointer;"><strong><span>−</span></strong>Table of Contents</h3>
+<div style="" aria-expanded="true">
 
-<ul style="" class="toc">
-<li class="level1"><div class="li"><a href="#tofdaqdlldll_version_198">TofDaqDll.dll version 1.98</a></div>
+<ul class="toc" style="">
+<li class="level1"><div class="li"><a href="#tofdaqdlldll_version_199">TofDaqDll.dll version 1.99</a></div>
 <ul class="toc">
 <li class="level2"><div class="li"><a href="#control_functions">Control functions</a></div>
 <ul class="toc">
@@ -136,7 +136,7 @@
 </div>
 <!-- TOC END -->
 
-<h1 class="sectionedit1" id="tofdaqdlldll_version_198">TofDaqDll.dll version 1.98</h1>
+<h1 class="sectionedit1" id="tofdaqdlldll_version_199">TofDaqDll.dll version 1.99</h1>
 <div class="level1">
 
 <p>
@@ -153,7 +153,7 @@ asynchronous to the recorded mass spectra.
 </p>
 
 </div>
-<!-- EDIT1 SECTION "TofDaqDll.dll version 1.98" [1-362] -->
+<!-- EDIT1 SECTION "TofDaqDll.dll version 1.99" [1-362] -->
 <h2 class="sectionedit2" id="control_functions">Control functions</h2>
 <div class="level2">
 
@@ -3783,16 +3783,19 @@ Gauge pressures, <abbr title="TOFMS Power Supply">TPS</abbr> voltages etc.
 	</tr>
 	</thead>
 	<tbody><tr class="row1">
-		<td class="col0" rowspan="3"> <code>TwRetVal</code> </td><td class="col1 leftalign"> <code>TwDaqRecNotRunning</code>  </td><td class="col2"> no recording application was found </td>
+		<td class="col0" rowspan="4"> <code>TwRetVal</code> </td><td class="col1 leftalign"> <code>TwDaqRecNotRunning</code>  </td><td class="col2"> no recording application was found </td>
 	</tr>
 	<tr class="row2">
 		<td class="col0 leftalign"> <code>TwSuccess</code>           </td><td class="col1"> data successfully copied </td>
 	</tr>
 	<tr class="row3">
+		<td class="col0 leftalign"> <code>TwFileNotFound</code>      </td><td class="col1"> data source specified in <code>Location</code> does not exist </td>
+	</tr>
+	<tr class="row4">
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> general error </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT139 TABLE [56759-57042] --><hr>
+<!-- EDIT139 TABLE [56759-57140] --><hr>
 
 <p>
 <br>
@@ -3800,7 +3803,7 @@ Gauge pressures, <abbr title="TOFMS Power Supply">TPS</abbr> voltages etc.
 </p>
 
 </div>
-<!-- EDIT137 SECTION "TwReadRegUserData" [56014-57052] -->
+<!-- EDIT137 SECTION "TwReadRegUserData" [56014-57150] -->
 <h3 class="sectionedit140" id="twqueryreguserdatasize">TwQueryRegUserDataSize</h3>
 <div class="level3">
 
@@ -3841,7 +3844,7 @@ significantly faster. Introduced in 1.96.
 		<td class="col0 centeralign">  <code>NbrElements</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> <code>*NbrElements</code> holds the number elements on successful function return </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT141 TABLE [57561-57798] -->
+<!-- EDIT141 TABLE [57659-57896] -->
 </div>
 
 <h4 id="return_value51">Return value</h4>
@@ -3859,7 +3862,7 @@ significantly faster. Introduced in 1.96.
 		<td class="col0 leftalign"> <code>TwError</code>    </td><td class="col1"> <code>NbrElements</code> is NULL or invalid/nonexistent <code>Location</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT142 TABLE [57821-58080] --><hr>
+<!-- EDIT142 TABLE [57919-58178] --><hr>
 
 <p>
 <br>
@@ -3867,7 +3870,7 @@ significantly faster. Introduced in 1.96.
 </p>
 
 </div>
-<!-- EDIT140 SECTION "TwQueryRegUserDataSize" [57053-58089] -->
+<!-- EDIT140 SECTION "TwQueryRegUserDataSize" [57151-58187] -->
 <h3 class="sectionedit143" id="twgetreguserdatasources">TwGetRegUserDataSources</h3>
 <div class="level3">
 
@@ -3913,7 +3916,7 @@ sources by setting <code>*arrayLength</code> to 0 and passing <code>NULL</code> 
 		<td class="col0 centeralign">  <code>type</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> int array of length <code>*arrayLength</code>. 1: data source values are written to disk for every write, 2: data source values are written to disk for every buf. </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT144 TABLE [58546-59160] -->
+<!-- EDIT144 TABLE [58644-59258] -->
 </div>
 
 <h4 id="return_value52">Return value</h4>
@@ -3940,7 +3943,7 @@ sources by setting <code>*arrayLength</code> to 0 and passing <code>NULL</code> 
 		<td class="col0 leftalign"> <code>TwValueAdjusted</code>             </td><td class="col1"> if <code>*arrayLength</code> is adjusted by the function. </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT145 TABLE [59184-59741] --><hr>
+<!-- EDIT145 TABLE [59282-59839] --><hr>
 
 <p>
 <br>
@@ -3948,7 +3951,7 @@ sources by setting <code>*arrayLength</code> to 0 and passing <code>NULL</code> 
 </p>
 
 </div>
-<!-- EDIT143 SECTION "TwGetRegUserDataSources" [58090-59751] -->
+<!-- EDIT143 SECTION "TwGetRegUserDataSources" [58188-59849] -->
 <h3 class="sectionedit146" id="twgetreguserdatadesc">TwGetRegUserDataDesc</h3>
 <div class="level3">
 
@@ -3989,7 +3992,7 @@ Reads the element descriptions of a registered data source. Can be used to query
 		<td class="col0 centeralign">  <code>elementDescription</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2"> char array of length <code>elementDescription*256</code>. </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT147 TABLE [60144-60425] -->
+<!-- EDIT147 TABLE [60242-60523] -->
 </div>
 
 <h4 id="return_value53">Return value</h4>
@@ -4019,7 +4022,7 @@ Reads the element descriptions of a registered data source. Can be used to query
 		<td class="col0 leftalign"> <code>TwValueAdjusted</code>             </td><td class="col1"> <code>*nbrElements</code> was adjusted by the function </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT148 TABLE [60448-61106] --><hr>
+<!-- EDIT148 TABLE [60546-61204] --><hr>
 
 <p>
 <br>
@@ -4027,7 +4030,7 @@ Reads the element descriptions of a registered data source. Can be used to query
 </p>
 
 </div>
-<!-- EDIT146 SECTION "TwGetRegUserDataDesc" [59752-61116] -->
+<!-- EDIT146 SECTION "TwGetRegUserDataDesc" [59850-61214] -->
 <h3 class="sectionedit149" id="twkeepfileopen">TwKeepFileOpen</h3>
 <div class="level3">
 
@@ -4062,7 +4065,7 @@ Allows the <abbr title="Atmospheric Pressure Interface / Application Programming
 		<td class="col0 centeralign">  <code>keepOpen</code>  </td><td class="col1 centeralign">  <code>bool</code>  </td><td class="col2"> Issue <code>true</code> (after <abbr title="Data Acquisition">DAQ</abbr> start) to signal to recorder to keep the data file open, when done adding data issue <code>false</code> to allow the recorder to close the file. </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT150 TABLE [61320-61551] -->
+<!-- EDIT150 TABLE [61418-61649] -->
 </div>
 
 <h4 id="return_value54">Return value</h4>
@@ -4089,7 +4092,7 @@ Allows the <abbr title="Atmospheric Pressure Interface / Application Programming
 		<td class="col0 leftalign"> <code>TwFileNotFound</code>             </td><td class="col1"> acquisition without data file detected </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT151 TABLE [61574-62008] --><hr>
+<!-- EDIT151 TABLE [61672-62106] --><hr>
 
 <p>
 <br>
@@ -4097,7 +4100,7 @@ Allows the <abbr title="Atmospheric Pressure Interface / Application Programming
 </p>
 
 </div>
-<!-- EDIT149 SECTION "TwKeepFileOpen" [61117-62020] -->
+<!-- EDIT149 SECTION "TwKeepFileOpen" [61215-62118] -->
 <h2 class="sectionedit152" id="tps_remote_control_functions">TPS remote control functions</h2>
 <div class="level2">
 
@@ -4106,7 +4109,7 @@ The <abbr title="TOFMS Power Supply">TPS</abbr> Controller software implements a
 </p>
 
 </div>
-<!-- EDIT152 SECTION "TPS remote control functions" [62021-62322] -->
+<!-- EDIT152 SECTION "TPS remote control functions" [62119-62420] -->
 <h3 class="sectionedit153" id="twtpsconnect">TwTpsConnect</h3>
 <div class="level3">
 
@@ -4153,7 +4156,7 @@ none
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> connect failed (<abbr title="TOFMS Power Supply">TPS</abbr> Controller not running or remote control not enabled)</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT154 TABLE [62563-62810] --><hr>
+<!-- EDIT154 TABLE [62661-62908] --><hr>
 
 <p>
 <br>
@@ -4161,7 +4164,7 @@ none
 </p>
 
 </div>
-<!-- EDIT153 SECTION "TwTpsConnect" [62323-62820] -->
+<!-- EDIT153 SECTION "TwTpsConnect" [62421-62918] -->
 <h3 class="sectionedit155" id="twtpsconnect2">TwTpsConnect2</h3>
 <div class="level3">
 
@@ -4199,7 +4202,7 @@ Connects to a local or remote <abbr title="TOFMS Power Supply">TPS</abbr>. If <c
 		<td class="col0 centeralign">  <code>type</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> <abbr title="TOFMS Power Supply">TPS</abbr> type (0: 1st generation <abbr title="TOFMS Power Supply">TPS</abbr>, 1: 2nd generation <abbr title="TOFMS Power Supply">TPS</abbr>) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT156 TABLE [63116-63286] -->
+<!-- EDIT156 TABLE [63214-63384] -->
 </div>
 
 <h4 id="return_value56">Return value</h4>
@@ -4217,7 +4220,7 @@ Connects to a local or remote <abbr title="TOFMS Power Supply">TPS</abbr>. If <c
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> connect failed (<abbr title="TOFMS Power Supply">TPS</abbr> Controller not running or remote control not enabled)</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT157 TABLE [63309-63556] --><hr>
+<!-- EDIT157 TABLE [63407-63654] --><hr>
 
 <p>
 <br>
@@ -4225,7 +4228,7 @@ Connects to a local or remote <abbr title="TOFMS Power Supply">TPS</abbr>. If <c
 </p>
 
 </div>
-<!-- EDIT155 SECTION "TwTpsConnect2" [62821-63566] -->
+<!-- EDIT155 SECTION "TwTpsConnect2" [62919-63664] -->
 <h3 class="sectionedit158" id="twtpsdisconnect">TwTpsDisconnect</h3>
 <div class="level3">
 
@@ -4272,7 +4275,7 @@ none
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> disconnect failed (<abbr title="TOFMS Power Supply">TPS</abbr> Controller not connected)</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT159 TABLE [63795-64020] --><hr>
+<!-- EDIT159 TABLE [63893-64118] --><hr>
 
 <p>
 <br>
@@ -4280,7 +4283,7 @@ none
 </p>
 
 </div>
-<!-- EDIT158 SECTION "TwTpsDisconnect" [63567-64030] -->
+<!-- EDIT158 SECTION "TwTpsDisconnect" [63665-64128] -->
 <h3 class="sectionedit160" id="twtpsgetmonitorvalue">TwTpsGetMonitorValue</h3>
 <div class="level3">
 
@@ -4318,7 +4321,7 @@ Retrieves the last reported monitor value for a given module.
 		<td class="col0 centeralign">  <code>value</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> monitor value is copied to <code>*value</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT161 TABLE [64263-64417] -->
+<!-- EDIT161 TABLE [64361-64515] -->
 </div>
 
 <h4 id="return_value58">Return value</h4>
@@ -4339,7 +4342,7 @@ Retrieves the last reported monitor value for a given module.
 		<td class="col0 leftalign"> <code>TwOutOfBounds</code>             </td><td class="col1"> module does not exist </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT162 TABLE [64440-64698] --><hr>
+<!-- EDIT162 TABLE [64538-64796] --><hr>
 
 <p>
 <br>
@@ -4347,7 +4350,7 @@ Retrieves the last reported monitor value for a given module.
 </p>
 
 </div>
-<!-- EDIT160 SECTION "TwTpsGetMonitorValue" [64031-64708] -->
+<!-- EDIT160 SECTION "TwTpsGetMonitorValue" [64129-64806] -->
 <h3 class="sectionedit163" id="twtpsgettargetvalue">TwTpsGetTargetValue</h3>
 <div class="level3">
 
@@ -4385,7 +4388,7 @@ Retrieves the last reported target value for a given module.
 		<td class="col0 centeralign">  <code>value</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> target value is copied to <code>*value</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT164 TABLE [64938-65091] -->
+<!-- EDIT164 TABLE [65036-65189] -->
 </div>
 
 <h4 id="return_value59">Return value</h4>
@@ -4406,7 +4409,7 @@ Retrieves the last reported target value for a given module.
 		<td class="col0 leftalign"> <code>TwOutOfBounds</code>             </td><td class="col1"> module does not exist </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT165 TABLE [65114-65372] --><hr>
+<!-- EDIT165 TABLE [65212-65470] --><hr>
 
 <p>
 <br>
@@ -4414,7 +4417,7 @@ Retrieves the last reported target value for a given module.
 </p>
 
 </div>
-<!-- EDIT163 SECTION "TwTpsGetTargetValue" [64709-65382] -->
+<!-- EDIT163 SECTION "TwTpsGetTargetValue" [64807-65480] -->
 <h3 class="sectionedit166" id="twtpsgetlastsetvalue">TwTpsGetLastSetValue</h3>
 <div class="level3">
 
@@ -4452,7 +4455,7 @@ Retrieves the last reported “last set” value for a given module.
 		<td class="col0 centeralign">  <code>value</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> last set value is copied to <code>*value</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT167 TABLE [65618-65773] -->
+<!-- EDIT167 TABLE [65716-65871] -->
 </div>
 
 <h4 id="return_value60">Return value</h4>
@@ -4473,7 +4476,7 @@ Retrieves the last reported “last set” value for a given module.
 		<td class="col0 leftalign"> <code>TwOutOfBounds</code>             </td><td class="col1"> module does not exist </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT168 TABLE [65796-66054] --><hr>
+<!-- EDIT168 TABLE [65894-66152] --><hr>
 
 <p>
 <br>
@@ -4481,7 +4484,7 @@ Retrieves the last reported “last set” value for a given module.
 </p>
 
 </div>
-<!-- EDIT166 SECTION "TwTpsGetLastSetValue" [65383-66064] -->
+<!-- EDIT166 SECTION "TwTpsGetLastSetValue" [65481-66162] -->
 <h3 class="sectionedit169" id="twtpssettargetvalue">TwTpsSetTargetValue</h3>
 <div class="level3">
 
@@ -4519,7 +4522,7 @@ Stes the target value for a given module.
 		<td class="col0 centeralign">  <code>value</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2 leftalign"> value to set  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT170 TABLE [66274-66403] -->
+<!-- EDIT170 TABLE [66372-66501] -->
 </div>
 
 <h4 id="return_value61">Return value</h4>
@@ -4540,7 +4543,7 @@ Stes the target value for a given module.
 		<td class="col0 leftalign"> <code>TwOutOfBounds</code>             </td><td class="col1"> module does not exist </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT171 TABLE [66426-66684] --><hr>
+<!-- EDIT171 TABLE [66524-66782] --><hr>
 
 <p>
 <br>
@@ -4548,7 +4551,7 @@ Stes the target value for a given module.
 </p>
 
 </div>
-<!-- EDIT169 SECTION "TwTpsSetTargetValue" [66065-66694] -->
+<!-- EDIT169 SECTION "TwTpsSetTargetValue" [66163-66792] -->
 <h3 class="sectionedit172" id="twtpsgetnbrmodules">TwTpsGetNbrModules</h3>
 <div class="level3">
 
@@ -4583,7 +4586,7 @@ Reports the number of controllable modules.
 		<td class="col0 centeralign">  <code>nbrModules</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> number of modules is copied to <code>*nbrModules</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT173 TABLE [66891-67009] -->
+<!-- EDIT173 TABLE [66989-67107] -->
 </div>
 
 <h4 id="return_value62">Return value</h4>
@@ -4601,7 +4604,7 @@ Reports the number of controllable modules.
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> not connected</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT174 TABLE [67032-67217] --><hr>
+<!-- EDIT174 TABLE [67130-67315] --><hr>
 
 <p>
 <br>
@@ -4609,7 +4612,7 @@ Reports the number of controllable modules.
 </p>
 
 </div>
-<!-- EDIT172 SECTION "TwTpsGetNbrModules" [66695-67227] -->
+<!-- EDIT172 SECTION "TwTpsGetNbrModules" [66793-67325] -->
 <h3 class="sectionedit175" id="twtpsgetmodulecodes">TwTpsGetModuleCodes</h3>
 <div class="level3">
 
@@ -4647,7 +4650,7 @@ Gets module codes of all controllable <abbr title="TOFMS Power Supply">TPS</abbr
 		<td class="col0 centeralign">  <code>bufferLength</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> length of array <code>moduleCodeBuffer</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT176 TABLE [67457-67649] -->
+<!-- EDIT176 TABLE [67555-67747] -->
 </div>
 
 <h4 id="return_value63">Return value</h4>
@@ -4665,7 +4668,7 @@ Gets module codes of all controllable <abbr title="TOFMS Power Supply">TPS</abbr
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> not connected</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT177 TABLE [67672-67857] --><hr>
+<!-- EDIT177 TABLE [67770-67955] --><hr>
 
 <p>
 <br>
@@ -4673,7 +4676,7 @@ Gets module codes of all controllable <abbr title="TOFMS Power Supply">TPS</abbr
 </p>
 
 </div>
-<!-- EDIT175 SECTION "TwTpsGetModuleCodes" [67228-67867] -->
+<!-- EDIT175 SECTION "TwTpsGetModuleCodes" [67326-67965] -->
 <h3 class="sectionedit178" id="twtpsinitialize">TwTpsInitialize</h3>
 <div class="level3">
 
@@ -4720,7 +4723,7 @@ none
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> not connected</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT179 TABLE [68047-68232] --><hr>
+<!-- EDIT179 TABLE [68145-68330] --><hr>
 
 <p>
 <br>
@@ -4728,7 +4731,7 @@ none
 </p>
 
 </div>
-<!-- EDIT178 SECTION "TwTpsInitialize" [67868-68242] -->
+<!-- EDIT178 SECTION "TwTpsInitialize" [67966-68340] -->
 <h3 class="sectionedit180" id="twtpssetallvoltages">TwTpsSetAllVoltages</h3>
 <div class="level3">
 
@@ -4775,7 +4778,7 @@ none
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> not connected</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT181 TABLE [68432-68617] --><hr>
+<!-- EDIT181 TABLE [68530-68715] --><hr>
 
 <p>
 <br>
@@ -4783,7 +4786,7 @@ none
 </p>
 
 </div>
-<!-- EDIT180 SECTION "TwTpsSetAllVoltages" [68243-68628] -->
+<!-- EDIT180 SECTION "TwTpsSetAllVoltages" [68341-68726] -->
 <h3 class="sectionedit182" id="twtpsshutdown">TwTpsShutdown</h3>
 <div class="level3">
 
@@ -4830,7 +4833,7 @@ none
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> not connected</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT183 TABLE [68803-68988] --><hr>
+<!-- EDIT183 TABLE [68901-69086] --><hr>
 
 <p>
 <br>
@@ -4838,7 +4841,7 @@ none
 </p>
 
 </div>
-<!-- EDIT182 SECTION "TwTpsShutdown" [68629-68998] -->
+<!-- EDIT182 SECTION "TwTpsShutdown" [68727-69096] -->
 <h3 class="sectionedit184" id="twtpsgetstatus">TwTpsGetStatus</h3>
 <div class="level3">
 
@@ -4873,7 +4876,7 @@ Retrieves the status of the <abbr title="TOFMS Power Supply">TPS</abbr>.
 		<td class="col0 centeralign">  <code>status</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> pointer to int that will contain the status code of the <abbr title="TOFMS Power Supply">TPS</abbr>. </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT185 TABLE [69172-69300] -->
+<!-- EDIT185 TABLE [69270-69398] -->
 <p>
 The status int is a bitfield with the following meaning:
 </p>
@@ -4902,7 +4905,7 @@ The status int is a bitfield with the following meaning:
 		<td class="col0">5-6</td><td class="col1"> Current Ionmode (0=Inconsistent, 1=Undetermined, 2=Positive, 3=Negative) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT186 TABLE [69359-69563] -->
+<!-- EDIT186 TABLE [69457-69661] -->
 </div>
 
 <h4 id="return_value67">Return value</h4>
@@ -4920,7 +4923,7 @@ The status int is a bitfield with the following meaning:
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> not connected</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT187 TABLE [69585-69770] --><hr>
+<!-- EDIT187 TABLE [69683-69868] --><hr>
 
 <p>
 <br>
@@ -4928,7 +4931,7 @@ The status int is a bitfield with the following meaning:
 </p>
 
 </div>
-<!-- EDIT184 SECTION "TwTpsGetStatus" [68999-69781] -->
+<!-- EDIT184 SECTION "TwTpsGetStatus" [69097-69879] -->
 <h3 class="sectionedit188" id="twtpsloadsetfile">TwTpsLoadSetFile</h3>
 <div class="level3">
 
@@ -4963,7 +4966,7 @@ Loads a <abbr title="TOFMS Power Supply">TPS</abbr> Controller .set file from di
 		<td class="col0 centeralign">  <code>setFile</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2"> .set file to load and set </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT189 TABLE [69993-70088] -->
+<!-- EDIT189 TABLE [70091-70186] -->
 </div>
 
 <h4 id="return_value68">Return value</h4>
@@ -4987,7 +4990,7 @@ Loads a <abbr title="TOFMS Power Supply">TPS</abbr> Controller .set file from di
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> not connected, <code>setFile</code>==NULL, no permission to access file</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT190 TABLE [70111-70528] --><hr>
+<!-- EDIT190 TABLE [70209-70626] --><hr>
 
 <p>
 <br>
@@ -4995,7 +4998,7 @@ Loads a <abbr title="TOFMS Power Supply">TPS</abbr> Controller .set file from di
 </p>
 
 </div>
-<!-- EDIT188 SECTION "TwTpsLoadSetFile" [69782-70538] -->
+<!-- EDIT188 SECTION "TwTpsLoadSetFile" [69880-70636] -->
 <h3 class="sectionedit191" id="twtpssavesetfile">TwTpsSaveSetFile</h3>
 <div class="level3">
 
@@ -5030,7 +5033,7 @@ Stores the current <abbr title="TOFMS Power Supply">TPS</abbr> settings to a .se
 		<td class="col0 centeralign">  <code>setFile</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2"> .set file to save </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT192 TABLE [70734-70821] -->
+<!-- EDIT192 TABLE [70832-70919] -->
 </div>
 
 <h4 id="return_value69">Return value</h4>
@@ -5048,7 +5051,7 @@ Stores the current <abbr title="TOFMS Power Supply">TPS</abbr> settings to a .se
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> not connected, <code>setFile</code>==NULL, no permission to write file</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT193 TABLE [70844-71077] --><hr>
+<!-- EDIT193 TABLE [70942-71175] --><hr>
 
 <p>
 <br>
@@ -5056,7 +5059,7 @@ Stores the current <abbr title="TOFMS Power Supply">TPS</abbr> settings to a .se
 </p>
 
 </div>
-<!-- EDIT191 SECTION "TwTpsSaveSetFile" [70539-71087] -->
+<!-- EDIT191 SECTION "TwTpsSaveSetFile" [70637-71185] -->
 <h3 class="sectionedit194" id="twtpsgetactivefilament">TwTpsGetActiveFilament</h3>
 <div class="level3">
 
@@ -5091,7 +5094,7 @@ Retrieves the the currently active filament.
 		<td class="col0 centeralign">  <code>activeFilament</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> pointer to int that will contain the currently active filament. </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT195 TABLE [71297-71436] -->
+<!-- EDIT195 TABLE [71395-71534] -->
 </div>
 
 <h4 id="return_value70">Return value</h4>
@@ -5109,7 +5112,7 @@ Retrieves the the currently active filament.
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> not connected</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT196 TABLE [71459-71644] --><hr>
+<!-- EDIT196 TABLE [71557-71742] --><hr>
 
 <p>
 <br>
@@ -5117,7 +5120,7 @@ Retrieves the the currently active filament.
 </p>
 
 </div>
-<!-- EDIT194 SECTION "TwTpsGetActiveFilament" [71088-71653] -->
+<!-- EDIT194 SECTION "TwTpsGetActiveFilament" [71186-71751] -->
 <h3 class="sectionedit197" id="twtpssetactivefilament">TwTpsSetActiveFilament</h3>
 <div class="level3">
 
@@ -5152,7 +5155,7 @@ Sets the active filament.
 		<td class="col0 centeralign">  <code>activeFilament</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> filament to set active </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT198 TABLE [71843-71940] -->
+<!-- EDIT198 TABLE [71941-72038] -->
 </div>
 
 <h4 id="return_value71">Return value</h4>
@@ -5173,7 +5176,7 @@ Sets the active filament.
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> not connected</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT199 TABLE [71964-72236] --><hr>
+<!-- EDIT199 TABLE [72062-72334] --><hr>
 
 <p>
 <br>
@@ -5181,7 +5184,7 @@ Sets the active filament.
 </p>
 
 </div>
-<!-- EDIT197 SECTION "TwTpsSetActiveFilament" [71654-72246] -->
+<!-- EDIT197 SECTION "TwTpsSetActiveFilament" [71752-72344] -->
 <h3 class="sectionedit200" id="twtpsgetmodulelimits">TwTpsGetModuleLimits</h3>
 <div class="level3">
 
@@ -5222,7 +5225,7 @@ Queries the (ion mode dependent) limits for a given <abbr title="TOFMS Power Sup
 		<td class="col0 centeralign">  <code>maxLimit</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2 leftalign"> minimum limit value (by reference)  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT201 TABLE [72619-72847] -->
+<!-- EDIT201 TABLE [72717-72945] -->
 </div>
 
 <h4 id="return_value72">Return value</h4>
@@ -5243,7 +5246,7 @@ Queries the (ion mode dependent) limits for a given <abbr title="TOFMS Power Sup
 		<td class="col0 leftalign"> <code>TwOutOfBounds</code>             </td><td class="col1"> module does not exist </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT202 TABLE [72870-73128] --><hr>
+<!-- EDIT202 TABLE [72968-73226] --><hr>
 
 <p>
 <br>
@@ -5251,7 +5254,7 @@ Queries the (ion mode dependent) limits for a given <abbr title="TOFMS Power Sup
 </p>
 
 </div>
-<!-- EDIT200 SECTION "TwTpsGetModuleLimits" [72247-73138] -->
+<!-- EDIT200 SECTION "TwTpsGetModuleLimits" [72345-73236] -->
 <h2 class="sectionedit203" id="parameter_list">Parameter list</h2>
 <div class="level2">
 
@@ -5821,14 +5824,14 @@ for automatic generation of resolution dependent peak borders,
 		<td class="col0 leftalign"> <code>WaitForADC</code>                  </td><td class="col1 leftalign"> <code>bool</code>   </td><td class="col2"> configure timer card to suppress <abbr title="Data Acquisition">DAQ</abbr> trigger generation during data download (cable connection between TiGer and AP240 needed) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT204 TABLE [73429-91374] -->
+<!-- EDIT204 TABLE [73527-91472] -->
 <p>
 <br>
 
 </p>
 
 </div>
-<!-- EDIT203 SECTION "Parameter list" [73139-91379] -->
+<!-- EDIT203 SECTION "Parameter list" [73237-91477] -->
 <h2 class="sectionedit205" id="data_structures">Data structures</h2>
 <div class="level2">
 
@@ -5847,7 +5850,7 @@ insert dummy variables to account for different alignment).
 </p>
 
 </div>
-<!-- EDIT205 SECTION "Data structures" [91380-91812] -->
+<!-- EDIT205 SECTION "Data structures" [91478-91910] -->
 <h3 class="sectionedit206" id="twretval">TwRetVal</h3>
 <div class="level3">
 
@@ -5900,14 +5903,14 @@ most TofDaq <abbr title="Atmospheric Pressure Interface / Application Programmin
 		<td class="col0"> <code>TwAborted</code> </td><td class="col1 centeralign">  12  </td><td class="col2"> operation aborted </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT207 TABLE [92036-93156] -->
+<!-- EDIT207 TABLE [92134-93254] -->
 <p>
 <br>
 
 </p>
 
 </div>
-<!-- EDIT206 SECTION "TwRetVal" [91813-93161] -->
+<!-- EDIT206 SECTION "TwRetVal" [91911-93259] -->
 <h3 class="sectionedit208" id="tsharedmemorypointer">TSharedMemoryPointer</h3>
 <div class="level3">
 
@@ -5975,14 +5978,14 @@ NbrWaveforms*NbrBufs*NbrMemories. <code>NULL</code> for ProcessingLevel &lt; 4 o
 		<td class="col0 centeralign" colspan="2">  <em>Total size</em>            </td><td class="col2 centeralign">  <em>52</em>  </td><td class="col3 leftalign" colspan="2">   </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT209 TABLE [93759-96181] -->
+<!-- EDIT209 TABLE [93857-96279] -->
 <p>
 <br>
 
 </p>
 
 </div>
-<!-- EDIT208 SECTION "TSharedMemoryPointer" [93162-96185] -->
+<!-- EDIT208 SECTION "TSharedMemoryPointer" [93260-96283] -->
 <h3 class="sectionedit210" id="tpeakpar">TPeakPar</h3>
 <div class="level3">
 
@@ -6011,14 +6014,14 @@ This structure is used by the <code>TwGetPeakParameters</code> function.
 		<td class="col0 centeralign" colspan="2">  <em>Total size</em>            </td><td class="col2 centeralign">  <em>76</em>  </td><td class="col3 leftalign" colspan="2">   </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT211 TABLE [96269-96773] -->
+<!-- EDIT211 TABLE [96367-96871] -->
 <p>
 <br>
 
 </p>
 
 </div>
-<!-- EDIT210 SECTION "TPeakPar" [96186-96777] -->
+<!-- EDIT210 SECTION "TPeakPar" [96284-96875] -->
 <h3 class="sectionedit212" id="tsharedmemorydesc">TSharedMemoryDesc</h3>
 <div class="level3">
 
@@ -6030,227 +6033,384 @@ This structure contains all information needed to access the data in the
 <div class="table sectionedit213"><table class="inline">
 	<thead>
 	<tr class="row0">
-		<th class="col0 centeralign">  member  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  size (bytes)  </th><th class="col3 centeralign">  offset (bytes)  </th><th class="col4 centeralign">  description  </th>
+		<th class="col0 centeralign">  member                          </th><th class="col1 centeralign">  type                </th><th class="col2 centeralign">  size (bytes)  </th><th class="col3 centeralign">  offset (bytes)           </th><th class="col4 centeralign">
+  description                                                           
+                                                                        
+                                                                      </th>
 	</tr>
 	</thead>
 	<tbody><tr class="row1">
-		<td class="col0"> <code>NbrSamples</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  0  </td><td class="col4"> length (in samples) of one mass spectrum (1<sup>st</sup> data dimension) </td>
+		<td class="col0 leftalign"> <code>NbrSamples</code>                   </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  0                        </td><td class="col4 leftalign"> length (in samples) of one mass spectrum (1<sup>st</sup>
+ data dimension)                                                        
+                                                                        
+             </td>
 	</tr>
 	<tr class="row2">
-		<td class="col0"> <code>NbrRawSamples</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  4  </td><td class="col4"> length of raw data resulting in one mass spectrum after processing </td>
+		<td class="col0 leftalign"> <code>NbrRawSamples</code>                </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  4                        </td><td class="col4 leftalign">
+ length of raw data resulting in one mass spectrum after processing     
+                                                                        
+                                                                      </td>
 	</tr>
 	<tr class="row3">
-		<td class="col0"> <code>NbrPeaks</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  8  </td><td class="col4"> number of defined peaks </td>
+		<td class="col0 leftalign"> <code>NbrPeaks</code>                     </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  8                        </td><td class="col4 leftalign">
+ number of defined peaks                                                
+                                                                        
+                                                                      </td>
 	</tr>
 	<tr class="row4">
-		<td class="col0"> <code>NbrWaveforms</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  12  </td><td class="col4"> number of subsequent extractions added into one segment </td>
+		<td class="col0 leftalign"> <code>NbrWaveforms</code>                 </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  12                       </td><td class="col4 leftalign">
+ number of subsequent extractions added into one segment                
+                                                                        
+                                                                      </td>
 	</tr>
 	<tr class="row5">
-		<td class="col0"> <code>NbrSegments</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  16  </td><td class="col4"> number of segments (2<sup>nd</sup> data dimension) </td>
+		<td class="col0 leftalign"> <code>NbrSegments</code>                  </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  16                       </td><td class="col4 leftalign"> number of segments (2<sup>nd</sup>
+ data dimension)                                                        
+                                                                        
+                                   </td>
 	</tr>
 	<tr class="row6">
-		<td class="col0"> <code>NbrBlocks</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  20  </td><td class="col4"> number of round-robin coadds over all segments </td>
+		<td class="col0 leftalign"> <code>NbrBlocks</code>                    </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  20                       </td><td class="col4 leftalign">
+ number of round-robin coadds over all segments                         
+                                                                        
+                                                                      </td>
 	</tr>
 	<tr class="row7">
-		<td class="col0"> <code>NbrMemories</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  24  </td><td class="col4"> same behaviour as NbrBlocks but with update of <code>TofData</code> and <code>PeakData</code> and signaling of new data after every memory. Can have a different values for every buf (see <code>TwConfigVarNbrMemories</code> documentation). </td>
+		<td class="col0 leftalign"> <code>NbrMemories</code>                  </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  24                       </td><td class="col4 leftalign"> same behaviour as NbrBlocks but with update of <code>TofData</code> and <code>PeakData</code> and signaling of new data after every memory. Can have a different values for every buf (see <code>TwConfigVarNbrMemories</code> documentation).  </td>
 	</tr>
 	<tr class="row8">
-		<td class="col0"> <code>NbrBufs</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  28  </td><td class="col4"> length of 3<sup>rd</sup> data dimension. Determines size of acquisition buffers (see <code>TSharedMemoryPointer</code> members). </td>
+		<td class="col0 leftalign"> <code>NbrBufs</code>                      </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  28                       </td><td class="col4 leftalign"> length of 3<sup>rd</sup> data dimension. Determines size of acquisition buffers (see <code>TSharedMemoryPointer</code> members).                                                                                              </td>
 	</tr>
 	<tr class="row9">
-		<td class="col0"> <code>NbrWrites</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  32  </td><td class="col4"> length of 4<sup>th</sup> data dimension. Defines the length of the run. </td>
+		<td class="col0 leftalign"> <code>NbrWrites</code>                    </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  32                       </td><td class="col4 leftalign"> length of 4<sup>th</sup>
+ data dimension. Defines the length of the run.                         
+                                                                        
+                                             </td>
 	</tr>
 	<tr class="row10">
-		<td class="col0"> <code>NbrRuns</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  36  </td><td class="col4"> number of runs. Each run will create a new data file. </td>
+		<td class="col0 leftalign"> <code>NbrRuns</code>                      </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  36                       </td><td class="col4 leftalign">
+ number of runs. Each run will create a new data file.                  
+                                                                        
+                                                                      </td>
 	</tr>
 	<tr class="row11">
-		<td class="col0"> <code>iWaveform</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  40  </td><td class="col4"> acquisition progress. Runs from 0 to NbrWaveforms-1. </td>
+		<td class="col0 leftalign"> <code>iWaveform</code>                    </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  40                       </td><td class="col4 leftalign">
+ acquisition progress. Runs from 0 to NbrWaveforms-1.                   
+                                                                        
+                                                                      </td>
 	</tr>
 	<tr class="row12">
-		<td class="col0"> <code>iSegment</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  44  </td><td class="col4"> acquisition progress. Runs from 0 to NbrSegments-1. </td>
+		<td class="col0 leftalign"> <code>iSegment</code>                     </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  44                       </td><td class="col4 leftalign">
+ acquisition progress. Runs from 0 to NbrSegments-1.                    
+                                                                        
+                                                                      </td>
 	</tr>
 	<tr class="row13">
-		<td class="col0"> <code>iBlock</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  48  </td><td class="col4"> acquisition progress. Runs from 0 to NbrBlocks-1. </td>
+		<td class="col0 leftalign"> <code>iBlock</code>                       </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  48                       </td><td class="col4 leftalign">
+ acquisition progress. Runs from 0 to NbrBlocks-1.                      
+                                                                        
+                                                                      </td>
 	</tr>
 	<tr class="row14">
-		<td class="col0"> <code>iMemory</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  52  </td><td class="col4"> acquisition progress. Runs from 0 to NbrMemories-1. </td>
+		<td class="col0 leftalign"> <code>iMemory</code>                      </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  52                       </td><td class="col4 leftalign">
+ acquisition progress. Runs from 0 to NbrMemories-1.                    
+                                                                        
+                                                                      </td>
 	</tr>
 	<tr class="row15">
-		<td class="col0"> <code>iBuf</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  56  </td><td class="col4"> acquisition progress. Runs from 0 to NbrBufs-1. </td>
+		<td class="col0 leftalign"> <code>iBuf</code>                         </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  56                       </td><td class="col4 leftalign">
+ acquisition progress. Runs from 0 to NbrBufs-1.                        
+                                                                        
+                                                                      </td>
 	</tr>
 	<tr class="row16">
-		<td class="col0"> <code>iWrite</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  60  </td><td class="col4"> acquisition progress. Runs from 0 to NbrWrites-1. </td>
+		<td class="col0 leftalign"> <code>iWrite</code>                       </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  60                       </td><td class="col4 leftalign">
+ acquisition progress. Runs from 0 to NbrWrites-1.                      
+                                                                        
+                                                                      </td>
 	</tr>
 	<tr class="row17">
-		<td class="col0"> <code>iRun</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  64  </td><td class="col4"> acquisition progress. Runs from 0 to NbrRuns-1. </td>
+		<td class="col0 leftalign"> <code>iRun</code>                         </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  64                       </td><td class="col4 leftalign">
+ acquisition progress. Runs from 0 to NbrRuns-1.                        
+                                                                        
+                                                                      </td>
 	</tr>
 	<tr class="row18">
-		<td class="col0"> <code>TotalBufsRecorded</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  68  </td><td class="col4"> counter of complete bufs read from <abbr title="Data Acquisition">DAQ</abbr> device. Runs from 0 to NbrBufs*NbrWrites-1. Don't use this value to calculate offsets in <code>PeakData</code> or <code>TofData</code>. </td>
+		<td class="col0 leftalign"> <code>TotalBufsRecorded</code>            </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  68                       </td><td class="col4 leftalign"> counter of complete bufs read from <abbr title="Data Acquisition">DAQ</abbr> device. Runs from 0 to NbrBufs*NbrWrites-1. Don't use this value to calculate offsets in <code>PeakData</code> or <code>TofData</code>.                                                         </td>
 	</tr>
 	<tr class="row19">
-		<td class="col0"> <code>TotalBufsProcessed</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  72  </td><td class="col4"> counter of complete bufs processed by recorder.  Runs from 0 to NbrBufs*NbrWrites-1. Use this value to get <code>PeakData</code>/<code>TofData</code> offsets. </td>
+		<td class="col0 leftalign"> <code>TotalBufsProcessed</code>           </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  72                       </td><td class="col4 leftalign"> counter of complete bufs processed by recorder.  Runs from 0 to NbrBufs*NbrWrites-1. Use this value to get <code>PeakData</code>/<code>TofData</code> offsets.                                                                         </td>
 	</tr>
 	<tr class="row20">
-		<td class="col0"> <code>TotalBufsWritten</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  76  </td><td class="col4"> counter for successfully written bufs. Usually not needed by <abbr title="Atmospheric Pressure Interface / Application Programming Interface">API</abbr> users. </td>
+		<td class="col0 leftalign"> <code>TotalBufsWritten</code>             </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  76                       </td><td class="col4 leftalign"> counter for successfully written bufs. Usually not needed by <abbr title="Atmospheric Pressure Interface / Application Programming Interface">API</abbr>
+ users.                                                                 
+                                                                        
+     </td>
 	</tr>
 	<tr class="row21">
-		<td class="col0"> <code>OverallBufsProcessed</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  80  </td><td class="col4"> similar to <code>TotalBufsProcessed</code> but without reset after runs. Runs from 0 to NbrBufs*NbrWrites*NbrRuns-1. </td>
+		<td class="col0 leftalign"> <code>OverallBufsProcessed</code>         </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  80                       </td><td class="col4 leftalign"> similar to <code>TotalBufsProcessed</code>
+ but without reset after runs. Runs from 0 to 
+NbrBufs*NbrWrites*NbrRuns-1.                                            
+                                                              </td>
 	</tr>
 	<tr class="row22">
-		<td class="col0"> <code>TotalNbrMemories</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  84  </td><td class="col4">
+		<td class="col0 leftalign"> <code>TotalNbrMemories</code>             </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  84                       </td><td class="col4 leftalign">
  total number of memories in run. If the “variable NbrMemories” feature 
-is not used this value is always NbrMemories*NbrBufs*NbrWrites. </td>
+is not used this value is always NbrMemories*NbrBufs*NbrWrites.         
+                                                                      </td>
 	</tr>
 	<tr class="row23">
-		<td class="col0"> <code>TotalMemoriesProcessed</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  88  </td><td class="col4"> total number of memories processed in this run. Allows for progress calculation in “variable NbrMemories” runs. </td>
+		<td class="col0 leftalign"> <code>TotalMemoriesProcessed</code>       </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  88                       </td><td class="col4 leftalign">
+ total number of memories processed in this run. Allows for progress 
+calculation in “variable NbrMemories” runs.                             
+                                                                        
+ </td>
 	</tr>
 	<tr class="row24">
-		<td class="col0"> <code>RawDataRecordedBuf1</code> </td><td class="col1 centeralign">  <code>unsigned int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  92  </td><td class="col4" rowspan="8"> These values are needed only for raw data handling. </td>
+		<td class="col0 leftalign"> <code>RawDataRecordedBuf1</code>          </td><td class="col1 centeralign">  <code>unsigned int</code>    </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  92                       </td><td class="col4 leftalign" rowspan="8">
+ These values are needed only for raw data handling.                    
+                                                                        
+                                                                      </td>
 	</tr>
 	<tr class="row25">
-		<td class="col0"> <code>RawDataRecordedBuf2</code> </td><td class="col1 centeralign">  <code>unsigned int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  96  </td>
+		<td class="col0 leftalign"> <code>RawDataRecordedBuf2</code>          </td><td class="col1 centeralign">  <code>unsigned int</code>    </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  96                       </td>
 	</tr>
 	<tr class="row26">
-		<td class="col0"> <code>RawDataLastElementInBuffer1</code> </td><td class="col1 centeralign">  <code>unsigned int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  100  </td>
+		<td class="col0 leftalign"> <code>RawDataLastElementInBuffer1</code>  </td><td class="col1 centeralign">  <code>unsigned int</code>    </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  100                      </td>
 	</tr>
 	<tr class="row27">
-		<td class="col0"> <code>RawDataLastElementInBuffer2</code> </td><td class="col1 centeralign">  <code>unsigned int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  104  </td>
+		<td class="col0 leftalign"> <code>RawDataLastElementInBuffer2</code>  </td><td class="col1 centeralign">  <code>unsigned int</code>    </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  104                      </td>
 	</tr>
 	<tr class="row28">
-		<td class="col0"> <code>RawDataProcessedBuf1</code> </td><td class="col1 centeralign">  <code>unsigned int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  108  </td>
+		<td class="col0 leftalign"> <code>RawDataProcessedBuf1</code>         </td><td class="col1 centeralign">  <code>unsigned int</code>    </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  108                      </td>
 	</tr>
 	<tr class="row29">
-		<td class="col0"> <code>RawDataProcessedBuf2</code> </td><td class="col1 centeralign">  <code>unsigned int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  112  </td>
+		<td class="col0 leftalign"> <code>RawDataProcessedBuf2</code>         </td><td class="col1 centeralign">  <code>unsigned int</code>    </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  112                      </td>
 	</tr>
 	<tr class="row30">
-		<td class="col0"> <code>RawDataWrittenBuf1</code> </td><td class="col1 centeralign">  <code>unsigned int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  116  </td>
+		<td class="col0 leftalign"> <code>RawDataWrittenBuf1</code>           </td><td class="col1 centeralign">  <code>unsigned int</code>    </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  116                      </td>
 	</tr>
 	<tr class="row31">
-		<td class="col0"> <code>RawDataWrittenBuf2</code> </td><td class="col1 centeralign">  <code>unsigned int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  120  </td>
+		<td class="col0 leftalign"> <code>RawDataWrittenBuf2</code>           </td><td class="col1 centeralign">  <code>unsigned int</code>    </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  120                      </td>
 	</tr>
 	<tr class="row32">
-		<td class="col0"> <code>SampleInterval</code> </td><td class="col1 centeralign">  <code>float</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  124  </td><td class="col4"> sample interval in seconds </td>
+		<td class="col0 leftalign"> <code>SampleInterval</code>               </td><td class="col1 centeralign">  <code>float</code>           </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  124                      </td><td class="col4 leftalign">
+ sample interval in seconds                                             
+                                                                        
+                                                                      </td>
 	</tr>
 	<tr class="row33">
-		<td class="col0"> <code>TofPeriod</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  128  </td><td class="col4"> <abbr title="Time Of Flight">TOF</abbr> extraction period in ns </td>
+		<td class="col0 leftalign"> <code>TofPeriod</code>                    </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  128                      </td><td class="col4 leftalign"> <abbr title="Time Of Flight">TOF</abbr>
+ extraction period in ns                                                
+                                                                        
+                                                                  </td>
 	</tr>
 	<tr class="row34">
-		<td class="col0"> <code>BlockPeriod</code> </td><td class="col1 centeralign">  <code>int64</code>  </td><td class="col2 centeralign">  8  </td><td class="col3 centeralign">  <span style="color:red; ">136</span>  </td><td class="col4"> block period in ns </td>
+		<td class="col0 leftalign"> <code>NbrCubes</code>                     </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  132                      </td><td class="col4 leftalign">
+ number of cubes summed into one write                                  
+                                                                        
+                                                                      </td>
 	</tr>
 	<tr class="row35">
-		<td class="col0"> <code>BlockPulseDelay</code> </td><td class="col1 centeralign">  <code>int64</code>  </td><td class="col2 centeralign">  8  </td><td class="col3 centeralign">  144  </td><td class="col4"> delay between block start and block pulse output in ns </td>
+		<td class="col0 leftalign"> <code>BlockPeriod</code>                  </td><td class="col1 centeralign">  <code>int64</code>           </td><td class="col2 centeralign">  8             </td><td class="col3 centeralign">  136                      </td><td class="col4 leftalign">
+ block period in ns                                                     
+                                                                        
+                                                                      </td>
 	</tr>
 	<tr class="row36">
-		<td class="col0"> <code>BlockDelay</code> </td><td class="col1 centeralign">  <code>int64</code>  </td><td class="col2 centeralign">  8  </td><td class="col3 centeralign">  152  </td><td class="col4"> delay between block start and first <abbr title="Data Acquisition">DAQ</abbr> trigger in ns (data delay) </td>
+		<td class="col0 leftalign"> <code>BlockPulseDelay</code>              </td><td class="col1 centeralign">  <code>int64</code>           </td><td class="col2 centeralign">  8             </td><td class="col3 centeralign">  144                      </td><td class="col4 leftalign">
+ delay between block start and block pulse output in ns                 
+                                                                        
+                                                                      </td>
 	</tr>
 	<tr class="row37">
-		<td class="col0"> <code>SingleIonSignal</code> </td><td class="col1 centeralign">  <code>float</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  160  </td><td class="col4"> single ion signal in mV·ns </td>
+		<td class="col0 leftalign"> <code>BlockDelay</code>                   </td><td class="col1 centeralign">  <code>int64</code>           </td><td class="col2 centeralign">  8             </td><td class="col3 centeralign">  152                      </td><td class="col4 leftalign"> delay between block start and first <abbr title="Data Acquisition">DAQ</abbr>
+ trigger in ns (data delay)                                             
+                                                                        
+                              </td>
 	</tr>
 	<tr class="row38">
-		<td class="col0"> <code>SingleIonSignal2</code> </td><td class="col1 centeralign">  <code>float</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  164  </td><td class="col4"> single ion signal in mV·ns of second <abbr title="Time Of Flight">TOF</abbr> </td>
+		<td class="col0 leftalign"> <code>SingleIonSignal</code>              </td><td class="col1 centeralign">  <code>float</code>           </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  160                      </td><td class="col4 leftalign">
+ single ion signal in mV·ns                                             
+                                                                        
+                                                                      </td>
 	</tr>
 	<tr class="row39">
-		<td class="col0"> <code>MassCalibMode</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  168  </td><td class="col4"> mass calibration mode (calibration function) </td>
+		<td class="col0 leftalign"> <code>SingleIonSignal2</code>             </td><td class="col1 centeralign">  <code>float</code>           </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  164                      </td><td class="col4 leftalign"> single ion signal in mV·ns of second <abbr title="Time Of Flight">TOF</abbr>
+                                                                        
+                                                                        
+                             </td>
 	</tr>
 	<tr class="row40">
-		<td class="col0"> <code>MassCalibMode2</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  172  </td><td class="col4"> mass calibration mode (calibration function) of second <abbr title="Time Of Flight">TOF</abbr> </td>
+		<td class="col0 leftalign"> <code>MassCalibMode</code>                </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  168                      </td><td class="col4 leftalign">
+ mass calibration mode (calibration function)                           
+                                                                        
+                                                                      </td>
 	</tr>
 	<tr class="row41">
-		<td class="col0"> <code>NbrMassCalibParams</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  176  </td><td class="col4"> number of calibration parameters for current <code>MassCalibMode</code> </td>
+		<td class="col0 leftalign"> <code>MassCalibMode2</code>               </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  172                      </td><td class="col4 leftalign"> mass calibration mode (calibration function) of second <abbr title="Time Of Flight">TOF</abbr>
+                                                                        
+                                                                        
+           </td>
 	</tr>
 	<tr class="row42">
-		<td class="col0"> <code>NbrMassCalibParams2</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  180  </td><td class="col4"> number of calibration parameters for current <code>MassCalibMode2</code> </td>
+		<td class="col0 leftalign"> <code>NbrMassCalibParams</code>           </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  176                      </td><td class="col4 leftalign"> number of calibration parameters for current <code>MassCalibMode</code>
+                                                                        
+                                                                        
+       </td>
 	</tr>
 	<tr class="row43">
-		<td class="col0"> <code>p</code> </td><td class="col1 centeralign">  <code>double[16]</code>  </td><td class="col2 centeralign">  128  </td><td class="col3 centeralign">  184  </td><td class="col4"> calibration parameters </td>
+		<td class="col0 leftalign"> <code>NbrMassCalibParams2</code>          </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  180                      </td><td class="col4 leftalign"> number of calibration parameters for current <code>MassCalibMode2</code>
+                                                                        
+                                                                        
+      </td>
 	</tr>
 	<tr class="row44">
-		<td class="col0"> <code>p2</code> </td><td class="col1 centeralign">  <code>double[16]</code>  </td><td class="col2 centeralign">  128  </td><td class="col3 centeralign">  312  </td><td class="col4"> calibration parameters of second <abbr title="Time Of Flight">TOF</abbr> </td>
+		<td class="col0 leftalign"> <code>p</code>                            </td><td class="col1 centeralign">  <code>double[16]</code>      </td><td class="col2 centeralign">  128           </td><td class="col3 centeralign">  184                      </td><td class="col4 leftalign">
+ calibration parameters                                                 
+                                                                        
+                                                                      </td>
 	</tr>
 	<tr class="row45">
-		<td class="col0"> <code>R0</code> </td><td class="col1 centeralign">  <code>float</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  440  </td><td class="col4" rowspan="3"> parameters for theoretical <abbr title="Time Of Flight">TOF</abbr> resolution: <img src="TofDaqDll_files/img.png" class="medianormal mathpublish" alt="R(m)=R_0-R_0/{1+exp({m-m_0}/d_m)}" title="R(m)=R_0-R_0/{1+exp({m-m_0}/d_m)}" style="display: inline-block; vertical-align:-63px"> </td>
+		<td class="col0 leftalign"> <code>p2</code>                           </td><td class="col1 centeralign">  <code>double[16]</code>      </td><td class="col2 centeralign">  128           </td><td class="col3 centeralign">  312                      </td><td class="col4 leftalign"> calibration parameters of second <abbr title="Time Of Flight">TOF</abbr>
+                                                                        
+                                                                        
+                                 </td>
 	</tr>
 	<tr class="row46">
-		<td class="col0"> <code>dm</code> </td><td class="col1 centeralign">  <code>float</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  444  </td>
+		<td class="col0 leftalign"> <code>R0</code>                           </td><td class="col1 centeralign">  <code>float</code>           </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  440                      </td><td class="col4 leftalign" rowspan="3"> parameters for theoretical <abbr title="Time Of Flight">TOF</abbr>
+ resolution: &gt;R(m)=R_0-R_0/{1+exp({m-m_0}/d_m)}                      
+                                                                        
+                                          </td>
 	</tr>
 	<tr class="row47">
-		<td class="col0"> <code>m0</code> </td><td class="col1 centeralign">  <code>float</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  448  </td>
+		<td class="col0 leftalign"> <code>dm</code>                           </td><td class="col1 centeralign">  <code>float</code>           </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  444                      </td>
 	</tr>
 	<tr class="row48">
-		<td class="col0"> <code>secondTof</code> </td><td class="col1 rightalign">  <code>bool</code> </td><td class="col2 centeralign">  1  </td><td class="col3 centeralign">  452  </td><td class="col4"> second <abbr title="Time Of Flight">TOF</abbr> enabled </td>
+		<td class="col0 leftalign"> <code>m0</code>                           </td><td class="col1 centeralign">  <code>float</code>           </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  448                      </td>
 	</tr>
 	<tr class="row49">
-		<td class="col0"> <code>chIniFileName</code> </td><td class="col1 centeralign">  <code>char[256]</code>  </td><td class="col2 centeralign">  256  </td><td class="col3 centeralign">  453  </td><td class="col4"> path/filename of configuration file used for current acquisition </td>
+		<td class="col0 leftalign"> <code>secondTof</code>                    </td><td class="col1 centeralign">  <code>bool</code>            </td><td class="col2 centeralign">  1             </td><td class="col3 centeralign">  452                      </td><td class="col4 leftalign"> second <abbr title="Time Of Flight">TOF</abbr>
+ enabled                                                                
+                                                                        
+                                                           </td>
 	</tr>
 	<tr class="row50">
-		<td class="col0"> <code>CurrentDataFileName</code> </td><td class="col1 centeralign">  <code>char[256]</code>  </td><td class="col2 centeralign">  256  </td><td class="col3 centeralign">  709  </td><td class="col4"> path/filename of data file for current acquisition </td>
+		<td class="col0 leftalign"> <code>chIniFileName</code>                </td><td class="col1 centeralign">  <code>char[256]</code>       </td><td class="col2 centeralign">  256           </td><td class="col3 centeralign">  453                      </td><td class="col4 leftalign">
+ path/filename of configuration file used for current acquisition       
+                                                                        
+                                                                      </td>
 	</tr>
 	<tr class="row51">
-		<td class="col0"> <code>DaqMode</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  <span style="color:red; ">968</span>  </td><td class="col4"> unique identifier for <abbr title="Data Acquisition">DAQ</abbr> hardware </td>
+		<td class="col0 leftalign"> <code>CurrentDataFileName</code>          </td><td class="col1 centeralign">  <code>char[256]</code>       </td><td class="col2 centeralign">  256           </td><td class="col3 centeralign">  709                      </td><td class="col4 leftalign">
+ path/filename of data file for current acquisition                     
+                                                                        
+                                                                      </td>
 	</tr>
 	<tr class="row52">
-		<td class="col0"> <code>AcquisitionMode</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  972  </td><td class="col4"> identifier for <abbr title="Data Acquisition">DAQ</abbr> hardware with different firmwares/modes </td>
+		<td class="col0 leftalign"> <code>segIlf</code>                       </td><td class="col1 centeralign">  <code>unsigned char</code>   </td><td class="col2 centeralign">  1             </td><td class="col3 centeralign">  965                      </td><td class="col4 leftalign">
+                                                                        
+                                                                        
+                                                                      </td>
 	</tr>
 	<tr class="row53">
-		<td class="col0"> <code>CombineMode</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  976  </td><td class="col4"> defines the channel combination for multichannel <abbr title="Data Acquisition">DAQ</abbr> devices </td>
+		<td class="col0 leftalign"> <code>iCube</code>                        </td><td class="col1 centeralign">  <code>unsigned short</code>  </td><td class="col2 centeralign">  2             </td><td class="col3 centeralign">  966                      </td><td class="col4 leftalign">
+                                                                        
+                                                                        
+                                                                      </td>
 	</tr>
 	<tr class="row54">
-		<td class="col0"> <code>RecalibFreq</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  980  </td><td class="col4"> automatic mass calibration frequency (0=never, 1=at the end of acquisition, 2=after <code>ReCalibNWrite</code> writes) </td>
+		<td class="col0 leftalign"> <code>DaqMode</code>                      </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  968                      </td><td class="col4 leftalign"> unique identifier for <abbr title="Data Acquisition">DAQ</abbr>
+ hardware                                                               
+                                                                        
+                                            </td>
 	</tr>
 	<tr class="row55">
-		<td class="col0"> <code>AcquisitionLogText</code> </td><td class="col1 centeralign">  <code>char[256]</code>  </td><td class="col2 centeralign">  256  </td><td class="col3 centeralign">  984  </td><td class="col4" rowspan="2"> for internal use by <code>TwAddLogEntry</code> function </td>
+		<td class="col0 leftalign"> <code>AcquisitionMode</code>              </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  972                      </td><td class="col4 leftalign"> identifier for <abbr title="Data Acquisition">DAQ</abbr>
+ hardware with different firmwares/modes                                
+                                                                        
+                                                   </td>
 	</tr>
 	<tr class="row56">
-		<td class="col0"> <code>AcquisitionLogTime</code> </td><td class="col1 centeralign">  <code>unsigned int64</code>  </td><td class="col2 centeralign">  8  </td><td class="col3 centeralign">  1240  </td>
+		<td class="col0 leftalign"> <code>CombineMode</code>                  </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  976                      </td><td class="col4 leftalign"> defines the channel combination for multichannel <abbr title="Data Acquisition">DAQ</abbr>
+ devices                                                                
+                                                                        
+                 </td>
 	</tr>
 	<tr class="row57">
-		<td class="col0"> <code>TimeZero</code> </td><td class="col1 centeralign">  <code>unsigned int64</code>  </td><td class="col2 centeralign">  8  </td><td class="col3 centeralign">  1248  </td><td class="col4"> timestamp of <abbr title="Data Acquisition">DAQ</abbr> start (<a href="http://msdn.microsoft.com/en-us/library/ms724284%28VS.85%29.aspx" class="urlextern" title="http://msdn.microsoft.com/en-us/library/ms724284%28VS.85%29.aspx" rel="nofollow">FILETIME</a> compatible) </td>
+		<td class="col0 leftalign"> <code>RecalibFreq</code>                  </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  980                      </td><td class="col4 leftalign"> automatic mass calibration frequency (0=never, 1=at the end of acquisition, 2=after <code>ReCalibNWrite</code> writes)                                                                                                        </td>
 	</tr>
 	<tr class="row58">
-		<td class="col0"> <code>ExternalLock</code> </td><td class="col1 centeralign">  <code>bool*</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  1256  </td><td class="col4"> for internal use by  <code>TwLockBuf</code>/<code>TwUnlockBuf</code> </td>
+		<td class="col0 leftalign"> <code>AcquisitionLogText</code>           </td><td class="col1 centeralign">  <code>char[256]</code>       </td><td class="col2 centeralign">  256           </td><td class="col3 centeralign">  984                      </td><td class="col4 leftalign" rowspan="2"> for internal use by <code>TwAddLogEntry</code>
+ function                                                               
+                                                                        
+                                </td>
 	</tr>
 	<tr class="row59">
-		<td class="col0"> <code>ProcessingLevel</code> </td><td class="col1 centeralign">  <code>unsigned int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  1260  </td><td class="col4"> processing level, determines which acquisition buffers are allocated/filled </td>
+		<td class="col0 leftalign"> <code>AcquisitionLogTime</code>           </td><td class="col1 centeralign">  <code>unsigned int64</code>  </td><td class="col2 centeralign">  8             </td><td class="col3 centeralign">  1240                     </td>
 	</tr>
 	<tr class="row60">
-		<td class="col0"> <code>AttributeType</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  1264  </td><td class="col4" rowspan="5"> for internal use by <code>TwAddAttributeInt</code>, <code>TwAddAttributeDouble</code> and <code>TwAddAttributeString</code> functions </td>
+		<td class="col0 leftalign"> <code>TimeZero</code>                     </td><td class="col1 centeralign">  <code>unsigned int64</code>  </td><td class="col2 centeralign">  8             </td><td class="col3 centeralign">  1248                     </td><td class="col4 leftalign"> timestamp of <abbr title="Data Acquisition">DAQ</abbr> start (<a href="http://msdn.microsoft.com/en-us/library/ms724284%28VS.85%29.aspx" class="urlextern" title="http://msdn.microsoft.com/en-us/library/ms724284%28VS.85%29.aspx" rel="nofollow">FILETIME</a> compatible)                                                                                                    </td>
 	</tr>
 	<tr class="row61">
-		<td class="col0"> <code>AttributeObject</code> </td><td class="col1 centeralign">  <code>char[256]</code>  </td><td class="col2 centeralign">  256  </td><td class="col3 centeralign">  1268  </td>
+		<td class="col0 leftalign"> <code>ExternalLock</code>                 </td><td class="col1 centeralign">  <code>bool*</code>           </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  1256                     </td><td class="col4 leftalign"> for internal use by  <code>TwLockBuf</code>/<code>TwUnlockBuf</code>
+                                                                        
+                                                                        
+                   </td>
 	</tr>
 	<tr class="row62">
-		<td class="col0"> <code>AttributeName</code> </td><td class="col1 centeralign">  <code>char[128]</code>  </td><td class="col2 centeralign">  128  </td><td class="col3 centeralign">  1524  </td>
+		<td class="col0 leftalign"> <code>ProcessingLevel</code>              </td><td class="col1 centeralign">  <code>unsigned int</code>    </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  1260                     </td><td class="col4 leftalign">
+ processing level, determines which acquisition buffers are 
+allocated/filled                                                        
+                                                                        
+          </td>
 	</tr>
 	<tr class="row63">
-		<td class="col0"> <code>AttributeInt</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  1652  </td>
+		<td class="col0 leftalign"> <code>AttributeType</code>                </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  1264                     </td><td class="col4 leftalign" rowspan="5"> for internal use by <code>TwAddAttributeInt</code>, <code>TwAddAttributeDouble</code> and <code>TwAddAttributeString</code> functions                                                                                                           </td>
 	</tr>
 	<tr class="row64">
-		<td class="col0"> <code>AttributeDouble</code> </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2 centeralign">  8  </td><td class="col3 centeralign">  1656  </td>
+		<td class="col0 leftalign"> <code>AttributeObject</code>              </td><td class="col1 centeralign">  <code>char[256]</code>       </td><td class="col2 centeralign">  256           </td><td class="col3 centeralign">  1268                     </td>
 	</tr>
 	<tr class="row65">
-		<td class="col0"> <code>EnableVarNbrMemories</code> </td><td class="col1 centeralign">  <code>bool</code>  </td><td class="col2 centeralign">  1  </td><td class="col3 centeralign">  1664  </td><td class="col4" rowspan="4"> for internal use by <code>TwConfigVarNbrMemories</code> function </td>
+		<td class="col0 leftalign"> <code>AttributeName</code>                </td><td class="col1 centeralign">  <code>char[128]</code>       </td><td class="col2 centeralign">  128           </td><td class="col3 centeralign">  1524                     </td>
 	</tr>
 	<tr class="row66">
-		<td class="col0"> <code>NbrSteps</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  <span style="color:red; ">1668</span>  </td>
+		<td class="col0 leftalign"> <code>AttributeInt</code>                 </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  1652                     </td>
 	</tr>
 	<tr class="row67">
-		<td class="col0"> <code>CurrentStepAtBuf</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  1672  </td>
+		<td class="col0 leftalign"> <code>AttributeDouble</code>              </td><td class="col1 centeralign">  <code>double</code>          </td><td class="col2 centeralign">  8             </td><td class="col3 centeralign">  1656                     </td>
 	</tr>
 	<tr class="row68">
-		<td class="col0"> <code>NbrMemoriesForCurrentStep</code> </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  4  </td><td class="col3 centeralign">  1676  </td>
+		<td class="col0 leftalign"> <code>EnableVarNbrMemories</code>         </td><td class="col1 centeralign">  <code>bool</code>            </td><td class="col2 centeralign">  1             </td><td class="col3 centeralign">  1664                     </td><td class="col4 leftalign" rowspan="4"> for internal use by <code>TwConfigVarNbrMemories</code>
+ function                                                               
+                                                                        
+                       </td>
 	</tr>
 	<tr class="row69">
-		<td class="col0 centeralign" colspan="2">  <em>Total size</em>            </td><td class="col2 centeralign">  <em>1680</em>  </td><td class="col3 leftalign" colspan="2">   </td>
+		<td class="col0 leftalign"> <code>NbrSteps</code>                     </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  <span style="color:red; ">1668</span>  </td>
+	</tr>
+	<tr class="row70">
+		<td class="col0 leftalign"> <code>CurrentStepAtBuf</code>             </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  1672                     </td>
+	</tr>
+	<tr class="row71">
+		<td class="col0 leftalign"> <code>NbrMemoriesForCurrentStep</code>    </td><td class="col1 centeralign">  <code>int</code>             </td><td class="col2 centeralign">  4             </td><td class="col3 centeralign">  1676                     </td>
+	</tr>
+	<tr class="row72">
+		<td class="col0 centeralign" colspan="2">  <em>Total size</em>                                        </td><td class="col2 centeralign">  <em>1680</em>      </td><td class="col3 leftalign" colspan="2">
+                                                                        
+                                                                        
+                                                                        
+                         </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT213 TABLE [97008-104214] -->
+<!-- EDIT213 TABLE [97106-120467] -->
 <p>
 <br>
 
 </p>
 
 </div>
-<!-- EDIT212 SECTION "TSharedMemoryDesc" [96778-104219] -->
+<!-- EDIT212 SECTION "TSharedMemoryDesc" [96876-120472] -->
 <h2 class="sectionedit214" id="deprecated_functions">Deprecated functions</h2>
 <div class="level2">
 
@@ -6306,11 +6466,15 @@ interface and allows for other pressure gauge controllers. </td>
 		<td class="col0 leftalign"> <code>TwMass2Tof</code>  </td><td class="col1 leftalign"> <code>TwMass2Tof</code>  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT215 TABLE [104559-106000] -->
+<!-- EDIT215 TABLE [120812-122253] -->
 </div>
-<!-- EDIT214 SECTION "Deprecated functions" [104220-106001] -->
+<!-- EDIT214 SECTION "Deprecated functions" [120473-122254] -->
 <h2 class="sectionedit216" id="previous_revisions">Previous revisions</h2>
 <div class="level2">
+
+<p>
+<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll198" class="wikilink1" title="manuals:daq:tofdaqdll198"> TofDaqDll 1.98</a>
+</p>
 
 <p>
 <a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll197" class="wikilink1" title="manuals:daq:tofdaqdll197"> TofDaqDll 1.97</a>
@@ -6377,7 +6541,7 @@ In versions before 1.84 all <abbr title="Atmospheric Pressure Interface / Applic
 </p>
 
 </div>
-<!-- EDIT216 SECTION "Previous revisions" [106002-] --></div>
+<!-- EDIT216 SECTION "Previous revisions" [122255-] --></div>
 
 
 </body></html>

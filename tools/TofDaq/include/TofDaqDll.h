@@ -548,7 +548,7 @@ TOFWERK_DAQ_API TwRetVal TwTpsGetModuleCodes(int* moduleCodeBuffer, int bufferLe
 ////////////////////////////////////////////////////////////////////////////////
 TOFWERK_DAQ_API TwRetVal TwTpsInitialize();
 //get module codes od all tps modules
-//arguments:
+//arguments: 
 //
 //possible return values:   TwSuccess 				success
 //                        	TwError				   	if not connected

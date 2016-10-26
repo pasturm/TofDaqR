@@ -13,12 +13,16 @@
 #ifdef TWH5DLL_EXPORTS
 #define TOFWERK_H5_API __attribute__((visibility("default")))
 #else
-#define TOFWERK_H5_API
+#define TOFWERK_H5_API 
 #endif
 #endif
 
 // #if defined(_WIN32) && defined(_MSC_VER)
 #if defined(_WIN32) && (defined(_MSC_VER) || defined(__GNUC__))
+
+#define TwChangePeakDataInit					_TwChangePeakDataInit
+#define TwChangePeakDataWrite					_TwChangePeakDataWrite
+#define TwChangePeakDataFinalize				_TwChangePeakDataFinalize
 #define TwChangePeakTable						_TwChangePeakTable
 #define TwChangePeakTable2						_TwChangePeakTable2
 #define TwChangePeakTableFromFile				_TwChangePeakTableFromFile
@@ -284,6 +288,12 @@ TOFWERK_H5_API TwRetVal TwGetRegUserDataFromH5(char* Filename, char* location, i
 //							 TwValueAdjusted		if bufLength does not match data dimensions (bufLength will be adjusted to actual data dimensions)
 //							 TwOutOfBounds			if buf or write index is out of range
 //							 TwError 				if location doesn't hold user data or buffer is NULL
+////////////////////////////////////////////////////////////////////////////////
+TOFWERK_H5_API TwRetVal TwChangePeakDataInit(char* Filename, TPeakPar* newPeakPar, int nbrNewPeakPar, int options);
+////////////////////////////////////////////////////////////////////////////////
+TOFWERK_H5_API TwRetVal TwChangePeakDataWrite(char* Filename, int peakOffset, int peakCount, int segOffset, int segCount, int bufOffset, int bufCount, int writeOffset, int writeCount, float* data, float* data2);
+////////////////////////////////////////////////////////////////////////////////
+TOFWERK_H5_API TwRetVal TwChangePeakDataFinalize(char* Filename);
 ////////////////////////////////////////////////////////////////////////////////
 TOFWERK_H5_API TwRetVal TwChangePeakTable(char* Filename, TPeakPar* newPeakPar, int nbrNewPeakPar, int compressionLevel, TwProgressCallback* callback);
 //creates new PeakTable and (re)calculates PeakData accordingly

@@ -16,7 +16,7 @@
 #ifdef TWTOOLDLL_EXPORTS
 #define TOFWERK_TOOL_API __attribute__((visibility("default")))
 #else
-#define TOFWERK_TOOL_API
+#define TOFWERK_TOOL_API 
 #endif
 #endif
 #endif
@@ -60,6 +60,7 @@
 #define TwGenerateImageData			  _TwGenerateImageData
 #define TwImagePaletteOffset2Value    _TwImagePaletteOffset2Value
 #define TwImageValue2PaletteOffset    _TwImageValue2PaletteOffset
+#define TwImageGetPaletteRGB		  _TwImageGetPaletteRGB
 
 #endif
 
@@ -159,6 +160,8 @@ TOFWERK_TOOL_API TwRetVal TwGenerateImageData(int width, int height, float* data
 TOFWERK_TOOL_API double TwImagePaletteOffset2Value(unsigned char pixelValue, double min, double max, double gamma);
 //---------------------------------------------------------------------------
 TOFWERK_TOOL_API unsigned char TwImageValue2PaletteOffset(double dataValue, double min, double max, double gamma);
+//---------------------------------------------------------------------------
+TOFWERK_TOOL_API TwRetVal TwImageGetPaletteRGB(int palette, unsigned char paletteValue, unsigned char* rgb);
 //---------------------------------------------------------------------------
 
 #ifdef __cplusplus

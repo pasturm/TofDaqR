@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="desktop" dir="ltr" lang="en"><head>
+<html dir="ltr" class="desktop" lang="en"><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <title>manuals:daq:hdf5</title>
@@ -15,7 +15,7 @@
 <link rel="alternate" type="text/plain" title="Wiki Markup" href="http://wiki.tofwerk.com/doku.php?do=export_raw&amp;id=manuals:daq:hdf5">
 <link rel="canonical" href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5">
 <link rel="stylesheet" type="text/css" href="TofwerkHDF5_files/css.css">
-<script type="text/javascript">/*<![CDATA[*/var NS='manuals:daq';var SIG=' --- //[[tanner@tofwerk.com|Christian Tanner]] 20.10.2015 10:26//';var JSINFO = {"id":"manuals:daq:hdf5","namespace":"manuals:daq"};
+<script type="text/javascript">/*<![CDATA[*/var NS='manuals:daq';var SIG=' --- //[[tanner@tofwerk.com|Christian Tanner]] 25.10.2016 15:20//';var JSINFO = {"id":"manuals:daq:hdf5","namespace":"manuals:daq"};
 /*!]]>*/</script>
 <script type="text/javascript" charset="utf-8" src="TofwerkHDF5_files/js.php"></script><style id="iris-css">.iris-picker{display:block;position:relative}.iris-picker,.iris-picker *{-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input+.iris-picker{margin-top:4px}.iris-error{background-color:#ffafaf}.iris-border{border-radius:3px;border:1px solid #aaa;width:200px;background-color:#fff}.iris-picker-inner{position:absolute;top:0;right:0;left:0;bottom:0}.iris-border .iris-picker-inner{top:10px;right:10px;left:10px;bottom:10px}.iris-picker .iris-square-inner{position:absolute;left:0;right:0;top:0;bottom:0}.iris-picker .iris-square,.iris-picker .iris-slider,.iris-picker .iris-square-inner,.iris-picker .iris-palette{border-radius:3px;box-shadow:inset 0 0 5px rgba(0,0,0,.4);height:100%;width:12.5%;float:left;margin-right:5%}.iris-picker .iris-square{width:76%;margin-right:10%;position:relative}.iris-picker .iris-square-inner{width:auto;margin:0}.iris-ie-9 .iris-square,.iris-ie-9 .iris-slider,.iris-ie-9 .iris-square-inner,.iris-ie-9 .iris-palette{box-shadow:none;border-radius:0}.iris-ie-9 .iris-square,.iris-ie-9 .iris-slider,.iris-ie-9 .iris-palette{outline:1px solid rgba(0,0,0,.1)}.iris-ie-lt9 .iris-square,.iris-ie-lt9 .iris-slider,.iris-ie-lt9 .iris-square-inner,.iris-ie-lt9 .iris-palette{outline:1px solid #aaa}.iris-ie-lt9 .iris-square .ui-slider-handle{outline:1px solid #aaa;background-color:#fff;-ms-filter:"alpha(Opacity=30)"}.iris-ie-lt9 .iris-square .iris-square-handle{background:0;border:3px solid #fff;-ms-filter:"alpha(Opacity=50)"}.iris-picker .iris-strip{margin-right:0;position:relative}.iris-picker .iris-strip .ui-slider-handle{position:absolute;background:0;margin:0;right:-3px;left:-3px;border:4px solid #aaa;border-width:4px 3px;width:auto;height:6px;border-radius:4px;box-shadow:0 1px 2px rgba(0,0,0,.2);opacity:.9;z-index:5;cursor:ns-resize}.iris-strip .ui-slider-handle:before{content:" ";position:absolute;left:-2px;right:-2px;top:-3px;bottom:-3px;border:2px solid #fff;border-radius:3px}.iris-picker .iris-slider-offset{position:absolute;top:11px;left:0;right:0;bottom:-3px;width:auto;height:auto;background:transparent;border:0;border-radius:0}.iris-picker .iris-square-handle{background:transparent;border:5px solid #aaa;border-radius:50%;border-color:rgba(128,128,128,.5);box-shadow:none;width:12px;height:12px;position:absolute;left:-10px;top:-10px;cursor:move;opacity:1;z-index:10}.iris-picker .ui-state-focus .iris-square-handle{opacity:.8}.iris-picker .iris-square-handle:hover{border-color:#999}.iris-picker .iris-square-value:focus .iris-square-handle{box-shadow:0 0 2px rgba(0,0,0,.75);opacity:.8}.iris-picker .iris-square-handle:hover::after{border-color:#fff}.iris-picker .iris-square-handle::after{position:absolute;bottom:-4px;right:-4px;left:-4px;top:-4px;border:3px solid #f9f9f9;border-color:rgba(255,255,255,.8);border-radius:50%;content:" "}.iris-picker .iris-square-value{width:8px;height:8px;position:absolute}.iris-ie-lt9 .iris-square-value,.iris-mozilla .iris-square-value{width:1px;height:1px}.iris-palette-container{position:absolute;bottom:0;left:0;margin:0;padding:0}.iris-border .iris-palette-container{left:10px;bottom:10px}.iris-picker .iris-palette{margin:0;cursor:pointer}.iris-square-handle,.ui-slider-handle{border:0;outline:0}</style>
 </head>
@@ -23,11 +23,11 @@
 <div class="dokuwiki export">
 <!-- TOC START -->
 <div id="dw__toc">
-<h3 style="cursor: pointer;" class="toggle open"><strong><span>−</span></strong>Table of Contents</h3>
-<div aria-expanded="true" style="">
+<h3 class="toggle open" style="cursor: pointer;"><strong><span>−</span></strong>Table of Contents</h3>
+<div style="" aria-expanded="true">
 
-<ul style="" class="toc">
-<li class="level1"><div class="li"><a href="#tofwerk_hdf5_data_format_198">Tofwerk HDF5 data format 1.98</a></div>
+<ul class="toc" style="">
+<li class="level1"><div class="li"><a href="#tofwerk_hdf5_data_format_199">Tofwerk HDF5 data format 1.99</a></div>
 <ul class="toc">
 <li class="level2"><div class="li"><a href="#introduction">Introduction</a></div></li>
 <li class="level2"><div class="li"><a href="#tofwerk_hdf5_basics">Tofwerk HDF5 basics</a></div></li>
@@ -78,11 +78,11 @@
 </div>
 <!-- TOC END -->
 
-<h1 class="sectionedit1" id="tofwerk_hdf5_data_format_198">Tofwerk HDF5 data format 1.98</h1>
+<h1 class="sectionedit1" id="tofwerk_hdf5_data_format_199">Tofwerk HDF5 data format 1.99</h1>
 <div class="level1">
 
 </div>
-<!-- EDIT1 SECTION "Tofwerk HDF5 data format 1.98" [1-44] -->
+<!-- EDIT1 SECTION "Tofwerk HDF5 data format 1.99" [1-44] -->
 <h2 class="sectionedit2" id="introduction">Introduction</h2>
 <div class="level2">
 
@@ -1220,6 +1220,10 @@ entries (/AcquisitionLog/Log) was changed to store the timestamps in the
 <div class="level2">
 
 <p>
+<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_198" class="wikilink1" title="manuals:daq:hdf5_198"> Tofwerk HDF5 data format 1.98</a>
+</p>
+
+<p>
 <a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_197" class="wikilink1" title="manuals:daq:hdf5_197"> Tofwerk HDF5 data format 1.97</a>
 </p>
 
@@ -1256,31 +1260,31 @@ entries (/AcquisitionLog/Log) was changed to store the timestamps in the
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format.pdf (155.6 KB)">tofwerk_hdf5_data_format.pdf</a>
+<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format.pdf (155.6&nbsp;KB)">tofwerk_hdf5_data_format.pdf</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.1.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.1.pdf (154.8 KB)">tofwerk_hdf5_data_format_v1.1.pdf</a>
+<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.1.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.1.pdf (154.8&nbsp;KB)">tofwerk_hdf5_data_format_v1.1.pdf</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.2.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.2.pdf (155.9 KB)">tofwerk_hdf5_data_format_v1.2.pdf</a>
+<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.2.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.2.pdf (155.9&nbsp;KB)">tofwerk_hdf5_data_format_v1.2.pdf</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.3.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.3.pdf (156.2 KB)">tofwerk_hdf5_data_format_v1.3.pdf</a>
+<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.3.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.3.pdf (156.2&nbsp;KB)">tofwerk_hdf5_data_format_v1.3.pdf</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.4.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.4.pdf (160.8 KB)">tofwerk_hdf5_data_format_v1.4.pdf</a>
+<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.4.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.4.pdf (160.8&nbsp;KB)">tofwerk_hdf5_data_format_v1.4.pdf</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.5.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.5.pdf (161.3 KB)">tofwerk_hdf5_data_format_v1.5.pdf</a>
+<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.5.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.5.pdf (161.3&nbsp;KB)">tofwerk_hdf5_data_format_v1.5.pdf</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.6.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.6.pdf (164 KB)">tofwerk_hdf5_data_format_v1.6.pdf</a>
+<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.6.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.6.pdf (164&nbsp;KB)">tofwerk_hdf5_data_format_v1.6.pdf</a>
 </p>
 
 </div>
