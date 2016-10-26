@@ -22,13 +22,13 @@ fi
 
 # replace NAMESPACE with NAMESPACE.linux
 mv NAMESPACE ./tools/NAMESPACE.windows
-cp ./tools/NAMESPACE.linux NAMESPACE
+cp ./tools/linux/NAMESPACE.linux NAMESPACE
 
 # replace ./man with ./man.linux
 mkdir -p ./tools/man.windows
 mv ./man/* ./tools/man.windows
-cp ./tools/man.linux/* ./man
+cp ./tools/linux/man.linux/* ./man
 
 # replace zzz.R with zzz.R.linux
 mv ./R/zzz.R ./tools/zzz.R.windows
-cp ./tools/zzz.R.linux ./R/zzz.R
+cp ./tools/linux/zzz.R.linux ./R/zzz.R
