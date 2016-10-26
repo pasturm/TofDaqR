@@ -17,3 +17,11 @@ fi
 if [ -e ./tools/zzz.R.windows ]; then
 mv ./tools/zzz.R.windows ./R/zzz.R
 fi
+
+# fix the paths in the dylibs for macOS
+if [[ "$OSTYPE" == "darwin"* && -e "${R_PACKAGE_DIR}/libs" ]]; then
+cd "${R_PACKAGE_DIR}/libs"
+install_name_tool -change libtwh5.dylib @loader_path/libtwh5.dylib TofDaqR.so
+install_name_tool -change libtwtool.dylib @loader_path/libtwtool.dylib TofDaqR.so
+install_name_tool -change libtwtool.dylib @loader_path/libtwtool.dylib libtwh5.dylib
+fi
