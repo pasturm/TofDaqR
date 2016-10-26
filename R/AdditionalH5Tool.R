@@ -124,6 +124,9 @@ SaveMassTableToFile <- function(filename = "TmpMassTable.txt") {
 #' \code{"HTOF-W"} is the W-mode and assumes hard mirror voltage = 2*pulse voltage.
 #' \code{x} and \code{v} can be vectors, but must be the same length.
 #'
+#' Note: this function is not part of the TofDaq API, but is included in the
+#' package for convenience.
+#'
 #' @param toftype TOF type (\code{"CTOF"}, \code{"HTOF"}, \code{"HTOF-W"} or \code{"LTOF"})
 #' @param drift Drift tube voltage (V).
 #' @param pulse Extraction pulse voltage (V).
