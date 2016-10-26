@@ -16,8 +16,22 @@ Mass/charge ratio.
 \code{GetMoleculeMass} parses the molecular formula and returns the
 mass/charge ratio of the molecule/atom/ion.
 }
+\details{
+The formula parser for the molecule string understands the (case sensitive)
+element labels and round and curly brackets (square brackets are reserved for
+isotope specification). Numbers (multipliers) have to follow either directly
+the element symbol or a closing bracket. Specific isoptopes are specified in
+square brackets with the mass number before the element label (e.g. [2H],
+[14C] or [235U]). Charge indicators (+, -) have to be the last characters in
+the formula string, multiple charges require multiple charge symbols (e.g.
+doubly charged calcium is Ca++ and not Ca2+ which is the correct syntax for a
+singly charged calcium dimer).
+}
 \examples{
 GetMoleculeMass("CO2")
+GetMoleculeMass("CO2++")
+GetMoleculeMass("[13C]O2+")
+GetMoleculeMass("[13C][18O]2")
 }
 \seealso{
 Other Chemistry functions: \code{\link{GetIsotopePattern2}},

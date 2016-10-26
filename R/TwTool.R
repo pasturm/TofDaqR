@@ -117,6 +117,16 @@ EvalSinglePeak <- function(xVals, blOffset = 0, blSlope = 0, amplitude, fwhmLo, 
 #' \code{GetMoleculeMass} parses the molecular formula and returns the
 #' mass/charge ratio of the molecule/atom/ion.
 #'
+#' The formula parser for the molecule string understands the (case sensitive)
+#' element labels and round and curly brackets (square brackets are reserved for
+#' isotope specification). Numbers (multipliers) have to follow either directly
+#' the element symbol or a closing bracket. Specific isoptopes are specified in
+#' square brackets with the mass number before the element label (e.g. [2H],
+#' [14C] or [235U]). Charge indicators (+, -) have to be the last characters in
+#' the formula string, multiple charges require multiple charge symbols (e.g.
+#' doubly charged calcium is Ca++ and not Ca2+ which is the correct syntax for a
+#' singly charged calcium dimer).
+#'
 #' @param molecule Molecule string.
 #' @return Mass/charge ratio.
 #'
@@ -124,6 +134,9 @@ EvalSinglePeak <- function(xVals, blOffset = 0, blSlope = 0, amplitude, fwhmLo, 
 #'
 #' @examples
 #' GetMoleculeMass("CO2")
+#' GetMoleculeMass("CO2++")
+#' GetMoleculeMass("[13C]O2+")
+#' GetMoleculeMass("[13C][18O]2")
 #' @export
 GetMoleculeMass <- function(molecule) {
   .Call("GetMoleculeMass", molecule)
@@ -134,6 +147,16 @@ GetMoleculeMass <- function(molecule) {
 #'
 #' \code{GetIsotopePattern} parses the molecular formula and returns the
 #' isotope pattern (mass and abundance).
+#'
+#' The formula parser for the molecule string understands the (case sensitive)
+#' element labels and round and curly brackets (square brackets are reserved for
+#' isotope specification). Numbers (multipliers) have to follow either directly
+#' the element symbol or a closing bracket. Specific isoptopes are specified in
+#' square brackets with the mass number before the element label (e.g. [2H],
+#' [14C] or [235U]). Charge indicators (+, -) have to be the last characters in
+#' the formula string, multiple charges require multiple charge symbols (e.g.
+#' doubly charged calcium is Ca++ and not Ca2+ which is the correct syntax for a
+#' singly charged calcium dimer).
 #'
 #' @param molecule Molecule string.
 #' @param abundanceLimit Absolute abundance limit for the generated pattern.
@@ -158,6 +181,16 @@ GetIsotopePattern <- function(molecule, abundanceLimit) {
 #'
 #' Same as \code{GetIsotopePattern} but using an exact algorithm and is
 #' therefore suitable only for rather small molecules.
+#'
+#' The formula parser for the molecule string understands the (case sensitive)
+#' element labels and round and curly brackets (square brackets are reserved for
+#' isotope specification). Numbers (multipliers) have to follow either directly
+#' the element symbol or a closing bracket. Specific isoptopes are specified in
+#' square brackets with the mass number before the element label (e.g. [2H],
+#' [14C] or [235U]). Charge indicators (+, -) have to be the last characters in
+#' the formula string, multiple charges require multiple charge symbols (e.g.
+#' doubly charged calcium is Ca++ and not Ca2+ which is the correct syntax for a
+#' singly charged calcium dimer).
 #'
 #' @param molecule Molecule string.
 #' @param abundanceLimit Absolute abundance limit for the generated pattern.
