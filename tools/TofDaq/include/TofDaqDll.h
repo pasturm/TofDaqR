@@ -7,8 +7,8 @@
 #define TOFWERK_DAQ_API __declspec(dllimport)
 #endif
 
-// #ifdef _MSC_VER
-#if defined(_MSC_VER) || defined(__GNUC__)
+#if defined(_WIN32) && !defined(__BORLANDC__)
+
 #define TwAddAttributeDouble          _TwAddAttributeDouble
 #define TwAddAttributeInt             _TwAddAttributeInt
 #define TwAddAttributeString          _TwAddAttributeString
@@ -117,6 +117,7 @@
 #define TwAutoSetupDaqDevice          _TwAutoSetupDaqDevice
 #define TwOnDemandMassCalibration     _TwOnDemandMassCalibration
 #define TwKeepFileOpen				  _TwKeepFileOpen
+
 #endif
 
 #include "TofIpcStrucs.h"
@@ -548,7 +549,7 @@ TOFWERK_DAQ_API TwRetVal TwTpsGetModuleCodes(int* moduleCodeBuffer, int bufferLe
 ////////////////////////////////////////////////////////////////////////////////
 TOFWERK_DAQ_API TwRetVal TwTpsInitialize();
 //get module codes od all tps modules
-//arguments: 
+//arguments:
 //
 //possible return values:   TwSuccess 				success
 //                        	TwError				   	if not connected

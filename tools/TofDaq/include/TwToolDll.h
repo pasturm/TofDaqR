@@ -1,28 +1,23 @@
 #ifndef TwToolDllH
 #define TwToolDllH
 
-#ifdef TWTOOL_INTERNAL
-#define TOFWERK_TOOL_API
-#else
-// #ifdef _WIN32
-#if defined(_WIN32) && !defined(__GNUC__)
+#ifdef _WIN32
 #ifdef TWTOOLDLL_EXPORTS
 #define TOFWERK_TOOL_API __declspec(dllexport)
 #else
 #define TOFWERK_TOOL_API __declspec(dllimport)
 #endif
-#endif
-#ifdef __GNUC__
+#else
 #ifdef TWTOOLDLL_EXPORTS
 #define TOFWERK_TOOL_API __attribute__((visibility("default")))
 #else
 #define TOFWERK_TOOL_API 
-#endif
-#endif
+#endif	
 #endif
 
-// #if defined(_WIN32) && defined(_MSC_VER)
-#if defined(_WIN32) && (defined(_MSC_VER) || defined(__GNUC__))
+
+#if defined(_WIN32) && !defined(__BORLANDC__)
+
 #define TwBruteForceCalibrate          _TwBruteForceCalibrate
 #define TwDecomposeMass                _TwDecomposeMass
 #define TwEncImsCleanup                _TwEncImsCleanup

@@ -1,15 +1,13 @@
 #ifndef TwH5DllH
 #define TwH5DllH
 
-// #ifdef _WIN32
-#if defined(_WIN32) && !defined(__GNUC__)
+#ifdef _WIN32
 #ifdef TWH5DLL_EXPORTS
 #define TOFWERK_H5_API __declspec(dllexport)
 #else
 #define TOFWERK_H5_API __declspec(dllimport)
 #endif
-#endif
-#ifdef __GNUC__
+#else
 #ifdef TWH5DLL_EXPORTS
 #define TOFWERK_H5_API __attribute__((visibility("default")))
 #else
@@ -17,8 +15,7 @@
 #endif
 #endif
 
-// #if defined(_WIN32) && defined(_MSC_VER)
-#if defined(_WIN32) && (defined(_MSC_VER) || defined(__GNUC__))
+#if defined(_WIN32) && !defined(__BORLANDC__)
 
 #define TwChangePeakDataInit					_TwChangePeakDataInit
 #define TwChangePeakDataWrite					_TwChangePeakDataWrite
