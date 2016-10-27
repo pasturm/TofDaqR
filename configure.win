@@ -1,3 +1,11 @@
+# add ChangeIonMode (which does not exist by default) to TofDaqDll.h
+if !(grep -Fq ionMode ./tools/TofDaq/include/TofDaqDll.h) ; then
+sed -i.bak '/keepOpen/ a\
+////////////////////////////////////////////////////////////////////////////////\
+TOFWERK_DAQ_API TwRetVal TwTpsChangeIonMode(int ionMode);' ./tools/TofDaq/include/TofDaqDll.h
+rm ./tools/TofDaq/include/TofDaqDll.h.bak
+fi
+
 # copy dlls to ${R_PACKAGE_DIR}
 mkdir -p "${R_PACKAGE_DIR}/libs${R_ARCH}"
 if [ "${R_ARCH}" = "/x64" ]; then
