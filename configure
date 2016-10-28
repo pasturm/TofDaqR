@@ -20,15 +20,142 @@ if [ -e ./R/AdditionalTofDaqDll.R ]; then
 mv ./R/AdditionalTofDaqDll.R ./tools/AdditionalTofDaqDll.R
 fi
 
-# replace NAMESPACE with NAMESPACE.linux
-mv NAMESPACE ./tools/NAMESPACE.windows
-cp ./tools/linux/NAMESPACE.linux NAMESPACE
+# remove CleanupDll() from zzz.R
+sed -i.windows '/CleanupDll/d' ./R/zzz.R
 
-# replace ./man with ./man.linux
-mkdir -p ./tools/man.windows
-mv ./man/* ./tools/man.windows
-cp ./tools/linux/man.linux/* ./man
+# remove TofDaqDll functions from NAMESPACE
+sed -i.windows '/AddAttributeDouble/d' NAMESPACE
+sed -i.tmp '/AddAttributeInt/d' NAMESPACE
+sed -i.tmp '/AddAttributeString/d' NAMESPACE
+sed -i.tmp '/AddLogEntry/d' NAMESPACE
+sed -i.tmp '/AddUserData/d' NAMESPACE
+sed -i.tmp '/AddUserDataMultiRow/d' NAMESPACE
+sed -i.tmp '/AutoSetupDaqDevice/d' NAMESPACE
+sed -i.tmp '/CleanupDll/d' NAMESPACE
+sed -i.tmp '/CloseTofDaqRec/d' NAMESPACE
+sed -i.tmp '/DaqActive/d' NAMESPACE
+sed -i.tmp '/GetBufTimeFromShMem/d' NAMESPACE
+sed -i.tmp '/GetDaqParameter/d' NAMESPACE
+sed -i.tmp '/GetDescriptor/d' NAMESPACE
+sed -i.tmp '/GetDllVersion/d' NAMESPACE
+sed -i.tmp '/GetPeakParameters/d' NAMESPACE
+sed -i.tmp '/GetRegUserDataDesc/d' NAMESPACE
+sed -i.tmp '/GetRegUserDataSources/d' NAMESPACE
+sed -i.tmp '/GetSegmentProfileFromShMem/d' NAMESPACE
+sed -i.tmp '/GetSpecXaxisFromShMem/d' NAMESPACE
+sed -i.tmp '/GetStickSpectrumFromShMem/d' NAMESPACE
+sed -i.tmp '/GetSumSpectrumFromShMem/d' NAMESPACE
+sed -i.tmp '/GetTimeout/d' NAMESPACE
+sed -i.tmp '/GetTofSpectrumFromShMem/d' NAMESPACE
+sed -i.tmp '/InitializeDaqDevice/d' NAMESPACE
+sed -i.tmp '/InitializeDll/d' NAMESPACE
+sed -i.tmp '/KeepFileOpen/d' NAMESPACE
+sed -i.tmp '/KeepSharedMemMapped/d' NAMESPACE
+sed -i.tmp '/LoadIniFile/d' NAMESPACE
+sed -i.tmp '/OnDemandMassCalibration/d' NAMESPACE
+sed -i.tmp '/QueryRegUserDataSize/d' NAMESPACE
+sed -i.tmp '/ReadRegUserData/d' NAMESPACE
+sed -i.tmp '/RegisterUserDataBuf/d' NAMESPACE
+sed -i.tmp '/RegisterUserDataNoStore/d' NAMESPACE
+sed -i.tmp '/RegisterUserDataWrite/d' NAMESPACE
+sed -i.tmp '/ReleaseSharedMemory/d' NAMESPACE
+sed -i.tmp '/SaveIniFile/d' NAMESPACE
+sed -i.tmp '/SetDaqParameter/d' NAMESPACE
+sed -i.tmp '/SetTimeout/d' NAMESPACE
+sed -i.tmp '/ShowConfigWindow/d' NAMESPACE
+sed -i.tmp '/SiProcessSpectrumFromShMem/d' NAMESPACE
+sed -i.tmp '/StartAcquisition/d' NAMESPACE
+sed -i.tmp '/StopAcquisition/d' NAMESPACE
+sed -i.tmp '/TofDaqRunning/d' NAMESPACE
+sed -i.tmp '/TpsChangeIonMode/d' NAMESPACE
+sed -i.tmp '/TpsConnect/d' NAMESPACE
+sed -i.tmp '/TpsConnect2/d' NAMESPACE
+sed -i.tmp '/TpsDisconnect/d' NAMESPACE
+sed -i.tmp '/TpsGetActiveFilament/d' NAMESPACE
+sed -i.tmp '/TpsGetLastSetValue/d' NAMESPACE
+sed -i.tmp '/TpsGetModuleCodes/d' NAMESPACE
+sed -i.tmp '/TpsGetModuleLimits/d' NAMESPACE
+sed -i.tmp '/TpsGetMonitorValue/d' NAMESPACE
+sed -i.tmp '/TpsGetNbrModules/d' NAMESPACE
+sed -i.tmp '/TpsGetStatus/d' NAMESPACE
+sed -i.tmp '/TpsGetTargetValue/d' NAMESPACE
+sed -i.tmp '/TpsInitialize/d' NAMESPACE
+sed -i.tmp '/TpsLoadSetFile/d' NAMESPACE
+sed -i.tmp '/TpsSaveSetFile/d' NAMESPACE
+sed -i.tmp '/TpsSetActiveFilament/d' NAMESPACE
+sed -i.tmp '/TpsSetAllVoltages/d' NAMESPACE
+sed -i.tmp '/TpsSetTargetValue/d' NAMESPACE
+sed -i.tmp '/TpsShutdown/d' NAMESPACE
+sed -i.tmp '/UnregisterUserData/d' NAMESPACE
+sed -i.tmp '/UpdateUserData/d' NAMESPACE
+sed -i.tmp '/WaitForEndOfAcquisition/d' NAMESPACE
+sed -i.tmp '/WaitForNewData/d' NAMESPACE
 
-# replace zzz.R with zzz.R.linux
-mv ./R/zzz.R ./tools/zzz.R.windows
-cp ./tools/linux/zzz.R.linux ./R/zzz.R
+# remove TofDaqDll help files from ./man
+mv ./man/AddAttributeDouble.Rd ./tools
+mv ./man/AddAttributeInt.Rd ./tools
+mv ./man/AddAttributeString.Rd ./tools
+mv ./man/AddLogEntry.Rd ./tools
+mv ./man/AddUserData.Rd ./tools
+mv ./man/AddUserDataMultiRow.Rd ./tools
+mv ./man/AutoSetupDaqDevice.Rd ./tools
+mv ./man/CleanupDll.Rd ./tools
+mv ./man/CloseTofDaqRec.Rd ./tools
+mv ./man/DaqActive.Rd ./tools
+mv ./man/GetBufTimeFromShMem.Rd ./tools
+mv ./man/GetDaqParameter.Rd ./tools
+mv ./man/GetDescriptor.Rd ./tools
+mv ./man/GetDllVersion.Rd ./tools
+mv ./man/GetPeakParameters.Rd ./tools
+mv ./man/GetRegUserDataDesc.Rd ./tools
+mv ./man/GetRegUserDataSources.Rd ./tools
+mv ./man/GetSegmentProfileFromShMem.Rd ./tools
+mv ./man/GetSpecXaxisFromShMem.Rd ./tools
+mv ./man/GetStickSpectrumFromShMem.Rd ./tools
+mv ./man/GetSumSpectrumFromShMem.Rd ./tools
+mv ./man/GetTimeout.Rd ./tools
+mv ./man/GetTofSpectrumFromShMem.Rd ./tools
+mv ./man/InitializeDaqDevice.Rd ./tools
+mv ./man/InitializeDll.Rd ./tools
+mv ./man/KeepFileOpen.Rd ./tools
+mv ./man/KeepSharedMemMapped.Rd ./tools
+mv ./man/LoadIniFile.Rd ./tools
+mv ./man/OnDemandMassCalibration.Rd ./tools
+mv ./man/QueryRegUserDataSize.Rd ./tools
+mv ./man/ReadRegUserData.Rd ./tools
+mv ./man/RegisterUserDataBuf.Rd ./tools
+mv ./man/RegisterUserDataNoStore.Rd ./tools
+mv ./man/RegisterUserDataWrite.Rd ./tools
+mv ./man/ReleaseSharedMemory.Rd ./tools
+mv ./man/SaveIniFile.Rd ./tools
+mv ./man/SetDaqParameter.Rd ./tools
+mv ./man/SetTimeout.Rd ./tools
+mv ./man/ShowConfigWindow.Rd ./tools
+mv ./man/SiProcessSpectrumFromShMem.Rd ./tools
+mv ./man/StartAcquisition.Rd ./tools
+mv ./man/StopAcquisition.Rd ./tools
+mv ./man/TofDaqRunning.Rd ./tools
+mv ./man/TpsChangeIonMode.Rd ./tools
+mv ./man/TpsConnect.Rd ./tools
+mv ./man/TpsConnect2.Rd ./tools
+mv ./man/TpsDisconnect.Rd ./tools
+mv ./man/TpsGetActiveFilament.Rd ./tools
+mv ./man/TpsGetLastSetValue.Rd ./tools
+mv ./man/TpsGetModuleCodes.Rd ./tools
+mv ./man/TpsGetModuleLimits.Rd ./tools
+mv ./man/TpsGetMonitorValue.Rd ./tools
+mv ./man/TpsGetNbrModules.Rd ./tools
+mv ./man/TpsGetStatus.Rd ./tools
+mv ./man/TpsGetTargetValue.Rd ./tools
+mv ./man/TpsInitialize.Rd ./tools
+mv ./man/TpsLoadSetFile.Rd ./tools
+mv ./man/TpsSaveSetFile.Rd ./tools
+mv ./man/TpsSetActiveFilament.Rd ./tools
+mv ./man/TpsSetAllVoltages.Rd ./tools
+mv ./man/TpsSetTargetValue.Rd ./tools
+mv ./man/TpsShutdown.Rd ./tools
+mv ./man/UnregisterUserData.Rd ./tools
+mv ./man/UpdateUserData.Rd ./tools
+mv ./man/WaitForEndOfAcquisition.Rd ./tools
+mv ./man/WaitForNewData.Rd ./tools
+
