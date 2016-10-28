@@ -21,7 +21,7 @@ Options:
 \tabular{llc}{
 Name \tab Description \tab Default value \cr
 \code{MassCalibMode} \tab Mass calibration mode in use (see \code{\link{MassCalibrate}}). \tab 0 \cr
-\code{MassCalibParam\emph{n}} \tab Mass calibration parameters \emph{n} =
+\code{MassCalibParamn} \tab Mass calibration parameters n =
 1..number of calibration parameters for the given mass calibration mode. \tab \code{c(1000, 0)} \cr
 \code{FullScale} \tab Full digitizing range of the ADC in the same units as
 the spectra to be analyzed (typically mV). \tab 500 \cr
