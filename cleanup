@@ -20,6 +20,7 @@ mv ./tools/AutoSetupDaqDevice.Rd ./man
 mv ./tools/CleanupDll.Rd ./man
 mv ./tools/CloseTofDaqRec.Rd ./man
 mv ./tools/DaqActive.Rd ./man
+mv ./tools/FindTpsIp.Rd ./man
 mv ./tools/GetBufTimeFromShMem.Rd ./man
 mv ./tools/GetDaqParameter.Rd ./man
 mv ./tools/GetDescriptor.Rd ./man

@@ -30,6 +30,7 @@ sed -i.tmp '/AutoSetupDaqDevice/d' NAMESPACE
 sed -i.tmp '/CleanupDll/d' NAMESPACE
 sed -i.tmp '/CloseTofDaqRec/d' NAMESPACE
 sed -i.tmp '/DaqActive/d' NAMESPACE
+sed -i.tmp '/FindTpsIp/d' NAMESPACE
 sed -i.tmp '/GetBufTimeFromShMem/d' NAMESPACE
 sed -i.tmp '/GetDaqParameter/d' NAMESPACE
 sed -i.tmp '/GetDescriptor/d' NAMESPACE
@@ -98,6 +99,7 @@ mv ./man/AutoSetupDaqDevice.Rd ./tools
 mv ./man/CleanupDll.Rd ./tools
 mv ./man/CloseTofDaqRec.Rd ./tools
 mv ./man/DaqActive.Rd ./tools
+mv ./man/FindTpsIp.Rd ./tools
 mv ./man/GetBufTimeFromShMem.Rd ./tools
 mv ./man/GetDaqParameter.Rd ./tools
 mv ./man/GetDescriptor.Rd ./tools
