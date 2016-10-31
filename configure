@@ -13,12 +13,8 @@ echo "OS not supported."
 fi
 
 # remove TofDaqDll.R and AdditionalTofDaqDll.R
-if [ -e ./R/TofDaqDll.R ]; then
 mv ./R/TofDaqDll.R ./tools/TofDaqDll.R
-fi
-if [ -e ./R/AdditionalTofDaqDll.R ]; then
 mv ./R/AdditionalTofDaqDll.R ./tools/AdditionalTofDaqDll.R
-fi
 
 # remove CleanupDll() from zzz.R
 sed -i.windows '/CleanupDll/d' ./R/zzz.R
