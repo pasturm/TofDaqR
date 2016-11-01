@@ -1,0 +1,13 @@
+configure text eol=lf
+cleanup text eol=lf
+*.Rd text eol=crlf
+*.h text eol=crlf
+*.cpp text eol=crlf
+*.win text eol=crlf
+*.htm text eol=crlf
+*.R text eol=crlf
+.gitignore text eol=crlf
+DESCRIPTION text eol=crlf
+NAMESPACE text eol=crlf
+NEWS text eol=crlf
+*.md text eol=crlf
