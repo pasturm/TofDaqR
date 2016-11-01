@@ -1,3 +1,4 @@
+# Declare line endings of files on checkout.
 configure text eol=lf
 cleanup text eol=lf
 *.Rd text eol=crlf
