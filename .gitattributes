@@ -1,6 +1,7 @@
 # Declare line endings of files on checkout.
 configure text eol=lf
 cleanup text eol=lf
+Makevars text eol=lf
 *.Rd text eol=crlf
 *.h text eol=crlf
 *.cpp text eol=crlf
@@ -8,6 +9,7 @@ cleanup text eol=lf
 *.htm text eol=crlf
 *.R text eol=crlf
 .gitignore text eol=crlf
+.gitattributes text eol=crlf
 DESCRIPTION text eol=crlf
 NAMESPACE text eol=crlf
 NEWS text eol=crlf
