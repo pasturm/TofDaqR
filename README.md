@@ -1,7 +1,7 @@
 # TofDaqR
 R Interface to TOFWERK TofDaq API.
 
-The TofDaqR package provides an interface to the TOFWERK TofDaq API (TofDaqDll, 
+The TofDaqR package provides a R interface to the TOFWERK TofDaq API (TofDaqDll, 
 TwH5Dll, TwToolDll for Windows, and libtwh5, libtwtool for macOS and Linux). 
 TofDaqR functions can be used to communicate with the TofDaq recorder 
 application, to access data in realtime and to control the TOF Power Supply. 
@@ -14,13 +14,13 @@ See [NEWS](https://github.com/pasturm/TofDaqR/blob/master/NEWS).
 ## Installation
 ```
 install.packages("devtools")
-devtools::install_github("pasturm/TofDaqR")
+devtools::install_github("pasturm/TofDaqR", args = "--clean")
 ```
 
 Notes:
 
-* On Windows, [Rtools](https://cran.r-project.org/bin/windows/Rtools/) is required to compile and install TofDaqR.
+* On Windows, [Rtools](https://cran.r-project.org/bin/windows/Rtools/) is required to install TofDaqR.
 
-* On Mac, [Xcode](https://developer.apple.com/xcode/) is required to compile and install TofDaqR.
+* On Mac, [Xcode](https://developer.apple.com/xcode/) is required to install TofDaqR.
 
-* On Linux, `sudo apt-get install r-base-dev` (or similar) is required to compile and install TofDaqR.
+* On Linux, `sudo apt-get install r-base-dev` (or similar) is required to install TofDaqR.
