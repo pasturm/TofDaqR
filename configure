@@ -156,4 +156,3 @@ mv ./man/UnregisterUserData.Rd ./tools
 mv ./man/UpdateUserData.Rd ./tools
 mv ./man/WaitForEndOfAcquisition.Rd ./tools
 mv ./man/WaitForNewData.Rd ./tools
-
