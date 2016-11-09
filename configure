@@ -12,10 +12,6 @@ else
 echo "OS not supported."
 fi
 
-# remove TofDaqDll.R and AdditionalTofDaqDll.R
-mv ./R/TofDaqDll.R ./tools/TofDaqDll.R
-mv ./R/AdditionalTofDaqDll.R ./tools/AdditionalTofDaqDll.R
-
 # remove CleanupDll() from zzz.R
 sed -i.windows '/CleanupDll/d' ./R/zzz.R
 
