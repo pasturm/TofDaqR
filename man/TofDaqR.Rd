@@ -18,4 +18,7 @@ spectra. Further, there are functions for controling the TOF Power
 Supply and to access and modify recorded data stored in HDF5 files. The
 package also contains additional "tool" functions, e.g. for peak fitting.
 }
+\author{
+Patrick Sturm <sturm@tofwerk.com>
+}
 

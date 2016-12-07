@@ -12,6 +12,9 @@
 #' package also contains additional "tool" functions, e.g. for peak fitting.
 #'
 #' @docType package
+#' @author Patrick Sturm <sturm@tofwerk.com>
+#' @import Rcpp
+#' @importFrom Rcpp evalCpp
 #' @name TofDaqR
 #' @useDynLib TofDaqR
 NULL

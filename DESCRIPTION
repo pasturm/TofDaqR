@@ -1,7 +1,7 @@
 Package: TofDaqR
 Title: R Interface to TOFWERK TofDaq API
-Version: 0.2.0
-Date: 2016-10-25
+Version: 0.3.0
+Date: 2016-12-08
 Author: Patrick Sturm, Christian Tanner
 Maintainer: Patrick Sturm <sturm@tofwerk.com>
 Copyright: 2016 TOFWERK AG
@@ -13,6 +13,6 @@ Description: The TofDaqR package provides an interface to the TOFWERK TofDaq API
     and modify recorded data stored in HDF5 files and additional "tool"
     functions, e.g. for peak fitting.
 License: GPL-3
-Imports:
-    bit64
+Imports: Rcpp (>= 0.12.7)
+LinkingTo: Rcpp
 RoxygenNote: 5.0.1

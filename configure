@@ -12,8 +12,74 @@ else
 echo "OS not supported."
 fi
 
-# remove CleanupDll() from zzz.R
-sed -i.windows '/CleanupDll/d' ./R/zzz.R
+# remove TofDaqDll functions from RcppExports.cpp
+sed -i.windows '/ FindTpsIp/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ SiProcessSpectrumFromShMem/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ KeepSharedMemMapped/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ AddAttributeDouble/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ AddAttributeInt/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ AddAttributeString/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ AddLogEntry/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ AddUserData/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ AddUserDataMultiRow/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ AutoSetupDaqDevice/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ CleanupDll/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ CloseTofDaqRec/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ DaqActive/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ GetBufTimeFromShMem/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ GetDaqParameter/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ GetDescriptor/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ GetDllVersion/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ GetPeakParameters/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ GetRegUserDataDesc/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ GetRegUserDataSources/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ GetSegmentProfileFromShMem/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ GetSpecXaxisFromShMem/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ GetStickSpectrumFromShMem/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ GetSumSpectrumFromShMem/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ GetTimeout/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ GetTofSpectrumFromShMem/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ InitializeDaqDevice/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ InitializeDll/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ KeepFileOpen/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ LoadIniFile/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ OnDemandMassCalibration/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ QueryRegUserDataSize/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ ReadRegUserData/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ RegisterUserDataBuf/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ RegisterUserDataNoStore/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ RegisterUserDataWrite/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ ReleaseSharedMemory/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ SaveIniFile/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ SetDaqParameter/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ SetTimeout/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ ShowConfigWindow/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ StartAcquisition/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ StopAcquisition/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ TofDaqRunning/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ TpsChangeIonMode/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ TpsConnect/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ TpsConnect2/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ TpsDisconnect/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ TpsGetActiveFilament/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ TpsGetLastSetValue/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ TpsGetModuleCodes/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ TpsGetModuleLimits/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ TpsGetMonitorValue/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ TpsGetNbrModules/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ TpsGetStatus/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ TpsGetTargetValue/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ TpsInitialize/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ TpsLoadSetFile/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ TpsSaveSetFile/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ TpsSetActiveFilament/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ TpsSetAllVoltages/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ TpsSetTargetValue/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ TpsShutdown/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ UnregisterUserData/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ UpdateUserData/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ WaitForEndOfAcquisition/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ WaitForNewData/,/}/d' ./src/RcppExports.cpp
 
 # remove TofDaqDll functions from NAMESPACE
 sed -i.windows '/AddAttributeDouble/d' NAMESPACE
@@ -152,3 +218,6 @@ mv ./man/UnregisterUserData.Rd ./tools
 mv ./man/UpdateUserData.Rd ./tools
 mv ./man/WaitForEndOfAcquisition.Rd ./tools
 mv ./man/WaitForNewData.Rd ./tools
+
+# remove CleanupDll() from zzz.R
+sed -i.windows '/CleanupDll/d' ./R/zzz.R
