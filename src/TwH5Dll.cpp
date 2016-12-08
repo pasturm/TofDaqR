@@ -706,6 +706,128 @@ SEXP GetSegmentProfile2FromH5(SEXP Filename, int PeakIndex, int BufStartIndex,
   }
 }
 
+// GetBufWriteProfileFromH5 ----------------------------------------------------
+//' Gets a linked buf/write profile.
+//'
+//' \code{GetBufWriteProfileFromH5} gets a linked buf/write profile for a given
+//' peak (or all peaks) and segment slice.
+//'
+//' @param Filename Path/filename of the HDF5 file.
+//' @param PeakIndex Index of peak to fetch buf/write profile from. All peaks are
+//' read if \code{PeakIndex = -1}.
+//' @param SegmentStartIndex Segment start index of data to fetch.
+//' @param SegmentEndIndex Segment end index of data to fetch.
+//' @return A vector containing the buf/write profile(s).
+//'
+//' @examples
+//' \dontrun{
+//' GetBufWriteProfileFromH5("path/to/file.h5", PeakIndex = -1,
+//' SegmentStartIndex = 0, SegmentEndIndex = 0)
+//' }
+//' @export
+// [[Rcpp::export]]
+SEXP GetBufWriteProfileFromH5(SEXP Filename, int PeakIndex, int SegmentStartIndex,
+                              int SegmentEndIndex) {
+
+  char *cFilename = RtoCstring(Filename);
+
+  TwH5Desc descriptor;
+  TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
+  if (rv != TwSuccess) {
+    TwCloseH5(cFilename);
+    return TwRetValString(rv);
+  }
+
+  if (PeakIndex != -1) {
+
+    std::vector<float> Profile(descriptor.nbrBufs*descriptor.nbrWrites);
+
+    rv = TwGetBufWriteProfileFromH5(cFilename, &Profile[0], PeakIndex,
+                                    SegmentStartIndex, SegmentEndIndex);
+    TwCloseH5(cFilename);
+    if (rv != TwSuccess) {
+      return TwRetValString(rv);
+    }
+
+    return wrap(Profile);
+
+  } else {
+
+    std::vector<float> Profile(descriptor.nbrBufs*descriptor.nbrWrites*
+      descriptor.nbrPeaks);
+
+    rv = TwGetBufWriteProfileFromH5(cFilename, &Profile[0], PeakIndex,
+                                    SegmentStartIndex, SegmentEndIndex);
+    TwCloseH5(cFilename);
+    if (rv != TwSuccess) {
+      return TwRetValString(rv);
+    }
+
+    return wrap(Profile);
+  }
+}
+
+// GetBufWriteProfile2FromH5 ----------------------------------------------------
+//' Gets a linked buf/write profile.
+//'
+//' \code{GetBufWriteProfile2FromH5} gets a linked buf/write profile for a given
+//' peak (or all peaks) and segment slice.
+//'
+//' @param Filename Path/filename of the HDF5 file.
+//' @param PeakIndex Index of peak to fetch buf/write profile from. All peaks are
+//' read if \code{PeakIndex = -1}.
+//' @param SegmentStartIndex Segment start index of data to fetch.
+//' @param SegmentEndIndex Segment end index of data to fetch.
+//' @return A vector containing the buf/write profile(s).
+//'
+//' @examples
+//' \dontrun{
+//' GetBufWriteProfile2FromH5("path/to/file.h5", PeakIndex = -1,
+//' SegmentStartIndex = 0, SegmentEndIndex = 0)
+//' }
+//' @export
+// [[Rcpp::export]]
+SEXP GetBufWriteProfile2FromH5(SEXP Filename, int PeakIndex, int SegmentStartIndex,
+                              int SegmentEndIndex) {
+
+  char *cFilename = RtoCstring(Filename);
+
+  TwH5Desc descriptor;
+  TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
+  if (rv != TwSuccess) {
+    TwCloseH5(cFilename);
+    return TwRetValString(rv);
+  }
+
+  if (PeakIndex != -1) {
+
+    std::vector<float> Profile(descriptor.nbrBufs*descriptor.nbrWrites);
+
+    rv = TwGetBufWriteProfile2FromH5(cFilename, &Profile[0], PeakIndex,
+                                    SegmentStartIndex, SegmentEndIndex);
+    TwCloseH5(cFilename);
+    if (rv != TwSuccess) {
+      return TwRetValString(rv);
+    }
+
+    return wrap(Profile);
+
+  } else {
+
+    std::vector<float> Profile(descriptor.nbrBufs*descriptor.nbrWrites*
+      descriptor.nbrPeaks);
+
+    rv = TwGetBufWriteProfile2FromH5(cFilename, &Profile[0], PeakIndex,
+                                    SegmentStartIndex, SegmentEndIndex);
+    TwCloseH5(cFilename);
+    if (rv != TwSuccess) {
+      return TwRetValString(rv);
+    }
+
+    return wrap(Profile);
+  }
+}
+
 // GetRegUserDataSourcesFromH5 -------------------------------------------------
 //' Lists all registered user datasets available in the data file.
 //'
@@ -1457,11 +1579,13 @@ SEXP GetUserDataFromH5(SEXP Filename, SEXP location, int rowIndex) {
 //' \code{GetAcquisitionLogFromH5} reads a single acquisition log entry and
 //' returns the timestamp and the log text.
 //'
+//' The timestamp is the number of 100-nanosecond intervals since January 1,
+//' 1601 (UTC). Use \code{bit64::as.integer64(timestamp)} to convert the
+//' timestamp string into a 64-bit integer value.
+//'
 //' @param Filename Path/filename of the HDF5 file.
 //' @param index Index of log entry.
-//' @return A list containing the timestamp (as a string) and log text. Use
-//' \code{bit64::as.integer64(timestamp)} to convert the timestamp into a 64-bit
-//' integer value.
+//' @return A list containing the timestamp (as a string) and log text.
 //'
 //' @examples
 //' \dontrun{
@@ -1542,8 +1666,55 @@ SEXP GetEventListSpectrumFromH5(SEXP Filename, int segmentIndex, int bufIndex,
   return wrap(buffer);
 }
 
+// H5GetMassCalibPar -----------------------------------------------------------
+//' Gets mass calibration parameters from the data file.
+//'
+//' \code{H5GetMassCalibPar} gets mass calibration parameters from the data file.
+//'
+//' @param Filename Path/filename of the HDF5 file.
+//' @param writeIndex Write index.
+//' @return A list containing the calibraion mode and calibration parameters.
+//'
+//' @examples
+//' \dontrun{
+//' H5GetMassCalibPar("path/to/file.h5", writeIndex = 0)
+//' }
+//' @export
+// [[Rcpp::export]]
+SEXP H5GetMassCalibPar(SEXP Filename, int writeIndex) {
+
+  char *cFilename = RtoCstring(Filename);
+
+  int segmentIndex = 0;
+  int bufIndex = 0;
+
+  // get nbrParams
+  int nbrParams = 0;
+  TwRetVal rv = TwH5GetMassCalibPar(cFilename, segmentIndex, bufIndex,
+                                    writeIndex, NULL, &nbrParams, NULL);
+  if (rv != TwValueAdjusted) {
+    TwCloseH5(cFilename);
+    return TwRetValString(rv);
+  }
+
+  int mode;
+  NumericVector p(nbrParams);
+
+  rv = TwH5GetMassCalibPar(cFilename, segmentIndex, bufIndex,
+                           writeIndex, &mode, &nbrParams, &p[0]);
+  TwCloseH5(cFilename);
+  if (rv != TwSuccess) {
+    return TwRetValString(rv);
+  }
+
+  List result;
+  result["mode"] = mode;
+  result["p"] = p;
+
+  return result;
+}
+
 // Not implemented -------------------------------------------------------------
-// TwGetBufWriteProfileFromH5
 // TwGetBufWriteProfileFromH5_2
 // TwSetUintAttributeInH5
 // TwSetInt64AttributeInH5
@@ -1565,7 +1736,6 @@ SEXP GetEventListSpectrumFromH5(SEXP Filename, int segmentIndex, int bufIndex,
 // TwGetEventListBlobFromH5
 // TwFreeEventListData
 // TwFreeEventListData2
-// TwH5GetMassCalibPar
 // TwMultiPeakFitIntegration
 // TwH5AddLogEntry
 // TwH5AddUserDataMultiRow

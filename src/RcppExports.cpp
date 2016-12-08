@@ -273,6 +273,54 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// SetDaqParameterInt
+SEXP SetDaqParameterInt(SEXP Parameter, int Value);
+RcppExport SEXP TofDaqR_SetDaqParameterInt(SEXP ParameterSEXP, SEXP ValueSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< SEXP >::type Parameter(ParameterSEXP);
+    Rcpp::traits::input_parameter< int >::type Value(ValueSEXP);
+    rcpp_result_gen = Rcpp::wrap(SetDaqParameterInt(Parameter, Value));
+    return rcpp_result_gen;
+END_RCPP
+}
+// SetDaqParameterBool
+SEXP SetDaqParameterBool(SEXP Parameter, bool Value);
+RcppExport SEXP TofDaqR_SetDaqParameterBool(SEXP ParameterSEXP, SEXP ValueSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< SEXP >::type Parameter(ParameterSEXP);
+    Rcpp::traits::input_parameter< bool >::type Value(ValueSEXP);
+    rcpp_result_gen = Rcpp::wrap(SetDaqParameterBool(Parameter, Value));
+    return rcpp_result_gen;
+END_RCPP
+}
+// SetDaqParameterFloat
+SEXP SetDaqParameterFloat(SEXP Parameter, double Value);
+RcppExport SEXP TofDaqR_SetDaqParameterFloat(SEXP ParameterSEXP, SEXP ValueSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< SEXP >::type Parameter(ParameterSEXP);
+    Rcpp::traits::input_parameter< double >::type Value(ValueSEXP);
+    rcpp_result_gen = Rcpp::wrap(SetDaqParameterFloat(Parameter, Value));
+    return rcpp_result_gen;
+END_RCPP
+}
+// SetDaqParameterDouble
+SEXP SetDaqParameterDouble(SEXP Parameter, double Value);
+RcppExport SEXP TofDaqR_SetDaqParameterDouble(SEXP ParameterSEXP, SEXP ValueSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< SEXP >::type Parameter(ParameterSEXP);
+    Rcpp::traits::input_parameter< double >::type Value(ValueSEXP);
+    rcpp_result_gen = Rcpp::wrap(SetDaqParameterDouble(Parameter, Value));
+    return rcpp_result_gen;
+END_RCPP
+}
 // GetDescriptor
 SEXP GetDescriptor();
 RcppExport SEXP TofDaqR_GetDescriptor() {
@@ -995,6 +1043,34 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// GetBufWriteProfileFromH5
+SEXP GetBufWriteProfileFromH5(SEXP Filename, int PeakIndex, int SegmentStartIndex, int SegmentEndIndex);
+RcppExport SEXP TofDaqR_GetBufWriteProfileFromH5(SEXP FilenameSEXP, SEXP PeakIndexSEXP, SEXP SegmentStartIndexSEXP, SEXP SegmentEndIndexSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< SEXP >::type Filename(FilenameSEXP);
+    Rcpp::traits::input_parameter< int >::type PeakIndex(PeakIndexSEXP);
+    Rcpp::traits::input_parameter< int >::type SegmentStartIndex(SegmentStartIndexSEXP);
+    Rcpp::traits::input_parameter< int >::type SegmentEndIndex(SegmentEndIndexSEXP);
+    rcpp_result_gen = Rcpp::wrap(GetBufWriteProfileFromH5(Filename, PeakIndex, SegmentStartIndex, SegmentEndIndex));
+    return rcpp_result_gen;
+END_RCPP
+}
+// GetBufWriteProfile2FromH5
+SEXP GetBufWriteProfile2FromH5(SEXP Filename, int PeakIndex, int SegmentStartIndex, int SegmentEndIndex);
+RcppExport SEXP TofDaqR_GetBufWriteProfile2FromH5(SEXP FilenameSEXP, SEXP PeakIndexSEXP, SEXP SegmentStartIndexSEXP, SEXP SegmentEndIndexSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< SEXP >::type Filename(FilenameSEXP);
+    Rcpp::traits::input_parameter< int >::type PeakIndex(PeakIndexSEXP);
+    Rcpp::traits::input_parameter< int >::type SegmentStartIndex(SegmentStartIndexSEXP);
+    Rcpp::traits::input_parameter< int >::type SegmentEndIndex(SegmentEndIndexSEXP);
+    rcpp_result_gen = Rcpp::wrap(GetBufWriteProfile2FromH5(Filename, PeakIndex, SegmentStartIndex, SegmentEndIndex));
+    return rcpp_result_gen;
+END_RCPP
+}
 // GetRegUserDataSourcesFromH5
 SEXP GetRegUserDataSourcesFromH5(SEXP Filename);
 RcppExport SEXP TofDaqR_GetRegUserDataSourcesFromH5(SEXP FilenameSEXP) {
@@ -1281,6 +1357,18 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< int >::type bufIndex(bufIndexSEXP);
     Rcpp::traits::input_parameter< int >::type writeIndex(writeIndexSEXP);
     rcpp_result_gen = Rcpp::wrap(GetEventListSpectrumFromH5(Filename, segmentIndex, bufIndex, writeIndex));
+    return rcpp_result_gen;
+END_RCPP
+}
+// H5GetMassCalibPar
+SEXP H5GetMassCalibPar(SEXP Filename, int writeIndex);
+RcppExport SEXP TofDaqR_H5GetMassCalibPar(SEXP FilenameSEXP, SEXP writeIndexSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< SEXP >::type Filename(FilenameSEXP);
+    Rcpp::traits::input_parameter< int >::type writeIndex(writeIndexSEXP);
+    rcpp_result_gen = Rcpp::wrap(H5GetMassCalibPar(Filename, writeIndex));
     return rcpp_result_gen;
 END_RCPP
 }

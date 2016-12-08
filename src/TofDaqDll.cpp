@@ -101,9 +101,6 @@ SEXP StopAcquisition() {
   return TwRetValString(rv);
 }
 
-// Not implemented: TwContinueAcquisition --------------------------------------
-// Not implemented: TwManualContinueNeeded -------------------------------------
-
 // CloseTofDaqRec --------------------------------------------------------------
 //' Closes the TofDaq recorder application.
 //'
@@ -116,11 +113,6 @@ SEXP CloseTofDaqRec() {
 
   return TwRetValString(rv);
 }
-
-// Not implemented: TwLockBuf
-// Not implemented: TwUnLockBuf
-// Not implemented: TwIssueDio4Pulse
-// Not implemented: TwSetDio4State
 
 // InitializeDaqDevice ---------------------------------------------------------
 //' Initializes the DAQ board.
@@ -281,18 +273,6 @@ String GetDaqParameter(SEXP Parameter) {
   return str;
 }
 
-// Not implemented: TwGetDaqParameterInt ---------------------------------------
-// Not implemented: TwGetDaqParameterBool --------------------------------------
-// Not implemented: TwGetDaqParameterFloat -------------------------------------
-// Not implemented: TwGetDaqParameterInt64 -------------------------------------
-// Not implemented: TwGetDaqParameterDouble ------------------------------------
-// Not implemented: TwGetDaqParameterIntRef ------------------------------------
-// Not implemented: TwGetDaqParameterBoolRef -----------------------------------
-// Not implemented: TwGetDaqParameterFloatRef ----------------------------------
-// Not implemented: TwGetDaqParameterInt64Ref ----------------------------------
-// Not implemented: TwGetDaqParameterDoubleRef ---------------------------------
-// Not implemented: TwGetDaqParameterStringRef ---------------------------------
-
 // SetDaqParameter -------------------------------------------------------------
 //' Sets a single parameter.
 //'
@@ -313,14 +293,81 @@ SEXP SetDaqParameter(SEXP Parameter, SEXP ValueString) {
   return TwRetValString(rv);
 }
 
-// Not implemented: TwSetDaqParameterInt ---------------------------------------
-// Not implemented: TwSetDaqParameterBool --------------------------------------
-// Not implemented: TwSetDaqParameterFloat -------------------------------------
-// Not implemented: TwSetDaqParameterInt64 -------------------------------------
-// Not implemented: TwSetDaqParameterDouble ------------------------------------
-// Not implemented: TwConfigVarNbrMemories -------------------------------------
-// Not implemented: TwSetMassCalib ---------------------------------------------
-// Not implemented: TwSetMassCalibEx -------------------------------------------
+// SetDaqParameterInt ----------------------------------------------------------
+//' Sets a single parameter with an integer value.
+//'
+//' \code{SetDaqParameterInt} sets a single parameter with an integer value.
+//'
+//' @param Parameter Parameter name as a string. See
+//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' @param Value Integer value.
+//' @export
+// [[Rcpp::export]]
+SEXP SetDaqParameterInt(SEXP Parameter, int Value) {
+
+  char *cParameter = RtoCstring(Parameter);
+
+  TwRetVal rv = TwSetDaqParameterInt(cParameter, Value);
+
+  return TwRetValString(rv);
+}
+
+// SetDaqParameterBool ---------------------------------------------------------
+//' Sets a single parameter with a boolean value.
+//'
+//' \code{SetDaqParameterBool} sets a single parameter with a boolean value.
+//'
+//' @param Parameter Parameter name as a string. See
+//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' @param Value \code{TRUE} or \code{FALSE}.
+//' @export
+// [[Rcpp::export]]
+SEXP SetDaqParameterBool(SEXP Parameter, bool Value) {
+
+  char *cParameter = RtoCstring(Parameter);
+
+  TwRetVal rv = TwSetDaqParameterBool(cParameter, Value);
+
+  return TwRetValString(rv);
+}
+
+// SetDaqParameterFloat --------------------------------------------------------
+//' Sets a single parameter with a float value.
+//'
+//' \code{SetDaqParameterFloat} sets a single parameter with a float value.
+//'
+//' @param Parameter Parameter name as a string. See
+//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' @param Value Numeric value.
+//' @export
+// [[Rcpp::export]]
+SEXP SetDaqParameterFloat(SEXP Parameter, double Value) {
+
+  char *cParameter = RtoCstring(Parameter);
+
+  TwRetVal rv = TwSetDaqParameterFloat(cParameter, (float)Value);
+
+  return TwRetValString(rv);
+}
+
+// SetDaqParameterDouble -------------------------------------------------------
+//' Sets a single parameter with a double value.
+//'
+//' \code{SetDaqParameterDouble} sets a single parameter with a double value.
+//'
+//' @param Parameter Parameter name as a string. See
+//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' @param Value Numeric value.
+//' @export
+// [[Rcpp::export]]
+SEXP SetDaqParameterDouble(SEXP Parameter, double Value) {
+
+  char *cParameter = RtoCstring(Parameter);
+
+  TwRetVal rv = TwSetDaqParameterDouble(cParameter, Value);
+
+  return TwRetValString(rv);
+}
 
 // GetDescriptor ---------------------------------------------------------------
 //' Gets various information about the active acquisition.
@@ -452,8 +499,6 @@ SEXP GetPeakParameters(int PeakIndex) {
   return result;
 }
 
-// Not implemented: TwGetSharedMemory ------------------------------------------
-
 // ReleaseSharedMemory ---------------------------------------------------------
 //' Manually releases the shared memory acquisition buffers.
 //'
@@ -505,9 +550,6 @@ SEXP WaitForEndOfAcquisition(int timeout) {
 
   return TwRetValString(rv);
 }
-
-// Not implemented: TwGetMassCalib ---------------------------------------------
-// Not implemented: TwGetMassCalibEx -------------------------------------------
 
 // GetSumSpectrumFromShMem -----------------------------------------------------
 //' Sum spectrum from shared memory.
@@ -1628,3 +1670,32 @@ SEXP TpsChangeIonMode(int ionMode) {
 }
 
 #endif
+
+// Not implemented: TwContinueAcquisition --------------------------------------
+// Not implemented: TwManualContinueNeeded -------------------------------------
+// Not implemented: TwLockBuf --------------------------------------------------
+// Not implemented: TwUnLockBuf ------------------------------------------------
+// Not implemented: TwIssueDio4Pulse -------------------------------------------
+// Not implemented: TwSetDio4State ---------------------------------------------
+// Not implemented: TwGetDaqParameterInt ---------------------------------------
+// Not implemented: TwGetDaqParameterBool --------------------------------------
+// Not implemented: TwGetDaqParameterFloat -------------------------------------
+// Not implemented: TwGetDaqParameterInt64 -------------------------------------
+// Not implemented: TwGetDaqParameterDouble ------------------------------------
+// Not implemented: TwGetDaqParameterIntRef ------------------------------------
+// Not implemented: TwGetDaqParameterBoolRef -----------------------------------
+// Not implemented: TwGetDaqParameterFloatRef ----------------------------------
+// Not implemented: TwGetDaqParameterInt64Ref ----------------------------------
+// Not implemented: TwGetDaqParameterDoubleRef ---------------------------------
+// Not implemented: TwGetDaqParameterStringRef ---------------------------------
+// Not implemented: TwSetDaqParameterInt ---------------------------------------
+// Not implemented: TwSetDaqParameterBool --------------------------------------
+// Not implemented: TwSetDaqParameterFloat -------------------------------------
+// Not implemented: TwSetDaqParameterInt64 -------------------------------------
+// Not implemented: TwSetDaqParameterDouble ------------------------------------
+// Not implemented: TwConfigVarNbrMemories -------------------------------------
+// Not implemented: TwSetMassCalib ---------------------------------------------
+// Not implemented: TwSetMassCalibEx -------------------------------------------
+// Not implemented: TwGetSharedMemory ------------------------------------------
+// Not implemented: TwGetMassCalib ---------------------------------------------
+// Not implemented: TwGetMassCalibEx -------------------------------------------

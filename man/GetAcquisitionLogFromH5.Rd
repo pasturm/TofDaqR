@@ -12,13 +12,16 @@ GetAcquisitionLogFromH5(Filename, index)
 \item{index}{Index of log entry.}
 }
 \value{
-A list containing the timestamp (as a string) and log text. Use
-\code{bit64::as.integer64(timestamp)} to convert the timestamp into a 64-bit
-integer value.
+A list containing the timestamp (as a string) and log text.
 }
 \description{
 \code{GetAcquisitionLogFromH5} reads a single acquisition log entry and
 returns the timestamp and the log text.
+}
+\details{
+The timestamp is the number of 100-nanosecond intervals since January 1,
+1601 (UTC). Use \code{bit64::as.integer64(timestamp)} to convert the
+timestamp string into a 64-bit integer value.
 }
 \examples{
 \dontrun{

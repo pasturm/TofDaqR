@@ -31,8 +31,6 @@ StringVector TwRetValString(TwRetVal rv) {
   return result;
 }
 
-// Not implemented: TwTranslateReturnValue -------------------------------------
-
 // FitSinglePeak ---------------------------------------------------------------
 //' Performs a peak fit.
 //'
@@ -208,11 +206,6 @@ NumericVector EvalSinglePeak(NumericVector xVals, double blOffset = 0,
   return yValsFit;
 }
 
-// Not implemented: TwMultiPeakFit ---------------------------------------------
-// Not implemented: TwEvalMultiPeak --------------------------------------------
-// Not implemented: TwFitResolution --------------------------------------------
-// Not implemented: TwEvalResolution -------------------------------------------
-
 // GetMoleculeMass -------------------------------------------------------------
 //' Calculates the mass/charge ratio of a molecule.
 //'
@@ -367,11 +360,6 @@ SEXP GetIsotopePattern2(SEXP molecule, double abundanceLimit) {
   return result;
 }
 
-// Not implemented: TwDecomposeMass --------------------------------------------
-// Not implemented: TwGetComposition -------------------------------------------
-// Not implemented: TwNistLibrarySearch ----------------------------------------
-// Not implemented: TwNistLibraryQueryResult -----------------------------------
-
 // Tof2Mass --------------------------------------------------------------------
 //' Converts from sample index to mass/charge.
 //'
@@ -516,12 +504,6 @@ SEXP MassCalibrate(int massCalibMode, NumericVector mass, NumericVector tof,
 
   return param;
 }
-
-// Not implemented: TwBruteForceCalibrate --------------------------------------
-// Not implemented: TwGetMassCalibInfo -----------------------------------------
-// Not implemented: TwEncImsCorrelateProfile -----------------------------------
-// Not implemented: TwEncImsCorrelateMultiProfiles -----------------------------
-// Not implemented: TwEncImsCleanup --------------------------------------------
 
 // SiInitializeHistograms ------------------------------------------------------
 //' Initializes the single ion histogramming.
@@ -929,6 +911,20 @@ SEXP FindTpsIp(SEXP TpsSerial, int timeout) {
 }
 #endif
 
+// Not implemented: TwTranslateReturnValue -------------------------------------
+// Not implemented: TwMultiPeakFit ---------------------------------------------
+// Not implemented: TwEvalMultiPeak --------------------------------------------
+// Not implemented: TwFitResolution --------------------------------------------
+// Not implemented: TwEvalResolution -------------------------------------------
+// Not implemented: TwDecomposeMass --------------------------------------------
+// Not implemented: TwGetComposition -------------------------------------------
+// Not implemented: TwNistLibrarySearch ----------------------------------------
+// Not implemented: TwNistLibraryQueryResult -----------------------------------
+// Not implemented: TwBruteForceCalibrate --------------------------------------
+// Not implemented: TwGetMassCalibInfo -----------------------------------------
+// Not implemented: TwEncImsCorrelateProfile -----------------------------------
+// Not implemented: TwEncImsCorrelateMultiProfiles -----------------------------
+// Not implemented: TwEncImsCleanup --------------------------------------------
 // Not implemented: TwGenerateImageData ----------------------------------------
 // Not implemented: TwImagePaletteOffset2Value ---------------------------------
 // Not implemented: TwImageValue2PaletteOffset ---------------------------------

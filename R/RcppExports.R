@@ -303,6 +303,54 @@ SetDaqParameter <- function(Parameter, ValueString) {
     .Call('TofDaqR_SetDaqParameter', PACKAGE = 'TofDaqR', Parameter, ValueString)
 }
 
+#' Sets a single parameter with an integer value.
+#'
+#' \code{SetDaqParameterInt} sets a single parameter with an integer value.
+#'
+#' @param Parameter Parameter name as a string. See
+#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' @param Value Integer value.
+#' @export
+SetDaqParameterInt <- function(Parameter, Value) {
+    .Call('TofDaqR_SetDaqParameterInt', PACKAGE = 'TofDaqR', Parameter, Value)
+}
+
+#' Sets a single parameter with a boolean value.
+#'
+#' \code{SetDaqParameterBool} sets a single parameter with a boolean value.
+#'
+#' @param Parameter Parameter name as a string. See
+#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' @param Value \code{TRUE} or \code{FALSE}.
+#' @export
+SetDaqParameterBool <- function(Parameter, Value) {
+    .Call('TofDaqR_SetDaqParameterBool', PACKAGE = 'TofDaqR', Parameter, Value)
+}
+
+#' Sets a single parameter with a float value.
+#'
+#' \code{SetDaqParameterFloat} sets a single parameter with a float value.
+#'
+#' @param Parameter Parameter name as a string. See
+#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' @param Value Numeric value.
+#' @export
+SetDaqParameterFloat <- function(Parameter, Value) {
+    .Call('TofDaqR_SetDaqParameterFloat', PACKAGE = 'TofDaqR', Parameter, Value)
+}
+
+#' Sets a single parameter with a double value.
+#'
+#' \code{SetDaqParameterDouble} sets a single parameter with a double value.
+#'
+#' @param Parameter Parameter name as a string. See
+#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' @param Value Numeric value.
+#' @export
+SetDaqParameterDouble <- function(Parameter, Value) {
+    .Call('TofDaqR_SetDaqParameterDouble', PACKAGE = 'TofDaqR', Parameter, Value)
+}
+
 #' Gets various information about the active acquisition.
 #'
 #' \code{GetDescriptor} retrieves the current TSharedMemoryDesc structure.
@@ -1281,6 +1329,50 @@ GetSegmentProfile2FromH5 <- function(Filename, PeakIndex, BufStartIndex, BufEndI
     .Call('TofDaqR_GetSegmentProfile2FromH5', PACKAGE = 'TofDaqR', Filename, PeakIndex, BufStartIndex, BufEndIndex, WriteStartIndex, WriteEndIndex, BufWriteLinked)
 }
 
+#' Gets a linked buf/write profile.
+#'
+#' \code{GetBufWriteProfileFromH5} gets a linked buf/write profile for a given
+#' peak (or all peaks) and segment slice.
+#'
+#' @param Filename Path/filename of the HDF5 file.
+#' @param PeakIndex Index of peak to fetch buf/write profile from. All peaks are
+#' read if \code{PeakIndex = -1}.
+#' @param SegmentStartIndex Segment start index of data to fetch.
+#' @param SegmentEndIndex Segment end index of data to fetch.
+#' @return A vector containing the buf/write profile(s).
+#'
+#' @examples
+#' \dontrun{
+#' GetBufWriteProfileFromH5("path/to/file.h5", PeakIndex = -1,
+#' SegmentStartIndex = 0, SegmentEndIndex = 0)
+#' }
+#' @export
+GetBufWriteProfileFromH5 <- function(Filename, PeakIndex, SegmentStartIndex, SegmentEndIndex) {
+    .Call('TofDaqR_GetBufWriteProfileFromH5', PACKAGE = 'TofDaqR', Filename, PeakIndex, SegmentStartIndex, SegmentEndIndex)
+}
+
+#' Gets a linked buf/write profile.
+#'
+#' \code{GetBufWriteProfile2FromH5} gets a linked buf/write profile for a given
+#' peak (or all peaks) and segment slice.
+#'
+#' @param Filename Path/filename of the HDF5 file.
+#' @param PeakIndex Index of peak to fetch buf/write profile from. All peaks are
+#' read if \code{PeakIndex = -1}.
+#' @param SegmentStartIndex Segment start index of data to fetch.
+#' @param SegmentEndIndex Segment end index of data to fetch.
+#' @return A vector containing the buf/write profile(s).
+#'
+#' @examples
+#' \dontrun{
+#' GetBufWriteProfile2FromH5("path/to/file.h5", PeakIndex = -1,
+#' SegmentStartIndex = 0, SegmentEndIndex = 0)
+#' }
+#' @export
+GetBufWriteProfile2FromH5 <- function(Filename, PeakIndex, SegmentStartIndex, SegmentEndIndex) {
+    .Call('TofDaqR_GetBufWriteProfile2FromH5', PACKAGE = 'TofDaqR', Filename, PeakIndex, SegmentStartIndex, SegmentEndIndex)
+}
+
 #' Lists all registered user datasets available in the data file.
 #'
 #' \code{GetRegUserDataSourcesFromH5} lists all registered user data sets
@@ -1643,11 +1735,13 @@ GetUserDataFromH5 <- function(Filename, location, rowIndex) {
 #' \code{GetAcquisitionLogFromH5} reads a single acquisition log entry and
 #' returns the timestamp and the log text.
 #'
+#' The timestamp is the number of 100-nanosecond intervals since January 1,
+#' 1601 (UTC). Use \code{bit64::as.integer64(timestamp)} to convert the
+#' timestamp string into a 64-bit integer value.
+#'
 #' @param Filename Path/filename of the HDF5 file.
 #' @param index Index of log entry.
-#' @return A list containing the timestamp (as a string) and log text. Use
-#' \code{bit64::as.integer64(timestamp)} to convert the timestamp into a 64-bit
-#' integer value.
+#' @return A list containing the timestamp (as a string) and log text.
 #'
 #' @examples
 #' \dontrun{
@@ -1679,6 +1773,23 @@ GetAcquisitionLogFromH5 <- function(Filename, index) {
 #' @export
 GetEventListSpectrumFromH5 <- function(Filename, segmentIndex, bufIndex, writeIndex) {
     .Call('TofDaqR_GetEventListSpectrumFromH5', PACKAGE = 'TofDaqR', Filename, segmentIndex, bufIndex, writeIndex)
+}
+
+#' Gets mass calibration parameters from the data file.
+#'
+#' \code{H5GetMassCalibPar} gets mass calibration parameters from the data file.
+#'
+#' @param Filename Path/filename of the HDF5 file.
+#' @param writeIndex Write index.
+#' @return A list containing the calibraion mode and calibration parameters.
+#'
+#' @examples
+#' \dontrun{
+#' H5GetMassCalibPar("path/to/file.h5", writeIndex = 0)
+#' }
+#' @export
+H5GetMassCalibPar <- function(Filename, writeIndex) {
+    .Call('TofDaqR_H5GetMassCalibPar', PACKAGE = 'TofDaqR', Filename, writeIndex)
 }
 
 #' Performs a peak fit.
