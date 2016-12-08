@@ -13,7 +13,6 @@
 #'
 #' @docType package
 #' @author Patrick Sturm <sturm@tofwerk.com>
-#' @import Rcpp
 #' @importFrom Rcpp evalCpp
 #' @name TofDaqR
 #' @useDynLib TofDaqR
