@@ -28,6 +28,17 @@ sed -i.tmp '/ CloseTofDaqRec/,/}/d' ./src/RcppExports.cpp
 sed -i.tmp '/ DaqActive/,/}/d' ./src/RcppExports.cpp
 sed -i.tmp '/ GetBufTimeFromShMem/,/}/d' ./src/RcppExports.cpp
 sed -i.tmp '/ GetDaqParameter/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ GetDaqParameterBool/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ GetDaqParameterBoolRef/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ GetDaqParameterDouble/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ GetDaqParameterDoubleRef/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ GetDaqParameterFloat/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ GetDaqParameterFloatRef/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ GetDaqParameterInt/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ GetDaqParameterInt64/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ GetDaqParameterInt64Ref/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ GetDaqParameterIntRef/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ GetDaqParameterStringRef/,/}/d' ./src/RcppExports.cpp
 sed -i.tmp '/ GetDescriptor/,/}/d' ./src/RcppExports.cpp
 sed -i.tmp '/ GetDllVersion/,/}/d' ./src/RcppExports.cpp
 sed -i.tmp '/ GetPeakParameters/,/}/d' ./src/RcppExports.cpp
@@ -52,6 +63,11 @@ sed -i.tmp '/ RegisterUserDataWrite/,/}/d' ./src/RcppExports.cpp
 sed -i.tmp '/ ReleaseSharedMemory/,/}/d' ./src/RcppExports.cpp
 sed -i.tmp '/ SaveIniFile/,/}/d' ./src/RcppExports.cpp
 sed -i.tmp '/ SetDaqParameter/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ SetDaqParameterBool/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ SetDaqParameterDouble/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ SetDaqParameterFloat/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ SetDaqParameterInt/,/}/d' ./src/RcppExports.cpp
+sed -i.tmp '/ SetDaqParameterInt64/,/}/d' ./src/RcppExports.cpp
 sed -i.tmp '/ SetTimeout/,/}/d' ./src/RcppExports.cpp
 sed -i.tmp '/ ShowConfigWindow/,/}/d' ./src/RcppExports.cpp
 sed -i.tmp '/ StartAcquisition/,/}/d' ./src/RcppExports.cpp
@@ -95,6 +111,17 @@ mv ./man/DaqActive.Rd ./tools
 mv ./man/FindTpsIp.Rd ./tools
 mv ./man/GetBufTimeFromShMem.Rd ./tools
 mv ./man/GetDaqParameter.Rd ./tools
+mv ./man/GetDaqParameterBool.Rd ./tools
+mv ./man/GetDaqParameterBoolRef.Rd ./tools
+mv ./man/GetDaqParameterDouble.Rd ./tools
+mv ./man/GetDaqParameterDoubleRef.Rd ./tools
+mv ./man/GetDaqParameterFloat.Rd ./tools
+mv ./man/GetDaqParameterFloatRef.Rd ./tools
+mv ./man/GetDaqParameterInt.Rd ./tools
+mv ./man/GetDaqParameterInt64.Rd ./tools
+mv ./man/GetDaqParameterInt64Ref.Rd ./tools
+mv ./man/GetDaqParameterIntRef.Rd ./tools
+mv ./man/GetDaqParameterStringRef.Rd ./tools
 mv ./man/GetDescriptor.Rd ./tools
 mv ./man/GetDllVersion.Rd ./tools
 mv ./man/GetPeakParameters.Rd ./tools
@@ -120,6 +147,11 @@ mv ./man/RegisterUserDataWrite.Rd ./tools
 mv ./man/ReleaseSharedMemory.Rd ./tools
 mv ./man/SaveIniFile.Rd ./tools
 mv ./man/SetDaqParameter.Rd ./tools
+mv ./man/SetDaqParameterBool.Rd ./tools
+mv ./man/SetDaqParameterDouble.Rd ./tools
+mv ./man/SetDaqParameterFloat.Rd ./tools
+mv ./man/SetDaqParameterInt.Rd ./tools
+mv ./man/SetDaqParameterInt64.Rd ./tools
 mv ./man/SetTimeout.Rd ./tools
 mv ./man/ShowConfigWindow.Rd ./tools
 mv ./man/SiProcessSpectrumFromShMem.Rd ./tools
