@@ -4,17 +4,16 @@
 \alias{AddLogEntry}
 \title{Adds an entry to the acquisition log.}
 \usage{
-AddLogEntry(LogEntryText)
+AddLogEntry(LogEntryText, LogEntryTime)
 }
 \arguments{
 \item{LogEntryText}{Log text (max. 255 characters).}
+
+\item{LogEntryTime}{Log entry time (number of 100-nanosecond intervals since
+January 1, 1601 UTC) passed as a string. Set it to "0" for "now".}
 }
 \description{
 \code{AddLogEntry} adds an entry to the acquisition log.
-}
-\details{
-Note: specifying the log entry time (for adding entries in the past) is not
-supported.
 }
 \seealso{
 Other Data storage functions: \code{\link{AddAttributeDouble}},

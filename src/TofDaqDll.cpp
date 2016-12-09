@@ -273,6 +273,272 @@ String GetDaqParameter(SEXP Parameter) {
   return str;
 }
 
+// GetDaqParameterInt ----------------------------------------------------------
+//' Gets a single integer parameter.
+//'
+//' \code{GetDaqParameterInt} gets a single integer parameter.
+//'
+//' @param Parameter Parameter name as a string. See
+//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' @export
+// [[Rcpp::export]]
+int GetDaqParameterInt(SEXP Parameter) {
+
+  char *cParameter = RtoCstring(Parameter);
+
+  int result;
+
+  result = TwGetDaqParameterInt(cParameter);
+
+  return result;
+}
+
+// GetDaqParameterBool ---------------------------------------------------------
+//' Gets a single boolean parameter.
+//'
+//' \code{GetDaqParameterBool} gets a single boolean parameter.
+//'
+//' @param Parameter Parameter name as a string. See
+//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' @export
+// [[Rcpp::export]]
+bool GetDaqParameterBool(SEXP Parameter) {
+
+  char *cParameter = RtoCstring(Parameter);
+
+  bool result;
+
+  result = TwGetDaqParameterBool(cParameter);
+
+  return result;
+}
+
+// GetDaqParameterFloat --------------------------------------------------------
+//' Gets a single float parameter.
+//'
+//' \code{GetDaqParameterFloat} gets a single float parameter.
+//'
+//' @param Parameter Parameter name as a string. See
+//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' @export
+// [[Rcpp::export]]
+double GetDaqParameterFloat(SEXP Parameter) {
+
+  char *cParameter = RtoCstring(Parameter);
+
+  float result;
+
+  result = TwGetDaqParameterFloat(cParameter);
+
+  return (double)result;
+}
+
+// GetDaqParameterInt64 --------------------------------------------------------
+//' Gets a single int64 parameter as a string.
+//'
+//' \code{GetDaqParameterInt64} gets a single int64 parameter as a string.
+//'
+//' The return string can be converted to integer64 using \code{\link[bit64]{bit64::as.integer64}}.
+//'
+//' @param Parameter Parameter name as a string. See
+//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' @export
+// [[Rcpp::export]]
+String GetDaqParameterInt64(SEXP Parameter) {
+
+  char *cParameter = RtoCstring(Parameter);
+
+  __int64 result;
+
+  result = TwGetDaqParameterInt64(cParameter);
+
+  std::stringstream ss;
+  ss << result;
+
+  return ss.str();
+}
+
+// GetDaqParameterDouble -------------------------------------------------------
+//' Gets a single double parameter.
+//'
+//' \code{GetDaqParameterDouble} gets a single double parameter.
+//'
+//' @param Parameter Parameter name as a string. See
+//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' @export
+// [[Rcpp::export]]
+double GetDaqParameterDouble(SEXP Parameter) {
+
+  char *cParameter = RtoCstring(Parameter);
+
+  double result;
+
+  result = TwGetDaqParameterDouble(cParameter);
+
+  return result;
+}
+
+// GetDaqParameterIntRef -------------------------------------------------------
+//' Gets a single integer parameter.
+//'
+//' \code{GetDaqParameterIntRef} gets a single integer parameter.
+//'
+//' This is the same as \code{GetDaqParameterInt}, but additionally it checks
+//' for success and a TwRetVal string is returned if it is not sucessful.
+//'
+//' @param Parameter Parameter name as a string. See
+//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' @export
+// [[Rcpp::export]]
+SEXP GetDaqParameterIntRef(SEXP Parameter) {
+
+  char *cParameter = RtoCstring(Parameter);
+
+  int Value;
+
+  TwRetVal rv = TwGetDaqParameterIntRef(cParameter, &Value);
+  if (rv != TwSuccess) {
+    return TwRetValString(rv);
+  }
+
+  return Value;
+}
+
+// GetDaqParameterBoolRef ------------------------------------------------------
+//' Gets a single boolean parameter.
+//'
+//' \code{GetDaqParameterBoolRef} gets a single boolean parameter.
+//'
+//' This is the same as \code{GetDaqParameterBool}, but additionally it checks
+//' for success and a TwRetVal string is returned if it is not sucessful.
+//'
+//' @param Parameter Parameter name as a string. See
+//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' @export
+// [[Rcpp::export]]
+SEXP GetDaqParameterBoolRef(SEXP Parameter) {
+
+  char *cParameter = RtoCstring(Parameter);
+
+  bool Value;
+
+  TwRetVal rv = TwGetDaqParameterBoolRef(cParameter, &Value);
+  if (rv != TwSuccess) {
+    return TwRetValString(rv);
+  }
+
+  return Value;
+}
+
+// GetDaqParameterFloatRef -----------------------------------------------------
+//' Gets a single float parameter.
+//'
+//' \code{GetDaqParameterFloatRef} gets a single float parameter.
+//'
+//' This is the same as \code{GetDaqParameterFloat}, but additionally it checks
+//' for success and a TwRetVal string is returned if it is not sucessful.
+//'
+//' @param Parameter Parameter name as a string. See
+//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' @export
+// [[Rcpp::export]]
+SEXP GetDaqParameterFloatRef(SEXP Parameter) {
+
+  char *cParameter = RtoCstring(Parameter);
+
+  float Value;
+
+  TwRetVal rv = TwGetDaqParameterFloatRef(cParameter, &Value);
+  if (rv != TwSuccess) {
+    return TwRetValString(rv);
+  }
+
+  return (double)Value;
+}
+
+// GetDaqParameterInt64Ref -----------------------------------------------------
+//' Gets a single int64 parameter as a string.
+//'
+//' \code{GetDaqParameterInt64Ref} gets a single int64 parameter as a string.
+//'
+//' This is the same as \code{GetDaqParameterInt64}, but additionally it checks
+//' for success and a TwRetVal string is returned if it is not sucessful.
+//'
+//' @param Parameter Parameter name as a string. See
+//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' @export
+// [[Rcpp::export]]
+SEXP GetDaqParameterInt64Ref(SEXP Parameter) {
+
+  char *cParameter = RtoCstring(Parameter);
+
+  __int64 Value;
+
+  TwRetVal rv = TwGetDaqParameterInt64Ref(cParameter, &Value);
+  if (rv != TwSuccess) {
+    return TwRetValString(rv);
+  }
+
+  std::stringstream ss;
+  ss << Value;
+
+  return ss.str();
+}
+
+// GetDaqParameterDoubleRef ----------------------------------------------------
+//' Gets a single double parameter.
+//'
+//' \code{GetDaqParameterDoubleRef} gets a single double parameter.
+//'
+//' This is the same as \code{GetDaqParameterDouble}, but additionally it checks
+//' for success and a TwRetVal string is returned if it is not sucessful.
+//'
+//' @param Parameter Parameter name as a string. See
+//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' @export
+// [[Rcpp::export]]
+SEXP GetDaqParameterDoubleRef(SEXP Parameter) {
+
+  char *cParameter = RtoCstring(Parameter);
+
+  double Value;
+
+  TwRetVal rv = TwGetDaqParameterDoubleRef(cParameter, &Value);
+  if (rv != TwSuccess) {
+    return TwRetValString(rv);
+  }
+
+  return Value;
+}
+
+// GetDaqParameterStringRef -----------------------------------------------------
+//' Gets a single string parameter.
+//'
+//' \code{GetDaqParameterStringRef} gets a single string parameter.
+//'
+//' This is the same as \code{GetDaqParameter}, but returns \code{"TwInvalidValue"}
+//' if the type of the parameter is not a string.
+//'
+//' @param Parameter Parameter name as a string. See
+//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' @export
+// [[Rcpp::export]]
+SEXP GetDaqParameterStringRef(SEXP Parameter) {
+
+  char *cParameter = RtoCstring(Parameter);
+
+  char *Value = new char[256];
+
+  TwRetVal rv = TwGetDaqParameterStringRef(cParameter, Value);
+  if (rv != TwSuccess) {
+    return TwRetValString(rv);
+  }
+
+  std::string str(Value);
+
+  return str;
+}
+
 // SetDaqParameter -------------------------------------------------------------
 //' Sets a single parameter.
 //'
@@ -350,6 +616,31 @@ SEXP SetDaqParameterFloat(SEXP Parameter, double Value) {
   return TwRetValString(rv);
 }
 
+// SetDaqParameterInt64 ----------------------------------------------------------
+//' Sets a single parameter with an int64 value.
+//'
+//' \code{SetDaqParameterInt64} sets a single parameter with an int64 value
+//' (passed as a string).
+//'
+//' @param Parameter Parameter name as a string. See
+//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' @param Value int64 value passed as a string.
+//' @export
+// [[Rcpp::export]]
+SEXP SetDaqParameterInt64(SEXP Parameter, SEXP Value) {
+
+  char *cParameter = RtoCstring(Parameter);
+
+  std::string str = Rcpp::as<std::string>(Value);
+  std::stringstream ss(str);
+  __int64 int64value;
+  ss >> int64value;
+
+  TwRetVal rv = TwSetDaqParameterInt64(cParameter, int64value);
+
+  return TwRetValString(rv);
+}
+
 // SetDaqParameterDouble -------------------------------------------------------
 //' Sets a single parameter with a double value.
 //'
@@ -369,7 +660,7 @@ SEXP SetDaqParameterDouble(SEXP Parameter, double Value) {
   return TwRetValString(rv);
 }
 
-// GetDescriptor ---------------------------------------------------------------
+// GetDescriptor --------------------------------------------------------------
 //' Gets various information about the active acquisition.
 //'
 //' \code{GetDescriptor} retrieves the current TSharedMemoryDesc structure.
@@ -378,9 +669,8 @@ SEXP SetDaqParameterDouble(SEXP Parameter, double Value) {
 //' also information of DAQ progress.
 //' See \emph{/doc/TofDaqDll.htm} for more details.
 //'
-//' Unsigned int parameters are returned as numeric. int64 and unsigned int64
-//' parameters are returned as string by the dll and then converted to integer64
-//' using \code{\link[bit64]{as.integer64}}.
+//' int64 and unsigned int64 parameters are returned as string. They can be
+//' converted to integer64 using \code{\link[bit64]{bit64::as.integer64}}.
 //'
 //' @return A list containing the TSharedMemoryDesc structure
 //' @export
@@ -393,6 +683,8 @@ SEXP GetDescriptor() {
   if (rv != TwSuccess) {
     return TwRetValString(rv);
   }
+
+  std::stringstream ss;  // for converting int64 to string
 
   List result;
   result["NbrSamples"] = pBufDesc.NbrSamples;
@@ -429,9 +721,14 @@ SEXP GetDescriptor() {
   result["SampleInterval"] = pBufDesc.SampleInterval;
   result["TofPeriod"] = pBufDesc.TofPeriod;
   result["NbrCubes"] = pBufDesc.NbrCubes;
-  result["BlockPeriod"] = pBufDesc.BlockPeriod;
-  result["BlockPulseDelay"] = pBufDesc.BlockPulseDelay;
-  result["BlockDelay"] = pBufDesc.BlockDelay;
+  ss << pBufDesc.BlockPeriod;
+  result["BlockPeriod"] = ss.str();
+  ss.str(std::string());
+  ss << pBufDesc.BlockPulseDelay;
+  result["BlockPulseDelay"] = ss.str();
+  ss.str(std::string());
+  ss << pBufDesc.BlockDelay;
+  result["BlockDelay"] = ss.str();
   result["SingleIonSignal"] = pBufDesc.SingleIonSignal;
   result["SingleIonSignal2"] = pBufDesc.SingleIonSignal2;
   result["MassCalibMode"] = pBufDesc.MassCalibMode;
@@ -455,8 +752,12 @@ SEXP GetDescriptor() {
   result["CombineMode"] = pBufDesc.CombineMode;
   result["RecalibFreq"] = pBufDesc.RecalibFreq;
   result["AcquisitionLogText"] = pBufDesc.AcquisitionLogText;
-  result["AcquisitionLogTime"] = pBufDesc.AcquisitionLogTime;
-  result["TimeZero"] = pBufDesc.TimeZero;
+  ss.str(std::string());
+  ss << pBufDesc.AcquisitionLogTime;
+  result["AcquisitionLogTime"] = ss.str();
+  ss.str(std::string());
+  ss << pBufDesc.TimeZero;
+  result["TimeZero"] = ss.str();
   result["ExternalLock"] = pBufDesc.ExternalLock;
   result["ProcessingLevel"] = pBufDesc.ProcessingLevel;
   result["AttributeType"] = pBufDesc.AttributeType;
@@ -759,19 +1060,21 @@ SEXP GetBufTimeFromShMem(int BufIndex, int WriteIndex) {
 //'
 //' \code{AddLogEntry} adds an entry to the acquisition log.
 //'
-//' Note: specifying the log entry time (for adding entries in the past) is not
-//' supported.
-//'
 //' @param LogEntryText Log text (max. 255 characters).
+//' @param LogEntryTime Log entry time (number of 100-nanosecond intervals since
+//' January 1, 1601 UTC) passed as a string. Set it to "0" for "now".
 //'
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-SEXP AddLogEntry(SEXP LogEntryText) {
+SEXP AddLogEntry(SEXP LogEntryText, SEXP LogEntryTime) {
 
   char *cLogEntryText = RtoCstring(LogEntryText);
 
-  unsigned __int64 cTime = 0;  // only "now" is supported due to difficulty with casting int64 values
+  std::string str = Rcpp::as<std::string>(LogEntryTime);
+  std::stringstream ss(str);
+  unsigned __int64 cTime;
+  ss >> cTime;
 
   TwRetVal rv = TwAddLogEntry(cLogEntryText, cTime);
 
@@ -1677,22 +1980,6 @@ SEXP TpsChangeIonMode(int ionMode) {
 // Not implemented: TwUnLockBuf ------------------------------------------------
 // Not implemented: TwIssueDio4Pulse -------------------------------------------
 // Not implemented: TwSetDio4State ---------------------------------------------
-// Not implemented: TwGetDaqParameterInt ---------------------------------------
-// Not implemented: TwGetDaqParameterBool --------------------------------------
-// Not implemented: TwGetDaqParameterFloat -------------------------------------
-// Not implemented: TwGetDaqParameterInt64 -------------------------------------
-// Not implemented: TwGetDaqParameterDouble ------------------------------------
-// Not implemented: TwGetDaqParameterIntRef ------------------------------------
-// Not implemented: TwGetDaqParameterBoolRef -----------------------------------
-// Not implemented: TwGetDaqParameterFloatRef ----------------------------------
-// Not implemented: TwGetDaqParameterInt64Ref ----------------------------------
-// Not implemented: TwGetDaqParameterDoubleRef ---------------------------------
-// Not implemented: TwGetDaqParameterStringRef ---------------------------------
-// Not implemented: TwSetDaqParameterInt ---------------------------------------
-// Not implemented: TwSetDaqParameterBool --------------------------------------
-// Not implemented: TwSetDaqParameterFloat -------------------------------------
-// Not implemented: TwSetDaqParameterInt64 -------------------------------------
-// Not implemented: TwSetDaqParameterDouble ------------------------------------
 // Not implemented: TwConfigVarNbrMemories -------------------------------------
 // Not implemented: TwSetMassCalib ---------------------------------------------
 // Not implemented: TwSetMassCalibEx -------------------------------------------

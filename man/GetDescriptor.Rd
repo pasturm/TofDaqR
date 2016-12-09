@@ -17,8 +17,7 @@ also information of DAQ progress.
 See \emph{/doc/TofDaqDll.htm} for more details.
 }
 \details{
-Unsigned int parameters are returned as numeric. int64 and unsigned int64
-parameters are returned as string by the dll and then converted to integer64
-using \code{\link[bit64]{as.integer64}}.
+int64 and unsigned int64 parameters are returned as string. They can be
+converted to integer64 using \code{\link[bit64]{bit64::as.integer64}}.
 }
 

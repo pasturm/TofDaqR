@@ -1451,15 +1451,137 @@ SEXP SetIntAttributeInH5(SEXP Filename, SEXP location, SEXP name, int attribute)
   return TwRetValString(rv);
 }
 
-// SetDoubleAttributeInH5 ------------------------------------------------------
-//' Writes a numeric attribute to the HDF5 file.
+// SetUintAttributeInH5 --------------------------------------------------------
+//' Writes an unsigned integer attribute to the HDF5 file.
 //'
-//' \code{SetDoubleAttributeInH5} writes a numeric attribute to the HDF5 file.
+//' \code{SetUintAttributeInH5} writes an unsigned integer attribute to the HDF5 file.
+//'
+//' @param Filename Path/filename of the HDF5 file.
+//' @param location Location of the group or dataset where the attribute is attached to.
+//' @param name Attribute name.
+//' @param attribute Unsigned integer attribute (passed as numeric value).
+//'
+//' @examples
+//' \dontrun{
+//' SetUintAttributeInH5("path/to/file.h5", location = , name = , attribute = )
+//' }
+//' @export
+// [[Rcpp::export]]
+SEXP SetUintAttributeInH5(SEXP Filename, SEXP location, SEXP name, double attribute) {
+
+  char *cFilename = RtoCstring(Filename);
+  char *cLocation = RtoCstring(location);
+  char *cName = RtoCstring(name);
+
+  TwRetVal rv = TwSetUintAttributeInH5(cFilename, cLocation, cName, (unsigned int)attribute);
+  TwCloseH5(cFilename);
+
+  return TwRetValString(rv);
+}
+
+// SetInt64AttributeInH5 -------------------------------------------------------
+//' Writes an int64 attribute to the HDF5 file.
+//'
+//' \code{SetInt64AttributeInH5} writes an int64 attribute to the HDF5 file.
+//'
+//' @param Filename Path/filename of the HDF5 file.
+//' @param location Location of the group or dataset where the attribute is attached to.
+//' @param name Attribute name.
+//' @param attribute Int64 attribute passed as a string.
+//'
+//' @examples
+//' \dontrun{
+//' SetInt64AttributeInH5("path/to/file.h5", location = , name = , attribute = )
+//' }
+//' @export
+// [[Rcpp::export]]
+SEXP SetInt64AttributeInH5(SEXP Filename, SEXP location, SEXP name, SEXP attribute) {
+
+  char *cFilename = RtoCstring(Filename);
+  char *cLocation = RtoCstring(location);
+  char *cName = RtoCstring(name);
+
+  std::string str = Rcpp::as<std::string>(attribute);
+  std::stringstream ss(str);
+  int64_t int64value;
+  ss >> int64value;
+
+  TwRetVal rv = TwSetInt64AttributeInH5(cFilename, cLocation, cName, int64value);
+  TwCloseH5(cFilename);
+
+  return TwRetValString(rv);
+}
+
+// SetUint64AttributeInH5 ------------------------------------------------------
+//' Writes an unsigned int64 attribute to the HDF5 file.
+//'
+//' \code{SetUint64AttributeInH5} writes an unsigned int64 attribute to the HDF5 file.
+//'
+//' @param Filename Path/filename of the HDF5 file.
+//' @param location Location of the group or dataset where the attribute is attached to.
+//' @param name Attribute name.
+//' @param attribute Unsigned int64 attribute passed as a string.
+//'
+//' @examples
+//' \dontrun{
+//' SetUint64AttributeInH5("path/to/file.h5", location = , name = , attribute = )
+//' }
+//' @export
+// [[Rcpp::export]]
+SEXP SetUint64AttributeInH5(SEXP Filename, SEXP location, SEXP name, SEXP attribute) {
+
+  char *cFilename = RtoCstring(Filename);
+  char *cLocation = RtoCstring(location);
+  char *cName = RtoCstring(name);
+
+  std::string str = Rcpp::as<std::string>(attribute);
+  std::stringstream ss(str);
+  uint64_t uint64value;
+  ss >> uint64value;
+
+  TwRetVal rv = TwSetUint64AttributeInH5(cFilename, cLocation, cName, uint64value);
+  TwCloseH5(cFilename);
+
+  return TwRetValString(rv);
+}
+
+// SetFloatAttributeInH5 -------------------------------------------------------
+//' Writes a float attribute to the HDF5 file.
+//'
+//' \code{SetFloatAttributeInH5} writes a float attribute to the HDF5 file.
 //'
 //' @param filename Path/filename of the HDF5 file.
 //' @param location Location of the group or dataset where the attribute is attached to.
 //' @param name Attribute name.
-//' @param attribute Numeric attribute.
+//' @param attribute Float attribute.
+//'
+//' @examples
+//' \dontrun{
+//' SetFloatAttributeInH5("path/to/file.h5", location = , name = , attribute = )
+//' }
+//' @export
+// [[Rcpp::export]]
+SEXP SetFloatAttributeInH5(SEXP Filename, SEXP location, SEXP name, double attribute) {
+
+  char *cFilename = RtoCstring(Filename);
+  char *cLocation = RtoCstring(location);
+  char *cName = RtoCstring(name);
+
+  TwRetVal rv = TwSetFloatAttributeInH5(cFilename, cLocation, cName, (float)attribute);
+  TwCloseH5(cFilename);
+
+  return TwRetValString(rv);
+}
+
+// SetDoubleAttributeInH5 ------------------------------------------------------
+//' Writes a double attribute to the HDF5 file.
+//'
+//' \code{SetDoubleAttributeInH5} writes a double attribute to the HDF5 file.
+//'
+//' @param filename Path/filename of the HDF5 file.
+//' @param location Location of the group or dataset where the attribute is attached to.
+//' @param name Attribute name.
+//' @param attribute Double attribute.
 //'
 //' @examples
 //' \dontrun{
@@ -1714,12 +1836,36 @@ SEXP H5GetMassCalibPar(SEXP Filename, int writeIndex) {
   return result;
 }
 
+// H5AddLogEntry -----------------------------------------------------------------
+//' Adds an entry to an existing data file.
+//'
+//' \code{H5AddLogEntry} adds an entry to an existing data file. To add
+//' acquisition log entries during a running acquisition use \code{AddLogEntry}.
+//'
+//' @param Filename Path/filename of the HDF5 file.
+//' @param LogEntryText Log text (max. 255 characters).
+//' @param LogEntryTime Log entry time (number of 100-nanosecond intervals since
+//' January 1, 1601 UTC) passed as a string. Set it to "0" for "now".
+//'
+//' @export
+// [[Rcpp::export]]
+SEXP H5AddLogEntry(SEXP Filename, SEXP LogEntryText, SEXP LogEntryTime) {
+
+  char *cFilename = RtoCstring(Filename);
+  char *cLogEntryText = RtoCstring(LogEntryText);
+
+  std::string str = Rcpp::as<std::string>(LogEntryTime);
+  std::stringstream ss(str);
+  uint64_t cTime;
+  ss >> cTime;
+
+  TwRetVal rv = TwH5AddLogEntry(cFilename, cLogEntryText, cTime);
+
+  return TwRetValString(rv);
+}
+
 // Not implemented -------------------------------------------------------------
 // TwGetBufWriteProfileFromH5_2
-// TwSetUintAttributeInH5
-// TwSetInt64AttributeInH5
-// TwSetUInt64AttributeInH5
-// TwSetFloatAttributeInH5
 // TwChangePeakTable
 // TwChangePeakTable2
 // TwChangePeakFromFile
@@ -1737,7 +1883,6 @@ SEXP H5GetMassCalibPar(SEXP Filename, int writeIndex) {
 // TwFreeEventListData
 // TwFreeEventListData2
 // TwMultiPeakFitIntegration
-// TwH5AddLogEntry
 // TwH5AddUserDataMultiRow
 // TwH5SetMassCalibDynamic
 // TwGenerateSegmentProfilesFromEventList

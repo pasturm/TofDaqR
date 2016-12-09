@@ -291,6 +291,147 @@ GetDaqParameter <- function(Parameter) {
     .Call('TofDaqR_GetDaqParameter', PACKAGE = 'TofDaqR', Parameter)
 }
 
+#' Gets a single integer parameter.
+#'
+#' \code{GetDaqParameterInt} gets a single integer parameter.
+#'
+#' @param Parameter Parameter name as a string. See
+#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' @export
+GetDaqParameterInt <- function(Parameter) {
+    .Call('TofDaqR_GetDaqParameterInt', PACKAGE = 'TofDaqR', Parameter)
+}
+
+#' Gets a single boolean parameter.
+#'
+#' \code{GetDaqParameterBool} gets a single boolean parameter.
+#'
+#' @param Parameter Parameter name as a string. See
+#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' @export
+GetDaqParameterBool <- function(Parameter) {
+    .Call('TofDaqR_GetDaqParameterBool', PACKAGE = 'TofDaqR', Parameter)
+}
+
+#' Gets a single float parameter.
+#'
+#' \code{GetDaqParameterFloat} gets a single float parameter.
+#'
+#' @param Parameter Parameter name as a string. See
+#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' @export
+GetDaqParameterFloat <- function(Parameter) {
+    .Call('TofDaqR_GetDaqParameterFloat', PACKAGE = 'TofDaqR', Parameter)
+}
+
+#' Gets a single int64 parameter as a string.
+#'
+#' \code{GetDaqParameterInt64} gets a single int64 parameter as a string.
+#'
+#' The return string can be converted to integer64 using \code{\link[bit64]{bit64::as.integer64}}.
+#'
+#' @param Parameter Parameter name as a string. See
+#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' @export
+GetDaqParameterInt64 <- function(Parameter) {
+    .Call('TofDaqR_GetDaqParameterInt64', PACKAGE = 'TofDaqR', Parameter)
+}
+
+#' Gets a single double parameter.
+#'
+#' \code{GetDaqParameterDouble} gets a single double parameter.
+#'
+#' @param Parameter Parameter name as a string. See
+#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' @export
+GetDaqParameterDouble <- function(Parameter) {
+    .Call('TofDaqR_GetDaqParameterDouble', PACKAGE = 'TofDaqR', Parameter)
+}
+
+#' Gets a single integer parameter.
+#'
+#' \code{GetDaqParameterIntRef} gets a single integer parameter.
+#'
+#' This is the same as \code{GetDaqParameterInt}, but additionally it checks
+#' for success and a TwRetVal string is returned if it is not sucessful.
+#'
+#' @param Parameter Parameter name as a string. See
+#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' @export
+GetDaqParameterIntRef <- function(Parameter) {
+    .Call('TofDaqR_GetDaqParameterIntRef', PACKAGE = 'TofDaqR', Parameter)
+}
+
+#' Gets a single boolean parameter.
+#'
+#' \code{GetDaqParameterBoolRef} gets a single boolean parameter.
+#'
+#' This is the same as \code{GetDaqParameterBool}, but additionally it checks
+#' for success and a TwRetVal string is returned if it is not sucessful.
+#'
+#' @param Parameter Parameter name as a string. See
+#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' @export
+GetDaqParameterBoolRef <- function(Parameter) {
+    .Call('TofDaqR_GetDaqParameterBoolRef', PACKAGE = 'TofDaqR', Parameter)
+}
+
+#' Gets a single float parameter.
+#'
+#' \code{GetDaqParameterFloatRef} gets a single float parameter.
+#'
+#' This is the same as \code{GetDaqParameterFloat}, but additionally it checks
+#' for success and a TwRetVal string is returned if it is not sucessful.
+#'
+#' @param Parameter Parameter name as a string. See
+#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' @export
+GetDaqParameterFloatRef <- function(Parameter) {
+    .Call('TofDaqR_GetDaqParameterFloatRef', PACKAGE = 'TofDaqR', Parameter)
+}
+
+#' Gets a single int64 parameter as a string.
+#'
+#' \code{GetDaqParameterInt64Ref} gets a single int64 parameter as a string.
+#'
+#' This is the same as \code{GetDaqParameterInt64}, but additionally it checks
+#' for success and a TwRetVal string is returned if it is not sucessful.
+#'
+#' @param Parameter Parameter name as a string. See
+#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' @export
+GetDaqParameterInt64Ref <- function(Parameter) {
+    .Call('TofDaqR_GetDaqParameterInt64Ref', PACKAGE = 'TofDaqR', Parameter)
+}
+
+#' Gets a single double parameter.
+#'
+#' \code{GetDaqParameterDoubleRef} gets a single double parameter.
+#'
+#' This is the same as \code{GetDaqParameterDouble}, but additionally it checks
+#' for success and a TwRetVal string is returned if it is not sucessful.
+#'
+#' @param Parameter Parameter name as a string. See
+#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' @export
+GetDaqParameterDoubleRef <- function(Parameter) {
+    .Call('TofDaqR_GetDaqParameterDoubleRef', PACKAGE = 'TofDaqR', Parameter)
+}
+
+#' Gets a single string parameter.
+#'
+#' \code{GetDaqParameterStringRef} gets a single string parameter.
+#'
+#' This is the same as \code{GetDaqParameter}, but returns \code{"TwInvalidValue"}
+#' if the type of the parameter is not a string.
+#'
+#' @param Parameter Parameter name as a string. See
+#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' @export
+GetDaqParameterStringRef <- function(Parameter) {
+    .Call('TofDaqR_GetDaqParameterStringRef', PACKAGE = 'TofDaqR', Parameter)
+}
+
 #' Sets a single parameter.
 #'
 #' \code{SetDaqParameter} sets a single parameter.
@@ -339,6 +480,19 @@ SetDaqParameterFloat <- function(Parameter, Value) {
     .Call('TofDaqR_SetDaqParameterFloat', PACKAGE = 'TofDaqR', Parameter, Value)
 }
 
+#' Sets a single parameter with an int64 value.
+#'
+#' \code{SetDaqParameterInt64} sets a single parameter with an int64 value
+#' (passed as a string).
+#'
+#' @param Parameter Parameter name as a string. See
+#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' @param Value int64 value passed as a string.
+#' @export
+SetDaqParameterInt64 <- function(Parameter, Value) {
+    .Call('TofDaqR_SetDaqParameterInt64', PACKAGE = 'TofDaqR', Parameter, Value)
+}
+
 #' Sets a single parameter with a double value.
 #'
 #' \code{SetDaqParameterDouble} sets a single parameter with a double value.
@@ -359,9 +513,8 @@ SetDaqParameterDouble <- function(Parameter, Value) {
 #' also information of DAQ progress.
 #' See \emph{/doc/TofDaqDll.htm} for more details.
 #'
-#' Unsigned int parameters are returned as numeric. int64 and unsigned int64
-#' parameters are returned as string by the dll and then converted to integer64
-#' using \code{\link[bit64]{as.integer64}}.
+#' int64 and unsigned int64 parameters are returned as string. They can be
+#' converted to integer64 using \code{\link[bit64]{bit64::as.integer64}}.
 #'
 #' @return A list containing the TSharedMemoryDesc structure
 #' @export
@@ -506,15 +659,14 @@ GetBufTimeFromShMem <- function(BufIndex, WriteIndex) {
 #'
 #' \code{AddLogEntry} adds an entry to the acquisition log.
 #'
-#' Note: specifying the log entry time (for adding entries in the past) is not
-#' supported.
-#'
 #' @param LogEntryText Log text (max. 255 characters).
+#' @param LogEntryTime Log entry time (number of 100-nanosecond intervals since
+#' January 1, 1601 UTC) passed as a string. Set it to "0" for "now".
 #'
 #' @family Data storage functions
 #' @export
-AddLogEntry <- function(LogEntryText) {
-    .Call('TofDaqR_AddLogEntry', PACKAGE = 'TofDaqR', LogEntryText)
+AddLogEntry <- function(LogEntryText, LogEntryTime) {
+    .Call('TofDaqR_AddLogEntry', PACKAGE = 'TofDaqR', LogEntryText, LogEntryTime)
 }
 
 #' Attaches an integer attribute to the current HDF5 file.
@@ -1671,14 +1823,86 @@ SetIntAttributeInH5 <- function(Filename, location, name, attribute) {
     .Call('TofDaqR_SetIntAttributeInH5', PACKAGE = 'TofDaqR', Filename, location, name, attribute)
 }
 
-#' Writes a numeric attribute to the HDF5 file.
+#' Writes an unsigned integer attribute to the HDF5 file.
 #'
-#' \code{SetDoubleAttributeInH5} writes a numeric attribute to the HDF5 file.
+#' \code{SetUintAttributeInH5} writes an unsigned integer attribute to the HDF5 file.
+#'
+#' @param Filename Path/filename of the HDF5 file.
+#' @param location Location of the group or dataset where the attribute is attached to.
+#' @param name Attribute name.
+#' @param attribute Unsigned integer attribute (passed as numeric value).
+#'
+#' @examples
+#' \dontrun{
+#' SetUintAttributeInH5("path/to/file.h5", location = , name = , attribute = )
+#' }
+#' @export
+SetUintAttributeInH5 <- function(Filename, location, name, attribute) {
+    .Call('TofDaqR_SetUintAttributeInH5', PACKAGE = 'TofDaqR', Filename, location, name, attribute)
+}
+
+#' Writes an int64 attribute to the HDF5 file.
+#'
+#' \code{SetInt64AttributeInH5} writes an int64 attribute to the HDF5 file.
+#'
+#' @param Filename Path/filename of the HDF5 file.
+#' @param location Location of the group or dataset where the attribute is attached to.
+#' @param name Attribute name.
+#' @param attribute Int64 attribute passed as a string.
+#'
+#' @examples
+#' \dontrun{
+#' SetInt64AttributeInH5("path/to/file.h5", location = , name = , attribute = )
+#' }
+#' @export
+SetInt64AttributeInH5 <- function(Filename, location, name, attribute) {
+    .Call('TofDaqR_SetInt64AttributeInH5', PACKAGE = 'TofDaqR', Filename, location, name, attribute)
+}
+
+#' Writes an unsigned int64 attribute to the HDF5 file.
+#'
+#' \code{SetUint64AttributeInH5} writes an unsigned int64 attribute to the HDF5 file.
+#'
+#' @param Filename Path/filename of the HDF5 file.
+#' @param location Location of the group or dataset where the attribute is attached to.
+#' @param name Attribute name.
+#' @param attribute Unsigned int64 attribute passed as a string.
+#'
+#' @examples
+#' \dontrun{
+#' SetUint64AttributeInH5("path/to/file.h5", location = , name = , attribute = )
+#' }
+#' @export
+SetUint64AttributeInH5 <- function(Filename, location, name, attribute) {
+    .Call('TofDaqR_SetUint64AttributeInH5', PACKAGE = 'TofDaqR', Filename, location, name, attribute)
+}
+
+#' Writes a float attribute to the HDF5 file.
+#'
+#' \code{SetFloatAttributeInH5} writes a float attribute to the HDF5 file.
 #'
 #' @param filename Path/filename of the HDF5 file.
 #' @param location Location of the group or dataset where the attribute is attached to.
 #' @param name Attribute name.
-#' @param attribute Numeric attribute.
+#' @param attribute Float attribute.
+#'
+#' @examples
+#' \dontrun{
+#' SetFloatAttributeInH5("path/to/file.h5", location = , name = , attribute = )
+#' }
+#' @export
+SetFloatAttributeInH5 <- function(Filename, location, name, attribute) {
+    .Call('TofDaqR_SetFloatAttributeInH5', PACKAGE = 'TofDaqR', Filename, location, name, attribute)
+}
+
+#' Writes a double attribute to the HDF5 file.
+#'
+#' \code{SetDoubleAttributeInH5} writes a double attribute to the HDF5 file.
+#'
+#' @param filename Path/filename of the HDF5 file.
+#' @param location Location of the group or dataset where the attribute is attached to.
+#' @param name Attribute name.
+#' @param attribute Double attribute.
 #'
 #' @examples
 #' \dontrun{
@@ -1790,6 +2014,21 @@ GetEventListSpectrumFromH5 <- function(Filename, segmentIndex, bufIndex, writeIn
 #' @export
 H5GetMassCalibPar <- function(Filename, writeIndex) {
     .Call('TofDaqR_H5GetMassCalibPar', PACKAGE = 'TofDaqR', Filename, writeIndex)
+}
+
+#' Adds an entry to an existing data file.
+#'
+#' \code{H5AddLogEntry} adds an entry to an existing data file. To add
+#' acquisition log entries during a running acquisition use \code{AddLogEntry}.
+#'
+#' @param Filename Path/filename of the HDF5 file.
+#' @param LogEntryText Log text (max. 255 characters).
+#' @param LogEntryTime Log entry time (number of 100-nanosecond intervals since
+#' January 1, 1601 UTC) passed as a string. Set it to "0" for "now".
+#'
+#' @export
+H5AddLogEntry <- function(Filename, LogEntryText, LogEntryTime) {
+    .Call('TofDaqR_H5AddLogEntry', PACKAGE = 'TofDaqR', Filename, LogEntryText, LogEntryTime)
 }
 
 #' Performs a peak fit.

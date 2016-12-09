@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcppExports.R
 \name{SetDoubleAttributeInH5}
 \alias{SetDoubleAttributeInH5}
-\title{Writes a numeric attribute to the HDF5 file.}
+\title{Writes a double attribute to the HDF5 file.}
 \usage{
 SetDoubleAttributeInH5(Filename, location, name, attribute)
 }
@@ -11,12 +11,12 @@ SetDoubleAttributeInH5(Filename, location, name, attribute)
 
 \item{name}{Attribute name.}
 
-\item{attribute}{Numeric attribute.}
+\item{attribute}{Double attribute.}
 
 \item{filename}{Path/filename of the HDF5 file.}
 }
 \description{
-\code{SetDoubleAttributeInH5} writes a numeric attribute to the HDF5 file.
+\code{SetDoubleAttributeInH5} writes a double attribute to the HDF5 file.
 }
 \examples{
 \dontrun{

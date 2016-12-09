@@ -1,3 +1,15 @@
+TofDaqR 0.3.1
+--------------------------------------------------------------------------------
+
+* `GetDescriptor()` returns int64 and uint64 values as strings.
+
+* `AddLogEntry()` also accepts the `LogEntryTime` parameter.
+
+* Added many additional API functions (`GetDaqParameter...()`,
+  `SetDaqParameter...()`, `Set...AttributeInH5()`, `H5AddLogEntry()`,
+  `H5GetMassCalibPar()`, `GetBufWriteProfileFromH5()`)
+
+
 TofDaqR 0.3.0
 --------------------------------------------------------------------------------
 
