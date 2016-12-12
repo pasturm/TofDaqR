@@ -791,7 +791,6 @@ SEXP SiFitPhd(NumericVector intensity, NumericVector counts) {
 
   int nbrPoints = intensity.size();
 
-  //prepare return array
   NumericVector fwhm(nbrPoints);
   NumericVector a(nbrPoints);
   NumericVector par(nbrPoints);

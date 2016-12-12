@@ -401,7 +401,7 @@ SEXP GetDaqParameterIntRef(SEXP Parameter) {
     return TwRetValString(rv);
   }
 
-  return Value;
+  return wrap(Value);
 }
 
 // GetDaqParameterBoolRef ------------------------------------------------------
@@ -427,7 +427,7 @@ SEXP GetDaqParameterBoolRef(SEXP Parameter) {
     return TwRetValString(rv);
   }
 
-  return Value;
+  return wrap(Value);
 }
 
 // GetDaqParameterFloatRef -----------------------------------------------------
@@ -453,7 +453,7 @@ SEXP GetDaqParameterFloatRef(SEXP Parameter) {
     return TwRetValString(rv);
   }
 
-  return (double)Value;
+  return wrap(Value);
 }
 
 // GetDaqParameterInt64Ref -----------------------------------------------------
@@ -482,7 +482,7 @@ SEXP GetDaqParameterInt64Ref(SEXP Parameter) {
   std::stringstream ss;
   ss << Value;
 
-  return ss.str();
+  return wrap(ss.str());
 }
 
 // GetDaqParameterDoubleRef ----------------------------------------------------
@@ -508,7 +508,7 @@ SEXP GetDaqParameterDoubleRef(SEXP Parameter) {
     return TwRetValString(rv);
   }
 
-  return Value;
+  return wrap(Value);
 }
 
 // GetDaqParameterStringRef -----------------------------------------------------
@@ -536,7 +536,7 @@ SEXP GetDaqParameterStringRef(SEXP Parameter) {
 
   std::string str(Value);
 
-  return str;
+  return wrap(str);
 }
 
 // SetDaqParameter -------------------------------------------------------------
