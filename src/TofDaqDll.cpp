@@ -332,7 +332,7 @@ double GetDaqParameterFloat(SEXP Parameter) {
 //'
 //' \code{GetDaqParameterInt64} gets a single int64 parameter as a string.
 //'
-//' The return string can be converted to integer64 using \code{\link[bit64]{bit64::as.integer64}}.
+//' The return string can be converted to integer64 using \code{\link[bit64]{as.integer64}}.
 //'
 //' @param Parameter Parameter name as a string. See
 //' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
