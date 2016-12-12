@@ -9,6 +9,8 @@ TofDaqR 0.3.1
   `SetDaqParameter...()` and `Set...AttributeInH5()` functions,
   `H5AddLogEntry()`, `H5GetMassCalibPar()`, `GetBufWriteProfileFromH5()`)
 
+* Corrected `tof()` for "HTOF-W".
+
 
 TofDaqR 0.3.0
 --------------------------------------------------------------------------------

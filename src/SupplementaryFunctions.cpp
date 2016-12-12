@@ -72,7 +72,7 @@ NumericVector tof(CharacterVector toftype = CharacterVector::create("LTOF"),
     d5 = 0.0165;
     d6 = 0.0713 - d5;
     d7 = 0.0085;
-    u7 = 2 * Vpush;
+    u7 = 1.5 * Vpush - Vdrift;
   } else if (strcmp(cToftype, "LTOF") == 0) {
     d3 = 0.014;
     d4 = 1.0465 + 1.052;
