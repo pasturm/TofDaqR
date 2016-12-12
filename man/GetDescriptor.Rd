@@ -18,6 +18,6 @@ See \emph{/doc/TofDaqDll.htm} for more details.
 }
 \details{
 int64 and unsigned int64 parameters are returned as string. They can be
-converted to integer64 using \code{\link[bit64]{bit64::as.integer64}}.
+converted to integer64 using \code{\link[bit64]{as.integer64}}.
 }
 

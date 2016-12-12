@@ -286,9 +286,7 @@ int GetDaqParameterInt(SEXP Parameter) {
 
   char *cParameter = RtoCstring(Parameter);
 
-  int result;
-
-  result = TwGetDaqParameterInt(cParameter);
+  int result = TwGetDaqParameterInt(cParameter);
 
   return result;
 }
@@ -306,9 +304,7 @@ bool GetDaqParameterBool(SEXP Parameter) {
 
   char *cParameter = RtoCstring(Parameter);
 
-  bool result;
-
-  result = TwGetDaqParameterBool(cParameter);
+  bool result = TwGetDaqParameterBool(cParameter);
 
   return result;
 }
@@ -326,9 +322,7 @@ double GetDaqParameterFloat(SEXP Parameter) {
 
   char *cParameter = RtoCstring(Parameter);
 
-  float result;
-
-  result = TwGetDaqParameterFloat(cParameter);
+  float result = TwGetDaqParameterFloat(cParameter);
 
   return (double)result;
 }
@@ -348,9 +342,7 @@ String GetDaqParameterInt64(SEXP Parameter) {
 
   char *cParameter = RtoCstring(Parameter);
 
-  __int64 result;
-
-  result = TwGetDaqParameterInt64(cParameter);
+  __int64 result = TwGetDaqParameterInt64(cParameter);
 
   std::stringstream ss;
   ss << result;
@@ -371,9 +363,7 @@ double GetDaqParameterDouble(SEXP Parameter) {
 
   char *cParameter = RtoCstring(Parameter);
 
-  double result;
-
-  result = TwGetDaqParameterDouble(cParameter);
+  double result = TwGetDaqParameterDouble(cParameter);
 
   return result;
 }
@@ -526,7 +516,6 @@ SEXP GetDaqParameterDoubleRef(SEXP Parameter) {
 SEXP GetDaqParameterStringRef(SEXP Parameter) {
 
   char *cParameter = RtoCstring(Parameter);
-
   char *Value = new char[256];
 
   TwRetVal rv = TwGetDaqParameterStringRef(cParameter, Value);
@@ -670,7 +659,7 @@ SEXP SetDaqParameterDouble(SEXP Parameter, double Value) {
 //' See \emph{/doc/TofDaqDll.htm} for more details.
 //'
 //' int64 and unsigned int64 parameters are returned as string. They can be
-//' converted to integer64 using \code{\link[bit64]{bit64::as.integer64}}.
+//' converted to integer64 using \code{\link[bit64]{as.integer64}}.
 //'
 //' @return A list containing the TSharedMemoryDesc structure
 //' @export
