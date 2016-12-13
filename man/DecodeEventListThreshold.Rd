@@ -34,4 +34,5 @@ above the threshold (plus pre-trigger and post-trigger samples) are returned.
 Note: this function is not part of the TofDaq API, but is included in the
 package for convenience.
 }
+\keyword{internal}
 

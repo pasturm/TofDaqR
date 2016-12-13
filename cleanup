@@ -11,7 +11,9 @@ fi
 mv ./src/RcppExports.cpp.windows ./src/RcppExports.cpp
 rm ./src/RcppExports.cpp.tmp
 
-# restore zzz.R
+# restore NAMESPACE and zzz.R
+mv NAMESPACE.windows NAMESPACE
+rm NAMESPACE.tmp
 mv ./R/zzz.R.windows ./R/zzz.R
 
 # move TofDaqDll help files back to ./man

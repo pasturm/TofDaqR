@@ -6,9 +6,11 @@ using namespace Rcpp;
 // convert R string to C string
 char* RtoCstring(SEXP rstring) {
   std::string str = Rcpp::as<std::string>(rstring);
-  std::vector<char> cstring(str.begin(), str.end());
-  cstring.push_back('\0');
-  return &cstring[0];
+  char *cstring;
+  cstring = R_alloc(str.length() + 1, sizeof(char));  // stringlength + 1 to account for null termination
+  strcpy(cstring, str.c_str());  // copy rstring to cstring
+  cstring[str.length()] = '\0';  // null terminate for safety
+  return cstring;
 }
 
 // convert TwRetVal to String

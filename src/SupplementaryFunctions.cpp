@@ -32,6 +32,8 @@ using namespace Rcpp;
 //' 720-726.
 //'
 //' @return Time-of-flight (s)
+//'
+//' @keywords internal
 //' @export
 // [[Rcpp::export]]
 NumericVector tof(CharacterVector toftype = CharacterVector::create("LTOF"),
@@ -158,7 +160,7 @@ SEXP EventList2TofSpec(NumericVector events, double clockPeriod,
 
   unsigned int n = events.size();
 
-  NumericVector spectrum(n);
+  NumericVector spectrum(nbrSamples);
 
   for (unsigned int i = 0; i < n; ++i) {
     const unsigned int timestamp = (unsigned int)events[i] & 0xFFFFFF;
@@ -255,6 +257,8 @@ SEXP DecodeEventList(NumericVector events, int clockPeriod, int sampleInterval) 
 //' @param presamples Number of pre-trigger samples.
 //' @param postsamples Number of post-trigger samples.
 //' @return A list with sample indices and data values (in mV).
+//'
+//' @keywords internal
 //' @export
 // [[Rcpp::export]]
 List DecodeEventListThreshold(NumericVector events, double clockPeriod,

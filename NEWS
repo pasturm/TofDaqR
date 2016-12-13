@@ -9,7 +9,7 @@ TofDaqR 0.3.1
   `SetDaqParameter...()` and `Set...AttributeInH5()` functions,
   `H5AddLogEntry()`, `H5GetMassCalibPar()`, `GetBufWriteProfileFromH5()`)
 
-* Corrected `tof()` for "HTOF-W".
+* Corrected critical bug in internal R-string to C-string conversion.
 
 
 TofDaqR 0.3.0
@@ -46,10 +46,6 @@ TofDaqR 0.1.7
 TofDaqR 0.1.6
 --------------------------------------------------------------------------------
 
-* Minor corrections of extractor and drift distances in `tof()`
-
-* Added "HTOF-W" option in `tof()`.
-
 * Corrected bug when package was unloaded.
 
 * Some general code improvements in TofDaqWrapR.dll.
@@ -57,8 +53,6 @@ TofDaqR 0.1.6
 * `DecodeEventList()` now returns sample indices instead of time stamps.
 
 * Updated some help pages.
-
-* Moved code of `tof()` function to TofDaqWrapR.dll.
 
 * Published TofDaqR to GitHub: https://github.com/pasturm/TofDaqR
 
@@ -82,8 +76,6 @@ TofDaqR 0.1.4
 
 * Corrected minor bug in `CleanupDll()` and `SetTimeout()` (no return value
   instead of NULL).
-
-* Added `tof()` function to calculate time-of-flights.
 
 * Added undocumented option of histogram-based noise determination in
   `SiSetProcessingOptions()`.

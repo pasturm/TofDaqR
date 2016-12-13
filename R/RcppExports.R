@@ -25,6 +25,8 @@
 #' 720-726.
 #'
 #' @return Time-of-flight (s)
+#'
+#' @keywords internal
 #' @export
 tof <- function(toftype = as.character( c("LTOF")), drift = 6000, pulse = 1000, mass = 100, x = as.numeric( c(0)), v = as.numeric( c(0))) {
     .Call('TofDaqR_tof', PACKAGE = 'TofDaqR', toftype, drift, pulse, mass, x, v)
@@ -87,6 +89,8 @@ DecodeEventList <- function(events, clockPeriod, sampleInterval) {
 #' @param presamples Number of pre-trigger samples.
 #' @param postsamples Number of post-trigger samples.
 #' @return A list with sample indices and data values (in mV).
+#'
+#' @keywords internal
 #' @export
 DecodeEventListThreshold <- function(events, clockPeriod, sampleInterval, threshold, presamples, postsamples) {
     .Call('TofDaqR_DecodeEventListThreshold', PACKAGE = 'TofDaqR', events, clockPeriod, sampleInterval, threshold, presamples, postsamples)
