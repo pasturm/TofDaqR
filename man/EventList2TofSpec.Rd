@@ -9,10 +9,11 @@ EventList2TofSpec(events, clockPeriod, sampleInterval, nbrSamples)
 \arguments{
 \item{events}{Event data, e.g. from \code{GetEventList...FromH5}.}
 
-\item{clockPeriod}{Clock period in ns, e.g. from
+\item{clockPeriod}{Clock period (in s or ns), e.g. from
 \code{GetFloatAttributeFromH5(filename, "FullSpectra", "ClockPeriod")}.}
 
-\item{sampleInterval}{Sampling interval in ns, e.g. from \code{\link{GetH5Descriptor}}.}
+\item{sampleInterval}{Sampling interval (in same units as \code{clockPeriod}),
+e.g. from \code{\link{GetH5Descriptor}}.}
 
 \item{nbrSamples}{Number of samples, e.g. from \code{\link{GetH5Descriptor}}.}
 }

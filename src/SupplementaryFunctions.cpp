@@ -145,9 +145,10 @@ NumericVector tof(CharacterVector toftype = CharacterVector::create("LTOF"),
 //' package for convenience.
 //'
 //' @param events Event data, e.g. from \code{GetEventList...FromH5}.
-//' @param clockPeriod Clock period in ns, e.g. from
+//' @param clockPeriod Clock period (in s or ns), e.g. from
 //' \code{GetFloatAttributeFromH5(filename, "FullSpectra", "ClockPeriod")}.
-//' @param sampleInterval Sampling interval in ns, e.g. from \code{\link{GetH5Descriptor}}.
+//' @param sampleInterval Sampling interval (in same units as \code{clockPeriod}),
+//'  e.g. from \code{\link{GetH5Descriptor}}.
 //' @param nbrSamples Number of samples, e.g. from \code{\link{GetH5Descriptor}}.
 //' @return A vector containing the spectrum.
 //' @export
@@ -190,9 +191,10 @@ SEXP EventList2TofSpec(NumericVector events, double clockPeriod,
 //' package for convenience.
 //'
 //' @param events Event data, e.g. from \code{GetEventList...FromH5}.
-//' @param clockPeriod Clock period in ns, e.g. from
+//' @param clockPeriod Clock period (in s or ns), e.g. from
 //' \code{GetFloatAttributeFromH5(filename, "FullSpectra", "ClockPeriod")}.
-//' @param sampleInterval Sampling interval in ns, e.g. from \code{\link{GetH5Descriptor}}.
+//' @param sampleInterval Sampling interval (in same units as \code{clockPeriod}),
+//'  e.g. from \code{\link{GetH5Descriptor}}.
 //' @return A list with sample indices and data values (in mV).
 //' @export
 // [[Rcpp::export]]
@@ -245,9 +247,10 @@ SEXP DecodeEventList(NumericVector events, int clockPeriod, int sampleInterval) 
 //' package for convenience.
 //'
 //' @param events Event data, e.g. from \code{GetEventList...FromH5}.
-//' @param clockPeriod Clock period in ns, e.g. from
+//' @param clockPeriod Clock period (in s or ns), e.g. from
 //' \code{GetFloatAttributeFromH5(filename, "FullSpectra", "ClockPeriod")}.
-//' @param sampleInterval Sampling interval in ns, e.g. from \code{\link{GetH5Descriptor}}.
+//' @param sampleInterval Sampling interval (in same units as \code{clockPeriod}),
+//'  e.g. from \code{\link{GetH5Descriptor}}.
 //' @param threshold Threshold value (mV).
 //' @param presamples Number of pre-trigger samples.
 //' @param postsamples Number of post-trigger samples.
