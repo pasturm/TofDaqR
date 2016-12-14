@@ -7,13 +7,13 @@
 SetFloatAttributeInH5(Filename, location, name, attribute)
 }
 \arguments{
+\item{Filename}{Path/filename of the HDF5 file.}
+
 \item{location}{Location of the group or dataset where the attribute is attached to.}
 
 \item{name}{Attribute name.}
 
 \item{attribute}{Float attribute.}
-
-\item{filename}{Path/filename of the HDF5 file.}
 }
 \description{
 \code{SetFloatAttributeInH5} writes a float attribute to the HDF5 file.

@@ -7,7 +7,7 @@
 TpsSaveSetFile(setFile)
 }
 \arguments{
-\item{setfile}{Path/filename of the set file to save.}
+\item{setFile}{Path/filename of the set file to save.}
 }
 \description{
 \code{TpsSaveSetFile} saves the current TPS settings to a file.

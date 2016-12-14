@@ -11,9 +11,9 @@ MassCalibrate(massCalibMode, mass, tof, weight = NULL)
 
 \item{mass}{Vector of mass/charge values.}
 
-\item{weight}{Vector of weights (if \code{NULL} (default) all weights are set equal).}
+\item{tof}{Vector of sample indices (of same length as \code{mass}).}
 
-\item{idx}{Vector of sample indices (of same length as \code{mass}).}
+\item{weight}{Vector of weights (if \code{NULL} (default) all weights are set equal).}
 }
 \value{
 Vector of calibration parameters.

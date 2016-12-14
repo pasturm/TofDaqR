@@ -107,7 +107,7 @@ DecodeEventListThreshold <- function(events, clockPeriod, sampleInterval, thresh
 #' @param BufIndex Buf index of data to fetch.
 #' @return A list with the baseline and threshold value.
 #'
-#' @family Single ion histogramming functions.
+#' @family Single ion histogramming functions
 #' @export
 SiProcessSpectrumFromShMem <- function(specType, BufIndex) {
     .Call('TofDaqR_SiProcessSpectrumFromShMem', PACKAGE = 'TofDaqR', specType, BufIndex)
@@ -1089,7 +1089,7 @@ TpsGetStatus <- function() {
 #'
 #' \code{TpsLoadSetFile} loads a TPS set file from disk and sets all values.
 #'
-#' @param setfile Path/filename of the set file to load.
+#' @param setFile Path/filename of the set file to load.
 #' @section Warning:
 #' This does not just load the file (as the function name might suggest), but
 #' also immediately sets all values.
@@ -1104,7 +1104,7 @@ TpsLoadSetFile <- function(setFile) {
 #'
 #' \code{TpsSaveSetFile} saves the current TPS settings to a file.
 #'
-#' @param setfile Path/filename of the set file to save.
+#' @param setFile Path/filename of the set file to save.
 #'
 #' @family TPS functions
 #' @export
@@ -1693,7 +1693,7 @@ GetIntAttributeFromH5 <- function(Filename, location, name) {
 #' Used to read attributes not available from \code{GetH5Descriptor}. Unsigned
 #' integers are returned as numeric values in R.
 #'
-#' @param filename Path/filename of the HDF5 file.
+#' @param Filename Path/filename of the HDF5 file.
 #' @param location Location of the group or dataset where the attribute is attached to.
 #' @param name Attribute name.
 #' @return An numeric attribute.
@@ -1888,7 +1888,7 @@ SetUint64AttributeInH5 <- function(Filename, location, name, attribute) {
 #'
 #' \code{SetFloatAttributeInH5} writes a float attribute to the HDF5 file.
 #'
-#' @param filename Path/filename of the HDF5 file.
+#' @param Filename Path/filename of the HDF5 file.
 #' @param location Location of the group or dataset where the attribute is attached to.
 #' @param name Attribute name.
 #' @param attribute Float attribute.
@@ -1906,7 +1906,7 @@ SetFloatAttributeInH5 <- function(Filename, location, name, attribute) {
 #'
 #' \code{SetDoubleAttributeInH5} writes a double attribute to the HDF5 file.
 #'
-#' @param filename Path/filename of the HDF5 file.
+#' @param Filename Path/filename of the HDF5 file.
 #' @param location Location of the group or dataset where the attribute is attached to.
 #' @param name Attribute name.
 #' @param attribute Double attribute.
@@ -1924,7 +1924,7 @@ SetDoubleAttributeInH5 <- function(Filename, location, name, attribute) {
 #'
 #' \code{SetStringAttributeInH5} writes a string attribute to the HDF5 file.
 #'
-#' @param filename Path/filename of the HDF5 file.
+#' @param Filename Path/filename of the HDF5 file.
 #' @param location Location of the group or dataset where the attribute is attached to.
 #' @param name Attribute name.
 #' @param attribute String attribute (max. 256 characters).
@@ -2325,7 +2325,7 @@ Mass2Tof <- function(mass, massCalibMode, p) {
 #'
 #' @param massCalibMode Mass calibration function to use. See below.
 #' @param mass Vector of mass/charge values.
-#' @param idx Vector of sample indices (of same length as \code{mass}).
+#' @param tof Vector of sample indices (of same length as \code{mass}).
 #' @param weight Vector of weights (if \code{NULL} (default) all weights are set equal).
 #' @return Vector of calibration parameters.
 #' @export
@@ -2349,7 +2349,7 @@ MassCalibrate <- function(massCalibMode, mass, tof, weight = NULL) {
 #' @param specType Vector of spectrum type indices (non-negative integers). If
 #' specType is \code{NULL}, all mass ranges get a default spectrum type of 0.
 #'
-#' @family Single ion histogramming functions.
+#' @family Single ion histogramming functions
 #' @export
 SiInitializeHistograms <- function(loMass, hiMass, specType = NULL) {
     .Call('TofDaqR_SiInitializeHistograms', PACKAGE = 'TofDaqR', loMass, hiMass, specType)
@@ -2392,7 +2392,7 @@ SiInitializeHistograms <- function(loMass, hiMass, specType = NULL) {
 #' @param value Value to set the for the given option.
 #' @param specType Spectrum type index. -1 is a wildcard for all spectrum types.
 #'
-#' @family Single ion histogramming functions.
+#' @family Single ion histogramming functions
 #' @export
 SiSetProcessingOptions <- function(option, value, specType) {
     .Call('TofDaqR_SiSetProcessingOptions', PACKAGE = 'TofDaqR', option, value, specType)
@@ -2430,7 +2430,7 @@ SiProcessSpectrum <- function(spectrum, specType) {
 #' y-values), the number of spectra that were processed for this histogram and
 #' the mean histogram value i.e. sum(intensity[i]*counts[i])/sum(counts[i]).
 #'
-#' @family Single ion histogramming functions.
+#' @family Single ion histogramming functions
 #' @export
 SiGetHistogram <- function(histogramIndex) {
     .Call('TofDaqR_SiGetHistogram', PACKAGE = 'TofDaqR', histogramIndex)
@@ -2451,7 +2451,7 @@ SiGetHistogram <- function(histogramIndex) {
 #' y-values), the number of spectra that were processed for this histogram and
 #' the mean histogram value i.e. sum(intensity[i]*counts[i])/sum(counts[i]).
 #'
-#' @family Single ion histogramming functions.
+#' @family Single ion histogramming functions
 #' @export
 SiGetSumHistogram <- function(specType, minMass, maxMass, minRate, maxRate) {
     .Call('TofDaqR_SiGetSumHistogram', PACKAGE = 'TofDaqR', specType, minMass, maxMass, minRate, maxRate)
@@ -2461,7 +2461,7 @@ SiGetSumHistogram <- function(specType, minMass, maxMass, minRate, maxRate) {
 #'
 #' \code{SiResetHistograms} resets all histograms and spectrum counters to zero.
 #'
-#' @family Single ion histogramming functions.
+#' @family Single ion histogramming functions
 #' @export
 SiResetHistograms <- function() {
     .Call('TofDaqR_SiResetHistograms', PACKAGE = 'TofDaqR')
@@ -2472,7 +2472,7 @@ SiResetHistograms <- function() {
 #' \code{SiCleanup} cleans up the state in the DLL. After a call to this
 #' function \code{\link{SiInitializeHistograms}} can be called again.
 #'
-#' @family Single ion histogramming functions.
+#' @family Single ion histogramming functions
 #' @export
 SiCleanup <- function() {
     .Call('TofDaqR_SiCleanup', PACKAGE = 'TofDaqR')
@@ -2491,7 +2491,7 @@ SiCleanup <- function() {
 #' @return A list with the FWHM of the distribution, the position of the fitted
 #' maximum and a vector with the values of the four fitting parameters.
 #'
-#' @family Single ion histogramming functions.
+#' @family Single ion histogramming functions
 #' @export
 SiFitPhd <- function(intensity, counts) {
     .Call('TofDaqR_SiFitPhd', PACKAGE = 'TofDaqR', intensity, counts)
@@ -2505,7 +2505,7 @@ SiFitPhd <- function(intensity, counts) {
 #' @param intensity Vector of intensities (histogram x-axis data).
 #' @return Vector with y-axis data.
 #'
-#' @family Single ion histogramming functions.
+#' @family Single ion histogramming functions
 #' @export
 SiEvalPhd <- function(par, intensity) {
     .Call('TofDaqR_SiEvalPhd', PACKAGE = 'TofDaqR', par, intensity)
@@ -2523,7 +2523,7 @@ SiEvalPhd <- function(par, intensity) {
 #' @return A list with the fitted rate (ions/extraction) and vector with the
 #' fitted multi-ion distribution.
 #'
-#' @family Single ion histogramming functions.
+#' @family Single ion histogramming functions
 #' @export
 SiFitRateFromPhd <- function(intensity, counts, siPar) {
     .Call('TofDaqR_SiFitRateFromPhd', PACKAGE = 'TofDaqR', intensity, counts, siPar)

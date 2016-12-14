@@ -1209,7 +1209,7 @@ SEXP GetIntAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 //' Used to read attributes not available from \code{GetH5Descriptor}. Unsigned
 //' integers are returned as numeric values in R.
 //'
-//' @param filename Path/filename of the HDF5 file.
+//' @param Filename Path/filename of the HDF5 file.
 //' @param location Location of the group or dataset where the attribute is attached to.
 //' @param name Attribute name.
 //' @return An numeric attribute.
@@ -1550,7 +1550,7 @@ SEXP SetUint64AttributeInH5(SEXP Filename, SEXP location, SEXP name, SEXP attrib
 //'
 //' \code{SetFloatAttributeInH5} writes a float attribute to the HDF5 file.
 //'
-//' @param filename Path/filename of the HDF5 file.
+//' @param Filename Path/filename of the HDF5 file.
 //' @param location Location of the group or dataset where the attribute is attached to.
 //' @param name Attribute name.
 //' @param attribute Float attribute.
@@ -1578,7 +1578,7 @@ SEXP SetFloatAttributeInH5(SEXP Filename, SEXP location, SEXP name, double attri
 //'
 //' \code{SetDoubleAttributeInH5} writes a double attribute to the HDF5 file.
 //'
-//' @param filename Path/filename of the HDF5 file.
+//' @param Filename Path/filename of the HDF5 file.
 //' @param location Location of the group or dataset where the attribute is attached to.
 //' @param name Attribute name.
 //' @param attribute Double attribute.
@@ -1606,7 +1606,7 @@ SEXP SetDoubleAttributeInH5(SEXP Filename, SEXP location, SEXP name, double attr
 //'
 //' \code{SetStringAttributeInH5} writes a string attribute to the HDF5 file.
 //'
-//' @param filename Path/filename of the HDF5 file.
+//' @param Filename Path/filename of the HDF5 file.
 //' @param location Location of the group or dataset where the attribute is attached to.
 //' @param name Attribute name.
 //' @param attribute String attribute (max. 256 characters).

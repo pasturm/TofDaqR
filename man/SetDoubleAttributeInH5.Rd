@@ -7,13 +7,13 @@
 SetDoubleAttributeInH5(Filename, location, name, attribute)
 }
 \arguments{
+\item{Filename}{Path/filename of the HDF5 file.}
+
 \item{location}{Location of the group or dataset where the attribute is attached to.}
 
 \item{name}{Attribute name.}
 
 \item{attribute}{Double attribute.}
-
-\item{filename}{Path/filename of the HDF5 file.}
 }
 \description{
 \code{SetDoubleAttributeInH5} writes a double attribute to the HDF5 file.

@@ -1837,7 +1837,7 @@ SEXP TpsGetStatus() {
 //'
 //' \code{TpsLoadSetFile} loads a TPS set file from disk and sets all values.
 //'
-//' @param setfile Path/filename of the set file to load.
+//' @param setFile Path/filename of the set file to load.
 //' @section Warning:
 //' This does not just load the file (as the function name might suggest), but
 //' also immediately sets all values.
@@ -1859,7 +1859,7 @@ SEXP TpsLoadSetFile(SEXP setFile) {
 //'
 //' \code{TpsSaveSetFile} saves the current TPS settings to a file.
 //'
-//' @param setfile Path/filename of the set file to save.
+//' @param setFile Path/filename of the set file to save.
 //'
 //' @family TPS functions
 //' @export

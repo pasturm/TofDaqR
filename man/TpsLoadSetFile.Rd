@@ -7,7 +7,7 @@
 TpsLoadSetFile(setFile)
 }
 \arguments{
-\item{setfile}{Path/filename of the set file to load.}
+\item{setFile}{Path/filename of the set file to load.}
 }
 \description{
 \code{TpsLoadSetFile} loads a TPS set file from disk and sets all values.

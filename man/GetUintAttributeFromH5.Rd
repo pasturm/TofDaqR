@@ -7,11 +7,11 @@
 GetUintAttributeFromH5(Filename, location, name)
 }
 \arguments{
+\item{Filename}{Path/filename of the HDF5 file.}
+
 \item{location}{Location of the group or dataset where the attribute is attached to.}
 
 \item{name}{Attribute name.}
-
-\item{filename}{Path/filename of the HDF5 file.}
 }
 \value{
 An numeric attribute.

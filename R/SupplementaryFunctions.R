@@ -105,12 +105,12 @@ SaveMassTableToFile <- function(filename = "TmpMassTable.txt") {
     file.create(filename)
   }
   desc <- .Call("GetDescriptor")
-  write.table(desc$NbrPeaks, file = filename, quote = FALSE, row.names = FALSE,
+  utils::write.table(desc$NbrPeaks, file = filename, quote = FALSE, row.names = FALSE,
               col.names = FALSE)
   for (i in 1:desc$NbrPeaks) {
     rv <- .Call("GetPeakParameters", i-1)
     rv$TwRetVal <- NULL
-    write.table(t(unlist(rv)), file = filename, append = TRUE,
+    utils::write.table(t(unlist(rv)), file = filename, append = TRUE,
                 quote = FALSE, sep = "\t", row.names = FALSE, col.names = FALSE)
   }
 }

@@ -473,7 +473,7 @@ NumericVector Mass2Tof(NumericVector mass, int massCalibMode, NumericVector p) {
 //'
 //' @param massCalibMode Mass calibration function to use. See below.
 //' @param mass Vector of mass/charge values.
-//' @param idx Vector of sample indices (of same length as \code{mass}).
+//' @param tof Vector of sample indices (of same length as \code{mass}).
 //' @param weight Vector of weights (if \code{NULL} (default) all weights are set equal).
 //' @return Vector of calibration parameters.
 //' @export
@@ -524,7 +524,7 @@ SEXP MassCalibrate(int massCalibMode, NumericVector mass, NumericVector tof,
 //' @param specType Vector of spectrum type indices (non-negative integers). If
 //' specType is \code{NULL}, all mass ranges get a default spectrum type of 0.
 //'
-//' @family Single ion histogramming functions.
+//' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
 StringVector SiInitializeHistograms(NumericVector loMass, NumericVector hiMass,
@@ -582,7 +582,7 @@ StringVector SiInitializeHistograms(NumericVector loMass, NumericVector hiMass,
 //' @param value Value to set the for the given option.
 //' @param specType Spectrum type index. -1 is a wildcard for all spectrum types.
 //'
-//' @family Single ion histogramming functions.
+//' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
 StringVector SiSetProcessingOptions(SEXP option, double value, int specType) {
@@ -648,7 +648,7 @@ SEXP SiProcessSpectrum(NumericVector spectrum, int specType) {
 //' y-values), the number of spectra that were processed for this histogram and
 //' the mean histogram value i.e. sum(intensity[i]*counts[i])/sum(counts[i]).
 //'
-//' @family Single ion histogramming functions.
+//' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
 SEXP SiGetHistogram(int histogramIndex) {
@@ -701,7 +701,7 @@ SEXP SiGetHistogram(int histogramIndex) {
 //' y-values), the number of spectra that were processed for this histogram and
 //' the mean histogram value i.e. sum(intensity[i]*counts[i])/sum(counts[i]).
 //'
-//' @family Single ion histogramming functions.
+//' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
 SEXP SiGetSumHistogram(int specType, double minMass, double maxMass,
@@ -746,7 +746,7 @@ SEXP SiGetSumHistogram(int specType, double minMass, double maxMass,
 //'
 //' \code{SiResetHistograms} resets all histograms and spectrum counters to zero.
 //'
-//' @family Single ion histogramming functions.
+//' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
 StringVector SiResetHistograms() {
@@ -762,7 +762,7 @@ StringVector SiResetHistograms() {
 //' \code{SiCleanup} cleans up the state in the DLL. After a call to this
 //' function \code{\link{SiInitializeHistograms}} can be called again.
 //'
-//' @family Single ion histogramming functions.
+//' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
 StringVector SiCleanup() {
@@ -786,7 +786,7 @@ StringVector SiCleanup() {
 //' @return A list with the FWHM of the distribution, the position of the fitted
 //' maximum and a vector with the values of the four fitting parameters.
 //'
-//' @family Single ion histogramming functions.
+//' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
 SEXP SiFitPhd(NumericVector intensity, NumericVector counts) {
@@ -820,7 +820,7 @@ SEXP SiFitPhd(NumericVector intensity, NumericVector counts) {
 //' @param intensity Vector of intensities (histogram x-axis data).
 //' @return Vector with y-axis data.
 //'
-//' @family Single ion histogramming functions.
+//' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
 NumericVector SiEvalPhd(NumericVector par, NumericVector intensity) {
@@ -849,7 +849,7 @@ NumericVector SiEvalPhd(NumericVector par, NumericVector intensity) {
 //' @return A list with the fitted rate (ions/extraction) and vector with the
 //' fitted multi-ion distribution.
 //'
-//' @family Single ion histogramming functions.
+//' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
 SEXP SiFitRateFromPhd(NumericVector intensity, NumericVector counts,
