@@ -13,6 +13,7 @@ Description: The TofDaqR package provides an interface to the TOFWERK TofDaq API
     and modify recorded data stored in HDF5 files and additional "tool"
     functions, e.g. for peak fitting.
 License: GPL-3
-Imports: Rcpp (>= 0.12.7)
+Imports: Rcpp (>= 0.12.7),
+         bit64
 LinkingTo: Rcpp
 RoxygenNote: 5.0.1
