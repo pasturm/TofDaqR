@@ -21,7 +21,7 @@ TofDaqR 0.3.0
 
 * Another major code refactoring: Rcpp is used for all C/C++ code.
 
-* Added `DecodeEventListThreshold()` and `Get...2FromH5()` functions.
+* Added all `Get...2FromH5()` functions.
 
 
 TofDaqR 0.2.0

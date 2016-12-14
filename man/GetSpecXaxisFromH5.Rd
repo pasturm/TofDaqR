@@ -4,19 +4,19 @@
 \alias{GetSpecXaxisFromH5}
 \title{x-axis values of mass spectrum.}
 \usage{
-GetSpecXaxisFromH5(filename, type, writeIndex)
+GetSpecXaxisFromH5(Filename, Type, writeIndex)
 }
 \arguments{
-\item{writeIndex}{Write index to use for mass calibration (relevant only for
-\code{abs(Type)== 1 or 2}). If the data file has no \emph{/TofData/MassCalibration}
-dataset the standard mass calibration parameters are used (same for all
-values of writeIndex).}
-
 \item{Filename}{Path/filename of the HDF5 file.}
 
 \item{Type}{x-axis type (0: sample index, 1: mass/charge [Th] (default),
 -1: mass/charge [Th] (2nd TOF), 2: time of flight [microsec],
 -2: time of flight [microsec] (2nd TOF), 3: frequency [kHz]).}
+
+\item{writeIndex}{Write index to use for mass calibration (relevant only for
+\code{abs(Type)== 1 or 2}). If the data file has no \emph{/TofData/MassCalibration}
+dataset the standard mass calibration parameters are used (same for all
+values of writeIndex).}
 }
 \value{
 A vector containing the x-axis values.
