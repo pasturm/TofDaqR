@@ -1195,10 +1195,10 @@ GetH5Descriptor <- function(Filename) {
 #'
 #' \code{CloseH5} closes an open HDF5 file.
 #'
-#' @param Filename Path/filename of the HDF5 file.
-#'
 #' This function is called internally by all \code{Get..FromH5} functions, so
 #' it is usually not necessary to call \code{CloseH5} explicitely.
+#'
+#' @param Filename Path/filename of the HDF5 file.
 #'
 #' @examples
 #' \dontrun{
@@ -2410,7 +2410,7 @@ SiSetProcessingOptions <- function(option, value, specType) {
 #' @param specType Spectrum type index (non-negative integer).
 #' @return A list with the baseline and threshold value.
 #'
-#' @family Single ion histogramming functions.
+#' @family Single ion histogramming functions
 #' @export
 SiProcessSpectrum <- function(spectrum, specType) {
     .Call('TofDaqR_SiProcessSpectrum', PACKAGE = 'TofDaqR', spectrum, specType)

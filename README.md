@@ -5,8 +5,8 @@ The TofDaqR package provides a R interface to the TOFWERK TofDaq API (TofDaqDll,
 TwH5Dll, TwToolDll for Windows, and libtwh5, libtwtool for macOS and Linux). 
 TofDaqR functions can be used to communicate with the TofDaq recorder 
 application, to access data in realtime and to control the TOF Power Supply. 
-Further, there are functions to access and modify recorded data stored in HDF5 
-files and additional "tool" functions, e.g. for peak fitting.
+Further, there are post-processing functions to access and modify recorded data 
+stored in HDF5 files and additional "tool" functions, e.g. for peak fitting.
 
 ## Version history
 See [NEWS](https://github.com/pasturm/TofDaqR/blob/master/NEWS).

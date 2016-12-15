@@ -47,7 +47,7 @@ and \code{Threshold} are interpreted as ADC codes or mV. \tab 1 (=TRUE)
 }
 }
 \seealso{
-Other Single ion histogramming functions.: \code{\link{SiCleanup}},
+Other Single ion histogramming functions: \code{\link{SiCleanup}},
   \code{\link{SiEvalPhd}}, \code{\link{SiFitPhd}},
   \code{\link{SiFitRateFromPhd}},
   \code{\link{SiGetHistogram}},

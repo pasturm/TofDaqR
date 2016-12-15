@@ -607,7 +607,7 @@ StringVector SiSetProcessingOptions(SEXP option, double value, int specType) {
 //' @param specType Spectrum type index (non-negative integer).
 //' @return A list with the baseline and threshold value.
 //'
-//' @family Single ion histogramming functions.
+//' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
 SEXP SiProcessSpectrum(NumericVector spectrum, int specType) {

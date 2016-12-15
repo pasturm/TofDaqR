@@ -7,13 +7,14 @@
 CloseH5(Filename)
 }
 \arguments{
-\item{Filename}{Path/filename of the HDF5 file.
-
-This function is called internally by all \code{Get..FromH5} functions, so
-it is usually not necessary to call \code{CloseH5} explicitely.}
+\item{Filename}{Path/filename of the HDF5 file.}
 }
 \description{
 \code{CloseH5} closes an open HDF5 file.
+}
+\details{
+This function is called internally by all \code{Get..FromH5} functions, so
+it is usually not necessary to call \code{CloseH5} explicitely.
 }
 \examples{
 \dontrun{

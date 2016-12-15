@@ -28,7 +28,7 @@ is a sum over all histograms of a given \code{specType} within the rate and
 mass range as specified by \code{minMass}, \code{maxMass}, \code{minRate} and \code{maxRate}.
 }
 \seealso{
-Other Single ion histogramming functions.: \code{\link{SiCleanup}},
+Other Single ion histogramming functions: \code{\link{SiCleanup}},
   \code{\link{SiEvalPhd}}, \code{\link{SiFitPhd}},
   \code{\link{SiFitRateFromPhd}},
   \code{\link{SiGetHistogram}},

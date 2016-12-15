@@ -23,7 +23,7 @@ and fits an event rate to a multi-ion histogram (intensity and counts)
 assuming poisson distribution of n-ion events.
 }
 \seealso{
-Other Single ion histogramming functions.: \code{\link{SiCleanup}},
+Other Single ion histogramming functions: \code{\link{SiCleanup}},
   \code{\link{SiEvalPhd}}, \code{\link{SiFitPhd}},
   \code{\link{SiGetHistogram}},
   \code{\link{SiGetSumHistogram}},

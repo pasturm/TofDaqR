@@ -10,7 +10,7 @@ SiResetHistograms()
 \code{SiResetHistograms} resets all histograms and spectrum counters to zero.
 }
 \seealso{
-Other Single ion histogramming functions.: \code{\link{SiCleanup}},
+Other Single ion histogramming functions: \code{\link{SiCleanup}},
   \code{\link{SiEvalPhd}}, \code{\link{SiFitPhd}},
   \code{\link{SiFitRateFromPhd}},
   \code{\link{SiGetHistogram}},

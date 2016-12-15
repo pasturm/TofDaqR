@@ -11,7 +11,7 @@ SiCleanup()
 function \code{\link{SiInitializeHistograms}} can be called again.
 }
 \seealso{
-Other Single ion histogramming functions.: \code{\link{SiEvalPhd}},
+Other Single ion histogramming functions: \code{\link{SiEvalPhd}},
   \code{\link{SiFitPhd}}, \code{\link{SiFitRateFromPhd}},
   \code{\link{SiGetHistogram}},
   \code{\link{SiGetSumHistogram}},

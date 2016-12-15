@@ -91,10 +91,10 @@ SEXP GetH5Descriptor(SEXP Filename) {
 //'
 //' \code{CloseH5} closes an open HDF5 file.
 //'
-//' @param Filename Path/filename of the HDF5 file.
-//'
 //' This function is called internally by all \code{Get..FromH5} functions, so
 //' it is usually not necessary to call \code{CloseH5} explicitely.
+//'
+//' @param Filename Path/filename of the HDF5 file.
 //'
 //' @examples
 //' \dontrun{

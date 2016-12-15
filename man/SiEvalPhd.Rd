@@ -18,7 +18,7 @@ Vector with y-axis data.
 \code{SiEvalPhd} evaluates the fitted single ion distribution.
 }
 \seealso{
-Other Single ion histogramming functions.: \code{\link{SiCleanup}},
+Other Single ion histogramming functions: \code{\link{SiCleanup}},
   \code{\link{SiFitPhd}}, \code{\link{SiFitRateFromPhd}},
   \code{\link{SiGetHistogram}},
   \code{\link{SiGetSumHistogram}},
