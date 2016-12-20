@@ -127,7 +127,7 @@ SiProcessSpectrumFromShMem <- function(specType, BufIndex) {
 #' @param keepMapped \code{TRUE} or \code{FALSE}.
 #' @export
 KeepSharedMemMapped <- function(keepMapped) {
-    .Call('TofDaqR_KeepSharedMemMapped', PACKAGE = 'TofDaqR', keepMapped)
+    invisible(.Call('TofDaqR_KeepSharedMemMapped', PACKAGE = 'TofDaqR', keepMapped))
 }
 
 #' Initializes the TofDaqDll.dll.
@@ -137,7 +137,7 @@ KeepSharedMemMapped <- function(keepMapped) {
 #' functions that need the DLL to be in an initialized state.
 #' @export
 InitializeDll <- function() {
-    .Call('TofDaqR_InitializeDll', PACKAGE = 'TofDaqR')
+    invisible(.Call('TofDaqR_InitializeDll', PACKAGE = 'TofDaqR'))
 }
 
 #' Deinitializes the TofDaqDll.dll.
@@ -183,7 +183,7 @@ DaqActive <- function() {
 #' \code{StartAcquisition} starts an acquisition.
 #' @export
 StartAcquisition <- function() {
-    .Call('TofDaqR_StartAcquisition', PACKAGE = 'TofDaqR')
+    invisible(.Call('TofDaqR_StartAcquisition', PACKAGE = 'TofDaqR'))
 }
 
 #' Stops the current acquisition.
@@ -191,7 +191,7 @@ StartAcquisition <- function() {
 #' \code{StopAcquisition} stops the current acquisition.
 #' @export
 StopAcquisition <- function() {
-    .Call('TofDaqR_StopAcquisition', PACKAGE = 'TofDaqR')
+    invisible(.Call('TofDaqR_StopAcquisition', PACKAGE = 'TofDaqR'))
 }
 
 #' Closes the TofDaq recorder application.
@@ -199,7 +199,7 @@ StopAcquisition <- function() {
 #' \code{CloseTofDaqRec} closes the TofDaq recorder application.
 #' @export
 CloseTofDaqRec <- function() {
-    .Call('TofDaqR_CloseTofDaqRec', PACKAGE = 'TofDaqR')
+    invisible(.Call('TofDaqR_CloseTofDaqRec', PACKAGE = 'TofDaqR'))
 }
 
 #' Initializes the DAQ board.
@@ -209,7 +209,7 @@ CloseTofDaqRec <- function() {
 #' actual DAQ hardware.
 #' @export
 InitializeDaqDevice <- function() {
-    .Call('TofDaqR_InitializeDaqDevice', PACKAGE = 'TofDaqR')
+    invisible(.Call('TofDaqR_InitializeDaqDevice', PACKAGE = 'TofDaqR'))
 }
 
 #' Sets the timeout.
@@ -237,7 +237,7 @@ GetTimeout <- function() {
 #' AP240 averager and ndigo5G.
 #' @export
 AutoSetupDaqDevice <- function() {
-    .Call('TofDaqR_AutoSetupDaqDevice', PACKAGE = 'TofDaqR')
+    invisible(.Call('TofDaqR_AutoSetupDaqDevice', PACKAGE = 'TofDaqR'))
 }
 
 #' Arms/executes on demand mass calibration.
@@ -249,7 +249,7 @@ AutoSetupDaqDevice <- function() {
 #' data acquired since previous arm.
 #' @export
 OnDemandMassCalibration <- function(action) {
-    .Call('TofDaqR_OnDemandMassCalibration', PACKAGE = 'TofDaqR', action)
+    invisible(.Call('TofDaqR_OnDemandMassCalibration', PACKAGE = 'TofDaqR', action))
 }
 
 #' Shows the TofDaq recorder configuration windows.
@@ -260,7 +260,7 @@ OnDemandMassCalibration <- function(action) {
 #' @param ConfigWindowIndex Index of configuration tab to show (valid range: 0-6)
 #' @export
 ShowConfigWindow <- function(ConfigWindowIndex) {
-    .Call('TofDaqR_ShowConfigWindow', PACKAGE = 'TofDaqR', ConfigWindowIndex)
+    invisible(.Call('TofDaqR_ShowConfigWindow', PACKAGE = 'TofDaqR', ConfigWindowIndex))
 }
 
 #' Loads a configuration file.
@@ -272,7 +272,7 @@ ShowConfigWindow <- function(ConfigWindowIndex) {
 #' will be used.
 #' @export
 LoadIniFile <- function(IniFile = NULL) {
-    .Call('TofDaqR_LoadIniFile', PACKAGE = 'TofDaqR', IniFile)
+    invisible(.Call('TofDaqR_LoadIniFile', PACKAGE = 'TofDaqR', IniFile))
 }
 
 #' Saves the current configuration (*.ini) to disk.
@@ -284,7 +284,7 @@ LoadIniFile <- function(IniFile = NULL) {
 #' will be used.
 #' @export
 SaveIniFile <- function(IniFile = NULL) {
-    .Call('TofDaqR_SaveIniFile', PACKAGE = 'TofDaqR', IniFile)
+    invisible(.Call('TofDaqR_SaveIniFile', PACKAGE = 'TofDaqR', IniFile))
 }
 
 #' Gets a single parameter as a string.
@@ -448,7 +448,7 @@ GetDaqParameterStringRef <- function(Parameter) {
 #' @param ValueString Value as a string.
 #' @export
 SetDaqParameter <- function(Parameter, ValueString) {
-    .Call('TofDaqR_SetDaqParameter', PACKAGE = 'TofDaqR', Parameter, ValueString)
+    invisible(.Call('TofDaqR_SetDaqParameter', PACKAGE = 'TofDaqR', Parameter, ValueString))
 }
 
 #' Sets a single parameter with an integer value.
@@ -460,7 +460,7 @@ SetDaqParameter <- function(Parameter, ValueString) {
 #' @param Value Integer value.
 #' @export
 SetDaqParameterInt <- function(Parameter, Value) {
-    .Call('TofDaqR_SetDaqParameterInt', PACKAGE = 'TofDaqR', Parameter, Value)
+    invisible(.Call('TofDaqR_SetDaqParameterInt', PACKAGE = 'TofDaqR', Parameter, Value))
 }
 
 #' Sets a single parameter with a boolean value.
@@ -472,7 +472,7 @@ SetDaqParameterInt <- function(Parameter, Value) {
 #' @param Value \code{TRUE} or \code{FALSE}.
 #' @export
 SetDaqParameterBool <- function(Parameter, Value) {
-    .Call('TofDaqR_SetDaqParameterBool', PACKAGE = 'TofDaqR', Parameter, Value)
+    invisible(.Call('TofDaqR_SetDaqParameterBool', PACKAGE = 'TofDaqR', Parameter, Value))
 }
 
 #' Sets a single parameter with a float value.
@@ -484,7 +484,7 @@ SetDaqParameterBool <- function(Parameter, Value) {
 #' @param Value Numeric value.
 #' @export
 SetDaqParameterFloat <- function(Parameter, Value) {
-    .Call('TofDaqR_SetDaqParameterFloat', PACKAGE = 'TofDaqR', Parameter, Value)
+    invisible(.Call('TofDaqR_SetDaqParameterFloat', PACKAGE = 'TofDaqR', Parameter, Value))
 }
 
 #' Sets a single parameter with an int64 value.
@@ -497,7 +497,7 @@ SetDaqParameterFloat <- function(Parameter, Value) {
 #' @param Value int64 value passed as a string.
 #' @export
 SetDaqParameterInt64 <- function(Parameter, Value) {
-    .Call('TofDaqR_SetDaqParameterInt64', PACKAGE = 'TofDaqR', Parameter, Value)
+    invisible(.Call('TofDaqR_SetDaqParameterInt64', PACKAGE = 'TofDaqR', Parameter, Value))
 }
 
 #' Sets a single parameter with a double value.
@@ -509,7 +509,7 @@ SetDaqParameterInt64 <- function(Parameter, Value) {
 #' @param Value Numeric value.
 #' @export
 SetDaqParameterDouble <- function(Parameter, Value) {
-    .Call('TofDaqR_SetDaqParameterDouble', PACKAGE = 'TofDaqR', Parameter, Value)
+    invisible(.Call('TofDaqR_SetDaqParameterDouble', PACKAGE = 'TofDaqR', Parameter, Value))
 }
 
 #' Gets various information about the active acquisition.
@@ -547,7 +547,7 @@ GetPeakParameters <- function(PeakIndex) {
 #' \code{TRUE}.
 #' @export
 ReleaseSharedMemory <- function() {
-    .Call('TofDaqR_ReleaseSharedMemory', PACKAGE = 'TofDaqR')
+    invisible(.Call('TofDaqR_ReleaseSharedMemory', PACKAGE = 'TofDaqR'))
 }
 
 #' Waits for new data.
@@ -560,7 +560,7 @@ ReleaseSharedMemory <- function() {
 #' reset data available event before returning.
 #' @export
 WaitForNewData <- function(timeout, WaitForEventReset) {
-    .Call('TofDaqR_WaitForNewData', PACKAGE = 'TofDaqR', timeout, WaitForEventReset)
+    invisible(.Call('TofDaqR_WaitForNewData', PACKAGE = 'TofDaqR', timeout, WaitForEventReset))
 }
 
 #' Waits for the end of the current acquisition.
@@ -571,7 +571,7 @@ WaitForNewData <- function(timeout, WaitForEventReset) {
 #' @param timeout Timeout in ms.
 #' @export
 WaitForEndOfAcquisition <- function(timeout) {
-    .Call('TofDaqR_WaitForEndOfAcquisition', PACKAGE = 'TofDaqR', timeout)
+    invisible(.Call('TofDaqR_WaitForEndOfAcquisition', PACKAGE = 'TofDaqR', timeout))
 }
 
 #' Sum spectrum from shared memory.
@@ -673,7 +673,7 @@ GetBufTimeFromShMem <- function(BufIndex, WriteIndex) {
 #' @family Data storage functions
 #' @export
 AddLogEntry <- function(LogEntryText, LogEntryTime) {
-    .Call('TofDaqR_AddLogEntry', PACKAGE = 'TofDaqR', LogEntryText, LogEntryTime)
+    invisible(.Call('TofDaqR_AddLogEntry', PACKAGE = 'TofDaqR', LogEntryText, LogEntryTime))
 }
 
 #' Attaches an integer attribute to the current HDF5 file.
@@ -688,7 +688,7 @@ AddLogEntry <- function(LogEntryText, LogEntryTime) {
 #' @family Data storage functions
 #' @export
 AddAttributeInt <- function(Object, AttributeName, Value) {
-    .Call('TofDaqR_AddAttributeInt', PACKAGE = 'TofDaqR', Object, AttributeName, Value)
+    invisible(.Call('TofDaqR_AddAttributeInt', PACKAGE = 'TofDaqR', Object, AttributeName, Value))
 }
 
 #' Attaches a numeric attribute to the current HDF5 file.
@@ -703,7 +703,7 @@ AddAttributeInt <- function(Object, AttributeName, Value) {
 #' @family Data storage functions
 #' @export
 AddAttributeDouble <- function(Object, AttributeName, Value) {
-    .Call('TofDaqR_AddAttributeDouble', PACKAGE = 'TofDaqR', Object, AttributeName, Value)
+    invisible(.Call('TofDaqR_AddAttributeDouble', PACKAGE = 'TofDaqR', Object, AttributeName, Value))
 }
 
 #' Attaches a string attribute to the current HDF5 file.
@@ -718,7 +718,7 @@ AddAttributeDouble <- function(Object, AttributeName, Value) {
 #' @family Data storage functions
 #' @export
 AddAttributeString <- function(Object, AttributeName, Value) {
-    .Call('TofDaqR_AddAttributeString', PACKAGE = 'TofDaqR', Object, AttributeName, Value)
+    invisible(.Call('TofDaqR_AddAttributeString', PACKAGE = 'TofDaqR', Object, AttributeName, Value))
 }
 
 #' Stores (asynchronous) user supplied data.
@@ -741,7 +741,7 @@ AddAttributeString <- function(Object, AttributeName, Value) {
 #' @family Data storage functions
 #' @export
 AddUserData <- function(Location, NbrElements, Data, ElementDescription = NULL, CompressionLevel = 0L) {
-    .Call('TofDaqR_AddUserData', PACKAGE = 'TofDaqR', Location, NbrElements, Data, ElementDescription, CompressionLevel)
+    invisible(.Call('TofDaqR_AddUserData', PACKAGE = 'TofDaqR', Location, NbrElements, Data, ElementDescription, CompressionLevel))
 }
 
 #' Stores (asynchronous) user supplied data.
@@ -769,7 +769,7 @@ AddUserData <- function(Location, NbrElements, Data, ElementDescription = NULL, 
 #' @family Data storage functions
 #' @export
 AddUserDataMultiRow <- function(Location, NbrElements, NbrRows, Data, ElementDescription = NULL, CompressionLevel = 0L) {
-    .Call('TofDaqR_AddUserDataMultiRow', PACKAGE = 'TofDaqR', Location, NbrElements, NbrRows, Data, ElementDescription, CompressionLevel)
+    invisible(.Call('TofDaqR_AddUserDataMultiRow', PACKAGE = 'TofDaqR', Location, NbrElements, NbrRows, Data, ElementDescription, CompressionLevel))
 }
 
 #' Registers a data source to store (synchronous) user supplied data.
@@ -792,7 +792,7 @@ AddUserDataMultiRow <- function(Location, NbrElements, NbrRows, Data, ElementDes
 #' @family Data storage functions
 #' @export
 RegisterUserDataBuf <- function(Location, NbrElements, ElementDescription = NULL, CompressionLevel = 0L) {
-    .Call('TofDaqR_RegisterUserDataBuf', PACKAGE = 'TofDaqR', Location, NbrElements, ElementDescription, CompressionLevel)
+    invisible(.Call('TofDaqR_RegisterUserDataBuf', PACKAGE = 'TofDaqR', Location, NbrElements, ElementDescription, CompressionLevel))
 }
 
 #' Registers a data source to store (synchronous) user supplied data.
@@ -816,7 +816,7 @@ RegisterUserDataBuf <- function(Location, NbrElements, ElementDescription = NULL
 #' @family Data storage functions
 #' @export
 RegisterUserDataWrite <- function(Location, NbrElements, ElementDescription = NULL, CompressionLevel = 0L) {
-    .Call('TofDaqR_RegisterUserDataWrite', PACKAGE = 'TofDaqR', Location, NbrElements, ElementDescription, CompressionLevel)
+    invisible(.Call('TofDaqR_RegisterUserDataWrite', PACKAGE = 'TofDaqR', Location, NbrElements, ElementDescription, CompressionLevel))
 }
 
 #' Registers a data source for (synchronous) user supplied data.
@@ -837,7 +837,7 @@ RegisterUserDataWrite <- function(Location, NbrElements, ElementDescription = NU
 #' @family Data storage functions
 #' @export
 RegisterUserDataNoStore <- function(Location, NbrElements, ElementDescription = NULL) {
-    .Call('TofDaqR_RegisterUserDataNoStore', PACKAGE = 'TofDaqR', Location, NbrElements, ElementDescription)
+    invisible(.Call('TofDaqR_RegisterUserDataNoStore', PACKAGE = 'TofDaqR', Location, NbrElements, ElementDescription))
 }
 
 #' Unregisters a data source.
@@ -850,7 +850,7 @@ RegisterUserDataNoStore <- function(Location, NbrElements, ElementDescription = 
 #' @family Data storage functions
 #' @export
 UnregisterUserData <- function(Location) {
-    .Call('TofDaqR_UnregisterUserData', PACKAGE = 'TofDaqR', Location)
+    invisible(.Call('TofDaqR_UnregisterUserData', PACKAGE = 'TofDaqR', Location))
 }
 
 #' Updates the values for a registered data source.
@@ -864,7 +864,7 @@ UnregisterUserData <- function(Location) {
 #' @family Data storage functions
 #' @export
 UpdateUserData <- function(Location, NbrElements, Data) {
-    .Call('TofDaqR_UpdateUserData', PACKAGE = 'TofDaqR', Location, NbrElements, Data)
+    invisible(.Call('TofDaqR_UpdateUserData', PACKAGE = 'TofDaqR', Location, NbrElements, Data))
 }
 
 #' Reads the current values of a registered data source.
@@ -931,7 +931,7 @@ GetRegUserDataDesc <- function(Location) {
 #' @family Data storage functions
 #' @export
 KeepFileOpen <- function(keepOpen) {
-    .Call('TofDaqR_KeepFileOpen', PACKAGE = 'TofDaqR', keepOpen)
+    invisible(.Call('TofDaqR_KeepFileOpen', PACKAGE = 'TofDaqR', keepOpen))
 }
 
 #' Connects to a remote control enabled TPSController software.
@@ -942,7 +942,7 @@ KeepFileOpen <- function(keepOpen) {
 #' @family TPS functions
 #' @export
 TpsConnect <- function() {
-    .Call('TofDaqR_TpsConnect', PACKAGE = 'TofDaqR')
+    invisible(.Call('TofDaqR_TpsConnect', PACKAGE = 'TofDaqR'))
 }
 
 #' Connects to a local or remote TPS.
@@ -956,7 +956,7 @@ TpsConnect <- function() {
 #' @family TPS functions
 #' @export
 TpsConnect2 <- function(ip, type) {
-    .Call('TofDaqR_TpsConnect2', PACKAGE = 'TofDaqR', ip, type)
+    invisible(.Call('TofDaqR_TpsConnect2', PACKAGE = 'TofDaqR', ip, type))
 }
 
 #' Disconnects from a remote control enabled TPSController software.
@@ -967,7 +967,7 @@ TpsConnect2 <- function(ip, type) {
 #' @family TPS functions
 #' @export
 TpsDisconnect <- function() {
-    .Call('TofDaqR_TpsDisconnect', PACKAGE = 'TofDaqR')
+    invisible(.Call('TofDaqR_TpsDisconnect', PACKAGE = 'TofDaqR'))
 }
 
 #' Gets the last reported monitor value for a given module.
@@ -1019,7 +1019,7 @@ TpsGetLastSetValue <- function(moduleCode) {
 #' @family TPS functions
 #' @export
 TpsSetTargetValue <- function(moduleCode, value) {
-    .Call('TofDaqR_TpsSetTargetValue', PACKAGE = 'TofDaqR', moduleCode, value)
+    invisible(.Call('TofDaqR_TpsSetTargetValue', PACKAGE = 'TofDaqR', moduleCode, value))
 }
 
 #' Gets the number of controllable modules.
@@ -1049,7 +1049,7 @@ TpsGetModuleCodes <- function() {
 #' @family TPS functions
 #' @export
 TpsInitialize <- function() {
-    .Call('TofDaqR_TpsInitialize', PACKAGE = 'TofDaqR')
+    invisible(.Call('TofDaqR_TpsInitialize', PACKAGE = 'TofDaqR'))
 }
 
 #' Sets all voltages.
@@ -1059,7 +1059,7 @@ TpsInitialize <- function() {
 #' @family TPS functions
 #' @export
 TpsSetAllVoltages <- function() {
-    .Call('TofDaqR_TpsSetAllVoltages', PACKAGE = 'TofDaqR')
+    invisible(.Call('TofDaqR_TpsSetAllVoltages', PACKAGE = 'TofDaqR'))
 }
 
 #' Shuts down TPS.
@@ -1069,7 +1069,7 @@ TpsSetAllVoltages <- function() {
 #' @family TPS functions
 #' @export
 TpsShutdown <- function() {
-    .Call('TofDaqR_TpsShutdown', PACKAGE = 'TofDaqR')
+    invisible(.Call('TofDaqR_TpsShutdown', PACKAGE = 'TofDaqR'))
 }
 
 #' Gets the status of the TPS.
@@ -1097,7 +1097,7 @@ TpsGetStatus <- function() {
 #' @family TPS functions
 #' @export
 TpsLoadSetFile <- function(setFile) {
-    .Call('TofDaqR_TpsLoadSetFile', PACKAGE = 'TofDaqR', setFile)
+    invisible(.Call('TofDaqR_TpsLoadSetFile', PACKAGE = 'TofDaqR', setFile))
 }
 
 #' Saves the current TPS settings to a file.
@@ -1109,7 +1109,7 @@ TpsLoadSetFile <- function(setFile) {
 #' @family TPS functions
 #' @export
 TpsSaveSetFile <- function(setFile) {
-    .Call('TofDaqR_TpsSaveSetFile', PACKAGE = 'TofDaqR', setFile)
+    invisible(.Call('TofDaqR_TpsSaveSetFile', PACKAGE = 'TofDaqR', setFile))
 }
 
 #' Gets the currently active filament.
@@ -1139,7 +1139,7 @@ TpsGetActiveFilament <- function() {
 #' @family TPS functions
 #' @export
 TpsSetActiveFilament <- function(activeFilament) {
-    .Call('TofDaqR_TpsSetActiveFilament', PACKAGE = 'TofDaqR', activeFilament)
+    invisible(.Call('TofDaqR_TpsSetActiveFilament', PACKAGE = 'TofDaqR', activeFilament))
 }
 
 #' Gets the limits for a given TPS module.
@@ -1166,7 +1166,7 @@ TpsGetModuleLimits <- function(moduleCode) {
 #' @family TPS functions
 #' @export
 TpsChangeIonMode <- function(ionMode) {
-    .Call('TofDaqR_TpsChangeIonMode', PACKAGE = 'TofDaqR', ionMode)
+    invisible(.Call('TofDaqR_TpsChangeIonMode', PACKAGE = 'TofDaqR', ionMode))
 }
 
 #' Descriptor structure of Tofwerk HDF5 data file.
@@ -1206,7 +1206,7 @@ GetH5Descriptor <- function(Filename) {
 #' }
 #' @export
 CloseH5 <- function(Filename) {
-    .Call('TofDaqR_CloseH5', PACKAGE = 'TofDaqR', Filename)
+    invisible(.Call('TofDaqR_CloseH5', PACKAGE = 'TofDaqR', Filename))
 }
 
 #' Closes all open HDF5 files.
@@ -1220,7 +1220,7 @@ CloseH5 <- function(Filename) {
 #' }
 #' @export
 CloseAll <- function() {
-    .Call('TofDaqR_CloseAll', PACKAGE = 'TofDaqR')
+    invisible(.Call('TofDaqR_CloseAll', PACKAGE = 'TofDaqR'))
 }
 
 #' Sum spectrum from HDF5 data file.
@@ -1827,7 +1827,7 @@ GetStringAttributeFromH5 <- function(Filename, location, name) {
 #' }
 #' @export
 SetIntAttributeInH5 <- function(Filename, location, name, attribute) {
-    .Call('TofDaqR_SetIntAttributeInH5', PACKAGE = 'TofDaqR', Filename, location, name, attribute)
+    invisible(.Call('TofDaqR_SetIntAttributeInH5', PACKAGE = 'TofDaqR', Filename, location, name, attribute))
 }
 
 #' Writes an unsigned integer attribute to the HDF5 file.
@@ -1845,7 +1845,7 @@ SetIntAttributeInH5 <- function(Filename, location, name, attribute) {
 #' }
 #' @export
 SetUintAttributeInH5 <- function(Filename, location, name, attribute) {
-    .Call('TofDaqR_SetUintAttributeInH5', PACKAGE = 'TofDaqR', Filename, location, name, attribute)
+    invisible(.Call('TofDaqR_SetUintAttributeInH5', PACKAGE = 'TofDaqR', Filename, location, name, attribute))
 }
 
 #' Writes an int64 attribute to the HDF5 file.
@@ -1863,7 +1863,7 @@ SetUintAttributeInH5 <- function(Filename, location, name, attribute) {
 #' }
 #' @export
 SetInt64AttributeInH5 <- function(Filename, location, name, attribute) {
-    .Call('TofDaqR_SetInt64AttributeInH5', PACKAGE = 'TofDaqR', Filename, location, name, attribute)
+    invisible(.Call('TofDaqR_SetInt64AttributeInH5', PACKAGE = 'TofDaqR', Filename, location, name, attribute))
 }
 
 #' Writes an unsigned int64 attribute to the HDF5 file.
@@ -1881,7 +1881,7 @@ SetInt64AttributeInH5 <- function(Filename, location, name, attribute) {
 #' }
 #' @export
 SetUint64AttributeInH5 <- function(Filename, location, name, attribute) {
-    .Call('TofDaqR_SetUint64AttributeInH5', PACKAGE = 'TofDaqR', Filename, location, name, attribute)
+    invisible(.Call('TofDaqR_SetUint64AttributeInH5', PACKAGE = 'TofDaqR', Filename, location, name, attribute))
 }
 
 #' Writes a float attribute to the HDF5 file.
@@ -1899,7 +1899,7 @@ SetUint64AttributeInH5 <- function(Filename, location, name, attribute) {
 #' }
 #' @export
 SetFloatAttributeInH5 <- function(Filename, location, name, attribute) {
-    .Call('TofDaqR_SetFloatAttributeInH5', PACKAGE = 'TofDaqR', Filename, location, name, attribute)
+    invisible(.Call('TofDaqR_SetFloatAttributeInH5', PACKAGE = 'TofDaqR', Filename, location, name, attribute))
 }
 
 #' Writes a double attribute to the HDF5 file.
@@ -1917,7 +1917,7 @@ SetFloatAttributeInH5 <- function(Filename, location, name, attribute) {
 #' }
 #' @export
 SetDoubleAttributeInH5 <- function(Filename, location, name, attribute) {
-    .Call('TofDaqR_SetDoubleAttributeInH5', PACKAGE = 'TofDaqR', Filename, location, name, attribute)
+    invisible(.Call('TofDaqR_SetDoubleAttributeInH5', PACKAGE = 'TofDaqR', Filename, location, name, attribute))
 }
 
 #' Writes a string attribute to the HDF5 file.
@@ -1935,7 +1935,7 @@ SetDoubleAttributeInH5 <- function(Filename, location, name, attribute) {
 #' }
 #' @export
 SetStringAttributeInH5 <- function(Filename, location, name, attribute) {
-    .Call('TofDaqR_SetStringAttributeInH5', PACKAGE = 'TofDaqR', Filename, location, name, attribute)
+    invisible(.Call('TofDaqR_SetStringAttributeInH5', PACKAGE = 'TofDaqR', Filename, location, name, attribute))
 }
 
 #' Reads user data from the HDF5 file.
@@ -2035,7 +2035,7 @@ H5GetMassCalibPar <- function(Filename, writeIndex) {
 #'
 #' @export
 H5AddLogEntry <- function(Filename, LogEntryText, LogEntryTime) {
-    .Call('TofDaqR_H5AddLogEntry', PACKAGE = 'TofDaqR', Filename, LogEntryText, LogEntryTime)
+    invisible(.Call('TofDaqR_H5AddLogEntry', PACKAGE = 'TofDaqR', Filename, LogEntryText, LogEntryTime))
 }
 
 #' Performs a peak fit.
@@ -2352,7 +2352,7 @@ MassCalibrate <- function(massCalibMode, mass, tof, weight = NULL) {
 #' @family Single ion histogramming functions
 #' @export
 SiInitializeHistograms <- function(loMass, hiMass, specType = NULL) {
-    .Call('TofDaqR_SiInitializeHistograms', PACKAGE = 'TofDaqR', loMass, hiMass, specType)
+    invisible(.Call('TofDaqR_SiInitializeHistograms', PACKAGE = 'TofDaqR', loMass, hiMass, specType))
 }
 
 #' Sets processing options for each spectrum type.
@@ -2395,7 +2395,7 @@ SiInitializeHistograms <- function(loMass, hiMass, specType = NULL) {
 #' @family Single ion histogramming functions
 #' @export
 SiSetProcessingOptions <- function(option, value, specType) {
-    .Call('TofDaqR_SiSetProcessingOptions', PACKAGE = 'TofDaqR', option, value, specType)
+    invisible(.Call('TofDaqR_SiSetProcessingOptions', PACKAGE = 'TofDaqR', option, value, specType))
 }
 
 #' Processes a spectrum.
@@ -2464,7 +2464,7 @@ SiGetSumHistogram <- function(specType, minMass, maxMass, minRate, maxRate) {
 #' @family Single ion histogramming functions
 #' @export
 SiResetHistograms <- function() {
-    .Call('TofDaqR_SiResetHistograms', PACKAGE = 'TofDaqR')
+    invisible(.Call('TofDaqR_SiResetHistograms', PACKAGE = 'TofDaqR'))
 }
 
 #' Cleans up the state in the DLL.
@@ -2475,7 +2475,7 @@ SiResetHistograms <- function() {
 #' @family Single ion histogramming functions
 #' @export
 SiCleanup <- function() {
-    .Call('TofDaqR_SiCleanup', PACKAGE = 'TofDaqR')
+    invisible(.Call('TofDaqR_SiCleanup', PACKAGE = 'TofDaqR'))
 }
 
 #' Fits a (slightly modified) log-normal distribution to the histogram.

@@ -14,23 +14,22 @@ char* RtoCstring(SEXP rstring) {
 }
 
 // convert TwRetVal to String
-StringVector TwRetValString(TwRetVal rv) {
-  StringVector string(13);
-  string[0] = "TwDaqRecNotRunning";
-  string[1] = "TwAcquisitionActive";
-  string[2] = "TwNoActiveAcquisition";
-  string[3] = "TwFileNotFound";
-  string[4] = "TwSuccess";
-  string[5] = "TwError";
-  string[6] = "TwOutOfBounds";
-  string[7] = "TwNoData";
-  string[8] = "TwTimeout";
-  string[9] = "TwValueAdjusted";
-  string[10] = "TwInvalidParameter";
-  string[11] = "TwInvalidValue";
-  string[12] = "TwAborted";
-  StringVector result(1, string[(int)rv]);
-  return result;
+String TwRetValString(TwRetVal rv) {
+  StringVector str(13);
+  str[0] = "TwDaqRecNotRunning";
+  str[1] = "TwAcquisitionActive";
+  str[2] = "TwNoActiveAcquisition";
+  str[3] = "TwFileNotFound";
+  str[4] = "TwSuccess";
+  str[5] = "TwError";
+  str[6] = "TwOutOfBounds";
+  str[7] = "TwNoData";
+  str[8] = "TwTimeout";
+  str[9] = "TwValueAdjusted";
+  str[10] = "TwInvalidParameter";
+  str[11] = "TwInvalidValue";
+  str[12] = "TwAborted";
+  return str[(int)rv];
 }
 
 // FitSinglePeak ---------------------------------------------------------------
@@ -76,7 +75,7 @@ StringVector TwRetValString(TwRetVal rv) {
 //' @family Peak fitting functions
 //' @export
 // [[Rcpp::export]]
-SEXP FitSinglePeak(NumericVector yVals, NumericVector xVals, int peakType = 0,
+List FitSinglePeak(NumericVector yVals, NumericVector xVals, int peakType = 0,
                    double blOffset = 0, double blSlope = 0,
                    double amplitude = 0, double fwhmLo = 0, double fwhmHi = 0,
                    double peakPos = 0, double mu = 0) {
@@ -88,7 +87,7 @@ SEXP FitSinglePeak(NumericVector yVals, NumericVector xVals, int peakType = 0,
                                 &fwhmHi, &peakPos, &mu);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   List result;
@@ -142,7 +141,7 @@ SEXP FitSinglePeak(NumericVector yVals, NumericVector xVals, int peakType = 0,
 //' @family Peak fitting functions
 //' @export
 // [[Rcpp::export]]
-SEXP FitSinglePeak2(NumericVector yVals, NumericVector xVals, int peakType = 0,
+List FitSinglePeak2(NumericVector yVals, NumericVector xVals, int peakType = 0,
                     NumericVector param = NumericVector::create(0,0,0,0,0,0,0)) {
 
   int nbrDataPoints = xVals.size();
@@ -150,7 +149,7 @@ SEXP FitSinglePeak2(NumericVector yVals, NumericVector xVals, int peakType = 0,
   TwRetVal rv = TwFitSinglePeak2(nbrDataPoints, &yVals[0], &xVals[0], peakType,
                                  &param[0]);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   List result;
@@ -236,15 +235,15 @@ NumericVector EvalSinglePeak(NumericVector xVals, double blOffset = 0,
 //' GetMoleculeMass("[13C][18O]2")
 //' @export
 // [[Rcpp::export]]
-SEXP GetMoleculeMass(SEXP molecule) {
+double GetMoleculeMass(SEXP molecule) {
 
-  char * cMolecule = RtoCstring(molecule);
-  NumericVector mass(1);
+  char *cMolecule = RtoCstring(molecule);
+  double mass;
 
-  TwRetVal rv = TwGetMoleculeMass(cMolecule, &mass[0]);
+  TwRetVal rv = TwGetMoleculeMass(cMolecule, &mass);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
   return mass;
 }
@@ -275,9 +274,9 @@ SEXP GetMoleculeMass(SEXP molecule) {
 //' GetIsotopePattern("CO2", 1e-5)
 //' @export
 // [[Rcpp::export]]
-SEXP GetIsotopePattern(SEXP molecule, double abundanceLimit) {
+List GetIsotopePattern(SEXP molecule, double abundanceLimit) {
 
-  char * cMolecule = RtoCstring(molecule);
+  char *cMolecule = RtoCstring(molecule);
 
   int nbrIsotopes = 0;
 
@@ -286,7 +285,7 @@ SEXP GetIsotopePattern(SEXP molecule, double abundanceLimit) {
                                     NULL, NULL);
 
   if (rv != TwValueAdjusted) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   NumericVector isoMass(nbrIsotopes);
@@ -295,7 +294,7 @@ SEXP GetIsotopePattern(SEXP molecule, double abundanceLimit) {
   rv = TwGetIsotopePattern(cMolecule, abundanceLimit, &nbrIsotopes, &isoMass[0],
                            &isoAbundance[0]);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   List result;
@@ -333,9 +332,9 @@ SEXP GetIsotopePattern(SEXP molecule, double abundanceLimit) {
 //' GetIsotopePattern2("CO2", 1e-5)
 //' @export
 // [[Rcpp::export]]
-SEXP GetIsotopePattern2(SEXP molecule, double abundanceLimit) {
+List GetIsotopePattern2(SEXP molecule, double abundanceLimit) {
 
-  char * cMolecule = RtoCstring(molecule);
+  char *cMolecule = RtoCstring(molecule);
 
   int nbrIsotopes = 0;
 
@@ -344,7 +343,7 @@ SEXP GetIsotopePattern2(SEXP molecule, double abundanceLimit) {
                                     NULL, NULL);
 
   if (rv != TwValueAdjusted) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   NumericVector isoMass(nbrIsotopes);
@@ -353,7 +352,7 @@ SEXP GetIsotopePattern2(SEXP molecule, double abundanceLimit) {
   rv = TwGetIsotopePattern2(cMolecule, abundanceLimit, &nbrIsotopes, &isoMass[0],
                             &isoAbundance[0]);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   List result;
@@ -478,12 +477,12 @@ NumericVector Mass2Tof(NumericVector mass, int massCalibMode, NumericVector p) {
 //' @return Vector of calibration parameters.
 //' @export
 // [[Rcpp::export]]
-SEXP MassCalibrate(int massCalibMode, NumericVector mass, NumericVector tof,
+NumericVector MassCalibrate(int massCalibMode, NumericVector mass, NumericVector tof,
                    Nullable<NumericVector> weight = R_NilValue) {
 
   int nbrPoints = mass.size();
 
-  double * p_weight;
+  double *p_weight;
   if (weight.isNotNull()) {
     NumericVector x(weight);
     p_weight = &x[0];
@@ -494,15 +493,20 @@ SEXP MassCalibrate(int massCalibMode, NumericVector mass, NumericVector tof,
   int nbrParams;
 
   // get the number of parameters
-  char * description = new char[64];
+  char *description = new char[64];
   TwRetVal rv = TwGetMassCalibInfo(massCalibMode, description, &nbrParams);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   NumericVector param(nbrParams);
 
-  TwMassCalibrate(massCalibMode, nbrPoints, &mass[0], &tof[0], p_weight, &nbrParams, &param[0], NULL, NULL);
+  rv = TwMassCalibrate(massCalibMode, nbrPoints, &mass[0], &tof[0], p_weight,
+                       &nbrParams, &param[0], NULL, NULL);
+
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 
   return param;
 }
@@ -527,11 +531,11 @@ SEXP MassCalibrate(int massCalibMode, NumericVector mass, NumericVector tof,
 //' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
-StringVector SiInitializeHistograms(NumericVector loMass, NumericVector hiMass,
+void SiInitializeHistograms(NumericVector loMass, NumericVector hiMass,
                             Nullable<IntegerVector> specType = R_NilValue) {
 
   int nbrHist = loMass.size();
-  int * p_specType;
+  int *p_specType;
   if (specType.isNotNull()) {
     IntegerVector x(specType);
     p_specType = &x[0];
@@ -541,7 +545,9 @@ StringVector SiInitializeHistograms(NumericVector loMass, NumericVector hiMass,
 
   TwRetVal rv = TwSiInitializeHistograms(nbrHist, &loMass[0], &hiMass[0], p_specType);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // SiSetProcessingOptions ------------------------------------------------------
@@ -585,13 +591,15 @@ StringVector SiInitializeHistograms(NumericVector loMass, NumericVector hiMass,
 //' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
-StringVector SiSetProcessingOptions(SEXP option, double value, int specType) {
+void SiSetProcessingOptions(SEXP option, double value, int specType) {
 
-  char * coption = RtoCstring(option);
+  char *coption = RtoCstring(option);
 
   TwRetVal rv = TwSiSetProcessingOptions(coption, value, specType);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // SiProcessSpectrum -----------------------------------------------------------
@@ -610,7 +618,7 @@ StringVector SiSetProcessingOptions(SEXP option, double value, int specType) {
 //' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
-SEXP SiProcessSpectrum(NumericVector spectrum, int specType) {
+List SiProcessSpectrum(NumericVector spectrum, int specType) {
 
   int nbrSamples = spectrum.size();
 
@@ -623,7 +631,7 @@ SEXP SiProcessSpectrum(NumericVector spectrum, int specType) {
                                     &blFromData, &thrFromData);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   List result;
@@ -651,7 +659,7 @@ SEXP SiProcessSpectrum(NumericVector spectrum, int specType) {
 //' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
-SEXP SiGetHistogram(int histogramIndex) {
+List SiGetHistogram(int histogramIndex) {
 
   unsigned int arrayLength;
   unsigned int spectrumCount;
@@ -661,7 +669,7 @@ SEXP SiGetHistogram(int histogramIndex) {
   TwRetVal rv = TwSiGetHistogram(histogramIndex, NULL, NULL, &arrayLength,
                                  &spectrumCount, &meanValue);
   if (rv != TwValueAdjusted) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   NumericVector intensity(arrayLength);
@@ -673,7 +681,7 @@ SEXP SiGetHistogram(int histogramIndex) {
   rv = TwSiGetHistogram(histogramIndex, &fintensity[0], &fcounts[0],
                         &arrayLength, &spectrumCount, &meanValue);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   List result;
@@ -704,7 +712,7 @@ SEXP SiGetHistogram(int histogramIndex) {
 //' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
-SEXP SiGetSumHistogram(int specType, double minMass, double maxMass,
+List SiGetSumHistogram(int specType, double minMass, double maxMass,
                        double minRate, double maxRate) {
 
   unsigned int arrayLength;
@@ -716,7 +724,7 @@ SEXP SiGetSumHistogram(int specType, double minMass, double maxMass,
                                     &spectrumCount, &meanValue, minMass, maxMass,
                                     minRate, maxRate);
   if (rv != TwValueAdjusted) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   NumericVector intensity(arrayLength);
@@ -729,7 +737,7 @@ SEXP SiGetSumHistogram(int specType, double minMass, double maxMass,
                            &spectrumCount, &meanValue, minMass, maxMass,
                            minRate, maxRate);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   List result;
@@ -749,11 +757,13 @@ SEXP SiGetSumHistogram(int specType, double minMass, double maxMass,
 //' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
-StringVector SiResetHistograms() {
+void SiResetHistograms() {
 
   TwRetVal rv = TwSiResetHistograms();
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // SiCleanup -------------------------------------------------------------------
@@ -765,11 +775,13 @@ StringVector SiResetHistograms() {
 //' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
-StringVector SiCleanup() {
+void SiCleanup() {
 
   TwRetVal rv = TwSiCleanup();
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // SiFitPhd --------------------------------------------------------------------
@@ -789,7 +801,7 @@ StringVector SiCleanup() {
 //' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
-SEXP SiFitPhd(NumericVector intensity, NumericVector counts) {
+List SiFitPhd(NumericVector intensity, NumericVector counts) {
 
   int nbrPoints = intensity.size();
 
@@ -800,7 +812,7 @@ SEXP SiFitPhd(NumericVector intensity, NumericVector counts) {
   TwRetVal rv = TwSiFitPhd(nbrPoints, &intensity[0], &counts[0], &fwhm[0],
                            &a[0], &par[0]);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   List result;
@@ -852,7 +864,7 @@ NumericVector SiEvalPhd(NumericVector par, NumericVector intensity) {
 //' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
-SEXP SiFitRateFromPhd(NumericVector intensity, NumericVector counts,
+List SiFitRateFromPhd(NumericVector intensity, NumericVector counts,
                       NumericVector siPar) {
 
   int nbrPoints = intensity.size();
@@ -863,7 +875,7 @@ SEXP SiFitRateFromPhd(NumericVector intensity, NumericVector counts,
   TwRetVal rv = TwSiFitRateFromPhd(nbrPoints, &intensity[0], &counts[0],
                                    &siPar[0], &rate, &fitCounts[0], 0, NULL);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   List result;
@@ -892,9 +904,9 @@ SEXP SiFitRateFromPhd(NumericVector intensity, NumericVector counts,
 //' FindTpsIp("910.33.0316", 500)
 //' @export
 // [[Rcpp::export]]
-SEXP FindTpsIp(SEXP TpsSerial, int timeout) {
+String FindTpsIp(SEXP TpsSerial, int timeout) {
 
-  char * cTpsSerial = RtoCstring(TpsSerial);
+  char *cTpsSerial = RtoCstring(TpsSerial);
 
   int hostStrLen = 15;
 
@@ -903,7 +915,7 @@ SEXP FindTpsIp(SEXP TpsSerial, int timeout) {
   TwRetVal rv = TwFindTpsIp(cTpsSerial, timeout, &hostStrLen, buffer);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   std::string str(buffer);

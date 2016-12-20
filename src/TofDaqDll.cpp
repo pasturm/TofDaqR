@@ -13,11 +13,13 @@ using namespace Rcpp;
 //' functions that need the DLL to be in an initialized state.
 //' @export
 // [[Rcpp::export]]
-SEXP InitializeDll() {
+void InitializeDll() {
 
   TwRetVal rv = TwInitializeDll();
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // CleanupDll ------------------------------------------------------------------
@@ -81,11 +83,13 @@ bool DaqActive() {
 //' \code{StartAcquisition} starts an acquisition.
 //' @export
 // [[Rcpp::export]]
-SEXP StartAcquisition() {
+void StartAcquisition() {
 
   TwRetVal rv = TwStartAcquisition();
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // StopAcquisition -------------------------------------------------------------
@@ -94,11 +98,13 @@ SEXP StartAcquisition() {
 //' \code{StopAcquisition} stops the current acquisition.
 //' @export
 // [[Rcpp::export]]
-SEXP StopAcquisition() {
+void StopAcquisition() {
 
   TwRetVal rv = TwStopAcquisition();
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // CloseTofDaqRec --------------------------------------------------------------
@@ -107,11 +113,13 @@ SEXP StopAcquisition() {
 //' \code{CloseTofDaqRec} closes the TofDaq recorder application.
 //' @export
 // [[Rcpp::export]]
-SEXP CloseTofDaqRec() {
+void CloseTofDaqRec() {
 
   TwRetVal rv = TwCloseTofDaqRec();
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // InitializeDaqDevice ---------------------------------------------------------
@@ -122,11 +130,13 @@ SEXP CloseTofDaqRec() {
 //' actual DAQ hardware.
 //' @export
 // [[Rcpp::export]]
-SEXP InitializeDaqDevice() {
+void InitializeDaqDevice() {
 
   TwRetVal rv = TwInitializeDaqDevice();
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // SetTimeout ------------------------------------------------------------------
@@ -163,11 +173,13 @@ int GetTimeout() {
 //' AP240 averager and ndigo5G.
 //' @export
 // [[Rcpp::export]]
-SEXP AutoSetupDaqDevice() {
+void AutoSetupDaqDevice() {
 
   TwRetVal rv = TwAutoSetupDaqDevice();
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // OnDemandMassCalibration -----------------------------------------------------
@@ -180,11 +192,13 @@ SEXP AutoSetupDaqDevice() {
 //' data acquired since previous arm.
 //' @export
 // [[Rcpp::export]]
-SEXP OnDemandMassCalibration(int action) {
+void OnDemandMassCalibration(int action) {
 
   TwRetVal rv = TwOnDemandMassCalibration(action);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // ShowConfigWindow ------------------------------------------------------------
@@ -196,11 +210,13 @@ SEXP OnDemandMassCalibration(int action) {
 //' @param ConfigWindowIndex Index of configuration tab to show (valid range: 0-6)
 //' @export
 // [[Rcpp::export]]
-SEXP ShowConfigWindow(int ConfigWindowIndex) {
+void ShowConfigWindow(int ConfigWindowIndex) {
 
   TwRetVal rv = TwShowConfigWindow(ConfigWindowIndex);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // LoadIniFile -----------------------------------------------------------------
@@ -213,7 +229,7 @@ SEXP ShowConfigWindow(int ConfigWindowIndex) {
 //' will be used.
 //' @export
 // [[Rcpp::export]]
-SEXP LoadIniFile(Nullable<Rcpp::String> IniFile = R_NilValue) {
+void LoadIniFile(Nullable<Rcpp::String> IniFile = R_NilValue) {
 
   std::string tmp = Rcpp::as<std::string>(IniFile);
   char *cFilename;
@@ -224,7 +240,9 @@ SEXP LoadIniFile(Nullable<Rcpp::String> IniFile = R_NilValue) {
   }
   TwRetVal rv = TwLoadIniFile(cFilename);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // SaveIniFile -----------------------------------------------------------------
@@ -237,7 +255,7 @@ SEXP LoadIniFile(Nullable<Rcpp::String> IniFile = R_NilValue) {
 //' will be used.
 //' @export
 // [[Rcpp::export]]
-SEXP SaveIniFile(Nullable<Rcpp::String> IniFile = R_NilValue) {
+void SaveIniFile(Nullable<Rcpp::String> IniFile = R_NilValue) {
 
   std::string tmp = Rcpp::as<std::string>(IniFile);
   char *cFilename;
@@ -248,7 +266,9 @@ SEXP SaveIniFile(Nullable<Rcpp::String> IniFile = R_NilValue) {
   }
   TwRetVal rv = TwLoadIniFile(cFilename);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // GetDaqParameter -------------------------------------------------------------
@@ -380,7 +400,7 @@ double GetDaqParameterDouble(SEXP Parameter) {
 //' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
-SEXP GetDaqParameterIntRef(SEXP Parameter) {
+int GetDaqParameterIntRef(SEXP Parameter) {
 
   char *cParameter = RtoCstring(Parameter);
 
@@ -388,10 +408,10 @@ SEXP GetDaqParameterIntRef(SEXP Parameter) {
 
   TwRetVal rv = TwGetDaqParameterIntRef(cParameter, &Value);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
-  return wrap(Value);
+  return Value;
 }
 
 // GetDaqParameterBoolRef ------------------------------------------------------
@@ -406,7 +426,7 @@ SEXP GetDaqParameterIntRef(SEXP Parameter) {
 //' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
-SEXP GetDaqParameterBoolRef(SEXP Parameter) {
+bool GetDaqParameterBoolRef(SEXP Parameter) {
 
   char *cParameter = RtoCstring(Parameter);
 
@@ -414,10 +434,10 @@ SEXP GetDaqParameterBoolRef(SEXP Parameter) {
 
   TwRetVal rv = TwGetDaqParameterBoolRef(cParameter, &Value);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
-  return wrap(Value);
+  return Value;
 }
 
 // GetDaqParameterFloatRef -----------------------------------------------------
@@ -432,7 +452,7 @@ SEXP GetDaqParameterBoolRef(SEXP Parameter) {
 //' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
-SEXP GetDaqParameterFloatRef(SEXP Parameter) {
+float GetDaqParameterFloatRef(SEXP Parameter) {
 
   char *cParameter = RtoCstring(Parameter);
 
@@ -440,10 +460,10 @@ SEXP GetDaqParameterFloatRef(SEXP Parameter) {
 
   TwRetVal rv = TwGetDaqParameterFloatRef(cParameter, &Value);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
-  return wrap(Value);
+  return Value;
 }
 
 // GetDaqParameterInt64Ref -----------------------------------------------------
@@ -458,7 +478,7 @@ SEXP GetDaqParameterFloatRef(SEXP Parameter) {
 //' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
-SEXP GetDaqParameterInt64Ref(SEXP Parameter) {
+String GetDaqParameterInt64Ref(SEXP Parameter) {
 
   char *cParameter = RtoCstring(Parameter);
 
@@ -466,7 +486,7 @@ SEXP GetDaqParameterInt64Ref(SEXP Parameter) {
 
   TwRetVal rv = TwGetDaqParameterInt64Ref(cParameter, &Value);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   std::stringstream ss;
@@ -487,7 +507,7 @@ SEXP GetDaqParameterInt64Ref(SEXP Parameter) {
 //' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
-SEXP GetDaqParameterDoubleRef(SEXP Parameter) {
+double GetDaqParameterDoubleRef(SEXP Parameter) {
 
   char *cParameter = RtoCstring(Parameter);
 
@@ -495,10 +515,10 @@ SEXP GetDaqParameterDoubleRef(SEXP Parameter) {
 
   TwRetVal rv = TwGetDaqParameterDoubleRef(cParameter, &Value);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
-  return wrap(Value);
+  return Value;
 }
 
 // GetDaqParameterStringRef -----------------------------------------------------
@@ -513,14 +533,14 @@ SEXP GetDaqParameterDoubleRef(SEXP Parameter) {
 //' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
-SEXP GetDaqParameterStringRef(SEXP Parameter) {
+String GetDaqParameterStringRef(SEXP Parameter) {
 
   char *cParameter = RtoCstring(Parameter);
   char *Value = new char[256];
 
   TwRetVal rv = TwGetDaqParameterStringRef(cParameter, Value);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   std::string str(Value);
@@ -538,14 +558,16 @@ SEXP GetDaqParameterStringRef(SEXP Parameter) {
 //' @param ValueString Value as a string.
 //' @export
 // [[Rcpp::export]]
-SEXP SetDaqParameter(SEXP Parameter, SEXP ValueString) {
+void SetDaqParameter(SEXP Parameter, SEXP ValueString) {
 
   char *cParameter = RtoCstring(Parameter);
   char *cValueString = RtoCstring(ValueString);
 
   TwRetVal rv = TwSetDaqParameter(cParameter, cValueString);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // SetDaqParameterInt ----------------------------------------------------------
@@ -558,13 +580,15 @@ SEXP SetDaqParameter(SEXP Parameter, SEXP ValueString) {
 //' @param Value Integer value.
 //' @export
 // [[Rcpp::export]]
-SEXP SetDaqParameterInt(SEXP Parameter, int Value) {
+void SetDaqParameterInt(SEXP Parameter, int Value) {
 
   char *cParameter = RtoCstring(Parameter);
 
   TwRetVal rv = TwSetDaqParameterInt(cParameter, Value);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // SetDaqParameterBool ---------------------------------------------------------
@@ -577,13 +601,15 @@ SEXP SetDaqParameterInt(SEXP Parameter, int Value) {
 //' @param Value \code{TRUE} or \code{FALSE}.
 //' @export
 // [[Rcpp::export]]
-SEXP SetDaqParameterBool(SEXP Parameter, bool Value) {
+void SetDaqParameterBool(SEXP Parameter, bool Value) {
 
   char *cParameter = RtoCstring(Parameter);
 
   TwRetVal rv = TwSetDaqParameterBool(cParameter, Value);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // SetDaqParameterFloat --------------------------------------------------------
@@ -596,13 +622,15 @@ SEXP SetDaqParameterBool(SEXP Parameter, bool Value) {
 //' @param Value Numeric value.
 //' @export
 // [[Rcpp::export]]
-SEXP SetDaqParameterFloat(SEXP Parameter, double Value) {
+void SetDaqParameterFloat(SEXP Parameter, double Value) {
 
   char *cParameter = RtoCstring(Parameter);
 
   TwRetVal rv = TwSetDaqParameterFloat(cParameter, (float)Value);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // SetDaqParameterInt64 ----------------------------------------------------------
@@ -616,7 +644,7 @@ SEXP SetDaqParameterFloat(SEXP Parameter, double Value) {
 //' @param Value int64 value passed as a string.
 //' @export
 // [[Rcpp::export]]
-SEXP SetDaqParameterInt64(SEXP Parameter, SEXP Value) {
+void SetDaqParameterInt64(SEXP Parameter, SEXP Value) {
 
   char *cParameter = RtoCstring(Parameter);
 
@@ -627,7 +655,9 @@ SEXP SetDaqParameterInt64(SEXP Parameter, SEXP Value) {
 
   TwRetVal rv = TwSetDaqParameterInt64(cParameter, int64value);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // SetDaqParameterDouble -------------------------------------------------------
@@ -640,13 +670,15 @@ SEXP SetDaqParameterInt64(SEXP Parameter, SEXP Value) {
 //' @param Value Numeric value.
 //' @export
 // [[Rcpp::export]]
-SEXP SetDaqParameterDouble(SEXP Parameter, double Value) {
+void SetDaqParameterDouble(SEXP Parameter, double Value) {
 
   char *cParameter = RtoCstring(Parameter);
 
   TwRetVal rv = TwSetDaqParameterDouble(cParameter, Value);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // GetDescriptor --------------------------------------------------------------
@@ -664,13 +696,13 @@ SEXP SetDaqParameterDouble(SEXP Parameter, double Value) {
 //' @return A list containing the TSharedMemoryDesc structure
 //' @export
 // [[Rcpp::export]]
-SEXP GetDescriptor() {
+List GetDescriptor() {
 
   //get the current TSharedMemoryDesc structure.
   TSharedMemoryDesc pBufDesc;
   TwRetVal rv = TwGetDescriptor(&pBufDesc);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   std::stringstream ss;  // for converting int64 to string
@@ -771,13 +803,13 @@ SEXP GetDescriptor() {
 //' @return A list with the peak paramters \emph{label}, \emph{mass}, \emph{loMass} and \emph{hiMass}.
 //' @export
 // [[Rcpp::export]]
-SEXP GetPeakParameters(int PeakIndex) {
+List GetPeakParameters(int PeakIndex) {
 
   TPeakPar PeakPar;
   TwRetVal rv = TwGetPeakParameters(&PeakPar, PeakIndex);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   List result;
@@ -797,11 +829,13 @@ SEXP GetPeakParameters(int PeakIndex) {
 //' \code{TRUE}.
 //' @export
 // [[Rcpp::export]]
-SEXP ReleaseSharedMemory() {
+void ReleaseSharedMemory() {
 
   TwRetVal rv = TwReleaseSharedMemory();
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // WaitForNewData --------------------------------------------------------------
@@ -815,14 +849,16 @@ SEXP ReleaseSharedMemory() {
 //' reset data available event before returning.
 //' @export
 // [[Rcpp::export]]
-SEXP WaitForNewData(int timeout, bool WaitForEventReset) {
+void WaitForNewData(int timeout, bool WaitForEventReset) {
 
   TSharedMemoryDesc pBufDesc;
   TSharedMemoryPointer pShMem;
 
   TwRetVal rv = TwWaitForNewData(timeout, &pBufDesc, &pShMem, WaitForEventReset);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // WaitForEndOfAcquisition -----------------------------------------------------
@@ -834,11 +870,13 @@ SEXP WaitForNewData(int timeout, bool WaitForEventReset) {
 //' @param timeout Timeout in ms.
 //' @export
 // [[Rcpp::export]]
-SEXP WaitForEndOfAcquisition(int timeout) {
+void WaitForEndOfAcquisition(int timeout) {
 
   TwRetVal rv = TwWaitForEndOfAcquisition(timeout);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // GetSumSpectrumFromShMem -----------------------------------------------------
@@ -850,19 +888,19 @@ SEXP WaitForEndOfAcquisition(int timeout) {
 //' if \code{TRUE} (default) the spectrum is normalized to counts per extraction.
 //' @export
 // [[Rcpp::export]]
-SEXP GetSumSpectrumFromShMem(bool Normalize) {
+NumericVector GetSumSpectrumFromShMem(bool Normalize) {
 
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   NumericVector Spectrum(desc.NbrSamples);
 
   rv = TwGetSumSpectrumFromShMem(&Spectrum[0], Normalize);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return Spectrum;
@@ -893,7 +931,7 @@ SEXP GetTofSpectrumFromShMem(int SegmentIndex, int SegmentEndIndex,
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   int specLen;
@@ -908,7 +946,7 @@ SEXP GetTofSpectrumFromShMem(int SegmentIndex, int SegmentEndIndex,
                                  BufIndex, Normalize);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return wrap(Spectrum);
@@ -926,20 +964,20 @@ SEXP GetTofSpectrumFromShMem(int SegmentIndex, int SegmentEndIndex,
 //' @return A vector containing the x-axis values.
 //' @export
 // [[Rcpp::export]]
-SEXP GetSpecXaxisFromShMem(int Type) {
+NumericVector GetSpecXaxisFromShMem(int Type) {
 
   //get descriptor of file
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   NumericVector SpecAxis(desc.NbrSamples);
   double maxMass = 0.0;
   rv = TwGetSpecXaxisFromShMem(&SpecAxis[0], Type, NULL, maxMass);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return SpecAxis;
@@ -957,13 +995,13 @@ SEXP GetSpecXaxisFromShMem(int Type) {
 //' @return A list containing the stick spectrum and corresponding masses.
 //' @export
 // [[Rcpp::export]]
-SEXP GetStickSpectrumFromShMem(int SegmentIndex, int SegmentEndIndex,
+List GetStickSpectrumFromShMem(int SegmentIndex, int SegmentEndIndex,
                                int BufIndex) {
 
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   std::vector<float> Spectrum(desc.NbrPeaks);
@@ -972,7 +1010,7 @@ SEXP GetStickSpectrumFromShMem(int SegmentIndex, int SegmentEndIndex,
   rv = TwGetStickSpectrumFromShMem(&Spectrum[0], &Masses[0], SegmentIndex,
                                    SegmentEndIndex, BufIndex);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   List result;
@@ -1000,7 +1038,7 @@ SEXP GetSegmentProfileFromShMem(int PeakIndex, int BufIndex) {
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   int profileLen;
@@ -1013,7 +1051,7 @@ SEXP GetSegmentProfileFromShMem(int PeakIndex, int BufIndex) {
   std::vector<float> SegmentProfile(profileLen);
   rv = TwGetSegmentProfileFromShMem(&SegmentProfile[0], PeakIndex, BufIndex);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return wrap(SegmentProfile);
@@ -1030,13 +1068,13 @@ SEXP GetSegmentProfileFromShMem(int PeakIndex, int BufIndex) {
 //' @return A time stamp (in seconds relative to acquisition start).
 //' @export
 // [[Rcpp::export]]
-SEXP GetBufTimeFromShMem(int BufIndex, int WriteIndex) {
+double GetBufTimeFromShMem(int BufIndex, int WriteIndex) {
 
-  NumericVector BufTime(1);
+  double BufTime;
 
-  TwRetVal rv = TwGetBufTimeFromShMem(&BufTime[0], BufIndex, WriteIndex);
+  TwRetVal rv = TwGetBufTimeFromShMem(&BufTime, BufIndex, WriteIndex);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return BufTime;
@@ -1056,7 +1094,7 @@ SEXP GetBufTimeFromShMem(int BufIndex, int WriteIndex) {
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-SEXP AddLogEntry(SEXP LogEntryText, SEXP LogEntryTime) {
+void AddLogEntry(SEXP LogEntryText, SEXP LogEntryTime) {
 
   char *cLogEntryText = RtoCstring(LogEntryText);
 
@@ -1067,7 +1105,9 @@ SEXP AddLogEntry(SEXP LogEntryText, SEXP LogEntryTime) {
 
   TwRetVal rv = TwAddLogEntry(cLogEntryText, cTime);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // AddAttributeInt -------------------------------------------------------------
@@ -1083,14 +1123,16 @@ SEXP AddLogEntry(SEXP LogEntryText, SEXP LogEntryTime) {
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-SEXP AddAttributeInt(SEXP Object, SEXP AttributeName, int Value) {
+void AddAttributeInt(SEXP Object, SEXP AttributeName, int Value) {
 
   char *cObject = RtoCstring(Object);
   char *cAttributeName = RtoCstring(AttributeName);
 
   TwRetVal rv = TwAddAttributeInt(cObject, cAttributeName, Value);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // AddAttributeDouble ----------------------------------------------------------
@@ -1106,14 +1148,16 @@ SEXP AddAttributeInt(SEXP Object, SEXP AttributeName, int Value) {
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-SEXP AddAttributeDouble(SEXP Object, SEXP AttributeName, double Value) {
+void AddAttributeDouble(SEXP Object, SEXP AttributeName, double Value) {
 
   char *cObject = RtoCstring(Object);
   char *cAttributeName = RtoCstring(AttributeName);
 
   TwRetVal rv = TwAddAttributeDouble(cObject, cAttributeName, Value);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // AddAttributeString ----------------------------------------------------------
@@ -1129,7 +1173,7 @@ SEXP AddAttributeDouble(SEXP Object, SEXP AttributeName, double Value) {
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-SEXP AddAttributeString(SEXP Object, SEXP AttributeName, SEXP Value) {
+void AddAttributeString(SEXP Object, SEXP AttributeName, SEXP Value) {
 
   char *cObject = RtoCstring(Object);
   char *cAttributeName = RtoCstring(AttributeName);
@@ -1137,7 +1181,9 @@ SEXP AddAttributeString(SEXP Object, SEXP AttributeName, SEXP Value) {
 
   TwRetVal rv = TwAddAttributeString(cObject, cAttributeName, cValue);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // AddUserData -----------------------------------------------------------------
@@ -1161,20 +1207,21 @@ SEXP AddAttributeString(SEXP Object, SEXP AttributeName, SEXP Value) {
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-SEXP AddUserData(SEXP Location, int NbrElements, NumericVector Data,
+void AddUserData(SEXP Location, int NbrElements, NumericVector Data,
                  Nullable<Rcpp::String> ElementDescription = R_NilValue,
                  int CompressionLevel = 0) {
 
   char *cLocation = RtoCstring(Location);
+  char *cElementDescription;
   if (ElementDescription.isNotNull()) {
-    char * cElementDescription = RtoCstring(ElementDescription);
-    TwRetVal rv = TwAddUserData(cLocation, NbrElements, cElementDescription,
-                                &Data[0], CompressionLevel);
-    return TwRetValString(rv);
+    cElementDescription = RtoCstring(ElementDescription);
   } else {
-    TwRetVal rv = TwAddUserData(cLocation, NbrElements, NULL,
-                                &Data[0], CompressionLevel);
-    return TwRetValString(rv);
+    cElementDescription = NULL;
+  }
+  TwRetVal rv = TwAddUserData(cLocation, NbrElements, cElementDescription,
+                              &Data[0], CompressionLevel);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
   }
 }
 
@@ -1204,7 +1251,7 @@ SEXP AddUserData(SEXP Location, int NbrElements, NumericVector Data,
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-SEXP AddUserDataMultiRow(SEXP Location, int NbrElements, int NbrRows, NumericVector Data,
+void AddUserDataMultiRow(SEXP Location, int NbrElements, int NbrRows, NumericVector Data,
                          Nullable<Rcpp::String> ElementDescription = R_NilValue,
                          int CompressionLevel = 0) {
 
@@ -1219,8 +1266,9 @@ SEXP AddUserDataMultiRow(SEXP Location, int NbrElements, int NbrRows, NumericVec
   TwRetVal rv = TwAddUserDataMultiRow(cLocation, NbrElements, NbrRows,
                                       cElementDescription, &Data[0],
                                       CompressionLevel);
-
- return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // RegisterUserDataBuf ---------------------------------------------------------
@@ -1244,12 +1292,11 @@ SEXP AddUserDataMultiRow(SEXP Location, int NbrElements, int NbrRows, NumericVec
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-SEXP RegisterUserDataBuf(SEXP Location, int NbrElements,
+void RegisterUserDataBuf(SEXP Location, int NbrElements,
                          Nullable<Rcpp::String> ElementDescription = R_NilValue,
                          int CompressionLevel = 0) {
 
   char *cLocation = RtoCstring(Location);
-
   char *cElementDescription;
   if (ElementDescription.isNotNull()) {
     cElementDescription = RtoCstring(ElementDescription);
@@ -1259,8 +1306,9 @@ SEXP RegisterUserDataBuf(SEXP Location, int NbrElements,
 
   TwRetVal rv = TwRegisterUserDataBuf(cLocation, NbrElements,
                                       cElementDescription, CompressionLevel);
-
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // RegisterUserDataWrite -------------------------------------------------------
@@ -1285,12 +1333,11 @@ SEXP RegisterUserDataBuf(SEXP Location, int NbrElements,
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-SEXP RegisterUserDataWrite(SEXP Location, int NbrElements,
+void RegisterUserDataWrite(SEXP Location, int NbrElements,
                            Nullable<Rcpp::String> ElementDescription = R_NilValue,
                            int CompressionLevel = 0) {
 
   char *cLocation = RtoCstring(Location);
-
   char *cElementDescription;
   if (ElementDescription.isNotNull()) {
     cElementDescription = RtoCstring(ElementDescription);
@@ -1300,8 +1347,9 @@ SEXP RegisterUserDataWrite(SEXP Location, int NbrElements,
 
   TwRetVal rv = TwRegisterUserDataWrite(cLocation, NbrElements,
                                         cElementDescription, CompressionLevel);
-
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // RegisterUserDataNoStore -----------------------------------------------------
@@ -1323,11 +1371,10 @@ SEXP RegisterUserDataWrite(SEXP Location, int NbrElements,
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-SEXP RegisterUserDataNoStore(SEXP Location, int NbrElements,
+void RegisterUserDataNoStore(SEXP Location, int NbrElements,
                              Nullable<Rcpp::String> ElementDescription = R_NilValue) {
 
   char *cLocation = RtoCstring(Location);
-
   char *cElementDescription;
   if (ElementDescription.isNotNull()) {
     cElementDescription = RtoCstring(ElementDescription);
@@ -1337,8 +1384,9 @@ SEXP RegisterUserDataNoStore(SEXP Location, int NbrElements,
 
   TwRetVal rv = TwRegisterUserDataNoStore(cLocation, NbrElements,
                                         cElementDescription);
-
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // UnregisterUserData ----------------------------------------------------------
@@ -1352,13 +1400,15 @@ SEXP RegisterUserDataNoStore(SEXP Location, int NbrElements,
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-SEXP UnregisterUserData(SEXP Location) {
+void UnregisterUserData(SEXP Location) {
 
   char *cLocation = RtoCstring(Location);
 
   TwRetVal rv = TwUnregisterUserData(cLocation);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // UpdateUserData --------------------------------------------------------------
@@ -1373,13 +1423,15 @@ SEXP UnregisterUserData(SEXP Location) {
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-SEXP UpdateUserData(SEXP Location, int NbrElements, NumericVector Data) {
+void UpdateUserData(SEXP Location, int NbrElements, NumericVector Data) {
 
   char *cLocation = RtoCstring(Location);
 
   TwRetVal rv = TwUpdateUserData(cLocation, NbrElements, &Data[0]);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // ReadRegUserData -------------------------------------------------------------
@@ -1394,7 +1446,7 @@ SEXP UpdateUserData(SEXP Location, int NbrElements, NumericVector Data) {
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-SEXP ReadRegUserData(SEXP Location, int NbrElements) {
+NumericVector ReadRegUserData(SEXP Location, int NbrElements) {
 
   char *cLocation = RtoCstring(Location);
 
@@ -1403,7 +1455,7 @@ SEXP ReadRegUserData(SEXP Location, int NbrElements) {
   TwRetVal rv = TwReadRegUserData(cLocation, NbrElements, &Data[0]);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return Data;
@@ -1420,16 +1472,16 @@ SEXP ReadRegUserData(SEXP Location, int NbrElements) {
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-SEXP QueryRegUserDataSize(SEXP Location) {
+int QueryRegUserDataSize(SEXP Location) {
 
   char *cLocation = RtoCstring(Location);
 
-  IntegerVector NbrElements(1);
+  int NbrElements;
 
-  TwRetVal rv = TwQueryRegUserDataSize(cLocation, &NbrElements[0]);
+  TwRetVal rv = TwQueryRegUserDataSize(cLocation, &NbrElements);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return NbrElements;
@@ -1448,13 +1500,13 @@ SEXP QueryRegUserDataSize(SEXP Location) {
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-SEXP GetRegUserDataSources() {
+List GetRegUserDataSources() {
 
   int arrayLength = 0;
 
   TwRetVal rv = TwGetRegUserDataSources(&arrayLength, NULL, NULL, NULL);
   if (rv != TwValueAdjusted) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   char *location = new char[256 * arrayLength];
@@ -1467,7 +1519,7 @@ SEXP GetRegUserDataSources() {
 
   if (rv != TwSuccess) {
     delete[] location;
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   CharacterVector locationArray(arrayLength);
@@ -1496,7 +1548,7 @@ SEXP GetRegUserDataSources() {
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-SEXP GetRegUserDataDesc(SEXP Location) {
+CharacterVector GetRegUserDataDesc(SEXP Location) {
 
   char *cLocation = RtoCstring(Location);
 
@@ -1504,7 +1556,7 @@ SEXP GetRegUserDataDesc(SEXP Location) {
 
   TwRetVal rv = TwGetRegUserDataDesc(cLocation, &nbrElements, NULL);
   if (rv != TwValueAdjusted) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   char *elementDescription = new char[256 * nbrElements];
@@ -1513,7 +1565,7 @@ SEXP GetRegUserDataDesc(SEXP Location) {
   rv = TwGetRegUserDataDesc(cLocation, &nbrElements, elementDescription);
   if (rv != TwSuccess) {
     delete[] elementDescription;
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   CharacterVector descriptionArray(nbrElements);
@@ -1538,11 +1590,13 @@ SEXP GetRegUserDataDesc(SEXP Location) {
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-SEXP KeepFileOpen(bool keepOpen) {
+void KeepFileOpen(bool keepOpen) {
 
   TwRetVal rv = TwKeepFileOpen(keepOpen);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // TpsConnect ------------------------------------------------------------------
@@ -1554,11 +1608,13 @@ SEXP KeepFileOpen(bool keepOpen) {
 //' @family TPS functions
 //' @export
 // [[Rcpp::export]]
-SEXP TpsConnect() {
+void TpsConnect() {
 
   TwRetVal rv = TwTpsConnect();
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // TpsConnect2 -----------------------------------------------------------------
@@ -1573,22 +1629,14 @@ SEXP TpsConnect() {
 //' @family TPS functions
 //' @export
 // [[Rcpp::export]]
-SEXP TpsConnect2(SEXP ip, int type) {
+void TpsConnect2(SEXP ip, int type) {
 
-  if (type == 1) {
-    char *cFilename = RtoCstring(ip);
+  char *cFilename = RtoCstring(ip);
 
-    TwRetVal rv = TwTpsConnect2(cFilename, type);
+  TwRetVal rv = TwTpsConnect2(cFilename, type);
 
-    return TwRetValString(rv);
-
-  } else if (type == 0) {
-
-    TwRetVal rv = TwTpsConnect();
-
-    return TwRetValString(rv);
-  } else {
-    return R_NilValue;
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
   }
 }
 
@@ -1601,11 +1649,13 @@ SEXP TpsConnect2(SEXP ip, int type) {
 //' @family TPS functions
 //' @export
 // [[Rcpp::export]]
-SEXP TpsDisconnect() {
+void TpsDisconnect() {
 
   TwRetVal rv = TwTpsDisconnect();
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // TpsGetMonitorVal ------------------------------------------------------------
@@ -1619,13 +1669,13 @@ SEXP TpsDisconnect() {
 //' @family TPS functions
 //' @export
 // [[Rcpp::export]]
-SEXP TpsGetMonitorValue(int moduleCode) {
+double TpsGetMonitorValue(int moduleCode) {
 
-  NumericVector value(1);
+  double value;
 
-  TwRetVal rv = TwTpsGetMonitorValue(moduleCode, &value[0]);
+  TwRetVal rv = TwTpsGetMonitorValue(moduleCode, &value);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return value;
@@ -1642,14 +1692,14 @@ SEXP TpsGetMonitorValue(int moduleCode) {
 //' @family TPS functions
 //' @export
 // [[Rcpp::export]]
-SEXP TpsGetTargetValue(int moduleCode) {
+double TpsGetTargetValue(int moduleCode) {
 
-  NumericVector value(1);
+  double value;
 
-  TwRetVal rv = TwTpsGetTargetValue(moduleCode, &value[0]);
+  TwRetVal rv = TwTpsGetTargetValue(moduleCode, &value);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return value;
@@ -1666,14 +1716,14 @@ SEXP TpsGetTargetValue(int moduleCode) {
 //' @family TPS functions
 //' @export
 // [[Rcpp::export]]
-SEXP TpsGetLastSetValue(int moduleCode) {
+double TpsGetLastSetValue(int moduleCode) {
 
-  NumericVector value(1);
+  double value;
 
-  TwRetVal rv = TwTpsGetLastSetValue(moduleCode, &value[0]);
+  TwRetVal rv = TwTpsGetLastSetValue(moduleCode, &value);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return value;
@@ -1690,11 +1740,13 @@ SEXP TpsGetLastSetValue(int moduleCode) {
 //' @family TPS functions
 //' @export
 // [[Rcpp::export]]
-SEXP TpsSetTargetValue(int moduleCode, double value) {
+void TpsSetTargetValue(int moduleCode, double value) {
 
   TwRetVal rv = TwTpsSetTargetValue(moduleCode, value);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // TpsGetNbrModules ------------------------------------------------------------
@@ -1705,14 +1757,14 @@ SEXP TpsSetTargetValue(int moduleCode, double value) {
 //' @family TPS functions
 //' @export
 // [[Rcpp::export]]
-SEXP TpsGetNbrModules() {
+int TpsGetNbrModules() {
 
-  IntegerVector value(1);
+  int value;
 
-  TwRetVal rv = TwTpsGetNbrModules(&value[0]);
+  TwRetVal rv = TwTpsGetNbrModules(&value);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return value;
@@ -1726,14 +1778,14 @@ SEXP TpsGetNbrModules() {
 //' @family TPS functions
 //' @export
 // [[Rcpp::export]]
-SEXP TpsGetModuleCodes() {
+IntegerVector TpsGetModuleCodes() {
 
   int nbrModules;
 
   TwRetVal rv = TwTpsGetNbrModules(&nbrModules);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   IntegerVector moduleCodeBuffer(nbrModules);
@@ -1741,7 +1793,7 @@ SEXP TpsGetModuleCodes() {
   rv = TwTpsGetModuleCodes(&moduleCodeBuffer[0], nbrModules);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return moduleCodeBuffer;
@@ -1755,11 +1807,13 @@ SEXP TpsGetModuleCodes() {
 //' @family TPS functions
 //' @export
 // [[Rcpp::export]]
-SEXP TpsInitialize() {
+void TpsInitialize() {
 
   TwRetVal rv = TwTpsInitialize();
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // TpsSetAllVoltages -----------------------------------------------------------
@@ -1770,11 +1824,13 @@ SEXP TpsInitialize() {
 //' @family TPS functions
 //' @export
 // [[Rcpp::export]]
-SEXP TpsSetAllVoltages() {
+void TpsSetAllVoltages() {
 
   TwRetVal rv = TwTpsSetAllVoltages();
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // TpsShutdown -----------------------------------------------------------------
@@ -1785,11 +1841,13 @@ SEXP TpsSetAllVoltages() {
 //' @family TPS functions
 //' @export
 // [[Rcpp::export]]
-SEXP TpsShutdown() {
+void TpsShutdown() {
 
   TwRetVal rv = TwTpsShutdown();
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // TpsGetStatus ----------------------------------------------------------------
@@ -1803,13 +1861,13 @@ SEXP TpsShutdown() {
 //' @family TPS functions
 //' @export
 // [[Rcpp::export]]
-SEXP TpsGetStatus() {
+List TpsGetStatus() {
 
   int status;
 
   TwRetVal rv = TwTpsGetStatus(&status);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   bool connected = (status & 0x01); // hex for 0000 0001
@@ -1845,13 +1903,15 @@ SEXP TpsGetStatus() {
 //' @family TPS functions
 //' @export
 // [[Rcpp::export]]
-SEXP TpsLoadSetFile(SEXP setFile) {
+void TpsLoadSetFile(SEXP setFile) {
 
   char *cFilename = RtoCstring(setFile);
 
   TwRetVal rv = TwTpsLoadSetFile(cFilename);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // TpsSaveSetFile --------------------------------------------------------------
@@ -1864,13 +1924,15 @@ SEXP TpsLoadSetFile(SEXP setFile) {
 //' @family TPS functions
 //' @export
 // [[Rcpp::export]]
-SEXP TpsSaveSetFile(SEXP setFile) {
+void TpsSaveSetFile(SEXP setFile) {
 
   char *cFilename = RtoCstring(setFile);
 
   TwRetVal rv = TwTpsSaveSetFile(cFilename);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // TpsGetActiveFilament --------------------------------------------------------
@@ -1886,14 +1948,14 @@ SEXP TpsSaveSetFile(SEXP setFile) {
 //' @family TPS functions
 //' @export
 // [[Rcpp::export]]
-SEXP TpsGetActiveFilament() {
+int TpsGetActiveFilament() {
 
-  IntegerVector filament(1);
+  int filament;
 
-  TwRetVal rv = TwTpsGetActiveFilament(&filament[0]);
+  TwRetVal rv = TwTpsGetActiveFilament(&filament);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return filament;
@@ -1912,11 +1974,13 @@ SEXP TpsGetActiveFilament() {
 //' @family TPS functions
 //' @export
 // [[Rcpp::export]]
-SEXP TpsSetActiveFilament(int activeFilament) {
+void TpsSetActiveFilament(int activeFilament) {
 
   TwRetVal rv = TwTpsSetActiveFilament(activeFilament);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // TpsGetModuleLimits ----------------------------------------------------------
@@ -1930,13 +1994,13 @@ SEXP TpsSetActiveFilament(int activeFilament) {
 //' @family TPS functions
 //' @export
 // [[Rcpp::export]]
-SEXP TpsGetModuleLimits(int moduleCode) {
+NumericVector TpsGetModuleLimits(int moduleCode) {
 
   NumericVector limit(2);
 
   TwRetVal rv = TwTpsGetModuleLimits(moduleCode, &limit[0], &limit[1]);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return limit;
@@ -1954,11 +2018,13 @@ SEXP TpsGetModuleLimits(int moduleCode) {
 //' @family TPS functions
 //' @export
 // [[Rcpp::export]]
-SEXP TpsChangeIonMode(int ionMode) {
+void TpsChangeIonMode(int ionMode) {
 
   TwRetVal rv = TwTpsChangeIonMode(ionMode);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 #endif

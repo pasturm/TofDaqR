@@ -5,6 +5,6 @@
 char* RtoCstring(SEXP rstring);
 
 // convert TwRetVal to String
-StringVector TwRetValString(TwRetVal rv);
+String TwRetValString(TwRetVal rv);
 
 #endif

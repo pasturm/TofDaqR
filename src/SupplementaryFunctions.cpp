@@ -112,7 +112,6 @@ NumericVector tof(CharacterVector toftype = CharacterVector::create("LTOF"),
   xi = v * sqrt((mass*amu) / (2 * e*u1));
   k = (x0 - x) / d1;
 
-  //prepare return value
   NumericVector timeOfFlight(nbr);
 
   // calculate time-of-flight
@@ -155,7 +154,7 @@ NumericVector tof(CharacterVector toftype = CharacterVector::create("LTOF"),
 //' @return A vector containing the spectrum.
 //' @export
 // [[Rcpp::export]]
-SEXP EventList2TofSpec(NumericVector events, double clockPeriod,
+NumericVector EventList2TofSpec(NumericVector events, double clockPeriod,
                        double sampleInterval, int nbrSamples) {
 
   unsigned int n = events.size();
@@ -200,7 +199,7 @@ SEXP EventList2TofSpec(NumericVector events, double clockPeriod,
 //' @return A list with sample indices and data values (in mV).
 //' @export
 // [[Rcpp::export]]
-SEXP DecodeEventList(NumericVector events, int clockPeriod, int sampleInterval) {
+List DecodeEventList(NumericVector events, int clockPeriod, int sampleInterval) {
 
   unsigned int n = events.size();
 
@@ -373,13 +372,13 @@ List DecodeEventListThreshold(NumericVector events, double clockPeriod,
 //' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
-SEXP SiProcessSpectrumFromShMem(int specType, int BufIndex) {
+List SiProcessSpectrumFromShMem(int specType, int BufIndex) {
 
   //get descriptor of file
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   int specLen = desc.NbrSamples;
@@ -392,7 +391,7 @@ SEXP SiProcessSpectrumFromShMem(int specType, int BufIndex) {
   rv = TwSiProcessSpectrum(&spectrum[0], specLen, specType, &blFromData,
                            &thrFromData);
   if (rv != TwSuccess) {
-    return(R_NilValue);
+    stop(TwRetValString(rv));
   }
 
   List result;
@@ -417,7 +416,7 @@ SEXP SiProcessSpectrumFromShMem(int specType, int BufIndex) {
 //' @param keepMapped \code{TRUE} or \code{FALSE}.
 //' @export
 // [[Rcpp::export]]
-SEXP KeepSharedMemMapped(bool keepMapped) {
+void KeepSharedMemMapped(bool keepMapped) {
 
   // Note: This is part of TwGetSharedMemory, but here extracted as an
   // idependent function.
@@ -426,6 +425,8 @@ SEXP KeepSharedMemMapped(bool keepMapped) {
 
   TwRetVal rv = TwGetSharedMemory(&pShMem, keepMapped);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 #endif

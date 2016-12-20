@@ -23,7 +23,7 @@ using namespace Rcpp;
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP GetH5Descriptor(SEXP Filename) {
+List GetH5Descriptor(SEXP Filename) {
 
   char *cFilename = RtoCstring(Filename);
 
@@ -33,7 +33,7 @@ SEXP GetH5Descriptor(SEXP Filename) {
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   List result;
@@ -102,13 +102,15 @@ SEXP GetH5Descriptor(SEXP Filename) {
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP CloseH5(SEXP Filename) {
+void CloseH5(SEXP Filename) {
 
   char *cFilename = RtoCstring(Filename);
 
   TwRetVal rv = TwCloseH5(cFilename);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // CloseAll --------------------------------------------------------------------
@@ -123,11 +125,13 @@ SEXP CloseH5(SEXP Filename) {
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP CloseAll() {
+void CloseAll() {
 
   TwRetVal rv = TwCloseAll();
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // GetSumSpectrumFromH5 --------------------------------------------------------
@@ -147,7 +151,7 @@ SEXP CloseAll() {
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP GetSumSpectrumFromH5(SEXP Filename, bool Normalize = false) {
+NumericVector GetSumSpectrumFromH5(SEXP Filename, bool Normalize = false) {
 
   char *cFilename = RtoCstring(Filename);
 
@@ -155,7 +159,7 @@ SEXP GetSumSpectrumFromH5(SEXP Filename, bool Normalize = false) {
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
   if (rv != TwSuccess) {
     TwCloseH5(cFilename);
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   NumericVector Spectrum(descriptor.nbrSamples);
@@ -165,7 +169,7 @@ SEXP GetSumSpectrumFromH5(SEXP Filename, bool Normalize = false) {
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return Spectrum;
@@ -213,7 +217,7 @@ SEXP GetTofSpectrumFromH5(SEXP Filename, int SegmentIndex, int SegmentEndIndex,
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
   if (rv != TwSuccess) {
     TwCloseH5(cFilename);
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   std::vector<float> Spectrum(descriptor.nbrSamples);
@@ -225,7 +229,7 @@ SEXP GetTofSpectrumFromH5(SEXP Filename, int SegmentIndex, int SegmentEndIndex,
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return wrap(Spectrum);
@@ -273,7 +277,7 @@ SEXP GetTofSpectrum2FromH5(SEXP Filename, int SegmentIndex, int SegmentEndIndex,
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
   if (rv != TwSuccess) {
     TwCloseH5(cFilename);
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   std::vector<float> Spectrum(descriptor.nbrSamples);
@@ -285,7 +289,7 @@ SEXP GetTofSpectrum2FromH5(SEXP Filename, int SegmentIndex, int SegmentEndIndex,
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return wrap(Spectrum);
@@ -333,7 +337,7 @@ SEXP GetStickSpectrumFromH5(SEXP Filename, int SegmentIndex, int SegmentEndIndex
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
   if (rv != TwSuccess) {
     TwCloseH5(cFilename);
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   std::vector<float> Spectrum(descriptor.nbrPeaks);
@@ -345,7 +349,7 @@ SEXP GetStickSpectrumFromH5(SEXP Filename, int SegmentIndex, int SegmentEndIndex
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return wrap(Spectrum);
@@ -393,7 +397,7 @@ SEXP GetStickSpectrum2FromH5(SEXP Filename, int SegmentIndex, int SegmentEndInde
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
   if (rv != TwSuccess) {
     TwCloseH5(cFilename);
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   std::vector<float> Spectrum(descriptor.nbrPeaks);
@@ -405,7 +409,7 @@ SEXP GetStickSpectrum2FromH5(SEXP Filename, int SegmentIndex, int SegmentEndInde
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return wrap(Spectrum);
@@ -427,7 +431,7 @@ SEXP GetStickSpectrum2FromH5(SEXP Filename, int SegmentIndex, int SegmentEndInde
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP GetPeakParametersFromH5(SEXP Filename, int PeakIndex = -1) {
+List GetPeakParametersFromH5(SEXP Filename, int PeakIndex = -1) {
 
   char *cFilename = RtoCstring(Filename);
 
@@ -437,7 +441,7 @@ SEXP GetPeakParametersFromH5(SEXP Filename, int PeakIndex = -1) {
     TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
     if (rv != TwSuccess) {
       TwCloseH5(cFilename);
-      return TwRetValString(rv);
+      stop(TwRetValString(rv));
     }
     TPeakPar *PeakPar = new TPeakPar[descriptor.nbrPeaks];
 
@@ -445,7 +449,7 @@ SEXP GetPeakParametersFromH5(SEXP Filename, int PeakIndex = -1) {
     TwCloseH5(cFilename);
     if (rv != TwSuccess) {
       delete[] PeakPar;
-      return TwRetValString(rv);
+      stop(TwRetValString(rv));
     }
 
     List result;
@@ -478,7 +482,7 @@ SEXP GetPeakParametersFromH5(SEXP Filename, int PeakIndex = -1) {
     TwCloseH5(cFilename);
 
     if (rv != TwSuccess) {
-      return TwRetValString(rv);
+      stop(TwRetValString(rv));
     }
 
     List result;
@@ -507,18 +511,18 @@ SEXP GetPeakParametersFromH5(SEXP Filename, int PeakIndex = -1) {
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP GetBufTimeFromH5(SEXP Filename, int BufIndex, int WriteIndex) {
+double GetBufTimeFromH5(SEXP Filename, int BufIndex, int WriteIndex) {
 
   char *cFilename = RtoCstring(Filename);
 
-  NumericVector BufTime(1);
+  double BufTime;
 
-  TwRetVal rv = TwGetBufTimeFromH5(cFilename, &BufTime[0], BufIndex, WriteIndex);
+  TwRetVal rv = TwGetBufTimeFromH5(cFilename, &BufTime, BufIndex, WriteIndex);
 
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return BufTime;
@@ -546,7 +550,7 @@ SEXP GetBufTimeFromH5(SEXP Filename, int BufIndex, int WriteIndex) {
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP GetSpecXaxisFromH5(SEXP Filename, int Type, int writeIndex) {
+NumericVector GetSpecXaxisFromH5(SEXP Filename, int Type, int writeIndex) {
 
   char *cFilename = RtoCstring(Filename);
 
@@ -554,7 +558,7 @@ SEXP GetSpecXaxisFromH5(SEXP Filename, int Type, int writeIndex) {
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
   if (rv != TwSuccess) {
     TwCloseH5(cFilename);
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   NumericVector SpecAxis(descriptor.nbrSamples);
@@ -564,7 +568,7 @@ SEXP GetSpecXaxisFromH5(SEXP Filename, int Type, int writeIndex) {
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return SpecAxis;
@@ -605,7 +609,7 @@ SEXP GetSegmentProfileFromH5(SEXP Filename, int PeakIndex, int BufStartIndex,
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
   if (rv != TwSuccess) {
     TwCloseH5(cFilename);
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   if (PeakIndex != -1) {
@@ -617,7 +621,7 @@ SEXP GetSegmentProfileFromH5(SEXP Filename, int PeakIndex, int BufStartIndex,
                                    WriteEndIndex, BufWriteLinked);
     TwCloseH5(cFilename);
     if (rv != TwSuccess) {
-      return TwRetValString(rv);
+      stop(TwRetValString(rv));
     }
 
     return wrap(SegmentProfile);
@@ -631,7 +635,7 @@ SEXP GetSegmentProfileFromH5(SEXP Filename, int PeakIndex, int BufStartIndex,
                                    WriteEndIndex, BufWriteLinked);
     TwCloseH5(cFilename);
     if (rv != TwSuccess) {
-      return TwRetValString(rv);
+      stop(TwRetValString(rv));
     }
 
     return wrap(SegmentProfile);
@@ -673,7 +677,7 @@ SEXP GetSegmentProfile2FromH5(SEXP Filename, int PeakIndex, int BufStartIndex,
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
   if (rv != TwSuccess) {
     TwCloseH5(cFilename);
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   if (PeakIndex != -1) {
@@ -685,7 +689,7 @@ SEXP GetSegmentProfile2FromH5(SEXP Filename, int PeakIndex, int BufStartIndex,
                                     WriteEndIndex, BufWriteLinked);
     TwCloseH5(cFilename);
     if (rv != TwSuccess) {
-      return TwRetValString(rv);
+      stop(TwRetValString(rv));
     }
 
     return wrap(SegmentProfile);
@@ -699,7 +703,7 @@ SEXP GetSegmentProfile2FromH5(SEXP Filename, int PeakIndex, int BufStartIndex,
                                     WriteEndIndex, BufWriteLinked);
     TwCloseH5(cFilename);
     if (rv != TwSuccess) {
-      return TwRetValString(rv);
+      stop(TwRetValString(rv));
     }
 
     return wrap(SegmentProfile);
@@ -735,7 +739,7 @@ SEXP GetBufWriteProfileFromH5(SEXP Filename, int PeakIndex, int SegmentStartInde
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
   if (rv != TwSuccess) {
     TwCloseH5(cFilename);
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   if (PeakIndex != -1) {
@@ -746,7 +750,7 @@ SEXP GetBufWriteProfileFromH5(SEXP Filename, int PeakIndex, int SegmentStartInde
                                     SegmentStartIndex, SegmentEndIndex);
     TwCloseH5(cFilename);
     if (rv != TwSuccess) {
-      return TwRetValString(rv);
+      stop(TwRetValString(rv));
     }
 
     return wrap(Profile);
@@ -760,7 +764,7 @@ SEXP GetBufWriteProfileFromH5(SEXP Filename, int PeakIndex, int SegmentStartInde
                                     SegmentStartIndex, SegmentEndIndex);
     TwCloseH5(cFilename);
     if (rv != TwSuccess) {
-      return TwRetValString(rv);
+      stop(TwRetValString(rv));
     }
 
     return wrap(Profile);
@@ -796,7 +800,7 @@ SEXP GetBufWriteProfile2FromH5(SEXP Filename, int PeakIndex, int SegmentStartInd
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
   if (rv != TwSuccess) {
     TwCloseH5(cFilename);
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   if (PeakIndex != -1) {
@@ -807,7 +811,7 @@ SEXP GetBufWriteProfile2FromH5(SEXP Filename, int PeakIndex, int SegmentStartInd
                                     SegmentStartIndex, SegmentEndIndex);
     TwCloseH5(cFilename);
     if (rv != TwSuccess) {
-      return TwRetValString(rv);
+      stop(TwRetValString(rv));
     }
 
     return wrap(Profile);
@@ -821,7 +825,7 @@ SEXP GetBufWriteProfile2FromH5(SEXP Filename, int PeakIndex, int SegmentStartInd
                                     SegmentStartIndex, SegmentEndIndex);
     TwCloseH5(cFilename);
     if (rv != TwSuccess) {
-      return TwRetValString(rv);
+      stop(TwRetValString(rv));
     }
 
     return wrap(Profile);
@@ -848,7 +852,7 @@ SEXP GetBufWriteProfile2FromH5(SEXP Filename, int PeakIndex, int SegmentStartInd
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP GetRegUserDataSourcesFromH5(SEXP Filename) {
+List GetRegUserDataSourcesFromH5(SEXP Filename) {
 
   char *cFilename = RtoCstring(Filename);
 
@@ -858,7 +862,7 @@ SEXP GetRegUserDataSourcesFromH5(SEXP Filename) {
                                               NULL, NULL, NULL);
   if (rv != TwValueAdjusted) {
     TwCloseH5(cFilename);
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   char *sourceLocation = new char[256 * nbrSources];
@@ -878,7 +882,7 @@ SEXP GetRegUserDataSourcesFromH5(SEXP Filename) {
   if (rv != TwSuccess) {
     delete[] sourceLocation;
     delete[] hasDesc;
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   CharacterVector locationArray(nbrSources);
@@ -936,7 +940,7 @@ SEXP GetRegUserDataFromH5(SEXP Filename, SEXP location, int bufIndex,
                                        writeIndex, &bufLength, NULL, NULL);
   if (rv != TwValueAdjusted) {
     TwCloseH5(cFilename);
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   NumericVector buffer(bufLength);
@@ -951,7 +955,7 @@ SEXP GetRegUserDataFromH5(SEXP Filename, SEXP location, int bufIndex,
     TwCloseH5(cFilename);
     if (rv != TwSuccess) {
       delete[] description;
-      return TwRetValString(rv);
+      stop(TwRetValString(rv));
     }
 
     CharacterVector descriptionArray(bufLength);
@@ -973,7 +977,7 @@ SEXP GetRegUserDataFromH5(SEXP Filename, SEXP location, int bufIndex,
                                 &bufLength, &buffer[0], NULL);
     TwCloseH5(cFilename);
     if (rv != TwSuccess) {
-      return TwRetValString(rv);
+      stop(TwRetValString(rv));
     }
 
     return buffer;
@@ -1012,7 +1016,7 @@ SEXP GetTofData(SEXP Filename, int sampleOffset, int sampleCount, int segOffset,
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return wrap(dataBuffer);
@@ -1051,7 +1055,7 @@ SEXP GetTofData2(SEXP Filename, int sampleOffset, int sampleCount, int segOffset
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return wrap(dataBuffer);
@@ -1089,7 +1093,7 @@ SEXP GetPeakData(SEXP Filename, int peakOffset, int peakCount, int segOffset,
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return wrap(dataBuffer);
@@ -1127,7 +1131,7 @@ SEXP GetPeakData2(SEXP Filename, int peakOffset, int peakCount, int segOffset,
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return wrap(dataBuffer);
@@ -1145,7 +1149,7 @@ SEXP GetPeakData2(SEXP Filename, int peakOffset, int peakCount, int segOffset,
 //' @param writeCount Write count.
 //' @export
 // [[Rcpp::export]]
-SEXP GetTimingData(SEXP Filename, int bufOffset, int bufCount, int writeOffset,
+NumericVector GetTimingData(SEXP Filename, int bufOffset, int bufCount, int writeOffset,
                  int writeCount) {
 
   char *cFilename = RtoCstring(Filename);
@@ -1159,7 +1163,7 @@ SEXP GetTimingData(SEXP Filename, int bufOffset, int bufCount, int writeOffset,
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return dataBuffer;
@@ -1183,21 +1187,21 @@ SEXP GetTimingData(SEXP Filename, int bufOffset, int bufCount, int writeOffset,
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP GetIntAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
+int GetIntAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 
   char *cFilename = RtoCstring(Filename);
   char *cLocation = RtoCstring(location);
   char *cName = RtoCstring(name);
 
- int value;
+  int value;
   TwRetVal rv = TwGetIntAttributeFromH5(cFilename, cLocation, cName, &value);
 
   TwCloseH5(cFilename);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
-  return wrap(value);
+  return value;
 }
 
 // GetUintAttributeFromH5 ------------------------------------------------------
@@ -1220,7 +1224,7 @@ SEXP GetIntAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP GetUintAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
+unsigned int GetUintAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 
   char *cFilename = RtoCstring(Filename);
   char *cLocation = RtoCstring(location);
@@ -1231,10 +1235,10 @@ SEXP GetUintAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 
   TwCloseH5(cFilename);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
-  return wrap(value);
+  return value;
 }
 
 // GetInt64AttributeFromH5 -----------------------------------------------------
@@ -1258,7 +1262,7 @@ SEXP GetUintAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP GetInt64AttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
+CharacterVector GetInt64AttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 
   char *cFilename = RtoCstring(Filename);
   char *cLocation = RtoCstring(location);
@@ -1269,7 +1273,7 @@ SEXP GetInt64AttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 
   TwCloseH5(cFilename);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   CharacterVector out(1);
@@ -1297,7 +1301,7 @@ SEXP GetInt64AttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP GetUint64AttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
+CharacterVector GetUint64AttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 
   char *cFilename = RtoCstring(Filename);
   char *cLocation = RtoCstring(location);
@@ -1308,7 +1312,7 @@ SEXP GetUint64AttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 
   TwCloseH5(cFilename);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   CharacterVector out(1);
@@ -1334,7 +1338,7 @@ SEXP GetUint64AttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP GetFloatAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
+float GetFloatAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 
   char *cFilename = RtoCstring(Filename);
   char *cLocation = RtoCstring(location);
@@ -1345,10 +1349,10 @@ SEXP GetFloatAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 
   TwCloseH5(cFilename);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
-  return wrap(value);
+  return value;
 }
 
 // GetDoubleAttributeFromH5 ----------------------------------------------------
@@ -1369,7 +1373,7 @@ SEXP GetFloatAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP GetDoubleAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
+double GetDoubleAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 
   char *cFilename = RtoCstring(Filename);
   char *cLocation = RtoCstring(location);
@@ -1380,10 +1384,10 @@ SEXP GetDoubleAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 
   TwCloseH5(cFilename);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
-  return wrap(value);
+  return value;
 }
 
 // GetStringAttributeFromH5 ----------------------------------------------------
@@ -1404,7 +1408,7 @@ SEXP GetDoubleAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP GetStringAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
+String GetStringAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 
   char *cFilename = RtoCstring(Filename);
   char *cLocation = RtoCstring(location);
@@ -1415,7 +1419,7 @@ SEXP GetStringAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 
   TwCloseH5(cFilename);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   std::string str(value);
@@ -1439,7 +1443,7 @@ SEXP GetStringAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP SetIntAttributeInH5(SEXP Filename, SEXP location, SEXP name, int attribute) {
+void SetIntAttributeInH5(SEXP Filename, SEXP location, SEXP name, int attribute) {
 
   char *cFilename = RtoCstring(Filename);
   char *cLocation = RtoCstring(location);
@@ -1448,7 +1452,9 @@ SEXP SetIntAttributeInH5(SEXP Filename, SEXP location, SEXP name, int attribute)
   TwRetVal rv = TwSetIntAttributeInH5(cFilename, cLocation, cName, attribute);
   TwCloseH5(cFilename);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // SetUintAttributeInH5 --------------------------------------------------------
@@ -1467,7 +1473,7 @@ SEXP SetIntAttributeInH5(SEXP Filename, SEXP location, SEXP name, int attribute)
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP SetUintAttributeInH5(SEXP Filename, SEXP location, SEXP name, double attribute) {
+void SetUintAttributeInH5(SEXP Filename, SEXP location, SEXP name, double attribute) {
 
   char *cFilename = RtoCstring(Filename);
   char *cLocation = RtoCstring(location);
@@ -1476,7 +1482,9 @@ SEXP SetUintAttributeInH5(SEXP Filename, SEXP location, SEXP name, double attrib
   TwRetVal rv = TwSetUintAttributeInH5(cFilename, cLocation, cName, (unsigned int)attribute);
   TwCloseH5(cFilename);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // SetInt64AttributeInH5 -------------------------------------------------------
@@ -1495,7 +1503,7 @@ SEXP SetUintAttributeInH5(SEXP Filename, SEXP location, SEXP name, double attrib
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP SetInt64AttributeInH5(SEXP Filename, SEXP location, SEXP name, SEXP attribute) {
+void SetInt64AttributeInH5(SEXP Filename, SEXP location, SEXP name, SEXP attribute) {
 
   char *cFilename = RtoCstring(Filename);
   char *cLocation = RtoCstring(location);
@@ -1509,7 +1517,9 @@ SEXP SetInt64AttributeInH5(SEXP Filename, SEXP location, SEXP name, SEXP attribu
   TwRetVal rv = TwSetInt64AttributeInH5(cFilename, cLocation, cName, int64value);
   TwCloseH5(cFilename);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // SetUint64AttributeInH5 ------------------------------------------------------
@@ -1528,7 +1538,7 @@ SEXP SetInt64AttributeInH5(SEXP Filename, SEXP location, SEXP name, SEXP attribu
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP SetUint64AttributeInH5(SEXP Filename, SEXP location, SEXP name, SEXP attribute) {
+void SetUint64AttributeInH5(SEXP Filename, SEXP location, SEXP name, SEXP attribute) {
 
   char *cFilename = RtoCstring(Filename);
   char *cLocation = RtoCstring(location);
@@ -1542,7 +1552,9 @@ SEXP SetUint64AttributeInH5(SEXP Filename, SEXP location, SEXP name, SEXP attrib
   TwRetVal rv = TwSetUint64AttributeInH5(cFilename, cLocation, cName, uint64value);
   TwCloseH5(cFilename);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // SetFloatAttributeInH5 -------------------------------------------------------
@@ -1561,7 +1573,7 @@ SEXP SetUint64AttributeInH5(SEXP Filename, SEXP location, SEXP name, SEXP attrib
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP SetFloatAttributeInH5(SEXP Filename, SEXP location, SEXP name, double attribute) {
+void SetFloatAttributeInH5(SEXP Filename, SEXP location, SEXP name, double attribute) {
 
   char *cFilename = RtoCstring(Filename);
   char *cLocation = RtoCstring(location);
@@ -1570,7 +1582,9 @@ SEXP SetFloatAttributeInH5(SEXP Filename, SEXP location, SEXP name, double attri
   TwRetVal rv = TwSetFloatAttributeInH5(cFilename, cLocation, cName, (float)attribute);
   TwCloseH5(cFilename);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // SetDoubleAttributeInH5 ------------------------------------------------------
@@ -1589,7 +1603,7 @@ SEXP SetFloatAttributeInH5(SEXP Filename, SEXP location, SEXP name, double attri
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP SetDoubleAttributeInH5(SEXP Filename, SEXP location, SEXP name, double attribute) {
+void SetDoubleAttributeInH5(SEXP Filename, SEXP location, SEXP name, double attribute) {
 
   char *cFilename = RtoCstring(Filename);
   char *cLocation = RtoCstring(location);
@@ -1598,7 +1612,9 @@ SEXP SetDoubleAttributeInH5(SEXP Filename, SEXP location, SEXP name, double attr
   TwRetVal rv = TwSetDoubleAttributeInH5(cFilename, cLocation, cName, attribute);
   TwCloseH5(cFilename);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // SetStringAttributeInH5 ------------------------------------------------------
@@ -1617,7 +1633,7 @@ SEXP SetDoubleAttributeInH5(SEXP Filename, SEXP location, SEXP name, double attr
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP SetStringAttributeInH5(SEXP Filename, SEXP location, SEXP name, SEXP attribute) {
+void SetStringAttributeInH5(SEXP Filename, SEXP location, SEXP name, SEXP attribute) {
 
   char *cFilename = RtoCstring(Filename);
   char *cLocation = RtoCstring(location);
@@ -1627,7 +1643,9 @@ SEXP SetStringAttributeInH5(SEXP Filename, SEXP location, SEXP name, SEXP attrib
   TwRetVal rv = TwSetStringAttributeInH5(cFilename, cLocation, cName, cAttribute);
   TwCloseH5(cFilename);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // GetUserDataFromH5 -----------------------------------------------------------
@@ -1651,7 +1669,7 @@ SEXP SetStringAttributeInH5(SEXP Filename, SEXP location, SEXP name, SEXP attrib
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP GetUserDataFromH5(SEXP Filename, SEXP location, int rowIndex) {
+List GetUserDataFromH5(SEXP Filename, SEXP location, int rowIndex) {
 
   char *cFilename = RtoCstring(Filename);
   char *cLocation = RtoCstring(location);
@@ -1663,7 +1681,7 @@ SEXP GetUserDataFromH5(SEXP Filename, SEXP location, int rowIndex) {
                                     NULL, NULL);
   if (rv != TwValueAdjusted) {
     TwCloseH5(cFilename);
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   NumericVector buffer(nbrElements);
@@ -1677,7 +1695,7 @@ SEXP GetUserDataFromH5(SEXP Filename, SEXP location, int rowIndex) {
 
   if (rv != TwSuccess) {
     delete[] elementDescription;
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   CharacterVector descriptionArray(nbrElements);
@@ -1715,18 +1733,18 @@ SEXP GetUserDataFromH5(SEXP Filename, SEXP location, int rowIndex) {
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP GetAcquisitionLogFromH5(SEXP Filename, int index) {
+List GetAcquisitionLogFromH5(SEXP Filename, int index) {
 
   char *cFilename = RtoCstring(Filename);
 
   int64_t timestamp;
-  char * logText = new char[256];
+  char *logText = new char[256];
 
   TwRetVal rv = TwGetAcquisitionLogFromH5(cFilename, index, &timestamp, logText);
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   CharacterVector time(1);
@@ -1773,7 +1791,7 @@ SEXP GetEventListSpectrumFromH5(SEXP Filename, int segmentIndex, int bufIndex,
                                              writeIndex, &bufferSize, NULL);
   if (rv != TwValueAdjusted) {
     TwCloseH5(cFilename);
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   std::vector<unsigned int> buffer(bufferSize);
@@ -1782,7 +1800,7 @@ SEXP GetEventListSpectrumFromH5(SEXP Filename, int segmentIndex, int bufIndex,
                                     writeIndex, &bufferSize, &buffer[0]);
   TwCloseH5(cFilename);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   return wrap(buffer);
@@ -1803,7 +1821,7 @@ SEXP GetEventListSpectrumFromH5(SEXP Filename, int segmentIndex, int bufIndex,
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP H5GetMassCalibPar(SEXP Filename, int writeIndex) {
+List H5GetMassCalibPar(SEXP Filename, int writeIndex) {
 
   char *cFilename = RtoCstring(Filename);
 
@@ -1816,7 +1834,7 @@ SEXP H5GetMassCalibPar(SEXP Filename, int writeIndex) {
                                     writeIndex, NULL, &nbrParams, NULL);
   if (rv != TwValueAdjusted) {
     TwCloseH5(cFilename);
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   int mode;
@@ -1826,7 +1844,7 @@ SEXP H5GetMassCalibPar(SEXP Filename, int writeIndex) {
                            writeIndex, &mode, &nbrParams, &p[0]);
   TwCloseH5(cFilename);
   if (rv != TwSuccess) {
-    return TwRetValString(rv);
+    stop(TwRetValString(rv));
   }
 
   List result;
@@ -1849,7 +1867,7 @@ SEXP H5GetMassCalibPar(SEXP Filename, int writeIndex) {
 //'
 //' @export
 // [[Rcpp::export]]
-SEXP H5AddLogEntry(SEXP Filename, SEXP LogEntryText, SEXP LogEntryTime) {
+void H5AddLogEntry(SEXP Filename, SEXP LogEntryText, SEXP LogEntryTime) {
 
   char *cFilename = RtoCstring(Filename);
   char *cLogEntryText = RtoCstring(LogEntryText);
@@ -1861,7 +1879,9 @@ SEXP H5AddLogEntry(SEXP Filename, SEXP LogEntryText, SEXP LogEntryTime) {
 
   TwRetVal rv = TwH5AddLogEntry(cFilename, cLogEntryText, cTime);
 
-  return TwRetValString(rv);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
 }
 
 // Not implemented -------------------------------------------------------------

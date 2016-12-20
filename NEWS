@@ -1,7 +1,10 @@
 TofDaqR 0.3.2
 --------------------------------------------------------------------------------
 
-* Corrected critical bug in internal R-string to C-string conversion.
+* Corrected bug in internal R-string to C-string conversion (introduced in
+  TofDaqR 0.3.0).
+
+* Using `Rcpp::stop()` to signal errors if TwRetVal != TwSuccess.
 
 
 TofDaqR 0.3.1
