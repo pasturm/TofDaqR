@@ -901,7 +901,9 @@ List SiFitRateFromPhd(NumericVector intensity, NumericVector counts,
 //' @return String of IP address.
 //'
 //' @examples
+//' \dontrun{
 //' FindTpsIp("910.33.0316", 500)
+//' }
 //' @export
 // [[Rcpp::export]]
 String FindTpsIp(SEXP TpsSerial, int timeout) {

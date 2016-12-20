@@ -24,6 +24,8 @@ Windows firewall (or other personal firewall software) will query for
 permission.
 }
 \examples{
+\dontrun{
 FindTpsIp("910.33.0316", 500)
+}
 }
 

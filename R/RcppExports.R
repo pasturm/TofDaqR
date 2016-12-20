@@ -2543,7 +2543,9 @@ SiFitRateFromPhd <- function(intensity, counts, siPar) {
 #' @return String of IP address.
 #'
 #' @examples
+#' \dontrun{
 #' FindTpsIp("910.33.0316", 500)
+#' }
 #' @export
 FindTpsIp <- function(TpsSerial, timeout) {
     .Call('TofDaqR_FindTpsIp', PACKAGE = 'TofDaqR', TpsSerial, timeout)
