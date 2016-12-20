@@ -23,9 +23,9 @@ using namespace Rcpp;
 //' }
 //' @export
 // [[Rcpp::export]]
-List GetH5Descriptor(SEXP Filename) {
+List GetH5Descriptor(std::string Filename) {
 
-  char *cFilename = RtoCstring(Filename);
+  char *cFilename = StringToChar(Filename);
 
   TwH5Desc descriptor;
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
@@ -102,9 +102,9 @@ List GetH5Descriptor(SEXP Filename) {
 //' }
 //' @export
 // [[Rcpp::export]]
-void CloseH5(SEXP Filename) {
+void CloseH5(std::string Filename) {
 
-  char *cFilename = RtoCstring(Filename);
+  char *cFilename = StringToChar(Filename);
 
   TwRetVal rv = TwCloseH5(cFilename);
 
@@ -151,9 +151,9 @@ void CloseAll() {
 //' }
 //' @export
 // [[Rcpp::export]]
-NumericVector GetSumSpectrumFromH5(SEXP Filename, bool Normalize = false) {
+NumericVector GetSumSpectrumFromH5(std::string Filename, bool Normalize = false) {
 
-  char *cFilename = RtoCstring(Filename);
+  char *cFilename = StringToChar(Filename);
 
   TwH5Desc descriptor;
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
@@ -206,12 +206,12 @@ NumericVector GetSumSpectrumFromH5(SEXP Filename, bool Normalize = false) {
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP GetTofSpectrumFromH5(SEXP Filename, int SegmentIndex, int SegmentEndIndex,
-                          int BufIndex, int BufEndIndex, int WriteIndex,
-                          int WriteEndIndex, bool BufWriteLinked = false,
-                          bool Normalize = true) {
+SEXP GetTofSpectrumFromH5(std::string Filename, int SegmentIndex,
+                          int SegmentEndIndex, int BufIndex, int BufEndIndex,
+                          int WriteIndex, int WriteEndIndex,
+                          bool BufWriteLinked = false, bool Normalize = true) {
 
-  char *cFilename = RtoCstring(Filename);
+  char *cFilename = StringToChar(Filename);
 
   TwH5Desc descriptor;
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
@@ -266,12 +266,12 @@ SEXP GetTofSpectrumFromH5(SEXP Filename, int SegmentIndex, int SegmentEndIndex,
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP GetTofSpectrum2FromH5(SEXP Filename, int SegmentIndex, int SegmentEndIndex,
-                          int BufIndex, int BufEndIndex, int WriteIndex,
-                          int WriteEndIndex, bool BufWriteLinked = false,
-                          bool Normalize = true) {
+SEXP GetTofSpectrum2FromH5(std::string Filename, int SegmentIndex,
+                           int SegmentEndIndex, int BufIndex, int BufEndIndex,
+                           int WriteIndex, int WriteEndIndex,
+                           bool BufWriteLinked = false, bool Normalize = true) {
 
-  char *cFilename = RtoCstring(Filename);
+  char *cFilename = StringToChar(Filename);
 
   TwH5Desc descriptor;
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
@@ -326,12 +326,12 @@ SEXP GetTofSpectrum2FromH5(SEXP Filename, int SegmentIndex, int SegmentEndIndex,
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP GetStickSpectrumFromH5(SEXP Filename, int SegmentIndex, int SegmentEndIndex,
-                           int BufIndex, int BufEndIndex, int WriteIndex,
-                           int WriteEndIndex, bool BufWriteLinked = false,
-                           bool Normalize = true) {
+SEXP GetStickSpectrumFromH5(std::string Filename, int SegmentIndex,
+                            int SegmentEndIndex, int BufIndex, int BufEndIndex,
+                            int WriteIndex, int WriteEndIndex,
+                            bool BufWriteLinked = false, bool Normalize = true) {
 
-  char *cFilename = RtoCstring(Filename);
+  char *cFilename = StringToChar(Filename);
 
   TwH5Desc descriptor;
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
@@ -386,12 +386,12 @@ SEXP GetStickSpectrumFromH5(SEXP Filename, int SegmentIndex, int SegmentEndIndex
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP GetStickSpectrum2FromH5(SEXP Filename, int SegmentIndex, int SegmentEndIndex,
-                            int BufIndex, int BufEndIndex, int WriteIndex,
-                            int WriteEndIndex, bool BufWriteLinked = false,
-                            bool Normalize = true) {
+SEXP GetStickSpectrum2FromH5(std::string Filename, int SegmentIndex,
+                             int SegmentEndIndex, int BufIndex, int BufEndIndex,
+                             int WriteIndex, int WriteEndIndex,
+                             bool BufWriteLinked = false, bool Normalize = true) {
 
-  char *cFilename = RtoCstring(Filename);
+  char *cFilename = StringToChar(Filename);
 
   TwH5Desc descriptor;
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
@@ -431,9 +431,9 @@ SEXP GetStickSpectrum2FromH5(SEXP Filename, int SegmentIndex, int SegmentEndInde
 //' }
 //' @export
 // [[Rcpp::export]]
-List GetPeakParametersFromH5(SEXP Filename, int PeakIndex = -1) {
+List GetPeakParametersFromH5(std::string Filename, int PeakIndex = -1) {
 
-  char *cFilename = RtoCstring(Filename);
+  char *cFilename = StringToChar(Filename);
 
   if (PeakIndex == -1) {
 
@@ -511,9 +511,9 @@ List GetPeakParametersFromH5(SEXP Filename, int PeakIndex = -1) {
 //' }
 //' @export
 // [[Rcpp::export]]
-double GetBufTimeFromH5(SEXP Filename, int BufIndex, int WriteIndex) {
+double GetBufTimeFromH5(std::string Filename, int BufIndex, int WriteIndex) {
 
-  char *cFilename = RtoCstring(Filename);
+  char *cFilename = StringToChar(Filename);
 
   double BufTime;
 
@@ -550,9 +550,9 @@ double GetBufTimeFromH5(SEXP Filename, int BufIndex, int WriteIndex) {
 //' }
 //' @export
 // [[Rcpp::export]]
-NumericVector GetSpecXaxisFromH5(SEXP Filename, int Type, int writeIndex) {
+NumericVector GetSpecXaxisFromH5(std::string Filename, int Type, int writeIndex) {
 
-  char *cFilename = RtoCstring(Filename);
+  char *cFilename = StringToChar(Filename);
 
   TwH5Desc descriptor;
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
@@ -599,11 +599,12 @@ NumericVector GetSpecXaxisFromH5(SEXP Filename, int Type, int writeIndex) {
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP GetSegmentProfileFromH5(SEXP Filename, int PeakIndex, int BufStartIndex,
-                             int BufEndIndex, int WriteStartIndex,
-                             int WriteEndIndex, bool BufWriteLinked = false) {
+SEXP GetSegmentProfileFromH5(std::string Filename, int PeakIndex,
+                             int BufStartIndex, int BufEndIndex,
+                             int WriteStartIndex, int WriteEndIndex,
+                             bool BufWriteLinked = false) {
 
-  char *cFilename = RtoCstring(Filename);
+  char *cFilename = StringToChar(Filename);
 
   TwH5Desc descriptor;
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
@@ -667,11 +668,12 @@ SEXP GetSegmentProfileFromH5(SEXP Filename, int PeakIndex, int BufStartIndex,
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP GetSegmentProfile2FromH5(SEXP Filename, int PeakIndex, int BufStartIndex,
-                             int BufEndIndex, int WriteStartIndex,
-                             int WriteEndIndex, bool BufWriteLinked = false) {
+SEXP GetSegmentProfile2FromH5(std::string Filename, int PeakIndex,
+                              int BufStartIndex, int BufEndIndex,
+                              int WriteStartIndex, int WriteEndIndex,
+                              bool BufWriteLinked = false) {
 
-  char *cFilename = RtoCstring(Filename);
+  char *cFilename = StringToChar(Filename);
 
   TwH5Desc descriptor;
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
@@ -730,10 +732,10 @@ SEXP GetSegmentProfile2FromH5(SEXP Filename, int PeakIndex, int BufStartIndex,
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP GetBufWriteProfileFromH5(SEXP Filename, int PeakIndex, int SegmentStartIndex,
-                              int SegmentEndIndex) {
+SEXP GetBufWriteProfileFromH5(std::string Filename, int PeakIndex,
+                              int SegmentStartIndex, int SegmentEndIndex) {
 
-  char *cFilename = RtoCstring(Filename);
+  char *cFilename = StringToChar(Filename);
 
   TwH5Desc descriptor;
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
@@ -791,10 +793,10 @@ SEXP GetBufWriteProfileFromH5(SEXP Filename, int PeakIndex, int SegmentStartInde
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP GetBufWriteProfile2FromH5(SEXP Filename, int PeakIndex, int SegmentStartIndex,
-                              int SegmentEndIndex) {
+SEXP GetBufWriteProfile2FromH5(std::string Filename, int PeakIndex,
+                               int SegmentStartIndex, int SegmentEndIndex) {
 
-  char *cFilename = RtoCstring(Filename);
+  char *cFilename = StringToChar(Filename);
 
   TwH5Desc descriptor;
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
@@ -852,9 +854,9 @@ SEXP GetBufWriteProfile2FromH5(SEXP Filename, int PeakIndex, int SegmentStartInd
 //' }
 //' @export
 // [[Rcpp::export]]
-List GetRegUserDataSourcesFromH5(SEXP Filename) {
+List GetRegUserDataSourcesFromH5(std::string Filename) {
 
-  char *cFilename = RtoCstring(Filename);
+  char *cFilename = StringToChar(Filename);
 
   // get nbrSources
   int nbrSources = 0;
@@ -928,11 +930,12 @@ List GetRegUserDataSourcesFromH5(SEXP Filename) {
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP GetRegUserDataFromH5(SEXP Filename, SEXP location, int bufIndex,
-                          int writeIndex, bool readDescription = true) {
+SEXP GetRegUserDataFromH5(std::string Filename, std::string location,
+                          int bufIndex, int writeIndex,
+                          bool readDescription = true) {
 
-  char *cFilename = RtoCstring(Filename);
-  char *cLocation = RtoCstring(location);
+  char *cFilename = StringToChar(Filename);
+  char *cLocation = StringToChar(location);
 
   // get bufLength
   int bufLength = 0;
@@ -1000,11 +1003,11 @@ SEXP GetRegUserDataFromH5(SEXP Filename, SEXP location, int bufIndex,
 //' @param writeCount Write count.
 //' @export
 // [[Rcpp::export]]
-SEXP GetTofData(SEXP Filename, int sampleOffset, int sampleCount, int segOffset,
-                int segCount, int bufOffset, int bufCount, int writeOffset,
-                int writeCount) {
+SEXP GetTofData(std::string Filename, int sampleOffset, int sampleCount,
+                int segOffset, int segCount, int bufOffset, int bufCount,
+                int writeOffset, int writeCount) {
 
-  char *cFilename = RtoCstring(Filename);
+  char *cFilename = StringToChar(Filename);
 
   int n = sampleCount*segCount*bufCount*writeCount;
 
@@ -1039,11 +1042,11 @@ SEXP GetTofData(SEXP Filename, int sampleOffset, int sampleCount, int segOffset,
 //' @param writeCount Write count.
 //' @export
 // [[Rcpp::export]]
-SEXP GetTofData2(SEXP Filename, int sampleOffset, int sampleCount, int segOffset,
-                int segCount, int bufOffset, int bufCount, int writeOffset,
-                int writeCount) {
+SEXP GetTofData2(std::string Filename, int sampleOffset, int sampleCount,
+                 int segOffset, int segCount, int bufOffset, int bufCount,
+                 int writeOffset, int writeCount) {
 
-  char *cFilename = RtoCstring(Filename);
+  char *cFilename = StringToChar(Filename);
 
   int n = sampleCount*segCount*bufCount*writeCount;
 
@@ -1077,11 +1080,11 @@ SEXP GetTofData2(SEXP Filename, int sampleOffset, int sampleCount, int segOffset
 //' @param writeCount Write count.
 //' @export
 // [[Rcpp::export]]
-SEXP GetPeakData(SEXP Filename, int peakOffset, int peakCount, int segOffset,
-                 int segCount, int bufOffset, int bufCount, int writeOffset,
-                 int writeCount) {
+SEXP GetPeakData(std::string Filename, int peakOffset, int peakCount,
+                 int segOffset, int segCount, int bufOffset, int bufCount,
+                 int writeOffset, int writeCount) {
 
-  char *cFilename = RtoCstring(Filename);
+  char *cFilename = StringToChar(Filename);
 
   int n = peakCount*segCount*bufCount*writeCount;
 
@@ -1115,11 +1118,11 @@ SEXP GetPeakData(SEXP Filename, int peakOffset, int peakCount, int segOffset,
 //' @param writeCount Write count.
 //' @export
 // [[Rcpp::export]]
-SEXP GetPeakData2(SEXP Filename, int peakOffset, int peakCount, int segOffset,
-                 int segCount, int bufOffset, int bufCount, int writeOffset,
-                 int writeCount) {
+SEXP GetPeakData2(std::string Filename, int peakOffset, int peakCount,
+                  int segOffset, int segCount, int bufOffset, int bufCount,
+                  int writeOffset, int writeCount) {
 
-  char *cFilename = RtoCstring(Filename);
+  char *cFilename = StringToChar(Filename);
 
   int n = peakCount*segCount*bufCount*writeCount;
 
@@ -1149,10 +1152,10 @@ SEXP GetPeakData2(SEXP Filename, int peakOffset, int peakCount, int segOffset,
 //' @param writeCount Write count.
 //' @export
 // [[Rcpp::export]]
-NumericVector GetTimingData(SEXP Filename, int bufOffset, int bufCount, int writeOffset,
-                 int writeCount) {
+NumericVector GetTimingData(std::string Filename, int bufOffset, int bufCount,
+                            int writeOffset, int writeCount) {
 
-  char *cFilename = RtoCstring(Filename);
+  char *cFilename = StringToChar(Filename);
 
   int n = bufCount*writeCount;
 
@@ -1187,11 +1190,12 @@ NumericVector GetTimingData(SEXP Filename, int bufOffset, int bufCount, int writ
 //' }
 //' @export
 // [[Rcpp::export]]
-int GetIntAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
+int GetIntAttributeFromH5(std::string Filename, std::string location,
+                          std::string name) {
 
-  char *cFilename = RtoCstring(Filename);
-  char *cLocation = RtoCstring(location);
-  char *cName = RtoCstring(name);
+  char *cFilename = StringToChar(Filename);
+  char *cLocation = StringToChar(location);
+  char *cName = StringToChar(name);
 
   int value;
   TwRetVal rv = TwGetIntAttributeFromH5(cFilename, cLocation, cName, &value);
@@ -1224,11 +1228,12 @@ int GetIntAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 //' }
 //' @export
 // [[Rcpp::export]]
-unsigned int GetUintAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
+unsigned int GetUintAttributeFromH5(std::string Filename, std::string location,
+                                    std::string name) {
 
-  char *cFilename = RtoCstring(Filename);
-  char *cLocation = RtoCstring(location);
-  char *cName = RtoCstring(name);
+  char *cFilename = StringToChar(Filename);
+  char *cLocation = StringToChar(location);
+  char *cName = StringToChar(name);
 
   unsigned int value;
   TwRetVal rv = TwGetUintAttributeFromH5(cFilename, cLocation, cName, &value);
@@ -1262,11 +1267,12 @@ unsigned int GetUintAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 //' }
 //' @export
 // [[Rcpp::export]]
-CharacterVector GetInt64AttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
+CharacterVector GetInt64AttributeFromH5(std::string Filename,
+                                        std::string location, std::string name) {
 
-  char *cFilename = RtoCstring(Filename);
-  char *cLocation = RtoCstring(location);
-  char *cName = RtoCstring(name);
+  char *cFilename = StringToChar(Filename);
+  char *cLocation = StringToChar(location);
+  char *cName = StringToChar(name);
 
   int64_t value;
   TwRetVal rv = TwGetInt64AttributeFromH5(cFilename, cLocation, cName, &value);
@@ -1301,11 +1307,12 @@ CharacterVector GetInt64AttributeFromH5(SEXP Filename, SEXP location, SEXP name)
 //' }
 //' @export
 // [[Rcpp::export]]
-CharacterVector GetUint64AttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
+CharacterVector GetUint64AttributeFromH5(std::string Filename,
+                                         std::string location, std::string name) {
 
-  char *cFilename = RtoCstring(Filename);
-  char *cLocation = RtoCstring(location);
-  char *cName = RtoCstring(name);
+  char *cFilename = StringToChar(Filename);
+  char *cLocation = StringToChar(location);
+  char *cName = StringToChar(name);
 
   uint64_t value;
   TwRetVal rv = TwGetUint64AttributeFromH5(cFilename, cLocation, cName, &value);
@@ -1338,11 +1345,12 @@ CharacterVector GetUint64AttributeFromH5(SEXP Filename, SEXP location, SEXP name
 //' }
 //' @export
 // [[Rcpp::export]]
-float GetFloatAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
+float GetFloatAttributeFromH5(std::string Filename, std::string location,
+                              std::string name) {
 
-  char *cFilename = RtoCstring(Filename);
-  char *cLocation = RtoCstring(location);
-  char *cName = RtoCstring(name);
+  char *cFilename = StringToChar(Filename);
+  char *cLocation = StringToChar(location);
+  char *cName = StringToChar(name);
 
   float value;
   TwRetVal rv = TwGetFloatAttributeFromH5(cFilename, cLocation, cName, &value);
@@ -1373,11 +1381,12 @@ float GetFloatAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 //' }
 //' @export
 // [[Rcpp::export]]
-double GetDoubleAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
+double GetDoubleAttributeFromH5(std::string Filename, std::string location,
+                                std::string name) {
 
-  char *cFilename = RtoCstring(Filename);
-  char *cLocation = RtoCstring(location);
-  char *cName = RtoCstring(name);
+  char *cFilename = StringToChar(Filename);
+  char *cLocation = StringToChar(location);
+  char *cName = StringToChar(name);
 
   double value;
   TwRetVal rv = TwGetDoubleAttributeFromH5(cFilename, cLocation, cName, &value);
@@ -1408,11 +1417,12 @@ double GetDoubleAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 //' }
 //' @export
 // [[Rcpp::export]]
-String GetStringAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
+String GetStringAttributeFromH5(std::string Filename, std::string location,
+                                std::string name) {
 
-  char *cFilename = RtoCstring(Filename);
-  char *cLocation = RtoCstring(location);
-  char *cName = RtoCstring(name);
+  char *cFilename = StringToChar(Filename);
+  char *cLocation = StringToChar(location);
+  char *cName = StringToChar(name);
   char *value = new char[256];
 
   TwRetVal rv = TwGetStringAttributeFromH5(cFilename, cLocation, cName, value);
@@ -1443,11 +1453,12 @@ String GetStringAttributeFromH5(SEXP Filename, SEXP location, SEXP name) {
 //' }
 //' @export
 // [[Rcpp::export]]
-void SetIntAttributeInH5(SEXP Filename, SEXP location, SEXP name, int attribute) {
+void SetIntAttributeInH5(std::string Filename, std::string location,
+                         std::string name, int attribute) {
 
-  char *cFilename = RtoCstring(Filename);
-  char *cLocation = RtoCstring(location);
-  char *cName = RtoCstring(name);
+  char *cFilename = StringToChar(Filename);
+  char *cLocation = StringToChar(location);
+  char *cName = StringToChar(name);
 
   TwRetVal rv = TwSetIntAttributeInH5(cFilename, cLocation, cName, attribute);
   TwCloseH5(cFilename);
@@ -1473,13 +1484,15 @@ void SetIntAttributeInH5(SEXP Filename, SEXP location, SEXP name, int attribute)
 //' }
 //' @export
 // [[Rcpp::export]]
-void SetUintAttributeInH5(SEXP Filename, SEXP location, SEXP name, double attribute) {
+void SetUintAttributeInH5(std::string Filename, std::string location,
+                          std::string name, double attribute) {
 
-  char *cFilename = RtoCstring(Filename);
-  char *cLocation = RtoCstring(location);
-  char *cName = RtoCstring(name);
+  char *cFilename = StringToChar(Filename);
+  char *cLocation = StringToChar(location);
+  char *cName = StringToChar(name);
 
-  TwRetVal rv = TwSetUintAttributeInH5(cFilename, cLocation, cName, (unsigned int)attribute);
+  TwRetVal rv = TwSetUintAttributeInH5(cFilename, cLocation, cName,
+                                       (unsigned int)attribute);
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
@@ -1503,14 +1516,14 @@ void SetUintAttributeInH5(SEXP Filename, SEXP location, SEXP name, double attrib
 //' }
 //' @export
 // [[Rcpp::export]]
-void SetInt64AttributeInH5(SEXP Filename, SEXP location, SEXP name, SEXP attribute) {
+void SetInt64AttributeInH5(std::string Filename, std::string location,
+                           std::string name, std::string attribute) {
 
-  char *cFilename = RtoCstring(Filename);
-  char *cLocation = RtoCstring(location);
-  char *cName = RtoCstring(name);
+  char *cFilename = StringToChar(Filename);
+  char *cLocation = StringToChar(location);
+  char *cName = StringToChar(name);
 
-  std::string str = Rcpp::as<std::string>(attribute);
-  std::stringstream ss(str);
+  std::stringstream ss(attribute);
   int64_t int64value;
   ss >> int64value;
 
@@ -1538,18 +1551,19 @@ void SetInt64AttributeInH5(SEXP Filename, SEXP location, SEXP name, SEXP attribu
 //' }
 //' @export
 // [[Rcpp::export]]
-void SetUint64AttributeInH5(SEXP Filename, SEXP location, SEXP name, SEXP attribute) {
+void SetUint64AttributeInH5(std::string Filename, std::string location,
+                            std::string name, std::string attribute) {
 
-  char *cFilename = RtoCstring(Filename);
-  char *cLocation = RtoCstring(location);
-  char *cName = RtoCstring(name);
+  char *cFilename = StringToChar(Filename);
+  char *cLocation = StringToChar(location);
+  char *cName = StringToChar(name);
 
-  std::string str = Rcpp::as<std::string>(attribute);
-  std::stringstream ss(str);
+  std::stringstream ss(attribute);
   uint64_t uint64value;
   ss >> uint64value;
 
-  TwRetVal rv = TwSetUint64AttributeInH5(cFilename, cLocation, cName, uint64value);
+  TwRetVal rv = TwSetUint64AttributeInH5(cFilename, cLocation, cName,
+                                         uint64value);
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
@@ -1573,13 +1587,15 @@ void SetUint64AttributeInH5(SEXP Filename, SEXP location, SEXP name, SEXP attrib
 //' }
 //' @export
 // [[Rcpp::export]]
-void SetFloatAttributeInH5(SEXP Filename, SEXP location, SEXP name, double attribute) {
+void SetFloatAttributeInH5(std::string Filename, std::string location,
+                           std::string name, double attribute) {
 
-  char *cFilename = RtoCstring(Filename);
-  char *cLocation = RtoCstring(location);
-  char *cName = RtoCstring(name);
+  char *cFilename = StringToChar(Filename);
+  char *cLocation = StringToChar(location);
+  char *cName = StringToChar(name);
 
-  TwRetVal rv = TwSetFloatAttributeInH5(cFilename, cLocation, cName, (float)attribute);
+  TwRetVal rv = TwSetFloatAttributeInH5(cFilename, cLocation, cName,
+                                        (float)attribute);
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
@@ -1603,11 +1619,12 @@ void SetFloatAttributeInH5(SEXP Filename, SEXP location, SEXP name, double attri
 //' }
 //' @export
 // [[Rcpp::export]]
-void SetDoubleAttributeInH5(SEXP Filename, SEXP location, SEXP name, double attribute) {
+void SetDoubleAttributeInH5(std::string Filename, std::string location,
+                            std::string name, double attribute) {
 
-  char *cFilename = RtoCstring(Filename);
-  char *cLocation = RtoCstring(location);
-  char *cName = RtoCstring(name);
+  char *cFilename = StringToChar(Filename);
+  char *cLocation = StringToChar(location);
+  char *cName = StringToChar(name);
 
   TwRetVal rv = TwSetDoubleAttributeInH5(cFilename, cLocation, cName, attribute);
   TwCloseH5(cFilename);
@@ -1633,12 +1650,13 @@ void SetDoubleAttributeInH5(SEXP Filename, SEXP location, SEXP name, double attr
 //' }
 //' @export
 // [[Rcpp::export]]
-void SetStringAttributeInH5(SEXP Filename, SEXP location, SEXP name, SEXP attribute) {
+void SetStringAttributeInH5(std::string Filename, std::string location,
+                            std::string name, std::string attribute) {
 
-  char *cFilename = RtoCstring(Filename);
-  char *cLocation = RtoCstring(location);
-  char *cName = RtoCstring(name);
-  char *cAttribute = RtoCstring(attribute);
+  char *cFilename = StringToChar(Filename);
+  char *cLocation = StringToChar(location);
+  char *cName = StringToChar(name);
+  char *cAttribute = StringToChar(attribute);
 
   TwRetVal rv = TwSetStringAttributeInH5(cFilename, cLocation, cName, cAttribute);
   TwCloseH5(cFilename);
@@ -1669,10 +1687,10 @@ void SetStringAttributeInH5(SEXP Filename, SEXP location, SEXP name, SEXP attrib
 //' }
 //' @export
 // [[Rcpp::export]]
-List GetUserDataFromH5(SEXP Filename, SEXP location, int rowIndex) {
+List GetUserDataFromH5(std::string Filename, std::string location, int rowIndex) {
 
-  char *cFilename = RtoCstring(Filename);
-  char *cLocation = RtoCstring(location);
+  char *cFilename = StringToChar(Filename);
+  char *cLocation = StringToChar(location);
 
   // get nbrElements
   int nbrElements = 0;
@@ -1733,9 +1751,9 @@ List GetUserDataFromH5(SEXP Filename, SEXP location, int rowIndex) {
 //' }
 //' @export
 // [[Rcpp::export]]
-List GetAcquisitionLogFromH5(SEXP Filename, int index) {
+List GetAcquisitionLogFromH5(std::string Filename, int index) {
 
-  char *cFilename = RtoCstring(Filename);
+  char *cFilename = StringToChar(Filename);
 
   int64_t timestamp;
   char *logText = new char[256];
@@ -1780,10 +1798,10 @@ List GetAcquisitionLogFromH5(SEXP Filename, int index) {
 //' }
 //' @export
 // [[Rcpp::export]]
-SEXP GetEventListSpectrumFromH5(SEXP Filename, int segmentIndex, int bufIndex,
-                                int writeIndex) {
+SEXP GetEventListSpectrumFromH5(std::string Filename, int segmentIndex,
+                                int bufIndex, int writeIndex) {
 
-  char *cFilename = RtoCstring(Filename);
+  char *cFilename = StringToChar(Filename);
 
   // get bufferSize
   int bufferSize = 0;
@@ -1821,9 +1839,9 @@ SEXP GetEventListSpectrumFromH5(SEXP Filename, int segmentIndex, int bufIndex,
 //' }
 //' @export
 // [[Rcpp::export]]
-List H5GetMassCalibPar(SEXP Filename, int writeIndex) {
+List H5GetMassCalibPar(std::string Filename, int writeIndex) {
 
-  char *cFilename = RtoCstring(Filename);
+  char *cFilename = StringToChar(Filename);
 
   int segmentIndex = 0;
   int bufIndex = 0;
@@ -1854,7 +1872,7 @@ List H5GetMassCalibPar(SEXP Filename, int writeIndex) {
   return result;
 }
 
-// H5AddLogEntry -----------------------------------------------------------------
+// H5AddLogEntry ---------------------------------------------------------------
 //' Adds an entry to an existing data file.
 //'
 //' \code{H5AddLogEntry} adds an entry to an existing data file. To add
@@ -1867,13 +1885,13 @@ List H5GetMassCalibPar(SEXP Filename, int writeIndex) {
 //'
 //' @export
 // [[Rcpp::export]]
-void H5AddLogEntry(SEXP Filename, SEXP LogEntryText, SEXP LogEntryTime) {
+void H5AddLogEntry(std::string Filename, std::string LogEntryText,
+                   std::string LogEntryTime) {
 
-  char *cFilename = RtoCstring(Filename);
-  char *cLogEntryText = RtoCstring(LogEntryText);
+  char *cFilename = StringToChar(Filename);
+  char *cLogEntryText = StringToChar(LogEntryText);
 
-  std::string str = Rcpp::as<std::string>(LogEntryTime);
-  std::stringstream ss(str);
+  std::stringstream ss(LogEntryTime);
   uint64_t cTime;
   ss >> cTime;
 

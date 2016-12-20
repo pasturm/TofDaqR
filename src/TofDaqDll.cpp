@@ -231,10 +231,10 @@ void ShowConfigWindow(int ConfigWindowIndex) {
 // [[Rcpp::export]]
 void LoadIniFile(Nullable<Rcpp::String> IniFile = R_NilValue) {
 
-  std::string tmp = Rcpp::as<std::string>(IniFile);
+  std::string str = as<std::string>(IniFile);
   char *cFilename;
-  if (IniFile.isNotNull() && tmp.empty()) {
-    cFilename = RtoCstring(IniFile);
+  if (IniFile.isNotNull() && str.empty()) {
+    cFilename = StringToChar(str);
   } else {
     cFilename = NULL;
   }
@@ -257,10 +257,10 @@ void LoadIniFile(Nullable<Rcpp::String> IniFile = R_NilValue) {
 // [[Rcpp::export]]
 void SaveIniFile(Nullable<Rcpp::String> IniFile = R_NilValue) {
 
-  std::string tmp = Rcpp::as<std::string>(IniFile);
+  std::string str = as<std::string>(IniFile);
   char *cFilename;
-  if (IniFile.isNotNull() && tmp.empty()) {
-    cFilename = RtoCstring(IniFile);
+  if (IniFile.isNotNull() && str.empty()) {
+    cFilename = StringToChar(str);
   } else {
     cFilename = NULL;
   }
@@ -280,9 +280,9 @@ void SaveIniFile(Nullable<Rcpp::String> IniFile = R_NilValue) {
 //' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
-String GetDaqParameter(SEXP Parameter) {
+String GetDaqParameter(std::string Parameter) {
 
-  char *cParameter = RtoCstring(Parameter);
+  char *cParameter = StringToChar(Parameter);
 
   char *buffer = new char[256];
 
@@ -302,9 +302,9 @@ String GetDaqParameter(SEXP Parameter) {
 //' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
-int GetDaqParameterInt(SEXP Parameter) {
+int GetDaqParameterInt(std::string Parameter) {
 
-  char *cParameter = RtoCstring(Parameter);
+  char *cParameter = StringToChar(Parameter);
 
   int result = TwGetDaqParameterInt(cParameter);
 
@@ -320,9 +320,9 @@ int GetDaqParameterInt(SEXP Parameter) {
 //' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
-bool GetDaqParameterBool(SEXP Parameter) {
+bool GetDaqParameterBool(std::string Parameter) {
 
-  char *cParameter = RtoCstring(Parameter);
+  char *cParameter = StringToChar(Parameter);
 
   bool result = TwGetDaqParameterBool(cParameter);
 
@@ -338,9 +338,9 @@ bool GetDaqParameterBool(SEXP Parameter) {
 //' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
-double GetDaqParameterFloat(SEXP Parameter) {
+double GetDaqParameterFloat(std::string Parameter) {
 
-  char *cParameter = RtoCstring(Parameter);
+  char *cParameter = StringToChar(Parameter);
 
   float result = TwGetDaqParameterFloat(cParameter);
 
@@ -358,9 +358,9 @@ double GetDaqParameterFloat(SEXP Parameter) {
 //' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
-String GetDaqParameterInt64(SEXP Parameter) {
+String GetDaqParameterInt64(std::string Parameter) {
 
-  char *cParameter = RtoCstring(Parameter);
+  char *cParameter = StringToChar(Parameter);
 
   __int64 result = TwGetDaqParameterInt64(cParameter);
 
@@ -379,9 +379,9 @@ String GetDaqParameterInt64(SEXP Parameter) {
 //' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
-double GetDaqParameterDouble(SEXP Parameter) {
+double GetDaqParameterDouble(std::string Parameter) {
 
-  char *cParameter = RtoCstring(Parameter);
+  char *cParameter = StringToChar(Parameter);
 
   double result = TwGetDaqParameterDouble(cParameter);
 
@@ -400,9 +400,9 @@ double GetDaqParameterDouble(SEXP Parameter) {
 //' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
-int GetDaqParameterIntRef(SEXP Parameter) {
+int GetDaqParameterIntRef(std::string Parameter) {
 
-  char *cParameter = RtoCstring(Parameter);
+  char *cParameter = StringToChar(Parameter);
 
   int Value;
 
@@ -426,9 +426,9 @@ int GetDaqParameterIntRef(SEXP Parameter) {
 //' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
-bool GetDaqParameterBoolRef(SEXP Parameter) {
+bool GetDaqParameterBoolRef(std::string Parameter) {
 
-  char *cParameter = RtoCstring(Parameter);
+  char *cParameter = StringToChar(Parameter);
 
   bool Value;
 
@@ -452,9 +452,9 @@ bool GetDaqParameterBoolRef(SEXP Parameter) {
 //' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
-float GetDaqParameterFloatRef(SEXP Parameter) {
+float GetDaqParameterFloatRef(std::string Parameter) {
 
-  char *cParameter = RtoCstring(Parameter);
+  char *cParameter = StringToChar(Parameter);
 
   float Value;
 
@@ -478,9 +478,9 @@ float GetDaqParameterFloatRef(SEXP Parameter) {
 //' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
-String GetDaqParameterInt64Ref(SEXP Parameter) {
+String GetDaqParameterInt64Ref(std::string Parameter) {
 
-  char *cParameter = RtoCstring(Parameter);
+  char *cParameter = StringToChar(Parameter);
 
   __int64 Value;
 
@@ -507,9 +507,9 @@ String GetDaqParameterInt64Ref(SEXP Parameter) {
 //' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
-double GetDaqParameterDoubleRef(SEXP Parameter) {
+double GetDaqParameterDoubleRef(std::string Parameter) {
 
-  char *cParameter = RtoCstring(Parameter);
+  char *cParameter = StringToChar(Parameter);
 
   double Value;
 
@@ -533,9 +533,9 @@ double GetDaqParameterDoubleRef(SEXP Parameter) {
 //' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
-String GetDaqParameterStringRef(SEXP Parameter) {
+String GetDaqParameterStringRef(std::string Parameter) {
 
-  char *cParameter = RtoCstring(Parameter);
+  char *cParameter = StringToChar(Parameter);
   char *Value = new char[256];
 
   TwRetVal rv = TwGetDaqParameterStringRef(cParameter, Value);
@@ -558,10 +558,10 @@ String GetDaqParameterStringRef(SEXP Parameter) {
 //' @param ValueString Value as a string.
 //' @export
 // [[Rcpp::export]]
-void SetDaqParameter(SEXP Parameter, SEXP ValueString) {
+void SetDaqParameter(std::string Parameter, std::string ValueString) {
 
-  char *cParameter = RtoCstring(Parameter);
-  char *cValueString = RtoCstring(ValueString);
+  char *cParameter = StringToChar(Parameter);
+  char *cValueString = StringToChar(ValueString);
 
   TwRetVal rv = TwSetDaqParameter(cParameter, cValueString);
 
@@ -580,9 +580,9 @@ void SetDaqParameter(SEXP Parameter, SEXP ValueString) {
 //' @param Value Integer value.
 //' @export
 // [[Rcpp::export]]
-void SetDaqParameterInt(SEXP Parameter, int Value) {
+void SetDaqParameterInt(std::string Parameter, int Value) {
 
-  char *cParameter = RtoCstring(Parameter);
+  char *cParameter = StringToChar(Parameter);
 
   TwRetVal rv = TwSetDaqParameterInt(cParameter, Value);
 
@@ -601,9 +601,9 @@ void SetDaqParameterInt(SEXP Parameter, int Value) {
 //' @param Value \code{TRUE} or \code{FALSE}.
 //' @export
 // [[Rcpp::export]]
-void SetDaqParameterBool(SEXP Parameter, bool Value) {
+void SetDaqParameterBool(std::string Parameter, bool Value) {
 
-  char *cParameter = RtoCstring(Parameter);
+  char *cParameter = StringToChar(Parameter);
 
   TwRetVal rv = TwSetDaqParameterBool(cParameter, Value);
 
@@ -622,9 +622,9 @@ void SetDaqParameterBool(SEXP Parameter, bool Value) {
 //' @param Value Numeric value.
 //' @export
 // [[Rcpp::export]]
-void SetDaqParameterFloat(SEXP Parameter, double Value) {
+void SetDaqParameterFloat(std::string Parameter, double Value) {
 
-  char *cParameter = RtoCstring(Parameter);
+  char *cParameter = StringToChar(Parameter);
 
   TwRetVal rv = TwSetDaqParameterFloat(cParameter, (float)Value);
 
@@ -644,12 +644,11 @@ void SetDaqParameterFloat(SEXP Parameter, double Value) {
 //' @param Value int64 value passed as a string.
 //' @export
 // [[Rcpp::export]]
-void SetDaqParameterInt64(SEXP Parameter, SEXP Value) {
+void SetDaqParameterInt64(std::string Parameter, std::string Value) {
 
-  char *cParameter = RtoCstring(Parameter);
+  char *cParameter = StringToChar(Parameter);
 
-  std::string str = Rcpp::as<std::string>(Value);
-  std::stringstream ss(str);
+  std::stringstream ss(Value);
   __int64 int64value;
   ss >> int64value;
 
@@ -670,9 +669,9 @@ void SetDaqParameterInt64(SEXP Parameter, SEXP Value) {
 //' @param Value Numeric value.
 //' @export
 // [[Rcpp::export]]
-void SetDaqParameterDouble(SEXP Parameter, double Value) {
+void SetDaqParameterDouble(std::string Parameter, double Value) {
 
-  char *cParameter = RtoCstring(Parameter);
+  char *cParameter = StringToChar(Parameter);
 
   TwRetVal rv = TwSetDaqParameterDouble(cParameter, Value);
 
@@ -681,7 +680,7 @@ void SetDaqParameterDouble(SEXP Parameter, double Value) {
   }
 }
 
-// GetDescriptor --------------------------------------------------------------
+// GetDescriptor ---------------------------------------------------------------
 //' Gets various information about the active acquisition.
 //'
 //' \code{GetDescriptor} retrieves the current TSharedMemoryDesc structure.
@@ -1094,12 +1093,11 @@ double GetBufTimeFromShMem(int BufIndex, int WriteIndex) {
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-void AddLogEntry(SEXP LogEntryText, SEXP LogEntryTime) {
+void AddLogEntry(std::string LogEntryText, std::string LogEntryTime) {
 
-  char *cLogEntryText = RtoCstring(LogEntryText);
+  char *cLogEntryText = StringToChar(LogEntryText);
 
-  std::string str = Rcpp::as<std::string>(LogEntryTime);
-  std::stringstream ss(str);
+  std::stringstream ss(LogEntryTime);
   unsigned __int64 cTime;
   ss >> cTime;
 
@@ -1123,10 +1121,10 @@ void AddLogEntry(SEXP LogEntryText, SEXP LogEntryTime) {
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-void AddAttributeInt(SEXP Object, SEXP AttributeName, int Value) {
+void AddAttributeInt(std::string Object, std::string AttributeName, int Value) {
 
-  char *cObject = RtoCstring(Object);
-  char *cAttributeName = RtoCstring(AttributeName);
+  char *cObject = StringToChar(Object);
+  char *cAttributeName = StringToChar(AttributeName);
 
   TwRetVal rv = TwAddAttributeInt(cObject, cAttributeName, Value);
 
@@ -1148,10 +1146,11 @@ void AddAttributeInt(SEXP Object, SEXP AttributeName, int Value) {
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-void AddAttributeDouble(SEXP Object, SEXP AttributeName, double Value) {
+void AddAttributeDouble(std::string Object, std::string AttributeName,
+                        double Value) {
 
-  char *cObject = RtoCstring(Object);
-  char *cAttributeName = RtoCstring(AttributeName);
+  char *cObject = StringToChar(Object);
+  char *cAttributeName = StringToChar(AttributeName);
 
   TwRetVal rv = TwAddAttributeDouble(cObject, cAttributeName, Value);
 
@@ -1173,11 +1172,12 @@ void AddAttributeDouble(SEXP Object, SEXP AttributeName, double Value) {
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-void AddAttributeString(SEXP Object, SEXP AttributeName, SEXP Value) {
+void AddAttributeString(std::string Object, std::string AttributeName,
+                        std::string Value) {
 
-  char *cObject = RtoCstring(Object);
-  char *cAttributeName = RtoCstring(AttributeName);
-  char *cValue = RtoCstring(Value);
+  char *cObject = StringToChar(Object);
+  char *cAttributeName = StringToChar(AttributeName);
+  char *cValue = StringToChar(Value);
 
   TwRetVal rv = TwAddAttributeString(cObject, cAttributeName, cValue);
 
@@ -1207,14 +1207,15 @@ void AddAttributeString(SEXP Object, SEXP AttributeName, SEXP Value) {
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-void AddUserData(SEXP Location, int NbrElements, NumericVector Data,
+void AddUserData(std::string Location, int NbrElements, NumericVector Data,
                  Nullable<Rcpp::String> ElementDescription = R_NilValue,
                  int CompressionLevel = 0) {
 
-  char *cLocation = RtoCstring(Location);
+  char *cLocation = StringToChar(Location);
   char *cElementDescription;
   if (ElementDescription.isNotNull()) {
-    cElementDescription = RtoCstring(ElementDescription);
+    std::string str = as<std::string>(ElementDescription);
+    cElementDescription = StringToChar(str);
   } else {
     cElementDescription = NULL;
   }
@@ -1251,14 +1252,16 @@ void AddUserData(SEXP Location, int NbrElements, NumericVector Data,
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-void AddUserDataMultiRow(SEXP Location, int NbrElements, int NbrRows, NumericVector Data,
+void AddUserDataMultiRow(std::string Location, int NbrElements, int NbrRows,
+                         NumericVector Data,
                          Nullable<Rcpp::String> ElementDescription = R_NilValue,
                          int CompressionLevel = 0) {
 
-  char *cLocation = RtoCstring(Location);
+  char *cLocation = StringToChar(Location);
   char *cElementDescription;
   if (ElementDescription.isNotNull()) {
-    cElementDescription = RtoCstring(ElementDescription);
+    std::string str = as<std::string>(ElementDescription);
+    cElementDescription = StringToChar(str);
   } else {
     cElementDescription = NULL;
   }
@@ -1292,14 +1295,15 @@ void AddUserDataMultiRow(SEXP Location, int NbrElements, int NbrRows, NumericVec
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-void RegisterUserDataBuf(SEXP Location, int NbrElements,
+void RegisterUserDataBuf(std::string Location, int NbrElements,
                          Nullable<Rcpp::String> ElementDescription = R_NilValue,
                          int CompressionLevel = 0) {
 
-  char *cLocation = RtoCstring(Location);
+  char *cLocation = StringToChar(Location);
   char *cElementDescription;
   if (ElementDescription.isNotNull()) {
-    cElementDescription = RtoCstring(ElementDescription);
+    std::string str = as<std::string>(ElementDescription);
+    cElementDescription = StringToChar(str);
   } else {
     cElementDescription = NULL;
   }
@@ -1333,14 +1337,15 @@ void RegisterUserDataBuf(SEXP Location, int NbrElements,
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-void RegisterUserDataWrite(SEXP Location, int NbrElements,
+void RegisterUserDataWrite(std::string Location, int NbrElements,
                            Nullable<Rcpp::String> ElementDescription = R_NilValue,
                            int CompressionLevel = 0) {
 
-  char *cLocation = RtoCstring(Location);
+  char *cLocation = StringToChar(Location);
   char *cElementDescription;
   if (ElementDescription.isNotNull()) {
-    cElementDescription = RtoCstring(ElementDescription);
+    std::string str = as<std::string>(ElementDescription);
+    cElementDescription = StringToChar(str);
   } else {
     cElementDescription = NULL;
   }
@@ -1371,13 +1376,14 @@ void RegisterUserDataWrite(SEXP Location, int NbrElements,
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-void RegisterUserDataNoStore(SEXP Location, int NbrElements,
+void RegisterUserDataNoStore(std::string Location, int NbrElements,
                              Nullable<Rcpp::String> ElementDescription = R_NilValue) {
 
-  char *cLocation = RtoCstring(Location);
+  char *cLocation = StringToChar(Location);
   char *cElementDescription;
   if (ElementDescription.isNotNull()) {
-    cElementDescription = RtoCstring(ElementDescription);
+    std::string str = as<std::string>(ElementDescription);
+    cElementDescription = StringToChar(str);
   } else {
     cElementDescription = NULL;
   }
@@ -1400,9 +1406,9 @@ void RegisterUserDataNoStore(SEXP Location, int NbrElements,
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-void UnregisterUserData(SEXP Location) {
+void UnregisterUserData(std::string Location) {
 
-  char *cLocation = RtoCstring(Location);
+  char *cLocation = StringToChar(Location);
 
   TwRetVal rv = TwUnregisterUserData(cLocation);
 
@@ -1423,9 +1429,9 @@ void UnregisterUserData(SEXP Location) {
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-void UpdateUserData(SEXP Location, int NbrElements, NumericVector Data) {
+void UpdateUserData(std::string Location, int NbrElements, NumericVector Data) {
 
-  char *cLocation = RtoCstring(Location);
+  char *cLocation = StringToChar(Location);
 
   TwRetVal rv = TwUpdateUserData(cLocation, NbrElements, &Data[0]);
 
@@ -1446,9 +1452,9 @@ void UpdateUserData(SEXP Location, int NbrElements, NumericVector Data) {
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-NumericVector ReadRegUserData(SEXP Location, int NbrElements) {
+NumericVector ReadRegUserData(std::string Location, int NbrElements) {
 
-  char *cLocation = RtoCstring(Location);
+  char *cLocation = StringToChar(Location);
 
   NumericVector Data(NbrElements);
 
@@ -1472,9 +1478,9 @@ NumericVector ReadRegUserData(SEXP Location, int NbrElements) {
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-int QueryRegUserDataSize(SEXP Location) {
+int QueryRegUserDataSize(std::string Location) {
 
-  char *cLocation = RtoCstring(Location);
+  char *cLocation = StringToChar(Location);
 
   int NbrElements;
 
@@ -1548,9 +1554,9 @@ List GetRegUserDataSources() {
 //' @family Data storage functions
 //' @export
 // [[Rcpp::export]]
-CharacterVector GetRegUserDataDesc(SEXP Location) {
+CharacterVector GetRegUserDataDesc(std::string Location) {
 
-  char *cLocation = RtoCstring(Location);
+  char *cLocation = StringToChar(Location);
 
   int nbrElements = 0;
 
@@ -1629,9 +1635,9 @@ void TpsConnect() {
 //' @family TPS functions
 //' @export
 // [[Rcpp::export]]
-void TpsConnect2(SEXP ip, int type) {
+void TpsConnect2(std::string ip, int type) {
 
-  char *cFilename = RtoCstring(ip);
+  char *cFilename = StringToChar(ip);
 
   TwRetVal rv = TwTpsConnect2(cFilename, type);
 
@@ -1903,9 +1909,9 @@ List TpsGetStatus() {
 //' @family TPS functions
 //' @export
 // [[Rcpp::export]]
-void TpsLoadSetFile(SEXP setFile) {
+void TpsLoadSetFile(std::string setFile) {
 
-  char *cFilename = RtoCstring(setFile);
+  char *cFilename = StringToChar(setFile);
 
   TwRetVal rv = TwTpsLoadSetFile(cFilename);
 
@@ -1924,9 +1930,9 @@ void TpsLoadSetFile(SEXP setFile) {
 //' @family TPS functions
 //' @export
 // [[Rcpp::export]]
-void TpsSaveSetFile(SEXP setFile) {
+void TpsSaveSetFile(std::string setFile) {
 
-  char *cFilename = RtoCstring(setFile);
+  char *cFilename = StringToChar(setFile);
 
   TwRetVal rv = TwTpsSaveSetFile(cFilename);
 

@@ -3,12 +3,11 @@ using namespace Rcpp;
 #include <TwToolDll.h>
 #include "TofDaqR.h"
 
-// convert R string to C string
-char* RtoCstring(SEXP rstring) {
-  std::string str = Rcpp::as<std::string>(rstring);
+// convert std::string to char*
+char* StringToChar(std::string str) {
   char *cstring;
   cstring = R_alloc(str.length() + 1, sizeof(char));  // stringlength + 1 to account for null termination
-  strcpy(cstring, str.c_str());  // copy rstring to cstring
+  strcpy(cstring, str.c_str());  // copy string to cstring
   cstring[str.length()] = '\0';  // null terminate for safety
   return cstring;
 }
@@ -235,9 +234,10 @@ NumericVector EvalSinglePeak(NumericVector xVals, double blOffset = 0,
 //' GetMoleculeMass("[13C][18O]2")
 //' @export
 // [[Rcpp::export]]
-double GetMoleculeMass(SEXP molecule) {
+double GetMoleculeMass(std::string molecule) {
 
-  char *cMolecule = RtoCstring(molecule);
+  char *cMolecule = StringToChar(molecule);
+
   double mass;
 
   TwRetVal rv = TwGetMoleculeMass(cMolecule, &mass);
@@ -274,9 +274,9 @@ double GetMoleculeMass(SEXP molecule) {
 //' GetIsotopePattern("CO2", 1e-5)
 //' @export
 // [[Rcpp::export]]
-List GetIsotopePattern(SEXP molecule, double abundanceLimit) {
+List GetIsotopePattern(std::string molecule, double abundanceLimit) {
 
-  char *cMolecule = RtoCstring(molecule);
+  char *cMolecule = StringToChar(molecule);
 
   int nbrIsotopes = 0;
 
@@ -332,9 +332,9 @@ List GetIsotopePattern(SEXP molecule, double abundanceLimit) {
 //' GetIsotopePattern2("CO2", 1e-5)
 //' @export
 // [[Rcpp::export]]
-List GetIsotopePattern2(SEXP molecule, double abundanceLimit) {
+List GetIsotopePattern2(std::string molecule, double abundanceLimit) {
 
-  char *cMolecule = RtoCstring(molecule);
+  char *cMolecule = StringToChar(molecule);
 
   int nbrIsotopes = 0;
 
@@ -393,7 +393,8 @@ List GetIsotopePattern2(SEXP molecule, double abundanceLimit) {
 //' Tof2Mass(100000, massCalibMode = 0, p = c(3,5))
 //' @export
 // [[Rcpp::export]]
-NumericVector Tof2Mass(NumericVector tofSample, int massCalibMode, NumericVector p) {
+NumericVector Tof2Mass(NumericVector tofSample, int massCalibMode,
+                       NumericVector p) {
 
   int nbrSamples = tofSample.size();
   NumericVector mass(nbrSamples);
@@ -477,8 +478,9 @@ NumericVector Mass2Tof(NumericVector mass, int massCalibMode, NumericVector p) {
 //' @return Vector of calibration parameters.
 //' @export
 // [[Rcpp::export]]
-NumericVector MassCalibrate(int massCalibMode, NumericVector mass, NumericVector tof,
-                   Nullable<NumericVector> weight = R_NilValue) {
+NumericVector MassCalibrate(int massCalibMode, NumericVector mass,
+                            NumericVector tof,
+                            Nullable<NumericVector> weight = R_NilValue) {
 
   int nbrPoints = mass.size();
 
@@ -591,9 +593,9 @@ void SiInitializeHistograms(NumericVector loMass, NumericVector hiMass,
 //' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
-void SiSetProcessingOptions(SEXP option, double value, int specType) {
+void SiSetProcessingOptions(std::string option, double value, int specType) {
 
-  char *coption = RtoCstring(option);
+  char *coption = StringToChar(option);
 
   TwRetVal rv = TwSiSetProcessingOptions(coption, value, specType);
 
@@ -622,7 +624,7 @@ List SiProcessSpectrum(NumericVector spectrum, int specType) {
 
   int nbrSamples = spectrum.size();
 
-  std::vector<float> fspectrum = Rcpp::as<std::vector<float> >(spectrum);
+  std::vector<float> fspectrum = as<std::vector<float> >(spectrum);
 
   float blFromData;
   float thrFromData;
@@ -675,8 +677,8 @@ List SiGetHistogram(int histogramIndex) {
   NumericVector intensity(arrayLength);
   NumericVector counts(arrayLength);
 
-  std::vector<float> fintensity = Rcpp::as<std::vector<float> >(intensity);
-  std::vector<unsigned int> fcounts = Rcpp::as<std::vector<unsigned int> >(counts);
+  std::vector<float> fintensity = as<std::vector<float> >(intensity);
+  std::vector<unsigned int> fcounts = as<std::vector<unsigned int> >(counts);
 
   rv = TwSiGetHistogram(histogramIndex, &fintensity[0], &fcounts[0],
                         &arrayLength, &spectrumCount, &meanValue);
@@ -730,8 +732,8 @@ List SiGetSumHistogram(int specType, double minMass, double maxMass,
   NumericVector intensity(arrayLength);
   NumericVector counts(arrayLength);
 
-  std::vector<float> fintensity = Rcpp::as<std::vector<float> >(intensity);
-  std::vector<unsigned int> fcounts = Rcpp::as<std::vector<unsigned int> >(counts);
+  std::vector<float> fintensity = as<std::vector<float> >(intensity);
+  std::vector<unsigned int> fcounts = as<std::vector<unsigned int> >(counts);
 
   rv = TwSiGetSumHistogram(specType, &fintensity[0], &fcounts[0], &arrayLength,
                            &spectrumCount, &meanValue, minMass, maxMass,
@@ -906,9 +908,9 @@ List SiFitRateFromPhd(NumericVector intensity, NumericVector counts,
 //' }
 //' @export
 // [[Rcpp::export]]
-String FindTpsIp(SEXP TpsSerial, int timeout) {
+String FindTpsIp(std::string TpsSerial, int timeout) {
 
-  char *cTpsSerial = RtoCstring(TpsSerial);
+  char *cTpsSerial = StringToChar(TpsSerial);
 
   int hostStrLen = 15;
 

@@ -44,11 +44,12 @@ NumericVector tof(CharacterVector toftype = CharacterVector::create("LTOF"),
   const double amu = 1.660538921e-27;  // atomic mass unit (kg)
   const double e = 1.60217657e-19;  // elementary charge (C)
 
-  char *cToftype = RtoCstring(toftype);
+  std::string str = Rcpp::as<std::string>(toftype);
+  char *cToftype = StringToChar(str);
 
   int nbr = x.size();
   if (nbr != v.size()) {
-    return R_NilValue;
+    stop("length(x) != length(v)");
   }
 
   double Vdrift = -std::abs(drift);
@@ -86,7 +87,7 @@ NumericVector tof(CharacterVector toftype = CharacterVector::create("LTOF"),
     d5 = 0.017;
     d6 = 0.0165;
   } else{
-    return R_NilValue;
+    stop("invalid toftype");
   }
 
   // calculate u5 and u6
