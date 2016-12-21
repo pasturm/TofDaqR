@@ -4,7 +4,7 @@
 #' Data frame of TPS1 codes (as used in tps1rc.cfg to communicate with the TPS
 #' through the API) and corresponding names.
 #' @export
-Tps1rc <- c(
+Tps1rc = c(
   1, "RBP",
   2, "RG",
   3, "LENS",
@@ -84,9 +84,9 @@ Tps1rc <- c(
   1018,	"HVATEMP",
   1019, "HVATEMP"
 )
-Tps1rc <- as.data.frame(matrix(Tps1rc, ncol = 2, byrow = TRUE), stringsAsFactors = FALSE)
-names(Tps1rc) <- c("codes", "names")
-Tps1rc$codes <-  as.integer(Tps1rc$codes)
+Tps1rc = as.data.frame(matrix(Tps1rc, ncol = 2, byrow = TRUE), stringsAsFactors = FALSE)
+names(Tps1rc) = c("codes", "names")
+Tps1rc$codes = as.integer(Tps1rc$codes)
 
 # SaveMassTableToFile ----------------------------------------------------------
 #' Saves the current peak parameters to a file.
@@ -99,16 +99,16 @@ Tps1rc$codes <-  as.integer(Tps1rc$codes)
 #' @param filename Path/filename. If not specified, "TmpMassTable.txt" in the
 #' current working directory will be used.
 #' @export
-SaveMassTableToFile <- function(filename = "TmpMassTable.txt") {
+SaveMassTableToFile = function(filename = "TmpMassTable.txt") {
   if (file.exists(filename)) {
     file.remove(filename)
     file.create(filename)
   }
-  desc <- .Call("GetDescriptor")
+  desc = .Call("GetDescriptor")
   utils::write.table(desc$NbrPeaks, file = filename, quote = FALSE, row.names = FALSE,
               col.names = FALSE)
   for (i in 1:desc$NbrPeaks) {
-    rv <- .Call("GetPeakParameters", i-1)
+    rv = .Call("GetPeakParameters", i-1)
     rv$TwRetVal <- NULL
     utils::write.table(t(unlist(rv)), file = filename, append = TRUE,
                 quote = FALSE, sep = "\t", row.names = FALSE, col.names = FALSE)
