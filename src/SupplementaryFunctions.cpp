@@ -36,16 +36,15 @@ using namespace Rcpp;
 //' @keywords internal
 //' @export
 // [[Rcpp::export]]
-NumericVector tof(CharacterVector toftype = CharacterVector::create("LTOF"),
-                  double drift = 6000, double pulse = 1000, double mass = 100,
+NumericVector tof(std::string toftype = "LTOF", double drift = 6000,
+                  double pulse = 1000, double mass = 100,
                   NumericVector x = NumericVector::create(0),
                   NumericVector v = NumericVector::create(0)) {
 
   const double amu = 1.660538921e-27;  // atomic mass unit (kg)
   const double e = 1.60217657e-19;  // elementary charge (C)
 
-  std::string str = Rcpp::as<std::string>(toftype);
-  char *cToftype = StringToChar(str);
+  char *cToftype = StringToChar(toftype);
 
   int nbr = x.size();
   if (nbr != v.size()) {

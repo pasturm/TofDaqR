@@ -4,8 +4,8 @@
 \alias{tof}
 \title{Time-of-flight calculation.}
 \usage{
-tof(toftype = as.character(c("LTOF")), drift = 6000, pulse = 1000,
-  mass = 100, x = as.numeric(c(0)), v = as.numeric(c(0)))
+tof(toftype = "LTOF", drift = 6000, pulse = 1000, mass = 100,
+  x = as.numeric(c(0)), v = as.numeric(c(0)))
 }
 \arguments{
 \item{toftype}{TOF type (\code{"CTOF"}, \code{"HTOF"}, \code{"HTOF-W"} or \code{"LTOF"})}

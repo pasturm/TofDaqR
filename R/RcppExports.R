@@ -28,7 +28,7 @@
 #'
 #' @keywords internal
 #' @export
-tof <- function(toftype = as.character( c("LTOF")), drift = 6000, pulse = 1000, mass = 100, x = as.numeric( c(0)), v = as.numeric( c(0))) {
+tof <- function(toftype = "LTOF", drift = 6000, pulse = 1000, mass = 100, x = as.numeric( c(0)), v = as.numeric( c(0))) {
     .Call('TofDaqR_tof', PACKAGE = 'TofDaqR', toftype, drift, pulse, mass, x, v)
 }
 

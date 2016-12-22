@@ -6,12 +6,12 @@
 using namespace Rcpp;
 
 // tof
-NumericVector tof(CharacterVector toftype, double drift, double pulse, double mass, NumericVector x, NumericVector v);
+NumericVector tof(std::string toftype, double drift, double pulse, double mass, NumericVector x, NumericVector v);
 RcppExport SEXP TofDaqR_tof(SEXP toftypeSEXP, SEXP driftSEXP, SEXP pulseSEXP, SEXP massSEXP, SEXP xSEXP, SEXP vSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< CharacterVector >::type toftype(toftypeSEXP);
+    Rcpp::traits::input_parameter< std::string >::type toftype(toftypeSEXP);
     Rcpp::traits::input_parameter< double >::type drift(driftSEXP);
     Rcpp::traits::input_parameter< double >::type pulse(pulseSEXP);
     Rcpp::traits::input_parameter< double >::type mass(massSEXP);
