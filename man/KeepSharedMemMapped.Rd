@@ -4,18 +4,15 @@
 \alias{KeepSharedMemMapped}
 \title{Keeps the shared memory acquisition buffers mapped.}
 \usage{
-KeepSharedMemMapped(keepMapped)
-}
-\arguments{
-\item{keepMapped}{\code{TRUE} or \code{FALSE}.}
+KeepSharedMemMapped()
 }
 \description{
 \code{KeepSharedMemMapped} Keeps the shared memory acquisition buffers mapped.
 }
 \details{
 The DLL periodically unmaps the shared memory to give the recorder
-application the possibility to (re)allocate the shared buffers. Set this
-option to true if you want to make sure that the shared memory pointers stay
+application the possibility to (re)allocate the shared buffers. Call this
+function if you want to make sure that the shared memory pointers stay
 valid while you work with them. In this case you must call
 \code{\link{ReleaseSharedMemory}} explicitly when finished with your
 processing operation.

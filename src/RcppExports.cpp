@@ -77,12 +77,11 @@ BEGIN_RCPP
 END_RCPP
 }
 // KeepSharedMemMapped
-void KeepSharedMemMapped(bool keepMapped);
-RcppExport SEXP TofDaqR_KeepSharedMemMapped(SEXP keepMappedSEXP) {
+void KeepSharedMemMapped();
+RcppExport SEXP TofDaqR_KeepSharedMemMapped() {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< bool >::type keepMapped(keepMappedSEXP);
-    KeepSharedMemMapped(keepMapped);
+    KeepSharedMemMapped();
     return R_NilValue;
 END_RCPP
 }

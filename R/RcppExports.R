@@ -118,16 +118,15 @@ SiProcessSpectrumFromShMem <- function(specType, BufIndex) {
 #' \code{KeepSharedMemMapped} Keeps the shared memory acquisition buffers mapped.
 #'
 #' The DLL periodically unmaps the shared memory to give the recorder
-#' application the possibility to (re)allocate the shared buffers. Set this
-#' option to true if you want to make sure that the shared memory pointers stay
+#' application the possibility to (re)allocate the shared buffers. Call this
+#' function if you want to make sure that the shared memory pointers stay
 #' valid while you work with them. In this case you must call
 #' \code{\link{ReleaseSharedMemory}} explicitly when finished with your
 #' processing operation.
 #'
-#' @param keepMapped \code{TRUE} or \code{FALSE}.
 #' @export
-KeepSharedMemMapped <- function(keepMapped) {
-    invisible(.Call('TofDaqR_KeepSharedMemMapped', PACKAGE = 'TofDaqR', keepMapped))
+KeepSharedMemMapped <- function() {
+    invisible(.Call('TofDaqR_KeepSharedMemMapped', PACKAGE = 'TofDaqR'))
 }
 
 #' Initializes the TofDaqDll.dll.

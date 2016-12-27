@@ -32,7 +32,7 @@ void InitializeDll() {
 // [[Rcpp::export]]
 void CleanupDll() {
 
-  void TwCleanupDll(void);
+  TwCleanupDll();
 }
 
 // GetDllVersion ---------------------------------------------------------------

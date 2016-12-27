@@ -6,6 +6,8 @@ TofDaqR 0.3.2
 
 * Using `Rcpp::stop()` to signal errors if TwRetVal != TwSuccess.
 
+* Corrected bug in `CleanupDll()`.
+
 
 TofDaqR 0.3.1
 --------------------------------------------------------------------------------
