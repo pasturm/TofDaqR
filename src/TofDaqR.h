@@ -1,7 +1,7 @@
 #ifndef TOFDAQR_H
 #define TOFDAQR_H
 
-// convert R string to C string
+// convert std::string to char*
 char* StringToChar(std::string str);
 
 // convert TwRetVal to String

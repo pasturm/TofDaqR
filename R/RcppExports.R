@@ -6,7 +6,7 @@
 #' \code{tof} calculates the time-of-flight of ions in an ideal two-stage
 #' extraction/two-stage reflection TOFMS (with second-order space focusing).
 #'
-#' \code{"HTOF-W"} is the W-mode and assumes hard mirror voltage = 2*pulse voltage.
+#' \code{"HTOF-W"} is the W-mode and assumes hard mirror voltage = 1.5*pulse voltage.
 #' \code{x} and \code{v} can be vectors, but must be the same length.
 #'
 #' Note: this function is not part of the TofDaq API, but is included in the

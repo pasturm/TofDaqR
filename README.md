@@ -1,5 +1,5 @@
 # TofDaqR
-R Interface to TOFWERK TofDaq API.
+R Interface to the TOFWERK TofDaq API.
 
 The TofDaqR package provides a R interface to the TOFWERK TofDaq API (TofDaqDll, 
 TwH5Dll, TwToolDll for Windows, and libtwh5, libtwtool for macOS and Linux). 

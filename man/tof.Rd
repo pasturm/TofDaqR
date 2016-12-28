@@ -28,7 +28,7 @@ Time-of-flight (s)
 extraction/two-stage reflection TOFMS (with second-order space focusing).
 }
 \details{
-\code{"HTOF-W"} is the W-mode and assumes hard mirror voltage = 2*pulse voltage.
+\code{"HTOF-W"} is the W-mode and assumes hard mirror voltage = 1.5*pulse voltage.
 \code{x} and \code{v} can be vectors, but must be the same length.
 
 Note: this function is not part of the TofDaq API, but is included in the

@@ -4,7 +4,7 @@
 \name{TofDaqR}
 \alias{TofDaqR}
 \alias{TofDaqR-package}
-\title{TofDaqR: R Interface to TOFWERK TofDaq API.}
+\title{TofDaqR: R Interface to the TOFWERK TofDaq API.}
 \description{
 The TofDaqR package is a wrapper for the TofDaq API functions provided by the
 shared libraries TofDaqDll, TwH5Dll and TwToolDll (Windows) and libtwh5 and

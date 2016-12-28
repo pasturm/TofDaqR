@@ -1,4 +1,4 @@
-#' TofDaqR: R Interface to TOFWERK TofDaq API.
+#' TofDaqR: R Interface to the TOFWERK TofDaq API.
 #'
 #' The TofDaqR package is a wrapper for the TofDaq API functions provided by the
 #' shared libraries TofDaqDll, TwH5Dll and TwToolDll (Windows) and libtwh5 and

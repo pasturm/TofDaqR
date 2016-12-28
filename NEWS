@@ -1,12 +1,14 @@
 TofDaqR 0.3.2
 --------------------------------------------------------------------------------
 
-* Corrected bug in internal R-string to C-string conversion (introduced in
+* Corrected bug in internal std::string to char* conversion (introduced in
   TofDaqR 0.3.0).
 
 * Using `Rcpp::stop()` to signal errors if TwRetVal != TwSuccess.
 
 * Corrected bug in `CleanupDll()`.
+
+* Updated some help pages.
 
 
 TofDaqR 0.3.1
