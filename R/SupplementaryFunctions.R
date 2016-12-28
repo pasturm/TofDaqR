@@ -104,12 +104,11 @@ SaveMassTableToFile = function(filename = "TmpMassTable.txt") {
     file.remove(filename)
     file.create(filename)
   }
-  desc = .Call("GetDescriptor")
+  desc = GetDescriptor()
   utils::write.table(desc$NbrPeaks, file = filename, quote = FALSE, row.names = FALSE,
               col.names = FALSE)
   for (i in 1:desc$NbrPeaks) {
-    rv = .Call("GetPeakParameters", i-1)
-    rv$TwRetVal <- NULL
+    rv = GetPeakParameters(i-1)
     utils::write.table(t(unlist(rv)), file = filename, append = TRUE,
                 quote = FALSE, sep = "\t", row.names = FALSE, col.names = FALSE)
   }
