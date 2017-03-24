@@ -85,7 +85,14 @@ NumericVector tof(std::string toftype = "LTOF", double drift = 6000,
     d4 = 2 * 0.1435;
     d5 = 0.017;
     d6 = 0.0165;
-  } else{
+  } else if (strcmp(cToftype, "NTOF") == 0) {
+    d3 = 0.014;
+    d4 = 3*0.8;
+    d5 = 0.0385;
+    d6 = 0.1593 - d5;
+    d7 = d5;
+    u7 = 1.5*Vpush - Vdrift;
+  } else {
     stop("invalid toftype");
   }
 
@@ -99,6 +106,11 @@ NumericVector tof(std::string toftype = "LTOF", double drift = 6000,
     b = d1/u1/2*pow(k0, -1.5) + d3/u3/2*(pow(p0, -1.5) - pow(k0, -1.5)) - d4/u1*3/4*pow(p0, -2.5) + d7/u7*pow(p0, -1.5);
     u5 = (a-2*p0*b + 4*d5/u1*pow(p0, -1.5))/(-2*b/u1);
     u6 = (-4*d6*pow(p0-u5/u1, -0.5))/(a+4*d5/u5*(pow(p0, -0.5) - pow(p0-u5/u1, -0.5)));
+  } else if (strcmp(cToftype, "NTOF") == 0) {
+    a = d1/u1*pow(k0, -0.5) + d3/u3*(pow(p0, -0.5) - pow(k0, -0.5)) - d4/u1/2*pow(p0, -1.5) + 2*d7/u7*pow(p0, -0.5);
+    b = d1/u1/2*pow(k0, -1.5) + d3/u3/2*(pow(p0, -1.5) - pow(k0, -1.5)) - d4/u1*3/4*pow(p0, -2.5) + d7/u7*pow(p0, -1.5);
+    u5 = (a-2*p0*b + 2*d5/u1*pow(p0, -1.5))/(-2*b/u1);
+    u6 = (-2*d6*pow(p0-u5/u1, -0.5))/(a+2*d5/u5*(pow(p0, -0.5) - pow(p0-u5/u1, -0.5)));
   } else {
     a = d1/u1*pow(k0, -0.5) + d3/u3*(pow(p0, -0.5) - pow(k0, -0.5)) - d4/u1/2*pow(p0, -1.5);
     b = d1/u1/2*pow(k0, -1.5) + d3/u3/2*(pow(p0, -1.5) - pow(k0, -1.5)) - d4/u1*3/4*pow(p0, -2.5);
@@ -123,6 +135,14 @@ NumericVector tof(std::string toftype = "LTOF", double drift = 6000,
       d4/sqrt(u1*xi*xi + k*u1 + u3) +
       2*4*d5/u5*(sqrt(u1*xi*xi + k*u1 + u3) - sqrt(u1*xi*xi + k*u1 + u3 - u5)) +
       2*4*d6/u6*sqrt(u1*xi*xi + k*u1 + u3 - u5) +
+      4*d7/u7*sqrt(u1*xi*xi + k*u1 + u3));
+  } else if (strcmp(cToftype, "NTOF") == 0) {
+    timeOfFlight = sqrt((mass*amu)/(2*e)) *
+      (2*d1/sqrt(u1)*(sqrt(xi*xi + k) - xi) +
+      2*d3/u3*(sqrt(u1*xi*xi + k*u1 + u3) - sqrt(u1*xi*xi + k*u1)) +
+      d4/sqrt(u1*xi*xi + k*u1 + u3) +
+      4*d5/u5*(sqrt(u1*xi*xi + k*u1 + u3) - sqrt(u1*xi*xi + k*u1 + u3 - u5)) +
+      4*d6/u6*sqrt(u1*xi*xi + k*u1 + u3 - u5) +
       4*d7/u7*sqrt(u1*xi*xi + k*u1 + u3));
   } else {
     timeOfFlight = sqrt((mass*amu)/(2*e)) *
