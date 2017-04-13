@@ -9,4 +9,3 @@ GetDllVersion()
 \description{
 \code{GetDllVersion} gets the version number of the TofDaq API.
 }
-

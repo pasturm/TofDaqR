@@ -29,4 +29,3 @@ GetPeakData(Filename, peakOffset, peakCount, segOffset, segCount, bufOffset,
 \description{
 \code{GetPeakData} gets data stored in \code{/PeakData/PeakData} from HDF5 data file.
 }
-

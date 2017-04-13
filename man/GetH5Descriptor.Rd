@@ -27,4 +27,3 @@ See \emph{/doc/TwH5Dll.htm} for more details.
 GetH5Descriptor("path/to/file.h5")
 }
 }
-

@@ -48,4 +48,3 @@ in the dataset.
 GetTofSpectrumFromH5("path/to/file.h5")
 }
 }
-

@@ -23,4 +23,3 @@ SetDoubleAttributeInH5(Filename, location, name, attribute)
 SetDoubleAttributeInH5("path/to/file.h5", location = , name = , attribute = )
 }
 }
-

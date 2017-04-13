@@ -20,7 +20,7 @@ contains \code{NbrElements} entries), maximum is 2047.}
 stored in dataset "Data".}
 
 \item{ElementDescription}{Vector of length \code{NbrElements} containing the
-text description of elements. If \code{ElementDescription} is an empty string
+text description of elements. If \code{ElementDescription} is \code{NULL}
 the dataset "Info" is not created.}
 
 \item{CompressionLevel}{ZLIB compression level (0-9) for dataset creation.
@@ -51,4 +51,3 @@ Other Data storage functions: \code{\link{AddAttributeDouble}},
   \code{\link{UnregisterUserData}},
   \code{\link{UpdateUserData}}
 }
-

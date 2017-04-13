@@ -9,4 +9,3 @@ CloseTofDaqRec()
 \description{
 \code{CloseTofDaqRec} closes the TofDaq recorder application.
 }
-

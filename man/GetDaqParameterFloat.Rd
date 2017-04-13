@@ -13,4 +13,3 @@ GetDaqParameterFloat(Parameter)
 \description{
 \code{GetDaqParameterFloat} gets a single float parameter.
 }
-

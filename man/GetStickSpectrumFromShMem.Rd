@@ -20,4 +20,3 @@ A list containing the stick spectrum and corresponding masses.
 \code{GetStickSpectrumFromShMem} reads a single stick spectrum from shared
 memory.
 }
-

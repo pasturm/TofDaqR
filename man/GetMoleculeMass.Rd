@@ -37,4 +37,3 @@ GetMoleculeMass("[13C][18O]2")
 Other Chemistry functions: \code{\link{GetIsotopePattern2}},
   \code{\link{GetIsotopePattern}}
 }
-

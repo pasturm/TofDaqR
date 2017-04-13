@@ -28,4 +28,3 @@ A vector containing the spectrum.
 Note: this function is not part of the TofDaq API, but is included in the
 package for convenience.
 }
-

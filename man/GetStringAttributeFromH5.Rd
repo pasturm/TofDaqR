@@ -27,4 +27,3 @@ Used to read attributes not available from \code{GetH5Descriptor}.
 GetStringAttributeFromH5("path/to/file.h5", location = , name = )
 }
 }
-

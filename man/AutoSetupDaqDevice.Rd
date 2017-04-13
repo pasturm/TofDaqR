@@ -10,4 +10,3 @@ AutoSetupDaqDevice()
 Auto setup routine for the DAQ device. Currently implemented only for
 AP240 averager and ndigo5G.
 }
-

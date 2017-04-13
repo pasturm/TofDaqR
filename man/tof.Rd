@@ -41,4 +41,3 @@ Injected Ions, \emph{Rapid Communications in Mass Spectrometry}, \strong{8},
 720-726.
 }
 \keyword{internal}
-

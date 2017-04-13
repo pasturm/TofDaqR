@@ -17,4 +17,3 @@ GetDaqParameterFloatRef(Parameter)
 This is the same as \code{GetDaqParameterFloat}, but additionally it checks
 for success and a TwRetVal string is returned if it is not sucessful.
 }
-

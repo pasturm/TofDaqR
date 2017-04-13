@@ -21,4 +21,3 @@ it is usually not necessary to call \code{CloseH5} explicitely.
 CloseH5("path/to/file.h5")
 }
 }
-

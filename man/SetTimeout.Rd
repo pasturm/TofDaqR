@@ -13,4 +13,3 @@ SetTimeout(timeout)
 \code{SetTimeout} sets the global timeout for all functions that can time
 out. Default is 500 ms.
 }
-

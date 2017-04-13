@@ -17,4 +17,3 @@ GetDaqParameterStringRef(Parameter)
 This is the same as \code{GetDaqParameter}, but returns \code{"TwInvalidValue"}
 if the type of the parameter is not a string.
 }
-

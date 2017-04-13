@@ -28,4 +28,3 @@ averaged/summed over segment dimension) from shared memory. If
 \code{SegmentIndex = SegmentEndIndex = -1} the complete block of data is
 copied and the \code{Normalize} flag is ignored.
 }
-

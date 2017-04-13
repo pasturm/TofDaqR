@@ -11,4 +11,3 @@ InitializeDaqDevice()
 startup of TofDaqRec.exe). This can take up to 8 seconds depending on the
 actual DAQ hardware.
 }
-

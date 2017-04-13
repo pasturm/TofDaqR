@@ -9,4 +9,3 @@ GetTimeout()
 \description{
 \code{GetTimeout} gets the current timeout value (in ms).
 }
-

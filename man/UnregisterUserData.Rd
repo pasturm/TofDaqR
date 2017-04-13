@@ -30,4 +30,3 @@ Other Data storage functions: \code{\link{AddAttributeDouble}},
   \code{\link{RegisterUserDataWrite}},
   \code{\link{UpdateUserData}}
 }
-

@@ -30,4 +30,3 @@ using \code{\link[bit64]{as.integer64}}.
 GetInt64AttributeFromH5("path/to/file.h5", location = , name = )
 }
 }
-

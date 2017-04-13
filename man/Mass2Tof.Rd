@@ -42,4 +42,3 @@ Mass2Tof(100, massCalibMode = 0, p = c(3,5))
 \seealso{
 \code{\link{Tof2Mass}}
 }
-

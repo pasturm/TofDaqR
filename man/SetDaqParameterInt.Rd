@@ -15,4 +15,3 @@ SetDaqParameterInt(Parameter, Value)
 \description{
 \code{SetDaqParameterInt} sets a single parameter with an integer value.
 }
-

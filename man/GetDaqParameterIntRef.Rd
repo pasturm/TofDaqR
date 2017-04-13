@@ -17,4 +17,3 @@ GetDaqParameterIntRef(Parameter)
 This is the same as \code{GetDaqParameterInt}, but additionally it checks
 for success and a TwRetVal string is returned if it is not sucessful.
 }
-

@@ -7,11 +7,10 @@
 LoadIniFile(IniFile = NULL)
 }
 \arguments{
-\item{IniFile}{Path/filename of the configuration file. If \code{IniFile} is
-an empty string or NULL, "TwApiTmpIni.ini" in the TofDaq recorder directory
-will be used.}
+\item{IniFile}{Path/filename of the configuration file. If no path is
+specified, the TofDaq recorder directory will be used. If \code{IniFile} is
+an empty string or \code{NULL}, "TwApiTmpIni.ini" will be loaded.}
 }
 \description{
 \code{LoadIniFile} loads a configuration file (*.ini) from disk.
 }
-

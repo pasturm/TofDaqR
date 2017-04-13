@@ -26,4 +26,3 @@ through \code{RegisterUserData...} functions.
 GetRegUserDataSourcesFromH5("path/to/file.h5")
 }
 }
-

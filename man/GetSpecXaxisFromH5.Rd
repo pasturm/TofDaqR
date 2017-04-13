@@ -30,4 +30,3 @@ spectrum.
 GetSpecXaxisFromH5("path/to/file.h5")
 }
 }
-

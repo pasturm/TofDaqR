@@ -29,4 +29,3 @@ GetTofData(Filename, sampleOffset, sampleCount, segOffset, segCount, bufOffset,
 \description{
 \code{GetTofData} gets data stored in \code{/FullSpectra/TofData} from HDF5 data file.
 }
-

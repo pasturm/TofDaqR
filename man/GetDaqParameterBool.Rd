@@ -13,4 +13,3 @@ GetDaqParameterBool(Parameter)
 \description{
 \code{GetDaqParameterBool} gets a single boolean parameter.
 }
-

@@ -15,4 +15,3 @@ SetDaqParameterDouble(Parameter, Value)
 \description{
 \code{SetDaqParameterDouble} sets a single parameter with a double value.
 }
-

@@ -35,4 +35,3 @@ If \code{bufIndex = writeIndex = -1}, all data are read.
 GetRegUserDataFromH5("path/to/file.h5", location = )
 }
 }
-

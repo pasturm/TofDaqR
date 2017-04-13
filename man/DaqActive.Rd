@@ -12,4 +12,3 @@ DaqActive()
 \description{
 \code{DaqActive} checks if TofDaq recorder is currently acquiring data.
 }
-

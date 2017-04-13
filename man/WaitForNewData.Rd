@@ -16,4 +16,3 @@ reset data available event before returning.}
 \code{WaitForNewData} waits for new data. Returns when new data is
 available or when timed out.
 }
-

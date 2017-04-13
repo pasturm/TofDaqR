@@ -15,4 +15,3 @@ function once before your program exits.
 CloseAll()
 }
 }
-

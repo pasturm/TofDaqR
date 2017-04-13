@@ -11,4 +11,3 @@ InitializeDll()
 to call \code{InitializeDll} explicitely, as it is called automatically by
 functions that need the DLL to be in an initialized state.
 }
-

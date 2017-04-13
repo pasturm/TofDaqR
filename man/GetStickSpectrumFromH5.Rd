@@ -48,4 +48,3 @@ in the dataset.
 GetStickSpectrumFromH5("path/to/file.h5")
 }
 }
-

@@ -17,6 +17,7 @@ TpsLoadSetFile(setFile)
 This does not just load the file (as the function name might suggest), but
 also immediately sets all values.
 }
+
 \seealso{
 Other TPS functions: \code{\link{TpsChangeIonMode}},
   \code{\link{TpsConnect2}}, \code{\link{TpsConnect}},
@@ -36,4 +37,3 @@ Other TPS functions: \code{\link{TpsChangeIonMode}},
   \code{\link{TpsSetTargetValue}},
   \code{\link{TpsShutdown}}
 }
-

@@ -13,4 +13,3 @@ ShowConfigWindow(ConfigWindowIndex)
 \code{ShowConfigWindow} shows the different tabs of the TofDaq recorder
 configuration window.
 }
-

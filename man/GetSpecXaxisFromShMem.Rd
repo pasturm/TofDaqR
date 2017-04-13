@@ -18,4 +18,3 @@ A vector containing the x-axis values.
 \code{GetSpecXaxisFromShMem} returns an array of x-axis values of the mass
 spectrum.
 }
-

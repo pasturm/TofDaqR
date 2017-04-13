@@ -35,4 +35,3 @@ parameters.
 Other Peak fitting functions: \code{\link{FitSinglePeak2}},
   \code{\link{FitSinglePeak}}
 }
-

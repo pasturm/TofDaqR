@@ -29,4 +29,3 @@ integers are returned as numeric values in R.
 GetUintAttributeFromH5("path/to/file.h5", location = , name = )
 }
 }
-

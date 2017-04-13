@@ -17,4 +17,3 @@ valid while you work with them. In this case you must call
 \code{\link{ReleaseSharedMemory}} explicitly when finished with your
 processing operation.
 }
-

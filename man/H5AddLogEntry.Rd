@@ -18,4 +18,3 @@ January 1, 1601 UTC) passed as a string. Set it to "0" for "now".}
 \code{H5AddLogEntry} adds an entry to an existing data file. To add
 acquisition log entries during a running acquisition use \code{AddLogEntry}.
 }
-

@@ -18,4 +18,3 @@ A time stamp (in seconds relative to acquisition start).
 \code{GetBufTimeFromShMem} reads the time stamp for a given buf and write
 from shared memory.
 }
-

@@ -15,4 +15,3 @@ SetDaqParameterFloat(Parameter, Value)
 \description{
 \code{SetDaqParameterFloat} sets a single parameter with a float value.
 }
-

@@ -20,4 +20,3 @@ GetTimingData(Filename, bufOffset, bufCount, writeOffset, writeCount)
 \description{
 \code{GetTimingData} gets data stored in \code{/Timing/BufTimes} from HDF5 data file.
 }
-

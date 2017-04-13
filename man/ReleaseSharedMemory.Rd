@@ -11,4 +11,3 @@ ReleaseSharedMemory()
 buffers. This is needed if \code{\link{KeepSharedMemMapped}} has been set to
 \code{TRUE}.
 }
-

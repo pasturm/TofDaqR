@@ -7,11 +7,11 @@
 SaveIniFile(IniFile = NULL)
 }
 \arguments{
-\item{IniFile}{Path/filename of the configuration file. If \code{IniFile} is
-an empty string or NULL, "TwApiTmpIni.ini" in the TofDaq recorder directory
-will be used.}
+\item{IniFile}{Path/filename of the configuration file. If no path is
+specified, the file will be saved in the TofDaq recorder directory.
+If \code{IniFile} is an empty string or \code{NULL}, "TwApiTmpIni.ini"
+will be used. If a path is specified, existing files cannot be overwritten.}
 }
 \description{
 \code{SaveIniFile} saves the current configuration (*.ini) to disk.
 }
-

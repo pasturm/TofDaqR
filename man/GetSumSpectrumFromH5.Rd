@@ -24,4 +24,3 @@ depending on \code{Normalize} flag) from the HDF5 file.
 GetSumSpectrumFromH5("path/to/file.h5")
 }
 }
-

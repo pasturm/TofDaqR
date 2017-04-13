@@ -31,4 +31,3 @@ Other TPS functions: \code{\link{TpsChangeIonMode}},
   \code{\link{TpsSetTargetValue}},
   \code{\link{TpsShutdown}}
 }
-

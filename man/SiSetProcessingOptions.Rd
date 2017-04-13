@@ -57,4 +57,3 @@ Other Single ion histogramming functions: \code{\link{SiCleanup}},
   \code{\link{SiProcessSpectrum}},
   \code{\link{SiResetHistograms}}
 }
-

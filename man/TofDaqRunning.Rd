@@ -12,4 +12,3 @@ TofDaqRunning()
 \description{
 \code{TofDaqRunning} checks if TofDaq recorder application is running.
 }
-

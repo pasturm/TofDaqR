@@ -13,4 +13,3 @@ WaitForEndOfAcquisition(timeout)
 \code{WaitForEndOfAcquisition} waits for the end of the current acquisition.
 If \code{NbrRuns > 1} this function waits for the end of the last acquisition.
 }
-

@@ -13,4 +13,3 @@ GetDaqParameterDouble(Parameter)
 \description{
 \code{GetDaqParameterDouble} gets a single double parameter.
 }
-

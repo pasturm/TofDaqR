@@ -13,4 +13,3 @@ if \code{TRUE} (default) the spectrum is normalized to counts per extraction.}
 \description{
 \code{GetSumSpectrumFromShMem} gets the sum spectrum from shared memory.
 }
-

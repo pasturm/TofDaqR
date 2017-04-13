@@ -9,4 +9,3 @@ StartAcquisition()
 \description{
 \code{StartAcquisition} starts an acquisition.
 }
-

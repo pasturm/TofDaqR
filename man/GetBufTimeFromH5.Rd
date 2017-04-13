@@ -24,4 +24,3 @@ A time stamp (in seconds relative to acquisition start).
 GetBufTimeFromH5("path/to/file.h5", BufIndex = 0, WriteIndex = 0)
 }
 }
-

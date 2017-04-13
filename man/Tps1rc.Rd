@@ -13,4 +13,3 @@ Data frame of TPS1 codes (as used in tps1rc.cfg to communicate with the TPS
 through the API) and corresponding names.
 }
 \keyword{datasets}
-

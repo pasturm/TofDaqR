@@ -21,4 +21,3 @@ Other Single ion histogramming functions: \code{\link{SiEvalPhd}},
   \code{\link{SiResetHistograms}},
   \code{\link{SiSetProcessingOptions}}
 }
-

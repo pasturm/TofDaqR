@@ -23,4 +23,3 @@ SetFloatAttributeInH5(Filename, location, name, attribute)
 SetFloatAttributeInH5("path/to/file.h5", location = , name = , attribute = )
 }
 }
-

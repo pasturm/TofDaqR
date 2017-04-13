@@ -22,4 +22,3 @@ A list containing the calibraion mode and calibration parameters.
 H5GetMassCalibPar("path/to/file.h5", writeIndex = 0)
 }
 }
-

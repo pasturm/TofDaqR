@@ -33,4 +33,3 @@ Other TPS functions: \code{\link{TpsChangeIonMode}},
   \code{\link{TpsSetAllVoltages}},
   \code{\link{TpsShutdown}}
 }
-

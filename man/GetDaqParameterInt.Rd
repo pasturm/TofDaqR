@@ -13,4 +13,3 @@ GetDaqParameterInt(Parameter)
 \description{
 \code{GetDaqParameterInt} gets a single integer parameter.
 }
-

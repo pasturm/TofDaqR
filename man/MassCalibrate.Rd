@@ -38,4 +38,3 @@ Mode 4 is two sequential fits, first mode 0, then a quadratic fit to the
 residuals, which is an inferior implementation of mode 3. Mode 1 is for FTMS
 data.
 }
-

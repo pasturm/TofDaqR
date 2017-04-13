@@ -38,4 +38,3 @@ GetSegmentProfile2FromH5("path/to/file.h5", PeakIndex = -1, BufStartIndex = 0,
 BufEndIndex = 0, WriteStartIndex = 0, WriteEndIndex = 0)
 }
 }
-

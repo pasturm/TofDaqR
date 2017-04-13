@@ -266,9 +266,9 @@ ShowConfigWindow <- function(ConfigWindowIndex) {
 #'
 #' \code{LoadIniFile} loads a configuration file (*.ini) from disk.
 #'
-#' @param IniFile Path/filename of the configuration file. If \code{IniFile} is
-#' an empty string or NULL, "TwApiTmpIni.ini" in the TofDaq recorder directory
-#' will be used.
+#' @param IniFile Path/filename of the configuration file. If no path is
+#' specified, the TofDaq recorder directory will be used. If \code{IniFile} is
+#' an empty string or \code{NULL}, "TwApiTmpIni.ini" will be loaded.
 #' @export
 LoadIniFile <- function(IniFile = NULL) {
     invisible(.Call('TofDaqR_LoadIniFile', PACKAGE = 'TofDaqR', IniFile))
@@ -278,9 +278,10 @@ LoadIniFile <- function(IniFile = NULL) {
 #'
 #' \code{SaveIniFile} saves the current configuration (*.ini) to disk.
 #'
-#' @param IniFile Path/filename of the configuration file. If \code{IniFile} is
-#' an empty string or NULL, "TwApiTmpIni.ini" in the TofDaq recorder directory
-#' will be used.
+#' @param IniFile Path/filename of the configuration file. If no path is
+#' specified, the file will be saved in the TofDaq recorder directory.
+#' If \code{IniFile} is an empty string or \code{NULL}, "TwApiTmpIni.ini"
+#' will be used. If a path is specified, existing files cannot be overwritten.
 #' @export
 SaveIniFile <- function(IniFile = NULL) {
     invisible(.Call('TofDaqR_SaveIniFile', PACKAGE = 'TofDaqR', IniFile))
@@ -732,7 +733,7 @@ AddAttributeString <- function(Object, AttributeName, Value) {
 #' @param Data Vector of length \code{NbrElements} containing the data to be
 #' stored in dataset "Data".
 #' @param ElementDescription Vector of length \code{NbrElements} containing the
-#' text description of elements. If \code{ElementDescription} is an empty string
+#' text description of elements. If \code{ElementDescription} is \code{NULL}
 #' the dataset "Info" is not created.
 #' @param CompressionLevel ZLIB compression level (0-9) for dataset creation.
 #' If the dataset at Location already exists this parameter has no effect.
@@ -760,7 +761,7 @@ AddUserData <- function(Location, NbrElements, Data, ElementDescription = NULL, 
 #' @param Data Vector of length \code{NbrElements} containing the data to be
 #' stored in dataset "Data".
 #' @param ElementDescription Vector of length \code{NbrElements} containing the
-#' text description of elements. If \code{ElementDescription} is an empty string
+#' text description of elements. If \code{ElementDescription} is \code{NULL}
 #' the dataset "Info" is not created.
 #' @param CompressionLevel ZLIB compression level (0-9) for dataset creation.
 #' If the dataset at Location already exists this parameter has no effect.
@@ -783,7 +784,7 @@ AddUserDataMultiRow <- function(Location, NbrElements, NbrRows, Data, ElementDes
 #' @param Location Location of group in HDF5 file where the datasets are created.
 #' @param NbrElements Number of elements to store per buf.
 #' @param ElementDescription Vector of length \code{NbrElements} containing the
-#' text description of elements. If \code{ElementDescription} is an empty string
+#' text description of elements. If \code{ElementDescription} is \code{NULL}
 #' the dataset "TwInfo" is not created.
 #' @param CompressionLevel Compression level used for data storage (0: no
 #' compression, 1-9: increasing levels of compression (and CPU load)).
@@ -807,7 +808,7 @@ RegisterUserDataBuf <- function(Location, NbrElements, ElementDescription = NULL
 #' @param Location Location of group in HDF5 file where the datasets are created.
 #' @param NbrElements Number of elements to store per write.
 #' @param ElementDescription Vector of length \code{NbrElements} containing the
-#' text description of elements. If \code{ElementDescription} is an empty string
+#' text description of elements. If \code{ElementDescription} is \code{NULL}
 #' the dataset "TwInfo" is not created.
 #' @param CompressionLevel Compression level used for data storage (0: no
 #' compression, 1-9: increasing levels of compression (and CPU load)).
@@ -830,7 +831,7 @@ RegisterUserDataWrite <- function(Location, NbrElements, ElementDescription = NU
 #' @param Location Location of group in HDF5 file where the datasets are created.
 #' @param NbrElements Number of elements to store per write.
 #' @param ElementDescription Vector of length \code{NbrElements} containing the
-#' text description of elements. If \code{ElementDescription} is an empty string
+#' text description of elements. If \code{ElementDescription} is \code{NULL}
 #' the dataset "TwInfo" is not created.
 #'
 #' @family Data storage functions

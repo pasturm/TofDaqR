@@ -224,17 +224,21 @@ void ShowConfigWindow(int ConfigWindowIndex) {
 //'
 //' \code{LoadIniFile} loads a configuration file (*.ini) from disk.
 //'
-//' @param IniFile Path/filename of the configuration file. If \code{IniFile} is
-//' an empty string or NULL, "TwApiTmpIni.ini" in the TofDaq recorder directory
-//' will be used.
+//' @param IniFile Path/filename of the configuration file. If no path is
+//' specified, the TofDaq recorder directory will be used. If \code{IniFile} is
+//' an empty string or \code{NULL}, "TwApiTmpIni.ini" will be loaded.
 //' @export
 // [[Rcpp::export]]
 void LoadIniFile(Nullable<Rcpp::String> IniFile = R_NilValue) {
 
-  std::string str = as<std::string>(IniFile);
   char *cFilename;
-  if (IniFile.isNotNull() && str.empty()) {
-    cFilename = StringToChar(str);
+  if (IniFile.isNotNull()) {
+    std::string str = as<std::string>(IniFile);
+    if (!str.empty()) {
+      cFilename = StringToChar(str);
+    } else {
+    cFilename = NULL;
+    }
   } else {
     cFilename = NULL;
   }
@@ -250,21 +254,26 @@ void LoadIniFile(Nullable<Rcpp::String> IniFile = R_NilValue) {
 //'
 //' \code{SaveIniFile} saves the current configuration (*.ini) to disk.
 //'
-//' @param IniFile Path/filename of the configuration file. If \code{IniFile} is
-//' an empty string or NULL, "TwApiTmpIni.ini" in the TofDaq recorder directory
-//' will be used.
+//' @param IniFile Path/filename of the configuration file. If no path is
+//' specified, the file will be saved in the TofDaq recorder directory.
+//' If \code{IniFile} is an empty string or \code{NULL}, "TwApiTmpIni.ini"
+//' will be used. If a path is specified, existing files cannot be overwritten.
 //' @export
 // [[Rcpp::export]]
 void SaveIniFile(Nullable<Rcpp::String> IniFile = R_NilValue) {
 
-  std::string str = as<std::string>(IniFile);
   char *cFilename;
-  if (IniFile.isNotNull() && str.empty()) {
-    cFilename = StringToChar(str);
+  if (IniFile.isNotNull()) {
+    std::string str = as<std::string>(IniFile);
+    if (!str.empty()) {
+      cFilename = StringToChar(str);
+    } else {
+      cFilename = NULL;
+    }
   } else {
     cFilename = NULL;
   }
-  TwRetVal rv = TwLoadIniFile(cFilename);
+  TwRetVal rv = TwSaveIniFile(cFilename);
 
   if (rv != TwSuccess) {
     stop(TwRetValString(rv));
@@ -1199,7 +1208,7 @@ void AddAttributeString(std::string Object, std::string AttributeName,
 //' @param Data Vector of length \code{NbrElements} containing the data to be
 //' stored in dataset "Data".
 //' @param ElementDescription Vector of length \code{NbrElements} containing the
-//' text description of elements. If \code{ElementDescription} is an empty string
+//' text description of elements. If \code{ElementDescription} is \code{NULL}
 //' the dataset "Info" is not created.
 //' @param CompressionLevel ZLIB compression level (0-9) for dataset creation.
 //' If the dataset at Location already exists this parameter has no effect.
@@ -1244,7 +1253,7 @@ void AddUserData(std::string Location, int NbrElements, NumericVector Data,
 //' @param Data Vector of length \code{NbrElements} containing the data to be
 //' stored in dataset "Data".
 //' @param ElementDescription Vector of length \code{NbrElements} containing the
-//' text description of elements. If \code{ElementDescription} is an empty string
+//' text description of elements. If \code{ElementDescription} is \code{NULL}
 //' the dataset "Info" is not created.
 //' @param CompressionLevel ZLIB compression level (0-9) for dataset creation.
 //' If the dataset at Location already exists this parameter has no effect.
@@ -1287,7 +1296,7 @@ void AddUserDataMultiRow(std::string Location, int NbrElements, int NbrRows,
 //' @param Location Location of group in HDF5 file where the datasets are created.
 //' @param NbrElements Number of elements to store per buf.
 //' @param ElementDescription Vector of length \code{NbrElements} containing the
-//' text description of elements. If \code{ElementDescription} is an empty string
+//' text description of elements. If \code{ElementDescription} is \code{NULL}
 //' the dataset "TwInfo" is not created.
 //' @param CompressionLevel Compression level used for data storage (0: no
 //' compression, 1-9: increasing levels of compression (and CPU load)).
@@ -1329,7 +1338,7 @@ void RegisterUserDataBuf(std::string Location, int NbrElements,
 //' @param Location Location of group in HDF5 file where the datasets are created.
 //' @param NbrElements Number of elements to store per write.
 //' @param ElementDescription Vector of length \code{NbrElements} containing the
-//' text description of elements. If \code{ElementDescription} is an empty string
+//' text description of elements. If \code{ElementDescription} is \code{NULL}
 //' the dataset "TwInfo" is not created.
 //' @param CompressionLevel Compression level used for data storage (0: no
 //' compression, 1-9: increasing levels of compression (and CPU load)).
@@ -1370,7 +1379,7 @@ void RegisterUserDataWrite(std::string Location, int NbrElements,
 //' @param Location Location of group in HDF5 file where the datasets are created.
 //' @param NbrElements Number of elements to store per write.
 //' @param ElementDescription Vector of length \code{NbrElements} containing the
-//' text description of elements. If \code{ElementDescription} is an empty string
+//' text description of elements. If \code{ElementDescription} is \code{NULL}
 //' the dataset "TwInfo" is not created.
 //'
 //' @family Data storage functions

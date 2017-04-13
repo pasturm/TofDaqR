@@ -62,4 +62,3 @@ for position, width and amplitude if all peak parameters are set to 0.
 Other Peak fitting functions: \code{\link{EvalSinglePeak}},
   \code{\link{FitSinglePeak2}}
 }
-

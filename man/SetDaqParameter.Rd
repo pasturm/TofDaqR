@@ -15,4 +15,3 @@ SetDaqParameter(Parameter, ValueString)
 \description{
 \code{SetDaqParameter} sets a single parameter.
 }
-

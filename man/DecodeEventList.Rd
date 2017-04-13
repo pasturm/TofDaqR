@@ -26,4 +26,3 @@ functions into a time stamp vector and a data vector.
 Note: this function is not part of the TofDaq API, but is included in the
 package for convenience.
 }
-

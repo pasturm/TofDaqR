@@ -31,4 +31,3 @@ GetEventListSpectrumFromH5("path/to/file.h5", segmentIndex = 0,
 bufIndex = 0, writeIndex = 0)
 }
 }
-

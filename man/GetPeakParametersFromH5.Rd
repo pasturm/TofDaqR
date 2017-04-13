@@ -23,4 +23,3 @@ A list with the peak paramters \emph{label}, \emph{mass}, \emph{loMass} and \emp
 GetPeakParametersFromH5("path/to/file.h5")
 }
 }
-

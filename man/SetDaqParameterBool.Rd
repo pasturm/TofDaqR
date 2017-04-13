@@ -15,4 +15,3 @@ SetDaqParameterBool(Parameter, Value)
 \description{
 \code{SetDaqParameterBool} sets a single parameter with a boolean value.
 }
-

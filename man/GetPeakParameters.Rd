@@ -15,4 +15,3 @@ A list with the peak paramters \emph{label}, \emph{mass}, \emph{loMass} and \emp
 \description{
 \code{GetPeakParameters} gets parameters for a given peak.
 }
-

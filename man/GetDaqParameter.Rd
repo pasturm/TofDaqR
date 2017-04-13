@@ -13,4 +13,3 @@ GetDaqParameter(Parameter)
 \description{
 \code{GetDaqParameter} gets a single parameter as a string.
 }
-

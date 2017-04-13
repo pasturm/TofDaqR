@@ -29,4 +29,3 @@ int64 parameters are returned as string.
 GetUint64AttributeFromH5("path/to/file.h5", location = , name = )
 }
 }
-

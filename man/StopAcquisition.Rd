@@ -9,4 +9,3 @@ StopAcquisition()
 \description{
 \code{StopAcquisition} stops the current acquisition.
 }
-

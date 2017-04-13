@@ -23,4 +23,3 @@ SetStringAttributeInH5(Filename, location, name, attribute)
 SetIntAttributeInH5("path/to/file.h5", location = , name = , attribute = )
 }
 }
-

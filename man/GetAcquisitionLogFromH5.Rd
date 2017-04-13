@@ -28,4 +28,3 @@ timestamp string into a 64-bit integer value.
 GetAcquisitionLogFromH5("path/to/file.h5", index = )
 }
 }
-

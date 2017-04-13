@@ -17,4 +17,3 @@ GetDaqParameterBoolRef(Parameter)
 This is the same as \code{GetDaqParameterBool}, but additionally it checks
 for success and a TwRetVal string is returned if it is not sucessful.
 }
-

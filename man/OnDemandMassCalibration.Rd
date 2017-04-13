@@ -14,4 +14,3 @@ data acquired since previous arm.}
 \code{OnDemandMassCalibration} arms/executes on demand mass calibration.
 Requires that parameter \code{ReCalibFreq} is set to 3 (on demand) in order to work.
 }
-

@@ -11,4 +11,3 @@ CleanupDll()
 releases mapped shared memory and closes open files). This function is
 automatically called when the TofDaqR package is unloaded.
 }
-

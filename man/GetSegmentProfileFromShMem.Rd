@@ -20,4 +20,3 @@ A vector containing the segment profile(s).
 peak and buf index from shared memory. Use -1 for \code{PeakIndex} to get
 segment profiles of all peaks.
 }
-

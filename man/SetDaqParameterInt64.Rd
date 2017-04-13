@@ -16,4 +16,3 @@ SetDaqParameterInt64(Parameter, Value)
 \code{SetDaqParameterInt64} sets a single parameter with an int64 value
 (passed as a string).
 }
-

@@ -13,7 +13,7 @@ RegisterUserDataBuf(Location, NbrElements, ElementDescription = NULL,
 \item{NbrElements}{Number of elements to store per buf.}
 
 \item{ElementDescription}{Vector of length \code{NbrElements} containing the
-text description of elements. If \code{ElementDescription} is an empty string
+text description of elements. If \code{ElementDescription} is \code{NULL}
 the dataset "TwInfo" is not created.}
 
 \item{CompressionLevel}{Compression level used for data storage (0: no
@@ -45,4 +45,3 @@ Other Data storage functions: \code{\link{AddAttributeDouble}},
   \code{\link{UnregisterUserData}},
   \code{\link{UpdateUserData}}
 }
-

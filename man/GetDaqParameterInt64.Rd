@@ -16,4 +16,3 @@ GetDaqParameterInt64(Parameter)
 \details{
 The return string can be converted to integer64 using \code{\link[bit64]{as.integer64}}.
 }
-

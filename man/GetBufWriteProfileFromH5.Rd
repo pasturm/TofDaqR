@@ -30,4 +30,3 @@ GetBufWriteProfileFromH5("path/to/file.h5", PeakIndex = -1,
 SegmentStartIndex = 0, SegmentEndIndex = 0)
 }
 }
-
