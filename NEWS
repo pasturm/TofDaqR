@@ -1,7 +1,9 @@
 TofDaqR 0.3.3
 --------------------------------------------------------------------------------
 
-* Corrected bug in `LoadIniFile()` and `SaveIniFile()`.
+* Corrected bugs in `LoadIniFile()` and `SaveIniFile()`.
+
+* Corrected bug in `configure` script (MacOS and Linux version).
 
 
 TofDaqR 0.3.2
