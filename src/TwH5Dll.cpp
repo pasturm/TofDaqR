@@ -421,7 +421,7 @@ SEXP GetStickSpectrum2FromH5(std::string Filename, int SegmentIndex,
 //' \code{GetPeakParametersFromH5} reads peak parameters from the data file.
 //'
 //' @param Filename Path/filename of the HDF5 file.
-//' @param PeakIndex Index of peak. If index is -1 (default), peak parameters of all
+//' @param PeakIndex Index of peak (zero-based). If index is -1 (default), peak parameters of all
 //' peaks are read.
 //' @return A list with the peak paramters \emph{label}, \emph{mass}, \emph{loMass} and \emph{hiMass}.
 //'

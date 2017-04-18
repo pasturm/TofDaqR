@@ -9,7 +9,7 @@ GetPeakParametersFromH5(Filename, PeakIndex = -1L)
 \arguments{
 \item{Filename}{Path/filename of the HDF5 file.}
 
-\item{PeakIndex}{Index of peak. If index is -1 (default), peak parameters of all
+\item{PeakIndex}{Index of peak (zero-based). If index is -1 (default), peak parameters of all
 peaks are read.}
 }
 \value{
