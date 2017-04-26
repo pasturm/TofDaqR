@@ -5,6 +5,8 @@ TofDaqR 0.3.3
 
 * Corrected bug in `configure` script (MacOS and Linux version).
 
+* Added wrapper functions `GetTofDataSinglePeak()` and `FitTofDataSinglePeak()`.
+
 
 TofDaqR 0.3.2
 --------------------------------------------------------------------------------
