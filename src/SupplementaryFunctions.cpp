@@ -22,7 +22,7 @@ using namespace Rcpp;
 //' @param toftype TOF type (\code{"CTOF"}, \code{"HTOF"}, \code{"HTOF-W"} or \code{"LTOF"})
 //' @param drift Drift tube voltage (V).
 //' @param pulse Extraction pulse voltage (V).
-//' @param mass Mass-to-charge ratio (Th).
+//' @param massToCharge Mass-to-charge ratio (Th).
 //' @param x Initial position deviation of the ion(s) from the extraction plane (m).
 //' @param v Initial velocity of the ion(s) in extraction direction (m/s).
 //'
@@ -37,7 +37,7 @@ using namespace Rcpp;
 //' @export
 // [[Rcpp::export]]
 NumericVector tof(std::string toftype = "LTOF", double drift = 6000,
-                  double pulse = 1000, double mass = 100,
+                  double pulse = 1000, double massToCharge = 100,
                   NumericVector x = NumericVector::create(0),
                   NumericVector v = NumericVector::create(0)) {
 
@@ -121,7 +121,7 @@ NumericVector tof(std::string toftype = "LTOF", double drift = 6000,
   NumericVector xi(nbr);
   NumericVector k(nbr);
 
-  xi = v * sqrt((mass*amu) / (2 * e*u1));
+  xi = v * sqrt(massToCharge*amu / (2 * e*u1));
   k = (x0 - x) / d1;
 
   NumericVector timeOfFlight(nbr);
@@ -129,7 +129,7 @@ NumericVector tof(std::string toftype = "LTOF", double drift = 6000,
   // calculate time-of-flight
   if (strcmp(cToftype, "HTOF-W") == 0) {
 
-    timeOfFlight = sqrt((mass*amu)/(2*e)) *
+    timeOfFlight = sqrt(massToCharge*amu/(2*e)) *
       (2*d1/sqrt(u1)*(sqrt(xi*xi + k) - xi) +
       2*d3/u3*(sqrt(u1*xi*xi + k*u1 + u3) - sqrt(u1*xi*xi + k*u1)) +
       d4/sqrt(u1*xi*xi + k*u1 + u3) +
@@ -137,7 +137,7 @@ NumericVector tof(std::string toftype = "LTOF", double drift = 6000,
       2*4*d6/u6*sqrt(u1*xi*xi + k*u1 + u3 - u5) +
       4*d7/u7*sqrt(u1*xi*xi + k*u1 + u3));
   } else if (strcmp(cToftype, "NTOF") == 0) {
-    timeOfFlight = sqrt((mass*amu)/(2*e)) *
+    timeOfFlight = sqrt(massToCharge*amu/(2*e)) *
       (2*d1/sqrt(u1)*(sqrt(xi*xi + k) - xi) +
       2*d3/u3*(sqrt(u1*xi*xi + k*u1 + u3) - sqrt(u1*xi*xi + k*u1)) +
       d4/sqrt(u1*xi*xi + k*u1 + u3) +
@@ -145,7 +145,7 @@ NumericVector tof(std::string toftype = "LTOF", double drift = 6000,
       4*d6/u6*sqrt(u1*xi*xi + k*u1 + u3 - u5) +
       4*d7/u7*sqrt(u1*xi*xi + k*u1 + u3));
   } else {
-    timeOfFlight = sqrt((mass*amu)/(2*e)) *
+    timeOfFlight = sqrt(massToCharge*amu/(2*e)) *
       (2*d1/sqrt(u1)*(sqrt(xi*xi + k) - xi) +
       2*d3/u3*(sqrt(u1*xi*xi + k*u1 + u3) - sqrt(u1*xi*xi + k*u1)) +
       d4/sqrt(u1*xi*xi + k*u1 + u3) +
@@ -438,7 +438,7 @@ List SiProcessSpectrumFromShMem(int specType, int BufIndex) {
 void KeepSharedMemMapped() {
 
   // Note: This is part of TwGetSharedMemory, but here extracted as an
-  // idependent function.
+  // independent function.
 
   TSharedMemoryPointer pShMem;
   bool keepMapped = true;

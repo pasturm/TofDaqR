@@ -6,18 +6,18 @@
 using namespace Rcpp;
 
 // tof
-NumericVector tof(std::string toftype, double drift, double pulse, double mass, NumericVector x, NumericVector v);
-RcppExport SEXP TofDaqR_tof(SEXP toftypeSEXP, SEXP driftSEXP, SEXP pulseSEXP, SEXP massSEXP, SEXP xSEXP, SEXP vSEXP) {
+NumericVector tof(std::string toftype, double drift, double pulse, double massToCharge, NumericVector x, NumericVector v);
+RcppExport SEXP TofDaqR_tof(SEXP toftypeSEXP, SEXP driftSEXP, SEXP pulseSEXP, SEXP massToChargeSEXP, SEXP xSEXP, SEXP vSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type toftype(toftypeSEXP);
     Rcpp::traits::input_parameter< double >::type drift(driftSEXP);
     Rcpp::traits::input_parameter< double >::type pulse(pulseSEXP);
-    Rcpp::traits::input_parameter< double >::type mass(massSEXP);
+    Rcpp::traits::input_parameter< double >::type massToCharge(massToChargeSEXP);
     Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
     Rcpp::traits::input_parameter< NumericVector >::type v(vSEXP);
-    rcpp_result_gen = Rcpp::wrap(tof(toftype, drift, pulse, mass, x, v));
+    rcpp_result_gen = Rcpp::wrap(tof(toftype, drift, pulse, massToCharge, x, v));
     return rcpp_result_gen;
 END_RCPP
 }

@@ -4,7 +4,7 @@
 \alias{tof}
 \title{Time-of-flight calculation.}
 \usage{
-tof(toftype = "LTOF", drift = 6000, pulse = 1000, mass = 100,
+tof(toftype = "LTOF", drift = 6000, pulse = 1000, massToCharge = 100,
   x = as.numeric(c(0)), v = as.numeric(c(0)))
 }
 \arguments{
@@ -14,7 +14,7 @@ tof(toftype = "LTOF", drift = 6000, pulse = 1000, mass = 100,
 
 \item{pulse}{Extraction pulse voltage (V).}
 
-\item{mass}{Mass-to-charge ratio (Th).}
+\item{massToCharge}{Mass-to-charge ratio (Th).}
 
 \item{x}{Initial position deviation of the ion(s) from the extraction plane (m).}
 

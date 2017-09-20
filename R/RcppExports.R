@@ -15,7 +15,7 @@
 #' @param toftype TOF type (\code{"CTOF"}, \code{"HTOF"}, \code{"HTOF-W"} or \code{"LTOF"})
 #' @param drift Drift tube voltage (V).
 #' @param pulse Extraction pulse voltage (V).
-#' @param mass Mass-to-charge ratio (Th).
+#' @param massToCharge Mass-to-charge ratio (Th).
 #' @param x Initial position deviation of the ion(s) from the extraction plane (m).
 #' @param v Initial velocity of the ion(s) in extraction direction (m/s).
 #'
@@ -28,8 +28,8 @@
 #'
 #' @keywords internal
 #' @export
-tof <- function(toftype = "LTOF", drift = 6000, pulse = 1000, mass = 100, x = as.numeric( c(0)), v = as.numeric( c(0))) {
-    .Call('TofDaqR_tof', PACKAGE = 'TofDaqR', toftype, drift, pulse, mass, x, v)
+tof <- function(toftype = "LTOF", drift = 6000, pulse = 1000, massToCharge = 100, x = as.numeric( c(0)), v = as.numeric( c(0))) {
+    .Call('TofDaqR_tof', PACKAGE = 'TofDaqR', toftype, drift, pulse, massToCharge, x, v)
 }
 
 #' Converts events of an event list into a spectrum.
