@@ -10,8 +10,9 @@ stored in HDF5 files and additional "tool" functions, e.g. for peak fitting.
 
 ## Installation
 ### Binary
-For Windows (64-bit) a binary package is available at [releases](https://github.com/pasturm/TofDaqR/releases). Download and install 
-the zip file.
+1. Download the latest binary release (Windows only) from [releases](https://github.com/pasturm/TofDaqR/releases). 
+2. Install package: `install.packages("path/to/TofDaqR_x.y.z.zip", repos = NULL)`  
+or in RStudio: `Tools -> Install Packages... -> Install From: Package Archive File (.zip; .tar.gz) -> Browse...`
 
 ### Source
 ```

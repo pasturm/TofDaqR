@@ -1,10 +1,7 @@
-# copy dlls to ${R_PACKAGE_DIR}
-mkdir -p "${R_PACKAGE_DIR}/libs${R_ARCH}"
-if [ "${R_ARCH}" = "/x64" ]; then
-  cp ./tools/bin/windows_x64/* "${R_PACKAGE_DIR}/libs${R_ARCH}"
-elif [ "${R_ARCH}" = "/x86" ]; then
-  cp ./tools/bin/windows_x86/* "${R_PACKAGE_DIR}/libs${R_ARCH}"
-fi
+# copy dlls to ${R_PACKAGE_DIR}/libs
+mkdir -p "${R_PACKAGE_DIR}/libs"
+cp -r ./tools/bin/windows_x64 "${R_PACKAGE_DIR}/libs/x64"
+cp -r ./tools/bin/windows_x86 "${R_PACKAGE_DIR}/libs/i386"
 
 # add ChangeIonMode (which does not exist by default) to TofDaqDll.h
 if !(grep -Fq ionMode ./tools/include/TofDaqDll.h) ; then

@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // tof
 NumericVector tof(std::string toftype, double drift, double pulse, double massToCharge, NumericVector x, NumericVector v);
-RcppExport SEXP TofDaqR_tof(SEXP toftypeSEXP, SEXP driftSEXP, SEXP pulseSEXP, SEXP massToChargeSEXP, SEXP xSEXP, SEXP vSEXP) {
+RcppExport SEXP _TofDaqR_tof(SEXP toftypeSEXP, SEXP driftSEXP, SEXP pulseSEXP, SEXP massToChargeSEXP, SEXP xSEXP, SEXP vSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -23,7 +23,7 @@ END_RCPP
 }
 // EventList2TofSpec
 NumericVector EventList2TofSpec(NumericVector events, double clockPeriod, double sampleInterval, int nbrSamples);
-RcppExport SEXP TofDaqR_EventList2TofSpec(SEXP eventsSEXP, SEXP clockPeriodSEXP, SEXP sampleIntervalSEXP, SEXP nbrSamplesSEXP) {
+RcppExport SEXP _TofDaqR_EventList2TofSpec(SEXP eventsSEXP, SEXP clockPeriodSEXP, SEXP sampleIntervalSEXP, SEXP nbrSamplesSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -37,7 +37,7 @@ END_RCPP
 }
 // DecodeEventList
 List DecodeEventList(NumericVector events, int clockPeriod, int sampleInterval);
-RcppExport SEXP TofDaqR_DecodeEventList(SEXP eventsSEXP, SEXP clockPeriodSEXP, SEXP sampleIntervalSEXP) {
+RcppExport SEXP _TofDaqR_DecodeEventList(SEXP eventsSEXP, SEXP clockPeriodSEXP, SEXP sampleIntervalSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -50,7 +50,7 @@ END_RCPP
 }
 // DecodeEventListThreshold
 List DecodeEventListThreshold(NumericVector events, double clockPeriod, double sampleInterval, double threshold, int presamples, int postsamples);
-RcppExport SEXP TofDaqR_DecodeEventListThreshold(SEXP eventsSEXP, SEXP clockPeriodSEXP, SEXP sampleIntervalSEXP, SEXP thresholdSEXP, SEXP presamplesSEXP, SEXP postsamplesSEXP) {
+RcppExport SEXP _TofDaqR_DecodeEventListThreshold(SEXP eventsSEXP, SEXP clockPeriodSEXP, SEXP sampleIntervalSEXP, SEXP thresholdSEXP, SEXP presamplesSEXP, SEXP postsamplesSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -66,7 +66,7 @@ END_RCPP
 }
 // SiProcessSpectrumFromShMem
 List SiProcessSpectrumFromShMem(int specType, int BufIndex);
-RcppExport SEXP TofDaqR_SiProcessSpectrumFromShMem(SEXP specTypeSEXP, SEXP BufIndexSEXP) {
+RcppExport SEXP _TofDaqR_SiProcessSpectrumFromShMem(SEXP specTypeSEXP, SEXP BufIndexSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -78,7 +78,7 @@ END_RCPP
 }
 // KeepSharedMemMapped
 void KeepSharedMemMapped();
-RcppExport SEXP TofDaqR_KeepSharedMemMapped() {
+RcppExport SEXP _TofDaqR_KeepSharedMemMapped() {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     KeepSharedMemMapped();
@@ -87,7 +87,7 @@ END_RCPP
 }
 // InitializeDll
 void InitializeDll();
-RcppExport SEXP TofDaqR_InitializeDll() {
+RcppExport SEXP _TofDaqR_InitializeDll() {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     InitializeDll();
@@ -96,7 +96,7 @@ END_RCPP
 }
 // CleanupDll
 void CleanupDll();
-RcppExport SEXP TofDaqR_CleanupDll() {
+RcppExport SEXP _TofDaqR_CleanupDll() {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     CleanupDll();
@@ -105,7 +105,7 @@ END_RCPP
 }
 // GetDllVersion
 double GetDllVersion();
-RcppExport SEXP TofDaqR_GetDllVersion() {
+RcppExport SEXP _TofDaqR_GetDllVersion() {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -115,7 +115,7 @@ END_RCPP
 }
 // TofDaqRunning
 bool TofDaqRunning();
-RcppExport SEXP TofDaqR_TofDaqRunning() {
+RcppExport SEXP _TofDaqR_TofDaqRunning() {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -125,7 +125,7 @@ END_RCPP
 }
 // DaqActive
 bool DaqActive();
-RcppExport SEXP TofDaqR_DaqActive() {
+RcppExport SEXP _TofDaqR_DaqActive() {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -135,7 +135,7 @@ END_RCPP
 }
 // StartAcquisition
 void StartAcquisition();
-RcppExport SEXP TofDaqR_StartAcquisition() {
+RcppExport SEXP _TofDaqR_StartAcquisition() {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     StartAcquisition();
@@ -144,7 +144,7 @@ END_RCPP
 }
 // StopAcquisition
 void StopAcquisition();
-RcppExport SEXP TofDaqR_StopAcquisition() {
+RcppExport SEXP _TofDaqR_StopAcquisition() {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     StopAcquisition();
@@ -153,7 +153,7 @@ END_RCPP
 }
 // CloseTofDaqRec
 void CloseTofDaqRec();
-RcppExport SEXP TofDaqR_CloseTofDaqRec() {
+RcppExport SEXP _TofDaqR_CloseTofDaqRec() {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     CloseTofDaqRec();
@@ -162,7 +162,7 @@ END_RCPP
 }
 // InitializeDaqDevice
 void InitializeDaqDevice();
-RcppExport SEXP TofDaqR_InitializeDaqDevice() {
+RcppExport SEXP _TofDaqR_InitializeDaqDevice() {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     InitializeDaqDevice();
@@ -171,7 +171,7 @@ END_RCPP
 }
 // SetTimeout
 void SetTimeout(int timeout);
-RcppExport SEXP TofDaqR_SetTimeout(SEXP timeoutSEXP) {
+RcppExport SEXP _TofDaqR_SetTimeout(SEXP timeoutSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< int >::type timeout(timeoutSEXP);
@@ -181,7 +181,7 @@ END_RCPP
 }
 // GetTimeout
 int GetTimeout();
-RcppExport SEXP TofDaqR_GetTimeout() {
+RcppExport SEXP _TofDaqR_GetTimeout() {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -191,7 +191,7 @@ END_RCPP
 }
 // AutoSetupDaqDevice
 void AutoSetupDaqDevice();
-RcppExport SEXP TofDaqR_AutoSetupDaqDevice() {
+RcppExport SEXP _TofDaqR_AutoSetupDaqDevice() {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     AutoSetupDaqDevice();
@@ -200,7 +200,7 @@ END_RCPP
 }
 // OnDemandMassCalibration
 void OnDemandMassCalibration(int action);
-RcppExport SEXP TofDaqR_OnDemandMassCalibration(SEXP actionSEXP) {
+RcppExport SEXP _TofDaqR_OnDemandMassCalibration(SEXP actionSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< int >::type action(actionSEXP);
@@ -210,7 +210,7 @@ END_RCPP
 }
 // ShowConfigWindow
 void ShowConfigWindow(int ConfigWindowIndex);
-RcppExport SEXP TofDaqR_ShowConfigWindow(SEXP ConfigWindowIndexSEXP) {
+RcppExport SEXP _TofDaqR_ShowConfigWindow(SEXP ConfigWindowIndexSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< int >::type ConfigWindowIndex(ConfigWindowIndexSEXP);
@@ -220,7 +220,7 @@ END_RCPP
 }
 // LoadIniFile
 void LoadIniFile(Nullable<Rcpp::String> IniFile);
-RcppExport SEXP TofDaqR_LoadIniFile(SEXP IniFileSEXP) {
+RcppExport SEXP _TofDaqR_LoadIniFile(SEXP IniFileSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Nullable<Rcpp::String> >::type IniFile(IniFileSEXP);
@@ -230,7 +230,7 @@ END_RCPP
 }
 // SaveIniFile
 void SaveIniFile(Nullable<Rcpp::String> IniFile);
-RcppExport SEXP TofDaqR_SaveIniFile(SEXP IniFileSEXP) {
+RcppExport SEXP _TofDaqR_SaveIniFile(SEXP IniFileSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Nullable<Rcpp::String> >::type IniFile(IniFileSEXP);
@@ -240,7 +240,7 @@ END_RCPP
 }
 // GetDaqParameter
 String GetDaqParameter(std::string Parameter);
-RcppExport SEXP TofDaqR_GetDaqParameter(SEXP ParameterSEXP) {
+RcppExport SEXP _TofDaqR_GetDaqParameter(SEXP ParameterSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -251,7 +251,7 @@ END_RCPP
 }
 // GetDaqParameterInt
 int GetDaqParameterInt(std::string Parameter);
-RcppExport SEXP TofDaqR_GetDaqParameterInt(SEXP ParameterSEXP) {
+RcppExport SEXP _TofDaqR_GetDaqParameterInt(SEXP ParameterSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -262,7 +262,7 @@ END_RCPP
 }
 // GetDaqParameterBool
 bool GetDaqParameterBool(std::string Parameter);
-RcppExport SEXP TofDaqR_GetDaqParameterBool(SEXP ParameterSEXP) {
+RcppExport SEXP _TofDaqR_GetDaqParameterBool(SEXP ParameterSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -273,7 +273,7 @@ END_RCPP
 }
 // GetDaqParameterFloat
 double GetDaqParameterFloat(std::string Parameter);
-RcppExport SEXP TofDaqR_GetDaqParameterFloat(SEXP ParameterSEXP) {
+RcppExport SEXP _TofDaqR_GetDaqParameterFloat(SEXP ParameterSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -284,7 +284,7 @@ END_RCPP
 }
 // GetDaqParameterInt64
 String GetDaqParameterInt64(std::string Parameter);
-RcppExport SEXP TofDaqR_GetDaqParameterInt64(SEXP ParameterSEXP) {
+RcppExport SEXP _TofDaqR_GetDaqParameterInt64(SEXP ParameterSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -295,7 +295,7 @@ END_RCPP
 }
 // GetDaqParameterDouble
 double GetDaqParameterDouble(std::string Parameter);
-RcppExport SEXP TofDaqR_GetDaqParameterDouble(SEXP ParameterSEXP) {
+RcppExport SEXP _TofDaqR_GetDaqParameterDouble(SEXP ParameterSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -306,7 +306,7 @@ END_RCPP
 }
 // GetDaqParameterIntRef
 int GetDaqParameterIntRef(std::string Parameter);
-RcppExport SEXP TofDaqR_GetDaqParameterIntRef(SEXP ParameterSEXP) {
+RcppExport SEXP _TofDaqR_GetDaqParameterIntRef(SEXP ParameterSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -317,7 +317,7 @@ END_RCPP
 }
 // GetDaqParameterBoolRef
 bool GetDaqParameterBoolRef(std::string Parameter);
-RcppExport SEXP TofDaqR_GetDaqParameterBoolRef(SEXP ParameterSEXP) {
+RcppExport SEXP _TofDaqR_GetDaqParameterBoolRef(SEXP ParameterSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -328,7 +328,7 @@ END_RCPP
 }
 // GetDaqParameterFloatRef
 float GetDaqParameterFloatRef(std::string Parameter);
-RcppExport SEXP TofDaqR_GetDaqParameterFloatRef(SEXP ParameterSEXP) {
+RcppExport SEXP _TofDaqR_GetDaqParameterFloatRef(SEXP ParameterSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -339,7 +339,7 @@ END_RCPP
 }
 // GetDaqParameterInt64Ref
 String GetDaqParameterInt64Ref(std::string Parameter);
-RcppExport SEXP TofDaqR_GetDaqParameterInt64Ref(SEXP ParameterSEXP) {
+RcppExport SEXP _TofDaqR_GetDaqParameterInt64Ref(SEXP ParameterSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -350,7 +350,7 @@ END_RCPP
 }
 // GetDaqParameterDoubleRef
 double GetDaqParameterDoubleRef(std::string Parameter);
-RcppExport SEXP TofDaqR_GetDaqParameterDoubleRef(SEXP ParameterSEXP) {
+RcppExport SEXP _TofDaqR_GetDaqParameterDoubleRef(SEXP ParameterSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -361,7 +361,7 @@ END_RCPP
 }
 // GetDaqParameterStringRef
 String GetDaqParameterStringRef(std::string Parameter);
-RcppExport SEXP TofDaqR_GetDaqParameterStringRef(SEXP ParameterSEXP) {
+RcppExport SEXP _TofDaqR_GetDaqParameterStringRef(SEXP ParameterSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -372,7 +372,7 @@ END_RCPP
 }
 // SetDaqParameter
 void SetDaqParameter(std::string Parameter, std::string ValueString);
-RcppExport SEXP TofDaqR_SetDaqParameter(SEXP ParameterSEXP, SEXP ValueStringSEXP) {
+RcppExport SEXP _TofDaqR_SetDaqParameter(SEXP ParameterSEXP, SEXP ValueStringSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Parameter(ParameterSEXP);
@@ -383,7 +383,7 @@ END_RCPP
 }
 // SetDaqParameterInt
 void SetDaqParameterInt(std::string Parameter, int Value);
-RcppExport SEXP TofDaqR_SetDaqParameterInt(SEXP ParameterSEXP, SEXP ValueSEXP) {
+RcppExport SEXP _TofDaqR_SetDaqParameterInt(SEXP ParameterSEXP, SEXP ValueSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Parameter(ParameterSEXP);
@@ -394,7 +394,7 @@ END_RCPP
 }
 // SetDaqParameterBool
 void SetDaqParameterBool(std::string Parameter, bool Value);
-RcppExport SEXP TofDaqR_SetDaqParameterBool(SEXP ParameterSEXP, SEXP ValueSEXP) {
+RcppExport SEXP _TofDaqR_SetDaqParameterBool(SEXP ParameterSEXP, SEXP ValueSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Parameter(ParameterSEXP);
@@ -405,7 +405,7 @@ END_RCPP
 }
 // SetDaqParameterFloat
 void SetDaqParameterFloat(std::string Parameter, double Value);
-RcppExport SEXP TofDaqR_SetDaqParameterFloat(SEXP ParameterSEXP, SEXP ValueSEXP) {
+RcppExport SEXP _TofDaqR_SetDaqParameterFloat(SEXP ParameterSEXP, SEXP ValueSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Parameter(ParameterSEXP);
@@ -416,7 +416,7 @@ END_RCPP
 }
 // SetDaqParameterInt64
 void SetDaqParameterInt64(std::string Parameter, std::string Value);
-RcppExport SEXP TofDaqR_SetDaqParameterInt64(SEXP ParameterSEXP, SEXP ValueSEXP) {
+RcppExport SEXP _TofDaqR_SetDaqParameterInt64(SEXP ParameterSEXP, SEXP ValueSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Parameter(ParameterSEXP);
@@ -427,7 +427,7 @@ END_RCPP
 }
 // SetDaqParameterDouble
 void SetDaqParameterDouble(std::string Parameter, double Value);
-RcppExport SEXP TofDaqR_SetDaqParameterDouble(SEXP ParameterSEXP, SEXP ValueSEXP) {
+RcppExport SEXP _TofDaqR_SetDaqParameterDouble(SEXP ParameterSEXP, SEXP ValueSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Parameter(ParameterSEXP);
@@ -438,7 +438,7 @@ END_RCPP
 }
 // GetDescriptor
 List GetDescriptor();
-RcppExport SEXP TofDaqR_GetDescriptor() {
+RcppExport SEXP _TofDaqR_GetDescriptor() {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -448,7 +448,7 @@ END_RCPP
 }
 // GetPeakParameters
 List GetPeakParameters(int PeakIndex);
-RcppExport SEXP TofDaqR_GetPeakParameters(SEXP PeakIndexSEXP) {
+RcppExport SEXP _TofDaqR_GetPeakParameters(SEXP PeakIndexSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -459,7 +459,7 @@ END_RCPP
 }
 // ReleaseSharedMemory
 void ReleaseSharedMemory();
-RcppExport SEXP TofDaqR_ReleaseSharedMemory() {
+RcppExport SEXP _TofDaqR_ReleaseSharedMemory() {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     ReleaseSharedMemory();
@@ -468,7 +468,7 @@ END_RCPP
 }
 // WaitForNewData
 void WaitForNewData(int timeout, bool WaitForEventReset);
-RcppExport SEXP TofDaqR_WaitForNewData(SEXP timeoutSEXP, SEXP WaitForEventResetSEXP) {
+RcppExport SEXP _TofDaqR_WaitForNewData(SEXP timeoutSEXP, SEXP WaitForEventResetSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< int >::type timeout(timeoutSEXP);
@@ -479,7 +479,7 @@ END_RCPP
 }
 // WaitForEndOfAcquisition
 void WaitForEndOfAcquisition(int timeout);
-RcppExport SEXP TofDaqR_WaitForEndOfAcquisition(SEXP timeoutSEXP) {
+RcppExport SEXP _TofDaqR_WaitForEndOfAcquisition(SEXP timeoutSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< int >::type timeout(timeoutSEXP);
@@ -489,7 +489,7 @@ END_RCPP
 }
 // GetSumSpectrumFromShMem
 NumericVector GetSumSpectrumFromShMem(bool Normalize);
-RcppExport SEXP TofDaqR_GetSumSpectrumFromShMem(SEXP NormalizeSEXP) {
+RcppExport SEXP _TofDaqR_GetSumSpectrumFromShMem(SEXP NormalizeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -500,7 +500,7 @@ END_RCPP
 }
 // GetTofSpectrumFromShMem
 SEXP GetTofSpectrumFromShMem(int SegmentIndex, int SegmentEndIndex, int BufIndex, bool Normalize);
-RcppExport SEXP TofDaqR_GetTofSpectrumFromShMem(SEXP SegmentIndexSEXP, SEXP SegmentEndIndexSEXP, SEXP BufIndexSEXP, SEXP NormalizeSEXP) {
+RcppExport SEXP _TofDaqR_GetTofSpectrumFromShMem(SEXP SegmentIndexSEXP, SEXP SegmentEndIndexSEXP, SEXP BufIndexSEXP, SEXP NormalizeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -514,7 +514,7 @@ END_RCPP
 }
 // GetSpecXaxisFromShMem
 NumericVector GetSpecXaxisFromShMem(int Type);
-RcppExport SEXP TofDaqR_GetSpecXaxisFromShMem(SEXP TypeSEXP) {
+RcppExport SEXP _TofDaqR_GetSpecXaxisFromShMem(SEXP TypeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -525,7 +525,7 @@ END_RCPP
 }
 // GetStickSpectrumFromShMem
 List GetStickSpectrumFromShMem(int SegmentIndex, int SegmentEndIndex, int BufIndex);
-RcppExport SEXP TofDaqR_GetStickSpectrumFromShMem(SEXP SegmentIndexSEXP, SEXP SegmentEndIndexSEXP, SEXP BufIndexSEXP) {
+RcppExport SEXP _TofDaqR_GetStickSpectrumFromShMem(SEXP SegmentIndexSEXP, SEXP SegmentEndIndexSEXP, SEXP BufIndexSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -538,7 +538,7 @@ END_RCPP
 }
 // GetSegmentProfileFromShMem
 SEXP GetSegmentProfileFromShMem(int PeakIndex, int BufIndex);
-RcppExport SEXP TofDaqR_GetSegmentProfileFromShMem(SEXP PeakIndexSEXP, SEXP BufIndexSEXP) {
+RcppExport SEXP _TofDaqR_GetSegmentProfileFromShMem(SEXP PeakIndexSEXP, SEXP BufIndexSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -550,7 +550,7 @@ END_RCPP
 }
 // GetBufTimeFromShMem
 double GetBufTimeFromShMem(int BufIndex, int WriteIndex);
-RcppExport SEXP TofDaqR_GetBufTimeFromShMem(SEXP BufIndexSEXP, SEXP WriteIndexSEXP) {
+RcppExport SEXP _TofDaqR_GetBufTimeFromShMem(SEXP BufIndexSEXP, SEXP WriteIndexSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -562,7 +562,7 @@ END_RCPP
 }
 // AddLogEntry
 void AddLogEntry(std::string LogEntryText, std::string LogEntryTime);
-RcppExport SEXP TofDaqR_AddLogEntry(SEXP LogEntryTextSEXP, SEXP LogEntryTimeSEXP) {
+RcppExport SEXP _TofDaqR_AddLogEntry(SEXP LogEntryTextSEXP, SEXP LogEntryTimeSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type LogEntryText(LogEntryTextSEXP);
@@ -573,7 +573,7 @@ END_RCPP
 }
 // AddAttributeInt
 void AddAttributeInt(std::string Object, std::string AttributeName, int Value);
-RcppExport SEXP TofDaqR_AddAttributeInt(SEXP ObjectSEXP, SEXP AttributeNameSEXP, SEXP ValueSEXP) {
+RcppExport SEXP _TofDaqR_AddAttributeInt(SEXP ObjectSEXP, SEXP AttributeNameSEXP, SEXP ValueSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Object(ObjectSEXP);
@@ -585,7 +585,7 @@ END_RCPP
 }
 // AddAttributeDouble
 void AddAttributeDouble(std::string Object, std::string AttributeName, double Value);
-RcppExport SEXP TofDaqR_AddAttributeDouble(SEXP ObjectSEXP, SEXP AttributeNameSEXP, SEXP ValueSEXP) {
+RcppExport SEXP _TofDaqR_AddAttributeDouble(SEXP ObjectSEXP, SEXP AttributeNameSEXP, SEXP ValueSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Object(ObjectSEXP);
@@ -597,7 +597,7 @@ END_RCPP
 }
 // AddAttributeString
 void AddAttributeString(std::string Object, std::string AttributeName, std::string Value);
-RcppExport SEXP TofDaqR_AddAttributeString(SEXP ObjectSEXP, SEXP AttributeNameSEXP, SEXP ValueSEXP) {
+RcppExport SEXP _TofDaqR_AddAttributeString(SEXP ObjectSEXP, SEXP AttributeNameSEXP, SEXP ValueSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Object(ObjectSEXP);
@@ -609,7 +609,7 @@ END_RCPP
 }
 // AddUserData
 void AddUserData(std::string Location, int NbrElements, NumericVector Data, Nullable<Rcpp::String> ElementDescription, int CompressionLevel);
-RcppExport SEXP TofDaqR_AddUserData(SEXP LocationSEXP, SEXP NbrElementsSEXP, SEXP DataSEXP, SEXP ElementDescriptionSEXP, SEXP CompressionLevelSEXP) {
+RcppExport SEXP _TofDaqR_AddUserData(SEXP LocationSEXP, SEXP NbrElementsSEXP, SEXP DataSEXP, SEXP ElementDescriptionSEXP, SEXP CompressionLevelSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Location(LocationSEXP);
@@ -623,7 +623,7 @@ END_RCPP
 }
 // AddUserDataMultiRow
 void AddUserDataMultiRow(std::string Location, int NbrElements, int NbrRows, NumericVector Data, Nullable<Rcpp::String> ElementDescription, int CompressionLevel);
-RcppExport SEXP TofDaqR_AddUserDataMultiRow(SEXP LocationSEXP, SEXP NbrElementsSEXP, SEXP NbrRowsSEXP, SEXP DataSEXP, SEXP ElementDescriptionSEXP, SEXP CompressionLevelSEXP) {
+RcppExport SEXP _TofDaqR_AddUserDataMultiRow(SEXP LocationSEXP, SEXP NbrElementsSEXP, SEXP NbrRowsSEXP, SEXP DataSEXP, SEXP ElementDescriptionSEXP, SEXP CompressionLevelSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Location(LocationSEXP);
@@ -638,7 +638,7 @@ END_RCPP
 }
 // RegisterUserDataBuf
 void RegisterUserDataBuf(std::string Location, int NbrElements, Nullable<Rcpp::String> ElementDescription, int CompressionLevel);
-RcppExport SEXP TofDaqR_RegisterUserDataBuf(SEXP LocationSEXP, SEXP NbrElementsSEXP, SEXP ElementDescriptionSEXP, SEXP CompressionLevelSEXP) {
+RcppExport SEXP _TofDaqR_RegisterUserDataBuf(SEXP LocationSEXP, SEXP NbrElementsSEXP, SEXP ElementDescriptionSEXP, SEXP CompressionLevelSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Location(LocationSEXP);
@@ -651,7 +651,7 @@ END_RCPP
 }
 // RegisterUserDataWrite
 void RegisterUserDataWrite(std::string Location, int NbrElements, Nullable<Rcpp::String> ElementDescription, int CompressionLevel);
-RcppExport SEXP TofDaqR_RegisterUserDataWrite(SEXP LocationSEXP, SEXP NbrElementsSEXP, SEXP ElementDescriptionSEXP, SEXP CompressionLevelSEXP) {
+RcppExport SEXP _TofDaqR_RegisterUserDataWrite(SEXP LocationSEXP, SEXP NbrElementsSEXP, SEXP ElementDescriptionSEXP, SEXP CompressionLevelSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Location(LocationSEXP);
@@ -664,7 +664,7 @@ END_RCPP
 }
 // RegisterUserDataNoStore
 void RegisterUserDataNoStore(std::string Location, int NbrElements, Nullable<Rcpp::String> ElementDescription);
-RcppExport SEXP TofDaqR_RegisterUserDataNoStore(SEXP LocationSEXP, SEXP NbrElementsSEXP, SEXP ElementDescriptionSEXP) {
+RcppExport SEXP _TofDaqR_RegisterUserDataNoStore(SEXP LocationSEXP, SEXP NbrElementsSEXP, SEXP ElementDescriptionSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Location(LocationSEXP);
@@ -676,7 +676,7 @@ END_RCPP
 }
 // UnregisterUserData
 void UnregisterUserData(std::string Location);
-RcppExport SEXP TofDaqR_UnregisterUserData(SEXP LocationSEXP) {
+RcppExport SEXP _TofDaqR_UnregisterUserData(SEXP LocationSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Location(LocationSEXP);
@@ -686,7 +686,7 @@ END_RCPP
 }
 // UpdateUserData
 void UpdateUserData(std::string Location, int NbrElements, NumericVector Data);
-RcppExport SEXP TofDaqR_UpdateUserData(SEXP LocationSEXP, SEXP NbrElementsSEXP, SEXP DataSEXP) {
+RcppExport SEXP _TofDaqR_UpdateUserData(SEXP LocationSEXP, SEXP NbrElementsSEXP, SEXP DataSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Location(LocationSEXP);
@@ -698,7 +698,7 @@ END_RCPP
 }
 // ReadRegUserData
 NumericVector ReadRegUserData(std::string Location, int NbrElements);
-RcppExport SEXP TofDaqR_ReadRegUserData(SEXP LocationSEXP, SEXP NbrElementsSEXP) {
+RcppExport SEXP _TofDaqR_ReadRegUserData(SEXP LocationSEXP, SEXP NbrElementsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -710,7 +710,7 @@ END_RCPP
 }
 // QueryRegUserDataSize
 int QueryRegUserDataSize(std::string Location);
-RcppExport SEXP TofDaqR_QueryRegUserDataSize(SEXP LocationSEXP) {
+RcppExport SEXP _TofDaqR_QueryRegUserDataSize(SEXP LocationSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -721,7 +721,7 @@ END_RCPP
 }
 // GetRegUserDataSources
 List GetRegUserDataSources();
-RcppExport SEXP TofDaqR_GetRegUserDataSources() {
+RcppExport SEXP _TofDaqR_GetRegUserDataSources() {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -731,7 +731,7 @@ END_RCPP
 }
 // GetRegUserDataDesc
 CharacterVector GetRegUserDataDesc(std::string Location);
-RcppExport SEXP TofDaqR_GetRegUserDataDesc(SEXP LocationSEXP) {
+RcppExport SEXP _TofDaqR_GetRegUserDataDesc(SEXP LocationSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -742,7 +742,7 @@ END_RCPP
 }
 // KeepFileOpen
 void KeepFileOpen(bool keepOpen);
-RcppExport SEXP TofDaqR_KeepFileOpen(SEXP keepOpenSEXP) {
+RcppExport SEXP _TofDaqR_KeepFileOpen(SEXP keepOpenSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< bool >::type keepOpen(keepOpenSEXP);
@@ -752,7 +752,7 @@ END_RCPP
 }
 // TpsConnect
 void TpsConnect();
-RcppExport SEXP TofDaqR_TpsConnect() {
+RcppExport SEXP _TofDaqR_TpsConnect() {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     TpsConnect();
@@ -761,7 +761,7 @@ END_RCPP
 }
 // TpsConnect2
 void TpsConnect2(std::string ip, int type);
-RcppExport SEXP TofDaqR_TpsConnect2(SEXP ipSEXP, SEXP typeSEXP) {
+RcppExport SEXP _TofDaqR_TpsConnect2(SEXP ipSEXP, SEXP typeSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type ip(ipSEXP);
@@ -772,7 +772,7 @@ END_RCPP
 }
 // TpsDisconnect
 void TpsDisconnect();
-RcppExport SEXP TofDaqR_TpsDisconnect() {
+RcppExport SEXP _TofDaqR_TpsDisconnect() {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     TpsDisconnect();
@@ -781,7 +781,7 @@ END_RCPP
 }
 // TpsGetMonitorValue
 double TpsGetMonitorValue(int moduleCode);
-RcppExport SEXP TofDaqR_TpsGetMonitorValue(SEXP moduleCodeSEXP) {
+RcppExport SEXP _TofDaqR_TpsGetMonitorValue(SEXP moduleCodeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -792,7 +792,7 @@ END_RCPP
 }
 // TpsGetTargetValue
 double TpsGetTargetValue(int moduleCode);
-RcppExport SEXP TofDaqR_TpsGetTargetValue(SEXP moduleCodeSEXP) {
+RcppExport SEXP _TofDaqR_TpsGetTargetValue(SEXP moduleCodeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -803,7 +803,7 @@ END_RCPP
 }
 // TpsGetLastSetValue
 double TpsGetLastSetValue(int moduleCode);
-RcppExport SEXP TofDaqR_TpsGetLastSetValue(SEXP moduleCodeSEXP) {
+RcppExport SEXP _TofDaqR_TpsGetLastSetValue(SEXP moduleCodeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -814,7 +814,7 @@ END_RCPP
 }
 // TpsSetTargetValue
 void TpsSetTargetValue(int moduleCode, double value);
-RcppExport SEXP TofDaqR_TpsSetTargetValue(SEXP moduleCodeSEXP, SEXP valueSEXP) {
+RcppExport SEXP _TofDaqR_TpsSetTargetValue(SEXP moduleCodeSEXP, SEXP valueSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< int >::type moduleCode(moduleCodeSEXP);
@@ -825,7 +825,7 @@ END_RCPP
 }
 // TpsGetNbrModules
 int TpsGetNbrModules();
-RcppExport SEXP TofDaqR_TpsGetNbrModules() {
+RcppExport SEXP _TofDaqR_TpsGetNbrModules() {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -835,7 +835,7 @@ END_RCPP
 }
 // TpsGetModuleCodes
 IntegerVector TpsGetModuleCodes();
-RcppExport SEXP TofDaqR_TpsGetModuleCodes() {
+RcppExport SEXP _TofDaqR_TpsGetModuleCodes() {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -845,7 +845,7 @@ END_RCPP
 }
 // TpsInitialize
 void TpsInitialize();
-RcppExport SEXP TofDaqR_TpsInitialize() {
+RcppExport SEXP _TofDaqR_TpsInitialize() {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     TpsInitialize();
@@ -854,7 +854,7 @@ END_RCPP
 }
 // TpsSetAllVoltages
 void TpsSetAllVoltages();
-RcppExport SEXP TofDaqR_TpsSetAllVoltages() {
+RcppExport SEXP _TofDaqR_TpsSetAllVoltages() {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     TpsSetAllVoltages();
@@ -863,7 +863,7 @@ END_RCPP
 }
 // TpsShutdown
 void TpsShutdown();
-RcppExport SEXP TofDaqR_TpsShutdown() {
+RcppExport SEXP _TofDaqR_TpsShutdown() {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     TpsShutdown();
@@ -872,7 +872,7 @@ END_RCPP
 }
 // TpsGetStatus
 List TpsGetStatus();
-RcppExport SEXP TofDaqR_TpsGetStatus() {
+RcppExport SEXP _TofDaqR_TpsGetStatus() {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -882,7 +882,7 @@ END_RCPP
 }
 // TpsLoadSetFile
 void TpsLoadSetFile(std::string setFile);
-RcppExport SEXP TofDaqR_TpsLoadSetFile(SEXP setFileSEXP) {
+RcppExport SEXP _TofDaqR_TpsLoadSetFile(SEXP setFileSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type setFile(setFileSEXP);
@@ -892,7 +892,7 @@ END_RCPP
 }
 // TpsSaveSetFile
 void TpsSaveSetFile(std::string setFile);
-RcppExport SEXP TofDaqR_TpsSaveSetFile(SEXP setFileSEXP) {
+RcppExport SEXP _TofDaqR_TpsSaveSetFile(SEXP setFileSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type setFile(setFileSEXP);
@@ -902,7 +902,7 @@ END_RCPP
 }
 // TpsGetActiveFilament
 int TpsGetActiveFilament();
-RcppExport SEXP TofDaqR_TpsGetActiveFilament() {
+RcppExport SEXP _TofDaqR_TpsGetActiveFilament() {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -912,7 +912,7 @@ END_RCPP
 }
 // TpsSetActiveFilament
 void TpsSetActiveFilament(int activeFilament);
-RcppExport SEXP TofDaqR_TpsSetActiveFilament(SEXP activeFilamentSEXP) {
+RcppExport SEXP _TofDaqR_TpsSetActiveFilament(SEXP activeFilamentSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< int >::type activeFilament(activeFilamentSEXP);
@@ -922,7 +922,7 @@ END_RCPP
 }
 // TpsGetModuleLimits
 NumericVector TpsGetModuleLimits(int moduleCode);
-RcppExport SEXP TofDaqR_TpsGetModuleLimits(SEXP moduleCodeSEXP) {
+RcppExport SEXP _TofDaqR_TpsGetModuleLimits(SEXP moduleCodeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -933,7 +933,7 @@ END_RCPP
 }
 // TpsChangeIonMode
 void TpsChangeIonMode(int ionMode);
-RcppExport SEXP TofDaqR_TpsChangeIonMode(SEXP ionModeSEXP) {
+RcppExport SEXP _TofDaqR_TpsChangeIonMode(SEXP ionModeSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< int >::type ionMode(ionModeSEXP);
@@ -943,7 +943,7 @@ END_RCPP
 }
 // GetH5Descriptor
 List GetH5Descriptor(std::string Filename);
-RcppExport SEXP TofDaqR_GetH5Descriptor(SEXP FilenameSEXP) {
+RcppExport SEXP _TofDaqR_GetH5Descriptor(SEXP FilenameSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -954,7 +954,7 @@ END_RCPP
 }
 // CloseH5
 void CloseH5(std::string Filename);
-RcppExport SEXP TofDaqR_CloseH5(SEXP FilenameSEXP) {
+RcppExport SEXP _TofDaqR_CloseH5(SEXP FilenameSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Filename(FilenameSEXP);
@@ -964,7 +964,7 @@ END_RCPP
 }
 // CloseAll
 void CloseAll();
-RcppExport SEXP TofDaqR_CloseAll() {
+RcppExport SEXP _TofDaqR_CloseAll() {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     CloseAll();
@@ -973,7 +973,7 @@ END_RCPP
 }
 // GetSumSpectrumFromH5
 NumericVector GetSumSpectrumFromH5(std::string Filename, bool Normalize);
-RcppExport SEXP TofDaqR_GetSumSpectrumFromH5(SEXP FilenameSEXP, SEXP NormalizeSEXP) {
+RcppExport SEXP _TofDaqR_GetSumSpectrumFromH5(SEXP FilenameSEXP, SEXP NormalizeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -985,7 +985,7 @@ END_RCPP
 }
 // GetTofSpectrumFromH5
 SEXP GetTofSpectrumFromH5(std::string Filename, int SegmentIndex, int SegmentEndIndex, int BufIndex, int BufEndIndex, int WriteIndex, int WriteEndIndex, bool BufWriteLinked, bool Normalize);
-RcppExport SEXP TofDaqR_GetTofSpectrumFromH5(SEXP FilenameSEXP, SEXP SegmentIndexSEXP, SEXP SegmentEndIndexSEXP, SEXP BufIndexSEXP, SEXP BufEndIndexSEXP, SEXP WriteIndexSEXP, SEXP WriteEndIndexSEXP, SEXP BufWriteLinkedSEXP, SEXP NormalizeSEXP) {
+RcppExport SEXP _TofDaqR_GetTofSpectrumFromH5(SEXP FilenameSEXP, SEXP SegmentIndexSEXP, SEXP SegmentEndIndexSEXP, SEXP BufIndexSEXP, SEXP BufEndIndexSEXP, SEXP WriteIndexSEXP, SEXP WriteEndIndexSEXP, SEXP BufWriteLinkedSEXP, SEXP NormalizeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1004,7 +1004,7 @@ END_RCPP
 }
 // GetTofSpectrum2FromH5
 SEXP GetTofSpectrum2FromH5(std::string Filename, int SegmentIndex, int SegmentEndIndex, int BufIndex, int BufEndIndex, int WriteIndex, int WriteEndIndex, bool BufWriteLinked, bool Normalize);
-RcppExport SEXP TofDaqR_GetTofSpectrum2FromH5(SEXP FilenameSEXP, SEXP SegmentIndexSEXP, SEXP SegmentEndIndexSEXP, SEXP BufIndexSEXP, SEXP BufEndIndexSEXP, SEXP WriteIndexSEXP, SEXP WriteEndIndexSEXP, SEXP BufWriteLinkedSEXP, SEXP NormalizeSEXP) {
+RcppExport SEXP _TofDaqR_GetTofSpectrum2FromH5(SEXP FilenameSEXP, SEXP SegmentIndexSEXP, SEXP SegmentEndIndexSEXP, SEXP BufIndexSEXP, SEXP BufEndIndexSEXP, SEXP WriteIndexSEXP, SEXP WriteEndIndexSEXP, SEXP BufWriteLinkedSEXP, SEXP NormalizeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1023,7 +1023,7 @@ END_RCPP
 }
 // GetStickSpectrumFromH5
 SEXP GetStickSpectrumFromH5(std::string Filename, int SegmentIndex, int SegmentEndIndex, int BufIndex, int BufEndIndex, int WriteIndex, int WriteEndIndex, bool BufWriteLinked, bool Normalize);
-RcppExport SEXP TofDaqR_GetStickSpectrumFromH5(SEXP FilenameSEXP, SEXP SegmentIndexSEXP, SEXP SegmentEndIndexSEXP, SEXP BufIndexSEXP, SEXP BufEndIndexSEXP, SEXP WriteIndexSEXP, SEXP WriteEndIndexSEXP, SEXP BufWriteLinkedSEXP, SEXP NormalizeSEXP) {
+RcppExport SEXP _TofDaqR_GetStickSpectrumFromH5(SEXP FilenameSEXP, SEXP SegmentIndexSEXP, SEXP SegmentEndIndexSEXP, SEXP BufIndexSEXP, SEXP BufEndIndexSEXP, SEXP WriteIndexSEXP, SEXP WriteEndIndexSEXP, SEXP BufWriteLinkedSEXP, SEXP NormalizeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1042,7 +1042,7 @@ END_RCPP
 }
 // GetStickSpectrum2FromH5
 SEXP GetStickSpectrum2FromH5(std::string Filename, int SegmentIndex, int SegmentEndIndex, int BufIndex, int BufEndIndex, int WriteIndex, int WriteEndIndex, bool BufWriteLinked, bool Normalize);
-RcppExport SEXP TofDaqR_GetStickSpectrum2FromH5(SEXP FilenameSEXP, SEXP SegmentIndexSEXP, SEXP SegmentEndIndexSEXP, SEXP BufIndexSEXP, SEXP BufEndIndexSEXP, SEXP WriteIndexSEXP, SEXP WriteEndIndexSEXP, SEXP BufWriteLinkedSEXP, SEXP NormalizeSEXP) {
+RcppExport SEXP _TofDaqR_GetStickSpectrum2FromH5(SEXP FilenameSEXP, SEXP SegmentIndexSEXP, SEXP SegmentEndIndexSEXP, SEXP BufIndexSEXP, SEXP BufEndIndexSEXP, SEXP WriteIndexSEXP, SEXP WriteEndIndexSEXP, SEXP BufWriteLinkedSEXP, SEXP NormalizeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1061,7 +1061,7 @@ END_RCPP
 }
 // GetPeakParametersFromH5
 List GetPeakParametersFromH5(std::string Filename, int PeakIndex);
-RcppExport SEXP TofDaqR_GetPeakParametersFromH5(SEXP FilenameSEXP, SEXP PeakIndexSEXP) {
+RcppExport SEXP _TofDaqR_GetPeakParametersFromH5(SEXP FilenameSEXP, SEXP PeakIndexSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1073,7 +1073,7 @@ END_RCPP
 }
 // GetBufTimeFromH5
 double GetBufTimeFromH5(std::string Filename, int BufIndex, int WriteIndex);
-RcppExport SEXP TofDaqR_GetBufTimeFromH5(SEXP FilenameSEXP, SEXP BufIndexSEXP, SEXP WriteIndexSEXP) {
+RcppExport SEXP _TofDaqR_GetBufTimeFromH5(SEXP FilenameSEXP, SEXP BufIndexSEXP, SEXP WriteIndexSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1086,7 +1086,7 @@ END_RCPP
 }
 // GetSpecXaxisFromH5
 NumericVector GetSpecXaxisFromH5(std::string Filename, int Type, int writeIndex);
-RcppExport SEXP TofDaqR_GetSpecXaxisFromH5(SEXP FilenameSEXP, SEXP TypeSEXP, SEXP writeIndexSEXP) {
+RcppExport SEXP _TofDaqR_GetSpecXaxisFromH5(SEXP FilenameSEXP, SEXP TypeSEXP, SEXP writeIndexSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1099,7 +1099,7 @@ END_RCPP
 }
 // GetSegmentProfileFromH5
 SEXP GetSegmentProfileFromH5(std::string Filename, int PeakIndex, int BufStartIndex, int BufEndIndex, int WriteStartIndex, int WriteEndIndex, bool BufWriteLinked);
-RcppExport SEXP TofDaqR_GetSegmentProfileFromH5(SEXP FilenameSEXP, SEXP PeakIndexSEXP, SEXP BufStartIndexSEXP, SEXP BufEndIndexSEXP, SEXP WriteStartIndexSEXP, SEXP WriteEndIndexSEXP, SEXP BufWriteLinkedSEXP) {
+RcppExport SEXP _TofDaqR_GetSegmentProfileFromH5(SEXP FilenameSEXP, SEXP PeakIndexSEXP, SEXP BufStartIndexSEXP, SEXP BufEndIndexSEXP, SEXP WriteStartIndexSEXP, SEXP WriteEndIndexSEXP, SEXP BufWriteLinkedSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1116,7 +1116,7 @@ END_RCPP
 }
 // GetSegmentProfile2FromH5
 SEXP GetSegmentProfile2FromH5(std::string Filename, int PeakIndex, int BufStartIndex, int BufEndIndex, int WriteStartIndex, int WriteEndIndex, bool BufWriteLinked);
-RcppExport SEXP TofDaqR_GetSegmentProfile2FromH5(SEXP FilenameSEXP, SEXP PeakIndexSEXP, SEXP BufStartIndexSEXP, SEXP BufEndIndexSEXP, SEXP WriteStartIndexSEXP, SEXP WriteEndIndexSEXP, SEXP BufWriteLinkedSEXP) {
+RcppExport SEXP _TofDaqR_GetSegmentProfile2FromH5(SEXP FilenameSEXP, SEXP PeakIndexSEXP, SEXP BufStartIndexSEXP, SEXP BufEndIndexSEXP, SEXP WriteStartIndexSEXP, SEXP WriteEndIndexSEXP, SEXP BufWriteLinkedSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1133,7 +1133,7 @@ END_RCPP
 }
 // GetBufWriteProfileFromH5
 SEXP GetBufWriteProfileFromH5(std::string Filename, int PeakIndex, int SegmentStartIndex, int SegmentEndIndex);
-RcppExport SEXP TofDaqR_GetBufWriteProfileFromH5(SEXP FilenameSEXP, SEXP PeakIndexSEXP, SEXP SegmentStartIndexSEXP, SEXP SegmentEndIndexSEXP) {
+RcppExport SEXP _TofDaqR_GetBufWriteProfileFromH5(SEXP FilenameSEXP, SEXP PeakIndexSEXP, SEXP SegmentStartIndexSEXP, SEXP SegmentEndIndexSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1147,7 +1147,7 @@ END_RCPP
 }
 // GetBufWriteProfile2FromH5
 SEXP GetBufWriteProfile2FromH5(std::string Filename, int PeakIndex, int SegmentStartIndex, int SegmentEndIndex);
-RcppExport SEXP TofDaqR_GetBufWriteProfile2FromH5(SEXP FilenameSEXP, SEXP PeakIndexSEXP, SEXP SegmentStartIndexSEXP, SEXP SegmentEndIndexSEXP) {
+RcppExport SEXP _TofDaqR_GetBufWriteProfile2FromH5(SEXP FilenameSEXP, SEXP PeakIndexSEXP, SEXP SegmentStartIndexSEXP, SEXP SegmentEndIndexSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1161,7 +1161,7 @@ END_RCPP
 }
 // GetRegUserDataSourcesFromH5
 List GetRegUserDataSourcesFromH5(std::string Filename);
-RcppExport SEXP TofDaqR_GetRegUserDataSourcesFromH5(SEXP FilenameSEXP) {
+RcppExport SEXP _TofDaqR_GetRegUserDataSourcesFromH5(SEXP FilenameSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1172,7 +1172,7 @@ END_RCPP
 }
 // GetRegUserDataFromH5
 SEXP GetRegUserDataFromH5(std::string Filename, std::string location, int bufIndex, int writeIndex, bool readDescription);
-RcppExport SEXP TofDaqR_GetRegUserDataFromH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP bufIndexSEXP, SEXP writeIndexSEXP, SEXP readDescriptionSEXP) {
+RcppExport SEXP _TofDaqR_GetRegUserDataFromH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP bufIndexSEXP, SEXP writeIndexSEXP, SEXP readDescriptionSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1187,7 +1187,7 @@ END_RCPP
 }
 // GetTofData
 SEXP GetTofData(std::string Filename, int sampleOffset, int sampleCount, int segOffset, int segCount, int bufOffset, int bufCount, int writeOffset, int writeCount);
-RcppExport SEXP TofDaqR_GetTofData(SEXP FilenameSEXP, SEXP sampleOffsetSEXP, SEXP sampleCountSEXP, SEXP segOffsetSEXP, SEXP segCountSEXP, SEXP bufOffsetSEXP, SEXP bufCountSEXP, SEXP writeOffsetSEXP, SEXP writeCountSEXP) {
+RcppExport SEXP _TofDaqR_GetTofData(SEXP FilenameSEXP, SEXP sampleOffsetSEXP, SEXP sampleCountSEXP, SEXP segOffsetSEXP, SEXP segCountSEXP, SEXP bufOffsetSEXP, SEXP bufCountSEXP, SEXP writeOffsetSEXP, SEXP writeCountSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1206,7 +1206,7 @@ END_RCPP
 }
 // GetTofData2
 SEXP GetTofData2(std::string Filename, int sampleOffset, int sampleCount, int segOffset, int segCount, int bufOffset, int bufCount, int writeOffset, int writeCount);
-RcppExport SEXP TofDaqR_GetTofData2(SEXP FilenameSEXP, SEXP sampleOffsetSEXP, SEXP sampleCountSEXP, SEXP segOffsetSEXP, SEXP segCountSEXP, SEXP bufOffsetSEXP, SEXP bufCountSEXP, SEXP writeOffsetSEXP, SEXP writeCountSEXP) {
+RcppExport SEXP _TofDaqR_GetTofData2(SEXP FilenameSEXP, SEXP sampleOffsetSEXP, SEXP sampleCountSEXP, SEXP segOffsetSEXP, SEXP segCountSEXP, SEXP bufOffsetSEXP, SEXP bufCountSEXP, SEXP writeOffsetSEXP, SEXP writeCountSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1225,7 +1225,7 @@ END_RCPP
 }
 // GetPeakData
 SEXP GetPeakData(std::string Filename, int peakOffset, int peakCount, int segOffset, int segCount, int bufOffset, int bufCount, int writeOffset, int writeCount);
-RcppExport SEXP TofDaqR_GetPeakData(SEXP FilenameSEXP, SEXP peakOffsetSEXP, SEXP peakCountSEXP, SEXP segOffsetSEXP, SEXP segCountSEXP, SEXP bufOffsetSEXP, SEXP bufCountSEXP, SEXP writeOffsetSEXP, SEXP writeCountSEXP) {
+RcppExport SEXP _TofDaqR_GetPeakData(SEXP FilenameSEXP, SEXP peakOffsetSEXP, SEXP peakCountSEXP, SEXP segOffsetSEXP, SEXP segCountSEXP, SEXP bufOffsetSEXP, SEXP bufCountSEXP, SEXP writeOffsetSEXP, SEXP writeCountSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1244,7 +1244,7 @@ END_RCPP
 }
 // GetPeakData2
 SEXP GetPeakData2(std::string Filename, int peakOffset, int peakCount, int segOffset, int segCount, int bufOffset, int bufCount, int writeOffset, int writeCount);
-RcppExport SEXP TofDaqR_GetPeakData2(SEXP FilenameSEXP, SEXP peakOffsetSEXP, SEXP peakCountSEXP, SEXP segOffsetSEXP, SEXP segCountSEXP, SEXP bufOffsetSEXP, SEXP bufCountSEXP, SEXP writeOffsetSEXP, SEXP writeCountSEXP) {
+RcppExport SEXP _TofDaqR_GetPeakData2(SEXP FilenameSEXP, SEXP peakOffsetSEXP, SEXP peakCountSEXP, SEXP segOffsetSEXP, SEXP segCountSEXP, SEXP bufOffsetSEXP, SEXP bufCountSEXP, SEXP writeOffsetSEXP, SEXP writeCountSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1263,7 +1263,7 @@ END_RCPP
 }
 // GetTimingData
 NumericVector GetTimingData(std::string Filename, int bufOffset, int bufCount, int writeOffset, int writeCount);
-RcppExport SEXP TofDaqR_GetTimingData(SEXP FilenameSEXP, SEXP bufOffsetSEXP, SEXP bufCountSEXP, SEXP writeOffsetSEXP, SEXP writeCountSEXP) {
+RcppExport SEXP _TofDaqR_GetTimingData(SEXP FilenameSEXP, SEXP bufOffsetSEXP, SEXP bufCountSEXP, SEXP writeOffsetSEXP, SEXP writeCountSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1278,7 +1278,7 @@ END_RCPP
 }
 // GetIntAttributeFromH5
 int GetIntAttributeFromH5(std::string Filename, std::string location, std::string name);
-RcppExport SEXP TofDaqR_GetIntAttributeFromH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP) {
+RcppExport SEXP _TofDaqR_GetIntAttributeFromH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1291,7 +1291,7 @@ END_RCPP
 }
 // GetUintAttributeFromH5
 unsigned int GetUintAttributeFromH5(std::string Filename, std::string location, std::string name);
-RcppExport SEXP TofDaqR_GetUintAttributeFromH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP) {
+RcppExport SEXP _TofDaqR_GetUintAttributeFromH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1304,7 +1304,7 @@ END_RCPP
 }
 // GetInt64AttributeFromH5
 CharacterVector GetInt64AttributeFromH5(std::string Filename, std::string location, std::string name);
-RcppExport SEXP TofDaqR_GetInt64AttributeFromH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP) {
+RcppExport SEXP _TofDaqR_GetInt64AttributeFromH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1317,7 +1317,7 @@ END_RCPP
 }
 // GetUint64AttributeFromH5
 CharacterVector GetUint64AttributeFromH5(std::string Filename, std::string location, std::string name);
-RcppExport SEXP TofDaqR_GetUint64AttributeFromH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP) {
+RcppExport SEXP _TofDaqR_GetUint64AttributeFromH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1330,7 +1330,7 @@ END_RCPP
 }
 // GetFloatAttributeFromH5
 float GetFloatAttributeFromH5(std::string Filename, std::string location, std::string name);
-RcppExport SEXP TofDaqR_GetFloatAttributeFromH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP) {
+RcppExport SEXP _TofDaqR_GetFloatAttributeFromH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1343,7 +1343,7 @@ END_RCPP
 }
 // GetDoubleAttributeFromH5
 double GetDoubleAttributeFromH5(std::string Filename, std::string location, std::string name);
-RcppExport SEXP TofDaqR_GetDoubleAttributeFromH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP) {
+RcppExport SEXP _TofDaqR_GetDoubleAttributeFromH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1356,7 +1356,7 @@ END_RCPP
 }
 // GetStringAttributeFromH5
 String GetStringAttributeFromH5(std::string Filename, std::string location, std::string name);
-RcppExport SEXP TofDaqR_GetStringAttributeFromH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP) {
+RcppExport SEXP _TofDaqR_GetStringAttributeFromH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1369,7 +1369,7 @@ END_RCPP
 }
 // SetIntAttributeInH5
 void SetIntAttributeInH5(std::string Filename, std::string location, std::string name, int attribute);
-RcppExport SEXP TofDaqR_SetIntAttributeInH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP, SEXP attributeSEXP) {
+RcppExport SEXP _TofDaqR_SetIntAttributeInH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP, SEXP attributeSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Filename(FilenameSEXP);
@@ -1382,7 +1382,7 @@ END_RCPP
 }
 // SetUintAttributeInH5
 void SetUintAttributeInH5(std::string Filename, std::string location, std::string name, double attribute);
-RcppExport SEXP TofDaqR_SetUintAttributeInH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP, SEXP attributeSEXP) {
+RcppExport SEXP _TofDaqR_SetUintAttributeInH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP, SEXP attributeSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Filename(FilenameSEXP);
@@ -1395,7 +1395,7 @@ END_RCPP
 }
 // SetInt64AttributeInH5
 void SetInt64AttributeInH5(std::string Filename, std::string location, std::string name, std::string attribute);
-RcppExport SEXP TofDaqR_SetInt64AttributeInH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP, SEXP attributeSEXP) {
+RcppExport SEXP _TofDaqR_SetInt64AttributeInH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP, SEXP attributeSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Filename(FilenameSEXP);
@@ -1408,7 +1408,7 @@ END_RCPP
 }
 // SetUint64AttributeInH5
 void SetUint64AttributeInH5(std::string Filename, std::string location, std::string name, std::string attribute);
-RcppExport SEXP TofDaqR_SetUint64AttributeInH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP, SEXP attributeSEXP) {
+RcppExport SEXP _TofDaqR_SetUint64AttributeInH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP, SEXP attributeSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Filename(FilenameSEXP);
@@ -1421,7 +1421,7 @@ END_RCPP
 }
 // SetFloatAttributeInH5
 void SetFloatAttributeInH5(std::string Filename, std::string location, std::string name, double attribute);
-RcppExport SEXP TofDaqR_SetFloatAttributeInH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP, SEXP attributeSEXP) {
+RcppExport SEXP _TofDaqR_SetFloatAttributeInH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP, SEXP attributeSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Filename(FilenameSEXP);
@@ -1434,7 +1434,7 @@ END_RCPP
 }
 // SetDoubleAttributeInH5
 void SetDoubleAttributeInH5(std::string Filename, std::string location, std::string name, double attribute);
-RcppExport SEXP TofDaqR_SetDoubleAttributeInH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP, SEXP attributeSEXP) {
+RcppExport SEXP _TofDaqR_SetDoubleAttributeInH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP, SEXP attributeSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Filename(FilenameSEXP);
@@ -1447,7 +1447,7 @@ END_RCPP
 }
 // SetStringAttributeInH5
 void SetStringAttributeInH5(std::string Filename, std::string location, std::string name, std::string attribute);
-RcppExport SEXP TofDaqR_SetStringAttributeInH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP, SEXP attributeSEXP) {
+RcppExport SEXP _TofDaqR_SetStringAttributeInH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP nameSEXP, SEXP attributeSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Filename(FilenameSEXP);
@@ -1460,7 +1460,7 @@ END_RCPP
 }
 // GetUserDataFromH5
 List GetUserDataFromH5(std::string Filename, std::string location, int rowIndex);
-RcppExport SEXP TofDaqR_GetUserDataFromH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP rowIndexSEXP) {
+RcppExport SEXP _TofDaqR_GetUserDataFromH5(SEXP FilenameSEXP, SEXP locationSEXP, SEXP rowIndexSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1473,7 +1473,7 @@ END_RCPP
 }
 // GetAcquisitionLogFromH5
 List GetAcquisitionLogFromH5(std::string Filename, int index);
-RcppExport SEXP TofDaqR_GetAcquisitionLogFromH5(SEXP FilenameSEXP, SEXP indexSEXP) {
+RcppExport SEXP _TofDaqR_GetAcquisitionLogFromH5(SEXP FilenameSEXP, SEXP indexSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1485,7 +1485,7 @@ END_RCPP
 }
 // GetEventListSpectrumFromH5
 SEXP GetEventListSpectrumFromH5(std::string Filename, int segmentIndex, int bufIndex, int writeIndex);
-RcppExport SEXP TofDaqR_GetEventListSpectrumFromH5(SEXP FilenameSEXP, SEXP segmentIndexSEXP, SEXP bufIndexSEXP, SEXP writeIndexSEXP) {
+RcppExport SEXP _TofDaqR_GetEventListSpectrumFromH5(SEXP FilenameSEXP, SEXP segmentIndexSEXP, SEXP bufIndexSEXP, SEXP writeIndexSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1499,7 +1499,7 @@ END_RCPP
 }
 // H5GetMassCalibPar
 List H5GetMassCalibPar(std::string Filename, int writeIndex);
-RcppExport SEXP TofDaqR_H5GetMassCalibPar(SEXP FilenameSEXP, SEXP writeIndexSEXP) {
+RcppExport SEXP _TofDaqR_H5GetMassCalibPar(SEXP FilenameSEXP, SEXP writeIndexSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1511,7 +1511,7 @@ END_RCPP
 }
 // H5AddLogEntry
 void H5AddLogEntry(std::string Filename, std::string LogEntryText, std::string LogEntryTime);
-RcppExport SEXP TofDaqR_H5AddLogEntry(SEXP FilenameSEXP, SEXP LogEntryTextSEXP, SEXP LogEntryTimeSEXP) {
+RcppExport SEXP _TofDaqR_H5AddLogEntry(SEXP FilenameSEXP, SEXP LogEntryTextSEXP, SEXP LogEntryTimeSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Filename(FilenameSEXP);
@@ -1523,7 +1523,7 @@ END_RCPP
 }
 // FitSinglePeak
 List FitSinglePeak(NumericVector yVals, NumericVector xVals, int peakType, double blOffset, double blSlope, double amplitude, double fwhmLo, double fwhmHi, double peakPos, double mu);
-RcppExport SEXP TofDaqR_FitSinglePeak(SEXP yValsSEXP, SEXP xValsSEXP, SEXP peakTypeSEXP, SEXP blOffsetSEXP, SEXP blSlopeSEXP, SEXP amplitudeSEXP, SEXP fwhmLoSEXP, SEXP fwhmHiSEXP, SEXP peakPosSEXP, SEXP muSEXP) {
+RcppExport SEXP _TofDaqR_FitSinglePeak(SEXP yValsSEXP, SEXP xValsSEXP, SEXP peakTypeSEXP, SEXP blOffsetSEXP, SEXP blSlopeSEXP, SEXP amplitudeSEXP, SEXP fwhmLoSEXP, SEXP fwhmHiSEXP, SEXP peakPosSEXP, SEXP muSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1543,7 +1543,7 @@ END_RCPP
 }
 // FitSinglePeak2
 List FitSinglePeak2(NumericVector yVals, NumericVector xVals, int peakType, NumericVector param);
-RcppExport SEXP TofDaqR_FitSinglePeak2(SEXP yValsSEXP, SEXP xValsSEXP, SEXP peakTypeSEXP, SEXP paramSEXP) {
+RcppExport SEXP _TofDaqR_FitSinglePeak2(SEXP yValsSEXP, SEXP xValsSEXP, SEXP peakTypeSEXP, SEXP paramSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1557,7 +1557,7 @@ END_RCPP
 }
 // EvalSinglePeak
 NumericVector EvalSinglePeak(NumericVector xVals, double blOffset, double blSlope, double amplitude, double fwhmLo, double fwhmHi, double peakPos, double mu);
-RcppExport SEXP TofDaqR_EvalSinglePeak(SEXP xValsSEXP, SEXP blOffsetSEXP, SEXP blSlopeSEXP, SEXP amplitudeSEXP, SEXP fwhmLoSEXP, SEXP fwhmHiSEXP, SEXP peakPosSEXP, SEXP muSEXP) {
+RcppExport SEXP _TofDaqR_EvalSinglePeak(SEXP xValsSEXP, SEXP blOffsetSEXP, SEXP blSlopeSEXP, SEXP amplitudeSEXP, SEXP fwhmLoSEXP, SEXP fwhmHiSEXP, SEXP peakPosSEXP, SEXP muSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1575,7 +1575,7 @@ END_RCPP
 }
 // GetMoleculeMass
 double GetMoleculeMass(std::string molecule);
-RcppExport SEXP TofDaqR_GetMoleculeMass(SEXP moleculeSEXP) {
+RcppExport SEXP _TofDaqR_GetMoleculeMass(SEXP moleculeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1586,7 +1586,7 @@ END_RCPP
 }
 // GetIsotopePattern
 List GetIsotopePattern(std::string molecule, double abundanceLimit);
-RcppExport SEXP TofDaqR_GetIsotopePattern(SEXP moleculeSEXP, SEXP abundanceLimitSEXP) {
+RcppExport SEXP _TofDaqR_GetIsotopePattern(SEXP moleculeSEXP, SEXP abundanceLimitSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1598,7 +1598,7 @@ END_RCPP
 }
 // GetIsotopePattern2
 List GetIsotopePattern2(std::string molecule, double abundanceLimit);
-RcppExport SEXP TofDaqR_GetIsotopePattern2(SEXP moleculeSEXP, SEXP abundanceLimitSEXP) {
+RcppExport SEXP _TofDaqR_GetIsotopePattern2(SEXP moleculeSEXP, SEXP abundanceLimitSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1610,7 +1610,7 @@ END_RCPP
 }
 // Tof2Mass
 NumericVector Tof2Mass(NumericVector tofSample, int massCalibMode, NumericVector p);
-RcppExport SEXP TofDaqR_Tof2Mass(SEXP tofSampleSEXP, SEXP massCalibModeSEXP, SEXP pSEXP) {
+RcppExport SEXP _TofDaqR_Tof2Mass(SEXP tofSampleSEXP, SEXP massCalibModeSEXP, SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1623,7 +1623,7 @@ END_RCPP
 }
 // Mass2Tof
 NumericVector Mass2Tof(NumericVector mass, int massCalibMode, NumericVector p);
-RcppExport SEXP TofDaqR_Mass2Tof(SEXP massSEXP, SEXP massCalibModeSEXP, SEXP pSEXP) {
+RcppExport SEXP _TofDaqR_Mass2Tof(SEXP massSEXP, SEXP massCalibModeSEXP, SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1636,7 +1636,7 @@ END_RCPP
 }
 // MassCalibrate
 NumericVector MassCalibrate(int massCalibMode, NumericVector mass, NumericVector tof, Nullable<NumericVector> weight);
-RcppExport SEXP TofDaqR_MassCalibrate(SEXP massCalibModeSEXP, SEXP massSEXP, SEXP tofSEXP, SEXP weightSEXP) {
+RcppExport SEXP _TofDaqR_MassCalibrate(SEXP massCalibModeSEXP, SEXP massSEXP, SEXP tofSEXP, SEXP weightSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1650,7 +1650,7 @@ END_RCPP
 }
 // SiInitializeHistograms
 void SiInitializeHistograms(NumericVector loMass, NumericVector hiMass, Nullable<IntegerVector> specType);
-RcppExport SEXP TofDaqR_SiInitializeHistograms(SEXP loMassSEXP, SEXP hiMassSEXP, SEXP specTypeSEXP) {
+RcppExport SEXP _TofDaqR_SiInitializeHistograms(SEXP loMassSEXP, SEXP hiMassSEXP, SEXP specTypeSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericVector >::type loMass(loMassSEXP);
@@ -1662,7 +1662,7 @@ END_RCPP
 }
 // SiSetProcessingOptions
 void SiSetProcessingOptions(std::string option, double value, int specType);
-RcppExport SEXP TofDaqR_SiSetProcessingOptions(SEXP optionSEXP, SEXP valueSEXP, SEXP specTypeSEXP) {
+RcppExport SEXP _TofDaqR_SiSetProcessingOptions(SEXP optionSEXP, SEXP valueSEXP, SEXP specTypeSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type option(optionSEXP);
@@ -1674,7 +1674,7 @@ END_RCPP
 }
 // SiProcessSpectrum
 List SiProcessSpectrum(NumericVector spectrum, int specType);
-RcppExport SEXP TofDaqR_SiProcessSpectrum(SEXP spectrumSEXP, SEXP specTypeSEXP) {
+RcppExport SEXP _TofDaqR_SiProcessSpectrum(SEXP spectrumSEXP, SEXP specTypeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1686,7 +1686,7 @@ END_RCPP
 }
 // SiGetHistogram
 List SiGetHistogram(int histogramIndex);
-RcppExport SEXP TofDaqR_SiGetHistogram(SEXP histogramIndexSEXP) {
+RcppExport SEXP _TofDaqR_SiGetHistogram(SEXP histogramIndexSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1697,7 +1697,7 @@ END_RCPP
 }
 // SiGetSumHistogram
 List SiGetSumHistogram(int specType, double minMass, double maxMass, double minRate, double maxRate);
-RcppExport SEXP TofDaqR_SiGetSumHistogram(SEXP specTypeSEXP, SEXP minMassSEXP, SEXP maxMassSEXP, SEXP minRateSEXP, SEXP maxRateSEXP) {
+RcppExport SEXP _TofDaqR_SiGetSumHistogram(SEXP specTypeSEXP, SEXP minMassSEXP, SEXP maxMassSEXP, SEXP minRateSEXP, SEXP maxRateSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1712,7 +1712,7 @@ END_RCPP
 }
 // SiResetHistograms
 void SiResetHistograms();
-RcppExport SEXP TofDaqR_SiResetHistograms() {
+RcppExport SEXP _TofDaqR_SiResetHistograms() {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     SiResetHistograms();
@@ -1721,7 +1721,7 @@ END_RCPP
 }
 // SiCleanup
 void SiCleanup();
-RcppExport SEXP TofDaqR_SiCleanup() {
+RcppExport SEXP _TofDaqR_SiCleanup() {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     SiCleanup();
@@ -1730,7 +1730,7 @@ END_RCPP
 }
 // SiFitPhd
 List SiFitPhd(NumericVector intensity, NumericVector counts);
-RcppExport SEXP TofDaqR_SiFitPhd(SEXP intensitySEXP, SEXP countsSEXP) {
+RcppExport SEXP _TofDaqR_SiFitPhd(SEXP intensitySEXP, SEXP countsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1742,7 +1742,7 @@ END_RCPP
 }
 // SiEvalPhd
 NumericVector SiEvalPhd(NumericVector par, NumericVector intensity);
-RcppExport SEXP TofDaqR_SiEvalPhd(SEXP parSEXP, SEXP intensitySEXP) {
+RcppExport SEXP _TofDaqR_SiEvalPhd(SEXP parSEXP, SEXP intensitySEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1754,7 +1754,7 @@ END_RCPP
 }
 // SiFitRateFromPhd
 List SiFitRateFromPhd(NumericVector intensity, NumericVector counts, NumericVector siPar);
-RcppExport SEXP TofDaqR_SiFitRateFromPhd(SEXP intensitySEXP, SEXP countsSEXP, SEXP siParSEXP) {
+RcppExport SEXP _TofDaqR_SiFitRateFromPhd(SEXP intensitySEXP, SEXP countsSEXP, SEXP siParSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1767,7 +1767,7 @@ END_RCPP
 }
 // FindTpsIp
 String FindTpsIp(std::string TpsSerial, int timeout);
-RcppExport SEXP TofDaqR_FindTpsIp(SEXP TpsSerialSEXP, SEXP timeoutSEXP) {
+RcppExport SEXP _TofDaqR_FindTpsIp(SEXP TpsSerialSEXP, SEXP timeoutSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -1779,153 +1779,153 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"TofDaqR_tof", (DL_FUNC) &TofDaqR_tof, 6},
-    {"TofDaqR_EventList2TofSpec", (DL_FUNC) &TofDaqR_EventList2TofSpec, 4},
-    {"TofDaqR_DecodeEventList", (DL_FUNC) &TofDaqR_DecodeEventList, 3},
-    {"TofDaqR_DecodeEventListThreshold", (DL_FUNC) &TofDaqR_DecodeEventListThreshold, 6},
-    {"TofDaqR_SiProcessSpectrumFromShMem", (DL_FUNC) &TofDaqR_SiProcessSpectrumFromShMem, 2},
-    {"TofDaqR_KeepSharedMemMapped", (DL_FUNC) &TofDaqR_KeepSharedMemMapped, 0},
-    {"TofDaqR_InitializeDll", (DL_FUNC) &TofDaqR_InitializeDll, 0},
-    {"TofDaqR_CleanupDll", (DL_FUNC) &TofDaqR_CleanupDll, 0},
-    {"TofDaqR_GetDllVersion", (DL_FUNC) &TofDaqR_GetDllVersion, 0},
-    {"TofDaqR_TofDaqRunning", (DL_FUNC) &TofDaqR_TofDaqRunning, 0},
-    {"TofDaqR_DaqActive", (DL_FUNC) &TofDaqR_DaqActive, 0},
-    {"TofDaqR_StartAcquisition", (DL_FUNC) &TofDaqR_StartAcquisition, 0},
-    {"TofDaqR_StopAcquisition", (DL_FUNC) &TofDaqR_StopAcquisition, 0},
-    {"TofDaqR_CloseTofDaqRec", (DL_FUNC) &TofDaqR_CloseTofDaqRec, 0},
-    {"TofDaqR_InitializeDaqDevice", (DL_FUNC) &TofDaqR_InitializeDaqDevice, 0},
-    {"TofDaqR_SetTimeout", (DL_FUNC) &TofDaqR_SetTimeout, 1},
-    {"TofDaqR_GetTimeout", (DL_FUNC) &TofDaqR_GetTimeout, 0},
-    {"TofDaqR_AutoSetupDaqDevice", (DL_FUNC) &TofDaqR_AutoSetupDaqDevice, 0},
-    {"TofDaqR_OnDemandMassCalibration", (DL_FUNC) &TofDaqR_OnDemandMassCalibration, 1},
-    {"TofDaqR_ShowConfigWindow", (DL_FUNC) &TofDaqR_ShowConfigWindow, 1},
-    {"TofDaqR_LoadIniFile", (DL_FUNC) &TofDaqR_LoadIniFile, 1},
-    {"TofDaqR_SaveIniFile", (DL_FUNC) &TofDaqR_SaveIniFile, 1},
-    {"TofDaqR_GetDaqParameter", (DL_FUNC) &TofDaqR_GetDaqParameter, 1},
-    {"TofDaqR_GetDaqParameterInt", (DL_FUNC) &TofDaqR_GetDaqParameterInt, 1},
-    {"TofDaqR_GetDaqParameterBool", (DL_FUNC) &TofDaqR_GetDaqParameterBool, 1},
-    {"TofDaqR_GetDaqParameterFloat", (DL_FUNC) &TofDaqR_GetDaqParameterFloat, 1},
-    {"TofDaqR_GetDaqParameterInt64", (DL_FUNC) &TofDaqR_GetDaqParameterInt64, 1},
-    {"TofDaqR_GetDaqParameterDouble", (DL_FUNC) &TofDaqR_GetDaqParameterDouble, 1},
-    {"TofDaqR_GetDaqParameterIntRef", (DL_FUNC) &TofDaqR_GetDaqParameterIntRef, 1},
-    {"TofDaqR_GetDaqParameterBoolRef", (DL_FUNC) &TofDaqR_GetDaqParameterBoolRef, 1},
-    {"TofDaqR_GetDaqParameterFloatRef", (DL_FUNC) &TofDaqR_GetDaqParameterFloatRef, 1},
-    {"TofDaqR_GetDaqParameterInt64Ref", (DL_FUNC) &TofDaqR_GetDaqParameterInt64Ref, 1},
-    {"TofDaqR_GetDaqParameterDoubleRef", (DL_FUNC) &TofDaqR_GetDaqParameterDoubleRef, 1},
-    {"TofDaqR_GetDaqParameterStringRef", (DL_FUNC) &TofDaqR_GetDaqParameterStringRef, 1},
-    {"TofDaqR_SetDaqParameter", (DL_FUNC) &TofDaqR_SetDaqParameter, 2},
-    {"TofDaqR_SetDaqParameterInt", (DL_FUNC) &TofDaqR_SetDaqParameterInt, 2},
-    {"TofDaqR_SetDaqParameterBool", (DL_FUNC) &TofDaqR_SetDaqParameterBool, 2},
-    {"TofDaqR_SetDaqParameterFloat", (DL_FUNC) &TofDaqR_SetDaqParameterFloat, 2},
-    {"TofDaqR_SetDaqParameterInt64", (DL_FUNC) &TofDaqR_SetDaqParameterInt64, 2},
-    {"TofDaqR_SetDaqParameterDouble", (DL_FUNC) &TofDaqR_SetDaqParameterDouble, 2},
-    {"TofDaqR_GetDescriptor", (DL_FUNC) &TofDaqR_GetDescriptor, 0},
-    {"TofDaqR_GetPeakParameters", (DL_FUNC) &TofDaqR_GetPeakParameters, 1},
-    {"TofDaqR_ReleaseSharedMemory", (DL_FUNC) &TofDaqR_ReleaseSharedMemory, 0},
-    {"TofDaqR_WaitForNewData", (DL_FUNC) &TofDaqR_WaitForNewData, 2},
-    {"TofDaqR_WaitForEndOfAcquisition", (DL_FUNC) &TofDaqR_WaitForEndOfAcquisition, 1},
-    {"TofDaqR_GetSumSpectrumFromShMem", (DL_FUNC) &TofDaqR_GetSumSpectrumFromShMem, 1},
-    {"TofDaqR_GetTofSpectrumFromShMem", (DL_FUNC) &TofDaqR_GetTofSpectrumFromShMem, 4},
-    {"TofDaqR_GetSpecXaxisFromShMem", (DL_FUNC) &TofDaqR_GetSpecXaxisFromShMem, 1},
-    {"TofDaqR_GetStickSpectrumFromShMem", (DL_FUNC) &TofDaqR_GetStickSpectrumFromShMem, 3},
-    {"TofDaqR_GetSegmentProfileFromShMem", (DL_FUNC) &TofDaqR_GetSegmentProfileFromShMem, 2},
-    {"TofDaqR_GetBufTimeFromShMem", (DL_FUNC) &TofDaqR_GetBufTimeFromShMem, 2},
-    {"TofDaqR_AddLogEntry", (DL_FUNC) &TofDaqR_AddLogEntry, 2},
-    {"TofDaqR_AddAttributeInt", (DL_FUNC) &TofDaqR_AddAttributeInt, 3},
-    {"TofDaqR_AddAttributeDouble", (DL_FUNC) &TofDaqR_AddAttributeDouble, 3},
-    {"TofDaqR_AddAttributeString", (DL_FUNC) &TofDaqR_AddAttributeString, 3},
-    {"TofDaqR_AddUserData", (DL_FUNC) &TofDaqR_AddUserData, 5},
-    {"TofDaqR_AddUserDataMultiRow", (DL_FUNC) &TofDaqR_AddUserDataMultiRow, 6},
-    {"TofDaqR_RegisterUserDataBuf", (DL_FUNC) &TofDaqR_RegisterUserDataBuf, 4},
-    {"TofDaqR_RegisterUserDataWrite", (DL_FUNC) &TofDaqR_RegisterUserDataWrite, 4},
-    {"TofDaqR_RegisterUserDataNoStore", (DL_FUNC) &TofDaqR_RegisterUserDataNoStore, 3},
-    {"TofDaqR_UnregisterUserData", (DL_FUNC) &TofDaqR_UnregisterUserData, 1},
-    {"TofDaqR_UpdateUserData", (DL_FUNC) &TofDaqR_UpdateUserData, 3},
-    {"TofDaqR_ReadRegUserData", (DL_FUNC) &TofDaqR_ReadRegUserData, 2},
-    {"TofDaqR_QueryRegUserDataSize", (DL_FUNC) &TofDaqR_QueryRegUserDataSize, 1},
-    {"TofDaqR_GetRegUserDataSources", (DL_FUNC) &TofDaqR_GetRegUserDataSources, 0},
-    {"TofDaqR_GetRegUserDataDesc", (DL_FUNC) &TofDaqR_GetRegUserDataDesc, 1},
-    {"TofDaqR_KeepFileOpen", (DL_FUNC) &TofDaqR_KeepFileOpen, 1},
-    {"TofDaqR_TpsConnect", (DL_FUNC) &TofDaqR_TpsConnect, 0},
-    {"TofDaqR_TpsConnect2", (DL_FUNC) &TofDaqR_TpsConnect2, 2},
-    {"TofDaqR_TpsDisconnect", (DL_FUNC) &TofDaqR_TpsDisconnect, 0},
-    {"TofDaqR_TpsGetMonitorValue", (DL_FUNC) &TofDaqR_TpsGetMonitorValue, 1},
-    {"TofDaqR_TpsGetTargetValue", (DL_FUNC) &TofDaqR_TpsGetTargetValue, 1},
-    {"TofDaqR_TpsGetLastSetValue", (DL_FUNC) &TofDaqR_TpsGetLastSetValue, 1},
-    {"TofDaqR_TpsSetTargetValue", (DL_FUNC) &TofDaqR_TpsSetTargetValue, 2},
-    {"TofDaqR_TpsGetNbrModules", (DL_FUNC) &TofDaqR_TpsGetNbrModules, 0},
-    {"TofDaqR_TpsGetModuleCodes", (DL_FUNC) &TofDaqR_TpsGetModuleCodes, 0},
-    {"TofDaqR_TpsInitialize", (DL_FUNC) &TofDaqR_TpsInitialize, 0},
-    {"TofDaqR_TpsSetAllVoltages", (DL_FUNC) &TofDaqR_TpsSetAllVoltages, 0},
-    {"TofDaqR_TpsShutdown", (DL_FUNC) &TofDaqR_TpsShutdown, 0},
-    {"TofDaqR_TpsGetStatus", (DL_FUNC) &TofDaqR_TpsGetStatus, 0},
-    {"TofDaqR_TpsLoadSetFile", (DL_FUNC) &TofDaqR_TpsLoadSetFile, 1},
-    {"TofDaqR_TpsSaveSetFile", (DL_FUNC) &TofDaqR_TpsSaveSetFile, 1},
-    {"TofDaqR_TpsGetActiveFilament", (DL_FUNC) &TofDaqR_TpsGetActiveFilament, 0},
-    {"TofDaqR_TpsSetActiveFilament", (DL_FUNC) &TofDaqR_TpsSetActiveFilament, 1},
-    {"TofDaqR_TpsGetModuleLimits", (DL_FUNC) &TofDaqR_TpsGetModuleLimits, 1},
-    {"TofDaqR_TpsChangeIonMode", (DL_FUNC) &TofDaqR_TpsChangeIonMode, 1},
-    {"TofDaqR_GetH5Descriptor", (DL_FUNC) &TofDaqR_GetH5Descriptor, 1},
-    {"TofDaqR_CloseH5", (DL_FUNC) &TofDaqR_CloseH5, 1},
-    {"TofDaqR_CloseAll", (DL_FUNC) &TofDaqR_CloseAll, 0},
-    {"TofDaqR_GetSumSpectrumFromH5", (DL_FUNC) &TofDaqR_GetSumSpectrumFromH5, 2},
-    {"TofDaqR_GetTofSpectrumFromH5", (DL_FUNC) &TofDaqR_GetTofSpectrumFromH5, 9},
-    {"TofDaqR_GetTofSpectrum2FromH5", (DL_FUNC) &TofDaqR_GetTofSpectrum2FromH5, 9},
-    {"TofDaqR_GetStickSpectrumFromH5", (DL_FUNC) &TofDaqR_GetStickSpectrumFromH5, 9},
-    {"TofDaqR_GetStickSpectrum2FromH5", (DL_FUNC) &TofDaqR_GetStickSpectrum2FromH5, 9},
-    {"TofDaqR_GetPeakParametersFromH5", (DL_FUNC) &TofDaqR_GetPeakParametersFromH5, 2},
-    {"TofDaqR_GetBufTimeFromH5", (DL_FUNC) &TofDaqR_GetBufTimeFromH5, 3},
-    {"TofDaqR_GetSpecXaxisFromH5", (DL_FUNC) &TofDaqR_GetSpecXaxisFromH5, 3},
-    {"TofDaqR_GetSegmentProfileFromH5", (DL_FUNC) &TofDaqR_GetSegmentProfileFromH5, 7},
-    {"TofDaqR_GetSegmentProfile2FromH5", (DL_FUNC) &TofDaqR_GetSegmentProfile2FromH5, 7},
-    {"TofDaqR_GetBufWriteProfileFromH5", (DL_FUNC) &TofDaqR_GetBufWriteProfileFromH5, 4},
-    {"TofDaqR_GetBufWriteProfile2FromH5", (DL_FUNC) &TofDaqR_GetBufWriteProfile2FromH5, 4},
-    {"TofDaqR_GetRegUserDataSourcesFromH5", (DL_FUNC) &TofDaqR_GetRegUserDataSourcesFromH5, 1},
-    {"TofDaqR_GetRegUserDataFromH5", (DL_FUNC) &TofDaqR_GetRegUserDataFromH5, 5},
-    {"TofDaqR_GetTofData", (DL_FUNC) &TofDaqR_GetTofData, 9},
-    {"TofDaqR_GetTofData2", (DL_FUNC) &TofDaqR_GetTofData2, 9},
-    {"TofDaqR_GetPeakData", (DL_FUNC) &TofDaqR_GetPeakData, 9},
-    {"TofDaqR_GetPeakData2", (DL_FUNC) &TofDaqR_GetPeakData2, 9},
-    {"TofDaqR_GetTimingData", (DL_FUNC) &TofDaqR_GetTimingData, 5},
-    {"TofDaqR_GetIntAttributeFromH5", (DL_FUNC) &TofDaqR_GetIntAttributeFromH5, 3},
-    {"TofDaqR_GetUintAttributeFromH5", (DL_FUNC) &TofDaqR_GetUintAttributeFromH5, 3},
-    {"TofDaqR_GetInt64AttributeFromH5", (DL_FUNC) &TofDaqR_GetInt64AttributeFromH5, 3},
-    {"TofDaqR_GetUint64AttributeFromH5", (DL_FUNC) &TofDaqR_GetUint64AttributeFromH5, 3},
-    {"TofDaqR_GetFloatAttributeFromH5", (DL_FUNC) &TofDaqR_GetFloatAttributeFromH5, 3},
-    {"TofDaqR_GetDoubleAttributeFromH5", (DL_FUNC) &TofDaqR_GetDoubleAttributeFromH5, 3},
-    {"TofDaqR_GetStringAttributeFromH5", (DL_FUNC) &TofDaqR_GetStringAttributeFromH5, 3},
-    {"TofDaqR_SetIntAttributeInH5", (DL_FUNC) &TofDaqR_SetIntAttributeInH5, 4},
-    {"TofDaqR_SetUintAttributeInH5", (DL_FUNC) &TofDaqR_SetUintAttributeInH5, 4},
-    {"TofDaqR_SetInt64AttributeInH5", (DL_FUNC) &TofDaqR_SetInt64AttributeInH5, 4},
-    {"TofDaqR_SetUint64AttributeInH5", (DL_FUNC) &TofDaqR_SetUint64AttributeInH5, 4},
-    {"TofDaqR_SetFloatAttributeInH5", (DL_FUNC) &TofDaqR_SetFloatAttributeInH5, 4},
-    {"TofDaqR_SetDoubleAttributeInH5", (DL_FUNC) &TofDaqR_SetDoubleAttributeInH5, 4},
-    {"TofDaqR_SetStringAttributeInH5", (DL_FUNC) &TofDaqR_SetStringAttributeInH5, 4},
-    {"TofDaqR_GetUserDataFromH5", (DL_FUNC) &TofDaqR_GetUserDataFromH5, 3},
-    {"TofDaqR_GetAcquisitionLogFromH5", (DL_FUNC) &TofDaqR_GetAcquisitionLogFromH5, 2},
-    {"TofDaqR_GetEventListSpectrumFromH5", (DL_FUNC) &TofDaqR_GetEventListSpectrumFromH5, 4},
-    {"TofDaqR_H5GetMassCalibPar", (DL_FUNC) &TofDaqR_H5GetMassCalibPar, 2},
-    {"TofDaqR_H5AddLogEntry", (DL_FUNC) &TofDaqR_H5AddLogEntry, 3},
-    {"TofDaqR_FitSinglePeak", (DL_FUNC) &TofDaqR_FitSinglePeak, 10},
-    {"TofDaqR_FitSinglePeak2", (DL_FUNC) &TofDaqR_FitSinglePeak2, 4},
-    {"TofDaqR_EvalSinglePeak", (DL_FUNC) &TofDaqR_EvalSinglePeak, 8},
-    {"TofDaqR_GetMoleculeMass", (DL_FUNC) &TofDaqR_GetMoleculeMass, 1},
-    {"TofDaqR_GetIsotopePattern", (DL_FUNC) &TofDaqR_GetIsotopePattern, 2},
-    {"TofDaqR_GetIsotopePattern2", (DL_FUNC) &TofDaqR_GetIsotopePattern2, 2},
-    {"TofDaqR_Tof2Mass", (DL_FUNC) &TofDaqR_Tof2Mass, 3},
-    {"TofDaqR_Mass2Tof", (DL_FUNC) &TofDaqR_Mass2Tof, 3},
-    {"TofDaqR_MassCalibrate", (DL_FUNC) &TofDaqR_MassCalibrate, 4},
-    {"TofDaqR_SiInitializeHistograms", (DL_FUNC) &TofDaqR_SiInitializeHistograms, 3},
-    {"TofDaqR_SiSetProcessingOptions", (DL_FUNC) &TofDaqR_SiSetProcessingOptions, 3},
-    {"TofDaqR_SiProcessSpectrum", (DL_FUNC) &TofDaqR_SiProcessSpectrum, 2},
-    {"TofDaqR_SiGetHistogram", (DL_FUNC) &TofDaqR_SiGetHistogram, 1},
-    {"TofDaqR_SiGetSumHistogram", (DL_FUNC) &TofDaqR_SiGetSumHistogram, 5},
-    {"TofDaqR_SiResetHistograms", (DL_FUNC) &TofDaqR_SiResetHistograms, 0},
-    {"TofDaqR_SiCleanup", (DL_FUNC) &TofDaqR_SiCleanup, 0},
-    {"TofDaqR_SiFitPhd", (DL_FUNC) &TofDaqR_SiFitPhd, 2},
-    {"TofDaqR_SiEvalPhd", (DL_FUNC) &TofDaqR_SiEvalPhd, 2},
-    {"TofDaqR_SiFitRateFromPhd", (DL_FUNC) &TofDaqR_SiFitRateFromPhd, 3},
-    {"TofDaqR_FindTpsIp", (DL_FUNC) &TofDaqR_FindTpsIp, 2},
+    {"_TofDaqR_tof", (DL_FUNC) &_TofDaqR_tof, 6},
+    {"_TofDaqR_EventList2TofSpec", (DL_FUNC) &_TofDaqR_EventList2TofSpec, 4},
+    {"_TofDaqR_DecodeEventList", (DL_FUNC) &_TofDaqR_DecodeEventList, 3},
+    {"_TofDaqR_DecodeEventListThreshold", (DL_FUNC) &_TofDaqR_DecodeEventListThreshold, 6},
+    {"_TofDaqR_SiProcessSpectrumFromShMem", (DL_FUNC) &_TofDaqR_SiProcessSpectrumFromShMem, 2},
+    {"_TofDaqR_KeepSharedMemMapped", (DL_FUNC) &_TofDaqR_KeepSharedMemMapped, 0},
+    {"_TofDaqR_InitializeDll", (DL_FUNC) &_TofDaqR_InitializeDll, 0},
+    {"_TofDaqR_CleanupDll", (DL_FUNC) &_TofDaqR_CleanupDll, 0},
+    {"_TofDaqR_GetDllVersion", (DL_FUNC) &_TofDaqR_GetDllVersion, 0},
+    {"_TofDaqR_TofDaqRunning", (DL_FUNC) &_TofDaqR_TofDaqRunning, 0},
+    {"_TofDaqR_DaqActive", (DL_FUNC) &_TofDaqR_DaqActive, 0},
+    {"_TofDaqR_StartAcquisition", (DL_FUNC) &_TofDaqR_StartAcquisition, 0},
+    {"_TofDaqR_StopAcquisition", (DL_FUNC) &_TofDaqR_StopAcquisition, 0},
+    {"_TofDaqR_CloseTofDaqRec", (DL_FUNC) &_TofDaqR_CloseTofDaqRec, 0},
+    {"_TofDaqR_InitializeDaqDevice", (DL_FUNC) &_TofDaqR_InitializeDaqDevice, 0},
+    {"_TofDaqR_SetTimeout", (DL_FUNC) &_TofDaqR_SetTimeout, 1},
+    {"_TofDaqR_GetTimeout", (DL_FUNC) &_TofDaqR_GetTimeout, 0},
+    {"_TofDaqR_AutoSetupDaqDevice", (DL_FUNC) &_TofDaqR_AutoSetupDaqDevice, 0},
+    {"_TofDaqR_OnDemandMassCalibration", (DL_FUNC) &_TofDaqR_OnDemandMassCalibration, 1},
+    {"_TofDaqR_ShowConfigWindow", (DL_FUNC) &_TofDaqR_ShowConfigWindow, 1},
+    {"_TofDaqR_LoadIniFile", (DL_FUNC) &_TofDaqR_LoadIniFile, 1},
+    {"_TofDaqR_SaveIniFile", (DL_FUNC) &_TofDaqR_SaveIniFile, 1},
+    {"_TofDaqR_GetDaqParameter", (DL_FUNC) &_TofDaqR_GetDaqParameter, 1},
+    {"_TofDaqR_GetDaqParameterInt", (DL_FUNC) &_TofDaqR_GetDaqParameterInt, 1},
+    {"_TofDaqR_GetDaqParameterBool", (DL_FUNC) &_TofDaqR_GetDaqParameterBool, 1},
+    {"_TofDaqR_GetDaqParameterFloat", (DL_FUNC) &_TofDaqR_GetDaqParameterFloat, 1},
+    {"_TofDaqR_GetDaqParameterInt64", (DL_FUNC) &_TofDaqR_GetDaqParameterInt64, 1},
+    {"_TofDaqR_GetDaqParameterDouble", (DL_FUNC) &_TofDaqR_GetDaqParameterDouble, 1},
+    {"_TofDaqR_GetDaqParameterIntRef", (DL_FUNC) &_TofDaqR_GetDaqParameterIntRef, 1},
+    {"_TofDaqR_GetDaqParameterBoolRef", (DL_FUNC) &_TofDaqR_GetDaqParameterBoolRef, 1},
+    {"_TofDaqR_GetDaqParameterFloatRef", (DL_FUNC) &_TofDaqR_GetDaqParameterFloatRef, 1},
+    {"_TofDaqR_GetDaqParameterInt64Ref", (DL_FUNC) &_TofDaqR_GetDaqParameterInt64Ref, 1},
+    {"_TofDaqR_GetDaqParameterDoubleRef", (DL_FUNC) &_TofDaqR_GetDaqParameterDoubleRef, 1},
+    {"_TofDaqR_GetDaqParameterStringRef", (DL_FUNC) &_TofDaqR_GetDaqParameterStringRef, 1},
+    {"_TofDaqR_SetDaqParameter", (DL_FUNC) &_TofDaqR_SetDaqParameter, 2},
+    {"_TofDaqR_SetDaqParameterInt", (DL_FUNC) &_TofDaqR_SetDaqParameterInt, 2},
+    {"_TofDaqR_SetDaqParameterBool", (DL_FUNC) &_TofDaqR_SetDaqParameterBool, 2},
+    {"_TofDaqR_SetDaqParameterFloat", (DL_FUNC) &_TofDaqR_SetDaqParameterFloat, 2},
+    {"_TofDaqR_SetDaqParameterInt64", (DL_FUNC) &_TofDaqR_SetDaqParameterInt64, 2},
+    {"_TofDaqR_SetDaqParameterDouble", (DL_FUNC) &_TofDaqR_SetDaqParameterDouble, 2},
+    {"_TofDaqR_GetDescriptor", (DL_FUNC) &_TofDaqR_GetDescriptor, 0},
+    {"_TofDaqR_GetPeakParameters", (DL_FUNC) &_TofDaqR_GetPeakParameters, 1},
+    {"_TofDaqR_ReleaseSharedMemory", (DL_FUNC) &_TofDaqR_ReleaseSharedMemory, 0},
+    {"_TofDaqR_WaitForNewData", (DL_FUNC) &_TofDaqR_WaitForNewData, 2},
+    {"_TofDaqR_WaitForEndOfAcquisition", (DL_FUNC) &_TofDaqR_WaitForEndOfAcquisition, 1},
+    {"_TofDaqR_GetSumSpectrumFromShMem", (DL_FUNC) &_TofDaqR_GetSumSpectrumFromShMem, 1},
+    {"_TofDaqR_GetTofSpectrumFromShMem", (DL_FUNC) &_TofDaqR_GetTofSpectrumFromShMem, 4},
+    {"_TofDaqR_GetSpecXaxisFromShMem", (DL_FUNC) &_TofDaqR_GetSpecXaxisFromShMem, 1},
+    {"_TofDaqR_GetStickSpectrumFromShMem", (DL_FUNC) &_TofDaqR_GetStickSpectrumFromShMem, 3},
+    {"_TofDaqR_GetSegmentProfileFromShMem", (DL_FUNC) &_TofDaqR_GetSegmentProfileFromShMem, 2},
+    {"_TofDaqR_GetBufTimeFromShMem", (DL_FUNC) &_TofDaqR_GetBufTimeFromShMem, 2},
+    {"_TofDaqR_AddLogEntry", (DL_FUNC) &_TofDaqR_AddLogEntry, 2},
+    {"_TofDaqR_AddAttributeInt", (DL_FUNC) &_TofDaqR_AddAttributeInt, 3},
+    {"_TofDaqR_AddAttributeDouble", (DL_FUNC) &_TofDaqR_AddAttributeDouble, 3},
+    {"_TofDaqR_AddAttributeString", (DL_FUNC) &_TofDaqR_AddAttributeString, 3},
+    {"_TofDaqR_AddUserData", (DL_FUNC) &_TofDaqR_AddUserData, 5},
+    {"_TofDaqR_AddUserDataMultiRow", (DL_FUNC) &_TofDaqR_AddUserDataMultiRow, 6},
+    {"_TofDaqR_RegisterUserDataBuf", (DL_FUNC) &_TofDaqR_RegisterUserDataBuf, 4},
+    {"_TofDaqR_RegisterUserDataWrite", (DL_FUNC) &_TofDaqR_RegisterUserDataWrite, 4},
+    {"_TofDaqR_RegisterUserDataNoStore", (DL_FUNC) &_TofDaqR_RegisterUserDataNoStore, 3},
+    {"_TofDaqR_UnregisterUserData", (DL_FUNC) &_TofDaqR_UnregisterUserData, 1},
+    {"_TofDaqR_UpdateUserData", (DL_FUNC) &_TofDaqR_UpdateUserData, 3},
+    {"_TofDaqR_ReadRegUserData", (DL_FUNC) &_TofDaqR_ReadRegUserData, 2},
+    {"_TofDaqR_QueryRegUserDataSize", (DL_FUNC) &_TofDaqR_QueryRegUserDataSize, 1},
+    {"_TofDaqR_GetRegUserDataSources", (DL_FUNC) &_TofDaqR_GetRegUserDataSources, 0},
+    {"_TofDaqR_GetRegUserDataDesc", (DL_FUNC) &_TofDaqR_GetRegUserDataDesc, 1},
+    {"_TofDaqR_KeepFileOpen", (DL_FUNC) &_TofDaqR_KeepFileOpen, 1},
+    {"_TofDaqR_TpsConnect", (DL_FUNC) &_TofDaqR_TpsConnect, 0},
+    {"_TofDaqR_TpsConnect2", (DL_FUNC) &_TofDaqR_TpsConnect2, 2},
+    {"_TofDaqR_TpsDisconnect", (DL_FUNC) &_TofDaqR_TpsDisconnect, 0},
+    {"_TofDaqR_TpsGetMonitorValue", (DL_FUNC) &_TofDaqR_TpsGetMonitorValue, 1},
+    {"_TofDaqR_TpsGetTargetValue", (DL_FUNC) &_TofDaqR_TpsGetTargetValue, 1},
+    {"_TofDaqR_TpsGetLastSetValue", (DL_FUNC) &_TofDaqR_TpsGetLastSetValue, 1},
+    {"_TofDaqR_TpsSetTargetValue", (DL_FUNC) &_TofDaqR_TpsSetTargetValue, 2},
+    {"_TofDaqR_TpsGetNbrModules", (DL_FUNC) &_TofDaqR_TpsGetNbrModules, 0},
+    {"_TofDaqR_TpsGetModuleCodes", (DL_FUNC) &_TofDaqR_TpsGetModuleCodes, 0},
+    {"_TofDaqR_TpsInitialize", (DL_FUNC) &_TofDaqR_TpsInitialize, 0},
+    {"_TofDaqR_TpsSetAllVoltages", (DL_FUNC) &_TofDaqR_TpsSetAllVoltages, 0},
+    {"_TofDaqR_TpsShutdown", (DL_FUNC) &_TofDaqR_TpsShutdown, 0},
+    {"_TofDaqR_TpsGetStatus", (DL_FUNC) &_TofDaqR_TpsGetStatus, 0},
+    {"_TofDaqR_TpsLoadSetFile", (DL_FUNC) &_TofDaqR_TpsLoadSetFile, 1},
+    {"_TofDaqR_TpsSaveSetFile", (DL_FUNC) &_TofDaqR_TpsSaveSetFile, 1},
+    {"_TofDaqR_TpsGetActiveFilament", (DL_FUNC) &_TofDaqR_TpsGetActiveFilament, 0},
+    {"_TofDaqR_TpsSetActiveFilament", (DL_FUNC) &_TofDaqR_TpsSetActiveFilament, 1},
+    {"_TofDaqR_TpsGetModuleLimits", (DL_FUNC) &_TofDaqR_TpsGetModuleLimits, 1},
+    {"_TofDaqR_TpsChangeIonMode", (DL_FUNC) &_TofDaqR_TpsChangeIonMode, 1},
+    {"_TofDaqR_GetH5Descriptor", (DL_FUNC) &_TofDaqR_GetH5Descriptor, 1},
+    {"_TofDaqR_CloseH5", (DL_FUNC) &_TofDaqR_CloseH5, 1},
+    {"_TofDaqR_CloseAll", (DL_FUNC) &_TofDaqR_CloseAll, 0},
+    {"_TofDaqR_GetSumSpectrumFromH5", (DL_FUNC) &_TofDaqR_GetSumSpectrumFromH5, 2},
+    {"_TofDaqR_GetTofSpectrumFromH5", (DL_FUNC) &_TofDaqR_GetTofSpectrumFromH5, 9},
+    {"_TofDaqR_GetTofSpectrum2FromH5", (DL_FUNC) &_TofDaqR_GetTofSpectrum2FromH5, 9},
+    {"_TofDaqR_GetStickSpectrumFromH5", (DL_FUNC) &_TofDaqR_GetStickSpectrumFromH5, 9},
+    {"_TofDaqR_GetStickSpectrum2FromH5", (DL_FUNC) &_TofDaqR_GetStickSpectrum2FromH5, 9},
+    {"_TofDaqR_GetPeakParametersFromH5", (DL_FUNC) &_TofDaqR_GetPeakParametersFromH5, 2},
+    {"_TofDaqR_GetBufTimeFromH5", (DL_FUNC) &_TofDaqR_GetBufTimeFromH5, 3},
+    {"_TofDaqR_GetSpecXaxisFromH5", (DL_FUNC) &_TofDaqR_GetSpecXaxisFromH5, 3},
+    {"_TofDaqR_GetSegmentProfileFromH5", (DL_FUNC) &_TofDaqR_GetSegmentProfileFromH5, 7},
+    {"_TofDaqR_GetSegmentProfile2FromH5", (DL_FUNC) &_TofDaqR_GetSegmentProfile2FromH5, 7},
+    {"_TofDaqR_GetBufWriteProfileFromH5", (DL_FUNC) &_TofDaqR_GetBufWriteProfileFromH5, 4},
+    {"_TofDaqR_GetBufWriteProfile2FromH5", (DL_FUNC) &_TofDaqR_GetBufWriteProfile2FromH5, 4},
+    {"_TofDaqR_GetRegUserDataSourcesFromH5", (DL_FUNC) &_TofDaqR_GetRegUserDataSourcesFromH5, 1},
+    {"_TofDaqR_GetRegUserDataFromH5", (DL_FUNC) &_TofDaqR_GetRegUserDataFromH5, 5},
+    {"_TofDaqR_GetTofData", (DL_FUNC) &_TofDaqR_GetTofData, 9},
+    {"_TofDaqR_GetTofData2", (DL_FUNC) &_TofDaqR_GetTofData2, 9},
+    {"_TofDaqR_GetPeakData", (DL_FUNC) &_TofDaqR_GetPeakData, 9},
+    {"_TofDaqR_GetPeakData2", (DL_FUNC) &_TofDaqR_GetPeakData2, 9},
+    {"_TofDaqR_GetTimingData", (DL_FUNC) &_TofDaqR_GetTimingData, 5},
+    {"_TofDaqR_GetIntAttributeFromH5", (DL_FUNC) &_TofDaqR_GetIntAttributeFromH5, 3},
+    {"_TofDaqR_GetUintAttributeFromH5", (DL_FUNC) &_TofDaqR_GetUintAttributeFromH5, 3},
+    {"_TofDaqR_GetInt64AttributeFromH5", (DL_FUNC) &_TofDaqR_GetInt64AttributeFromH5, 3},
+    {"_TofDaqR_GetUint64AttributeFromH5", (DL_FUNC) &_TofDaqR_GetUint64AttributeFromH5, 3},
+    {"_TofDaqR_GetFloatAttributeFromH5", (DL_FUNC) &_TofDaqR_GetFloatAttributeFromH5, 3},
+    {"_TofDaqR_GetDoubleAttributeFromH5", (DL_FUNC) &_TofDaqR_GetDoubleAttributeFromH5, 3},
+    {"_TofDaqR_GetStringAttributeFromH5", (DL_FUNC) &_TofDaqR_GetStringAttributeFromH5, 3},
+    {"_TofDaqR_SetIntAttributeInH5", (DL_FUNC) &_TofDaqR_SetIntAttributeInH5, 4},
+    {"_TofDaqR_SetUintAttributeInH5", (DL_FUNC) &_TofDaqR_SetUintAttributeInH5, 4},
+    {"_TofDaqR_SetInt64AttributeInH5", (DL_FUNC) &_TofDaqR_SetInt64AttributeInH5, 4},
+    {"_TofDaqR_SetUint64AttributeInH5", (DL_FUNC) &_TofDaqR_SetUint64AttributeInH5, 4},
+    {"_TofDaqR_SetFloatAttributeInH5", (DL_FUNC) &_TofDaqR_SetFloatAttributeInH5, 4},
+    {"_TofDaqR_SetDoubleAttributeInH5", (DL_FUNC) &_TofDaqR_SetDoubleAttributeInH5, 4},
+    {"_TofDaqR_SetStringAttributeInH5", (DL_FUNC) &_TofDaqR_SetStringAttributeInH5, 4},
+    {"_TofDaqR_GetUserDataFromH5", (DL_FUNC) &_TofDaqR_GetUserDataFromH5, 3},
+    {"_TofDaqR_GetAcquisitionLogFromH5", (DL_FUNC) &_TofDaqR_GetAcquisitionLogFromH5, 2},
+    {"_TofDaqR_GetEventListSpectrumFromH5", (DL_FUNC) &_TofDaqR_GetEventListSpectrumFromH5, 4},
+    {"_TofDaqR_H5GetMassCalibPar", (DL_FUNC) &_TofDaqR_H5GetMassCalibPar, 2},
+    {"_TofDaqR_H5AddLogEntry", (DL_FUNC) &_TofDaqR_H5AddLogEntry, 3},
+    {"_TofDaqR_FitSinglePeak", (DL_FUNC) &_TofDaqR_FitSinglePeak, 10},
+    {"_TofDaqR_FitSinglePeak2", (DL_FUNC) &_TofDaqR_FitSinglePeak2, 4},
+    {"_TofDaqR_EvalSinglePeak", (DL_FUNC) &_TofDaqR_EvalSinglePeak, 8},
+    {"_TofDaqR_GetMoleculeMass", (DL_FUNC) &_TofDaqR_GetMoleculeMass, 1},
+    {"_TofDaqR_GetIsotopePattern", (DL_FUNC) &_TofDaqR_GetIsotopePattern, 2},
+    {"_TofDaqR_GetIsotopePattern2", (DL_FUNC) &_TofDaqR_GetIsotopePattern2, 2},
+    {"_TofDaqR_Tof2Mass", (DL_FUNC) &_TofDaqR_Tof2Mass, 3},
+    {"_TofDaqR_Mass2Tof", (DL_FUNC) &_TofDaqR_Mass2Tof, 3},
+    {"_TofDaqR_MassCalibrate", (DL_FUNC) &_TofDaqR_MassCalibrate, 4},
+    {"_TofDaqR_SiInitializeHistograms", (DL_FUNC) &_TofDaqR_SiInitializeHistograms, 3},
+    {"_TofDaqR_SiSetProcessingOptions", (DL_FUNC) &_TofDaqR_SiSetProcessingOptions, 3},
+    {"_TofDaqR_SiProcessSpectrum", (DL_FUNC) &_TofDaqR_SiProcessSpectrum, 2},
+    {"_TofDaqR_SiGetHistogram", (DL_FUNC) &_TofDaqR_SiGetHistogram, 1},
+    {"_TofDaqR_SiGetSumHistogram", (DL_FUNC) &_TofDaqR_SiGetSumHistogram, 5},
+    {"_TofDaqR_SiResetHistograms", (DL_FUNC) &_TofDaqR_SiResetHistograms, 0},
+    {"_TofDaqR_SiCleanup", (DL_FUNC) &_TofDaqR_SiCleanup, 0},
+    {"_TofDaqR_SiFitPhd", (DL_FUNC) &_TofDaqR_SiFitPhd, 2},
+    {"_TofDaqR_SiEvalPhd", (DL_FUNC) &_TofDaqR_SiEvalPhd, 2},
+    {"_TofDaqR_SiFitRateFromPhd", (DL_FUNC) &_TofDaqR_SiFitRateFromPhd, 3},
+    {"_TofDaqR_FindTpsIp", (DL_FUNC) &_TofDaqR_FindTpsIp, 2},
     {NULL, NULL, 0}
 };
 

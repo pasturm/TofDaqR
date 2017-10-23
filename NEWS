@@ -1,3 +1,10 @@
+TofDaqR 0.3.4
+--------------------------------------------------------------------------------
+
+* Corrected bug in `configure.win` script which made source package installation
+  on 32-bit Windows to fail.
+
+
 TofDaqR 0.3.3
 --------------------------------------------------------------------------------
 
