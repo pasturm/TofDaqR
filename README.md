@@ -9,10 +9,10 @@ Further, there are post-processing functions to access and modify recorded data
 stored in HDF5 files and additional "tool" functions, e.g. for peak fitting.
 
 ## Installation
-### Binary
-1. Download the latest binary release (Windows only) from [releases](https://github.com/pasturm/TofDaqR/releases). 
-2. Install package: `install.packages("path/to/TofDaqR_x.y.z.zip", repos = NULL)`  
-or in RStudio: `Tools -> Install Packages... -> Install From: Package Archive File (.zip; .tar.gz) -> Browse...`
+### Binary (Windows only)
+1. Download the latest binary package (`TofDaqR_x.y.z.zip`) from [Releases](https://github.com/pasturm/TofDaqR/releases). 
+2. Install the package with `install.packages("path/to/TofDaqR_x.y.z.zip", repos = NULL)`  
+or in RStudio `Tools -> Install Packages... -> Install From: Package Archive File (.zip; .tar.gz) -> Browse...`
 
 ### Source
 ```
