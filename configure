@@ -352,11 +352,3 @@ sed -i.tmp '/WaitForNewData/ d' NAMESPACE
 
 # remove CleanupDll() from zzz.R
 sed -i.windows '/CleanupDll(/ d' ./R/zzz.R
-
-# remove unnecessary js.php from /inst/doc/ (if not already done)
-if [ -f ./inst/doc/TofDaqDll_files/js.php ] ; then
-  rm ./inst/doc/TofDaqDll_files/js.php
-  rm ./inst/doc/TofwerkHDF5_files/js.php
-  rm ./inst/doc/TwH5Dll_files/js.php
-  rm ./inst/doc/TwToolDll_files/js.php
-fi

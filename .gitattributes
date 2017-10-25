@@ -2,6 +2,7 @@
 configure text eol=lf
 cleanup text eol=lf
 Makevars text eol=lf
+TofDaqAPI_update text eol=lf
 *.Rd text eol=crlf
 *.h text eol=crlf
 *.cpp text eol=crlf
