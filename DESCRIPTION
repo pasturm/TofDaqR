@@ -1,17 +1,14 @@
 Package: TofDaqR
 Title: R Interface to the TOFWERK TofDaq API
-Version: 0.3.4.901
-Date: 2017-10-25
+Version: 0.3.4.902
+Date: 2017-11-08
 Author: Patrick Sturm, Christian Tanner
 Maintainer: Patrick Sturm <sturm@tofwerk.com>
 Copyright: 2017 TOFWERK AG
 Description: The TofDaqR package provides an interface to the TOFWERK TofDaq API
-    (TofDaqDll, TwH5Dll, TwToolDll for Windows, and libtwh5, libtwtool for macOS
-    and Linux, API version 1.99r450). TofDaqR functions can be used to
-    communicate with the TofDaq recorder application, to access data in realtime
-    and to control the TOF Power Supply. Further, there are post-processing
-    functions to access and modify recorded data stored in HDF5 files and 
-    additional "tool" functions, e.g. for peak fitting.
+    (API version 1.99r450), which consists of libraries for communication with 
+    the TofDAQ recorder application, data file access and general 
+    (time-of-flight) mass spectrometry related utility functions.
 License: GPL-3
 Imports: Rcpp (>= 0.12.7),
          bit64

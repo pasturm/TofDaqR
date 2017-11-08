@@ -1,33 +1,35 @@
 # TofDaqR
 R Interface to the [TOFWERK TofDaq API](http://www.tofwerk.com/tofdaq/).
 
-The TofDaqR package provides a R interface to the TOFWERK TofDaq API (TofDaqDll, 
-TwH5Dll, TwToolDll for Windows, and libtwh5, libtwtool for macOS and Linux). 
-TofDaqR functions can be used to communicate with the TofDaq recorder 
-application, to access data in realtime and to control the TOF Power Supply. 
-Further, there are post-processing functions to access and modify recorded data 
-stored in HDF5 files and additional "tool" functions, e.g. for peak fitting.
+The TofDaqR package provides a R interface to the TOFWERK TofDaq API, which 
+consists of libraries for communication with the TofDAQ recorder application,
+data file access and general (time-of-flight) mass spectrometry related utility
+functions. 
+
+Features:
+
+* Acquisition setup and control
+* Real-time data access
+* Control of the TOF Power Supply
+* Quick access to TOFWERK HDF5 data files
+* Add additional data to existing data files
+* Peak fitting functions
+* Mass calibration
+* Chemistry functions (molecular mass and isotope pattern calculation)
+* Single ion analysis functions
 
 ## Installation
-### Binary (Windows only)
-1. Download the latest binary package (`TofDaqR_x.y.z.zip`) from [Releases](https://github.com/pasturm/TofDaqR/releases). 
-2. Install the package with `install.packages("path/to/TofDaqR_x.y.z.zip", repos = NULL)`  
-or in RStudio `Tools -> Install Packages... -> Install From: Package Archive File (.zip; .tar.gz) -> Browse...`
+To install the latest binary version on Windows, run
+```
+install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.4/TofDaqR_0.3.4.zip", repos = NULL)
+```
 
-### Source
+To install the latest development version from source (for Windows, MacOS, Linux), run
 ```
 install.packages("devtools")
 devtools::install_github("pasturm/TofDaqR", args = "--clean")
 ```
+Installing from source requires [Rtools](https://cran.r-project.org/bin/windows/Rtools/) on Windows,  [Xcode](https://developer.apple.com/xcode/) on macOS and `sudo apt-get install r-base-dev` (or similar) on Linux. 
 
-Notes:
-
-* On Windows, [Rtools](https://cran.r-project.org/bin/windows/Rtools/) is required to install TofDaqR from source.
-
-* On Mac, [Xcode](https://developer.apple.com/xcode/) is required to install TofDaqR.
-
-* On Linux, `sudo apt-get install r-base-dev` (or similar) is required to install TofDaqR.
-
-## Version history
-See [NEWS](https://github.com/pasturm/TofDaqR/blob/master/NEWS).
+For latest release notes on this development version, see the [NEWS file](https://github.com/pasturm/TofDaqR/blob/master/NEWS).
 

@@ -1,7 +1,9 @@
-TofDaqR 0.3.4.901
+TofDaqR 0.3.4.902
 --------------------------------------------------------------------------------
 
 * Updated `configure` script to work with Rcpp >=0.12.12.
+
+* Updated README.md with easier installation instructions.
 
 
 TofDaqR 0.3.4
