@@ -88,6 +88,7 @@
 #define TwGetRegUserDataSourcesFromH5           _TwGetRegUserDataSourcesFromH5
 #define TwH5MakePaletteImage					_TwH5MakePaletteImage
 #define TwH5MakeTrueColorImage					_TwH5MakeTrueColorImage
+#define TwWriteNetCdfTimeSeriesFile				_TwWriteNetCdfTimeSeriesFile
 
 #endif
 
@@ -350,6 +351,8 @@ TOFWERK_H5_API TwRetVal TwGetRegUserDataSourcesFromH5(char* Filename, int* nbrSo
 TOFWERK_H5_API TwRetVal TwH5MakePaletteImage(char* filename, char* location, float* data, int width, int height, int palette, unsigned char paletteOffset, bool paletteInvert, float* dataMinMax, float gammaVal);
 ////////////////////////////////////////////////////////////////////////////////
 TOFWERK_H5_API TwRetVal TwH5MakeTrueColorImage(char* filename, char* location, float* data, int width, int height, unsigned char* paletteOffset, bool* paletteInvert, float* dataMinMax, float* gammaVal, unsigned char* specialColours);
+////////////////////////////////////////////////////////////////////////////////
+TOFWERK_H5_API TwRetVal TwWriteNetCdfTimeSeriesFile(char* filename, char* expTitle, char* rawName, int nbrPoints, float* retention, float* ordinate);
 ////////////////////////////////////////////////////////////////////////////////
 #ifdef __cplusplus
 }

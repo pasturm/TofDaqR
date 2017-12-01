@@ -112,6 +112,7 @@
 #define TwUnLockBuf                   _TwUnLockBuf
 #define TwUnregisterUserData          _TwUnregisterUserData
 #define TwUpdateUserData              _TwUpdateUserData
+#define TwSetRegUserDataTarget        _TwSetRegUserDataTarget
 #define TwWaitForEndOfAcquisition     _TwWaitForEndOfAcquisition
 #define TwWaitForNewData              _TwWaitForNewData
 #define TwAutoSetupDaqDevice          _TwAutoSetupDaqDevice
@@ -549,7 +550,7 @@ TOFWERK_DAQ_API TwRetVal TwTpsGetModuleCodes(int* moduleCodeBuffer, int bufferLe
 ////////////////////////////////////////////////////////////////////////////////
 TOFWERK_DAQ_API TwRetVal TwTpsInitialize();
 //get module codes od all tps modules
-//arguments:
+//arguments: 
 //
 //possible return values:   TwSuccess 				success
 //                        	TwError				   	if not connected
@@ -738,6 +739,8 @@ TOFWERK_DAQ_API TwRetVal TwUpdateUserData(char* Location, int NbrElements, doubl
 //possible return values:	TwDaqRecNotRunning		if no recording application is found
 //							TwSuccess   			if update was successfull
 //							TwError					general error
+////////////////////////////////////////////////////////////////////////////////
+TOFWERK_DAQ_API TwRetVal TwSetRegUserDataTarget(char* Location, int elementIndex, double elementValue, int blockTime);
 ////////////////////////////////////////////////////////////////////////////////
 TOFWERK_DAQ_API TwRetVal TwReadRegUserData(char* Location, int NbrElements, double* Data);
 //updates values in a shared memory region registered with TwRegisterUserDataBuf or TwRegisterUserDataWrite functions.

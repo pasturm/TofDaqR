@@ -1,12 +1,12 @@
 Package: TofDaqR
 Title: R Interface to the TOFWERK TofDaq API
-Version: 0.3.4.902
-Date: 2017-11-08
+Version: 0.3.4.903
+Date: 2017-12-01
 Author: Patrick Sturm, Christian Tanner
 Maintainer: Patrick Sturm <sturm@tofwerk.com>
 Copyright: 2017 TOFWERK AG
 Description: The TofDaqR package provides an interface to the TOFWERK TofDaq API
-    (API version 1.99r450), which consists of libraries for communication with 
+    (API version 1.99r601), which consists of libraries for communication with 
     the TofDAQ recorder application, data file access and general 
     (time-of-flight) mass spectrometry related utility functions.
 License: GPL-3

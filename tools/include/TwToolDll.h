@@ -42,7 +42,9 @@
 #define TwSiFitPhd                    _TwSiFitPhd
 #define TwSiFitRateFromPhd            _TwSiFitRateFromPhd
 #define TwSiGetHistogram              _TwSiGetHistogram
+#define TwSiGetHistogramAmp           _TwSiGetHistogramAmp
 #define TwSiGetSumHistogram           _TwSiGetSumHistogram
+#define TwSiGetSumHistogramAmp        _TwSiGetSumHistogramAmp
 #define TwSiInitializeHistograms      _TwSiInitializeHistograms
 #define TwSiProcessSpectrum           _TwSiProcessSpectrum
 #define TwSiResetHistograms           _TwSiResetHistograms
@@ -130,7 +132,11 @@ TOFWERK_TOOL_API TwRetVal TwSiProcessSpectrum(float* spectrum, int nbrSamples, i
 //---------------------------------------------------------------------------
 TOFWERK_TOOL_API TwRetVal TwSiGetHistogram(int histogramIndex, float* intensity, unsigned int* counts, unsigned int* arrayLength, unsigned int* spectrumCount, double* meanValue);
 //---------------------------------------------------------------------------
+TOFWERK_TOOL_API TwRetVal TwSiGetHistogramAmp(int histogramIndex, float* intensity, unsigned int* counts, unsigned int* arrayLength, unsigned int* spectrumCount, double* meanValue);
+//---------------------------------------------------------------------------
 TOFWERK_TOOL_API TwRetVal TwSiGetSumHistogram(int specType, float* intensity, unsigned int* counts, unsigned int* arrayLength, unsigned int* spectrumCount, double* meanValue, double minMass, double maxMass, double minRate, double maxRate);
+//---------------------------------------------------------------------------
+TOFWERK_TOOL_API TwRetVal TwSiGetSumHistogramAmp(int specType, float* intensity, unsigned int* counts, unsigned int* arrayLength, unsigned int* spectrumCount, double* meanValue, double minMass, double maxMass, double minRate, double maxRate);
 //---------------------------------------------------------------------------
 TOFWERK_TOOL_API TwRetVal TwSiResetHistograms(void);
 //---------------------------------------------------------------------------
@@ -148,6 +154,7 @@ TOFWERK_TOOL_API TwRetVal TwNistLibrarySearch(int nbrSticks, double* stickMass, 
 TOFWERK_TOOL_API TwRetVal TwNistLibraryQueryResult(int index, int propertyIndex, int* valueLen, char* value);
 //---------------------------------------------------------------------------
 TOFWERK_TOOL_API TwRetVal TwFindTpsIp(char* tpsSerial, int timeout, int* hostStrLen, char* hostStr);
+//---------------------------------------------------------------------------
 #endif
 //---------------------------------------------------------------------------
 TOFWERK_TOOL_API TwRetVal TwGenerateImageData(int width, int height, float* dataIn, int palette, unsigned char* paletteOffset, bool* paletteInvert, float* dataMinMax, float* gammaVal, unsigned char* specialColours, unsigned char* imageOut);
@@ -156,7 +163,7 @@ TOFWERK_TOOL_API double TwImagePaletteOffset2Value(unsigned char pixelValue, dou
 //---------------------------------------------------------------------------
 TOFWERK_TOOL_API unsigned char TwImageValue2PaletteOffset(double dataValue, double min, double max, double gamma);
 //---------------------------------------------------------------------------
-TOFWERK_TOOL_API TwRetVal TwImageGetPaletteRGB(int palette, unsigned char paletteValue, unsigned char* rgb);
+TOFWERK_TOOL_API TwRetVal TwImageGetPaletteRGB(int palette, unsigned char paletteValue, unsigned char offset, bool invert, unsigned char* rgb);
 //---------------------------------------------------------------------------
 
 #ifdef __cplusplus
