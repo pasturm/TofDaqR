@@ -1949,15 +1949,15 @@ SetStringAttributeInH5 <- function(Filename, location, name, attribute) {
 #'
 #' @param Filename Path/filename of the HDF5 file.
 #' @param location Location of the group or dataset where the attribute is attached to.
-#' @param rowIndex Row index.
-#' @return A list containing the row of user data and data description.
+#' @param rowIndex Index of row to read. If index is -1 (default), all rows are read.
+#' @return A list containing the user data and data description.
 #'
 #' @examples
 #' \dontrun{
-#' GetUserDataFromH5("path/to/file.h5", location = , rowIndex = )
+#' GetUserDataFromH5("path/to/file.h5", "/ImageData/ScanData")
 #' }
 #' @export
-GetUserDataFromH5 <- function(Filename, location, rowIndex) {
+GetUserDataFromH5 <- function(Filename, location, rowIndex = -1L) {
     .Call('_TofDaqR_GetUserDataFromH5', PACKAGE = 'TofDaqR', Filename, location, rowIndex)
 }
 

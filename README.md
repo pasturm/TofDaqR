@@ -21,7 +21,7 @@ Features:
 ## Installation
 To install the latest binary version on Windows, run
 ```
-install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.4/TofDaqR_0.3.4.zip", repos = NULL)
+install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.5/TofDaqR_0.3.5.zip", repos = NULL)
 ```
 
 To install the latest development version from source (for Windows, MacOS, Linux), run

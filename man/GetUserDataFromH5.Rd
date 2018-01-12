@@ -4,17 +4,17 @@
 \alias{GetUserDataFromH5}
 \title{Reads user data from the HDF5 file.}
 \usage{
-GetUserDataFromH5(Filename, location, rowIndex)
+GetUserDataFromH5(Filename, location, rowIndex = -1L)
 }
 \arguments{
 \item{Filename}{Path/filename of the HDF5 file.}
 
 \item{location}{Location of the group or dataset where the attribute is attached to.}
 
-\item{rowIndex}{Row index.}
+\item{rowIndex}{Index of row to read. If index is -1 (default), all rows are read.}
 }
 \value{
-A list containing the row of user data and data description.
+A list containing the user data and data description.
 }
 \description{
 \code{GetUserDataFromH5} reads a row of user data added to the file using
@@ -27,6 +27,6 @@ If you want to access data saved by a registered data source (or a data
 }
 \examples{
 \dontrun{
-GetUserDataFromH5("path/to/file.h5", location = , rowIndex = )
+GetUserDataFromH5("path/to/file.h5", "/ImageData/ScanData")
 }
 }

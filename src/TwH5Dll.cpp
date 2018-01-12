@@ -1678,24 +1678,24 @@ void SetStringAttributeInH5(std::string Filename, std::string location,
 //'
 //' @param Filename Path/filename of the HDF5 file.
 //' @param location Location of the group or dataset where the attribute is attached to.
-//' @param rowIndex Row index.
-//' @return A list containing the row of user data and data description.
+//' @param rowIndex Index of row to read. If index is -1 (default), all rows are read.
+//' @return A list containing the user data and data description.
 //'
 //' @examples
 //' \dontrun{
-//' GetUserDataFromH5("path/to/file.h5", location = , rowIndex = )
+//' GetUserDataFromH5("path/to/file.h5", "/ImageData/ScanData")
 //' }
 //' @export
 // [[Rcpp::export]]
-List GetUserDataFromH5(std::string Filename, std::string location, int rowIndex) {
+List GetUserDataFromH5(std::string Filename, std::string location, int rowIndex = -1) {
 
   char *cFilename = StringToChar(Filename);
   char *cLocation = StringToChar(location);
 
   // get nbrElements
   int nbrElements = 0;
-  int tmp = 0;
-  TwRetVal rv = TwGetUserDataFromH5(cFilename, cLocation, &tmp, &nbrElements,
+  int rows = 0;
+  TwRetVal rv = TwGetUserDataFromH5(cFilename, cLocation, &rows, &nbrElements,
                                     NULL, NULL);
   if (rv != TwValueAdjusted) {
     TwCloseH5(cFilename);
@@ -1707,25 +1707,54 @@ List GetUserDataFromH5(std::string Filename, std::string location, int rowIndex)
   char *elementDescription = new char[256 * nbrElements];
   memset(elementDescription, 0, 256 * nbrElements);
 
-  rv = TwGetUserDataFromH5(cFilename, cLocation, &rowIndex, &nbrElements,
-                           &buffer[0], elementDescription);
-  TwCloseH5(cFilename);
+  List result;
 
-  if (rv != TwSuccess) {
-    delete[] elementDescription;
-    stop(TwRetValString(rv));
+  if (rowIndex == -1) {
+
+    NumericMatrix array(rows, nbrElements);
+
+    for (int j = 0; j < rows; j++) {
+      rv = TwGetUserDataFromH5(cFilename, cLocation, &j, &nbrElements,
+                               &buffer[0], elementDescription);
+
+      if (rv != TwSuccess) {
+        delete[] elementDescription;
+        TwCloseH5(cFilename);
+        stop(TwRetValString(rv));
+      }
+
+      for (int i = 0; i < nbrElements; i++) {
+        array(j,i) = buffer[i];
+      }
+    }
+
+    result["data"] = array;
+
+  } else {
+
+    rv = TwGetUserDataFromH5(cFilename, cLocation, &rowIndex, &nbrElements,
+                             &buffer[0], elementDescription);
+
+    if (rv != TwSuccess) {
+      delete[] elementDescription;
+      TwCloseH5(cFilename);
+      stop(TwRetValString(rv));
+    }
+
+    result["data"] = buffer;
+
   }
 
+  TwCloseH5(cFilename);
+
   CharacterVector descriptionArray(nbrElements);
-  std::string str(elementDescription);
+  std::string str(elementDescription, 256 * nbrElements);
   delete[] elementDescription;
 
-  for (int i = 0; i < nbrElements; ++i) {
+  for (int i = 0; i < nbrElements; i++) {
     descriptionArray[i] = str.substr(i*256, 256);
   }
 
-  List result;
-  result["data"] = buffer;
   result["elementDescription"] = descriptionArray;
 
   return result;

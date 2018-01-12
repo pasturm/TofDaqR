@@ -1,4 +1,4 @@
-TofDaqR 0.3.4.903
+TofDaqR 0.3.5
 --------------------------------------------------------------------------------
 
 * Updated `configure` script to work with Rcpp >=0.12.12.
@@ -6,6 +6,8 @@ TofDaqR 0.3.4.903
 * Updated README.md with easier installation instructions.
 
 * Updated to TofDaq API 1.99r601
+
+* Corrected bug in `GetUserDataFromH5()` and added the option to read all rows.
 
 
 TofDaqR 0.3.4
