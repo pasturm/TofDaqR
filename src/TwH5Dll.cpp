@@ -888,14 +888,14 @@ List GetRegUserDataSourcesFromH5(std::string Filename) {
   }
 
   CharacterVector locationArray(nbrSources);
-  std::string str(sourceLocation, sourceLocation + 256 * nbrSources);
+  std::string str(sourceLocation, 256 * nbrSources);
+  LogicalVector hasDescArray(nbrSources);
 
   for (int i = 0; i < nbrSources; ++i) {
     locationArray[i] = str.substr(i*256, 256);
+    hasDescArray[i] = hasDesc[i];
   }
   delete[] sourceLocation;
-
-  LogicalVector hasDescArray(hasDesc, hasDesc + nbrSources);
   delete[] hasDesc;
 
   List result;
@@ -962,7 +962,7 @@ SEXP GetRegUserDataFromH5(std::string Filename, std::string location,
     }
 
     CharacterVector descriptionArray(bufLength);
-    std::string str(description, description + 256 * bufLength);
+    std::string str(description, 256 * bufLength);
     delete[] description;
 
     for (int i = 0; i < bufLength; ++i) {

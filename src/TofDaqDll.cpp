@@ -1538,7 +1538,7 @@ List GetRegUserDataSources() {
   }
 
   CharacterVector locationArray(arrayLength);
-  std::string str(location);
+  std::string str(location, 256 * arrayLength);
   delete[] location;
 
   for (int i = 0; i < arrayLength; ++i) {
@@ -1584,7 +1584,7 @@ CharacterVector GetRegUserDataDesc(std::string Location) {
   }
 
   CharacterVector descriptionArray(nbrElements);
-  std::string str(elementDescription);
+  std::string str(elementDescription, 256 * nbrElements);
   delete[] elementDescription;
 
   for (int i = 0; i < nbrElements; ++i) {
