@@ -533,7 +533,7 @@ GetDescriptor <- function() {
 #'
 #' \code{GetPeakParameters} gets parameters for a given peak.
 #'
-#' @param PeakIndex Index of peak (zero-based).
+#' @param PeakIndex Index of peak (zero-based numbering).
 #' @return A list with the peak paramters \emph{label}, \emph{mass}, \emph{loMass} and \emph{hiMass}.
 #' @export
 GetPeakParameters <- function(PeakIndex) {
@@ -1379,8 +1379,8 @@ GetStickSpectrum2FromH5 <- function(Filename, SegmentIndex, SegmentEndIndex, Buf
 #' \code{GetPeakParametersFromH5} reads peak parameters from the data file.
 #'
 #' @param Filename Path/filename of the HDF5 file.
-#' @param PeakIndex Index of peak (zero-based). If index is -1 (default), peak parameters of all
-#' peaks are read.
+#' @param PeakIndex Index of peak (zero-based numbering). If index is -1
+#' (default), peak parameters of all peaks are read.
 #' @return A list with the peak paramters \emph{label}, \emph{mass}, \emph{loMass} and \emph{hiMass}.
 #'
 #' @examples
@@ -2424,8 +2424,8 @@ SiProcessSpectrum <- function(spectrum, specType) {
 #' Note: R crashes if \code{histogramIndex} is set to max(histogramIndex)+1
 #' (API bug).
 #'
-#' @param histogramIndex Index (0-based) of the histogram. It corresponds to the
-#' mass range defined with \code{\link{SiInitializeHistograms}}.
+#' @param histogramIndex Index (zero-based numbering) of the histogram. It
+#' corresponds to the mass range defined with \code{\link{SiInitializeHistograms}}.
 #' @return A list with the intensities (histogram x-values), counts (histogram
 #' y-values), the number of spectra that were processed for this histogram and
 #' the mean histogram value i.e. sum(intensity[i]*counts[i])/sum(counts[i]).

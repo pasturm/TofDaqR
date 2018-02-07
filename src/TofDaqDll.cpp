@@ -807,7 +807,7 @@ List GetDescriptor() {
 //'
 //' \code{GetPeakParameters} gets parameters for a given peak.
 //'
-//' @param PeakIndex Index of peak (zero-based).
+//' @param PeakIndex Index of peak (zero-based numbering).
 //' @return A list with the peak paramters \emph{label}, \emph{mass}, \emph{loMass} and \emph{hiMass}.
 //' @export
 // [[Rcpp::export]]

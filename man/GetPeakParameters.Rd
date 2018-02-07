@@ -7,7 +7,7 @@
 GetPeakParameters(PeakIndex)
 }
 \arguments{
-\item{PeakIndex}{Index of peak (zero-based).}
+\item{PeakIndex}{Index of peak (zero-based numbering).}
 }
 \value{
 A list with the peak paramters \emph{label}, \emph{mass}, \emph{loMass} and \emph{hiMass}.

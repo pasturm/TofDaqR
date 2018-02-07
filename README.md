@@ -1,10 +1,7 @@
 # TofDaqR
-R Interface to the [TOFWERK TofDaq API](http://www.tofwerk.com/tofdaq/).
+R Interface to the [TOFWERK TofDaq API](https://www.tofwerk.com/software/tofdaq/).
 
-The TofDaqR package provides a R interface to the TOFWERK TofDaq API, which 
-consists of libraries for communication with the TofDAQ recorder application,
-data file access and general (time-of-flight) mass spectrometry related utility
-functions. 
+The TofDaqR package provides a R interface to the TOFWERK TofDaq API (version 1.99r601), which consists of libraries for communication with the TofDAQ recorder application, data file access and general (time-of-flight) mass spectrometry related utility functions. 
 
 Features:
 
@@ -21,7 +18,7 @@ Features:
 ## Installation
 To install the latest binary version on Windows, run
 ```
-install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.5/TofDaqR_0.3.5.zip", repos = NULL)
+install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.6/TofDaqR_0.3.6.zip", repos = NULL)
 ```
 
 To install the latest development version from source (for Windows, MacOS, Linux), run
@@ -31,5 +28,4 @@ devtools::install_github("pasturm/TofDaqR", args = "--clean")
 ```
 Installing from source requires [Rtools](https://cran.r-project.org/bin/windows/Rtools/) on Windows,  [Xcode](https://developer.apple.com/xcode/) on macOS and `sudo apt-get install r-base-dev` (or similar) on Linux. 
 
-For latest release notes on this development version, see the [NEWS file](https://github.com/pasturm/TofDaqR/blob/master/NEWS).
-
+See [NEWS](https://github.com/pasturm/TofDaqR/blob/master/NEWS) for release notes.

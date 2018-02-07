@@ -9,8 +9,8 @@ GetPeakParametersFromH5(Filename, PeakIndex = -1L)
 \arguments{
 \item{Filename}{Path/filename of the HDF5 file.}
 
-\item{PeakIndex}{Index of peak (zero-based). If index is -1 (default), peak parameters of all
-peaks are read.}
+\item{PeakIndex}{Index of peak (zero-based numbering). If index is -1
+(default), peak parameters of all peaks are read.}
 }
 \value{
 A list with the peak paramters \emph{label}, \emph{mass}, \emph{loMass} and \emph{hiMass}.

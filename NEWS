@@ -1,8 +1,12 @@
-TofDaqR 0.3.5.900
+TofDaqR 0.3.6
 --------------------------------------------------------------------------------
 
 * corrected cstring to std::string conversion bug in `GetRegUserData...()`
   functions.
+
+* corrected off-by-one bug in `GetPeakParametersFromH5()`
+
+* corrected bug in `configure` script (MacOS and Linux version).
 
 
 TofDaqR 0.3.5

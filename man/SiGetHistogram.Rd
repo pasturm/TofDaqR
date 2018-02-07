@@ -7,8 +7,8 @@
 SiGetHistogram(histogramIndex)
 }
 \arguments{
-\item{histogramIndex}{Index (0-based) of the histogram. It corresponds to the
-mass range defined with \code{\link{SiInitializeHistograms}}.}
+\item{histogramIndex}{Index (zero-based numbering) of the histogram. It
+corresponds to the mass range defined with \code{\link{SiInitializeHistograms}}.}
 }
 \value{
 A list with the intensities (histogram x-values), counts (histogram

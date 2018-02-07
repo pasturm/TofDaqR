@@ -421,8 +421,8 @@ SEXP GetStickSpectrum2FromH5(std::string Filename, int SegmentIndex,
 //' \code{GetPeakParametersFromH5} reads peak parameters from the data file.
 //'
 //' @param Filename Path/filename of the HDF5 file.
-//' @param PeakIndex Index of peak (zero-based). If index is -1 (default), peak parameters of all
-//' peaks are read.
+//' @param PeakIndex Index of peak (zero-based numbering). If index is -1
+//' (default), peak parameters of all peaks are read.
 //' @return A list with the peak paramters \emph{label}, \emph{mass}, \emph{loMass} and \emph{hiMass}.
 //'
 //' @examples
@@ -453,12 +453,12 @@ List GetPeakParametersFromH5(std::string Filename, int PeakIndex = -1) {
     }
 
     List result;
-    CharacterVector label(descriptor.nbrPeaks-1);
-    NumericVector mass(descriptor.nbrPeaks-1);
-    NumericVector loMass(descriptor.nbrPeaks-1);
-    NumericVector hiMass(descriptor.nbrPeaks-1);
+    CharacterVector label(descriptor.nbrPeaks);
+    NumericVector mass(descriptor.nbrPeaks);
+    NumericVector loMass(descriptor.nbrPeaks);
+    NumericVector hiMass(descriptor.nbrPeaks);
 
-    for (int i=0; i<descriptor.nbrPeaks-1; ++i) {
+    for (int i=0; i<descriptor.nbrPeaks; ++i) {
       label[i] = PeakPar[i].label;
       mass[i] = PeakPar[i].mass;
       loMass[i] = PeakPar[i].loMass;
