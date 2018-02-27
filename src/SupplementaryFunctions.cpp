@@ -219,14 +219,14 @@ NumericVector EventList2TofSpec(NumericVector events, double clockPeriod,
 //' @return A list with sample indices and data values (in mV).
 //' @export
 // [[Rcpp::export]]
-List DecodeEventList(NumericVector events, int clockPeriod, int sampleInterval) {
+List DecodeEventList(NumericVector events, double clockPeriod, double sampleInterval) {
 
   unsigned int n = events.size();
 
-  NumericVector sampleindex(n);
+  IntegerVector sampleindex(n);
   NumericVector value(n);
 
-  unsigned int k = 0;
+  int k = 0;
 
   for (unsigned int i = 0; i < n; ++i) {
     const unsigned int timestamp = (unsigned int)events[i] & 0xFFFFFF;
@@ -248,10 +248,13 @@ List DecodeEventList(NumericVector events, int clockPeriod, int sampleInterval) 
     }
   }
 
-  IntegerVector idx = seq_len(k);
+  IntegerVector idx(k);
+  for (int i = 0; i < k; i++) {
+    idx[i] = i;
+  }
 
   List result;
-  result["sampleindex"] = sampleindex[idx];
+  result["sampleIndex"] = sampleindex[idx];
   result["value"] = value[idx];
 
   return result;
@@ -285,7 +288,7 @@ List DecodeEventListThreshold(NumericVector events, double clockPeriod,
                               int presamples, int postsamples) {
 
   const int n = events.size();
-  NumericVector sampleindex(n);
+  IntegerVector sampleindex(n);
   NumericVector value(n);
   int k = 0;
   bool peakdetected = false;
@@ -304,7 +307,7 @@ List DecodeEventListThreshold(NumericVector events, double clockPeriod,
     }
     else {  // ADC data or "Ndigo TDC" data (timestamp is time of first sample in packet)
       pre_index = std::queue<int>();  // empty pre samples queue
-      pre_value = std::queue<double>();  // empty per samples queue
+      pre_value = std::queue<double>();  // empty pre samples queue
       m = 0;
       peakdetected = false;
 
@@ -368,10 +371,9 @@ List DecodeEventListThreshold(NumericVector events, double clockPeriod,
   for (int i = 0; i < k; i++) {
     idx[i] = i;
   }
-  // IntegerVector idx = seq_len(k);  // alternative
 
   List result;
-  result["sampleindex"] = sampleindex[idx];
+  result["sampleIndex"] = sampleindex[idx];
   result["value"] = value[idx];
   return result;
 }

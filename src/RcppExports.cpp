@@ -36,14 +36,14 @@ BEGIN_RCPP
 END_RCPP
 }
 // DecodeEventList
-List DecodeEventList(NumericVector events, int clockPeriod, int sampleInterval);
+List DecodeEventList(NumericVector events, double clockPeriod, double sampleInterval);
 RcppExport SEXP _TofDaqR_DecodeEventList(SEXP eventsSEXP, SEXP clockPeriodSEXP, SEXP sampleIntervalSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericVector >::type events(eventsSEXP);
-    Rcpp::traits::input_parameter< int >::type clockPeriod(clockPeriodSEXP);
-    Rcpp::traits::input_parameter< int >::type sampleInterval(sampleIntervalSEXP);
+    Rcpp::traits::input_parameter< double >::type clockPeriod(clockPeriodSEXP);
+    Rcpp::traits::input_parameter< double >::type sampleInterval(sampleIntervalSEXP);
     rcpp_result_gen = Rcpp::wrap(DecodeEventList(events, clockPeriod, sampleInterval));
     return rcpp_result_gen;
 END_RCPP

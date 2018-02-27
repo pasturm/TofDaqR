@@ -1,10 +1,16 @@
+TofDaqR 0.3.6.900
+--------------------------------------------------------------------------------
+
+* corrected bugs in `DecodeEventList()`.
+
+
 TofDaqR 0.3.6
 --------------------------------------------------------------------------------
 
-* corrected cstring to std::string conversion bug in `GetRegUserData...()`
+* corrected cstring to std::string conversion bug in `GetRegUserData...()`.
   functions.
 
-* corrected off-by-one bug in `GetPeakParametersFromH5()`
+* corrected off-by-one bug in `GetPeakParametersFromH5()`.
 
 * corrected bug in `configure` script (MacOS and Linux version).
 
@@ -16,7 +22,7 @@ TofDaqR 0.3.5
 
 * Updated README.md with easier installation instructions.
 
-* Updated to TofDaq API 1.99r601
+* Updated to TofDaq API 1.99r601.
 
 * Corrected bug in `GetUserDataFromH5()` and added the option to read all rows.
 

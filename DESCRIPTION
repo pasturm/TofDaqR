@@ -1,6 +1,6 @@
 Package: TofDaqR
 Title: R Interface to the TOFWERK TofDaq API
-Version: 0.3.6
+Version: 0.3.6.900
 Date: 2018-02-07
 Author: Patrick Sturm, Christian Tanner
 Maintainer: Patrick Sturm <sturm@tofwerk.com>
