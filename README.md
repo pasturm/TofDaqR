@@ -1,7 +1,7 @@
 # TofDaqR
 R Interface to the [TOFWERK TofDaq API](https://www.tofwerk.com/software/tofdaq/).
 
-The TofDaqR package provides a R interface to the TOFWERK TofDaq API (version 1.99r601), which consists of libraries for communication with the TofDAQ recorder application, data file access and general (time-of-flight) mass spectrometry related utility functions. 
+The TofDaqR package provides a R interface to the TOFWERK TofDaq API, which consists of libraries for communication with the TofDAQ recorder application, data file access and general (time-of-flight) mass spectrometry related utility functions. 
 
 Features:
 
@@ -21,7 +21,7 @@ To install the latest binary version on Windows, run
 install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.6/TofDaqR_0.3.6.zip", repos = NULL)
 ```
 
-To install the latest development version from source (for Windows, MacOS, Linux), run
+To install the latest development version from source (on Windows, macOS or Linux), run
 ```
 install.packages("devtools")
 devtools::install_github("pasturm/TofDaqR", args = "--clean")

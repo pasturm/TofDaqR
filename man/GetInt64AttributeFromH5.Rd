@@ -23,7 +23,7 @@ HDF5 file.
 \details{
 Used to read attributes not available from \code{GetH5Descriptor}. int64
 parameters are returned as string. They can be converted to integer64
-using \code{\link[bit64]{as.integer64}}.
+using \code{\link[bit64:as.integer64.character]{bit64::as.integer64()}}.
 }
 \examples{
 \dontrun{

@@ -17,7 +17,8 @@ A list with fitted parameters.
 \description{
 \code{FitTofDataSinglePeak} is a wrapper for \code{\link{FitSinglePeak}}
 and also reports fitted resolving power, area and count rates. It takes the
-output of \code{\link{GetTofDataSinglePeak}} as input parameter.
+output of \code{\link{GetTofDataSinglePeak}} as input parameter and calculates
+a peak fit of the averaged spectrum.
 }
 \details{
 Peak types:

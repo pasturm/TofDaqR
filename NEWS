@@ -1,9 +1,11 @@
-TofDaqR 0.3.6.901
+TofDaqR 0.3.6.902
 --------------------------------------------------------------------------------
 
 * Corrected bug in `DecodeEventList()`.
 
 * Added Authors@R and URL fields in DESCRIPTION.
+
+* Corrected minor bugs in documentation.
 
 
 TofDaqR 0.3.6

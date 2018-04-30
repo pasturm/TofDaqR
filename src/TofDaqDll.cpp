@@ -361,7 +361,8 @@ double GetDaqParameterFloat(std::string Parameter) {
 //'
 //' \code{GetDaqParameterInt64} gets a single int64 parameter as a string.
 //'
-//' The return string can be converted to integer64 using \code{\link[bit64]{as.integer64}}.
+//' The return string can be converted to integer64 using
+//' \code{\link[bit64:as.integer64.character]{bit64::as.integer64()}}.
 //'
 //' @param Parameter Parameter name as a string. See
 //' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
@@ -699,7 +700,7 @@ void SetDaqParameterDouble(std::string Parameter, double Value) {
 //' See \emph{/doc/TofDaqDll.htm} for more details.
 //'
 //' int64 and unsigned int64 parameters are returned as string. They can be
-//' converted to integer64 using \code{\link[bit64]{as.integer64}}.
+//' converted to integer64 using \code{\link[bit64:as.integer64.character]{bit64::as.integer64()}}.
 //'
 //' @return A list containing the TSharedMemoryDesc structure
 //' @export
