@@ -17,4 +17,4 @@ NEWS text eol=crlf
 *.md text eol=crlf
 
 # Don't include in language statistics of repository on Github.
-inst/doc/* linguist-documentation
+tools/doc/* linguist-documentation

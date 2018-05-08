@@ -1,6 +1,7 @@
 #! /bin/bash
 
 # run this script once after updating the TofDaq API files.
+# Note: make sure this file is saved with Unix line endings (LF)!
 
 # add ChangeIonMode (which does not exist by default) to TofDaqDll.h
 if !(grep -Fq ionMode ./include/TofDaqDll.h) ; then
@@ -11,9 +12,13 @@ rm ./include/TofDaqDll.h.bak
 fi
 
 # remove unnecessary jquery.php from /inst/doc/
-if [ -f ../inst/doc/TofDaqDll_files/jquery.php ] ; then
-  rm ../inst/doc/TofDaqDll_files/jquery.php
-  rm ../inst/doc/TofwerkHDF5_files/jquery.php
-  rm ../inst/doc/TwH5Dll_files/jquery.php
-  rm ../inst/doc/TwToolDll_files/jquery.php
+if [ -f ./doc/TofDaqDll_files/jquery.php ] ; then
+  rm ./doc/TofDaqDll_files/jquery.php
+  rm ./doc/TofDaqDll_files/js.php
+  rm ./doc/TofwerkHDF5_files/jquery.php
+  rm ./doc/TofwerkHDF5_files/js.php
+  rm ./doc/TwH5Dll_files/jquery.php
+  rm ./doc/TwH5Dll_files/js.php
+  rm ./doc/TwToolDll_files/jquery.php
+  rm ./doc/TwToolDll_files/js.php
 fi

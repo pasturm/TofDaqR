@@ -7,3 +7,4 @@ src/*.dll
 *.Rproj
 .Rbuildignore
 .DS_Store
+inst/doc
