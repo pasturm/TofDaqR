@@ -4,8 +4,6 @@
 mkdir -p "${R_PACKAGE_DIR}/libs"
 if [[ "$OSTYPE" == "darwin"* && "$HOSTTYPE" == "x86_64" ]]; then
 cp ./tools/bin/macos_x86_64/* "${R_PACKAGE_DIR}/libs"
-elif [[ "$OSTYPE" = "darwin"* && "$HOSTTYPE" == "i386" ]]; then
-cp ./tools/bin/macos_i386/* "${R_PACKAGE_DIR}/libs"
 elif [[ "$OSTYPE" = "linux-gnu" && "$HOSTTYPE" == "x86_64" ]]; then
 cp ./tools/bin/linux_x86_64/* "${R_PACKAGE_DIR}/libs"
 else

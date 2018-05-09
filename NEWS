@@ -1,4 +1,4 @@
-TofDaqR 0.3.6.904
+TofDaqR 0.3.6.905
 --------------------------------------------------------------------------------
 
 * Corrected bug in `DecodeEventList()`.
@@ -8,6 +8,8 @@ TofDaqR 0.3.6.904
 * Corrected minor bugs in documentation.
 
 * Added vignette that links to the API documentation files.
+
+* Removed the macos_i386 TofDaq libraries.
 
 
 TofDaqR 0.3.6
