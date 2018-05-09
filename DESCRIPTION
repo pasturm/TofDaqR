@@ -1,7 +1,7 @@
 Package: TofDaqR
 Title: R Interface to the TOFWERK TofDaq API
-Version: 0.3.6.903
-Date: 2018-05-08
+Version: 0.3.6.904
+Date: 2018-05-09
 Authors@R: c(
   person("Patrick", "Sturm", role = c("aut", "cre"), 
          email = "sturm@tofwerk.com"), 
