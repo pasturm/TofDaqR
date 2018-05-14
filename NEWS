@@ -1,9 +1,9 @@
-TofDaqR 0.3.6.905
+TofDaqR 0.3.6.906
 --------------------------------------------------------------------------------
 
 * Corrected bug in `DecodeEventList()`.
 
-* Added Authors@R and URL fields in DESCRIPTION.
+* Added Authors@R, URL and BugReports fields in DESCRIPTION, removed Date field.
 
 * Corrected minor bugs in documentation.
 
