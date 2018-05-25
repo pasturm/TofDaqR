@@ -1,11 +1,11 @@
-TofDaqR 0.3.6.906
+TofDaqR 0.3.6.907
 --------------------------------------------------------------------------------
 
 * Corrected bug in `DecodeEventList()`.
 
 * Added Authors@R, URL and BugReports fields in DESCRIPTION, removed Date field.
 
-* Corrected minor bugs in documentation.
+* Corrected and improved documentation.
 
 * Added vignette that links to the API documentation files.
 
@@ -15,7 +15,7 @@ TofDaqR 0.3.6.906
 TofDaqR 0.3.6
 --------------------------------------------------------------------------------
 
-* Corrected cstring to std::string conversion bug in `GetRegUserData...()`.
+* Corrected cstring to std::string conversion bug in `GetRegUserData...()`
   functions.
 
 * Corrected off-by-one bug in `GetPeakParametersFromH5()`.

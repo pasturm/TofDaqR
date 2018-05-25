@@ -4,7 +4,7 @@
 \alias{GetSpecXaxisFromH5}
 \title{x-axis values of mass spectrum.}
 \usage{
-GetSpecXaxisFromH5(Filename, Type, writeIndex)
+GetSpecXaxisFromH5(Filename, Type = 1L, writeIndex = 0L)
 }
 \arguments{
 \item{Filename}{Path/filename of the HDF5 file.}
@@ -16,7 +16,7 @@ GetSpecXaxisFromH5(Filename, Type, writeIndex)
 \item{writeIndex}{Write index to use for mass calibration (relevant only for
 \code{abs(Type)== 1 or 2}). If the data file has no \emph{/TofData/MassCalibration}
 dataset the standard mass calibration parameters are used (same for all
-values of writeIndex).}
+values of writeIndex). Default is 0.}
 }
 \value{
 A vector containing the x-axis values.

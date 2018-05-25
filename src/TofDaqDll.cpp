@@ -286,7 +286,8 @@ void SaveIniFile(Nullable<Rcpp::String> IniFile = R_NilValue) {
 //' \code{GetDaqParameter} gets a single parameter as a string.
 //'
 //' @param Parameter Parameter name as a string. See
-//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+//' for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
 String GetDaqParameter(std::string Parameter) {
@@ -308,7 +309,8 @@ String GetDaqParameter(std::string Parameter) {
 //' \code{GetDaqParameterInt} gets a single integer parameter.
 //'
 //' @param Parameter Parameter name as a string. See
-//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+//' for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
 int GetDaqParameterInt(std::string Parameter) {
@@ -326,7 +328,8 @@ int GetDaqParameterInt(std::string Parameter) {
 //' \code{GetDaqParameterBool} gets a single boolean parameter.
 //'
 //' @param Parameter Parameter name as a string. See
-//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+//' for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
 bool GetDaqParameterBool(std::string Parameter) {
@@ -344,7 +347,8 @@ bool GetDaqParameterBool(std::string Parameter) {
 //' \code{GetDaqParameterFloat} gets a single float parameter.
 //'
 //' @param Parameter Parameter name as a string. See
-//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+//' for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
 double GetDaqParameterFloat(std::string Parameter) {
@@ -365,7 +369,8 @@ double GetDaqParameterFloat(std::string Parameter) {
 //' \code{\link[bit64:as.integer64.character]{bit64::as.integer64()}}.
 //'
 //' @param Parameter Parameter name as a string. See
-//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+//' for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
 String GetDaqParameterInt64(std::string Parameter) {
@@ -386,7 +391,8 @@ String GetDaqParameterInt64(std::string Parameter) {
 //' \code{GetDaqParameterDouble} gets a single double parameter.
 //'
 //' @param Parameter Parameter name as a string. See
-//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+//' for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
 double GetDaqParameterDouble(std::string Parameter) {
@@ -407,7 +413,8 @@ double GetDaqParameterDouble(std::string Parameter) {
 //' for success and a TwRetVal string is returned if it is not sucessful.
 //'
 //' @param Parameter Parameter name as a string. See
-//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+//' for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
 int GetDaqParameterIntRef(std::string Parameter) {
@@ -433,7 +440,8 @@ int GetDaqParameterIntRef(std::string Parameter) {
 //' for success and a TwRetVal string is returned if it is not sucessful.
 //'
 //' @param Parameter Parameter name as a string. See
-//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+//' for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
 bool GetDaqParameterBoolRef(std::string Parameter) {
@@ -459,7 +467,8 @@ bool GetDaqParameterBoolRef(std::string Parameter) {
 //' for success and a TwRetVal string is returned if it is not sucessful.
 //'
 //' @param Parameter Parameter name as a string. See
-//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+//' for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
 float GetDaqParameterFloatRef(std::string Parameter) {
@@ -485,7 +494,8 @@ float GetDaqParameterFloatRef(std::string Parameter) {
 //' for success and a TwRetVal string is returned if it is not sucessful.
 //'
 //' @param Parameter Parameter name as a string. See
-//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+//' for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
 String GetDaqParameterInt64Ref(std::string Parameter) {
@@ -514,7 +524,8 @@ String GetDaqParameterInt64Ref(std::string Parameter) {
 //' for success and a TwRetVal string is returned if it is not sucessful.
 //'
 //' @param Parameter Parameter name as a string. See
-//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+//' for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
 double GetDaqParameterDoubleRef(std::string Parameter) {
@@ -540,7 +551,8 @@ double GetDaqParameterDoubleRef(std::string Parameter) {
 //' if the type of the parameter is not a string.
 //'
 //' @param Parameter Parameter name as a string. See
-//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+//' for a list of all available parameters.
 //' @export
 // [[Rcpp::export]]
 String GetDaqParameterStringRef(std::string Parameter) {
@@ -564,7 +576,8 @@ String GetDaqParameterStringRef(std::string Parameter) {
 //' \code{SetDaqParameter} sets a single parameter.
 //'
 //' @param Parameter Parameter name as a string. See
-//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+//' for a list of all available parameters.
 //' @param ValueString Value as a string.
 //' @export
 // [[Rcpp::export]]
@@ -586,7 +599,8 @@ void SetDaqParameter(std::string Parameter, std::string ValueString) {
 //' \code{SetDaqParameterInt} sets a single parameter with an integer value.
 //'
 //' @param Parameter Parameter name as a string. See
-//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+//' for a list of all available parameters.
 //' @param Value Integer value.
 //' @export
 // [[Rcpp::export]]
@@ -607,7 +621,8 @@ void SetDaqParameterInt(std::string Parameter, int Value) {
 //' \code{SetDaqParameterBool} sets a single parameter with a boolean value.
 //'
 //' @param Parameter Parameter name as a string. See
-//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+//' for a list of all available parameters.
 //' @param Value \code{TRUE} or \code{FALSE}.
 //' @export
 // [[Rcpp::export]]
@@ -628,7 +643,8 @@ void SetDaqParameterBool(std::string Parameter, bool Value) {
 //' \code{SetDaqParameterFloat} sets a single parameter with a float value.
 //'
 //' @param Parameter Parameter name as a string. See
-//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+//' for a list of all available parameters.
 //' @param Value Numeric value.
 //' @export
 // [[Rcpp::export]]
@@ -650,7 +666,8 @@ void SetDaqParameterFloat(std::string Parameter, double Value) {
 //' (passed as a string).
 //'
 //' @param Parameter Parameter name as a string. See
-//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+//' for a list of all available parameters.
 //' @param Value int64 value passed as a string.
 //' @export
 // [[Rcpp::export]]
@@ -675,7 +692,8 @@ void SetDaqParameterInt64(std::string Parameter, std::string Value) {
 //' \code{SetDaqParameterDouble} sets a single parameter with a double value.
 //'
 //' @param Parameter Parameter name as a string. See
-//' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+//' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+//' for a list of all available parameters.
 //' @param Value Numeric value.
 //' @export
 // [[Rcpp::export]]
@@ -697,7 +715,9 @@ void SetDaqParameterDouble(std::string Parameter, double Value) {
 //' TSharedMemoryDesc contains various static information about the active
 //' acquisition that can be retrieved by \code{GetDaqParameter} functions but
 //' also information of DAQ progress.
-//' See \emph{/doc/TofDaqDll.htm} for more details.
+//' See
+//' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm}{TofDaq API documentation}
+//' for more details.
 //'
 //' int64 and unsigned int64 parameters are returned as string. They can be
 //' converted to integer64 using \code{\link[bit64:as.integer64.character]{bit64::as.integer64()}}.
@@ -858,7 +878,7 @@ void ReleaseSharedMemory() {
 //' reset data available event before returning.
 //' @export
 // [[Rcpp::export]]
-void WaitForNewData(int timeout, bool WaitForEventReset) {
+void WaitForNewData(int timeout, bool WaitForEventReset = true) {
 
   TSharedMemoryDesc pBufDesc;
   TSharedMemoryPointer pShMem;
@@ -897,7 +917,7 @@ void WaitForEndOfAcquisition(int timeout) {
 //' if \code{TRUE} (default) the spectrum is normalized to counts per extraction.
 //' @export
 // [[Rcpp::export]]
-NumericVector GetSumSpectrumFromShMem(bool Normalize) {
+NumericVector GetSumSpectrumFromShMem(bool Normalize = true) {
 
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
@@ -929,13 +949,14 @@ NumericVector GetSumSpectrumFromShMem(bool Normalize) {
 //' block copy).
 //' @param BufIndex Buf index of data to fetch.
 //' @param Normalize If \code{FALSE} the spectrum is reported as sum,
-//' if \code{TRUE} (default) the spectrum is normalized to counts per extraction.
+//' if \code{TRUE} (default) the spectrum is normalized to counts per extraction
+//' (ignored and assumed \code{FALSE} if used with \code{SegmentIndex = SegmentEndIndex = -1}).
 //' @return A vector containing the mass spectrum or an array containing the
 //' block of mass spectra if \code{SegmentIndex = SegmentEndIndex = -1}.
 //' @export
 // [[Rcpp::export]]
 SEXP GetTofSpectrumFromShMem(int SegmentIndex, int SegmentEndIndex,
-                             int BufIndex, bool Normalize) {
+                             int BufIndex, bool Normalize = true) {
 
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);

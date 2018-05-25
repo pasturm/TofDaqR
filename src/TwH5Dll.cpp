@@ -12,7 +12,9 @@ using namespace Rcpp;
 //' available datasets and mass calibration. Additional attributes, which are not
 //' available in the structure can be read using \code{Get...AttributeFromH5}
 //' functions.
-//' See \emph{/doc/TwH5Dll.htm} for more details.
+//' See
+//' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TwH5Dll.htm}{TofDaq API documentation}
+//' for more details.
 //'
 //' @param Filename Path/filename of the HDF5 file.
 //' @return A list containing the \emph{TwH5Desc} structure.
@@ -541,7 +543,7 @@ double GetBufTimeFromH5(std::string Filename, int BufIndex, int WriteIndex) {
 //' @param writeIndex Write index to use for mass calibration (relevant only for
 //' \code{abs(Type)== 1 or 2}). If the data file has no \emph{/TofData/MassCalibration}
 //' dataset the standard mass calibration parameters are used (same for all
-//' values of writeIndex).
+//' values of writeIndex). Default is 0.
 //' @return A vector containing the x-axis values.
 //'
 //' @examples
@@ -550,7 +552,8 @@ double GetBufTimeFromH5(std::string Filename, int BufIndex, int WriteIndex) {
 //' }
 //' @export
 // [[Rcpp::export]]
-NumericVector GetSpecXaxisFromH5(std::string Filename, int Type, int writeIndex) {
+NumericVector GetSpecXaxisFromH5(std::string Filename, int Type = 1,
+                                 int writeIndex = 0) {
 
   char *cFilename = StringToChar(Filename);
 

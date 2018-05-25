@@ -20,7 +20,9 @@ The \emph{TwH5Desc} structure contains information about data dimensions,
 available datasets and mass calibration. Additional attributes, which are not
 available in the structure can be read using \code{Get...AttributeFromH5}
 functions.
-See \emph{/doc/TwH5Dll.htm} for more details.
+See
+\href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TwH5Dll.htm}{TofDaq API documentation}
+for more details.
 }
 \examples{
 \dontrun{

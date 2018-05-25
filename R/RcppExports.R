@@ -292,7 +292,8 @@ SaveIniFile <- function(IniFile = NULL) {
 #' \code{GetDaqParameter} gets a single parameter as a string.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' for a list of all available parameters.
 #' @export
 GetDaqParameter <- function(Parameter) {
     .Call('_TofDaqR_GetDaqParameter', PACKAGE = 'TofDaqR', Parameter)
@@ -303,7 +304,8 @@ GetDaqParameter <- function(Parameter) {
 #' \code{GetDaqParameterInt} gets a single integer parameter.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' for a list of all available parameters.
 #' @export
 GetDaqParameterInt <- function(Parameter) {
     .Call('_TofDaqR_GetDaqParameterInt', PACKAGE = 'TofDaqR', Parameter)
@@ -314,7 +316,8 @@ GetDaqParameterInt <- function(Parameter) {
 #' \code{GetDaqParameterBool} gets a single boolean parameter.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' for a list of all available parameters.
 #' @export
 GetDaqParameterBool <- function(Parameter) {
     .Call('_TofDaqR_GetDaqParameterBool', PACKAGE = 'TofDaqR', Parameter)
@@ -325,7 +328,8 @@ GetDaqParameterBool <- function(Parameter) {
 #' \code{GetDaqParameterFloat} gets a single float parameter.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' for a list of all available parameters.
 #' @export
 GetDaqParameterFloat <- function(Parameter) {
     .Call('_TofDaqR_GetDaqParameterFloat', PACKAGE = 'TofDaqR', Parameter)
@@ -339,7 +343,8 @@ GetDaqParameterFloat <- function(Parameter) {
 #' \code{\link[bit64:as.integer64.character]{bit64::as.integer64()}}.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' for a list of all available parameters.
 #' @export
 GetDaqParameterInt64 <- function(Parameter) {
     .Call('_TofDaqR_GetDaqParameterInt64', PACKAGE = 'TofDaqR', Parameter)
@@ -350,7 +355,8 @@ GetDaqParameterInt64 <- function(Parameter) {
 #' \code{GetDaqParameterDouble} gets a single double parameter.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' for a list of all available parameters.
 #' @export
 GetDaqParameterDouble <- function(Parameter) {
     .Call('_TofDaqR_GetDaqParameterDouble', PACKAGE = 'TofDaqR', Parameter)
@@ -364,7 +370,8 @@ GetDaqParameterDouble <- function(Parameter) {
 #' for success and a TwRetVal string is returned if it is not sucessful.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' for a list of all available parameters.
 #' @export
 GetDaqParameterIntRef <- function(Parameter) {
     .Call('_TofDaqR_GetDaqParameterIntRef', PACKAGE = 'TofDaqR', Parameter)
@@ -378,7 +385,8 @@ GetDaqParameterIntRef <- function(Parameter) {
 #' for success and a TwRetVal string is returned if it is not sucessful.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' for a list of all available parameters.
 #' @export
 GetDaqParameterBoolRef <- function(Parameter) {
     .Call('_TofDaqR_GetDaqParameterBoolRef', PACKAGE = 'TofDaqR', Parameter)
@@ -392,7 +400,8 @@ GetDaqParameterBoolRef <- function(Parameter) {
 #' for success and a TwRetVal string is returned if it is not sucessful.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' for a list of all available parameters.
 #' @export
 GetDaqParameterFloatRef <- function(Parameter) {
     .Call('_TofDaqR_GetDaqParameterFloatRef', PACKAGE = 'TofDaqR', Parameter)
@@ -406,7 +415,8 @@ GetDaqParameterFloatRef <- function(Parameter) {
 #' for success and a TwRetVal string is returned if it is not sucessful.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' for a list of all available parameters.
 #' @export
 GetDaqParameterInt64Ref <- function(Parameter) {
     .Call('_TofDaqR_GetDaqParameterInt64Ref', PACKAGE = 'TofDaqR', Parameter)
@@ -420,7 +430,8 @@ GetDaqParameterInt64Ref <- function(Parameter) {
 #' for success and a TwRetVal string is returned if it is not sucessful.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' for a list of all available parameters.
 #' @export
 GetDaqParameterDoubleRef <- function(Parameter) {
     .Call('_TofDaqR_GetDaqParameterDoubleRef', PACKAGE = 'TofDaqR', Parameter)
@@ -434,7 +445,8 @@ GetDaqParameterDoubleRef <- function(Parameter) {
 #' if the type of the parameter is not a string.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' for a list of all available parameters.
 #' @export
 GetDaqParameterStringRef <- function(Parameter) {
     .Call('_TofDaqR_GetDaqParameterStringRef', PACKAGE = 'TofDaqR', Parameter)
@@ -445,7 +457,8 @@ GetDaqParameterStringRef <- function(Parameter) {
 #' \code{SetDaqParameter} sets a single parameter.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' for a list of all available parameters.
 #' @param ValueString Value as a string.
 #' @export
 SetDaqParameter <- function(Parameter, ValueString) {
@@ -457,7 +470,8 @@ SetDaqParameter <- function(Parameter, ValueString) {
 #' \code{SetDaqParameterInt} sets a single parameter with an integer value.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' for a list of all available parameters.
 #' @param Value Integer value.
 #' @export
 SetDaqParameterInt <- function(Parameter, Value) {
@@ -469,7 +483,8 @@ SetDaqParameterInt <- function(Parameter, Value) {
 #' \code{SetDaqParameterBool} sets a single parameter with a boolean value.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' for a list of all available parameters.
 #' @param Value \code{TRUE} or \code{FALSE}.
 #' @export
 SetDaqParameterBool <- function(Parameter, Value) {
@@ -481,7 +496,8 @@ SetDaqParameterBool <- function(Parameter, Value) {
 #' \code{SetDaqParameterFloat} sets a single parameter with a float value.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' for a list of all available parameters.
 #' @param Value Numeric value.
 #' @export
 SetDaqParameterFloat <- function(Parameter, Value) {
@@ -494,7 +510,8 @@ SetDaqParameterFloat <- function(Parameter, Value) {
 #' (passed as a string).
 #'
 #' @param Parameter Parameter name as a string. See
-#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' for a list of all available parameters.
 #' @param Value int64 value passed as a string.
 #' @export
 SetDaqParameterInt64 <- function(Parameter, Value) {
@@ -506,7 +523,8 @@ SetDaqParameterInt64 <- function(Parameter, Value) {
 #' \code{SetDaqParameterDouble} sets a single parameter with a double value.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.
+#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' for a list of all available parameters.
 #' @param Value Numeric value.
 #' @export
 SetDaqParameterDouble <- function(Parameter, Value) {
@@ -519,7 +537,9 @@ SetDaqParameterDouble <- function(Parameter, Value) {
 #' TSharedMemoryDesc contains various static information about the active
 #' acquisition that can be retrieved by \code{GetDaqParameter} functions but
 #' also information of DAQ progress.
-#' See \emph{/doc/TofDaqDll.htm} for more details.
+#' See
+#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm}{TofDaq API documentation}
+#' for more details.
 #'
 #' int64 and unsigned int64 parameters are returned as string. They can be
 #' converted to integer64 using \code{\link[bit64:as.integer64.character]{bit64::as.integer64()}}.
@@ -560,7 +580,7 @@ ReleaseSharedMemory <- function() {
 #' @param WaitForEventReset If \code{TRUE} (default) waits for application to
 #' reset data available event before returning.
 #' @export
-WaitForNewData <- function(timeout, WaitForEventReset) {
+WaitForNewData <- function(timeout, WaitForEventReset = TRUE) {
     invisible(.Call('_TofDaqR_WaitForNewData', PACKAGE = 'TofDaqR', timeout, WaitForEventReset))
 }
 
@@ -582,7 +602,7 @@ WaitForEndOfAcquisition <- function(timeout) {
 #' @param Normalize If \code{FALSE} the spectrum is reported as sum,
 #' if \code{TRUE} (default) the spectrum is normalized to counts per extraction.
 #' @export
-GetSumSpectrumFromShMem <- function(Normalize) {
+GetSumSpectrumFromShMem <- function(Normalize = TRUE) {
     .Call('_TofDaqR_GetSumSpectrumFromShMem', PACKAGE = 'TofDaqR', Normalize)
 }
 
@@ -599,11 +619,12 @@ GetSumSpectrumFromShMem <- function(Normalize) {
 #' block copy).
 #' @param BufIndex Buf index of data to fetch.
 #' @param Normalize If \code{FALSE} the spectrum is reported as sum,
-#' if \code{TRUE} (default) the spectrum is normalized to counts per extraction.
+#' if \code{TRUE} (default) the spectrum is normalized to counts per extraction
+#' (ignored and assumed \code{FALSE} if used with \code{SegmentIndex = SegmentEndIndex = -1}).
 #' @return A vector containing the mass spectrum or an array containing the
 #' block of mass spectra if \code{SegmentIndex = SegmentEndIndex = -1}.
 #' @export
-GetTofSpectrumFromShMem <- function(SegmentIndex, SegmentEndIndex, BufIndex, Normalize) {
+GetTofSpectrumFromShMem <- function(SegmentIndex, SegmentEndIndex, BufIndex, Normalize = TRUE) {
     .Call('_TofDaqR_GetTofSpectrumFromShMem', PACKAGE = 'TofDaqR', SegmentIndex, SegmentEndIndex, BufIndex, Normalize)
 }
 
@@ -1178,7 +1199,9 @@ TpsChangeIonMode <- function(ionMode) {
 #' available datasets and mass calibration. Additional attributes, which are not
 #' available in the structure can be read using \code{Get...AttributeFromH5}
 #' functions.
-#' See \emph{/doc/TwH5Dll.htm} for more details.
+#' See
+#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TwH5Dll.htm}{TofDaq API documentation}
+#' for more details.
 #'
 #' @param Filename Path/filename of the HDF5 file.
 #' @return A list containing the \emph{TwH5Desc} structure.
@@ -1423,7 +1446,7 @@ GetBufTimeFromH5 <- function(Filename, BufIndex, WriteIndex) {
 #' @param writeIndex Write index to use for mass calibration (relevant only for
 #' \code{abs(Type)== 1 or 2}). If the data file has no \emph{/TofData/MassCalibration}
 #' dataset the standard mass calibration parameters are used (same for all
-#' values of writeIndex).
+#' values of writeIndex). Default is 0.
 #' @return A vector containing the x-axis values.
 #'
 #' @examples
@@ -1431,7 +1454,7 @@ GetBufTimeFromH5 <- function(Filename, BufIndex, WriteIndex) {
 #' GetSpecXaxisFromH5("path/to/file.h5")
 #' }
 #' @export
-GetSpecXaxisFromH5 <- function(Filename, Type, writeIndex) {
+GetSpecXaxisFromH5 <- function(Filename, Type = 1L, writeIndex = 0L) {
     .Call('_TofDaqR_GetSpecXaxisFromH5', PACKAGE = 'TofDaqR', Filename, Type, writeIndex)
 }
 

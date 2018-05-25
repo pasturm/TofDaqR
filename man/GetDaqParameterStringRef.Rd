@@ -8,7 +8,8 @@ GetDaqParameterStringRef(Parameter)
 }
 \arguments{
 \item{Parameter}{Parameter name as a string. See
-\emph{/doc/TofDaqDll.htm#parameter_list} for a list of all available parameters.}
+\href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+for a list of all available parameters.}
 }
 \description{
 \code{GetDaqParameterStringRef} gets a single string parameter.

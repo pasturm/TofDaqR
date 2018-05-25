@@ -14,7 +14,9 @@ A list containing the TSharedMemoryDesc structure
 TSharedMemoryDesc contains various static information about the active
 acquisition that can be retrieved by \code{GetDaqParameter} functions but
 also information of DAQ progress.
-See \emph{/doc/TofDaqDll.htm} for more details.
+See
+\href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm}{TofDaq API documentation}
+for more details.
 }
 \details{
 int64 and unsigned int64 parameters are returned as string. They can be

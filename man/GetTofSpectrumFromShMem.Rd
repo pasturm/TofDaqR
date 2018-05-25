@@ -4,7 +4,8 @@
 \alias{GetTofSpectrumFromShMem}
 \title{Single TOF spectrum from shared memory.}
 \usage{
-GetTofSpectrumFromShMem(SegmentIndex, SegmentEndIndex, BufIndex, Normalize)
+GetTofSpectrumFromShMem(SegmentIndex, SegmentEndIndex, BufIndex,
+  Normalize = TRUE)
 }
 \arguments{
 \item{SegmentIndex}{Segment start index of data to fetch (or -1 for complete
@@ -16,7 +17,8 @@ block copy).}
 \item{BufIndex}{Buf index of data to fetch.}
 
 \item{Normalize}{If \code{FALSE} the spectrum is reported as sum,
-if \code{TRUE} (default) the spectrum is normalized to counts per extraction.}
+if \code{TRUE} (default) the spectrum is normalized to counts per extraction
+(ignored and assumed \code{FALSE} if used with \code{SegmentIndex = SegmentEndIndex = -1}).}
 }
 \value{
 A vector containing the mass spectrum or an array containing the

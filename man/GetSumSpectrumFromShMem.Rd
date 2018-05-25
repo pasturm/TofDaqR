@@ -4,7 +4,7 @@
 \alias{GetSumSpectrumFromShMem}
 \title{Sum spectrum from shared memory.}
 \usage{
-GetSumSpectrumFromShMem(Normalize)
+GetSumSpectrumFromShMem(Normalize = TRUE)
 }
 \arguments{
 \item{Normalize}{If \code{FALSE} the spectrum is reported as sum,

@@ -4,7 +4,7 @@
 \alias{WaitForNewData}
 \title{Waits for new data.}
 \usage{
-WaitForNewData(timeout, WaitForEventReset)
+WaitForNewData(timeout, WaitForEventReset = TRUE)
 }
 \arguments{
 \item{timeout}{Timeout in ms.}
