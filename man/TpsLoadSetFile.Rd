@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcppExports.R
 \name{TpsLoadSetFile}
 \alias{TpsLoadSetFile}
-\title{Loads a TPS set file from disk and sets all values.}
+\title{Loads a TPS set file and sets all values.}
 \usage{
 TpsLoadSetFile(setFile)
 }
@@ -10,7 +10,7 @@ TpsLoadSetFile(setFile)
 \item{setFile}{Path/filename of the set file to load.}
 }
 \description{
-\code{TpsLoadSetFile} loads a TPS set file from disk and sets all values.
+\code{TpsLoadSetFile} loads a TPS set file and sets all values.
 }
 \section{Warning}{
 

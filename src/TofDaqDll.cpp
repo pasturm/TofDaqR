@@ -1928,9 +1928,9 @@ List TpsGetStatus() {
 }
 
 // TpsLoadSetFile --------------------------------------------------------------
-//' Loads a TPS set file from disk and sets all values.
+//' Loads a TPS set file and sets all values.
 //'
-//' \code{TpsLoadSetFile} loads a TPS set file from disk and sets all values.
+//' \code{TpsLoadSetFile} loads a TPS set file and sets all values.
 //'
 //' @param setFile Path/filename of the set file to load.
 //' @section Warning:
