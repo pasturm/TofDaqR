@@ -7,9 +7,10 @@ Features:
 
 * Acquisition setup and control
 * Real-time data access
+* Adding (structured) custom data to the data file alongside the TOF data
 * Control of the TOF Power Supply
-* Quick access to TOFWERK HDF5 data files
-* Add additional data to existing data files
+* Quick access to TOFWERK HDF5 data files without the need to study the file format details
+* Add additional data to existing data files (e.g. post-processing results)
 * Peak fitting functions
 * Mass calibration
 * Chemistry functions (molecular mass and isotope pattern calculation)

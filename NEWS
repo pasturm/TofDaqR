@@ -1,3 +1,12 @@
+TofDaqR 0.3.7.901
+--------------------------------------------------------------------------------
+
+* `GetEventListSpectrumFromH5()` returns a zero length vector instead of an
+  error if there is no event in the spectrum.
+
+* `DecodeEventList()` also works for events with more than 256 data samples.
+
+
 TofDaqR 0.3.7
 --------------------------------------------------------------------------------
 

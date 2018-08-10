@@ -221,16 +221,16 @@ NumericVector EventList2TofSpec(NumericVector events, double clockPeriod,
 // [[Rcpp::export]]
 List DecodeEventList(NumericVector events, double clockPeriod, double sampleInterval) {
 
-  unsigned int n = events.size();
+  int n = events.size();
 
   IntegerVector sampleindex(n);
   NumericVector value(n);
 
   int k = 0;
-
-  for (unsigned int i = 0; i < n; ++i) {
-    const unsigned int timestamp = (unsigned int)events[i] & 0xFFFFFF;
-    const unsigned int dataLength = (unsigned int)events[i] >> 24;
+  int i = 0;
+  while (i < n) {
+    unsigned int timestamp = (unsigned int)events[i] & 0xFFFFFF;
+    unsigned int dataLength = (unsigned int)events[i] >> 24;
     if (dataLength == 0) {  // TDC data -> each event is 1 count
       // convert timestamp to a sample index
       sampleindex[k] = (int)(timestamp * clockPeriod / sampleInterval + 0.5);
@@ -238,14 +238,17 @@ List DecodeEventList(NumericVector events, double clockPeriod, double sampleInte
       k++;
     } else { // ADC data or "Ndigo TDC" data (timestamp is time of first sample in packet)
       for (unsigned int j = 0; j < dataLength; ++j) {
-        ++i;
-        const unsigned int mask = (unsigned int)events[i];
-        float* adcData = (float*)& mask;
-        sampleindex[k] = (int)(timestamp * clockPeriod / sampleInterval + 0.5) + j;
-        value[k] = *adcData;
-        k++;
+        i++;
+        if (i < n) {  // required if sample size of event > 256
+          unsigned int mask = (unsigned int)events[i];
+          float* adcData = (float*)& mask;
+          sampleindex[k] = (int)(timestamp * clockPeriod / sampleInterval + 0.5) + j;
+          value[k] = *adcData;
+          k++;
+        }
       }
     }
+    i++;
   }
 
   IntegerVector idx(k);

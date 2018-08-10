@@ -1839,7 +1839,7 @@ SEXP GetEventListSpectrumFromH5(std::string Filename, int segmentIndex,
   int bufferSize = 0;
   TwRetVal rv = TwGetEventListSpectrumFromH5(cFilename, segmentIndex, bufIndex,
                                              writeIndex, &bufferSize, NULL);
-  if (rv != TwValueAdjusted) {
+  if ((rv != TwValueAdjusted) & (rv != TwSuccess)) {
     TwCloseH5(cFilename);
     stop(TwRetValString(rv));
   }
