@@ -107,6 +107,38 @@ void StopAcquisition() {
   }
 }
 
+// ContinueAcquisition ---------------------------------------------------------
+//' Signals to the TofDaq recorder to continue an acquisition.
+//'
+//' \code{ContinueAcquisition} signals to the TofDaq recorder to continue an
+//' acquisition.
+//' @export
+// [[Rcpp::export]]
+void ContinueAcquisition() {
+
+  TwRetVal rv = TwContinueAcquisition();
+
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
+}
+
+// ManualContinueNeeded --------------------------------------------------------
+//' Indicates if the TofDaq recorder expects a continue event.
+//'
+//' \code{ManualContinueNeeded} indicates if the TofDaq recorder expects a
+//' continue event.
+//'
+//' @return \code{TRUE} or \code{FALSE}.
+//' @export
+// [[Rcpp::export]]
+bool ManualContinueNeeded() {
+
+  bool rv = TwManualContinueNeeded();
+
+  return rv;
+}
+
 // CloseTofDaqRec --------------------------------------------------------------
 //' Closes the TofDaq recorder application.
 //'
@@ -116,6 +148,50 @@ void StopAcquisition() {
 void CloseTofDaqRec() {
 
   TwRetVal rv = TwCloseTofDaqRec();
+
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
+}
+
+// IssueDio4Pulse --------------------------------------------------------------
+//' Issues a TTL pulse on the digital output line 4.
+//'
+//' \code{IssueDio4Pulse} issues a TTL pulse on the digital output line 4
+//' specified by a delay and a pulse width.
+//'
+//' Note that in order for this command to work the Dio4Mode parameter must be
+//' set to 2 (pulsed) or 3 (manual).
+//'
+//' @param delay Delay before issuing pulse in ms.
+//' @param width Pulse width in ms.
+//'
+//' @export
+// [[Rcpp::export]]
+void IssueDio4Pulse(int delay, int width) {
+
+  TwRetVal rv = TwIssueDio4Pulse(delay, width);
+
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
+}
+
+// SetDio4State ----------------------------------------------------------------
+//' Switches the digital output line 4 between states.
+//'
+//' \code{SetDio4State} switches the digital output line 4 between states.
+//'
+//' Note that in order for this command to work the Dio4Mode parameter must be
+//' set to 2 (pulsed) or 3 (manual).
+//'
+//' @param state 0: idle state, 1 (or any value other than 0) active state.
+//'
+//' @export
+// [[Rcpp::export]]
+void SetDio4State(int state) {
+
+  TwRetVal rv = TwSetDio4State(state);
 
   if (rv != TwSuccess) {
     stop(TwRetValString(rv));
@@ -708,6 +784,35 @@ void SetDaqParameterDouble(std::string Parameter, double Value) {
   }
 }
 
+// ConfigVarNbrMemories --------------------------------------------------------
+//' Enables and configures the "variable NbrMemories" feature.
+//'
+//' \code{ConfigVarNbrMemories} enables and configures the "variable NbrMemories"
+//' feature.
+//'
+//' @param Enable \code{True} to enable or \code{False} to disable "variable NbrMemories"
+//' feature.
+//' @param StepAtBuf Buf indices for each step.
+//' @param NbrMemoriesForStep NbrMemories value for each step.
+//' @export
+// [[Rcpp::export]]
+void ConfigVarNbrMemories(bool Enable, IntegerVector StepAtBuf,
+                          IntegerVector NbrMemoriesForStep) {
+
+  int NbrSteps = StepAtBuf.size();
+  int NbrSteps2 = NbrMemoriesForStep.size();
+  if (NbrSteps != NbrSteps2) {
+    stop("StepAtBuf and NbrMemoriesForStep must be the same length.");
+  }
+
+  TwRetVal rv = TwConfigVarNbrMemories(Enable, NbrSteps, &StepAtBuf[0],
+                                       &NbrMemoriesForStep[0]);
+
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
+}
+
 // GetDescriptor ---------------------------------------------------------------
 //' Gets various information about the active acquisition.
 //'
@@ -935,6 +1040,33 @@ NumericVector GetSumSpectrumFromShMem(bool Normalize = true) {
   return Spectrum;
 }
 
+// GetSumSpectrumFromShMem2 ----------------------------------------------------
+//' Sum spectrum from shared memory.
+//'
+//' \code{GetSumSpectrumFromShMem2} gets the sum spectrum from shared memory.
+//'
+//' @param Normalize If \code{FALSE} the spectrum is reported as sum,
+//' if \code{TRUE} (default) the spectrum is normalized to counts per extraction.
+//' @export
+// [[Rcpp::export]]
+NumericVector GetSumSpectrumFromShMem2(bool Normalize = true) {
+
+  TSharedMemoryDesc desc;
+  TwRetVal rv = TwGetDescriptor(&desc);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
+
+  NumericVector Spectrum(desc.NbrSamples);
+
+  rv = TwGetSumSpectrumFromShMem2(&Spectrum[0], Normalize);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
+
+  return Spectrum;
+}
+
 // GetTofSpectrumFromShMem -----------------------------------------------------
 //' Single TOF spectrum from shared memory.
 //'
@@ -973,6 +1105,53 @@ SEXP GetTofSpectrumFromShMem(int SegmentIndex, int SegmentEndIndex,
 
   std::vector<float> Spectrum(specLen);
   rv = TwGetTofSpectrumFromShMem(&Spectrum[0], SegmentIndex, SegmentEndIndex,
+                                 BufIndex, Normalize);
+
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
+
+  return wrap(Spectrum);
+}
+
+// GetTofSpectrumFromShMem2 ----------------------------------------------------
+//' Single TOF spectrum from shared memory.
+//'
+//' \code{GetTofSpectrumFromShMem2} reads a single TOF spectrum (possibly
+//' averaged/summed over segment dimension) from shared memory. If
+//' \code{SegmentIndex = SegmentEndIndex = -1} the complete block of data is
+//' copied and the \code{Normalize} flag is ignored.
+//'
+//' @param SegmentIndex Segment start index of data to fetch (or -1 for complete
+//' block copy).
+//' @param SegmentEndIndex Segment end index of data to fetch (or -1 for complete
+//' block copy).
+//' @param BufIndex Buf index of data to fetch.
+//' @param Normalize If \code{FALSE} the spectrum is reported as sum,
+//' if \code{TRUE} (default) the spectrum is normalized to counts per extraction
+//' (ignored and assumed \code{FALSE} if used with \code{SegmentIndex = SegmentEndIndex = -1}).
+//' @return A vector containing the mass spectrum or an array containing the
+//' block of mass spectra if \code{SegmentIndex = SegmentEndIndex = -1}.
+//' @export
+// [[Rcpp::export]]
+SEXP GetTofSpectrumFromShMem2(int SegmentIndex, int SegmentEndIndex,
+                             int BufIndex, bool Normalize = true) {
+
+  TSharedMemoryDesc desc;
+  TwRetVal rv = TwGetDescriptor(&desc);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
+
+  int specLen;
+  if (SegmentIndex == -1 && SegmentEndIndex == -1) {
+    specLen = desc.NbrSamples*desc.NbrSegments;
+  } else {
+    specLen = desc.NbrSamples;
+  }
+
+  std::vector<float> Spectrum(specLen);
+  rv = TwGetTofSpectrumFromShMem2(&Spectrum[0], SegmentIndex, SegmentEndIndex,
                                  BufIndex, Normalize);
 
   if (rv != TwSuccess) {
@@ -1050,6 +1229,43 @@ List GetStickSpectrumFromShMem(int SegmentIndex, int SegmentEndIndex,
   return result;
 }
 
+// GetStickSpectrumFromShMem2 --------------------------------------------------
+//' Single stick spectrum from shared memory.
+//'
+//' \code{GetStickSpectrumFromShMem2} reads a single stick spectrum from shared
+//' memory.
+//'
+//' @param SegmentIndex Segment start index of data to fetch.
+//' @param SegmentEndIndex Segment end index of data to fetch.
+//' @param BufIndex Buf index of data to fetch.
+//' @return A list containing the stick spectrum and corresponding masses.
+//' @export
+// [[Rcpp::export]]
+List GetStickSpectrumFromShMem2(int SegmentIndex, int SegmentEndIndex,
+                               int BufIndex) {
+
+  TSharedMemoryDesc desc;
+  TwRetVal rv = TwGetDescriptor(&desc);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
+
+  std::vector<float> Spectrum(desc.NbrPeaks);
+  std::vector<float> Masses(desc.NbrPeaks);
+
+  rv = TwGetStickSpectrumFromShMem2(&Spectrum[0], &Masses[0], SegmentIndex,
+                                   SegmentEndIndex, BufIndex);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
+
+  List result;
+  result["Spectrum"] = Spectrum;
+  result["Masses"] = Masses;
+
+  return result;
+}
+
 // GetSegmentProfileFromShMem --------------------------------------------------
 //' Segment profile for a given peak and buf index from shared memory.
 //'
@@ -1080,6 +1296,43 @@ SEXP GetSegmentProfileFromShMem(int PeakIndex, int BufIndex) {
 
   std::vector<float> SegmentProfile(profileLen);
   rv = TwGetSegmentProfileFromShMem(&SegmentProfile[0], PeakIndex, BufIndex);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
+
+  return wrap(SegmentProfile);
+}
+
+// GetSegmentProfileFromShMem2 -------------------------------------------------
+//' Segment profile for a given peak and buf index from shared memory.
+//'
+//' \code{GetSegmentProfileFromShMem2} reads the segment profile for a given
+//' peak and buf index from shared memory. Use -1 for \code{PeakIndex} to get
+//' segment profiles of all peaks.
+//'
+//' @param PeakIndex Index of peak to fetch segment profile from. All peaks are
+//' read if \code{PeakIndex = -1}.
+//' @param BufIndex Buf index of data to fetch.
+//' @return A vector containing the segment profile(s).
+//' @export
+// [[Rcpp::export]]
+SEXP GetSegmentProfileFromShMem2(int PeakIndex, int BufIndex) {
+
+  TSharedMemoryDesc desc;
+  TwRetVal rv = TwGetDescriptor(&desc);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
+
+  int profileLen;
+  if (PeakIndex == -1) {
+    profileLen = desc.NbrSegments*desc.NbrPeaks;
+  } else {
+    profileLen = desc.NbrSegments;
+  }
+
+  std::vector<float> SegmentProfile(profileLen);
+  rv = TwGetSegmentProfileFromShMem2(&SegmentProfile[0], PeakIndex, BufIndex);
   if (rv != TwSuccess) {
     stop(TwRetValString(rv));
   }
@@ -2066,15 +2319,18 @@ void TpsChangeIonMode(int ionMode) {
 
 #endif
 
-// Not implemented: TwContinueAcquisition --------------------------------------
-// Not implemented: TwManualContinueNeeded -------------------------------------
 // Not implemented: TwLockBuf --------------------------------------------------
 // Not implemented: TwUnLockBuf ------------------------------------------------
-// Not implemented: TwIssueDio4Pulse -------------------------------------------
-// Not implemented: TwSetDio4State ---------------------------------------------
-// Not implemented: TwConfigVarNbrMemories -------------------------------------
 // Not implemented: TwSetMassCalib ---------------------------------------------
+// Not implemented: TwSetMassCalib2 --------------------------------------------
 // Not implemented: TwSetMassCalibEx -------------------------------------------
+// Not implemented: TwSetMassCalib2Ex ------------------------------------------
 // Not implemented: TwGetSharedMemory ------------------------------------------
 // Not implemented: TwGetMassCalib ---------------------------------------------
+// Not implemented: TwGetMassCalib2 --------------------------------------------
 // Not implemented: TwGetMassCalibEx -------------------------------------------
+// Not implemented: TwGetMassCalib2Ex ------------------------------------------
+// Not implemented: TwDioStartDelayActive --------------------------------------
+// Not implemented: TwSetRegUserDataTarget -------------------------------------
+// Not implemented: TwSaturationWarning ----------------------------------------
+// Not implemented: TwGetRegUserDataTargetRange --------------------------------

@@ -15,7 +15,7 @@
 #endif
 #endif
 
-#if defined(_WIN32) && !defined(__BORLANDC__)
+#if defined(_WIN32) && (!defined(__BORLANDC__) || defined(_WIN64))
 
 #define TwChangePeakDataInit					_TwChangePeakDataInit
 #define TwChangePeakDataWrite					_TwChangePeakDataWrite
@@ -81,6 +81,7 @@
 #define TwSetStringAttributeInH5				_TwSetStringAttributeInH5
 #define TwSetUint64AttributeInH5				_TwSetUint64AttributeInH5
 #define TwSetUintAttributeInH5					_TwSetUintAttributeInH5
+#define TwDeleteAttributeInH5					_TwDeleteAttributeInH5
 #define TwH5AddLogEntry         				_TwH5AddLogEntry
 #define TwH5AddUserDataMultiRow					_TwH5AddUserDataMultiRow
 #define TwH5SetMassCalibDynamic					_TwH5SetMassCalibDynamic
@@ -89,6 +90,9 @@
 #define TwH5MakePaletteImage					_TwH5MakePaletteImage
 #define TwH5MakeTrueColorImage					_TwH5MakeTrueColorImage
 #define TwWriteNetCdfTimeSeriesFile				_TwWriteNetCdfTimeSeriesFile
+#define TwWaitForExclusiveFileAccess			_TwWaitForExclusiveFileAccess
+
+
 
 #endif
 
@@ -276,6 +280,8 @@ TOFWERK_H5_API TwRetVal TwSetStringAttributeInH5(char* Filename, char* location,
 //							TwSuccess   			if attribute was successfully added
 //							TwError					if attribute was not written
 ////////////////////////////////////////////////////////////////////////////////
+TOFWERK_H5_API TwRetVal TwDeleteAttributeInH5(char* Filename, char* location, char* name);
+////////////////////////////////////////////////////////////////////////////////
 TOFWERK_H5_API TwRetVal TwGetRegUserDataFromH5(char* Filename, char* location, int bufIndex, int writeIndex,
 											   int* bufLength, double* buffer, char* description);
 //reads an entry from a registred data source (created by TwRegisterUserData... functions)
@@ -352,7 +358,11 @@ TOFWERK_H5_API TwRetVal TwH5MakePaletteImage(char* filename, char* location, flo
 ////////////////////////////////////////////////////////////////////////////////
 TOFWERK_H5_API TwRetVal TwH5MakeTrueColorImage(char* filename, char* location, float* data, int width, int height, unsigned char* paletteOffset, bool* paletteInvert, float* dataMinMax, float* gammaVal, unsigned char* specialColours);
 ////////////////////////////////////////////////////////////////////////////////
-TOFWERK_H5_API TwRetVal TwWriteNetCdfTimeSeriesFile(char* filename, char* expTitle, char* rawName, int nbrPoints, float* retention, float* ordinate);
+TOFWERK_H5_API TwRetVal TwWriteNetCdfTimeSeriesFile(char* filename, uint64_t inject_ts, char* experiment_title, char* operator_name, char* company_method_name,
+													char* source_file_reference, char* retention_unit, char* detector_unit, char* sample_name, char* raw_data_table_name,
+													int nbrPoints, float* retention, float* ordinate);
+////////////////////////////////////////////////////////////////////////////////
+TOFWERK_H5_API TwRetVal TwWaitForExclusiveFileAccess(char* Filename, int timeoutMs);
 ////////////////////////////////////////////////////////////////////////////////
 #ifdef __cplusplus
 }

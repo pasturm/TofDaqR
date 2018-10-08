@@ -1953,7 +1953,6 @@ void H5AddLogEntry(std::string Filename, std::string LogEntryText,
 // TwFreeEventListData
 // TwFreeEventListData2
 // TwMultiPeakFitIntegration
-// TwH5AddUserDataMultiRow
 // TwH5SetMassCalibDynamic
 // TwGenerateSegmentProfilesFromEventList
 // TwH5MakePaletteImage

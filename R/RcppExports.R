@@ -193,12 +193,62 @@ StopAcquisition <- function() {
     invisible(.Call('_TofDaqR_StopAcquisition', PACKAGE = 'TofDaqR'))
 }
 
+#' Signals to the TofDaq recorder to continue an acquisition.
+#'
+#' \code{ContinueAcquisition} signals to the TofDaq recorder to continue an
+#' acquisition.
+#' @export
+ContinueAcquisition <- function() {
+    invisible(.Call('_TofDaqR_ContinueAcquisition', PACKAGE = 'TofDaqR'))
+}
+
+#' Indicates if the TofDaq recorder expects a continue event.
+#'
+#' \code{ManualContinueNeeded} indicates if the TofDaq recorder expects a
+#' continue event.
+#'
+#' @return \code{TRUE} or \code{FALSE}.
+#' @export
+ManualContinueNeeded <- function() {
+    .Call('_TofDaqR_ManualContinueNeeded', PACKAGE = 'TofDaqR')
+}
+
 #' Closes the TofDaq recorder application.
 #'
 #' \code{CloseTofDaqRec} closes the TofDaq recorder application.
 #' @export
 CloseTofDaqRec <- function() {
     invisible(.Call('_TofDaqR_CloseTofDaqRec', PACKAGE = 'TofDaqR'))
+}
+
+#' Issues a TTL pulse on the digital output line 4.
+#'
+#' \code{IssueDio4Pulse} issues a TTL pulse on the digital output line 4
+#' specified by a delay and a pulse width.
+#'
+#' Note that in order for this command to work the Dio4Mode parameter must be
+#' set to 2 (pulsed) or 3 (manual).
+#'
+#' @param delay Delay before issuing pulse in ms.
+#' @param width Pulse width in ms.
+#'
+#' @export
+IssueDio4Pulse <- function(delay, width) {
+    invisible(.Call('_TofDaqR_IssueDio4Pulse', PACKAGE = 'TofDaqR', delay, width))
+}
+
+#' Switches the digital output line 4 between states.
+#'
+#' \code{SetDio4State} switches the digital output line 4 between states.
+#'
+#' Note that in order for this command to work the Dio4Mode parameter must be
+#' set to 2 (pulsed) or 3 (manual).
+#'
+#' @param state 0: idle state, 1 (or any value other than 0) active state.
+#'
+#' @export
+SetDio4State <- function(state) {
+    invisible(.Call('_TofDaqR_SetDio4State', PACKAGE = 'TofDaqR', state))
 }
 
 #' Initializes the DAQ board.
@@ -531,6 +581,20 @@ SetDaqParameterDouble <- function(Parameter, Value) {
     invisible(.Call('_TofDaqR_SetDaqParameterDouble', PACKAGE = 'TofDaqR', Parameter, Value))
 }
 
+#' Enables and configures the "variable NbrMemories" feature.
+#'
+#' \code{ConfigVarNbrMemories} enables and configures the "variable NbrMemories"
+#' feature.
+#'
+#' @param Enable \code{True} to enable or \code{False} to disable "variable NbrMemories"
+#' feature.
+#' @param StepAtBuf Buf indices for each step.
+#' @param NbrMemoriesForStep NbrMemories value for each step.
+#' @export
+ConfigVarNbrMemories <- function(Enable, StepAtBuf, NbrMemoriesForStep) {
+    invisible(.Call('_TofDaqR_ConfigVarNbrMemories', PACKAGE = 'TofDaqR', Enable, StepAtBuf, NbrMemoriesForStep))
+}
+
 #' Gets various information about the active acquisition.
 #'
 #' \code{GetDescriptor} retrieves the current TSharedMemoryDesc structure.
@@ -606,6 +670,17 @@ GetSumSpectrumFromShMem <- function(Normalize = TRUE) {
     .Call('_TofDaqR_GetSumSpectrumFromShMem', PACKAGE = 'TofDaqR', Normalize)
 }
 
+#' Sum spectrum from shared memory.
+#'
+#' \code{GetSumSpectrumFromShMem2} gets the sum spectrum from shared memory.
+#'
+#' @param Normalize If \code{FALSE} the spectrum is reported as sum,
+#' if \code{TRUE} (default) the spectrum is normalized to counts per extraction.
+#' @export
+GetSumSpectrumFromShMem2 <- function(Normalize = TRUE) {
+    .Call('_TofDaqR_GetSumSpectrumFromShMem2', PACKAGE = 'TofDaqR', Normalize)
+}
+
 #' Single TOF spectrum from shared memory.
 #'
 #' \code{GetTofSpectrumFromShMem} reads a single TOF spectrum (possibly
@@ -626,6 +701,28 @@ GetSumSpectrumFromShMem <- function(Normalize = TRUE) {
 #' @export
 GetTofSpectrumFromShMem <- function(SegmentIndex, SegmentEndIndex, BufIndex, Normalize = TRUE) {
     .Call('_TofDaqR_GetTofSpectrumFromShMem', PACKAGE = 'TofDaqR', SegmentIndex, SegmentEndIndex, BufIndex, Normalize)
+}
+
+#' Single TOF spectrum from shared memory.
+#'
+#' \code{GetTofSpectrumFromShMem2} reads a single TOF spectrum (possibly
+#' averaged/summed over segment dimension) from shared memory. If
+#' \code{SegmentIndex = SegmentEndIndex = -1} the complete block of data is
+#' copied and the \code{Normalize} flag is ignored.
+#'
+#' @param SegmentIndex Segment start index of data to fetch (or -1 for complete
+#' block copy).
+#' @param SegmentEndIndex Segment end index of data to fetch (or -1 for complete
+#' block copy).
+#' @param BufIndex Buf index of data to fetch.
+#' @param Normalize If \code{FALSE} the spectrum is reported as sum,
+#' if \code{TRUE} (default) the spectrum is normalized to counts per extraction
+#' (ignored and assumed \code{FALSE} if used with \code{SegmentIndex = SegmentEndIndex = -1}).
+#' @return A vector containing the mass spectrum or an array containing the
+#' block of mass spectra if \code{SegmentIndex = SegmentEndIndex = -1}.
+#' @export
+GetTofSpectrumFromShMem2 <- function(SegmentIndex, SegmentEndIndex, BufIndex, Normalize = TRUE) {
+    .Call('_TofDaqR_GetTofSpectrumFromShMem2', PACKAGE = 'TofDaqR', SegmentIndex, SegmentEndIndex, BufIndex, Normalize)
 }
 
 #' X-axis values of mass spectrum.
@@ -656,6 +753,20 @@ GetStickSpectrumFromShMem <- function(SegmentIndex, SegmentEndIndex, BufIndex) {
     .Call('_TofDaqR_GetStickSpectrumFromShMem', PACKAGE = 'TofDaqR', SegmentIndex, SegmentEndIndex, BufIndex)
 }
 
+#' Single stick spectrum from shared memory.
+#'
+#' \code{GetStickSpectrumFromShMem2} reads a single stick spectrum from shared
+#' memory.
+#'
+#' @param SegmentIndex Segment start index of data to fetch.
+#' @param SegmentEndIndex Segment end index of data to fetch.
+#' @param BufIndex Buf index of data to fetch.
+#' @return A list containing the stick spectrum and corresponding masses.
+#' @export
+GetStickSpectrumFromShMem2 <- function(SegmentIndex, SegmentEndIndex, BufIndex) {
+    .Call('_TofDaqR_GetStickSpectrumFromShMem2', PACKAGE = 'TofDaqR', SegmentIndex, SegmentEndIndex, BufIndex)
+}
+
 #' Segment profile for a given peak and buf index from shared memory.
 #'
 #' \code{GetSegmentProfileFromShMem} reads the segment profile for a given
@@ -669,6 +780,21 @@ GetStickSpectrumFromShMem <- function(SegmentIndex, SegmentEndIndex, BufIndex) {
 #' @export
 GetSegmentProfileFromShMem <- function(PeakIndex, BufIndex) {
     .Call('_TofDaqR_GetSegmentProfileFromShMem', PACKAGE = 'TofDaqR', PeakIndex, BufIndex)
+}
+
+#' Segment profile for a given peak and buf index from shared memory.
+#'
+#' \code{GetSegmentProfileFromShMem2} reads the segment profile for a given
+#' peak and buf index from shared memory. Use -1 for \code{PeakIndex} to get
+#' segment profiles of all peaks.
+#'
+#' @param PeakIndex Index of peak to fetch segment profile from. All peaks are
+#' read if \code{PeakIndex = -1}.
+#' @param BufIndex Buf index of data to fetch.
+#' @return A vector containing the segment profile(s).
+#' @export
+GetSegmentProfileFromShMem2 <- function(PeakIndex, BufIndex) {
+    .Call('_TofDaqR_GetSegmentProfileFromShMem2', PACKAGE = 'TofDaqR', PeakIndex, BufIndex)
 }
 
 #' Time stamp for a given buf and write.

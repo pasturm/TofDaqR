@@ -4,19 +4,21 @@
   <meta charset="utf-8">
   <title>manuals:daq:hdf5</title>
 <meta name="generator" content="DokuWiki">
+<meta name="theme-color" content="#008800">
 <meta name="robots" content="index,follow">
 <meta name="keywords" content="manuals,daq,hdf5">
-<link rel="search" type="application/opensearchdescription+xml" href="http://wiki.tofwerk.com/lib/exe/opensearch.php" title="Tofwerk Documentation Wiki">
-<link rel="start" href="http://wiki.tofwerk.com/">
-<link rel="contents" href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5&amp;do=index" title="Sitemap">
-<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="http://wiki.tofwerk.com/feed.php">
-<link rel="alternate" type="application/rss+xml" title="Current namespace" href="http://wiki.tofwerk.com/feed.php?mode=list&amp;ns=manuals:daq">
-<link rel="alternate" type="text/html" title="Plain HTML" href="http://wiki.tofwerk.com/doku.php?do=export_xhtml&amp;id=manuals:daq:hdf5">
-<link rel="alternate" type="text/plain" title="Wiki Markup" href="http://wiki.tofwerk.com/doku.php?do=export_raw&amp;id=manuals:daq:hdf5">
-<link rel="canonical" href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5">
+<link rel="search" type="application/opensearchdescription+xml" href="https://wiki.tofwerk.com/lib/exe/opensearch.php" title="Tofwerk Documentation Wiki">
+<link rel="start" href="https://wiki.tofwerk.com/">
+<link rel="contents" href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5&amp;do=index" title="Sitemap">
+<link rel="manifest" href="https://wiki.tofwerk.com/lib/exe/manifest.php">
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="https://wiki.tofwerk.com/feed.php">
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="https://wiki.tofwerk.com/feed.php?mode=list&amp;ns=manuals:daq">
+<link rel="alternate" type="text/html" title="Plain HTML" href="https://wiki.tofwerk.com/doku.php?do=export_xhtml&amp;id=manuals:daq:hdf5">
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="https://wiki.tofwerk.com/doku.php?do=export_raw&amp;id=manuals:daq:hdf5">
+<link rel="canonical" href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5">
 <link rel="stylesheet" type="text/css" href="TofwerkHDF5_files/css.css">
 <!--[if gte IE 9]><!-->
-<script type="text/javascript">/*<![CDATA[*/var NS='manuals:daq';var SIG=' --- //[[tanner@tofwerk.com|Christian Tanner]] 01.12.2017 13:32//';var JSINFO = {"id":"manuals:daq:hdf5","namespace":"manuals:daq","plugins":{"edittable":{"default columnwidth":""}}};
+<script type="text/javascript">/*<![CDATA[*/var NS='manuals:daq';var SIG=' --- //[[tanner@tofwerk.com|Christian Tanner]] 12.09.2018 11:23//';var JSINFO = {"plugins":{"edittable":{"default columnwidth":""}},"id":"manuals:daq:hdf5","namespace":"manuals:daq","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};
 /*!]]>*/</script>
 <script type="text/javascript" charset="utf-8" src="TofwerkHDF5_files/jquery.php"></script>
 <script type="text/javascript" charset="utf-8" src="TofwerkHDF5_files/js.php"></script><style id="iris-css">.iris-picker{display:block;position:relative}.iris-picker,.iris-picker *{-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input+.iris-picker{margin-top:4px}.iris-error{background-color:#ffafaf}.iris-border{border-radius:3px;border:1px solid #aaa;width:200px;background-color:#fff}.iris-picker-inner{position:absolute;top:0;right:0;left:0;bottom:0}.iris-border .iris-picker-inner{top:10px;right:10px;left:10px;bottom:10px}.iris-picker .iris-square-inner{position:absolute;left:0;right:0;top:0;bottom:0}.iris-picker .iris-square,.iris-picker .iris-slider,.iris-picker .iris-square-inner,.iris-picker .iris-palette{border-radius:3px;box-shadow:inset 0 0 5px rgba(0,0,0,.4);height:100%;width:12.5%;float:left;margin-right:5%}.iris-picker .iris-square{width:76%;margin-right:10%;position:relative}.iris-picker .iris-square-inner{width:auto;margin:0}.iris-ie-9 .iris-square,.iris-ie-9 .iris-slider,.iris-ie-9 .iris-square-inner,.iris-ie-9 .iris-palette{box-shadow:none;border-radius:0}.iris-ie-9 .iris-square,.iris-ie-9 .iris-slider,.iris-ie-9 .iris-palette{outline:1px solid rgba(0,0,0,.1)}.iris-ie-lt9 .iris-square,.iris-ie-lt9 .iris-slider,.iris-ie-lt9 .iris-square-inner,.iris-ie-lt9 .iris-palette{outline:1px solid #aaa}.iris-ie-lt9 .iris-square .ui-slider-handle{outline:1px solid #aaa;background-color:#fff;-ms-filter:"alpha(Opacity=30)"}.iris-ie-lt9 .iris-square .iris-square-handle{background:0;border:3px solid #fff;-ms-filter:"alpha(Opacity=50)"}.iris-picker .iris-strip{margin-right:0;position:relative}.iris-picker .iris-strip .ui-slider-handle{position:absolute;background:0;margin:0;right:-3px;left:-3px;border:4px solid #aaa;border-width:4px 3px;width:auto;height:6px;border-radius:4px;box-shadow:0 1px 2px rgba(0,0,0,.2);opacity:.9;z-index:5;cursor:ns-resize}.iris-strip .ui-slider-handle:before{content:" ";position:absolute;left:-2px;right:-2px;top:-3px;bottom:-3px;border:2px solid #fff;border-radius:3px}.iris-picker .iris-slider-offset{position:absolute;top:11px;left:0;right:0;bottom:-3px;width:auto;height:auto;background:transparent;border:0;border-radius:0}.iris-picker .iris-square-handle{background:transparent;border:5px solid #aaa;border-radius:50%;border-color:rgba(128,128,128,.5);box-shadow:none;width:12px;height:12px;position:absolute;left:-10px;top:-10px;cursor:move;opacity:1;z-index:10}.iris-picker .ui-state-focus .iris-square-handle{opacity:.8}.iris-picker .iris-square-handle:hover{border-color:#999}.iris-picker .iris-square-value:focus .iris-square-handle{box-shadow:0 0 2px rgba(0,0,0,.75);opacity:.8}.iris-picker .iris-square-handle:hover::after{border-color:#fff}.iris-picker .iris-square-handle::after{position:absolute;bottom:-4px;right:-4px;left:-4px;top:-4px;border:3px solid #f9f9f9;border-color:rgba(255,255,255,.8);border-radius:50%;content:" "}.iris-picker .iris-square-value{width:8px;height:8px;position:absolute}.iris-ie-lt9 .iris-square-value,.iris-mozilla .iris-square-value{width:1px;height:1px}.iris-palette-container{position:absolute;bottom:0;left:0;margin:0;padding:0}.iris-border .iris-palette-container{left:10px;bottom:10px}.iris-picker .iris-palette{margin:0;cursor:pointer}.iris-square-handle,.ui-slider-handle{border:0;outline:0}</style>
@@ -25,7 +27,7 @@
 <body>
 <div class="dokuwiki export">
 <!-- TOC START -->
-<div id="dw__toc">
+<div id="dw__toc" class="dw__toc">
 <h3 class="toggle open" style="cursor: pointer;"><strong><span>−</span></strong>Table of Contents</h3>
 <div style="" aria-expanded="true">
 
@@ -85,7 +87,7 @@
 <div class="level1">
 
 </div>
-<!-- EDIT1 SECTION "Tofwerk HDF5 data format 1.99" [1-44] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Tofwerk HDF5 data format 1.99&quot;,&quot;hid&quot;:&quot;tofwerk_hdf5_data_format_199&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-44&quot;} -->
 <h2 class="sectionedit2" id="introduction">Introduction</h2>
 <div class="level2">
 
@@ -108,7 +110,7 @@ information visit  the <a href="http://www.hdfgroup.org/HDF5/" class="urlextern"
 </p>
 
 </div>
-<!-- EDIT2 SECTION "Introduction" [45-1099] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Introduction&quot;,&quot;hid&quot;:&quot;introduction&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;45-1099&quot;} -->
 <h2 class="sectionedit3" id="tofwerk_hdf5_basics">Tofwerk HDF5 basics</h2>
 <div class="level2">
 
@@ -148,7 +150,7 @@ In version 1.89 of TofDaq the concept of an event list as an alternative (or sup
 </p>
 
 </div>
-<!-- EDIT3 SECTION "Tofwerk HDF5 basics" [1100-3408] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Tofwerk HDF5 basics&quot;,&quot;hid&quot;:&quot;tofwerk_hdf5_basics&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;1100-3408&quot;} -->
 <h2 class="sectionedit4" id="hdf5_user-block">HDF5 user-block</h2>
 <div class="level2">
 
@@ -173,13 +175,13 @@ user supplied text will appear here...</pre>
 <p></p>
 
 </div>
-<!-- EDIT4 SECTION "HDF5 user-block" [3409-4375] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;HDF5 user-block&quot;,&quot;hid&quot;:&quot;hdf5_user-block&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:4,&quot;range&quot;:&quot;3409-4375&quot;} -->
 <h2 class="sectionedit5" id="groups">Groups</h2>
 <div class="level2">
 
 <p>
-<a href="http://wiki.tofwerk.com/lib/exe/detail.php?id=manuals%3Adaq%3Ahdf5&amp;media=manuals:daq:hdf5_tree.png" class="media" title="manuals:daq:hdf5_tree.png"><img src="TofwerkHDF5_files/fetch_002.png" class="mediaright" title="Structure of an exemplary Tofwerk HDF5 file" alt="Structure of an exemplary Tofwerk HDF5 file"></a>
-The figure shows the “directory” structure of a Tofwerk HDF5 file as presented by <a href="http://hdfgroup.com/hdf-java-html/hdfview/" class="urlextern" title="http://hdfgroup.com/hdf-java-html/hdfview/" rel="nofollow"> HDFView</a> 2.3, a visual tool for browsing and editing HDF4 and HDF5 files. <a href="http://wiki.tofwerk.com/lib/exe/detail.php?id=manuals%3Adaq%3Ahdf5&amp;media=manuals:daq:hdf5_groupwithatt.png" class="media" title="manuals:daq:hdf5_groupwithatt.png"><img src="TofwerkHDF5_files/fetch_004.png" class="media" alt=""></a> and <a href="http://wiki.tofwerk.com/lib/exe/detail.php?id=manuals%3Adaq%3Ahdf5&amp;media=manuals:daq:hdf5_groupnoatt.png" class="media" title="manuals:daq:hdf5_groupnoatt.png"><img src="TofwerkHDF5_files/fetch_003.png" class="media" alt=""></a> represent groups with and without attached attributes, <a href="http://wiki.tofwerk.com/lib/exe/detail.php?id=manuals%3Adaq%3Ahdf5&amp;media=manuals:daq:hdf5_dataset.png" class="media" title="manuals:daq:hdf5_dataset.png"><img src="TofwerkHDF5_files/fetch.png" class="media" alt=""></a> stands for a dataset and <a href="http://wiki.tofwerk.com/lib/exe/detail.php?id=manuals%3Adaq%3Ahdf5&amp;media=manuals:daq:hdf5_table.png" class="media" title="manuals:daq:hdf5_table.png"><img src="TofwerkHDF5_files/fetch_005.png" class="media" alt=""></a>
+<a href="https://wiki.tofwerk.com/lib/exe/detail.php?id=manuals%3Adaq%3Ahdf5&amp;media=manuals:daq:hdf5_tree.png" class="media" title="manuals:daq:hdf5_tree.png"><img src="TofwerkHDF5_files/fetch.png" class="mediaright" title="Structure of an exemplary Tofwerk HDF5 file" alt="Structure of an exemplary Tofwerk HDF5 file"></a>
+The figure shows the “directory” structure of a Tofwerk HDF5 file as presented by <a href="http://hdfgroup.com/hdf-java-html/hdfview/" class="urlextern" title="http://hdfgroup.com/hdf-java-html/hdfview/" rel="nofollow"> HDFView</a> 2.3, a visual tool for browsing and editing HDF4 and HDF5 files. <a href="https://wiki.tofwerk.com/lib/exe/detail.php?id=manuals%3Adaq%3Ahdf5&amp;media=manuals:daq:hdf5_groupwithatt.png" class="media" title="manuals:daq:hdf5_groupwithatt.png"><img src="TofwerkHDF5_files/fetch_005.png" class="media" alt=""></a> and <a href="https://wiki.tofwerk.com/lib/exe/detail.php?id=manuals%3Adaq%3Ahdf5&amp;media=manuals:daq:hdf5_groupnoatt.png" class="media" title="manuals:daq:hdf5_groupnoatt.png"><img src="TofwerkHDF5_files/fetch_004.png" class="media" alt=""></a> represent groups with and without attached attributes, <a href="https://wiki.tofwerk.com/lib/exe/detail.php?id=manuals%3Adaq%3Ahdf5&amp;media=manuals:daq:hdf5_dataset.png" class="media" title="manuals:daq:hdf5_dataset.png"><img src="TofwerkHDF5_files/fetch_003.png" class="media" alt=""></a> stands for a dataset and <a href="https://wiki.tofwerk.com/lib/exe/detail.php?id=manuals%3Adaq%3Ahdf5&amp;media=manuals:daq:hdf5_table.png" class="media" title="manuals:daq:hdf5_table.png"><img src="TofwerkHDF5_files/fetch_002.png" class="media" alt=""></a>
  represents a table (in HDF5 a table is a one-dimensional dataset of 
 compound data type, each dataset element corresponds to a table row and 
 each data type in the compound corresponds to a table column).
@@ -213,7 +215,7 @@ for every saved mass spectrum.</div>
 </ul>
 
 </div>
-<!-- EDIT5 SECTION "Groups" [4376-6159] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Groups&quot;,&quot;hid&quot;:&quot;groups&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:5,&quot;range&quot;:&quot;4376-6159&quot;} -->
 <h2 class="sectionedit6" id="attributes">Attributes</h2>
 <div class="level2">
 
@@ -227,7 +229,7 @@ an attribute is to address it by its absolute name directly.
 </p>
 
 </div>
-<!-- EDIT6 SECTION "Attributes" [6160-6592] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Attributes&quot;,&quot;hid&quot;:&quot;attributes&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:6,&quot;range&quot;:&quot;6160-6592&quot;} -->
 <h3 class="sectionedit7" id="root_group_attributes">Root (/) group attributes</h3>
 <div class="level3">
 <div class="table sectionedit8"><table class="inline">
@@ -303,9 +305,9 @@ an attribute is to address it by its absolute name directly.
 		<td class="col0 leftalign"> IonMode                  </td><td class="col1 leftalign"> string           </td><td class="col2"> Polarity of experiment (<code>positive</code> or <code>negative</code>) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT8 TABLE [6629-8774] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table&quot;,&quot;secid&quot;:8,&quot;range&quot;:&quot;6629-8774&quot;} -->
 </div>
-<!-- EDIT7 SECTION "Root (/) group attributes" [6593-8775] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Root (\/) group attributes&quot;,&quot;hid&quot;:&quot;root_group_attributes&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:7,&quot;range&quot;:&quot;6593-8775&quot;} -->
 <h3 class="sectionedit9" id="fullspectra_fullspectra2_group_attributes">FullSpectra / FullSpectra2 group attributes</h3>
 <div class="level3">
 <div class="table sectionedit10"><table class="inline">
@@ -391,9 +393,9 @@ versions) </td>
 		<td class="col0 leftalign"> ClockPeriod            </td><td class="col1 leftalign"> 32-bit float       </td><td class="col2"> time unit of time stamps in event list in seconds </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT10 TABLE [8830-11402] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table1&quot;,&quot;secid&quot;:10,&quot;range&quot;:&quot;8830-11402&quot;} -->
 </div>
-<!-- EDIT9 SECTION "FullSpectra / FullSpectra2 group attributes" [8776-11402] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;FullSpectra \/ FullSpectra2 group attributes&quot;,&quot;hid&quot;:&quot;fullspectra_fullspectra2_group_attributes&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:9,&quot;range&quot;:&quot;8776-11402&quot;} -->
 <h3 class="sectionedit11" id="rawdata_attributes">RawData attributes</h3>
 <div class="level3">
 
@@ -404,7 +406,7 @@ interpretation of the raw data dataset(s). Refer to the <abbr title="Data Acquis
 </p>
 
 </div>
-<!-- EDIT11 SECTION "RawData attributes" [11403-11675] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;RawData attributes&quot;,&quot;hid&quot;:&quot;rawdata_attributes&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:11,&quot;range&quot;:&quot;11403-11675&quot;} -->
 <h3 class="sectionedit12" id="timingdata_group_attributes">TimingData group attributes</h3>
 <div class="level3">
 <div class="table sectionedit13"><table class="inline">
@@ -588,9 +590,9 @@ interpretation of the raw data dataset(s). Refer to the <abbr title="Data Acquis
 		<td class="col0 leftalign"> ImsEncFlushTube          </td><td class="col1 leftalign"> 32-bit int  </td><td class="col2"> indicates whether drift tube flushing between bufs was enabled during data acquisition. Assume 0 if attribute is not present. </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT13 TABLE [11714-16977] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table2&quot;,&quot;secid&quot;:13,&quot;range&quot;:&quot;11714-16977&quot;} -->
 </div>
-<!-- EDIT12 SECTION "TimingData group attributes" [11676-16979] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TimingData group attributes&quot;,&quot;hid&quot;:&quot;timingdata_group_attributes&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:12,&quot;range&quot;:&quot;11676-16979&quot;} -->
 <h3 class="sectionedit14" id="fullspectra_eventlist_dataset_attributes">/FullSpectra/EventList dataset attributes</h3>
 <div class="level3">
 
@@ -619,7 +621,7 @@ Contrary to most other attributes that are attached to a group, these attributes
 		<td class="col0 leftalign"> Compression time (ms)    </td><td class="col1"> 32-bit float </td><td class="col2"> time spent compressing the data </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT15 TABLE [17151-17597] --><div class="table sectionedit16"><table class="inline">
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table3&quot;,&quot;secid&quot;:15,&quot;range&quot;:&quot;17151-17597&quot;} --><div class="table sectionedit16"><table class="inline">
 	<thead>
 	<tr class="row0">
 		<th class="col0 centeralign" colspan="3">  bits of <code>Compression</code> attribute  </th>
@@ -641,7 +643,7 @@ Contrary to most other attributes that are attached to a group, these attributes
 		<td class="col0 leftalign"> 2 = LZ4 compression   </td><td class="col1 centeralign" colspan="2">  0: standard LZ4 compression (fast), 1-16 LZ4HC (better compression, slower)  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT16 TABLE [17600-18052] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table4&quot;,&quot;secid&quot;:16,&quot;range&quot;:&quot;17600-18052&quot;} -->
 <p>
 This means there are 68 valid values for <code>Compression</code> 
 attribute (1 for “no compression”, 50 (5 strategies*10 levels) for zlib 
@@ -650,7 +652,7 @@ method information is needed but not the compression parameters.
 </p>
 
 </div>
-<!-- EDIT14 SECTION "/FullSpectra/EventList dataset attributes" [16980-18320] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\/FullSpectra\/EventList dataset attributes&quot;,&quot;hid&quot;:&quot;fullspectra_eventlist_dataset_attributes&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:14,&quot;range&quot;:&quot;16980-18320&quot;} -->
 <h2 class="sectionedit17" id="datasets">Datasets</h2>
 <div class="level2">
 
@@ -681,7 +683,7 @@ following datasets during data acquisition:
 		<td class="col0"> /FullSpectra/EventList </td><td class="col1"> AutoSaveEvents </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT18 TABLE [18524-18823] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table5&quot;,&quot;secid&quot;:18,&quot;range&quot;:&quot;18524-18823&quot;} -->
 <p>
 If the TofData dataset is present the PeakData dataset is redundant as 
 it can easily be obtained by integrating the TofData dataset. If raw 
@@ -699,7 +701,7 @@ Bufs, Blocks, Memories and Writes please refer to the document
 </p>
 
 </div>
-<!-- EDIT17 SECTION "Datasets" [18321-19621] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Datasets&quot;,&quot;hid&quot;:&quot;datasets&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:17,&quot;range&quot;:&quot;18321-19621&quot;} -->
 <h3 class="sectionedit19" id="acquisitionlog_log">/AcquisitionLog/Log</h3>
 <div class="level3">
 <div class="table sectionedit20"><table class="inline">
@@ -710,7 +712,7 @@ Bufs, Blocks, Memories and Writes please refer to the document
 		<td class="col0"># of elements </td><td class="col1"> variable </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT20 TABLE [19653-19737] --><div class="table sectionedit21"><table class="inline">
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table6&quot;,&quot;secid&quot;:20,&quot;range&quot;:&quot;19653-19737&quot;} --><div class="table sectionedit21"><table class="inline">
 	<thead>
 	<tr class="row0">
 		<th class="col0"> column name </th><th class="col1"> data type </th><th class="col2"> description </th>
@@ -726,7 +728,7 @@ Bufs, Blocks, Memories and Writes please refer to the document
 		<td class="col0 leftalign"> logtext     </td><td class="col1"> string </td><td class="col2"> Text describing the event </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT21 TABLE [19739-19973] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table7&quot;,&quot;secid&quot;:21,&quot;range&quot;:&quot;19739-19973&quot;} -->
 <p>
 Two entries are automatically saved in the Log dataset upon data 
 acquisition: “Acquisition started” and “Acquisition 
@@ -738,7 +740,7 @@ contain entries for the actual time of data acquisition
 </p>
 
 </div>
-<!-- EDIT19 SECTION "/AcquisitionLog/Log" [19622-20365] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\/AcquisitionLog\/Log&quot;,&quot;hid&quot;:&quot;acquisitionlog_log&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:19,&quot;range&quot;:&quot;19622-20365&quot;} -->
 <h3 class="sectionedit22" id="fullspectra_massaxis">/FullSpectra/MassAxis</h3>
 <div class="level3">
 <div class="table sectionedit23"><table class="inline">
@@ -749,7 +751,7 @@ contain entries for the actual time of data acquisition
 		<td class="col0"># of elements </td><td class="col1"> NbrSamples </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT23 TABLE [20399-20472] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table8&quot;,&quot;secid&quot;:23,&quot;range&quot;:&quot;20399-20472&quot;} -->
 <p>
 The MassAxis holds a mass (m/Q) value for every sample on the <abbr title="Time Of Flight">TOF</abbr> dimension (1<sup>st</sup>
  data dimension). The dataset is redundant and saved for convenience 
@@ -759,7 +761,7 @@ automatically update this dataset.
 </p>
 
 </div>
-<!-- EDIT22 SECTION "/FullSpectra/MassAxis" [20366-20810] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\/FullSpectra\/MassAxis&quot;,&quot;hid&quot;:&quot;fullspectra_massaxis&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:22,&quot;range&quot;:&quot;20366-20810&quot;} -->
 <h3 class="sectionedit24" id="fullspectra_sumspectrum">/FullSpectra/SumSpectrum</h3>
 <div class="level3">
 <div class="table sectionedit25"><table class="inline">
@@ -770,7 +772,7 @@ automatically update this dataset.
 		<td class="col0"># of elements </td><td class="col1"> NbrSamples </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT25 TABLE [20847-20920] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table9&quot;,&quot;secid&quot;:25,&quot;range&quot;:&quot;20847-20920&quot;} -->
 <p>
 The SumSpectrum dataset is the sum of all mass spectra in TofData. If 
 you want an average of all spectra instead divide all elements by 
@@ -778,7 +780,7 @@ NbrSegments*NbrBufs*NbrWrites.
 </p>
 
 </div>
-<!-- EDIT24 SECTION "/FullSpectra/SumSpectrum" [20811-21089] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\/FullSpectra\/SumSpectrum&quot;,&quot;hid&quot;:&quot;fullspectra_sumspectrum&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:24,&quot;range&quot;:&quot;20811-21089&quot;} -->
 <h3 class="sectionedit26" id="fullspectra2_sumspectrum">/FullSpectra2/SumSpectrum</h3>
 <div class="level3">
 
@@ -787,7 +789,7 @@ If present corresponds to the sum spectrum of the second <abbr title="Time Of Fl
 </p>
 
 </div>
-<!-- EDIT26 SECTION "/FullSpectra2/SumSpectrum" [21090-21265] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\/FullSpectra2\/SumSpectrum&quot;,&quot;hid&quot;:&quot;fullspectra2_sumspectrum&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:26,&quot;range&quot;:&quot;21090-21265&quot;} -->
 <h3 class="sectionedit27" id="fullspectra_tofdata">/FullSpectra/TofData</h3>
 <div class="level3">
 <div class="table sectionedit28"><table class="inline">
@@ -798,7 +800,7 @@ If present corresponds to the sum spectrum of the second <abbr title="Time Of Fl
 		<td class="col0"># of elements </td><td class="col1"> NbrWrites * NbrBufs * NbrSegments * NbrSamples </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT28 TABLE [21298-21407] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table10&quot;,&quot;secid&quot;:28,&quot;range&quot;:&quot;21298-21407&quot;} -->
 <p>
 The TofData dataset contains all recorded full mass spectra. Each mass 
 spectrum is the sum of the three possible summation steps. If you want 
@@ -808,7 +810,7 @@ NbrWaveforms*NbrBlocks*NbrMemories. The unit of the intensities is mV
 </p>
 
 </div>
-<!-- EDIT27 SECTION "/FullSpectra/TofData" [21266-21905] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\/FullSpectra\/TofData&quot;,&quot;hid&quot;:&quot;fullspectra_tofdata&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:27,&quot;range&quot;:&quot;21266-21905&quot;} -->
 <h3 class="sectionedit29" id="fullspectra_eventlist">/FullSpectra/EventList</h3>
 <div class="level3">
 <div class="table sectionedit30"><table class="inline">
@@ -819,7 +821,7 @@ NbrWaveforms*NbrBlocks*NbrMemories. The unit of the intensities is mV
 		<td class="col0"># of elements </td><td class="col1"> NbrWrites * NbrBufs * NbrSegments</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT30 TABLE [21940-22080] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table11&quot;,&quot;secid&quot;:30,&quot;range&quot;:&quot;21940-22080&quot;} -->
 <p>
 The event list is a standardized form to store events as produced by 
 TDCs or event-based ADCs (ndigo or AP240 SSR) for experiments with large
@@ -855,7 +857,7 @@ Note that the <code>MaxElementLength</code> attribute does not change the meanin
 		<td class="col0 centeralign">  data size  </td><td class="col1 centeralign" colspan="3">  time stamp  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT31 TABLE [23706-23822] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table12&quot;,&quot;secid&quot;:31,&quot;range&quot;:&quot;23706-23822&quot;} -->
 <p>
 or
 </p>
@@ -872,7 +874,7 @@ or
 		<td class="col0 centeralign" colspan="4">  data  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT32 TABLE [23826-23923] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table13&quot;,&quot;secid&quot;:32,&quot;range&quot;:&quot;23826-23923&quot;} -->
 <p>
 A data word is always preceded by a time stamp word, giving the number 
 of data words to follow in the 8 MSBs. A data size of 0 means that it is
@@ -880,7 +882,7 @@ of data words to follow in the 8 MSBs. A data size of 0 means that it is
 </p>
 
 </div>
-<!-- EDIT29 SECTION "/FullSpectra/EventList" [21906-24332] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\/FullSpectra\/EventList&quot;,&quot;hid&quot;:&quot;fullspectra_eventlist&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:29,&quot;range&quot;:&quot;21906-24332&quot;} -->
 <h3 class="sectionedit33" id="fullspectra2_tofdata">/FullSpectra2/TofData</h3>
 <div class="level3">
 
@@ -889,7 +891,7 @@ If present corresponds to TofData from the second <abbr title="Time Of Flight">T
 </p>
 
 </div>
-<!-- EDIT33 SECTION "/FullSpectra2/TofData" [24333-24496] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\/FullSpectra2\/TofData&quot;,&quot;hid&quot;:&quot;fullspectra2_tofdata&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:33,&quot;range&quot;:&quot;24333-24496&quot;} -->
 <h3 class="sectionedit34" id="fullspectra_nbrmemories">/FullSpectra/NbrMemories</h3>
 <div class="level3">
 <div class="table sectionedit35"><table class="inline">
@@ -900,7 +902,7 @@ If present corresponds to TofData from the second <abbr title="Time Of Flight">T
 		<td class="col0"># of elements </td><td class="col1"> NbrWrites * NbrBufs </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT35 TABLE [24533-24622] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table14&quot;,&quot;secid&quot;:35,&quot;range&quot;:&quot;24533-24622&quot;} -->
 <p>
 This dataset exists only if “variable NbrMemories” feature was enabled 
 during acquisition and contains the NbrMemories value for each recorded 
@@ -909,7 +911,7 @@ and has the initial value.
 </p>
 
 </div>
-<!-- EDIT34 SECTION "/FullSpectra/NbrMemories" [24497-24870] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\/FullSpectra\/NbrMemories&quot;,&quot;hid&quot;:&quot;fullspectra_nbrmemories&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:34,&quot;range&quot;:&quot;24497-24870&quot;} -->
 <h3 class="sectionedit36" id="fullspectra_masscalibration">/FullSpectra/MassCalibration</h3>
 <div class="level3">
 <div class="table sectionedit37"><table class="inline">
@@ -920,7 +922,7 @@ and has the initial value.
 		<td class="col0"># of elements </td><td class="col1"> NbrWrites * MassCalibration nbrParameters </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT37 TABLE [24911-25015] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table15&quot;,&quot;secid&quot;:37,&quot;range&quot;:&quot;24911-25015&quot;} -->
 <p>
 This dataset exists only if Recalibration &gt; 1 (Automatic 
 recalibration set to “after every write” or “after every n-th write”). 
@@ -934,7 +936,7 @@ mass calibration stored as attributes.
 </p>
 
 </div>
-<!-- EDIT36 SECTION "/FullSpectra/MassCalibration" [24871-25622] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\/FullSpectra\/MassCalibration&quot;,&quot;hid&quot;:&quot;fullspectra_masscalibration&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:36,&quot;range&quot;:&quot;24871-25622&quot;} -->
 <h3 class="sectionedit38" id="peakdata_peakdata">/PeakData/PeakData</h3>
 <div class="level3">
 <div class="table sectionedit39"><table class="inline">
@@ -945,13 +947,13 @@ mass calibration stored as attributes.
 		<td class="col0"># of elements </td><td class="col1"> NbrWrites * NbrBufs * NbrSegments * NbrPeaks </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT39 TABLE [25653-25760] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table16&quot;,&quot;secid&quot;:39,&quot;range&quot;:&quot;25653-25760&quot;} -->
 <p>
 The PeakData dataset holds the results obtained by integrating TofData. The unit of the values is ions/extraction.
 </p>
 
 </div>
-<!-- EDIT38 SECTION "/PeakData/PeakData" [25623-25877] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\/PeakData\/PeakData&quot;,&quot;hid&quot;:&quot;peakdata_peakdata&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:38,&quot;range&quot;:&quot;25623-25877&quot;} -->
 <h3 class="sectionedit40" id="peakdata_peakdata2">/PeakData/PeakData2</h3>
 <div class="level3">
 
@@ -960,7 +962,7 @@ If present holds integrated TofData using the peak table <code>PeakData/PeakTabl
 </p>
 
 </div>
-<!-- EDIT40 SECTION "/PeakData/PeakData2" [25878-26073] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\/PeakData\/PeakData2&quot;,&quot;hid&quot;:&quot;peakdata_peakdata2&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:40,&quot;range&quot;:&quot;25878-26073&quot;} -->
 <h3 class="sectionedit41" id="peakdata_peaktable">/PeakData/PeakTable</h3>
 <div class="level3">
 <div class="table sectionedit42"><table class="inline">
@@ -971,7 +973,7 @@ If present holds integrated TofData using the peak table <code>PeakData/PeakTabl
 		<td class="col0"># of elements </td><td class="col1"> NbrPeaks </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT42 TABLE [26105-26189] --><div class="table sectionedit43"><table class="inline">
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table17&quot;,&quot;secid&quot;:42,&quot;range&quot;:&quot;26105-26189&quot;} --><div class="table sectionedit43"><table class="inline">
 	<thead>
 	<tr class="row0">
 		<th class="col0"> column name </th><th class="col1"> data type </th><th class="col2"> description </th>
@@ -990,7 +992,7 @@ If present holds integrated TofData using the peak table <code>PeakData/PeakTabl
 		<td class="col0 leftalign"> upper integration limit        </td><td class="col1 leftalign"> 32-bit float       </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT43 TABLE [26191-26548] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table18&quot;,&quot;secid&quot;:43,&quot;range&quot;:&quot;26191-26548&quot;} -->
 <p>
 The PeakTable dataset is a 1:1 copy of the “Mass Table” in TofDaq at the
  time of acquisition. This information is needed to (re)calculate 
@@ -998,7 +1000,7 @@ PeakData from TofData.
 </p>
 
 </div>
-<!-- EDIT41 SECTION "/PeakData/PeakTable" [26074-26716] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\/PeakData\/PeakTable&quot;,&quot;hid&quot;:&quot;peakdata_peaktable&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:41,&quot;range&quot;:&quot;26074-26716&quot;} -->
 <h3 class="sectionedit44" id="rawdata">RawData</h3>
 <div class="level3">
 
@@ -1013,7 +1015,7 @@ containing the offsets and length for the raw data of a given buf.
 </p>
 
 </div>
-<!-- EDIT44 SECTION "RawData" [26717-27223] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;RawData&quot;,&quot;hid&quot;:&quot;rawdata&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:44,&quot;range&quot;:&quot;26717-27223&quot;} -->
 <h3 class="sectionedit45" id="timingdata_buftimes">/TimingData/BufTimes</h3>
 <div class="level3">
 <div class="table sectionedit46"><table class="inline">
@@ -1024,13 +1026,13 @@ containing the offsets and length for the raw data of a given buf.
 		<td class="col0"># of elements </td><td class="col1"> NbrWrites * NbrBufs </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT46 TABLE [27256-27338] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table19&quot;,&quot;secid&quot;:46,&quot;range&quot;:&quot;27256-27338&quot;} -->
 <p>
 The BufTimes dataset holds a time stamp for every buf in units of seconds. These timestamps come either directly from the <abbr title="Data Acquisition">DAQ</abbr> hardware (where available) or from the high-resolution performance counter of the PC.
 </p>
 
 </div>
-<!-- EDIT45 SECTION "/TimingData/BufTimes" [27224-27553] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\/TimingData\/BufTimes&quot;,&quot;hid&quot;:&quot;timingdata_buftimes&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:45,&quot;range&quot;:&quot;27224-27553&quot;} -->
 <h2 class="sectionedit47" id="user_datasets">User datasets</h2>
 <div class="level2">
 
@@ -1039,7 +1041,7 @@ Users can store additional data through the TofDaq <abbr title="Atmospheric Pres
 </p>
 
 </div>
-<!-- EDIT47 SECTION "User datasets" [27554-27734] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;User datasets&quot;,&quot;hid&quot;:&quot;user_datasets&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:47,&quot;range&quot;:&quot;27554-27734&quot;} -->
 <h3 class="sectionedit48" id="asynchronous_user_data">asynchronous user data</h3>
 <div class="level3">
 
@@ -1055,7 +1057,7 @@ Users can store additional data through the TofDaq <abbr title="Atmospheric Pres
 		<td class="col0"># of elements </td><td class="col1"> variable * NbrElements (NbrElements is specified as a parameter in the call to <code>TwAddUserData</code>) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT49 TABLE [27819-27979] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table20&quot;,&quot;secid&quot;:49,&quot;range&quot;:&quot;27819-27979&quot;} -->
 </div>
 
 <h4 id="arbitrary_position_in_the_hdf_file_info">/Arbitrary/position/in the/HDF/file/Info</h4>
@@ -1068,7 +1070,7 @@ Users can store additional data through the TofDaq <abbr title="Atmospheric Pres
 		<td class="col0"># of elements </td><td class="col1"> NbrElements (NbrElements is specified as a parameter in the call to <code>TwAddUserData</code>) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT50 TABLE [28031-28187] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table21&quot;,&quot;secid&quot;:50,&quot;range&quot;:&quot;28031-28187&quot;} -->
 <p>
 TofDaq 1.81 and higher allows to store asynchronous user data in the HDF5 file through the <abbr title="Atmospheric Pressure Interface / Application Programming Interface">API</abbr> function <code>TwAddUserData</code>.
  This data is stored in a 2D dataset of 64-bit floats.  A 1D string 
@@ -1078,7 +1080,7 @@ dataset describing meaning and/or units of each column in the 2D dataset
 </p>
 
 </div>
-<!-- EDIT48 SECTION "asynchronous user data" [27735-28572] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;asynchronous user data&quot;,&quot;hid&quot;:&quot;asynchronous_user_data&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:48,&quot;range&quot;:&quot;27735-28572&quot;} -->
 <h3 class="sectionedit51" id="synchronous_registered_user_data">synchronous (registered) user data</h3>
 <div class="level3">
 
@@ -1094,7 +1096,7 @@ dataset describing meaning and/or units of each column in the 2D dataset
 		<td class="col0"># of elements </td><td class="col1"> NbrWrites * (NbrBufs) * NbrElements (NbrElements is specified as a parameter in the call to <code>TwRegisterUserData…</code>) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT52 TABLE [28670-28856] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table22&quot;,&quot;secid&quot;:52,&quot;range&quot;:&quot;28670-28856&quot;} -->
 </div>
 
 <h4 id="arbitrary_position_in_the_hdf_file_twinfo">/Arbitrary/position/in the/HDF/file/TwInfo</h4>
@@ -1107,7 +1109,7 @@ dataset describing meaning and/or units of each column in the 2D dataset
 		<td class="col0"># of elements </td><td class="col1"> NbrElements (NbrElements is specified as a parameter in the call to <code>TwRegisterUserData…</code>) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT53 TABLE [28910-29074] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table23&quot;,&quot;secid&quot;:53,&quot;range&quot;:&quot;28910-29074&quot;} -->
 <p>
 In TofDaq 1.82 this additional method to store user data was introduced.
  Instead of writing user data immediately for every call to the <abbr title="Atmospheric Pressure Interface / Application Programming Interface">API</abbr> function to disk, the user data is written together with the <abbr title="Time Of Flight">TOF</abbr>
@@ -1123,7 +1125,7 @@ datasets.
 </p>
 
 </div>
-<!-- EDIT51 SECTION "synchronous (registered) user data" [28573-29924] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;synchronous (registered) user data&quot;,&quot;hid&quot;:&quot;synchronous_registered_user_data&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:51,&quot;range&quot;:&quot;28573-29924&quot;} -->
 <h2 class="sectionedit54" id="concluding_remarks">Concluding remarks</h2>
 <div class="level2">
 
@@ -1140,7 +1142,7 @@ TofDaq version number when the change was introduced.
 </p>
 
 </div>
-<!-- EDIT54 SECTION "Concluding remarks" [29925-30573] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Concluding remarks&quot;,&quot;hid&quot;:&quot;concluding_remarks&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:54,&quot;range&quot;:&quot;29925-30573&quot;} -->
 <h3 class="sectionedit55" id="changes_from_initial_format_definition">changes from initial format definition</h3>
 <div class="level3">
 
@@ -1218,80 +1220,80 @@ entries (/AcquisitionLog/Log) was changed to store the timestamps in the
 </ul>
 
 </div>
-<!-- EDIT55 SECTION "changes from initial format definition" [30574-32414] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;changes from initial format definition&quot;,&quot;hid&quot;:&quot;changes_from_initial_format_definition&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:55,&quot;range&quot;:&quot;30574-32414&quot;} -->
 <h2 class="sectionedit56" id="previous_versions">Previous versions</h2>
 <div class="level2">
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_198" class="wikilink1" title="manuals:daq:hdf5_198"> Tofwerk HDF5 data format 1.98</a>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_198" class="wikilink1" title="manuals:daq:hdf5_198"> Tofwerk HDF5 data format 1.98</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_197" class="wikilink1" title="manuals:daq:hdf5_197"> Tofwerk HDF5 data format 1.97</a>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_197" class="wikilink1" title="manuals:daq:hdf5_197"> Tofwerk HDF5 data format 1.97</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_196" class="wikilink1" title="manuals:daq:hdf5_196"> Tofwerk HDF5 data format 1.96</a>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_196" class="wikilink1" title="manuals:daq:hdf5_196"> Tofwerk HDF5 data format 1.96</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_195" class="wikilink1" title="manuals:daq:hdf5_195"> Tofwerk HDF5 data format 1.95</a>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_195" class="wikilink1" title="manuals:daq:hdf5_195"> Tofwerk HDF5 data format 1.95</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_194" class="wikilink1" title="manuals:daq:hdf5_194"> Tofwerk HDF5 data format 1.94</a>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_194" class="wikilink1" title="manuals:daq:hdf5_194"> Tofwerk HDF5 data format 1.94</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_193" class="wikilink1" title="manuals:daq:hdf5_193"> Tofwerk HDF5 data format 1.93</a>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_193" class="wikilink1" title="manuals:daq:hdf5_193"> Tofwerk HDF5 data format 1.93</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_190" class="wikilink1" title="manuals:daq:hdf5_190"> Tofwerk HDF5 data format 1.90</a>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_190" class="wikilink1" title="manuals:daq:hdf5_190"> Tofwerk HDF5 data format 1.90</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_189" class="wikilink1" title="manuals:daq:hdf5_189"> Tofwerk HDF5 data format 1.89</a>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_189" class="wikilink1" title="manuals:daq:hdf5_189"> Tofwerk HDF5 data format 1.89</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_188" class="wikilink1" title="manuals:daq:hdf5_188"> Tofwerk HDF5 data format 1.88</a>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_188" class="wikilink1" title="manuals:daq:hdf5_188"> Tofwerk HDF5 data format 1.88</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_187" class="wikilink1" title="manuals:daq:hdf5_187"> Tofwerk HDF5 data format 1.87</a>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:hdf5_187" class="wikilink1" title="manuals:daq:hdf5_187"> Tofwerk HDF5 data format 1.87</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format.pdf (155.6&nbsp;KB)">tofwerk_hdf5_data_format.pdf</a>
+<a href="https://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format.pdf (155.6&nbsp;KB)">tofwerk_hdf5_data_format.pdf</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.1.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.1.pdf (154.8&nbsp;KB)">tofwerk_hdf5_data_format_v1.1.pdf</a>
+<a href="https://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.1.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.1.pdf (154.8&nbsp;KB)">tofwerk_hdf5_data_format_v1.1.pdf</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.2.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.2.pdf (155.9&nbsp;KB)">tofwerk_hdf5_data_format_v1.2.pdf</a>
+<a href="https://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.2.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.2.pdf (155.9&nbsp;KB)">tofwerk_hdf5_data_format_v1.2.pdf</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.3.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.3.pdf (156.2&nbsp;KB)">tofwerk_hdf5_data_format_v1.3.pdf</a>
+<a href="https://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.3.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.3.pdf (156.2&nbsp;KB)">tofwerk_hdf5_data_format_v1.3.pdf</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.4.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.4.pdf (160.8&nbsp;KB)">tofwerk_hdf5_data_format_v1.4.pdf</a>
+<a href="https://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.4.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.4.pdf (160.8&nbsp;KB)">tofwerk_hdf5_data_format_v1.4.pdf</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.5.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.5.pdf (161.3&nbsp;KB)">tofwerk_hdf5_data_format_v1.5.pdf</a>
+<a href="https://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.5.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.5.pdf (161.3&nbsp;KB)">tofwerk_hdf5_data_format_v1.5.pdf</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.6.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.6.pdf (164&nbsp;KB)">tofwerk_hdf5_data_format_v1.6.pdf</a>
+<a href="https://wiki.tofwerk.com/lib/exe/fetch.php?media=manuals:daq:tofwerk_hdf5_data_format_v1.6.pdf" class="media mediafile mf_pdf" title="manuals:daq:tofwerk_hdf5_data_format_v1.6.pdf (164&nbsp;KB)">tofwerk_hdf5_data_format_v1.6.pdf</a>
 </p>
 
 </div>
-<!-- EDIT56 SECTION "Previous versions" [32415-] --></div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Previous versions&quot;,&quot;hid&quot;:&quot;previous_versions&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:56,&quot;range&quot;:&quot;32415-&quot;} --></div>
 
 
 </body></html>

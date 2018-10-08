@@ -2,8 +2,8 @@
 
 # copy the relevant dynamic libraries to ${R_PACKAGE_DIR}/libs
 mkdir -p "${R_PACKAGE_DIR}/libs"
-if [[ "$OSTYPE" == "darwin"* && "$HOSTTYPE" == "x86_64" ]]; then
-cp ./tools/bin/macos_x86_64/* "${R_PACKAGE_DIR}/libs"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+cp ./tools/bin/macos_universal/* "${R_PACKAGE_DIR}/libs"
 elif [[ "$OSTYPE" = "linux-gnu" && "$HOSTTYPE" == "x86_64" ]]; then
 cp ./tools/bin/linux_x86_64/* "${R_PACKAGE_DIR}/libs"
 else
@@ -35,6 +35,10 @@ sed -i.tmp '/CleanupDll(/,/}/ d' ./src/RcppExports.cpp
 sed -i.tmp '/CleanupDll"/ d' ./src/RcppExports.cpp
 sed -i.tmp '/CloseTofDaqRec(/,/}/ d' ./src/RcppExports.cpp
 sed -i.tmp '/CloseTofDaqRec"/ d' ./src/RcppExports.cpp
+sed -i.tmp '/IssueDio4Pulse(/,/}/ d' ./src/RcppExports.cpp
+sed -i.tmp '/IssueDio4Pulse"/ d' ./src/RcppExports.cpp
+sed -i.tmp '/SetDio4State(/,/}/ d' ./src/RcppExports.cpp
+sed -i.tmp '/SetDio4State"/ d' ./src/RcppExports.cpp
 sed -i.tmp '/DaqActive(/,/}/ d' ./src/RcppExports.cpp
 sed -i.tmp '/DaqActive"/ d' ./src/RcppExports.cpp
 sed -i.tmp '/GetBufTimeFromShMem(/,/}/ d' ./src/RcppExports.cpp
@@ -75,16 +79,24 @@ sed -i.tmp '/GetRegUserDataSources(/,/}/ d' ./src/RcppExports.cpp
 sed -i.tmp '/GetRegUserDataSources"/ d' ./src/RcppExports.cpp
 sed -i.tmp '/GetSegmentProfileFromShMem(/,/}/ d' ./src/RcppExports.cpp
 sed -i.tmp '/GetSegmentProfileFromShMem"/ d' ./src/RcppExports.cpp
+sed -i.tmp '/GetSegmentProfileFromShMem2(/,/}/ d' ./src/RcppExports.cpp
+sed -i.tmp '/GetSegmentProfileFromShMem2"/ d' ./src/RcppExports.cpp
 sed -i.tmp '/GetSpecXaxisFromShMem(/,/}/ d' ./src/RcppExports.cpp
 sed -i.tmp '/GetSpecXaxisFromShMem"/ d' ./src/RcppExports.cpp
 sed -i.tmp '/GetStickSpectrumFromShMem(/,/}/ d' ./src/RcppExports.cpp
 sed -i.tmp '/GetStickSpectrumFromShMem"/ d' ./src/RcppExports.cpp
+sed -i.tmp '/GetStickSpectrumFromShMem2(/,/}/ d' ./src/RcppExports.cpp
+sed -i.tmp '/GetStickSpectrumFromShMem2"/ d' ./src/RcppExports.cpp
 sed -i.tmp '/GetSumSpectrumFromShMem(/,/}/ d' ./src/RcppExports.cpp
 sed -i.tmp '/GetSumSpectrumFromShMem"/ d' ./src/RcppExports.cpp
+sed -i.tmp '/GetSumSpectrumFromShMem2(/,/}/ d' ./src/RcppExports.cpp
+sed -i.tmp '/GetSumSpectrumFromShMem2"/ d' ./src/RcppExports.cpp
 sed -i.tmp '/GetTimeout(/,/}/ d' ./src/RcppExports.cpp
 sed -i.tmp '/GetTimeout"/ d' ./src/RcppExports.cpp
 sed -i.tmp '/GetTofSpectrumFromShMem(/,/}/ d' ./src/RcppExports.cpp
 sed -i.tmp '/GetTofSpectrumFromShMem"/ d' ./src/RcppExports.cpp
+sed -i.tmp '/GetTofSpectrumFromShMem2(/,/}/ d' ./src/RcppExports.cpp
+sed -i.tmp '/GetTofSpectrumFromShMem2"/ d' ./src/RcppExports.cpp
 sed -i.tmp '/InitializeDaqDevice(/,/}/ d' ./src/RcppExports.cpp
 sed -i.tmp '/InitializeDaqDevice"/ d' ./src/RcppExports.cpp
 sed -i.tmp '/InitializeDll(/,/}/ d' ./src/RcppExports.cpp
@@ -121,6 +133,8 @@ sed -i.tmp '/SetDaqParameterInt(/,/}/ d' ./src/RcppExports.cpp
 sed -i.tmp '/SetDaqParameterInt"/ d' ./src/RcppExports.cpp
 sed -i.tmp '/SetDaqParameterInt64(/,/}/ d' ./src/RcppExports.cpp
 sed -i.tmp '/SetDaqParameterInt64"/ d' ./src/RcppExports.cpp
+sed -i.tmp '/ConfigVarNbrMemories(/,/}/ d' ./src/RcppExports.cpp
+sed -i.tmp '/ConfigVarNbrMemories"/ d' ./src/RcppExports.cpp
 sed -i.tmp '/SetTimeout(/,/}/ d' ./src/RcppExports.cpp
 sed -i.tmp '/SetTimeout"/ d' ./src/RcppExports.cpp
 sed -i.tmp '/ShowConfigWindow(/,/}/ d' ./src/RcppExports.cpp
@@ -129,6 +143,10 @@ sed -i.tmp '/StartAcquisition(/,/}/ d' ./src/RcppExports.cpp
 sed -i.tmp '/StartAcquisition"/ d' ./src/RcppExports.cpp
 sed -i.tmp '/StopAcquisition(/,/}/ d' ./src/RcppExports.cpp
 sed -i.tmp '/StopAcquisition"/ d' ./src/RcppExports.cpp
+sed -i.tmp '/ContinueAcquisition(/,/}/ d' ./src/RcppExports.cpp
+sed -i.tmp '/ContinueAcquisition"/ d' ./src/RcppExports.cpp
+sed -i.tmp '/ManualContinueNeeded(/,/}/ d' ./src/RcppExports.cpp
+sed -i.tmp '/ManualContinueNeeded"/ d' ./src/RcppExports.cpp
 sed -i.tmp '/TofDaqRunning(/,/}/ d' ./src/RcppExports.cpp
 sed -i.tmp '/TofDaqRunning"/ d' ./src/RcppExports.cpp
 sed -i.tmp '/TpsChangeIonMode(/,/}/ d' ./src/RcppExports.cpp
@@ -188,6 +206,8 @@ mv ./man/AddUserDataMultiRow.Rd ./tools
 mv ./man/AutoSetupDaqDevice.Rd ./tools
 mv ./man/CleanupDll.Rd ./tools
 mv ./man/CloseTofDaqRec.Rd ./tools
+mv ./man/IssueDio4Pulse.Rd ./tools
+mv ./man/SetDio4State.Rd ./tools
 mv ./man/DaqActive.Rd ./tools
 mv ./man/FindTpsIp.Rd ./tools
 mv ./man/GetBufTimeFromShMem.Rd ./tools
@@ -209,11 +229,15 @@ mv ./man/GetPeakParameters.Rd ./tools
 mv ./man/GetRegUserDataDesc.Rd ./tools
 mv ./man/GetRegUserDataSources.Rd ./tools
 mv ./man/GetSegmentProfileFromShMem.Rd ./tools
+mv ./man/GetSegmentProfileFromShMem2.Rd ./tools
 mv ./man/GetSpecXaxisFromShMem.Rd ./tools
 mv ./man/GetStickSpectrumFromShMem.Rd ./tools
+mv ./man/GetStickSpectrumFromShMem2.Rd ./tools
 mv ./man/GetSumSpectrumFromShMem.Rd ./tools
+mv ./man/GetSumSpectrumFromShMem2.Rd ./tools
 mv ./man/GetTimeout.Rd ./tools
 mv ./man/GetTofSpectrumFromShMem.Rd ./tools
+mv ./man/GetTofSpectrumFromShMem2.Rd ./tools
 mv ./man/InitializeDaqDevice.Rd ./tools
 mv ./man/InitializeDll.Rd ./tools
 mv ./man/KeepFileOpen.Rd ./tools
@@ -233,11 +257,14 @@ mv ./man/SetDaqParameterDouble.Rd ./tools
 mv ./man/SetDaqParameterFloat.Rd ./tools
 mv ./man/SetDaqParameterInt.Rd ./tools
 mv ./man/SetDaqParameterInt64.Rd ./tools
+mv ./man/ConfigVarNbrMemories.Rd ./tools
 mv ./man/SetTimeout.Rd ./tools
 mv ./man/ShowConfigWindow.Rd ./tools
 mv ./man/SiProcessSpectrumFromShMem.Rd ./tools
 mv ./man/StartAcquisition.Rd ./tools
 mv ./man/StopAcquisition.Rd ./tools
+mv ./man/ContinueAcquisition.Rd ./tools
+mv ./man/ManualContinueNeeded.Rd ./tools
 mv ./man/TofDaqRunning.Rd ./tools
 mv ./man/TpsChangeIonMode.Rd ./tools
 mv ./man/TpsConnect.Rd ./tools
@@ -273,6 +300,8 @@ sed -i.tmp '/AddUserDataMultiRow)/ d' NAMESPACE
 sed -i.tmp '/AutoSetupDaqDevice)/ d' NAMESPACE
 sed -i.tmp '/CleanupDll)/ d' NAMESPACE
 sed -i.tmp '/CloseTofDaqRec)/ d' NAMESPACE
+sed -i.tmp '/IssueDio4Pulse)/ d' NAMESPACE
+sed -i.tmp '/SetDio4State)/ d' NAMESPACE
 sed -i.tmp '/DaqActive)/ d' NAMESPACE
 sed -i.tmp '/FindTpsIp)/ d' NAMESPACE
 sed -i.tmp '/GetBufTimeFromShMem)/ d' NAMESPACE
@@ -294,11 +323,15 @@ sed -i.tmp '/GetPeakParameters)/ d' NAMESPACE
 sed -i.tmp '/GetRegUserDataDesc)/ d' NAMESPACE
 sed -i.tmp '/GetRegUserDataSources)/ d' NAMESPACE
 sed -i.tmp '/GetSegmentProfileFromShMem)/ d' NAMESPACE
+sed -i.tmp '/GetSegmentProfileFromShMem2)/ d' NAMESPACE
 sed -i.tmp '/GetSpecXaxisFromShMem)/ d' NAMESPACE
 sed -i.tmp '/GetStickSpectrumFromShMem)/ d' NAMESPACE
+sed -i.tmp '/GetStickSpectrumFromShMem2)/ d' NAMESPACE
 sed -i.tmp '/GetSumSpectrumFromShMem)/ d' NAMESPACE
+sed -i.tmp '/GetSumSpectrumFromShMem2)/ d' NAMESPACE
 sed -i.tmp '/GetTimeout)/ d' NAMESPACE
 sed -i.tmp '/GetTofSpectrumFromShMem)/ d' NAMESPACE
+sed -i.tmp '/GetTofSpectrumFromShMem2)/ d' NAMESPACE
 sed -i.tmp '/InitializeDaqDevice)/ d' NAMESPACE
 sed -i.tmp '/InitializeDll)/ d' NAMESPACE
 sed -i.tmp '/KeepFileOpen)/ d' NAMESPACE
@@ -318,11 +351,14 @@ sed -i.tmp '/SetDaqParameterDouble)/ d' NAMESPACE
 sed -i.tmp '/SetDaqParameterFloat)/ d' NAMESPACE
 sed -i.tmp '/SetDaqParameterInt)/ d' NAMESPACE
 sed -i.tmp '/SetDaqParameterInt64)/ d' NAMESPACE
+sed -i.tmp '/ConfigVarNbrMemories)/ d' NAMESPACE
 sed -i.tmp '/SetTimeout)/ d' NAMESPACE
 sed -i.tmp '/ShowConfigWindow)/ d' NAMESPACE
 sed -i.tmp '/SiProcessSpectrumFromShMem)/ d' NAMESPACE
 sed -i.tmp '/StartAcquisition)/ d' NAMESPACE
 sed -i.tmp '/StopAcquisition)/ d' NAMESPACE
+sed -i.tmp '/ContinueAcquisition)/ d' NAMESPACE
+sed -i.tmp '/ManualContinueNeeded)/ d' NAMESPACE
 sed -i.tmp '/TofDaqRunning)/ d' NAMESPACE
 sed -i.tmp '/TpsChangeIonMode)/ d' NAMESPACE
 sed -i.tmp '/TpsConnect)/ d' NAMESPACE

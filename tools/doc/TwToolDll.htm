@@ -4,19 +4,21 @@
   <meta charset="utf-8">
   <title>manuals:daq:twtooldll</title>
 <meta name="generator" content="DokuWiki">
+<meta name="theme-color" content="#008800">
 <meta name="robots" content="noindex,nofollow">
 <meta name="keywords" content="manuals,daq,twtooldll">
-<link rel="search" type="application/opensearchdescription+xml" href="http://wiki.tofwerk.com/lib/exe/opensearch.php" title="Tofwerk Documentation Wiki">
-<link rel="start" href="http://wiki.tofwerk.com/">
-<link rel="contents" href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll&amp;do=index" title="Sitemap">
-<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="http://wiki.tofwerk.com/feed.php">
-<link rel="alternate" type="application/rss+xml" title="Current namespace" href="http://wiki.tofwerk.com/feed.php?mode=list&amp;ns=manuals:daq">
-<link rel="alternate" type="text/html" title="Plain HTML" href="http://wiki.tofwerk.com/doku.php?do=export_xhtml&amp;id=manuals:daq:twtooldll">
-<link rel="alternate" type="text/plain" title="Wiki Markup" href="http://wiki.tofwerk.com/doku.php?do=export_raw&amp;id=manuals:daq:twtooldll">
-<link rel="canonical" href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll">
+<link rel="search" type="application/opensearchdescription+xml" href="https://wiki.tofwerk.com/lib/exe/opensearch.php" title="Tofwerk Documentation Wiki">
+<link rel="start" href="https://wiki.tofwerk.com/">
+<link rel="contents" href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll&amp;do=index" title="Sitemap">
+<link rel="manifest" href="https://wiki.tofwerk.com/lib/exe/manifest.php">
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="https://wiki.tofwerk.com/feed.php">
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="https://wiki.tofwerk.com/feed.php?mode=list&amp;ns=manuals:daq">
+<link rel="alternate" type="text/html" title="Plain HTML" href="https://wiki.tofwerk.com/doku.php?do=export_xhtml&amp;id=manuals:daq:twtooldll">
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="https://wiki.tofwerk.com/doku.php?do=export_raw&amp;id=manuals:daq:twtooldll">
+<link rel="canonical" href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll">
 <link rel="stylesheet" type="text/css" href="TwToolDll_files/css.css">
 <!--[if gte IE 9]><!-->
-<script type="text/javascript">/*<![CDATA[*/var NS='manuals:daq';var SIG=' --- //[[tanner@tofwerk.com|Christian Tanner]] 01.12.2017 13:30//';var JSINFO = {"id":"manuals:daq:twtooldll","namespace":"manuals:daq","plugins":{"edittable":{"default columnwidth":""}}};
+<script type="text/javascript">/*<![CDATA[*/var NS='manuals:daq';var SIG=' --- //[[tanner@tofwerk.com|Christian Tanner]] 12.09.2018 11:22//';var JSINFO = {"plugins":{"edittable":{"default columnwidth":""}},"id":"manuals:daq:twtooldll","namespace":"manuals:daq","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};
 /*!]]>*/</script>
 <script type="text/javascript" charset="utf-8" src="TwToolDll_files/jquery.php"></script>
 <script type="text/javascript" charset="utf-8" src="TwToolDll_files/js.php"></script><style id="iris-css">.iris-picker{display:block;position:relative}.iris-picker,.iris-picker *{-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input+.iris-picker{margin-top:4px}.iris-error{background-color:#ffafaf}.iris-border{border-radius:3px;border:1px solid #aaa;width:200px;background-color:#fff}.iris-picker-inner{position:absolute;top:0;right:0;left:0;bottom:0}.iris-border .iris-picker-inner{top:10px;right:10px;left:10px;bottom:10px}.iris-picker .iris-square-inner{position:absolute;left:0;right:0;top:0;bottom:0}.iris-picker .iris-square,.iris-picker .iris-slider,.iris-picker .iris-square-inner,.iris-picker .iris-palette{border-radius:3px;box-shadow:inset 0 0 5px rgba(0,0,0,.4);height:100%;width:12.5%;float:left;margin-right:5%}.iris-picker .iris-square{width:76%;margin-right:10%;position:relative}.iris-picker .iris-square-inner{width:auto;margin:0}.iris-ie-9 .iris-square,.iris-ie-9 .iris-slider,.iris-ie-9 .iris-square-inner,.iris-ie-9 .iris-palette{box-shadow:none;border-radius:0}.iris-ie-9 .iris-square,.iris-ie-9 .iris-slider,.iris-ie-9 .iris-palette{outline:1px solid rgba(0,0,0,.1)}.iris-ie-lt9 .iris-square,.iris-ie-lt9 .iris-slider,.iris-ie-lt9 .iris-square-inner,.iris-ie-lt9 .iris-palette{outline:1px solid #aaa}.iris-ie-lt9 .iris-square .ui-slider-handle{outline:1px solid #aaa;background-color:#fff;-ms-filter:"alpha(Opacity=30)"}.iris-ie-lt9 .iris-square .iris-square-handle{background:0;border:3px solid #fff;-ms-filter:"alpha(Opacity=50)"}.iris-picker .iris-strip{margin-right:0;position:relative}.iris-picker .iris-strip .ui-slider-handle{position:absolute;background:0;margin:0;right:-3px;left:-3px;border:4px solid #aaa;border-width:4px 3px;width:auto;height:6px;border-radius:4px;box-shadow:0 1px 2px rgba(0,0,0,.2);opacity:.9;z-index:5;cursor:ns-resize}.iris-strip .ui-slider-handle:before{content:" ";position:absolute;left:-2px;right:-2px;top:-3px;bottom:-3px;border:2px solid #fff;border-radius:3px}.iris-picker .iris-slider-offset{position:absolute;top:11px;left:0;right:0;bottom:-3px;width:auto;height:auto;background:transparent;border:0;border-radius:0}.iris-picker .iris-square-handle{background:transparent;border:5px solid #aaa;border-radius:50%;border-color:rgba(128,128,128,.5);box-shadow:none;width:12px;height:12px;position:absolute;left:-10px;top:-10px;cursor:move;opacity:1;z-index:10}.iris-picker .ui-state-focus .iris-square-handle{opacity:.8}.iris-picker .iris-square-handle:hover{border-color:#999}.iris-picker .iris-square-value:focus .iris-square-handle{box-shadow:0 0 2px rgba(0,0,0,.75);opacity:.8}.iris-picker .iris-square-handle:hover::after{border-color:#fff}.iris-picker .iris-square-handle::after{position:absolute;bottom:-4px;right:-4px;left:-4px;top:-4px;border:3px solid #f9f9f9;border-color:rgba(255,255,255,.8);border-radius:50%;content:" "}.iris-picker .iris-square-value{width:8px;height:8px;position:absolute}.iris-ie-lt9 .iris-square-value,.iris-mozilla .iris-square-value{width:1px;height:1px}.iris-palette-container{position:absolute;bottom:0;left:0;margin:0;padding:0}.iris-border .iris-palette-container{left:10px;bottom:10px}.iris-picker .iris-palette{margin:0;cursor:pointer}.iris-square-handle,.ui-slider-handle{border:0;outline:0}</style>
@@ -25,7 +27,7 @@
 <body>
 <div class="dokuwiki export">
 <!-- TOC START -->
-<div id="dw__toc">
+<div id="dw__toc" class="dw__toc">
 <h3 class="toggle open" style="cursor: pointer;"><strong><span>−</span></strong>Table of Contents</h3>
 <div style="" aria-expanded="true">
 
@@ -105,6 +107,11 @@
 <li class="level3"><div class="li"><a href="#twimagegetpalettergb">TwImageGetPaletteRGB</a></div></li>
 </ul>
 </li>
+<li class="level2"><div class="li"><a href="#peak_integration">Peak integration</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#twintegratetofspectra">TwIntegrateTofSpectra</a></div></li>
+</ul>
+</li>
 <li class="level2"><div class="li"><a href="#previous_revisions">Previous revisions</a></div></li>
 </ul></li>
 </ul>
@@ -121,12 +128,12 @@ software (mainly TofDaqViewer) but was not accessible to TofDaq <abbr title="Atm
 </p>
 
 </div>
-<!-- EDIT1 SECTION "TwToolDll.dll version 1.99" [1-185] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwToolDll.dll version 1.99&quot;,&quot;hid&quot;:&quot;twtooldlldll_version_199&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-185&quot;} -->
 <h2 class="sectionedit2" id="general_functions">General functions</h2>
 <div class="level2">
 
 </div>
-<!-- EDIT2 SECTION "General functions" [186-216] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;General functions&quot;,&quot;hid&quot;:&quot;general_functions&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;186-216&quot;} -->
 <h3 class="sectionedit3" id="twtranslatereturnvalue">TwTranslateReturnValue</h3>
 <div class="level3">
 
@@ -161,7 +168,7 @@ Translates a <code>TwRetVal</code> to a human readable string.
 		<td class="col0 centeralign">  <code>ReturnValue</code>  </td><td class="col1 centeralign">  <code>TwRetVal</code>  </td><td class="col2 rightalign">  value returned from other <abbr title="Atmospheric Pressure Interface / Application Programming Interface">API</abbr> function </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT4 TABLE [432-548] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table&quot;,&quot;secid&quot;:4,&quot;range&quot;:&quot;432-548&quot;} -->
 </div>
 
 <h4 id="return_value">Return value</h4>
@@ -176,7 +183,7 @@ Translates a <code>TwRetVal</code> to a human readable string.
 		<td class="col0"> <code>char*</code> </td><td class="col1 rightalign">  <em>variable</em> </td><td class="col2"> string with a text representation of the return value. </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT5 TABLE [570-697] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table1&quot;,&quot;secid&quot;:5,&quot;range&quot;:&quot;570-697&quot;} --><hr>
 
 <p>
 <br>
@@ -189,7 +196,7 @@ Translates a <code>TwRetVal</code> to a human readable string.
 </p>
 
 </div>
-<!-- EDIT3 SECTION "TwTranslateReturnValue" [217-712] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwTranslateReturnValue&quot;,&quot;hid&quot;:&quot;twtranslatereturnvalue&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;217-712&quot;} -->
 <h2 class="sectionedit6" id="peak_fitting_functions">Peak fitting functions</h2>
 <div class="level2">
 
@@ -253,9 +260,9 @@ Lorentzian the following peak types are possible:
 		<td class="col0 centeralign">  11  </td><td class="col1 centeralign">  pseudo-Voigt  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  yes  </td><td class="col4 leftalign">  </td><td class="col5 centeralign">  variable     </td><td class="col6 centeralign">   variable     </td><td class="col7 centeralign">  variable  </td><td class="col8 centeralign">  variable  </td><td class="col9 centeralign">  variable  </td><td class="col10 centeralign">  variable  </td><td class="col11 centeralign">  variable  </td><td class="col12 centeralign">  7  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT7 TABLE [1237-3361] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table2&quot;,&quot;secid&quot;:7,&quot;range&quot;:&quot;1237-3361&quot;} -->
 <p>
-<a href="http://wiki.tofwerk.com/lib/exe/detail.php?id=manuals%3Adaq%3Atwtooldll&amp;media=manuals:daq:peakfunctions.png" class="media" title="manuals:daq:peakfunctions.png"><img src="TwToolDll_files/fetch_007.png" class="medialeft" title=" Functional form of peak functions" alt=" Functional form of peak functions" width="700"></a>
+<a href="https://wiki.tofwerk.com/lib/exe/detail.php?id=manuals%3Adaq%3Atwtooldll&amp;media=manuals:daq:peakfunctions.png" class="media" title="manuals:daq:peakfunctions.png"><img src="TwToolDll_files/fetch_009.png" class="medialeft" title=" Functional form of peak functions" alt=" Functional form of peak functions" width="700"></a>
 </p>
 
 <p>
@@ -269,7 +276,7 @@ contributions from the baseline) can be calculated as:
 
 <br>
 
-<img src="TwToolDll_files/img_005.png" class="medialeft mathpublish" alt="area~=~amplitude~*~{{fwhmLo~+~fwhmHi}/2} * (0.506 mu + 1.064)" title="area~=~amplitude~*~{{fwhmLo~+~fwhmHi}/2} * (0.506 mu + 1.064)" style="display: block; vertical-align:-14px">
+<img src="TwToolDll_files/img_005.png" class="medialeft mathpublish" alt="area~=~amplitude~*~{{fwhmLo~+~fwhmHi}/2} * (0.506 mu + 1.064)" title="area~=~amplitude~*~{{fwhmLo~+~fwhmHi}/2} * (0.506 mu + 1.064)" style="display: block; vertical-align:-16px">
 </p>
 
 <p>
@@ -278,7 +285,7 @@ contributions from the baseline) can be calculated as:
 </p>
 
 </div>
-<!-- EDIT6 SECTION "Peak fitting functions" [713-3914] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Peak fitting functions&quot;,&quot;hid&quot;:&quot;peak_fitting_functions&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:6,&quot;range&quot;:&quot;713-3914&quot;} -->
 <h3 class="sectionedit8" id="twfitsinglepeak">TwFitSinglePeak</h3>
 <div class="level3">
 
@@ -346,7 +353,7 @@ parameters to 0.0.
 		<td class="col0 centeralign">  <code>mu</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2 leftalign"> Gaussian/Lorentzian contribution  (passed by reference)  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT9 TABLE [4441-5400] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table3&quot;,&quot;secid&quot;:9,&quot;range&quot;:&quot;4441-5400&quot;} -->
 </div>
 
 <h4 id="return_value1">Return value</h4>
@@ -367,7 +374,7 @@ parameters to 0.0.
 		<td class="col0"> <code>TwOutOfBounds</code></td><td class="col1"> invalid <code>peakType</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT10 TABLE [5423-5698] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table4&quot;,&quot;secid&quot;:10,&quot;range&quot;:&quot;5423-5698&quot;} --><hr>
 
 <p>
 <br>
@@ -375,7 +382,7 @@ parameters to 0.0.
 </p>
 
 </div>
-<!-- EDIT8 SECTION "TwFitSinglePeak" [3915-5708] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwFitSinglePeak&quot;,&quot;hid&quot;:&quot;twfitsinglepeak&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:8,&quot;range&quot;:&quot;3915-5708&quot;} -->
 <h3 class="sectionedit11" id="twfitsinglepeak2">TwFitSinglePeak2</h3>
 <div class="level3">
 
@@ -422,7 +429,7 @@ Convenience function which takes the 7 fit parameter as an array argument instea
 		<td class="col0 centeralign">  <code>param</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2 leftalign"> array of doubles of minimal length 7 (same order as in <code>TwFitSinglePeak</code>)  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT12 TABLE [6024-6520] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table5&quot;,&quot;secid&quot;:12,&quot;range&quot;:&quot;6024-6520&quot;} -->
 </div>
 
 <h4 id="return_value2">Return value</h4>
@@ -443,7 +450,7 @@ Convenience function which takes the 7 fit parameter as an array argument instea
 		<td class="col0"> <code>TwOutOfBounds</code></td><td class="col1"> invalid <code>peakType</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT13 TABLE [6543-6818] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table6&quot;,&quot;secid&quot;:13,&quot;range&quot;:&quot;6543-6818&quot;} --><hr>
 
 <p>
 <br>
@@ -451,7 +458,7 @@ Convenience function which takes the 7 fit parameter as an array argument instea
 </p>
 
 </div>
-<!-- EDIT11 SECTION "TwFitSinglePeak2" [5709-6828] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwFitSinglePeak2&quot;,&quot;hid&quot;:&quot;twfitsinglepeak2&quot;,&quot;codeblockOffset&quot;:2,&quot;secid&quot;:11,&quot;range&quot;:&quot;5709-6828&quot;} -->
 <h3 class="sectionedit14" id="twevalsinglepeak">TwEvalSinglePeak</h3>
 <div class="level3">
 
@@ -489,7 +496,7 @@ The actual fit function to evaluate the peak profile for a given x value and the
 		<td class="col0 centeralign">  <code>param</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2 leftalign"> array of doubles of minimal length 7 (same order as in <code>TwFitSinglePeak</code>)  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT15 TABLE [7169-7395] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table7&quot;,&quot;secid&quot;:15,&quot;range&quot;:&quot;7169-7395&quot;} -->
 </div>
 
 <h4 id="return_value3">Return value</h4>
@@ -504,7 +511,7 @@ The actual fit function to evaluate the peak profile for a given x value and the
 		<td class="col0"> <code>double</code> </td><td class="col1"> <em>variable</em> </td><td class="col2"> peak function value </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT16 TABLE [7418-7510] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table8&quot;,&quot;secid&quot;:16,&quot;range&quot;:&quot;7418-7510&quot;} --><hr>
 
 <p>
 <br>
@@ -512,7 +519,7 @@ The actual fit function to evaluate the peak profile for a given x value and the
 </p>
 
 </div>
-<!-- EDIT14 SECTION "TwEvalSinglePeak" [6829-7521] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwEvalSinglePeak&quot;,&quot;hid&quot;:&quot;twevalsinglepeak&quot;,&quot;codeblockOffset&quot;:3,&quot;secid&quot;:14,&quot;range&quot;:&quot;6829-7521&quot;} -->
 <h3 class="sectionedit17" id="twmultipeakfit">TwMultiPeakFit</h3>
 <div class="level3">
 
@@ -617,7 +624,7 @@ optimizing the parameters) </td>
 		<td class="col0 centeralign">  bit 7  </td><td class="col1"> 0=no constrain on amplitudes, 1=constrain sum of baseline and all peaks to total intensity in spectrum </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT18 TABLE [8068-10590] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table9&quot;,&quot;secid&quot;:18,&quot;range&quot;:&quot;8068-10590&quot;} -->
 </div>
 
 <h4 id="return_value4">Return value</h4>
@@ -635,7 +642,7 @@ optimizing the parameters) </td>
 		<td class="col0"> <code>TwError</code> </td><td class="col1"> Fit failed or invalid input parameters (NULL arrays, not enough data points for the fit's degrees of freedom,…) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT19 TABLE [10616-10837] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table10&quot;,&quot;secid&quot;:19,&quot;range&quot;:&quot;10616-10837&quot;} --><hr>
 
 <p>
 <br>
@@ -643,7 +650,7 @@ optimizing the parameters) </td>
 </p>
 
 </div>
-<!-- EDIT17 SECTION "TwMultiPeakFit" [7522-10847] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwMultiPeakFit&quot;,&quot;hid&quot;:&quot;twmultipeakfit&quot;,&quot;codeblockOffset&quot;:4,&quot;secid&quot;:17,&quot;range&quot;:&quot;7522-10847&quot;} -->
 <h3 class="sectionedit20" id="twevalmultipeak">TwEvalMultiPeak</h3>
 <div class="level3">
 
@@ -690,7 +697,7 @@ Utility function to determine the multi peak function value at an arbitrary posi
 		<td class="col0 centeralign">  <code>commonPar</code>  </td><td class="col1 centeralign">  <code>double[6]</code>  </td><td class="col2"> common peak parameters (see <code>TwMultiPeakFit</code> documentation for details) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT21 TABLE [11265-11770] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table11&quot;,&quot;secid&quot;:21,&quot;range&quot;:&quot;11265-11770&quot;} -->
 </div>
 
 <h4 id="return_value5">Return value</h4>
@@ -705,7 +712,7 @@ Utility function to determine the multi peak function value at an arbitrary posi
 		<td class="col0"> <code>double</code> </td><td class="col1"> <em>variable</em> </td><td class="col2"> multi peak function value </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT22 TABLE [11795-11893] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table12&quot;,&quot;secid&quot;:22,&quot;range&quot;:&quot;11795-11893&quot;} --><hr>
 
 <p>
 <br>
@@ -713,20 +720,20 @@ Utility function to determine the multi peak function value at an arbitrary posi
 </p>
 
 </div>
-<!-- EDIT20 SECTION "TwEvalMultiPeak" [10848-11906] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwEvalMultiPeak&quot;,&quot;hid&quot;:&quot;twevalmultipeak&quot;,&quot;codeblockOffset&quot;:5,&quot;secid&quot;:20,&quot;range&quot;:&quot;10848-11906&quot;} -->
 <h2 class="sectionedit23" id="tof_resolving_power">TOF resolving power</h2>
 <div class="level2">
 
 <p>
-An empirical function that describes the mass resolving power of TOFs as a function of mass is: <img src="TwToolDll_files/img_008.png" class="mediacenter mathpublish" alt="R(m)~=~R_0~-~{R_0 / {1+e^{{m-m_0}/dm}}}" title="R(m)~=~R_0~-~{R_0 / {1+e^{{m-m_0}/dm}}}" style="display: block; vertical-align:-40px"><br>
+An empirical function that describes the mass resolving power of TOFs as a function of mass is: <img src="TwToolDll_files/img_003.png" class="mediacenter mathpublish" alt="R(m)~=~R_0~-~{R_0 / {1+e^{{m-m_0}/dm}}}" title="R(m)~=~R_0~-~{R_0 / {1+e^{{m-m_0}/dm}}}" style="display: block; vertical-align:-42px"><br>
 
-<a href="http://wiki.tofwerk.com/lib/exe/detail.php?id=manuals%3Adaq%3Atwtooldll&amp;media=manuals:daq:tof_resolving_power.png" class="media" title="manuals:daq:tof_resolving_power.png"><img src="TwToolDll_files/fetch_009.png" class="media" title=" TOF resolving power example" alt=" TOF resolving power example"></a>
+<a href="https://wiki.tofwerk.com/lib/exe/detail.php?id=manuals%3Adaq%3Atwtooldll&amp;media=manuals:daq:tof_resolving_power.png" class="media" title="manuals:daq:tof_resolving_power.png"><img src="TwToolDll_files/fetch_003.png" class="media" title=" TOF resolving power example" alt=" TOF resolving power example"></a>
 <br>
 
 </p>
 
 </div>
-<!-- EDIT23 SECTION "TOF resolving power" [11907-12159] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TOF resolving power&quot;,&quot;hid&quot;:&quot;tof_resolving_power&quot;,&quot;codeblockOffset&quot;:6,&quot;secid&quot;:23,&quot;range&quot;:&quot;11907-12159&quot;} -->
 <h3 class="sectionedit24" id="twfitresolution">TwFitResolution</h3>
 <div class="level3">
 
@@ -776,7 +783,7 @@ Fits the mass/resolution pairs to the resolving power function.
 		<td class="col0 centeralign">  <code>dm</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2 leftalign"> slope parameter (passed by reference)  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT25 TABLE [12438-12989] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table13&quot;,&quot;secid&quot;:25,&quot;range&quot;:&quot;12438-12989&quot;} -->
 </div>
 
 <h4 id="return_value6">Return value</h4>
@@ -794,7 +801,7 @@ Fits the mass/resolution pairs to the resolving power function.
 		<td class="col0"> <code>TwError</code> </td><td class="col1"> fit failed </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT26 TABLE [13012-13173] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table14&quot;,&quot;secid&quot;:26,&quot;range&quot;:&quot;13012-13173&quot;} --><hr>
 
 <p>
 <br>
@@ -802,7 +809,7 @@ Fits the mass/resolution pairs to the resolving power function.
 </p>
 
 </div>
-<!-- EDIT24 SECTION "TwFitResolution" [12160-13183] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwFitResolution&quot;,&quot;hid&quot;:&quot;twfitresolution&quot;,&quot;codeblockOffset&quot;:6,&quot;secid&quot;:24,&quot;range&quot;:&quot;12160-13183&quot;} -->
 <h3 class="sectionedit27" id="twevalresolution">TwEvalResolution</h3>
 <div class="level3">
 
@@ -846,7 +853,7 @@ Actual resolving power function.
 		<td class="col0 centeralign">  <code>mass</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2"> mass value for which to evaluate the function </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT28 TABLE [13392-13676] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table15&quot;,&quot;secid&quot;:28,&quot;range&quot;:&quot;13392-13676&quot;} -->
 </div>
 
 <h4 id="return_value7">Return value</h4>
@@ -861,7 +868,7 @@ Actual resolving power function.
 		<td class="col0"> <code>double</code> </td><td class="col1"> <em>variable</em> </td><td class="col2"> function value </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT29 TABLE [13699-13786] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table16&quot;,&quot;secid&quot;:29,&quot;range&quot;:&quot;13699-13786&quot;} --><hr>
 
 <p>
 <br>
@@ -869,7 +876,7 @@ Actual resolving power function.
 </p>
 
 </div>
-<!-- EDIT27 SECTION "TwEvalResolution" [13184-13796] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwEvalResolution&quot;,&quot;hid&quot;:&quot;twevalresolution&quot;,&quot;codeblockOffset&quot;:7,&quot;secid&quot;:27,&quot;range&quot;:&quot;13184-13796&quot;} -->
 <h2 class="sectionedit30" id="chemistry_functions">"Chemistry" functions</h2>
 <div class="level2">
 
@@ -893,7 +900,7 @@ charged calcium dimer).
 </p>
 
 </div>
-<!-- EDIT30 SECTION "Chemistry functions" [13797-14565] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\&quot;Chemistry\&quot; functions&quot;,&quot;hid&quot;:&quot;chemistry_functions&quot;,&quot;codeblockOffset&quot;:8,&quot;secid&quot;:30,&quot;range&quot;:&quot;13797-14565&quot;} -->
 <h3 class="sectionedit31" id="twgetmoleculemass">TwGetMoleculeMass</h3>
 <div class="level3">
 
@@ -933,7 +940,7 @@ electron(s) (5.4858E-4 u) is added/subtracted.
 		<td class="col0 centeralign">  <code>mass</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> mass/charge ratio of the specified sum formula (by reference) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT32 TABLE [14919-15100] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table17&quot;,&quot;secid&quot;:32,&quot;range&quot;:&quot;14919-15100&quot;} -->
 </div>
 
 <h4 id="return_value8">Return value</h4>
@@ -954,7 +961,7 @@ electron(s) (5.4858E-4 u) is added/subtracted.
 		<td class="col0"> <code>TwError</code> </td><td class="col1"> <code>molecule</code> or <code>mass</code> are <code>NULL</code> pointers </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT33 TABLE [15123-15461] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table18&quot;,&quot;secid&quot;:33,&quot;range&quot;:&quot;15123-15461&quot;} --><hr>
 
 <p>
 <br>
@@ -962,7 +969,7 @@ electron(s) (5.4858E-4 u) is added/subtracted.
 </p>
 
 </div>
-<!-- EDIT31 SECTION "TwGetMoleculeMass" [14566-15470] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwGetMoleculeMass&quot;,&quot;hid&quot;:&quot;twgetmoleculemass&quot;,&quot;codeblockOffset&quot;:8,&quot;secid&quot;:31,&quot;range&quot;:&quot;14566-15470&quot;} -->
 <h3 class="sectionedit34" id="twgetisotopepattern">TwGetIsotopePattern</h3>
 <div class="level3">
 
@@ -1009,7 +1016,7 @@ Parses the molecular formula and returns the isotope pattern. Either supply suff
 		<td class="col0 centeralign">  <code>isoAbundance</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of doubles of minimal length <code>nbrIsotopes</code> holding the abundance values of the pattern on function return </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT35 TABLE [16134-16715] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table19&quot;,&quot;secid&quot;:35,&quot;range&quot;:&quot;16134-16715&quot;} -->
 </div>
 
 <h4 id="return_value9">Return value</h4>
@@ -1033,7 +1040,7 @@ Parses the molecular formula and returns the isotope pattern. Either supply suff
 		<td class="col0"> <code>TwError</code> </td><td class="col1"> <code>molecule</code> or <code>nbrIsotopes</code> are <code>NULL</code>, <code>*nbrIsotopes</code> &gt; 0 and <code>isoMass</code> or <code>isoAbundance</code> are <code>NULL</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT36 TABLE [16738-17401] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table20&quot;,&quot;secid&quot;:36,&quot;range&quot;:&quot;16738-17401&quot;} --><hr>
 
 <p>
 <br>
@@ -1041,7 +1048,7 @@ Parses the molecular formula and returns the isotope pattern. Either supply suff
 </p>
 
 </div>
-<!-- EDIT34 SECTION "TwGetIsotopePattern" [15471-17411] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwGetIsotopePattern&quot;,&quot;hid&quot;:&quot;twgetisotopepattern&quot;,&quot;codeblockOffset&quot;:9,&quot;secid&quot;:34,&quot;range&quot;:&quot;15471-17411&quot;} -->
 <h3 class="sectionedit37" id="twgetisotopepattern2">TwGetIsotopePattern2</h3>
 <div class="level3">
 
@@ -1088,7 +1095,7 @@ Same as <code>TwGetIsotopePattern()</code> but using an exact algorithm and is t
 		<td class="col0 centeralign">  <code>isoAbundance</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of doubles of minimal length <code>nbrIsotopes</code> holding the abundance values of the pattern on function return </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT38 TABLE [17770-18351] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table21&quot;,&quot;secid&quot;:38,&quot;range&quot;:&quot;17770-18351&quot;} -->
 </div>
 
 <h4 id="return_value10">Return value</h4>
@@ -1112,7 +1119,7 @@ Same as <code>TwGetIsotopePattern()</code> but using an exact algorithm and is t
 		<td class="col0"> <code>TwError</code> </td><td class="col1"> <code>molecule</code> or <code>nbrIsotopes</code> are <code>NULL</code>, <code>*nbrIsotopes</code> &gt; 0 and <code>isoMass</code> or <code>isoAbundance</code> are <code>NULL</code> or algorithm exhausted available memory </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT39 TABLE [18374-19077] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table22&quot;,&quot;secid&quot;:39,&quot;range&quot;:&quot;18374-19077&quot;} --><hr>
 
 <p>
 <br>
@@ -1120,7 +1127,7 @@ Same as <code>TwGetIsotopePattern()</code> but using an exact algorithm and is t
 </p>
 
 </div>
-<!-- EDIT37 SECTION "TwGetIsotopePattern2" [17412-19086] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwGetIsotopePattern2&quot;,&quot;hid&quot;:&quot;twgetisotopepattern2&quot;,&quot;codeblockOffset&quot;:10,&quot;secid&quot;:37,&quot;range&quot;:&quot;17412-19086&quot;} -->
 <h3 class="sectionedit40" id="twdecomposemass">TwDecomposeMass</h3>
 <div class="level3">
 
@@ -1194,7 +1201,7 @@ directly in <code>TwGetIsotopePattern</code> or <code>TwGetMoleculeMass </code> 
 		<td class="col0 centeralign">  <code>nbrCompomers</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> Number of compositions (sum formulae) generated (by reference). Use <code>TwGetComposition</code> to read the results. </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT41 TABLE [20166-21389] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table23&quot;,&quot;secid&quot;:41,&quot;range&quot;:&quot;20166-21389&quot;} -->
 </div>
 
 <h4 id="return_value11">Return value</h4>
@@ -1212,7 +1219,7 @@ directly in <code>TwGetIsotopePattern</code> or <code>TwGetMoleculeMass </code> 
 		<td class="col0"> <code>TwError</code> </td><td class="col1"> <code>atomMass</code>, <code>atomLabel</code> or <code>nbrCompomers</code> are <code>NULL</code>, <code>*nbrFilters</code> &gt; 0 and <code>elementIndex1</code>, <code>elementIndex2</code>, <code>filterMinVal</code> or <code>filterMaxVal</code> are <code>NULL</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT42 TABLE [21412-21763] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table24&quot;,&quot;secid&quot;:42,&quot;range&quot;:&quot;21412-21763&quot;} --><hr>
 
 <p>
 <br>
@@ -1220,7 +1227,7 @@ directly in <code>TwGetIsotopePattern</code> or <code>TwGetMoleculeMass </code> 
 </p>
 
 </div>
-<!-- EDIT40 SECTION "TwDecomposeMass" [19087-21772] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwDecomposeMass&quot;,&quot;hid&quot;:&quot;twdecomposemass&quot;,&quot;codeblockOffset&quot;:11,&quot;secid&quot;:40,&quot;range&quot;:&quot;19087-21772&quot;} -->
 <h3 class="sectionedit43" id="twgetcomposition">TwGetComposition</h3>
 <div class="level3">
 
@@ -1267,7 +1274,7 @@ This function is used to read the results from a previous call to <code>TwDecomp
 		<td class="col0 centeralign">  <code>massError</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> mass error of the compomer (by reference) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT44 TABLE [22076-22613] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table25&quot;,&quot;secid&quot;:44,&quot;range&quot;:&quot;22076-22613&quot;} -->
 </div>
 
 <h4 id="return_value12">Return value</h4>
@@ -1288,7 +1295,7 @@ This function is used to read the results from a previous call to <code>TwDecomp
 		<td class="col0"> <code>TwError</code> </td><td class="col1"> no previous call to <code>TwDecomposeMass</code>, <code>sumFormula</code>, <code>sumFormulaLength</code>, <code>mass</code> or <code>massError</code> are <code>NULL</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT45 TABLE [22636-23038] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table26&quot;,&quot;secid&quot;:45,&quot;range&quot;:&quot;22636-23038&quot;} --><hr>
 
 <p>
 <br>
@@ -1296,7 +1303,7 @@ This function is used to read the results from a previous call to <code>TwDecomp
 </p>
 
 </div>
-<!-- EDIT43 SECTION "TwGetComposition" [21773-23048] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwGetComposition&quot;,&quot;hid&quot;:&quot;twgetcomposition&quot;,&quot;codeblockOffset&quot;:12,&quot;secid&quot;:43,&quot;range&quot;:&quot;21773-23048&quot;} -->
 <h3 class="sectionedit46" id="twnistlibrarysearch">TwNistLibrarySearch</h3>
 <div class="level3">
 
@@ -1355,7 +1362,7 @@ handle it finds belonging to the calling process (not necessarily the
 main window). </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT47 TABLE [23692-24661] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table27&quot;,&quot;secid&quot;:47,&quot;range&quot;:&quot;23692-24661&quot;} -->
 </div>
 
 <h4 id="return_value13">Return value</h4>
@@ -1376,7 +1383,7 @@ main window). </td>
 		<td class="col0"> <code>TwError</code> </td><td class="col1 leftalign"> <code>nbrSticks</code> ⇐ 0, <code>stickMass</code> and/or <code>stickIntensity</code> are 'NULL', <code>interactive</code> is <code>false</code> and <code>nbrResults</code> is <code>NULL</code>  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT48 TABLE [24684-25157] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table28&quot;,&quot;secid&quot;:48,&quot;range&quot;:&quot;24684-25157&quot;} --><hr>
 
 <p>
 <br>
@@ -1384,7 +1391,7 @@ main window). </td>
 </p>
 
 </div>
-<!-- EDIT46 SECTION "TwNistLibrarySearch" [23049-25167] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwNistLibrarySearch&quot;,&quot;hid&quot;:&quot;twnistlibrarysearch&quot;,&quot;codeblockOffset&quot;:13,&quot;secid&quot;:46,&quot;range&quot;:&quot;23049-25167&quot;} -->
 <h3 class="sectionedit49" id="twnistlibraryqueryresult">TwNistLibraryQueryResult</h3>
 <div class="level3">
 
@@ -1434,7 +1441,7 @@ the returned string (without terminator). </td>
 		<td class="col0 centeralign">  <code>value</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2"> array of length <code>*valueLen</code> + 1. Holds the property value on successful function return. If set to NULL, can be used to query the required buffer size. </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT50 TABLE [25558-26392] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table29&quot;,&quot;secid&quot;:50,&quot;range&quot;:&quot;25558-26392&quot;} -->
 </div>
 
 <h4 id="return_value14">Return value</h4>
@@ -1461,7 +1468,7 @@ the returned string (without terminator). </td>
 		<td class="col0"> <code>TwError</code> </td><td class="col1"> <code>valueLen</code> is <code>NULL</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT51 TABLE [26415-26949] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table30&quot;,&quot;secid&quot;:51,&quot;range&quot;:&quot;26415-26949&quot;} --><hr>
 
 <p>
 <br>
@@ -1469,7 +1476,7 @@ the returned string (without terminator). </td>
 </p>
 
 </div>
-<!-- EDIT49 SECTION "TwNistLibraryQueryResult" [25168-26960] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwNistLibraryQueryResult&quot;,&quot;hid&quot;:&quot;twnistlibraryqueryresult&quot;,&quot;codeblockOffset&quot;:14,&quot;secid&quot;:49,&quot;range&quot;:&quot;25168-26960&quot;} -->
 <h2 class="sectionedit52" id="mass_calibration_functions">Mass calibration functions</h2>
 <div class="level2">
 
@@ -1483,32 +1490,32 @@ The mass calibration functions are defined as sample index (not <abbr title="Tim
 	</tr>
 	</thead>
 	<tbody><tr class="row1">
-		<td class="col0 centeralign">  0                  </td><td class="col1"> <img src="TwToolDll_files/img_006.png" class=" mathpublish" alt="i(m)~=~p1 sqrt{m}~+~p2" title="i(m)~=~p1 sqrt{m}~+~p2" style="display: inline-block; vertical-align:-13px"></td>
+		<td class="col0 centeralign">  0                  </td><td class="col1"> <img src="TwToolDll_files/img_008.png" class=" mathpublish" alt="i(m)~=~p1 sqrt{m}~+~p2" title="i(m)~=~p1 sqrt{m}~+~p2" style="display: inline-block; vertical-align:-13px"></td>
 	</tr>
 	<tr class="row2">
-		<td class="col0 centeralign">  1                  </td><td class="col1"> <img src="TwToolDll_files/img_007.png" class=" mathpublish" alt="i(m)~=~p1/sqrt{m}~+~p2" title="i(m)~=~p1/sqrt{m}~+~p2" style="display: inline-block; vertical-align:-32px"></td>
+		<td class="col0 centeralign">  1                  </td><td class="col1"> <img src="TwToolDll_files/img.png" class=" mathpublish" alt="i(m)~=~p1/sqrt{m}~+~p2" title="i(m)~=~p1/sqrt{m}~+~p2" style="display: inline-block; vertical-align:-32px"></td>
 	</tr>
 	<tr class="row3">
-		<td class="col0 centeralign">  2                  </td><td class="col1"> <img src="TwToolDll_files/img_004.png" class=" mathpublish" alt="i(m)~=~p1 m^p3~+~p2" title="i(m)~=~p1 m^p3~+~p2" style="display: inline-block; vertical-align:-13px"></td>
+		<td class="col0 centeralign">  2                  </td><td class="col1"> <img src="TwToolDll_files/img_006.png" class=" mathpublish" alt="i(m)~=~p1 m^p3~+~p2" title="i(m)~=~p1 m^p3~+~p2" style="display: inline-block; vertical-align:-13px"></td>
 	</tr>
 	<tr class="row4">
-		<td class="col0 centeralign">  3                  </td><td class="col1"> <img src="TwToolDll_files/img_003.png" class=" mathpublish" alt="i(m)~=~p1 sqrt{m}~+~p2~+~p3 (m-p4)^2" title="i(m)~=~p1 sqrt{m}~+~p2~+~p3 (m-p4)^2" style="display: inline-block; vertical-align:-13px"></td>
+		<td class="col0 centeralign">  3                  </td><td class="col1"> <img src="TwToolDll_files/img_002.png" class=" mathpublish" alt="i(m)~=~p1 sqrt{m}~+~p2~+~p3 (m-p4)^2" title="i(m)~=~p1 sqrt{m}~+~p2~+~p3 (m-p4)^2" style="display: inline-block; vertical-align:-13px"></td>
 	</tr>
 	<tr class="row5">
-		<td class="col0 centeralign">  4                  </td><td class="col1"> <img src="TwToolDll_files/img_002.png" class=" mathpublish" alt="i(m)~=~p1 sqrt{m}~+~p2~+~p3 m^2~+~p4 m~+~p5" title="i(m)~=~p1 sqrt{m}~+~p2~+~p3 m^2~+~p4 m~+~p5" style="display: inline-block; vertical-align:-13px"></td>
+		<td class="col0 centeralign">  4                  </td><td class="col1"> <img src="TwToolDll_files/img_007.png" class=" mathpublish" alt="i(m)~=~p1 sqrt{m}~+~p2~+~p3 m^2~+~p4 m~+~p5" title="i(m)~=~p1 sqrt{m}~+~p2~+~p3 m^2~+~p4 m~+~p5" style="display: inline-block; vertical-align:-13px"></td>
 	</tr>
 	<tr class="row6">
-		<td class="col0 centeralign">  5                  </td><td class="col1"> <img src="TwToolDll_files/img.png" class=" mathpublish" alt="m(i)~=~p1 i^2 + p2 i + p3" title="m(i)~=~p1 i^2 + p2 i + p3" style="display: inline-block; vertical-align:-13px"></td>
+		<td class="col0 centeralign">  5                  </td><td class="col1"> <img src="TwToolDll_files/img_004.png" class=" mathpublish" alt="m(i)~=~p1 i^2 + p2 i + p3" title="m(i)~=~p1 i^2 + p2 i + p3" style="display: inline-block; vertical-align:-13px"></td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT53 TABLE [27217-27634] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table31&quot;,&quot;secid&quot;:53,&quot;range&quot;:&quot;27217-27634&quot;} -->
 <p>
 <br>
 
 </p>
 
 </div>
-<!-- EDIT52 SECTION "Mass calibration functions" [26961-27638] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Mass calibration functions&quot;,&quot;hid&quot;:&quot;mass_calibration_functions&quot;,&quot;codeblockOffset&quot;:15,&quot;secid&quot;:52,&quot;range&quot;:&quot;26961-27638&quot;} -->
 <h3 class="sectionedit54" id="twtof2mass_twmass2tof">TwTof2Mass/TwMass2Tof</h3>
 <div class="level3">
 
@@ -1552,7 +1559,7 @@ from TwH5Dll.dll.
 		<td class="col0 centeralign">  <code>p</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of doubles containing the calibration parameters (number depends on <code>MassCalibMode</code>) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT55 TABLE [28045-28334] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table32&quot;,&quot;secid&quot;:55,&quot;range&quot;:&quot;28045-28334&quot;} -->
 </div>
 
 <h4 id="return_value15">Return value</h4>
@@ -1567,7 +1574,7 @@ from TwH5Dll.dll.
 		<td class="col0"> <code>double</code> </td><td class="col1 leftalign"> <em>variable</em>   </td><td class="col2"> converted value </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT56 TABLE [28357-28481] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table33&quot;,&quot;secid&quot;:56,&quot;range&quot;:&quot;28357-28481&quot;} --><hr>
 
 <p>
 <br>
@@ -1575,7 +1582,7 @@ from TwH5Dll.dll.
 </p>
 
 </div>
-<!-- EDIT54 SECTION "TwTof2Mass/TwMass2Tof" [27639-28490] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwTof2Mass\/TwMass2Tof&quot;,&quot;hid&quot;:&quot;twtof2mass_twmass2tof&quot;,&quot;codeblockOffset&quot;:15,&quot;secid&quot;:54,&quot;range&quot;:&quot;27639-28490&quot;} -->
 <h3 class="sectionedit57" id="twmasscalibrate">TwMassCalibrate</h3>
 <div class="level3">
 
@@ -1637,7 +1644,7 @@ Functionality is the same as in the <code>TwH5SetMassCalib</code> and <code>TwSe
 		<td class="col0 centeralign">  <code>legacyB</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> legacy calibration parameter b (by reference, <code>NULL</code> if not required) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT58 TABLE [29142-30225] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table34&quot;,&quot;secid&quot;:58,&quot;range&quot;:&quot;29142-30225&quot;} -->
 </div>
 
 <h4 id="return_value16">Return value</h4>
@@ -1661,7 +1668,7 @@ Functionality is the same as in the <code>TwH5SetMassCalib</code> and <code>TwSe
 		<td class="col0"> <code>TwError</code> </td><td class="col1"> <code>*nbrParam</code> is smaller than actual number of calibration parameters or unspecified error </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT59 TABLE [30248-30714] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table35&quot;,&quot;secid&quot;:59,&quot;range&quot;:&quot;30248-30714&quot;} --><hr>
 
 <p>
 <br>
@@ -1669,7 +1676,7 @@ Functionality is the same as in the <code>TwH5SetMassCalib</code> and <code>TwSe
 </p>
 
 </div>
-<!-- EDIT57 SECTION "TwMassCalibrate" [28491-30723] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwMassCalibrate&quot;,&quot;hid&quot;:&quot;twmasscalibrate&quot;,&quot;codeblockOffset&quot;:16,&quot;secid&quot;:57,&quot;range&quot;:&quot;28491-30723&quot;} -->
 <h3 class="sectionedit60" id="twbruteforcecalibrate">TwBruteForceCalibrate</h3>
 <div class="level3">
 
@@ -1734,7 +1741,7 @@ computing time </td>
 		<td class="col0 centeralign">  <code>b</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT61 TABLE [31159-32189] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table36&quot;,&quot;secid&quot;:61,&quot;range&quot;:&quot;31159-32189&quot;} -->
 </div>
 
 <h4 id="return_value17">Return value</h4>
@@ -1752,7 +1759,7 @@ computing time </td>
 		<td class="col0"> <code>TwError</code> </td><td class="col1"> <code>spectrum</code> is <code>NULL</code>, <code>nbrPeaks</code> &lt; 2, <code>specLength</code> &lt; 10*<code>nbrPeaks</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT62 TABLE [32212-32445] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table37&quot;,&quot;secid&quot;:62,&quot;range&quot;:&quot;32212-32445&quot;} --><hr>
 
 <p>
 <br>
@@ -1760,7 +1767,7 @@ computing time </td>
 </p>
 
 </div>
-<!-- EDIT60 SECTION "TwBruteForceCalibrate" [30724-32455] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwBruteForceCalibrate&quot;,&quot;hid&quot;:&quot;twbruteforcecalibrate&quot;,&quot;codeblockOffset&quot;:17,&quot;secid&quot;:60,&quot;range&quot;:&quot;30724-32455&quot;} -->
 <h3 class="sectionedit63" id="twgetmasscalibinfo">TwGetMassCalibInfo</h3>
 <div class="level3">
 
@@ -1801,7 +1808,7 @@ This function can be used to query the description and number parameters of the 
 		<td class="col0 centeralign">  <code>nbrParams</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> number of calibration parameters for the given <code>massCalibMode</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT64 TABLE [32763-33130] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table38&quot;,&quot;secid&quot;:64,&quot;range&quot;:&quot;32763-33130&quot;} -->
 </div>
 
 <h4 id="return_value18">Return value</h4>
@@ -1819,7 +1826,7 @@ This function can be used to query the description and number parameters of the 
 		<td class="col0"> <code>TwOutOfBounds</code> </td><td class="col1"> invalid <code>massCalibMode</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT65 TABLE [33154-33332] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table39&quot;,&quot;secid&quot;:65,&quot;range&quot;:&quot;33154-33332&quot;} --><hr>
 
 <p>
 <br>
@@ -1827,12 +1834,12 @@ This function can be used to query the description and number parameters of the 
 </p>
 
 </div>
-<!-- EDIT63 SECTION "TwGetMassCalibInfo" [32456-33342] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwGetMassCalibInfo&quot;,&quot;hid&quot;:&quot;twgetmasscalibinfo&quot;,&quot;codeblockOffset&quot;:18,&quot;secid&quot;:63,&quot;range&quot;:&quot;32456-33342&quot;} -->
 <h2 class="sectionedit66" id="encoded_ims_helper_functions">Encoded IMS helper functions</h2>
 <div class="level2">
 
 </div>
-<!-- EDIT66 SECTION "Encoded IMS helper functions" [33343-33386] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Encoded IMS helper functions&quot;,&quot;hid&quot;:&quot;encoded_ims_helper_functions&quot;,&quot;codeblockOffset&quot;:19,&quot;secid&quot;:66,&quot;range&quot;:&quot;33343-33386&quot;} -->
 <h3 class="sectionedit67" id="twencimscorrelateprofile">TwEncImsCorrelateProfile</h3>
 <div class="level3">
 
@@ -1873,7 +1880,7 @@ This function correlates <code>profile</code> with the sequence defined by <code
 		<td class="col0 centeralign">  <code>par</code>    </td><td class="col1 leftalign"> <code>int*</code>  </td><td class="col2"> array of sequence defining parameters. Required length depends on <code>opMode</code> (2 parameters for <code>opMode == 2</code>) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT68 TABLE [33657-34059] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table40&quot;,&quot;secid&quot;:68,&quot;range&quot;:&quot;33657-34059&quot;} -->
 </div>
 
 <h4 id="return_value19">Return value</h4>
@@ -1891,7 +1898,7 @@ This function correlates <code>profile</code> with the sequence defined by <code
 		<td class="col0"> <code>TwOutOfbounds</code> </td><td class="col1"> invalid <code>opMode</code> value </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT69 TABLE [34084-34222] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table41&quot;,&quot;secid&quot;:69,&quot;range&quot;:&quot;34084-34222&quot;} --><hr>
 
 <p>
 <br>
@@ -1899,7 +1906,7 @@ This function correlates <code>profile</code> with the sequence defined by <code
 </p>
 
 </div>
-<!-- EDIT67 SECTION "TwEncImsCorrelateProfile" [33387-34234] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwEncImsCorrelateProfile&quot;,&quot;hid&quot;:&quot;twencimscorrelateprofile&quot;,&quot;codeblockOffset&quot;:19,&quot;secid&quot;:67,&quot;range&quot;:&quot;33387-34234&quot;} -->
 <h3 class="sectionedit70" id="twencimscorrelatemultiprofiles">TwEncImsCorrelateMultiProfiles</h3>
 <div class="level3">
 
@@ -1957,7 +1964,7 @@ and data types are supported (p runs from 0 to the number of profiles -
 		<td class="col0 centeralign">  7  </td><td class="col1 centeralign">  double[p*NbrSegments + s]  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT71 TABLE [35049-35343] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table42&quot;,&quot;secid&quot;:71,&quot;range&quot;:&quot;35049-35343&quot;} -->
 <p>
 Note that the actual calculation is always performed with single (float) precision even if the input data is of type double.
 </p>
@@ -1994,7 +2001,7 @@ Note that the actual calculation is always performed with single (float) precisi
 		<td class="col0 centeralign">  <code>par</code>    </td><td class="col1 leftalign"> <code>int*</code>  </td><td class="col2"> array of sequence defining parameters. Required length depends on <code>opMode</code> (2 parameters for <code>opMode == 2</code>) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT72 TABLE [35489-36224] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table43&quot;,&quot;secid&quot;:72,&quot;range&quot;:&quot;35489-36224&quot;} -->
 </div>
 
 <h4 id="return_value20">Return value</h4>
@@ -2012,7 +2019,7 @@ Note that the actual calculation is always performed with single (float) precisi
 		<td class="col0"> <code>TwError</code> </td><td class="col1"> error </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT73 TABLE [36248-36361] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table44&quot;,&quot;secid&quot;:73,&quot;range&quot;:&quot;36248-36361&quot;} --><hr>
 
 <p>
 <br>
@@ -2020,7 +2027,7 @@ Note that the actual calculation is always performed with single (float) precisi
 </p>
 
 </div>
-<!-- EDIT70 SECTION "TwEncImsCorrelateMultiProfiles" [34235-36371] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwEncImsCorrelateMultiProfiles&quot;,&quot;hid&quot;:&quot;twencimscorrelatemultiprofiles&quot;,&quot;codeblockOffset&quot;:20,&quot;secid&quot;:70,&quot;range&quot;:&quot;34235-36371&quot;} -->
 <h3 class="sectionedit74" id="twencimscleanup">TwEncImsCleanup</h3>
 <div class="level3">
 
@@ -2058,7 +2065,7 @@ Cleans up the state of the <code>TwEncIms…</code> functions. If you use one of
 		<td class="col0"> <code>TwError</code> </td><td class="col1"> nothing to clean up </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT75 TABLE [36671-36798] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table45&quot;,&quot;secid&quot;:75,&quot;range&quot;:&quot;36671-36798&quot;} --><hr>
 
 <p>
 <br>
@@ -2066,12 +2073,12 @@ Cleans up the state of the <code>TwEncIms…</code> functions. If you use one of
 </p>
 
 </div>
-<!-- EDIT74 SECTION "TwEncImsCleanup" [36372-36808] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwEncImsCleanup&quot;,&quot;hid&quot;:&quot;twencimscleanup&quot;,&quot;codeblockOffset&quot;:21,&quot;secid&quot;:74,&quot;range&quot;:&quot;36372-36808&quot;} -->
 <h2 class="sectionedit76" id="single_ion_histogramming_functions">Single ion histogramming functions</h2>
 <div class="level2">
 
 </div>
-<!-- EDIT76 SECTION "Single ion histogramming functions" [36809-36858] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Single ion histogramming functions&quot;,&quot;hid&quot;:&quot;single_ion_histogramming_functions&quot;,&quot;codeblockOffset&quot;:22,&quot;secid&quot;:76,&quot;range&quot;:&quot;36809-36858&quot;} -->
 <h3 class="sectionedit77" id="twsiinitializehistograms">TwSiInitializeHistograms</h3>
 <div class="level3">
 
@@ -2118,7 +2125,7 @@ experiments).
 		<td class="col0 centeralign">  <code>specType</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> If <code>specType</code> is NULL, all mass ranges get a default spectrum type of 0 </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT78 TABLE [37500-37947] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table46&quot;,&quot;secid&quot;:78,&quot;range&quot;:&quot;37500-37947&quot;} -->
 </div>
 
 <h4 id="return_value22">Return value</h4>
@@ -2136,7 +2143,7 @@ experiments).
 		<td class="col0"> <code>TwError</code> </td><td class="col1"> <code>loMass</code> or <code>hiMass</code> is NULL, <code>specType</code> contains a negative number or if an <code>TwSiInitialize…</code> function was called before without calling <code>TwSiCleanup</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT79 TABLE [37972-38243] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table47&quot;,&quot;secid&quot;:79,&quot;range&quot;:&quot;37972-38243&quot;} --><hr>
 
 <p>
 <br>
@@ -2144,7 +2151,7 @@ experiments).
 </p>
 
 </div>
-<!-- EDIT77 SECTION "TwSiInitializeHistograms" [36859-38254] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwSiInitializeHistograms&quot;,&quot;hid&quot;:&quot;twsiinitializehistograms&quot;,&quot;codeblockOffset&quot;:22,&quot;secid&quot;:77,&quot;range&quot;:&quot;36859-38254&quot;} -->
 <h3 class="sectionedit80" id="twsisetprocessingoptions">TwSiSetProcessingOptions</h3>
 <div class="level3">
 
@@ -2187,7 +2194,7 @@ spectrum types.
 		<td class="col0 centeralign">  <code>specType</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> spectrum type to set the option. -1 is a wildcard for all spectrum types. </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT81 TABLE [38606-38928] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table48&quot;,&quot;secid&quot;:81,&quot;range&quot;:&quot;38606-38928&quot;} -->
 </div>
 
 <h4 id="options">Options</h4>
@@ -2290,7 +2297,7 @@ spectrum types.
                        </td><td class="col2 centeralign">  1.0 (true)     </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT82 TABLE [38947-43596] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table49&quot;,&quot;secid&quot;:82,&quot;range&quot;:&quot;38947-43596&quot;} -->
 </div>
 
 <h4 id="return_value23">Return value</h4>
@@ -2311,7 +2318,7 @@ spectrum types.
 		<td class="col0"> <code>TwInvalidValue</code> </td><td class="col1"> invalid specType, unrecognized option or invalid value (see debug output for more details on what went wrong) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT83 TABLE [43620-43906] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table50&quot;,&quot;secid&quot;:83,&quot;range&quot;:&quot;43620-43906&quot;} --><hr>
 
 <p>
 <br>
@@ -2319,7 +2326,7 @@ spectrum types.
 </p>
 
 </div>
-<!-- EDIT80 SECTION "TwSiSetProcessingOptions" [38255-43917] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwSiSetProcessingOptions&quot;,&quot;hid&quot;:&quot;twsisetprocessingoptions&quot;,&quot;codeblockOffset&quot;:23,&quot;secid&quot;:80,&quot;range&quot;:&quot;38255-43917&quot;} -->
 <h3 class="sectionedit84" id="twsiprocessspectrum">TwSiProcessSpectrum</h3>
 <div class="level3">
 
@@ -2366,7 +2373,7 @@ Processes a spectrum according to the option set for it's spectrum type. Baselin
 		<td class="col0 centeralign">  <code>thrFromData</code>  </td><td class="col1 centeralign">  <code>float*</code>  </td><td class="col2"> returns the threshold value used for processing if not NULL (will be the same as option <code>Threshold</code> if <code>BaselineAndThresholdFromData</code> is not set)</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT85 TABLE [44264-44880] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table51&quot;,&quot;secid&quot;:85,&quot;range&quot;:&quot;44264-44880&quot;} -->
 </div>
 
 <h4 id="return_value24">Return value</h4>
@@ -2387,7 +2394,7 @@ Processes a spectrum according to the option set for it's spectrum type. Baselin
 		<td class="col0"> <code>TwOutOfBounds</code> </td><td class="col1"> invalid <code>specType</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT86 TABLE [44904-45102] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table52&quot;,&quot;secid&quot;:86,&quot;range&quot;:&quot;44904-45102&quot;} --><hr>
 
 <p>
 <br>
@@ -2395,7 +2402,7 @@ Processes a spectrum according to the option set for it's spectrum type. Baselin
 </p>
 
 </div>
-<!-- EDIT84 SECTION "TwSiProcessSpectrum" [43918-45112] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwSiProcessSpectrum&quot;,&quot;hid&quot;:&quot;twsiprocessspectrum&quot;,&quot;codeblockOffset&quot;:24,&quot;secid&quot;:84,&quot;range&quot;:&quot;43918-45112&quot;} -->
 <h3 class="sectionedit87" id="twsigethistogram_twsigethistogramamp">TwSiGetHistogram / TwSiGetHistogramAmp</h3>
 <div class="level3">
 
@@ -2446,7 +2453,7 @@ Retrieves a histogram. To query the array sizes needed call this function with <
 		<td class="col0 centeralign">  <code>meanValue</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> on return holds the mean histogram value i.e. sum(intensity[i]*counts[i]) / sum(counts[i]) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT88 TABLE [45743-46489] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table53&quot;,&quot;secid&quot;:88,&quot;range&quot;:&quot;45743-46489&quot;} -->
 </div>
 
 <h4 id="return_value25">Return value</h4>
@@ -2467,7 +2474,7 @@ Retrieves a histogram. To query the array sizes needed call this function with <
 		<td class="col0"> <code>TwError</code> </td><td class="col1"> not initialized, <code>histogramIndex</code> out of range, <code>*arrayLength</code> is smaller than histogram size </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT89 TABLE [46513-46914] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table54&quot;,&quot;secid&quot;:89,&quot;range&quot;:&quot;46513-46914&quot;} --><hr>
 
 <p>
 <br>
@@ -2475,7 +2482,7 @@ Retrieves a histogram. To query the array sizes needed call this function with <
 </p>
 
 </div>
-<!-- EDIT87 SECTION "TwSiGetHistogram / TwSiGetHistogramAmp" [45113-46924] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwSiGetHistogram \/ TwSiGetHistogramAmp&quot;,&quot;hid&quot;:&quot;twsigethistogram_twsigethistogramamp&quot;,&quot;codeblockOffset&quot;:25,&quot;secid&quot;:87,&quot;range&quot;:&quot;45113-46924&quot;} -->
 <h3 class="sectionedit90" id="twsigetsumhistogram_twsigetsumhistogramamp">TwSiGetSumHistogram / TwSiGetSumHistogramAmp</h3>
 <div class="level3">
 
@@ -2538,7 +2545,7 @@ Retrieves a histogram that is a sum over all histograms of a given <code>specTyp
 		<td class="col0 centeralign">  <code>maxRate</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2"> maximum event count rate for histogram filtering </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT91 TABLE [47848-48925] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table55&quot;,&quot;secid&quot;:91,&quot;range&quot;:&quot;47848-48925&quot;} -->
 </div>
 
 <h4 id="return_value26">Return value</h4>
@@ -2559,7 +2566,7 @@ Retrieves a histogram that is a sum over all histograms of a given <code>specTyp
 		<td class="col0"> <code>TwError</code> </td><td class="col1"> not initialized, <code>histogramIndex</code> out of range, <code>*arrayLength</code> is smaller than histogram size </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT92 TABLE [48949-49350] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table56&quot;,&quot;secid&quot;:92,&quot;range&quot;:&quot;48949-49350&quot;} --><hr>
 
 <p>
 <br>
@@ -2567,7 +2574,7 @@ Retrieves a histogram that is a sum over all histograms of a given <code>specTyp
 </p>
 
 </div>
-<!-- EDIT90 SECTION "TwSiGetSumHistogram / TwSiGetSumHistogramAmp" [46925-49361] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwSiGetSumHistogram \/ TwSiGetSumHistogramAmp&quot;,&quot;hid&quot;:&quot;twsigetsumhistogram_twsigetsumhistogramamp&quot;,&quot;codeblockOffset&quot;:26,&quot;secid&quot;:90,&quot;range&quot;:&quot;46925-49361&quot;} -->
 <h3 class="sectionedit93" id="twsiresethistograms">TwSiResetHistograms</h3>
 <div class="level3">
 
@@ -2605,7 +2612,7 @@ Resets all histograms and spectrum counters to zero.
 		<td class="col0"> <code>TwError</code> </td><td class="col1"> not initialized </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT94 TABLE [49563-49686] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table57&quot;,&quot;secid&quot;:94,&quot;range&quot;:&quot;49563-49686&quot;} --><hr>
 
 <p>
 <br>
@@ -2613,7 +2620,7 @@ Resets all histograms and spectrum counters to zero.
 </p>
 
 </div>
-<!-- EDIT93 SECTION "TwSiResetHistograms" [49362-49696] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwSiResetHistograms&quot;,&quot;hid&quot;:&quot;twsiresethistograms&quot;,&quot;codeblockOffset&quot;:27,&quot;secid&quot;:93,&quot;range&quot;:&quot;49362-49696&quot;} -->
 <h3 class="sectionedit95" id="twsicleanup">TwSiCleanup</h3>
 <div class="level3">
 
@@ -2651,7 +2658,7 @@ Cleans up the state in the <abbr title="Dynamic Link Library">DLL</abbr>. After 
 		<td class="col0"> <code>TwError</code> </td><td class="col1"> not initialized </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT96 TABLE [49941-50064] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table58&quot;,&quot;secid&quot;:96,&quot;range&quot;:&quot;49941-50064&quot;} --><hr>
 
 <p>
 <br>
@@ -2659,7 +2666,7 @@ Cleans up the state in the <abbr title="Dynamic Link Library">DLL</abbr>. After 
 </p>
 
 </div>
-<!-- EDIT95 SECTION "TwSiCleanup" [49697-50074] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwSiCleanup&quot;,&quot;hid&quot;:&quot;twsicleanup&quot;,&quot;codeblockOffset&quot;:28,&quot;secid&quot;:95,&quot;range&quot;:&quot;49697-50074&quot;} -->
 <h3 class="sectionedit97" id="twsifitphd">TwSiFitPhd</h3>
 <div class="level3">
 
@@ -2709,7 +2716,7 @@ Fits a (slightly modified) log-normal distribution to the data supplied in <code
 		<td class="col0 centeralign">  <code>par</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of length 4, can be used in a subsequent call to <code>TwSiEvalPhd</code> or <code>TwSiFitRateFromPhd</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT98 TABLE [50677-51300] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table59&quot;,&quot;secid&quot;:98,&quot;range&quot;:&quot;50677-51300&quot;} -->
 </div>
 
 <h4 id="return_value29">Return value</h4>
@@ -2727,7 +2734,7 @@ Fits a (slightly modified) log-normal distribution to the data supplied in <code
 		<td class="col0"> <code>TwError</code> </td><td class="col1"> fit failed </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT99 TABLE [51323-51441] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table60&quot;,&quot;secid&quot;:99,&quot;range&quot;:&quot;51323-51441&quot;} --><hr>
 
 <p>
 <br>
@@ -2735,7 +2742,7 @@ Fits a (slightly modified) log-normal distribution to the data supplied in <code
 </p>
 
 </div>
-<!-- EDIT97 SECTION "TwSiFitPhd" [50075-51451] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwSiFitPhd&quot;,&quot;hid&quot;:&quot;twsifitphd&quot;,&quot;codeblockOffset&quot;:29,&quot;secid&quot;:97,&quot;range&quot;:&quot;50075-51451&quot;} -->
 <h3 class="sectionedit100" id="twsievalphd">TwSiEvalPhd</h3>
 <div class="level3">
 
@@ -2773,7 +2780,7 @@ Evaluates the single ion distribution defined by <code>par</code> at <code>inten
 		<td class="col0 centeralign">  <code>intensity</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2"> intensity value to evaluate </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT101 TABLE [51680-51870] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table61&quot;,&quot;secid&quot;:101,&quot;range&quot;:&quot;51680-51870&quot;} -->
 </div>
 
 <h4 id="return_value30">Return value</h4>
@@ -2788,7 +2795,7 @@ Evaluates the single ion distribution defined by <code>par</code> at <code>inten
 		<td class="col0"> <code>double</code> </td><td class="col1"> <em>variable</em> </td><td class="col2"> value of single ion distribution at value <code>intensity</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT102 TABLE [51893-52021] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table62&quot;,&quot;secid&quot;:102,&quot;range&quot;:&quot;51893-52021&quot;} --><hr>
 
 <p>
 <br>
@@ -2796,7 +2803,7 @@ Evaluates the single ion distribution defined by <code>par</code> at <code>inten
 </p>
 
 </div>
-<!-- EDIT100 SECTION "TwSiEvalPhd" [51452-52031] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwSiEvalPhd&quot;,&quot;hid&quot;:&quot;twsievalphd&quot;,&quot;codeblockOffset&quot;:30,&quot;secid&quot;:100,&quot;range&quot;:&quot;51452-52031&quot;} -->
 <h3 class="sectionedit103" id="twsifitratefromphd">TwSiFitRateFromPhd</h3>
 <div class="level3">
 
@@ -2852,7 +2859,7 @@ Takes a single ion distribution as input (<code>siPar</code>) and fits an event 
 		<td class="col0 centeralign">  <code>nIonTrace</code>  </td><td class="col1 centeralign">  <code>double**</code>  </td><td class="col2"> array of <code>nbrNIonTraces</code> <code>double*</code> each pointing to nbrPoints doubles. Holds the n-ion contributions to the total distribution. </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT104 TABLE [52604-53497] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table63&quot;,&quot;secid&quot;:104,&quot;range&quot;:&quot;52604-53497&quot;} -->
 </div>
 
 <h4 id="return_value31">Return value</h4>
@@ -2870,7 +2877,7 @@ Takes a single ion distribution as input (<code>siPar</code>) and fits an event 
 		<td class="col0"> <code>TwError</code> </td><td class="col1"> fit failed </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT105 TABLE [53521-53639] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table64&quot;,&quot;secid&quot;:105,&quot;range&quot;:&quot;53521-53639&quot;} --><hr>
 
 <p>
 <br>
@@ -2878,12 +2885,12 @@ Takes a single ion distribution as input (<code>siPar</code>) and fits an event 
 </p>
 
 </div>
-<!-- EDIT103 SECTION "TwSiFitRateFromPhd" [52032-53650] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwSiFitRateFromPhd&quot;,&quot;hid&quot;:&quot;twsifitratefromphd&quot;,&quot;codeblockOffset&quot;:31,&quot;secid&quot;:103,&quot;range&quot;:&quot;52032-53650&quot;} -->
 <h2 class="sectionedit106" id="tps_helper_functions">TPS helper functions</h2>
 <div class="level2">
 
 </div>
-<!-- EDIT106 SECTION "TPS helper functions" [53651-53684] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TPS helper functions&quot;,&quot;hid&quot;:&quot;tps_helper_functions&quot;,&quot;codeblockOffset&quot;:32,&quot;secid&quot;:106,&quot;range&quot;:&quot;53651-53684&quot;} -->
 <h3 class="sectionedit107" id="twfindtpsip">TwFindTpsIp</h3>
 <div class="level3">
 
@@ -2930,7 +2937,7 @@ for permission.
 		<td class="col0 centeralign">  <code>hostStr</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2"> string buffer of size <code>*hostStrLen</code>, holds IP on successful return </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT108 TABLE [54108-54534] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table65&quot;,&quot;secid&quot;:108,&quot;range&quot;:&quot;54108-54534&quot;} -->
 </div>
 
 <h4 id="return_value32">Return value</h4>
@@ -2954,7 +2961,7 @@ for permission.
 		<td class="col0"> <code>TwValueAdjusted</code> </td><td class="col1"> <abbr title="TOFMS Power Supply">TPS</abbr> was found but the supplied string buffer was not large enough, <code>*hostStrLen</code> holds the minimum required size (no partial information is copied to <code>hostStr</code>) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT109 TABLE [54558-55024] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table66&quot;,&quot;secid&quot;:109,&quot;range&quot;:&quot;54558-55024&quot;} --><hr>
 
 <p>
 <br>
@@ -2962,12 +2969,12 @@ for permission.
 </p>
 
 </div>
-<!-- EDIT107 SECTION "TwFindTpsIp" [53685-55036] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwFindTpsIp&quot;,&quot;hid&quot;:&quot;twfindtpsip&quot;,&quot;codeblockOffset&quot;:32,&quot;secid&quot;:107,&quot;range&quot;:&quot;53685-55033&quot;} -->
 <h2 class="sectionedit110" id="imaging_functions">Imaging functions</h2>
 <div class="level2">
 
 </div>
-<!-- EDIT110 SECTION "Imaging functions" [55037-55066] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Imaging functions&quot;,&quot;hid&quot;:&quot;imaging_functions&quot;,&quot;codeblockOffset&quot;:33,&quot;secid&quot;:110,&quot;range&quot;:&quot;55034-55063&quot;} -->
 <h3 class="sectionedit111" id="twgenerateimagedata">TwGenerateImageData</h3>
 <div class="level3">
 
@@ -2996,28 +3003,28 @@ directly mapped on the corresponding RGB(A) output channels. For <code>palette</
 	</tr>
 	</thead>
 	<tbody><tr class="row1">
-		<td class="col0 centeralign">  0             </td><td class="col1 leftalign"> gray scale     </td><td class="col2 centeralign">  <img src="TwToolDll_files/fetch.png" class="mediacenter" alt="">  </td>
+		<td class="col0 centeralign">  0             </td><td class="col1 leftalign"> gray scale     </td><td class="col2 centeralign">  <img src="TwToolDll_files/fetch_007.png" class="mediacenter" alt="">  </td>
 	</tr>
 	<tr class="row2">
-		<td class="col0 centeralign">  1             </td><td class="col1 leftalign"> HSV (cyclic)   </td><td class="col2 centeralign">  <img src="TwToolDll_files/fetch_004.png" class="mediacenter" alt="">  </td>
+		<td class="col0 centeralign">  1             </td><td class="col1 leftalign"> HSV (cyclic)   </td><td class="col2 centeralign">  <img src="TwToolDll_files/fetch_008.png" class="mediacenter" alt="">  </td>
 	</tr>
 	<tr class="row3">
-		<td class="col0 centeralign">  2             </td><td class="col1 leftalign"> cubeYF         </td><td class="col2 centeralign">  <img src="TwToolDll_files/fetch_006.png" class="mediacenter" alt="">  </td>
+		<td class="col0 centeralign">  2             </td><td class="col1 leftalign"> cubeYF         </td><td class="col2 centeralign">  <img src="TwToolDll_files/fetch_005.png" class="mediacenter" alt="">  </td>
 	</tr>
 	<tr class="row4">
-		<td class="col0 centeralign">  3             </td><td class="col1 leftalign"> cube1          </td><td class="col2 centeralign">  <img src="TwToolDll_files/fetch_008.png" class="mediacenter" alt="">  </td>
+		<td class="col0 centeralign">  3             </td><td class="col1 leftalign"> cube1          </td><td class="col2 centeralign">  <img src="TwToolDll_files/fetch_002.png" class="mediacenter" alt="">  </td>
 	</tr>
 	<tr class="row5">
-		<td class="col0 centeralign">  4             </td><td class="col1 leftalign"> LinL           </td><td class="col2 centeralign">  <img src="TwToolDll_files/fetch_002.png" class="mediacenter" alt="">  </td>
+		<td class="col0 centeralign">  4             </td><td class="col1 leftalign"> LinL           </td><td class="col2 centeralign">  <img src="TwToolDll_files/fetch.png" class="mediacenter" alt="">  </td>
 	</tr>
 	<tr class="row6">
-		<td class="col0 centeralign">  5             </td><td class="col1 leftalign"> jet            </td><td class="col2 centeralign">  <img src="TwToolDll_files/fetch_005.png" class="mediacenter" alt="">  </td>
+		<td class="col0 centeralign">  5             </td><td class="col1 leftalign"> jet            </td><td class="col2 centeralign">  <img src="TwToolDll_files/fetch_004.png" class="mediacenter" alt="">  </td>
 	</tr>
 	<tr class="row7">
-		<td class="col0 centeralign">  6             </td><td class="col1 leftalign"> hot            </td><td class="col2 centeralign">  <img src="TwToolDll_files/fetch_003.png" class="mediacenter" alt="">  </td>
+		<td class="col0 centeralign">  6             </td><td class="col1 leftalign"> hot            </td><td class="col2 centeralign">  <img src="TwToolDll_files/fetch_006.png" class="mediacenter" alt="">  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT112 TABLE [55639-56278] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table67&quot;,&quot;secid&quot;:112,&quot;range&quot;:&quot;55636-56275&quot;} -->
 </div>
 
 <h4 id="parameters30">Parameters</h4>
@@ -3059,7 +3066,7 @@ directly mapped on the corresponding RGB(A) output channels. For <code>palette</
 		<td class="col0 centeralign">  <code>imageOut</code>  </td><td class="col1 centeralign">  <code>unsigned char*</code>  </td><td class="col2"> Image data out array. Expected length: 4*<code>width</code>*<code>height</code> for  <code>palette</code> = -2,  3*<code>width</code>*<code>height</code> for all other <code>palette</code> values. </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT113 TABLE [56299-57953] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table68&quot;,&quot;secid&quot;:113,&quot;range&quot;:&quot;56296-57950&quot;} -->
 </div>
 
 <h4 id="return_value33">Return value</h4>
@@ -3080,7 +3087,7 @@ directly mapped on the corresponding RGB(A) output channels. For <code>palette</
 		<td class="col0"> <code>TwOutOfBounds</code> </td><td class="col1 leftalign"> a palette and/or gamma value is out of valid range  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT114 TABLE [57977-58210] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table69&quot;,&quot;secid&quot;:114,&quot;range&quot;:&quot;57974-58207&quot;} --><hr>
 
 <p>
 <br>
@@ -3088,7 +3095,7 @@ directly mapped on the corresponding RGB(A) output channels. For <code>palette</
 </p>
 
 </div>
-<!-- EDIT111 SECTION "TwGenerateImageData" [55067-58221] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwGenerateImageData&quot;,&quot;hid&quot;:&quot;twgenerateimagedata&quot;,&quot;codeblockOffset&quot;:33,&quot;secid&quot;:111,&quot;range&quot;:&quot;55064-58218&quot;} -->
 <h3 class="sectionedit115" id="twimagepaletteoffset2value">TwImagePaletteOffset2Value</h3>
 <div class="level3">
 
@@ -3132,7 +3139,7 @@ Helper function to convert between a pixel's palette offset and the correspondin
 		<td class="col0 centeralign">  <code>gamma</code>  </td><td class="col1 centeralign">  <code>double </code>  </td><td class="col2"> gamma value for palette mapping </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT116 TABLE [58530-58842] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table70&quot;,&quot;secid&quot;:116,&quot;range&quot;:&quot;58527-58839&quot;} -->
 </div>
 
 <h4 id="return_value34">Return value</h4>
@@ -3147,7 +3154,7 @@ Helper function to convert between a pixel's palette offset and the correspondin
 		<td class="col0"> <code>double</code> </td><td class="col1"> <em>variable</em> </td><td class="col2"> intensity that produces <code>pixelValue</code> for <code>min</code>, <code>max</code> and <code>gamma</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT117 TABLE [58866-59012] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table71&quot;,&quot;secid&quot;:117,&quot;range&quot;:&quot;58863-59009&quot;} --><hr>
 
 <p>
 <br>
@@ -3155,7 +3162,7 @@ Helper function to convert between a pixel's palette offset and the correspondin
 </p>
 
 </div>
-<!-- EDIT115 SECTION "TwImagePaletteOffset2Value" [58222-59024] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwImagePaletteOffset2Value&quot;,&quot;hid&quot;:&quot;twimagepaletteoffset2value&quot;,&quot;codeblockOffset&quot;:34,&quot;secid&quot;:115,&quot;range&quot;:&quot;58219-59021&quot;} -->
 <h3 class="sectionedit118" id="twimagevalue2paletteoffset">TwImageValue2PaletteOffset</h3>
 <div class="level3">
 
@@ -3199,7 +3206,7 @@ Helper function to convert between an intensity and a pixel's palette offset. No
 		<td class="col0 centeralign">  <code>gamma</code>  </td><td class="col1 centeralign">  <code>double </code>  </td><td class="col2"> gamma value for palette mapping </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT119 TABLE [59499-59803] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table72&quot;,&quot;secid&quot;:119,&quot;range&quot;:&quot;59496-59800&quot;} -->
 </div>
 
 <h4 id="return_value35">Return value</h4>
@@ -3214,7 +3221,7 @@ Helper function to convert between an intensity and a pixel's palette offset. No
 		<td class="col0"> <code>unsigned char</code> </td><td class="col1"> <em>variable</em> </td><td class="col2"> palette offset (pixel value) for <code>dataValue</code> using <code>min</code>, <code>max</code> and <code>gamma</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT120 TABLE [59827-59990] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table73&quot;,&quot;secid&quot;:120,&quot;range&quot;:&quot;59824-59987&quot;} --><hr>
 
 <p>
 <br>
@@ -3222,7 +3229,7 @@ Helper function to convert between an intensity and a pixel's palette offset. No
 </p>
 
 </div>
-<!-- EDIT118 SECTION "TwImageValue2PaletteOffset" [59025-60000] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwImageValue2PaletteOffset&quot;,&quot;hid&quot;:&quot;twimagevalue2paletteoffset&quot;,&quot;codeblockOffset&quot;:35,&quot;secid&quot;:118,&quot;range&quot;:&quot;59022-59997&quot;} -->
 <h3 class="sectionedit121" id="twimagegetpalettergb">TwImageGetPaletteRGB</h3>
 <div class="level3">
 
@@ -3269,7 +3276,7 @@ Helper function to access the integrated color palettes.
 		<td class="col0 centeralign">  <code>rgb</code>  </td><td class="col1 centeralign">  <code>unsigned char*</code>  </td><td class="col2"> array of length 3 that holds the red, green and blue components upon successful function return </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT122 TABLE [60295-60707] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table74&quot;,&quot;secid&quot;:122,&quot;range&quot;:&quot;60292-60704&quot;} -->
 </div>
 
 <h4 id="return_value36">Return value</h4>
@@ -3290,7 +3297,7 @@ Helper function to access the integrated color palettes.
 		<td class="col0"> <code>TwError</code> </td><td class="col1"> <code>rgb</code> is <code>NULL</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT123 TABLE [60730-60955] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table75&quot;,&quot;secid&quot;:123,&quot;range&quot;:&quot;60727-60952&quot;} --><hr>
 
 <p>
 <br>
@@ -3298,60 +3305,175 @@ Helper function to access the integrated color palettes.
 </p>
 
 </div>
-<!-- EDIT121 SECTION "TwImageGetPaletteRGB" [60001-60968] -->
-<h2 class="sectionedit124" id="previous_revisions">Previous revisions</h2>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwImageGetPaletteRGB&quot;,&quot;hid&quot;:&quot;twimagegetpalettergb&quot;,&quot;codeblockOffset&quot;:36,&quot;secid&quot;:121,&quot;range&quot;:&quot;59998-60963&quot;} -->
+<h2 class="sectionedit124" id="peak_integration">Peak integration</h2>
 <div class="level2">
 
-<p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll198" class="wikilink1" title="manuals:daq:twtooldll198">TwToolDll 1.98</a>
-</p>
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Peak integration&quot;,&quot;hid&quot;:&quot;peak_integration&quot;,&quot;codeblockOffset&quot;:37,&quot;secid&quot;:124,&quot;range&quot;:&quot;60964-60992&quot;} -->
+<h3 class="sectionedit125" id="twintegratetofspectra">TwIntegrateTofSpectra</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll197" class="wikilink1" title="manuals:daq:twtooldll197">TwToolDll 1.97</a>
-</p>
+</p><pre class="code c">TOFWERK_TOOL_API TwRetVal TwIntegrateTofSpectra<span class="br0">(</span><span class="kw4">float</span><span class="sy0">*</span> <span class="sy0">*</span> tofSpec<span class="sy0">,</span> <span class="kw4">int</span> nbrSamples<span class="sy0">,</span> <span class="kw4">int</span> nbrSpectra<span class="sy0">,</span> <span class="kw4">float</span> scaleFactor<span class="sy0">,</span> <span class="kw4">int</span> mcMode<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> mcPar<span class="sy0">,</span> <span class="kw4">int</span> nbrPeaks<span class="sy0">,</span> TPeakPar<span class="sy0">*</span> peak<span class="sy0">,</span> <span class="kw4">float</span><span class="sy0">*</span> <span class="sy0">*</span> stickSpectra<span class="sy0">,</span> <span class="kw4">int</span> algorithm<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> algoPar<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose37">Purpose</h4>
+<div class="level4">
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll196" class="wikilink1" title="manuals:daq:twtooldll196">TwToolDll 1.96</a>
+Integrates the <abbr title="Time Of Flight">TOF</abbr> spectra <code>tofSpec</code> using integration algorithm <code>algorithm</code> to generate stick spectra of length <code>nbrPeaks</code>. The length of the <code>algoPar</code> array is dependent on the selected <code>algorithm</code>. <code>scaleFactor</code> is applied to all results, if spectra are in mV and generated peaks should be ions/extraction then <code>scaleFactor</code> is sampleInterval/(nbrWaveforms*nbrBlocks*nbrMemories*nbrCubes*singleIonSignal).
 </p>
+<div class="table sectionedit126"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  <code>algorithm</code>  </th><th class="col1 centeralign">  0                                   </th><th class="col2 centeralign">  1                                          </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 leftalign"> description     </td><td class="col1 centeralign">  “standard” TofDaq peak integration  </td><td class="col2 centeralign">  peak integration using fractional samples  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> nbr parameters  </td><td class="col1 centeralign">  0 (<code>algoPar</code> = <code>NULL</code>)          </td><td class="col2 centeralign">  0 (<code>algoPar</code> = <code>NULL</code>)                 </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table76&quot;,&quot;secid&quot;:126,&quot;range&quot;:&quot;61723-62037&quot;} -->
+</div>
+
+<h4 id="parameters34">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit127"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name              </th><th class="col1 centeralign">  type           </th><th class="col2 centeralign">  description                                                                              </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>tofSpec</code>       </td><td class="col1 centeralign">  <code>float* *</code>   </td><td class="col2 leftalign"> list of mass spectra (<code>nbrSpectra</code> long, each spectrum of length <code>nbrSamples</code>)        </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>nbrSamples</code>    </td><td class="col1 centeralign">  <code>int</code>        </td><td class="col2 leftalign"> length of mass spectrum                                                                   </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>nbrSpectra</code>    </td><td class="col1 centeralign">  <code>int</code>        </td><td class="col2 leftalign"> length of mass spectrum list                                                              </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>scaleFactor</code>   </td><td class="col1 centeralign">  <code>float</code>      </td><td class="col2 leftalign"> scale factor that gets applied to all generated sticks                                    </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  “mcMode”          </td><td class="col1 centeralign">  “int”          </td><td class="col2 leftalign"> mass calibration mode to use                                                              </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  “mcPar”           </td><td class="col1 centeralign">  “double*”      </td><td class="col2 leftalign"> mass calibration parameter array (length determined by <code>mcMode</code>)                        </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  <code>nbrPeaks</code>      </td><td class="col1 centeralign">  <code>int</code>        </td><td class="col2 leftalign"> length of <code>peak</code> array (number of sticks in stick spectrum)                             </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  <code>peak</code>          </td><td class="col1 centeralign">  <code>TPeakPar*</code>  </td><td class="col2 leftalign"> peak parameter array (length <code>nbrPeaks</code>)                                                </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  <code>stickSpectra</code>  </td><td class="col1 centeralign">  <code>float* *</code>   </td><td class="col2 leftalign"> list of stick spectra (<code>nbrSpectra</code> long, each stick spectrum of length <code>nbrPeaks</code>)   </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 centeralign">  <code>algorithm</code>     </td><td class="col1 centeralign">  <code>int</code>        </td><td class="col2 leftalign"> peak integration algorithm to use (see table above)                                       </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 centeralign">  <code>algoPar</code>       </td><td class="col1 centeralign">  <code>double*</code>    </td><td class="col2 leftalign"> peak integration algorithm parameters (length depends on <code>algorithm</code>, see table above)  </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table77&quot;,&quot;secid&quot;:127,&quot;range&quot;:&quot;62059-63654&quot;} -->
+</div>
+
+<h4 id="return_value37">Return value</h4>
+<div class="level4">
+<div class="table sectionedit128"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type         </th><th class="col1 centeralign">  value         </th><th class="col2 centeralign">
+  meaning                                                               
+                                                                        
+      </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 leftalign" rowspan="2"> <code>TwRetVal</code>  </td><td class="col1 leftalign"> <code>TwSuccess</code>  </td><td class="col2 leftalign">
+ success                                                                
+                                                                        
+      </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <code>TwError</code>    </td><td class="col1 leftalign"> if any of the pointers is <code>NULL</code> (except <code>algoPar</code> when expected number of parameters is 0) or invalid <code>algorithm</code> or <code>nbr…</code> values &lt; = 0  </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table78&quot;,&quot;secid&quot;:128,&quot;range&quot;:&quot;63678-64235&quot;} --><hr>
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll195" class="wikilink1" title="manuals:daq:twtooldll195">TwToolDll 1.95</a>
-</p>
+<br>
 
-<p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll194" class="wikilink1" title="manuals:daq:twtooldll194">TwToolDll 1.94</a>
-</p>
-
-<p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll193" class="wikilink1" title="manuals:daq:twtooldll193">TwToolDll 1.93</a>
-</p>
-
-<p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll192" class="wikilink1" title="manuals:daq:twtooldll192">TwToolDll 1.92</a>
-</p>
-
-<p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll191" class="wikilink1" title="manuals:daq:twtooldll191">TwToolDll 1.91</a>
-</p>
-
-<p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll190" class="wikilink1" title="manuals:daq:twtooldll190">TwToolDll 1.90</a>
-</p>
-
-<p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll189" class="wikilink1" title="manuals:daq:twtooldll189">TwToolDll 1.89</a>
-</p>
-
-<p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll188" class="wikilink1" title="manuals:daq:twtooldll188">TwToolDll 1.88</a>
-</p>
-
-<p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll187" class="wikilink1" title="manuals:daq:twtooldll187">TwToolDll 1.87</a>
 </p>
 
 </div>
-<!-- EDIT124 SECTION "Previous revisions" [60969-] --></div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwIntegrateTofSpectra&quot;,&quot;hid&quot;:&quot;twintegratetofspectra&quot;,&quot;codeblockOffset&quot;:37,&quot;secid&quot;:125,&quot;range&quot;:&quot;60993-64247&quot;} -->
+<h2 class="sectionedit129" id="previous_revisions">Previous revisions</h2>
+<div class="level2">
+
+<p>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll198" class="wikilink1" title="manuals:daq:twtooldll198">TwToolDll 1.98</a>
+</p>
+
+<p>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll197" class="wikilink1" title="manuals:daq:twtooldll197">TwToolDll 1.97</a>
+</p>
+
+<p>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll196" class="wikilink1" title="manuals:daq:twtooldll196">TwToolDll 1.96</a>
+</p>
+
+<p>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll195" class="wikilink1" title="manuals:daq:twtooldll195">TwToolDll 1.95</a>
+</p>
+
+<p>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll194" class="wikilink1" title="manuals:daq:twtooldll194">TwToolDll 1.94</a>
+</p>
+
+<p>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll193" class="wikilink1" title="manuals:daq:twtooldll193">TwToolDll 1.93</a>
+</p>
+
+<p>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll192" class="wikilink1" title="manuals:daq:twtooldll192">TwToolDll 1.92</a>
+</p>
+
+<p>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll191" class="wikilink1" title="manuals:daq:twtooldll191">TwToolDll 1.91</a>
+</p>
+
+<p>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll190" class="wikilink1" title="manuals:daq:twtooldll190">TwToolDll 1.90</a>
+</p>
+
+<p>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll189" class="wikilink1" title="manuals:daq:twtooldll189">TwToolDll 1.89</a>
+</p>
+
+<p>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll188" class="wikilink1" title="manuals:daq:twtooldll188">TwToolDll 1.88</a>
+</p>
+
+<p>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:twtooldll187" class="wikilink1" title="manuals:daq:twtooldll187">TwToolDll 1.87</a>
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Previous revisions&quot;,&quot;hid&quot;:&quot;previous_revisions&quot;,&quot;codeblockOffset&quot;:38,&quot;secid&quot;:129,&quot;range&quot;:&quot;64248-&quot;} --></div>
 
 
 </body></html>

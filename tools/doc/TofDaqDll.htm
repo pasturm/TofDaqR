@@ -4,19 +4,21 @@
   <meta charset="utf-8">
   <title>manuals:daq:tofdaqdll</title>
 <meta name="generator" content="DokuWiki">
+<meta name="theme-color" content="#008800">
 <meta name="robots" content="noindex,nofollow">
 <meta name="keywords" content="manuals,daq,tofdaqdll">
-<link rel="search" type="application/opensearchdescription+xml" href="http://wiki.tofwerk.com/lib/exe/opensearch.php" title="Tofwerk Documentation Wiki">
-<link rel="start" href="http://wiki.tofwerk.com/">
-<link rel="contents" href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll&amp;do=index" title="Sitemap">
-<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="http://wiki.tofwerk.com/feed.php">
-<link rel="alternate" type="application/rss+xml" title="Current namespace" href="http://wiki.tofwerk.com/feed.php?mode=list&amp;ns=manuals:daq">
-<link rel="alternate" type="text/html" title="Plain HTML" href="http://wiki.tofwerk.com/doku.php?do=export_xhtml&amp;id=manuals:daq:tofdaqdll">
-<link rel="alternate" type="text/plain" title="Wiki Markup" href="http://wiki.tofwerk.com/doku.php?do=export_raw&amp;id=manuals:daq:tofdaqdll">
-<link rel="canonical" href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll">
+<link rel="search" type="application/opensearchdescription+xml" href="https://wiki.tofwerk.com/lib/exe/opensearch.php" title="Tofwerk Documentation Wiki">
+<link rel="start" href="https://wiki.tofwerk.com/">
+<link rel="contents" href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll&amp;do=index" title="Sitemap">
+<link rel="manifest" href="https://wiki.tofwerk.com/lib/exe/manifest.php">
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="https://wiki.tofwerk.com/feed.php">
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="https://wiki.tofwerk.com/feed.php?mode=list&amp;ns=manuals:daq">
+<link rel="alternate" type="text/html" title="Plain HTML" href="https://wiki.tofwerk.com/doku.php?do=export_xhtml&amp;id=manuals:daq:tofdaqdll">
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="https://wiki.tofwerk.com/doku.php?do=export_raw&amp;id=manuals:daq:tofdaqdll">
+<link rel="canonical" href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll">
 <link rel="stylesheet" type="text/css" href="TofDaqDll_files/css.css">
 <!--[if gte IE 9]><!-->
-<script type="text/javascript">/*<![CDATA[*/var NS='manuals:daq';var SIG=' --- //[[tanner@tofwerk.com|Christian Tanner]] 01.12.2017 13:32//';var JSINFO = {"id":"manuals:daq:tofdaqdll","namespace":"manuals:daq","plugins":{"edittable":{"default columnwidth":""}}};
+<script type="text/javascript">/*<![CDATA[*/var NS='manuals:daq';var SIG=' --- //[[tanner@tofwerk.com|Christian Tanner]] 12.09.2018 11:20//';var JSINFO = {"plugins":{"edittable":{"default columnwidth":""}},"id":"manuals:daq:tofdaqdll","namespace":"manuals:daq","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};
 /*!]]>*/</script>
 <script type="text/javascript" charset="utf-8" src="TofDaqDll_files/jquery.php"></script>
 <script type="text/javascript" charset="utf-8" src="TofDaqDll_files/js.php"></script><style id="iris-css">.iris-picker{display:block;position:relative}.iris-picker,.iris-picker *{-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input+.iris-picker{margin-top:4px}.iris-error{background-color:#ffafaf}.iris-border{border-radius:3px;border:1px solid #aaa;width:200px;background-color:#fff}.iris-picker-inner{position:absolute;top:0;right:0;left:0;bottom:0}.iris-border .iris-picker-inner{top:10px;right:10px;left:10px;bottom:10px}.iris-picker .iris-square-inner{position:absolute;left:0;right:0;top:0;bottom:0}.iris-picker .iris-square,.iris-picker .iris-slider,.iris-picker .iris-square-inner,.iris-picker .iris-palette{border-radius:3px;box-shadow:inset 0 0 5px rgba(0,0,0,.4);height:100%;width:12.5%;float:left;margin-right:5%}.iris-picker .iris-square{width:76%;margin-right:10%;position:relative}.iris-picker .iris-square-inner{width:auto;margin:0}.iris-ie-9 .iris-square,.iris-ie-9 .iris-slider,.iris-ie-9 .iris-square-inner,.iris-ie-9 .iris-palette{box-shadow:none;border-radius:0}.iris-ie-9 .iris-square,.iris-ie-9 .iris-slider,.iris-ie-9 .iris-palette{outline:1px solid rgba(0,0,0,.1)}.iris-ie-lt9 .iris-square,.iris-ie-lt9 .iris-slider,.iris-ie-lt9 .iris-square-inner,.iris-ie-lt9 .iris-palette{outline:1px solid #aaa}.iris-ie-lt9 .iris-square .ui-slider-handle{outline:1px solid #aaa;background-color:#fff;-ms-filter:"alpha(Opacity=30)"}.iris-ie-lt9 .iris-square .iris-square-handle{background:0;border:3px solid #fff;-ms-filter:"alpha(Opacity=50)"}.iris-picker .iris-strip{margin-right:0;position:relative}.iris-picker .iris-strip .ui-slider-handle{position:absolute;background:0;margin:0;right:-3px;left:-3px;border:4px solid #aaa;border-width:4px 3px;width:auto;height:6px;border-radius:4px;box-shadow:0 1px 2px rgba(0,0,0,.2);opacity:.9;z-index:5;cursor:ns-resize}.iris-strip .ui-slider-handle:before{content:" ";position:absolute;left:-2px;right:-2px;top:-3px;bottom:-3px;border:2px solid #fff;border-radius:3px}.iris-picker .iris-slider-offset{position:absolute;top:11px;left:0;right:0;bottom:-3px;width:auto;height:auto;background:transparent;border:0;border-radius:0}.iris-picker .iris-square-handle{background:transparent;border:5px solid #aaa;border-radius:50%;border-color:rgba(128,128,128,.5);box-shadow:none;width:12px;height:12px;position:absolute;left:-10px;top:-10px;cursor:move;opacity:1;z-index:10}.iris-picker .ui-state-focus .iris-square-handle{opacity:.8}.iris-picker .iris-square-handle:hover{border-color:#999}.iris-picker .iris-square-value:focus .iris-square-handle{box-shadow:0 0 2px rgba(0,0,0,.75);opacity:.8}.iris-picker .iris-square-handle:hover::after{border-color:#fff}.iris-picker .iris-square-handle::after{position:absolute;bottom:-4px;right:-4px;left:-4px;top:-4px;border:3px solid #f9f9f9;border-color:rgba(255,255,255,.8);border-radius:50%;content:" "}.iris-picker .iris-square-value{width:8px;height:8px;position:absolute}.iris-ie-lt9 .iris-square-value,.iris-mozilla .iris-square-value{width:1px;height:1px}.iris-palette-container{position:absolute;bottom:0;left:0;margin:0;padding:0}.iris-border .iris-palette-container{left:10px;bottom:10px}.iris-picker .iris-palette{margin:0;cursor:pointer}.iris-square-handle,.ui-slider-handle{border:0;outline:0}</style>
@@ -25,7 +27,7 @@
 <body>
 <div class="dokuwiki export">
 <!-- TOC START -->
-<div id="dw__toc">
+<div id="dw__toc" class="dw__toc">
 <h3 class="toggle open" style="cursor: pointer;"><strong><span>−</span></strong>Table of Contents</h3>
 <div style="" aria-expanded="true">
 
@@ -98,6 +100,7 @@
 <li class="level3"><div class="li"><a href="#twgetreguserdatasources">TwGetRegUserDataSources</a></div></li>
 <li class="level3"><div class="li"><a href="#twgetreguserdatadesc">TwGetRegUserDataDesc</a></div></li>
 <li class="level3"><div class="li"><a href="#twsetreguserdatatarget">TwSetRegUserDataTarget</a></div></li>
+<li class="level3"><div class="li"><a href="#twgetreguserdatatargetrange">TwGetRegUserDataTargetRange</a></div></li>
 <li class="level3"><div class="li"><a href="#twkeepfileopen">TwKeepFileOpen</a></div></li>
 </ul>
 </li>
@@ -157,7 +160,7 @@ asynchronous to the recorded mass spectra.
 </p>
 
 </div>
-<!-- EDIT1 SECTION "TofDaqDll.dll version 1.99" [1-362] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TofDaqDll.dll version 1.99&quot;,&quot;hid&quot;:&quot;tofdaqdlldll_version_199&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-362&quot;} -->
 <h2 class="sectionedit2" id="control_functions">Control functions</h2>
 <div class="level2">
 
@@ -171,7 +174,7 @@ control (start, stop, continue).
 </p>
 
 </div>
-<!-- EDIT2 SECTION "Control functions" [363-624] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Control functions&quot;,&quot;hid&quot;:&quot;control_functions&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;363-624&quot;} -->
 <h3 class="sectionedit3" id="twinitializedll">TwInitializeDll</h3>
 <div class="level3">
 
@@ -218,7 +221,7 @@ none
 		<td class="col0"> TwError </td><td class="col1"> initialization failed </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT4 TABLE [967-1120] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table&quot;,&quot;secid&quot;:4,&quot;range&quot;:&quot;967-1120&quot;} --><hr>
 
 <p>
 <br>
@@ -226,7 +229,7 @@ none
 </p>
 
 </div>
-<!-- EDIT3 SECTION "TwInitializeDll" [625-1130] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwInitializeDll&quot;,&quot;hid&quot;:&quot;twinitializedll&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;625-1130&quot;} -->
 <h3 class="sectionedit5" id="twcleanupdll">TwCleanupDll</h3>
 <div class="level3">
 
@@ -274,7 +277,7 @@ none
 </p>
 
 </div>
-<!-- EDIT5 SECTION "TwCleanupDll" [1131-1449] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwCleanupDll&quot;,&quot;hid&quot;:&quot;twcleanupdll&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:5,&quot;range&quot;:&quot;1131-1449&quot;} -->
 <h3 class="sectionedit6" id="twgetdllversion">TwGetDllVersion</h3>
 <div class="level3">
 
@@ -318,7 +321,7 @@ none
 		<td class="col0"> <code>double </code> </td><td class="col1 centeralign">  1.89  </td><td class="col2"> <abbr title="Dynamic Link Library">DLL</abbr> version number </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT7 TABLE [1647-1733] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table1&quot;,&quot;secid&quot;:7,&quot;range&quot;:&quot;1647-1733&quot;} --><hr>
 
 <p>
 <br>
@@ -326,7 +329,7 @@ none
 </p>
 
 </div>
-<!-- EDIT6 SECTION "TwGetDllVersion" [1450-1744] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwGetDllVersion&quot;,&quot;hid&quot;:&quot;twgetdllversion&quot;,&quot;codeblockOffset&quot;:2,&quot;secid&quot;:6,&quot;range&quot;:&quot;1450-1744&quot;} -->
 <h3 class="sectionedit8" id="twtofdaqrunning">TwTofDaqRunning</h3>
 <div class="level3">
 
@@ -373,7 +376,7 @@ none
 		<td class="col0 leftalign"> <code>false</code>   </td><td class="col1"> TofDaq recorder is not running </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT9 TABLE [1959-2115] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table2&quot;,&quot;secid&quot;:9,&quot;range&quot;:&quot;1959-2115&quot;} --><hr>
 
 <p>
 <br>
@@ -381,7 +384,7 @@ none
 </p>
 
 </div>
-<!-- EDIT8 SECTION "TwTofDaqRunning" [1745-2125] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwTofDaqRunning&quot;,&quot;hid&quot;:&quot;twtofdaqrunning&quot;,&quot;codeblockOffset&quot;:3,&quot;secid&quot;:8,&quot;range&quot;:&quot;1745-2125&quot;} -->
 <h3 class="sectionedit10" id="twdaqactive">TwDaqActive</h3>
 <div class="level3">
 
@@ -428,7 +431,7 @@ none
 		<td class="col0 leftalign"> <code>false</code>   </td><td class="col1"> <abbr title="Data Acquisition">DAQ</abbr> is inactive </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT11 TABLE [2333-2461] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table3&quot;,&quot;secid&quot;:11,&quot;range&quot;:&quot;2333-2461&quot;} --><hr>
 
 <p>
 <br>
@@ -436,7 +439,7 @@ none
 </p>
 
 </div>
-<!-- EDIT10 SECTION "TwDaqActive" [2126-2472] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwDaqActive&quot;,&quot;hid&quot;:&quot;twdaqactive&quot;,&quot;codeblockOffset&quot;:4,&quot;secid&quot;:10,&quot;range&quot;:&quot;2126-2472&quot;} -->
 <h3 class="sectionedit12" id="twstartacquisition">TwStartAcquisition</h3>
 <div class="level3">
 
@@ -492,7 +495,7 @@ none
 		<td class="col0 leftalign"> <code>TwError</code>              </td><td class="col1"> event abandoned or untreated error </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT13 TABLE [2684-3231] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table4&quot;,&quot;secid&quot;:13,&quot;range&quot;:&quot;2684-3231&quot;} --><hr>
 
 <p>
 <br>
@@ -500,7 +503,7 @@ none
 </p>
 
 </div>
-<!-- EDIT12 SECTION "TwStartAcquisition" [2473-3241] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwStartAcquisition&quot;,&quot;hid&quot;:&quot;twstartacquisition&quot;,&quot;codeblockOffset&quot;:5,&quot;secid&quot;:12,&quot;range&quot;:&quot;2473-3241&quot;} -->
 <h3 class="sectionedit14" id="twstopacquisition">TwStopAcquisition</h3>
 <div class="level3">
 
@@ -556,7 +559,7 @@ none
 		<td class="col0 leftalign"> <code>TwError</code>                </td><td class="col1"> event abandoned or untreated error </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT15 TABLE [3438-3939] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table5&quot;,&quot;secid&quot;:15,&quot;range&quot;:&quot;3438-3939&quot;} --><hr>
 
 <p>
 <br>
@@ -564,7 +567,7 @@ none
 </p>
 
 </div>
-<!-- EDIT14 SECTION "TwStopAcquisition" [3242-3950] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwStopAcquisition&quot;,&quot;hid&quot;:&quot;twstopacquisition&quot;,&quot;codeblockOffset&quot;:6,&quot;secid&quot;:14,&quot;range&quot;:&quot;3242-3950&quot;} -->
 <h3 class="sectionedit16" id="twcontinueacquisition">TwContinueAcquisition</h3>
 <div class="level3">
 
@@ -620,7 +623,7 @@ none
 		<td class="col0 leftalign"> <code>TwError</code>                </td><td class="col1"> TofDaq does not expect a continue signal </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT17 TABLE [4240-4754] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table6&quot;,&quot;secid&quot;:17,&quot;range&quot;:&quot;4240-4754&quot;} --><hr>
 
 <p>
 <br>
@@ -628,7 +631,7 @@ none
 </p>
 
 </div>
-<!-- EDIT16 SECTION "TwContinueAcquisition" [3951-4764] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwContinueAcquisition&quot;,&quot;hid&quot;:&quot;twcontinueacquisition&quot;,&quot;codeblockOffset&quot;:7,&quot;secid&quot;:16,&quot;range&quot;:&quot;3951-4764&quot;} -->
 <h3 class="sectionedit18" id="twmanualcontinueneeded">TwManualContinueNeeded</h3>
 <div class="level3">
 
@@ -675,7 +678,7 @@ none
 		<td class="col0 centeralign">  <code>false</code>    </td><td class="col1"> TofDaq recorder doesn't expect a continue event </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT19 TABLE [5049-5273] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table7&quot;,&quot;secid&quot;:19,&quot;range&quot;:&quot;5049-5273&quot;} --><hr>
 
 <p>
 <br>
@@ -683,7 +686,7 @@ none
 </p>
 
 </div>
-<!-- EDIT18 SECTION "TwManualContinueNeeded" [4765-5283] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwManualContinueNeeded&quot;,&quot;hid&quot;:&quot;twmanualcontinueneeded&quot;,&quot;codeblockOffset&quot;:8,&quot;secid&quot;:18,&quot;range&quot;:&quot;4765-5283&quot;} -->
 <h3 class="sectionedit20" id="twclosetofdaqrec">TwCloseTofDaqRec</h3>
 <div class="level3">
 
@@ -736,7 +739,7 @@ none
 		<td class="col0 leftalign"> <code>TwError</code>                </td><td class="col1"> untreated error </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT21 TABLE [5486-5896] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table8&quot;,&quot;secid&quot;:21,&quot;range&quot;:&quot;5486-5896&quot;} --><hr>
 
 <p>
 <br>
@@ -744,7 +747,7 @@ none
 </p>
 
 </div>
-<!-- EDIT20 SECTION "TwCloseTofDaqRec" [5284-5906] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwCloseTofDaqRec&quot;,&quot;hid&quot;:&quot;twclosetofdaqrec&quot;,&quot;codeblockOffset&quot;:9,&quot;secid&quot;:20,&quot;range&quot;:&quot;5284-5906&quot;} -->
 <h3 class="sectionedit22" id="twlockbuf">TwLockBuf</h3>
 <div class="level3">
 
@@ -786,7 +789,7 @@ HDF5 file saving of TofDaq recorder.
 		<td class="col0 centeralign">  <code>BufToLock</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  index of buf to lock  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT23 TABLE [6370-6527] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table9&quot;,&quot;secid&quot;:23,&quot;range&quot;:&quot;6370-6527&quot;} -->
 </div>
 
 <h4 id="return_value10">Return value</h4>
@@ -813,7 +816,7 @@ HDF5 file saving of TofDaq recorder.
 		<td class="col0 leftalign"> <code>TwOutOfBounds</code>          </td><td class="col1"> <code>BufToLock</code> is not in range 0 to NbrBufs-1 </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT24 TABLE [6550-7038] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table10&quot;,&quot;secid&quot;:24,&quot;range&quot;:&quot;6550-7038&quot;} --><hr>
 
 <p>
 <br>
@@ -821,7 +824,7 @@ HDF5 file saving of TofDaq recorder.
 </p>
 
 </div>
-<!-- EDIT22 SECTION "TwLockBuf" [5907-7048] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwLockBuf&quot;,&quot;hid&quot;:&quot;twlockbuf&quot;,&quot;codeblockOffset&quot;:10,&quot;secid&quot;:22,&quot;range&quot;:&quot;5907-7048&quot;} -->
 <h3 class="sectionedit25" id="twunlockbuf">TwUnLockBuf</h3>
 <div class="level3">
 
@@ -856,7 +859,7 @@ Unlocks a given buf of data (PeakData and TofData).
 		<td class="col0 centeralign">  <code>BufToUnlock</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  index of buf to unlock  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT26 TABLE [7238-7334] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table11&quot;,&quot;secid&quot;:26,&quot;range&quot;:&quot;7238-7334&quot;} -->
 </div>
 
 <h4 id="return_value11">Return value</h4>
@@ -883,7 +886,7 @@ Unlocks a given buf of data (PeakData and TofData).
 		<td class="col0 leftalign"> <code>TwOutOfBounds</code>          </td><td class="col1 leftalign"> <code>BufToUnlock</code> is not in range 0 to NbrBufs-1  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT27 TABLE [7357-7886] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table12&quot;,&quot;secid&quot;:27,&quot;range&quot;:&quot;7357-7886&quot;} --><hr>
 
 <p>
 <br>
@@ -891,7 +894,7 @@ Unlocks a given buf of data (PeakData and TofData).
 </p>
 
 </div>
-<!-- EDIT25 SECTION "TwUnLockBuf" [7049-7896] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwUnLockBuf&quot;,&quot;hid&quot;:&quot;twunlockbuf&quot;,&quot;codeblockOffset&quot;:11,&quot;secid&quot;:25,&quot;range&quot;:&quot;7049-7896&quot;} -->
 <h3 class="sectionedit28" id="twissuedio4pulse">TwIssueDio4Pulse</h3>
 <div class="level3">
 
@@ -930,7 +933,7 @@ Issues a TTL pulse on the digital output line 4 specified by a delay and
 		<td class="col0 centeralign">  <code>width</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  pulse width in ms  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT29 TABLE [8236-8386] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table13&quot;,&quot;secid&quot;:29,&quot;range&quot;:&quot;8236-8386&quot;} -->
 </div>
 
 <h4 id="return_value12">Return value</h4>
@@ -954,7 +957,7 @@ Issues a TTL pulse on the digital output line 4 specified by a delay and
 		<td class="col0 leftalign"> <code>TwOutOfBounds</code>          </td><td class="col1 leftalign"> <code>delay &lt; 0</code> or <code>width &lt; = 0</code>  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT30 TABLE [8409-8805] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table14&quot;,&quot;secid&quot;:30,&quot;range&quot;:&quot;8409-8805&quot;} --><hr>
 
 <p>
 <br>
@@ -962,7 +965,7 @@ Issues a TTL pulse on the digital output line 4 specified by a delay and
 </p>
 
 </div>
-<!-- EDIT28 SECTION "TwIssueDio4Pulse" [7897-8816] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwIssueDio4Pulse&quot;,&quot;hid&quot;:&quot;twissuedio4pulse&quot;,&quot;codeblockOffset&quot;:12,&quot;secid&quot;:28,&quot;range&quot;:&quot;7897-8816&quot;} -->
 <h3 class="sectionedit31" id="twsetdio4state">TwSetDio4State</h3>
 <div class="level3">
 
@@ -997,7 +1000,7 @@ Manually switches digital output line between states. Note that in order for thi
 		<td class="col0 centeralign">  <code>state</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  0: idle state, 1 (or any other value other than 0) active state  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT32 TABLE [9107-9238] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table15&quot;,&quot;secid&quot;:32,&quot;range&quot;:&quot;9107-9238&quot;} -->
 </div>
 
 <h4 id="return_value13">Return value</h4>
@@ -1021,7 +1024,7 @@ Manually switches digital output line between states. Note that in order for thi
 		<td class="col0 leftalign"> <code>TwError</code>                </td><td class="col1 leftalign"> unable to access digital line  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT33 TABLE [9261-9654] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table16&quot;,&quot;secid&quot;:33,&quot;range&quot;:&quot;9261-9654&quot;} --><hr>
 
 <p>
 <br>
@@ -1029,7 +1032,7 @@ Manually switches digital output line between states. Note that in order for thi
 </p>
 
 </div>
-<!-- EDIT31 SECTION "TwSetDio4State" [8817-9665] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwSetDio4State&quot;,&quot;hid&quot;:&quot;twsetdio4state&quot;,&quot;codeblockOffset&quot;:13,&quot;secid&quot;:31,&quot;range&quot;:&quot;8817-9665&quot;} -->
 <h3 class="sectionedit34" id="twinitializedaqdevice">TwInitializeDaqDevice</h3>
 <div class="level3">
 
@@ -1082,7 +1085,7 @@ none
 		<td class="col0 leftalign"> <code>TwTimeout</code>              </td><td class="col1 leftalign"> no confirmation of successful init received within 8 seconds  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT35 TABLE [9993-10414] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table17&quot;,&quot;secid&quot;:35,&quot;range&quot;:&quot;9993-10414&quot;} --><hr>
 
 <p>
 <br>
@@ -1090,7 +1093,7 @@ none
 </p>
 
 </div>
-<!-- EDIT34 SECTION "TwInitializeDaqDevice" [9666-10425] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwInitializeDaqDevice&quot;,&quot;hid&quot;:&quot;twinitializedaqdevice&quot;,&quot;codeblockOffset&quot;:14,&quot;secid&quot;:34,&quot;range&quot;:&quot;9666-10425&quot;} -->
 <h3 class="sectionedit36" id="twsettimeout">TwSetTimeout</h3>
 <div class="level3">
 
@@ -1125,7 +1128,7 @@ Sets the global timeout for all functions that can time out. Default is 500 ms.
 		<td class="col0 centeralign">  <code>timeout</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 centeralign">  timeout to set (in ms)  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT37 TABLE [10621-10713] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table18&quot;,&quot;secid&quot;:37,&quot;range&quot;:&quot;10621-10713&quot;} -->
 </div>
 
 <h4 id="return_value15">Return value</h4>
@@ -1142,7 +1145,7 @@ none
 </p>
 
 </div>
-<!-- EDIT36 SECTION "TwSetTimeout" [10426-10749] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwSetTimeout&quot;,&quot;hid&quot;:&quot;twsettimeout&quot;,&quot;codeblockOffset&quot;:15,&quot;secid&quot;:36,&quot;range&quot;:&quot;10426-10749&quot;} -->
 <h3 class="sectionedit38" id="twgettimeout">TwGetTimeout</h3>
 <div class="level3">
 
@@ -1186,7 +1189,7 @@ none
 		<td class="col0"> <code>int</code> </td><td class="col1 leftalign"> <em>variable</em>     </td><td class="col2 centeralign">  timeout in ms   </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT39 TABLE [10923-11047] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table19&quot;,&quot;secid&quot;:39,&quot;range&quot;:&quot;10923-11047&quot;} --><hr>
 
 <p>
 <br>
@@ -1194,7 +1197,7 @@ none
 </p>
 
 </div>
-<!-- EDIT38 SECTION "TwGetTimeout" [10750-11057] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwGetTimeout&quot;,&quot;hid&quot;:&quot;twgettimeout&quot;,&quot;codeblockOffset&quot;:16,&quot;secid&quot;:38,&quot;range&quot;:&quot;10750-11057&quot;} -->
 <h3 class="sectionedit40" id="twondemandmasscalibration">TwOnDemandMassCalibration</h3>
 <div class="level3">
 
@@ -1229,7 +1232,7 @@ Arms/executes on demand mass calibration. Requires that parameter <code>ReCalibF
 		<td class="col0 centeralign">  <code>action</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 leftalign"> 0: arms mass calibration, 1: updates mass calibration using data acquired since previous arm.  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT41 TABLE [11342-11503] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table20&quot;,&quot;secid&quot;:41,&quot;range&quot;:&quot;11342-11503&quot;} -->
 </div>
 
 <h4 id="return_value17">Return value</h4>
@@ -1259,7 +1262,7 @@ Arms/executes on demand mass calibration. Requires that parameter <code>ReCalibF
 		<td class="col0 leftalign"> <code>TwInvalidParameter</code>     </td><td class="col1 leftalign"> <code>action</code> != 0 or 1  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT42 TABLE [11526-12022] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table21&quot;,&quot;secid&quot;:42,&quot;range&quot;:&quot;11526-12022&quot;} --><hr>
 
 <p>
 <br>
@@ -1267,7 +1270,7 @@ Arms/executes on demand mass calibration. Requires that parameter <code>ReCalibF
 </p>
 
 </div>
-<!-- EDIT40 SECTION "TwOnDemandMassCalibration" [11058-12033] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwOnDemandMassCalibration&quot;,&quot;hid&quot;:&quot;twondemandmasscalibration&quot;,&quot;codeblockOffset&quot;:17,&quot;secid&quot;:40,&quot;range&quot;:&quot;11058-12033&quot;} -->
 <h2 class="sectionedit43" id="configuration_functions">Configuration functions</h2>
 <div class="level2">
 
@@ -1290,7 +1293,7 @@ For more fine-grained access to the configuration single parameters can be chang
 </p>
 
 </div>
-<!-- EDIT43 SECTION "Configuration functions" [12034-12789] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Configuration functions&quot;,&quot;hid&quot;:&quot;configuration_functions&quot;,&quot;codeblockOffset&quot;:18,&quot;secid&quot;:43,&quot;range&quot;:&quot;12034-12789&quot;} -->
 <h3 class="sectionedit44" id="twshowconfigwindow">TwShowConfigWindow</h3>
 <div class="level3">
 
@@ -1325,7 +1328,7 @@ unified function to show the different tabs of the TofDaq recorder configuration
 		<td class="col0 centeralign">  <code>ConfigWindowIndex</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2 rightalign">  index of config tab to show (valid range: 0-6)</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT45 TABLE [13282-13406] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table22&quot;,&quot;secid&quot;:45,&quot;range&quot;:&quot;13282-13406&quot;} -->
 </div>
 
 <h4 id="return_value18">Return value</h4>
@@ -1343,7 +1346,7 @@ unified function to show the different tabs of the TofDaq recorder configuration
 		<td class="col0 leftalign"> <code>TwError</code>                </td><td class="col1"> error </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT46 TABLE [13428-13612] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table23&quot;,&quot;secid&quot;:46,&quot;range&quot;:&quot;13428-13612&quot;} --><hr>
 
 <p>
 <br>
@@ -1351,7 +1354,7 @@ unified function to show the different tabs of the TofDaq recorder configuration
 </p>
 
 </div>
-<!-- EDIT44 SECTION "TwShowConfigWindow" [12790-13622] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwShowConfigWindow&quot;,&quot;hid&quot;:&quot;twshowconfigwindow&quot;,&quot;codeblockOffset&quot;:18,&quot;secid&quot;:44,&quot;range&quot;:&quot;12790-13622&quot;} -->
 <h3 class="sectionedit47" id="twloadinifile">TwLoadIniFile</h3>
 <div class="level3">
 
@@ -1386,7 +1389,7 @@ loads a configuration file (<code>*.ini</code>) from disk. If <code>IniFile</cod
 		<td class="col0 centeralign">  <code>IniFile</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2 rightalign">  path/filename of configuration file (max. 255 characters) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT48 TABLE [13919-14047] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table24&quot;,&quot;secid&quot;:48,&quot;range&quot;:&quot;13919-14047&quot;} -->
 </div>
 
 <h4 id="return_value19">Return value</h4>
@@ -1416,7 +1419,7 @@ loads a configuration file (<code>*.ini</code>) from disk. If <code>IniFile</cod
 		<td class="col0 leftalign"> <code>TwError</code>              </td><td class="col1"> specified configuration file is too long (&gt;255 char) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT49 TABLE [14070-14677] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table25&quot;,&quot;secid&quot;:49,&quot;range&quot;:&quot;14070-14677&quot;} --><hr>
 
 <p>
 <br>
@@ -1424,7 +1427,7 @@ loads a configuration file (<code>*.ini</code>) from disk. If <code>IniFile</cod
 </p>
 
 </div>
-<!-- EDIT47 SECTION "TwLoadIniFile" [13623-14687] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwLoadIniFile&quot;,&quot;hid&quot;:&quot;twloadinifile&quot;,&quot;codeblockOffset&quot;:19,&quot;secid&quot;:47,&quot;range&quot;:&quot;13623-14687&quot;} -->
 <h3 class="sectionedit50" id="twsaveinifile">TwSaveIniFile</h3>
 <div class="level3">
 
@@ -1460,7 +1463,7 @@ TwApiTmpIni.ini in TofDaq recorder directory will be used.
 		<td class="col0 centeralign">  <code>IniFile</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2 centeralign">  path/filename of configuration file  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT51 TABLE [14959-15066] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table26&quot;,&quot;secid&quot;:51,&quot;range&quot;:&quot;14959-15066&quot;} -->
 </div>
 
 <h4 id="return_value20">Return value</h4>
@@ -1490,7 +1493,7 @@ TwApiTmpIni.ini in TofDaq recorder directory will be used.
 		<td class="col0 leftalign"> <code>TwError</code>              </td><td class="col1"> specified configuration file is too long (&gt;255 char) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT52 TABLE [15089-15724] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table27&quot;,&quot;secid&quot;:52,&quot;range&quot;:&quot;15089-15724&quot;} --><hr>
 
 <p>
 <br>
@@ -1498,7 +1501,7 @@ TwApiTmpIni.ini in TofDaq recorder directory will be used.
 </p>
 
 </div>
-<!-- EDIT50 SECTION "TwSaveIniFile" [14688-15734] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwSaveIniFile&quot;,&quot;hid&quot;:&quot;twsaveinifile&quot;,&quot;codeblockOffset&quot;:20,&quot;secid&quot;:50,&quot;range&quot;:&quot;14688-15734&quot;} -->
 <h3 class="sectionedit53" id="twgetdaqparameter">TwGetDaqParameter</h3>
 <div class="level3">
 
@@ -1545,7 +1548,7 @@ Gets a single parameter as a string.
 		<td class="col0 centeralign">  <code>Parameter</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2 centeralign">  parameter name (max. length 127)  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT54 TABLE [16476-16582] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table28&quot;,&quot;secid&quot;:54,&quot;range&quot;:&quot;16476-16582&quot;} -->
 </div>
 
 <h4 id="return_value21">Return value</h4>
@@ -1569,7 +1572,7 @@ Gets a single parameter as a string.
 		<td class="col0 centeralign">  <em>result</em> as string     </td><td class="col1"> success </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT55 TABLE [16605-16982] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table29&quot;,&quot;secid&quot;:55,&quot;range&quot;:&quot;16605-16982&quot;} --><hr>
 
 <p>
 <br>
@@ -1605,7 +1608,7 @@ Gets a single parameter as typed value.
 		<td class="col0 centeralign">  <code>Parameter</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2 centeralign">  parameter name (max. length 127)  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT56 TABLE [17398-17504] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table30&quot;,&quot;secid&quot;:56,&quot;range&quot;:&quot;17398-17504&quot;} -->
 </div>
 
 <h4 id="return_value22">Return value</h4>
@@ -1654,7 +1657,7 @@ Gets a single parameter as typed value by reference.
 		<td class="col0 centeralign">  <code>Value</code>      </td><td class="col1 centeralign">  <em>type of value</em>*  </td><td class="col2 leftalign"> parameter value passed by reference  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT57 TABLE [18203-18390] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table31&quot;,&quot;secid&quot;:57,&quot;range&quot;:&quot;18203-18390&quot;} -->
 </div>
 
 <h4 id="return_value23">Return value</h4>
@@ -1681,7 +1684,7 @@ Gets a single parameter as typed value by reference.
 		<td class="col0 leftalign"> <code>TwInvalidValue</code>       </td><td class="col1"> value type not compatible with parameter </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT58 TABLE [18413-18915] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table32&quot;,&quot;secid&quot;:58,&quot;range&quot;:&quot;18413-18915&quot;} --><hr>
 
 <p>
 <br>
@@ -1689,7 +1692,7 @@ Gets a single parameter as typed value by reference.
 </p>
 
 </div>
-<!-- EDIT53 SECTION "TwGetDaqParameter" [15735-18926] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwGetDaqParameter&quot;,&quot;hid&quot;:&quot;twgetdaqparameter&quot;,&quot;codeblockOffset&quot;:21,&quot;secid&quot;:53,&quot;range&quot;:&quot;15735-18926&quot;} -->
 <h3 class="sectionedit59" id="twsetdaqparameter">TwSetDaqParameter</h3>
 <div class="level3">
 
@@ -1727,7 +1730,7 @@ Sets a single parameter.
 		<td class="col0 centeralign">  <code>ValueString</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2 centeralign">  value (max. length 255)  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT60 TABLE [19122-19292] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table33&quot;,&quot;secid&quot;:60,&quot;range&quot;:&quot;19122-19292&quot;} -->
 </div>
 
 <h4 id="return_value24">Return value</h4>
@@ -1757,7 +1760,7 @@ Sets a single parameter.
 		<td class="col0 centeralign">  <code>TwSuccess</code>     </td><td class="col1"> parameter successfully set </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT61 TABLE [19315-19880] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table34&quot;,&quot;secid&quot;:61,&quot;range&quot;:&quot;19315-19880&quot;} --><hr>
 
 <p>
 <br>
@@ -1796,7 +1799,7 @@ Sets a single parameter with a typed value.
 		<td class="col0 centeralign">  <code>Value</code>      </td><td class="col1 centeralign">  <em>type of value</em>  </td><td class="col2"> parameter value </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT62 TABLE [20380-20545] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table35&quot;,&quot;secid&quot;:62,&quot;range&quot;:&quot;20380-20545&quot;} -->
 </div>
 
 <h4 id="return_value25">Return value</h4>
@@ -1826,7 +1829,7 @@ Sets a single parameter with a typed value.
 		<td class="col0 centeralign">  <code>TwSuccess</code>     </td><td class="col1"> parameter successfully set </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT63 TABLE [20568-21133] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table36&quot;,&quot;secid&quot;:63,&quot;range&quot;:&quot;20568-21133&quot;} --><hr>
 
 <p>
 <br>
@@ -1834,7 +1837,7 @@ Sets a single parameter with a typed value.
 </p>
 
 </div>
-<!-- EDIT59 SECTION "TwSetDaqParameter" [18927-21143] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwSetDaqParameter&quot;,&quot;hid&quot;:&quot;twsetdaqparameter&quot;,&quot;codeblockOffset&quot;:24,&quot;secid&quot;:59,&quot;range&quot;:&quot;18927-21143&quot;} -->
 <h3 class="sectionedit64" id="twconfigvarnbrmemories">TwConfigVarNbrMemories</h3>
 <div class="level3">
 
@@ -1878,7 +1881,7 @@ Enables and configures the “variable NbrMemories” feature.
 		<td class="col0 centeralign">  <code>NbrMemoriesForStep</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> array of length <code>NbrSteps</code> with new NbrMemories value for each step </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT65 TABLE [21413-21881] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table37&quot;,&quot;secid&quot;:65,&quot;range&quot;:&quot;21413-21881&quot;} -->
 </div>
 
 <h4 id="return_value26">Return value</h4>
@@ -1905,7 +1908,7 @@ Enables and configures the “variable NbrMemories” feature.
 		<td class="col0 leftalign"> <code>TwError</code>       </td><td class="col1"> NULL pointers for arrays with <code>NbrSteps</code> &gt; 0 or exception when reading arrays </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT66 TABLE [21904-22414] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table38&quot;,&quot;secid&quot;:66,&quot;range&quot;:&quot;21904-22414&quot;} --><hr>
 
 <p>
 <br>
@@ -1913,7 +1916,7 @@ Enables and configures the “variable NbrMemories” feature.
 </p>
 
 </div>
-<!-- EDIT64 SECTION "TwConfigVarNbrMemories" [21144-22424] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwConfigVarNbrMemories&quot;,&quot;hid&quot;:&quot;twconfigvarnbrmemories&quot;,&quot;codeblockOffset&quot;:26,&quot;secid&quot;:64,&quot;range&quot;:&quot;21144-22424&quot;} -->
 <h3 class="sectionedit67" id="twsetmasscalib">TwSetMassCalib</h3>
 <div class="level3">
 
@@ -1971,7 +1974,7 @@ calibration parameters).
 		<td class="col0 centeralign">  <code>weight</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of length <code>nbrPoints</code> holding the weight of the calibration points </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT68 TABLE [23233-23976] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table39&quot;,&quot;secid&quot;:68,&quot;range&quot;:&quot;23233-23976&quot;} -->
 </div>
 
 <h4 id="return_value27">Return value</h4>
@@ -1995,7 +1998,7 @@ calibration parameters).
 		<td class="col0 leftalign"> <code>TwSuccess</code>            </td><td class="col1"> setup successfull </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT69 TABLE [23999-24390] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table40&quot;,&quot;secid&quot;:69,&quot;range&quot;:&quot;23999-24390&quot;} --><hr>
 
 <p>
 <br>
@@ -2003,7 +2006,7 @@ calibration parameters).
 </p>
 
 </div>
-<!-- EDIT67 SECTION "TwSetMassCalib" [22425-24400] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwSetMassCalib&quot;,&quot;hid&quot;:&quot;twsetmasscalib&quot;,&quot;codeblockOffset&quot;:27,&quot;secid&quot;:67,&quot;range&quot;:&quot;22425-24400&quot;} -->
 <h3 class="sectionedit70" id="twsetmasscalibex">TwSetMassCalibEx</h3>
 <div class="level3">
 
@@ -2065,7 +2068,7 @@ used for calibration have a maximum length of 255 characters.
 		<td class="col0 centeralign">  <code>label</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2"> array of length <code>nbrPoints</code>*256 holding the labels of the calibration points </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT71 TABLE [25347-26201] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table41&quot;,&quot;secid&quot;:71,&quot;range&quot;:&quot;25347-26201&quot;} -->
 </div>
 
 <h4 id="return_value28">Return value</h4>
@@ -2089,7 +2092,7 @@ used for calibration have a maximum length of 255 characters.
 		<td class="col0 leftalign"> <code>TwSuccess</code>            </td><td class="col1"> setup successfull </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT72 TABLE [26224-26615] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table42&quot;,&quot;secid&quot;:72,&quot;range&quot;:&quot;26224-26615&quot;} --><hr>
 
 <p>
 <br>
@@ -2097,7 +2100,7 @@ used for calibration have a maximum length of 255 characters.
 </p>
 
 </div>
-<!-- EDIT70 SECTION "TwSetMassCalibEx" [24401-26626] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwSetMassCalibEx&quot;,&quot;hid&quot;:&quot;twsetmasscalibex&quot;,&quot;codeblockOffset&quot;:28,&quot;secid&quot;:70,&quot;range&quot;:&quot;24401-26626&quot;} -->
 <h2 class="sectionedit73" id="data_access_functions">Data access functions</h2>
 <div class="level2">
 
@@ -2106,7 +2109,7 @@ The functions in this section are used to access the data currently being record
 </p>
 
 </div>
-<!-- EDIT73 SECTION "Data access functions" [26627-26768] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Data access functions&quot;,&quot;hid&quot;:&quot;data_access_functions&quot;,&quot;codeblockOffset&quot;:29,&quot;secid&quot;:73,&quot;range&quot;:&quot;26627-26768&quot;} -->
 <h3 class="sectionedit74" id="twgetdescriptor">TwGetDescriptor</h3>
 <div class="level3">
 
@@ -2141,7 +2144,7 @@ Retrieves the current <code>TSharedMemoryDesc</code> structure. <code>TSharedMem
 		<td class="col0 centeralign">  <code>pBufDesc</code>  </td><td class="col1 centeralign">  <code>TSharedMemoryDesc*</code>  </td><td class="col2"> pointer to user allocated <code>TSharedMemoryDesc</code> structure (see <a href="#data_structures" title="manuals:daq:tofdaqdll ↵" class="wikilink1">Data structures</a>) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT75 TABLE [27163-27347] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table43&quot;,&quot;secid&quot;:75,&quot;range&quot;:&quot;27163-27347&quot;} -->
 </div>
 
 <h4 id="return_value29">Return value</h4>
@@ -2162,7 +2165,7 @@ Retrieves the current <code>TSharedMemoryDesc</code> structure. <code>TSharedMem
 		<td class="col0 leftalign"> <code>TwError</code>       </td><td class="col1"> pBufDesc is a NULL pointer or untreated error </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT76 TABLE [27370-27706] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table44&quot;,&quot;secid&quot;:76,&quot;range&quot;:&quot;27370-27706&quot;} --><hr>
 
 <p>
 <br>
@@ -2170,7 +2173,7 @@ Retrieves the current <code>TSharedMemoryDesc</code> structure. <code>TSharedMem
 </p>
 
 </div>
-<!-- EDIT74 SECTION "TwGetDescriptor" [26769-27716] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwGetDescriptor&quot;,&quot;hid&quot;:&quot;twgetdescriptor&quot;,&quot;codeblockOffset&quot;:29,&quot;secid&quot;:74,&quot;range&quot;:&quot;26769-27716&quot;} -->
 <h3 class="sectionedit77" id="twgetpeakparameters">TwGetPeakParameters</h3>
 <div class="level3">
 
@@ -2208,7 +2211,7 @@ Retrieves parameters for a given peak.
 		<td class="col0 centeralign">  <code>PeakIndex</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> index of peak to fetch </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT78 TABLE [27926-28148] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table45&quot;,&quot;secid&quot;:78,&quot;range&quot;:&quot;27926-28148&quot;} -->
 </div>
 
 <h4 id="return_value30">Return value</h4>
@@ -2232,7 +2235,7 @@ Retrieves parameters for a given peak.
 		<td class="col0 leftalign"> <code>TwError</code>       </td><td class="col1"> PeakPar is a NULL pointer or untreated error </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT79 TABLE [28171-28601] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table46&quot;,&quot;secid&quot;:79,&quot;range&quot;:&quot;28171-28601&quot;} --><hr>
 
 <p>
 <br>
@@ -2240,7 +2243,7 @@ Retrieves parameters for a given peak.
 </p>
 
 </div>
-<!-- EDIT77 SECTION "TwGetPeakParameters" [27717-28611] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwGetPeakParameters&quot;,&quot;hid&quot;:&quot;twgetpeakparameters&quot;,&quot;codeblockOffset&quot;:30,&quot;secid&quot;:77,&quot;range&quot;:&quot;27717-28611&quot;} -->
 <h3 class="sectionedit80" id="twgetsharedmemory">TwGetSharedMemory</h3>
 <div class="level3">
 
@@ -2284,7 +2287,7 @@ the possibility to (re)allocate the shared buffers newly. Set this
 option to true if you want to make sure that the pointers in <code>pShMem</code> stay valid while you work with them. In this case you <strong>must</strong> call <code>TwReleaseSharedMemory</code> explicitly when finished with your processing operation. </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT81 TABLE [29101-29703] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table47&quot;,&quot;secid&quot;:81,&quot;range&quot;:&quot;29101-29703&quot;} -->
 </div>
 
 <h4 id="return_value31">Return value</h4>
@@ -2310,7 +2313,7 @@ acquisition of a newly launched TofDaq recorder application. </td>
 		<td class="col0 leftalign"> <code>TwError</code>              </td><td class="col1"> pShMem is a NULL pointer or untreated error </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT82 TABLE [29726-30232] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table48&quot;,&quot;secid&quot;:82,&quot;range&quot;:&quot;29726-30232&quot;} --><hr>
 
 <p>
 <br>
@@ -2318,7 +2321,7 @@ acquisition of a newly launched TofDaq recorder application. </td>
 </p>
 
 </div>
-<!-- EDIT80 SECTION "TwGetSharedMemory" [28612-30242] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwGetSharedMemory&quot;,&quot;hid&quot;:&quot;twgetsharedmemory&quot;,&quot;codeblockOffset&quot;:31,&quot;secid&quot;:80,&quot;range&quot;:&quot;28612-30242&quot;} -->
 <h3 class="sectionedit83" id="twreleasesharedmemory">TwReleaseSharedMemory</h3>
 <div class="level3">
 
@@ -2368,7 +2371,7 @@ none
 		<td class="col0 leftalign"> <code>TwError</code>              </td><td class="col1"> unmapping of shared memory failed </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT84 TABLE [30550-30871] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table49&quot;,&quot;secid&quot;:84,&quot;range&quot;:&quot;30550-30871&quot;} --><hr>
 
 <p>
 <br>
@@ -2376,7 +2379,7 @@ none
 </p>
 
 </div>
-<!-- EDIT83 SECTION "TwReleaseSharedMemory" [30243-30881] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwReleaseSharedMemory&quot;,&quot;hid&quot;:&quot;twreleasesharedmemory&quot;,&quot;codeblockOffset&quot;:32,&quot;secid&quot;:83,&quot;range&quot;:&quot;30243-30881&quot;} -->
 <h3 class="sectionedit85" id="twwaitfornewdata">TwWaitForNewData</h3>
 <div class="level3">
 
@@ -2422,7 +2425,7 @@ memory pointers. The function returns when new data is available or when
 		<td class="col0 centeralign">  <code>WaitForEventReset</code>  </td><td class="col1 centeralign">  <code>bool</code>  </td><td class="col2"> waits for application to reset data available event before returning </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT86 TABLE [31260-31764] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table50&quot;,&quot;secid&quot;:86,&quot;range&quot;:&quot;31260-31764&quot;} -->
 </div>
 
 <h4 id="return_value33">Return value</h4>
@@ -2449,7 +2452,7 @@ memory pointers. The function returns when new data is available or when
 		<td class="col0 leftalign"> <code>TwError</code>              </td><td class="col1"> <code>pShMem</code> or <code>pBufDesc</code> is a NULL pointer or memory mapping failed </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT87 TABLE [31787-32351] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table51&quot;,&quot;secid&quot;:87,&quot;range&quot;:&quot;31787-32351&quot;} --><hr>
 
 <p>
 <br>
@@ -2457,7 +2460,7 @@ memory pointers. The function returns when new data is available or when
 </p>
 
 </div>
-<!-- EDIT85 SECTION "TwWaitForNewData" [30882-32361] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwWaitForNewData&quot;,&quot;hid&quot;:&quot;twwaitfornewdata&quot;,&quot;codeblockOffset&quot;:33,&quot;secid&quot;:85,&quot;range&quot;:&quot;30882-32361&quot;} -->
 <h3 class="sectionedit88" id="twwaitforendofacquisition">TwWaitForEndOfAcquisition</h3>
 <div class="level3">
 
@@ -2494,7 +2497,7 @@ acquisition.
 		<td class="col0 centeralign">  <code>timeout</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> timeout for wait in ms </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT89 TABLE [32668-32758] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table52&quot;,&quot;secid&quot;:89,&quot;range&quot;:&quot;32668-32758&quot;} -->
 </div>
 
 <h4 id="return_value34">Return value</h4>
@@ -2518,7 +2521,7 @@ acquisition.
 		<td class="col0 leftalign"> <code>TwTimeout</code>            </td><td class="col1"> acquisition did not finish during <code>timeout</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT90 TABLE [32781-33165] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table53&quot;,&quot;secid&quot;:90,&quot;range&quot;:&quot;32781-33165&quot;} --><hr>
 
 <p>
 <br>
@@ -2526,7 +2529,7 @@ acquisition.
 </p>
 
 </div>
-<!-- EDIT88 SECTION "TwWaitForEndOfAcquisition" [32362-33175] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwWaitForEndOfAcquisition&quot;,&quot;hid&quot;:&quot;twwaitforendofacquisition&quot;,&quot;codeblockOffset&quot;:34,&quot;secid&quot;:88,&quot;range&quot;:&quot;32362-33175&quot;} -->
 <h3 class="sectionedit91" id="twgetmasscalib">TwGetMassCalib</h3>
 <div class="level3">
 
@@ -2582,7 +2585,7 @@ the parameters call this function with <code>nbrPoints = mass = tof = mass = NUL
 		<td class="col0 centeralign">  <code>weight</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> array of length <code>*nbrPoints</code>. Holds the weights of the calibration points on successful return. </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT92 TABLE [33797-34761] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table54&quot;,&quot;secid&quot;:92,&quot;range&quot;:&quot;33797-34761&quot;} -->
 </div>
 
 <h4 id="return_value35">Return value</h4>
@@ -2609,7 +2612,7 @@ the <code>*nbrParams</code> and <code>*nbrPoints</code> hold the actual values f
 		<td class="col0 leftalign"> <code>TwTimeout</code>            </td><td class="col1"> calibration information was not transferred within <code><abbr title="TOFWERK">TW</abbr>_TIMEOUT</code> ms </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT93 TABLE [34784-35546] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table55&quot;,&quot;secid&quot;:93,&quot;range&quot;:&quot;34784-35546&quot;} --><hr>
 
 <p>
 <br>
@@ -2617,7 +2620,7 @@ the <code>*nbrParams</code> and <code>*nbrPoints</code> hold the actual values f
 </p>
 
 </div>
-<!-- EDIT91 SECTION "TwGetMassCalib" [33176-35557] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwGetMassCalib&quot;,&quot;hid&quot;:&quot;twgetmasscalib&quot;,&quot;codeblockOffset&quot;:35,&quot;secid&quot;:91,&quot;range&quot;:&quot;33176-35557&quot;} -->
 <h3 class="sectionedit94" id="twgetmasscalibex">TwGetMassCalibEx</h3>
 <div class="level3">
 
@@ -2676,7 +2679,7 @@ the parameters call this function with <code>nbrPoints = mass = tof = mass = lab
 		<td class="col0 centeralign">  <code>label</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2"> array of length <code>*nbrPoints*256</code>. Holds the labels of the calibration points on successful return. </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT95 TABLE [36258-37355] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table56&quot;,&quot;secid&quot;:95,&quot;range&quot;:&quot;36258-37355&quot;} -->
 </div>
 
 <h4 id="return_value36">Return value</h4>
@@ -2703,7 +2706,7 @@ the <code>*nbrParams</code> and <code>*nbrPoints</code> hold the actual values f
 		<td class="col0 leftalign"> <code>TwTimeout</code>            </td><td class="col1"> calibration information was not transferred within <code><abbr title="TOFWERK">TW</abbr>_TIMEOUT</code> ms </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT96 TABLE [37378-38140] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table57&quot;,&quot;secid&quot;:96,&quot;range&quot;:&quot;37378-38140&quot;} --><hr>
 
 <p>
 <br>
@@ -2711,7 +2714,7 @@ the <code>*nbrParams</code> and <code>*nbrPoints</code> hold the actual values f
 </p>
 
 </div>
-<!-- EDIT94 SECTION "TwGetMassCalibEx" [35558-38150] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwGetMassCalibEx&quot;,&quot;hid&quot;:&quot;twgetmasscalibex&quot;,&quot;codeblockOffset&quot;:36,&quot;secid&quot;:94,&quot;range&quot;:&quot;35558-38150&quot;} -->
 <h3 class="sectionedit97" id="twgetsumspectrumfromshmem">TwGetSumSpectrumFromShMem</h3>
 <div class="level3">
 
@@ -2750,7 +2753,7 @@ Returns the current sum spectrum (sum of all accumulated mass spectra) from shar
 		<td class="col0 centeralign">  <code>Normalize</code>  </td><td class="col1 centeralign">  <code>bool</code>  </td><td class="col2 leftalign"> flag indicating whether the sum is normalized to a per extraction value  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT98 TABLE [38512-38738] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table58&quot;,&quot;secid&quot;:98,&quot;range&quot;:&quot;38512-38738&quot;} -->
 </div>
 
 <h4 id="return_value37">Return value</h4>
@@ -2774,7 +2777,7 @@ Returns the current sum spectrum (sum of all accumulated mass spectra) from shar
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> if <code>Spectrum</code> is <code>NULL</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT99 TABLE [38761-39139] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table59&quot;,&quot;secid&quot;:99,&quot;range&quot;:&quot;38761-39139&quot;} --><hr>
 
 <p>
 <br>
@@ -2782,7 +2785,7 @@ Returns the current sum spectrum (sum of all accumulated mass spectra) from shar
 </p>
 
 </div>
-<!-- EDIT97 SECTION "TwGetSumSpectrumFromShMem" [38151-39149] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwGetSumSpectrumFromShMem&quot;,&quot;hid&quot;:&quot;twgetsumspectrumfromshmem&quot;,&quot;codeblockOffset&quot;:37,&quot;secid&quot;:97,&quot;range&quot;:&quot;38151-39149&quot;} -->
 <h3 class="sectionedit100" id="twgettofspectrumfromshmem">TwGetTofSpectrumFromShMem</h3>
 <div class="level3">
 
@@ -2833,7 +2836,7 @@ arguments (<code>SegmentIndex</code> = <code>SegmentEndIndex</code> = -1) to cop
 		<td class="col0 centeralign">  <code>Normalize</code>  </td><td class="col1 centeralign">  <code>bool</code>  </td><td class="col2 leftalign"> flag indicating whether the spectrum is normalized to a per extraction value (ignored and assumed false if used with <code>SegmentIndex</code> = <code>SegmentEndIndex</code> = -1)   </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT101 TABLE [39971-40641] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table60&quot;,&quot;secid&quot;:101,&quot;range&quot;:&quot;39971-40641&quot;} -->
 </div>
 
 <h4 id="return_value38">Return value</h4>
@@ -2860,7 +2863,7 @@ arguments (<code>SegmentIndex</code> = <code>SegmentEndIndex</code> = -1) to cop
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> if <code>Spectrum</code> is <code>NULL</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT102 TABLE [40664-41138] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table61&quot;,&quot;secid&quot;:102,&quot;range&quot;:&quot;40664-41138&quot;} --><hr>
 
 <p>
 <br>
@@ -2868,7 +2871,7 @@ arguments (<code>SegmentIndex</code> = <code>SegmentEndIndex</code> = -1) to cop
 </p>
 
 </div>
-<!-- EDIT100 SECTION "TwGetTofSpectrumFromShMem" [39150-41148] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwGetTofSpectrumFromShMem&quot;,&quot;hid&quot;:&quot;twgettofspectrumfromshmem&quot;,&quot;codeblockOffset&quot;:38,&quot;secid&quot;:100,&quot;range&quot;:&quot;39150-41148&quot;} -->
 <h3 class="sectionedit103" id="twgetspecxaxisfromshmem">TwGetSpecXaxisFromShMem</h3>
 <div class="level3">
 
@@ -2912,7 +2915,7 @@ Returns an array that contains values for different kinds of abscissa for mass s
 		<td class="col0 centeralign">  <code>maxMass</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2"> relevant only for <code>Type</code> 1 (mass/charge). All m/Q values &gt; <code>maxMass</code> are set to <code>maxMass</code>. Use 0.0 to get uncapped mass axis. </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT104 TABLE [41452-42052] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table62&quot;,&quot;secid&quot;:104,&quot;range&quot;:&quot;41452-42052&quot;} -->
 </div>
 
 <h4 id="return_value39">Return value</h4>
@@ -2936,7 +2939,7 @@ Returns an array that contains values for different kinds of abscissa for mass s
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> if <code>SpecAxis</code> is <code>NULL</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT105 TABLE [42075-42462] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table63&quot;,&quot;secid&quot;:105,&quot;range&quot;:&quot;42075-42462&quot;} --><hr>
 
 <p>
 <br>
@@ -2944,7 +2947,7 @@ Returns an array that contains values for different kinds of abscissa for mass s
 </p>
 
 </div>
-<!-- EDIT103 SECTION "TwGetSpecXaxisFromShMem" [41149-42472] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwGetSpecXaxisFromShMem&quot;,&quot;hid&quot;:&quot;twgetspecxaxisfromshmem&quot;,&quot;codeblockOffset&quot;:39,&quot;secid&quot;:103,&quot;range&quot;:&quot;41149-42472&quot;} -->
 <h3 class="sectionedit106" id="twgetstickspectrumfromshmem">TwGetStickSpectrumFromShMem</h3>
 <div class="level3">
 
@@ -2992,7 +2995,7 @@ Copies a single stick spectrum from shared memory.
 		<td class="col0 centeralign">  <code>BufIndex</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> buf index of data to fetch </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT107 TABLE [42902-43397] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table64&quot;,&quot;secid&quot;:107,&quot;range&quot;:&quot;42902-43397&quot;} -->
 </div>
 
 <h4 id="return_value40">Return value</h4>
@@ -3019,7 +3022,7 @@ Copies a single stick spectrum from shared memory.
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> if <code>Spectrum</code> is <code>NULL</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT108 TABLE [43420-43894] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table65&quot;,&quot;secid&quot;:108,&quot;range&quot;:&quot;43420-43894&quot;} --><hr>
 
 <p>
 <br>
@@ -3027,7 +3030,7 @@ Copies a single stick spectrum from shared memory.
 </p>
 
 </div>
-<!-- EDIT106 SECTION "TwGetStickSpectrumFromShMem" [42473-43904] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwGetStickSpectrumFromShMem&quot;,&quot;hid&quot;:&quot;twgetstickspectrumfromshmem&quot;,&quot;codeblockOffset&quot;:40,&quot;secid&quot;:106,&quot;range&quot;:&quot;42473-43904&quot;} -->
 <h3 class="sectionedit109" id="twgetsegmentprofilefromshmem">TwGetSegmentProfileFromShMem</h3>
 <div class="level3">
 
@@ -3069,7 +3072,7 @@ Copies the segment profile for a given peak and buf index from shared memory. Us
 		<td class="col0 centeralign">  <code>BufIndex</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> buf index of profile to fetch </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT110 TABLE [44361-44694] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table66&quot;,&quot;secid&quot;:110,&quot;range&quot;:&quot;44361-44694&quot;} -->
 </div>
 
 <h4 id="return_value41">Return value</h4>
@@ -3096,7 +3099,7 @@ Copies the segment profile for a given peak and buf index from shared memory. Us
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> if <code>SegmentProfile</code> is <code>NULL</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT111 TABLE [44717-45184] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table67&quot;,&quot;secid&quot;:111,&quot;range&quot;:&quot;44717-45184&quot;} --><hr>
 
 <p>
 <br>
@@ -3104,7 +3107,7 @@ Copies the segment profile for a given peak and buf index from shared memory. Us
 </p>
 
 </div>
-<!-- EDIT109 SECTION "TwGetSegmentProfileFromShMem" [43905-45194] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwGetSegmentProfileFromShMem&quot;,&quot;hid&quot;:&quot;twgetsegmentprofilefromshmem&quot;,&quot;codeblockOffset&quot;:41,&quot;secid&quot;:109,&quot;range&quot;:&quot;43905-45194&quot;} -->
 <h3 class="sectionedit112" id="twgetbuftimefromshmem">TwGetBufTimeFromShMem</h3>
 <div class="level3">
 
@@ -3145,7 +3148,7 @@ Copies the time stamp for a given buf and write to <code>*BufTime</code>.
 		<td class="col0 centeralign">  <code>WriteIndex</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> write index of timestamp to fetch </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT113 TABLE [45448-45662] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table68&quot;,&quot;secid&quot;:113,&quot;range&quot;:&quot;45448-45662&quot;} -->
 </div>
 
 <h4 id="return_value42">Return value</h4>
@@ -3172,7 +3175,7 @@ Copies the time stamp for a given buf and write to <code>*BufTime</code>.
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> if <code>BufTime</code> is <code>NULL</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT114 TABLE [45685-46145] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table69&quot;,&quot;secid&quot;:114,&quot;range&quot;:&quot;45685-46145&quot;} --><hr>
 
 <p>
 <br>
@@ -3180,7 +3183,7 @@ Copies the time stamp for a given buf and write to <code>*BufTime</code>.
 </p>
 
 </div>
-<!-- EDIT112 SECTION "TwGetBufTimeFromShMem" [45195-46155] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwGetBufTimeFromShMem&quot;,&quot;hid&quot;:&quot;twgetbuftimefromshmem&quot;,&quot;codeblockOffset&quot;:42,&quot;secid&quot;:112,&quot;range&quot;:&quot;45195-46155&quot;} -->
 <h2 class="sectionedit115" id="data_storage_functions">Data storage functions</h2>
 <div class="level2">
 
@@ -3197,7 +3200,7 @@ user transfer data <strong>to</strong> the TofDaq recorder application where it 
 </p>
 
 </div>
-<!-- EDIT115 SECTION "Data storage functions" [46156-46493] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Data storage functions&quot;,&quot;hid&quot;:&quot;data_storage_functions&quot;,&quot;codeblockOffset&quot;:43,&quot;secid&quot;:115,&quot;range&quot;:&quot;46156-46493&quot;} -->
 <h3 class="sectionedit116" id="twaddlogentry">TwAddLogEntry</h3>
 <div class="level3">
 
@@ -3235,7 +3238,7 @@ Adds an entry to the acquisition log. Set <code>LogEntryTime</code> to 0 for “
 		<td class="col0 centeralign">  <code>LogEntryTime</code>  </td><td class="col1 centeralign">  <code>unsigned __int64</code>  </td><td class="col2"> time associated with the log entry in 100-nanosecond intervals since January 1, 1601 UTC <a href="http://msdn.microsoft.com/en-us/library/ms724284%28VS.85%29.aspx" class="urlextern" title="http://msdn.microsoft.com/en-us/library/ms724284%28VS.85%29.aspx" rel="nofollow">Windows FILETIME</a> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT117 TABLE [46745-47121] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table70&quot;,&quot;secid&quot;:117,&quot;range&quot;:&quot;46745-47121&quot;} -->
 </div>
 
 <h4 id="return_value43">Return value</h4>
@@ -3259,7 +3262,7 @@ Adds an entry to the acquisition log. Set <code>LogEntryTime</code> to 0 for “
 		<td class="col0 leftalign"> <code>TwTimeout</code>             </td><td class="col1"> no confirmation of successful addition of log entry received within <code><abbr title="TOFWERK">TW</abbr>_TIMEOUT</code> ms </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT118 TABLE [47144-47562] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table71&quot;,&quot;secid&quot;:118,&quot;range&quot;:&quot;47144-47562&quot;} --><hr>
 
 <p>
 <br>
@@ -3267,7 +3270,7 @@ Adds an entry to the acquisition log. Set <code>LogEntryTime</code> to 0 for “
 </p>
 
 </div>
-<!-- EDIT116 SECTION "TwAddLogEntry" [46494-47572] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwAddLogEntry&quot;,&quot;hid&quot;:&quot;twaddlogentry&quot;,&quot;codeblockOffset&quot;:43,&quot;secid&quot;:116,&quot;range&quot;:&quot;46494-47572&quot;} -->
 <h3 class="sectionedit119" id="twaddattribute">TwAddAttribute</h3>
 <div class="level3">
 
@@ -3310,7 +3313,7 @@ Attaches an attribute (of type <code>int</code>, <code>double</code> or <code>ch
 		<td class="col0 centeralign">  <code>Value</code>  </td><td class="col1 centeralign">  <em>variable</em>  </td><td class="col2"> attribute value (max. 255 chars for strings) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT120 TABLE [48031-48319] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table72&quot;,&quot;secid&quot;:120,&quot;range&quot;:&quot;48031-48319&quot;} -->
 </div>
 
 <h4 id="return_value44">Return value</h4>
@@ -3334,7 +3337,7 @@ Attaches an attribute (of type <code>int</code>, <code>double</code> or <code>ch
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> untreated error </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT121 TABLE [48342-48701] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table73&quot;,&quot;secid&quot;:121,&quot;range&quot;:&quot;48342-48701&quot;} --><hr>
 
 <p>
 <br>
@@ -3342,7 +3345,7 @@ Attaches an attribute (of type <code>int</code>, <code>double</code> or <code>ch
 </p>
 
 </div>
-<!-- EDIT119 SECTION "TwAddAttribute" [47573-48711] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwAddAttribute&quot;,&quot;hid&quot;:&quot;twaddattribute&quot;,&quot;codeblockOffset&quot;:44,&quot;secid&quot;:119,&quot;range&quot;:&quot;47573-48711&quot;} -->
 <h3 class="sectionedit122" id="twadduserdata">TwAddUserData</h3>
 <div class="level3">
 
@@ -3389,7 +3392,7 @@ This function stores user supplied data asynchronously to the <abbr title="Time 
 		<td class="col0 centeralign">  <code>CompressionLevel</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> ZLIB compression level (0-9) for dataset creation. If the dataset at <code>Location</code> already exists this parameter has no effect. Introduced in v. 1.85.</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT123 TABLE [49111-49850] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table74&quot;,&quot;secid&quot;:123,&quot;range&quot;:&quot;49111-49850&quot;} -->
 </div>
 
 <h4 id="return_value45">Return value</h4>
@@ -3416,7 +3419,7 @@ This function stores user supplied data asynchronously to the <abbr title="Time 
 		<td class="col0 leftalign"> <code>TwOutOfBounds</code>             </td><td class="col1"> if the dataset at <code>Location</code> already exists but dataset dimensions don't match <code>NbrElements</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT124 TABLE [49873-50453] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table75&quot;,&quot;secid&quot;:124,&quot;range&quot;:&quot;49873-50453&quot;} --><hr>
 
 <p>
 <br>
@@ -3424,7 +3427,7 @@ This function stores user supplied data asynchronously to the <abbr title="Time 
 </p>
 
 </div>
-<!-- EDIT122 SECTION "TwAddUserData" [48712-50463] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwAddUserData&quot;,&quot;hid&quot;:&quot;twadduserdata&quot;,&quot;codeblockOffset&quot;:45,&quot;secid&quot;:122,&quot;range&quot;:&quot;48712-50463&quot;} -->
 <h3 class="sectionedit125" id="twadduserdatamultirow">TwAddUserDataMultiRow</h3>
 <div class="level3">
 
@@ -3474,7 +3477,7 @@ Same as <code>TwAddUserData</code>, but adds argument <code>NbrRows</code> to ad
 		<td class="col0 centeralign">  <code>CompressionLevel</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> ZLIB compression level (0-9) for dataset creation. If the dataset at <code>Location</code> already exists this parameter has no effect. </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT126 TABLE [50848-51700] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table76&quot;,&quot;secid&quot;:126,&quot;range&quot;:&quot;50848-51700&quot;} -->
 </div>
 
 <h4 id="return_value46">Return value</h4>
@@ -3501,7 +3504,7 @@ Same as <code>TwAddUserData</code>, but adds argument <code>NbrRows</code> to ad
 		<td class="col0 leftalign"> <code>TwOutOfBounds</code>             </td><td class="col1"> if the dataset at <code>Location</code> already exists but dataset dimensions don't match <code>NbrElements</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT127 TABLE [51723-52303] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table77&quot;,&quot;secid&quot;:127,&quot;range&quot;:&quot;51723-52303&quot;} --><hr>
 
 <p>
 <br>
@@ -3509,7 +3512,7 @@ Same as <code>TwAddUserData</code>, but adds argument <code>NbrRows</code> to ad
 </p>
 
 </div>
-<!-- EDIT125 SECTION "TwAddUserDataMultiRow" [50464-52315] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwAddUserDataMultiRow&quot;,&quot;hid&quot;:&quot;twadduserdatamultirow&quot;,&quot;codeblockOffset&quot;:46,&quot;secid&quot;:125,&quot;range&quot;:&quot;50464-52315&quot;} -->
 <h3 class="sectionedit128" id="twregisteruserdata">TwRegisterUserData</h3>
 <div class="level3">
 
@@ -3562,7 +3565,7 @@ probably want to call <code>TwUpdateUserData</code> immediately after successful
 increasing levels of compression (and CPU load to do so)), N/A for <code>TwRegisterUserDataNoStore</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT129 TABLE [53388-53983] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table78&quot;,&quot;secid&quot;:129,&quot;range&quot;:&quot;53388-53983&quot;} -->
 </div>
 
 <h4 id="return_value47">Return value</h4>
@@ -3586,7 +3589,7 @@ increasing levels of compression (and CPU load to do so)), N/A for <code>TwRegis
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> general error </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT130 TABLE [54006-54374] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table79&quot;,&quot;secid&quot;:130,&quot;range&quot;:&quot;54006-54374&quot;} --><hr>
 
 <p>
 <br>
@@ -3594,7 +3597,7 @@ increasing levels of compression (and CPU load to do so)), N/A for <code>TwRegis
 </p>
 
 </div>
-<!-- EDIT128 SECTION "TwRegisterUserData" [52316-54384] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwRegisterUserData&quot;,&quot;hid&quot;:&quot;twregisteruserdata&quot;,&quot;codeblockOffset&quot;:47,&quot;secid&quot;:128,&quot;range&quot;:&quot;52316-54384&quot;} -->
 <h3 class="sectionedit131" id="twunregisteruserdata">TwUnregisterUserData</h3>
 <div class="level3">
 
@@ -3629,7 +3632,7 @@ Unregisters a data source previously registered with <code>TwRegisterUserDataBuf
 		<td class="col0 centeralign">  <code>Location</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2"> location of group in HDF5 file identifying the user data </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT132 TABLE [54651-54778] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table80&quot;,&quot;secid&quot;:132,&quot;range&quot;:&quot;54651-54778&quot;} -->
 </div>
 
 <h4 id="return_value48">Return value</h4>
@@ -3653,7 +3656,7 @@ Unregisters a data source previously registered with <code>TwRegisterUserDataBuf
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> general error </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT133 TABLE [54801-55171] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table81&quot;,&quot;secid&quot;:133,&quot;range&quot;:&quot;54801-55171&quot;} --><hr>
 
 <p>
 <br>
@@ -3661,7 +3664,7 @@ Unregisters a data source previously registered with <code>TwRegisterUserDataBuf
 </p>
 
 </div>
-<!-- EDIT131 SECTION "TwUnregisterUserData" [54385-55181] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwUnregisterUserData&quot;,&quot;hid&quot;:&quot;twunregisteruserdata&quot;,&quot;codeblockOffset&quot;:48,&quot;secid&quot;:131,&quot;range&quot;:&quot;54385-55181&quot;} -->
 <h3 class="sectionedit134" id="twupdateuserdata">TwUpdateUserData</h3>
 <div class="level3">
 
@@ -3702,7 +3705,7 @@ Updates the values for a registered data source.
 		<td class="col0 centeralign">  <code>Data</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> double array of length <code>NbrElements</code> holding the new values </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT135 TABLE [55409-55696] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table82&quot;,&quot;secid&quot;:135,&quot;range&quot;:&quot;55409-55696&quot;} -->
 </div>
 
 <h4 id="return_value49">Return value</h4>
@@ -3723,7 +3726,7 @@ Updates the values for a registered data source.
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> general error </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT136 TABLE [55719-56003] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table83&quot;,&quot;secid&quot;:136,&quot;range&quot;:&quot;55719-56003&quot;} --><hr>
 
 <p>
 <br>
@@ -3731,7 +3734,7 @@ Updates the values for a registered data source.
 </p>
 
 </div>
-<!-- EDIT134 SECTION "TwUpdateUserData" [55182-56013] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwUpdateUserData&quot;,&quot;hid&quot;:&quot;twupdateuserdata&quot;,&quot;codeblockOffset&quot;:49,&quot;secid&quot;:134,&quot;range&quot;:&quot;55182-56013&quot;} -->
 <h3 class="sectionedit137" id="twreadreguserdata">TwReadRegUserData</h3>
 <div class="level3">
 
@@ -3775,7 +3778,7 @@ Gauge pressures, <abbr title="TOFMS Power Supply">TPS</abbr> voltages etc.
 		<td class="col0 centeralign">  <code>Data</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> double array of length <code>NbrElements</code> where the data source values are copied </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT138 TABLE [56434-56736] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table84&quot;,&quot;secid&quot;:138,&quot;range&quot;:&quot;56434-56736&quot;} -->
 </div>
 
 <h4 id="return_value50">Return value</h4>
@@ -3799,7 +3802,7 @@ Gauge pressures, <abbr title="TOFMS Power Supply">TPS</abbr> voltages etc.
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> general error </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT139 TABLE [56759-57140] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table85&quot;,&quot;secid&quot;:139,&quot;range&quot;:&quot;56759-57140&quot;} --><hr>
 
 <p>
 <br>
@@ -3807,7 +3810,7 @@ Gauge pressures, <abbr title="TOFMS Power Supply">TPS</abbr> voltages etc.
 </p>
 
 </div>
-<!-- EDIT137 SECTION "TwReadRegUserData" [56014-57150] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwReadRegUserData&quot;,&quot;hid&quot;:&quot;twreadreguserdata&quot;,&quot;codeblockOffset&quot;:50,&quot;secid&quot;:137,&quot;range&quot;:&quot;56014-57150&quot;} -->
 <h3 class="sectionedit140" id="twqueryreguserdatasize">TwQueryRegUserDataSize</h3>
 <div class="level3">
 
@@ -3848,7 +3851,7 @@ significantly faster. Introduced in 1.96.
 		<td class="col0 centeralign">  <code>NbrElements</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> <code>*NbrElements</code> holds the number elements on successful function return </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT141 TABLE [57659-57896] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table86&quot;,&quot;secid&quot;:141,&quot;range&quot;:&quot;57659-57896&quot;} -->
 </div>
 
 <h4 id="return_value51">Return value</h4>
@@ -3866,7 +3869,7 @@ significantly faster. Introduced in 1.96.
 		<td class="col0 leftalign"> <code>TwError</code>    </td><td class="col1"> <code>NbrElements</code> is NULL or invalid/nonexistent <code>Location</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT142 TABLE [57919-58178] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table87&quot;,&quot;secid&quot;:142,&quot;range&quot;:&quot;57919-58178&quot;} --><hr>
 
 <p>
 <br>
@@ -3874,7 +3877,7 @@ significantly faster. Introduced in 1.96.
 </p>
 
 </div>
-<!-- EDIT140 SECTION "TwQueryRegUserDataSize" [57151-58187] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwQueryRegUserDataSize&quot;,&quot;hid&quot;:&quot;twqueryreguserdatasize&quot;,&quot;codeblockOffset&quot;:51,&quot;secid&quot;:140,&quot;range&quot;:&quot;57151-58187&quot;} -->
 <h3 class="sectionedit143" id="twgetreguserdatasources">TwGetRegUserDataSources</h3>
 <div class="level3">
 
@@ -3920,7 +3923,7 @@ sources by setting <code>*arrayLength</code> to 0 and passing <code>NULL</code> 
 		<td class="col0 centeralign">  <code>type</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> int array of length <code>*arrayLength</code>. 1: data source values are written to disk for every write, 2: data source values are written to disk for every buf. </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT144 TABLE [58644-59258] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table88&quot;,&quot;secid&quot;:144,&quot;range&quot;:&quot;58644-59258&quot;} -->
 </div>
 
 <h4 id="return_value52">Return value</h4>
@@ -3947,7 +3950,7 @@ sources by setting <code>*arrayLength</code> to 0 and passing <code>NULL</code> 
 		<td class="col0 leftalign"> <code>TwValueAdjusted</code>             </td><td class="col1"> if <code>*arrayLength</code> is adjusted by the function. </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT145 TABLE [59282-59839] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table89&quot;,&quot;secid&quot;:145,&quot;range&quot;:&quot;59282-59839&quot;} --><hr>
 
 <p>
 <br>
@@ -3955,7 +3958,7 @@ sources by setting <code>*arrayLength</code> to 0 and passing <code>NULL</code> 
 </p>
 
 </div>
-<!-- EDIT143 SECTION "TwGetRegUserDataSources" [58188-59849] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwGetRegUserDataSources&quot;,&quot;hid&quot;:&quot;twgetreguserdatasources&quot;,&quot;codeblockOffset&quot;:52,&quot;secid&quot;:143,&quot;range&quot;:&quot;58188-59849&quot;} -->
 <h3 class="sectionedit146" id="twgetreguserdatadesc">TwGetRegUserDataDesc</h3>
 <div class="level3">
 
@@ -3996,7 +3999,7 @@ Reads the element descriptions of a registered data source. Can be used to query
 		<td class="col0 centeralign">  <code>elementDescription</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2"> char array of length <code>elementDescription*256</code>. </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT147 TABLE [60242-60523] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table90&quot;,&quot;secid&quot;:147,&quot;range&quot;:&quot;60242-60523&quot;} -->
 </div>
 
 <h4 id="return_value53">Return value</h4>
@@ -4026,7 +4029,7 @@ Reads the element descriptions of a registered data source. Can be used to query
 		<td class="col0 leftalign"> <code>TwValueAdjusted</code>             </td><td class="col1"> <code>*nbrElements</code> was adjusted by the function </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT148 TABLE [60546-61204] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table91&quot;,&quot;secid&quot;:148,&quot;range&quot;:&quot;60546-61204&quot;} --><hr>
 
 <p>
 <br>
@@ -4034,7 +4037,7 @@ Reads the element descriptions of a registered data source. Can be used to query
 </p>
 
 </div>
-<!-- EDIT146 SECTION "TwGetRegUserDataDesc" [59850-61215] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwGetRegUserDataDesc&quot;,&quot;hid&quot;:&quot;twgetreguserdatadesc&quot;,&quot;codeblockOffset&quot;:53,&quot;secid&quot;:146,&quot;range&quot;:&quot;59850-61215&quot;} -->
 <h3 class="sectionedit149" id="twsetreguserdatatarget">TwSetRegUserDataTarget</h3>
 <div class="level3">
 
@@ -4083,7 +4086,7 @@ these criteria: 1) last element of the data source <strong>must</strong> be labe
 		<td class="col0 centeralign">  <code>blockTime</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> time (in ms) to wait for the pending changes flag to be reset by the plugin </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT150 TABLE [62179-62534] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table92&quot;,&quot;secid&quot;:150,&quot;range&quot;:&quot;62179-62534&quot;} -->
 </div>
 
 <h4 id="return_value54">Return value</h4>
@@ -4110,7 +4113,7 @@ these criteria: 1) last element of the data source <strong>must</strong> be labe
 		<td class="col0 leftalign"> <code>TwTimeOut</code>             </td><td class="col1"> timeout (either waiting for pending changes flag to go to 0 or waiting for confirmation after setting the value) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT151 TABLE [62557-63286] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table93&quot;,&quot;secid&quot;:151,&quot;range&quot;:&quot;62557-63286&quot;} --><hr>
 
 <p>
 <br>
@@ -4118,15 +4121,15 @@ these criteria: 1) last element of the data source <strong>must</strong> be labe
 </p>
 
 </div>
-<!-- EDIT149 SECTION "TwSetRegUserDataTarget" [61216-63296] -->
-<h3 class="sectionedit152" id="twkeepfileopen">TwKeepFileOpen</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwSetRegUserDataTarget&quot;,&quot;hid&quot;:&quot;twsetreguserdatatarget&quot;,&quot;codeblockOffset&quot;:54,&quot;secid&quot;:149,&quot;range&quot;:&quot;61216-63296&quot;} -->
+<h3 class="sectionedit152" id="twgetreguserdatatargetrange">TwGetRegUserDataTargetRange</h3>
 <div class="level3">
 
 </div>
 <div class="level4">
 
 <p>
-</p><pre class="code c">TwRetVal TwKeepFileOpen<span class="br0">(</span>bool keepOpen<span class="br0">)</span><span class="sy0">;</span></pre>
+</p><pre class="code c">TOFWERK_DAQ_API TwRetVal TwGetRegUserDataTargetRange<span class="br0">(</span><span class="kw4">char</span><span class="sy0">*</span> Location<span class="sy0">,</span> <span class="kw4">int</span> elementIndex<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> minValue<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> maxValue<span class="br0">)</span><span class="sy0">;</span></pre>
 
 <p></p>
 
@@ -4136,7 +4139,9 @@ these criteria: 1) last element of the data source <strong>must</strong> be labe
 <div class="level4">
 
 <p>
-Allows the <abbr title="Atmospheric Pressure Interface / Application Programming Interface">API</abbr> user to keep the data file open at the end of an acquisition.
+This function checks that a valu can be set and extracts the minimum and
+ maximum supported value an element of a registered data source can be 
+set to.
 </p>
 
 </div>
@@ -4150,15 +4155,94 @@ Allows the <abbr title="Atmospheric Pressure Interface / Application Programming
 	</tr>
 	</thead>
 	<tbody><tr class="row1">
-		<td class="col0 centeralign">  <code>keepOpen</code>  </td><td class="col1 centeralign">  <code>bool</code>  </td><td class="col2"> Issue <code>true</code> (after <abbr title="Data Acquisition">DAQ</abbr> start) to signal to recorder to keep the data file open, when done adding data issue <code>false</code> to allow the recorder to close the file. </td>
+		<td class="col0 centeralign">  <code>location</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2"> Location (“name”) of registered data source. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>elementIndex</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> index of the data source element to set </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <code>minValue</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> minimum set value (by reference) </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <code>maxValue</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> maximum set value (by reference) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT153 TABLE [63500-63731] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table94&quot;,&quot;secid&quot;:153,&quot;range&quot;:&quot;63671-64003&quot;} -->
 </div>
 
 <h4 id="return_value55">Return value</h4>
 <div class="level4">
 <div class="table sectionedit154"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value                   </th><th class="col2 centeralign">  meaning                     </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="5"> <code>TwRetVal</code> </td><td class="col1 leftalign"> <code>TwDaqRecNotRunning</code>  </td><td class="col2"> no recording application was found </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <code>TwSuccess</code>           </td><td class="col1"> success, <code>minValue</code> and <code>maxValue</code> were set to the limits </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> failure to open the registered data source specified by <code>location</code> or <code>minValue</code> and/or <code>maxValue</code> is <code>NULL</code> </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <code>TwOutOfBounds</code>       </td><td class="col1 leftalign"> invalid <code>elementIndex</code>  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> <code>TwNoData</code>             </td><td class="col1"> the element specified by <code>elementIndex</code> does not support setting its value </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table95&quot;,&quot;secid&quot;:154,&quot;range&quot;:&quot;64026-64643&quot;} --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwGetRegUserDataTargetRange&quot;,&quot;hid&quot;:&quot;twgetreguserdatatargetrange&quot;,&quot;codeblockOffset&quot;:55,&quot;secid&quot;:152,&quot;range&quot;:&quot;63297-64653&quot;} -->
+<h3 class="sectionedit155" id="twkeepfileopen">TwKeepFileOpen</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TwRetVal TwKeepFileOpen<span class="br0">(</span>bool keepOpen<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose56">Purpose</h4>
+<div class="level4">
+
+<p>
+Allows the <abbr title="Atmospheric Pressure Interface / Application Programming Interface">API</abbr> user to keep the data file open at the end of an acquisition.
+</p>
+
+</div>
+
+<h4 id="parameters56">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit156"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>keepOpen</code>  </td><td class="col1 centeralign">  <code>bool</code>  </td><td class="col2"> Issue <code>true</code> (after <abbr title="Data Acquisition">DAQ</abbr> start) to signal to recorder to keep the data file open, when done adding data issue <code>false</code> to allow the recorder to close the file. </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table96&quot;,&quot;secid&quot;:156,&quot;range&quot;:&quot;64857-65088&quot;} -->
+</div>
+
+<h4 id="return_value56">Return value</h4>
+<div class="level4">
+<div class="table sectionedit157"><table class="inline">
 	<thead>
 	<tr class="row0">
 		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value                   </th><th class="col2 centeralign">  meaning                     </th>
@@ -4180,7 +4264,7 @@ Allows the <abbr title="Atmospheric Pressure Interface / Application Programming
 		<td class="col0 leftalign"> <code>TwFileNotFound</code>             </td><td class="col1"> acquisition without data file detected </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT154 TABLE [63754-64188] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table97&quot;,&quot;secid&quot;:157,&quot;range&quot;:&quot;65111-65545&quot;} --><hr>
 
 <p>
 <br>
@@ -4188,8 +4272,8 @@ Allows the <abbr title="Atmospheric Pressure Interface / Application Programming
 </p>
 
 </div>
-<!-- EDIT152 SECTION "TwKeepFileOpen" [63297-64200] -->
-<h2 class="sectionedit155" id="tps_remote_control_functions">TPS remote control functions</h2>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwKeepFileOpen&quot;,&quot;hid&quot;:&quot;twkeepfileopen&quot;,&quot;codeblockOffset&quot;:56,&quot;secid&quot;:155,&quot;range&quot;:&quot;64654-65557&quot;} -->
+<h2 class="sectionedit158" id="tps_remote_control_functions">TPS remote control functions</h2>
 <div class="level2">
 
 <p>
@@ -4197,8 +4281,8 @@ The <abbr title="TOFMS Power Supply">TPS</abbr> Controller software implements a
 </p>
 
 </div>
-<!-- EDIT155 SECTION "TPS remote control functions" [64201-64502] -->
-<h3 class="sectionedit156" id="twtpsconnect">TwTpsConnect</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TPS remote control functions&quot;,&quot;hid&quot;:&quot;tps_remote_control_functions&quot;,&quot;codeblockOffset&quot;:57,&quot;secid&quot;:158,&quot;range&quot;:&quot;65558-65859&quot;} -->
+<h3 class="sectionedit159" id="twtpsconnect">TwTpsConnect</h3>
 <div class="level3">
 
 </div>
@@ -4211,7 +4295,7 @@ The <abbr title="TOFMS Power Supply">TPS</abbr> Controller software implements a
 
 </div>
 
-<h4 id="purpose56">Purpose</h4>
+<h4 id="purpose57">Purpose</h4>
 <div class="level4">
 
 <p>
@@ -4220,77 +4304,13 @@ Connects to a remote control enabled TPSController software running on the same 
 
 </div>
 
-<h4 id="parameters56">Parameters</h4>
+<h4 id="parameters57">Parameters</h4>
 <div class="level4">
 
 <p>
 none
 </p>
 
-</div>
-
-<h4 id="return_value56">Return value</h4>
-<div class="level4">
-<div class="table sectionedit157"><table class="inline">
-	<thead>
-	<tr class="row0">
-		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value                   </th><th class="col2 centeralign">  meaning                     </th>
-	</tr>
-	</thead>
-	<tbody><tr class="row1">
-		<td class="col0" rowspan="2"> <code>TwRetVal</code> </td><td class="col1 leftalign"> <code>TwSuccess</code>           </td><td class="col2"> connected </td>
-	</tr>
-	<tr class="row2">
-		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> connect failed (<abbr title="TOFMS Power Supply">TPS</abbr> Controller not running or remote control not enabled)</td>
-	</tr>
-</tbody></table></div>
-<!-- EDIT157 TABLE [64743-64990] --><hr>
-
-<p>
-<br>
-
-</p>
-
-</div>
-<!-- EDIT156 SECTION "TwTpsConnect" [64503-65000] -->
-<h3 class="sectionedit158" id="twtpsconnect2">TwTpsConnect2</h3>
-<div class="level3">
-
-</div>
-<div class="level4">
-
-<p>
-</p><pre class="code c">TOFWERK_DAQ_API TwRetVal TwTpsConnect2<span class="br0">(</span><span class="kw4">char</span><span class="sy0">*</span> ip<span class="sy0">,</span> <span class="kw4">int</span> type<span class="br0">)</span><span class="sy0">;</span></pre>
-
-<p></p>
-
-</div>
-
-<h4 id="purpose57">Purpose</h4>
-<div class="level4">
-
-<p>
-Connects to a local or remote <abbr title="TOFMS Power Supply">TPS</abbr>. If <code>type</code> is 0 (1st generation <abbr title="TOFMS Power Supply">TPS</abbr>) <code>ip</code> is ignored and the function call is equivalent to <code>TwTpsConnect()</code>;
-</p>
-
-</div>
-
-<h4 id="parameters57">Parameters</h4>
-<div class="level4">
-<div class="table sectionedit159"><table class="inline">
-	<thead>
-	<tr class="row0">
-		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
-	</tr>
-	</thead>
-	<tbody><tr class="row1">
-		<td class="col0 centeralign">  <code>ip</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2"> TPS2 host name or IP </td>
-	</tr>
-	<tr class="row2">
-		<td class="col0 centeralign">  <code>type</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> <abbr title="TOFMS Power Supply">TPS</abbr> type (0: 1st generation <abbr title="TOFMS Power Supply">TPS</abbr>, 1: 2nd generation <abbr title="TOFMS Power Supply">TPS</abbr>) </td>
-	</tr>
-</tbody></table></div>
-<!-- EDIT159 TABLE [65296-65466] -->
 </div>
 
 <h4 id="return_value57">Return value</h4>
@@ -4308,7 +4328,7 @@ Connects to a local or remote <abbr title="TOFMS Power Supply">TPS</abbr>. If <c
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> connect failed (<abbr title="TOFMS Power Supply">TPS</abbr> Controller not running or remote control not enabled)</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT160 TABLE [65489-65736] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table98&quot;,&quot;secid&quot;:160,&quot;range&quot;:&quot;66100-66347&quot;} --><hr>
 
 <p>
 <br>
@@ -4316,8 +4336,72 @@ Connects to a local or remote <abbr title="TOFMS Power Supply">TPS</abbr>. If <c
 </p>
 
 </div>
-<!-- EDIT158 SECTION "TwTpsConnect2" [65001-65746] -->
-<h3 class="sectionedit161" id="twtpsdisconnect">TwTpsDisconnect</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwTpsConnect&quot;,&quot;hid&quot;:&quot;twtpsconnect&quot;,&quot;codeblockOffset&quot;:57,&quot;secid&quot;:159,&quot;range&quot;:&quot;65860-66357&quot;} -->
+<h3 class="sectionedit161" id="twtpsconnect2">TwTpsConnect2</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_DAQ_API TwRetVal TwTpsConnect2<span class="br0">(</span><span class="kw4">char</span><span class="sy0">*</span> ip<span class="sy0">,</span> <span class="kw4">int</span> type<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose58">Purpose</h4>
+<div class="level4">
+
+<p>
+Connects to a local or remote <abbr title="TOFMS Power Supply">TPS</abbr>. If <code>type</code> is 0 (1st generation <abbr title="TOFMS Power Supply">TPS</abbr>) <code>ip</code> is ignored and the function call is equivalent to <code>TwTpsConnect()</code>;
+</p>
+
+</div>
+
+<h4 id="parameters58">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit162"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>ip</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2"> TPS2 host name or IP </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>type</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> <abbr title="TOFMS Power Supply">TPS</abbr> type (0: 1st generation <abbr title="TOFMS Power Supply">TPS</abbr>, 1: 2nd generation <abbr title="TOFMS Power Supply">TPS</abbr>) </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table99&quot;,&quot;secid&quot;:162,&quot;range&quot;:&quot;66653-66823&quot;} -->
+</div>
+
+<h4 id="return_value58">Return value</h4>
+<div class="level4">
+<div class="table sectionedit163"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value                   </th><th class="col2 centeralign">  meaning                     </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="2"> <code>TwRetVal</code> </td><td class="col1 leftalign"> <code>TwSuccess</code>           </td><td class="col2"> connected </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> connect failed (<abbr title="TOFMS Power Supply">TPS</abbr> Controller not running or remote control not enabled)</td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table100&quot;,&quot;secid&quot;:163,&quot;range&quot;:&quot;66846-67093&quot;} --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwTpsConnect2&quot;,&quot;hid&quot;:&quot;twtpsconnect2&quot;,&quot;codeblockOffset&quot;:58,&quot;secid&quot;:161,&quot;range&quot;:&quot;66358-67103&quot;} -->
+<h3 class="sectionedit164" id="twtpsdisconnect">TwTpsDisconnect</h3>
 <div class="level3">
 
 </div>
@@ -4330,7 +4414,7 @@ Connects to a local or remote <abbr title="TOFMS Power Supply">TPS</abbr>. If <c
 
 </div>
 
-<h4 id="purpose58">Purpose</h4>
+<h4 id="purpose59">Purpose</h4>
 <div class="level4">
 
 <p>
@@ -4339,7 +4423,7 @@ Disconnects from a remote control enabled TPSController software.
 
 </div>
 
-<h4 id="parameters58">Parameters</h4>
+<h4 id="parameters59">Parameters</h4>
 <div class="level4">
 
 <p>
@@ -4348,9 +4432,9 @@ none
 
 </div>
 
-<h4 id="return_value58">Return value</h4>
+<h4 id="return_value59">Return value</h4>
 <div class="level4">
-<div class="table sectionedit162"><table class="inline">
+<div class="table sectionedit165"><table class="inline">
 	<thead>
 	<tr class="row0">
 		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value                   </th><th class="col2 centeralign">  meaning                     </th>
@@ -4363,7 +4447,7 @@ none
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> disconnect failed (<abbr title="TOFMS Power Supply">TPS</abbr> Controller not connected)</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT162 TABLE [65975-66200] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table101&quot;,&quot;secid&quot;:165,&quot;range&quot;:&quot;67332-67557&quot;} --><hr>
 
 <p>
 <br>
@@ -4371,8 +4455,8 @@ none
 </p>
 
 </div>
-<!-- EDIT161 SECTION "TwTpsDisconnect" [65747-66210] -->
-<h3 class="sectionedit163" id="twtpsgetmonitorvalue">TwTpsGetMonitorValue</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwTpsDisconnect&quot;,&quot;hid&quot;:&quot;twtpsdisconnect&quot;,&quot;codeblockOffset&quot;:59,&quot;secid&quot;:164,&quot;range&quot;:&quot;67104-67567&quot;} -->
+<h3 class="sectionedit166" id="twtpsgetmonitorvalue">TwTpsGetMonitorValue</h3>
 <div class="level3">
 
 </div>
@@ -4385,78 +4469,11 @@ none
 
 </div>
 
-<h4 id="purpose59">Purpose</h4>
-<div class="level4">
-
-<p>
-Retrieves the last reported monitor value for a given module.
-</p>
-
-</div>
-
-<h4 id="parameters59">Parameters</h4>
-<div class="level4">
-<div class="table sectionedit164"><table class="inline">
-	<thead>
-	<tr class="row0">
-		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
-	</tr>
-	</thead>
-	<tbody><tr class="row1">
-		<td class="col0 centeralign">  <code>moduleCode</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> module code </td>
-	</tr>
-	<tr class="row2">
-		<td class="col0 centeralign">  <code>value</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> monitor value is copied to <code>*value</code> </td>
-	</tr>
-</tbody></table></div>
-<!-- EDIT164 TABLE [66443-66597] -->
-</div>
-
-<h4 id="return_value59">Return value</h4>
-<div class="level4">
-<div class="table sectionedit165"><table class="inline">
-	<thead>
-	<tr class="row0">
-		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value                   </th><th class="col2 centeralign">  meaning                     </th>
-	</tr>
-	</thead>
-	<tbody><tr class="row1">
-		<td class="col0" rowspan="3"> <code>TwRetVal</code> </td><td class="col1 leftalign"> <code>TwSuccess</code>           </td><td class="col2"> success </td>
-	</tr>
-	<tr class="row2">
-		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> not connected</td>
-	</tr>
-	<tr class="row3">
-		<td class="col0 leftalign"> <code>TwOutOfBounds</code>             </td><td class="col1"> module does not exist </td>
-	</tr>
-</tbody></table></div>
-<!-- EDIT165 TABLE [66620-66878] --><hr>
-
-<p>
-<br>
-
-</p>
-
-</div>
-<!-- EDIT163 SECTION "TwTpsGetMonitorValue" [66211-66888] -->
-<h3 class="sectionedit166" id="twtpsgettargetvalue">TwTpsGetTargetValue</h3>
-<div class="level3">
-
-</div>
-<div class="level4">
-
-<p>
-</p><pre class="code c">TOFWERK_DAQ_API TwRetVal TwTpsGetTargetValue<span class="br0">(</span><span class="kw4">int</span> moduleCode<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> value<span class="br0">)</span><span class="sy0">;</span></pre>
-
-<p></p>
-
-</div>
-
 <h4 id="purpose60">Purpose</h4>
 <div class="level4">
 
 <p>
-Retrieves the last reported target value for a given module.
+Retrieves the last reported monitor value for a given module.
 </p>
 
 </div>
@@ -4473,10 +4490,10 @@ Retrieves the last reported target value for a given module.
 		<td class="col0 centeralign">  <code>moduleCode</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> module code </td>
 	</tr>
 	<tr class="row2">
-		<td class="col0 centeralign">  <code>value</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> target value is copied to <code>*value</code> </td>
+		<td class="col0 centeralign">  <code>value</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> monitor value is copied to <code>*value</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT167 TABLE [67118-67271] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table102&quot;,&quot;secid&quot;:167,&quot;range&quot;:&quot;67800-67954&quot;} -->
 </div>
 
 <h4 id="return_value60">Return value</h4>
@@ -4497,7 +4514,7 @@ Retrieves the last reported target value for a given module.
 		<td class="col0 leftalign"> <code>TwOutOfBounds</code>             </td><td class="col1"> module does not exist </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT168 TABLE [67294-67552] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table103&quot;,&quot;secid&quot;:168,&quot;range&quot;:&quot;67977-68235&quot;} --><hr>
 
 <p>
 <br>
@@ -4505,15 +4522,15 @@ Retrieves the last reported target value for a given module.
 </p>
 
 </div>
-<!-- EDIT166 SECTION "TwTpsGetTargetValue" [66889-67562] -->
-<h3 class="sectionedit169" id="twtpsgetlastsetvalue">TwTpsGetLastSetValue</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwTpsGetMonitorValue&quot;,&quot;hid&quot;:&quot;twtpsgetmonitorvalue&quot;,&quot;codeblockOffset&quot;:60,&quot;secid&quot;:166,&quot;range&quot;:&quot;67568-68245&quot;} -->
+<h3 class="sectionedit169" id="twtpsgettargetvalue">TwTpsGetTargetValue</h3>
 <div class="level3">
 
 </div>
 <div class="level4">
 
 <p>
-</p><pre class="code c">TOFWERK_DAQ_API TwRetVal TwTpsGetLastSetValue<span class="br0">(</span><span class="kw4">int</span> moduleCode<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> value<span class="br0">)</span><span class="sy0">;</span></pre>
+</p><pre class="code c">TOFWERK_DAQ_API TwRetVal TwTpsGetTargetValue<span class="br0">(</span><span class="kw4">int</span> moduleCode<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> value<span class="br0">)</span><span class="sy0">;</span></pre>
 
 <p></p>
 
@@ -4523,7 +4540,7 @@ Retrieves the last reported target value for a given module.
 <div class="level4">
 
 <p>
-Retrieves the last reported “last set” value for a given module.
+Retrieves the last reported target value for a given module.
 </p>
 
 </div>
@@ -4540,10 +4557,10 @@ Retrieves the last reported “last set” value for a given module.
 		<td class="col0 centeralign">  <code>moduleCode</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> module code </td>
 	</tr>
 	<tr class="row2">
-		<td class="col0 centeralign">  <code>value</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> last set value is copied to <code>*value</code> </td>
+		<td class="col0 centeralign">  <code>value</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> target value is copied to <code>*value</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT170 TABLE [67798-67953] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table104&quot;,&quot;secid&quot;:170,&quot;range&quot;:&quot;68475-68628&quot;} -->
 </div>
 
 <h4 id="return_value61">Return value</h4>
@@ -4564,7 +4581,7 @@ Retrieves the last reported “last set” value for a given module.
 		<td class="col0 leftalign"> <code>TwOutOfBounds</code>             </td><td class="col1"> module does not exist </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT171 TABLE [67976-68234] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table105&quot;,&quot;secid&quot;:171,&quot;range&quot;:&quot;68651-68909&quot;} --><hr>
 
 <p>
 <br>
@@ -4572,15 +4589,15 @@ Retrieves the last reported “last set” value for a given module.
 </p>
 
 </div>
-<!-- EDIT169 SECTION "TwTpsGetLastSetValue" [67563-68244] -->
-<h3 class="sectionedit172" id="twtpssettargetvalue">TwTpsSetTargetValue</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwTpsGetTargetValue&quot;,&quot;hid&quot;:&quot;twtpsgettargetvalue&quot;,&quot;codeblockOffset&quot;:61,&quot;secid&quot;:169,&quot;range&quot;:&quot;68246-68919&quot;} -->
+<h3 class="sectionedit172" id="twtpsgetlastsetvalue">TwTpsGetLastSetValue</h3>
 <div class="level3">
 
 </div>
 <div class="level4">
 
 <p>
-</p><pre class="code c">TOFWERK_DAQ_API TwRetVal TwTpsSetTargetValue<span class="br0">(</span><span class="kw4">int</span> moduleCode<span class="sy0">,</span> <span class="kw4">double</span> value<span class="br0">)</span><span class="sy0">;</span></pre>
+</p><pre class="code c">TOFWERK_DAQ_API TwRetVal TwTpsGetLastSetValue<span class="br0">(</span><span class="kw4">int</span> moduleCode<span class="sy0">,</span> <span class="kw4">double</span><span class="sy0">*</span> value<span class="br0">)</span><span class="sy0">;</span></pre>
 
 <p></p>
 
@@ -4590,7 +4607,7 @@ Retrieves the last reported “last set” value for a given module.
 <div class="level4">
 
 <p>
-Stes the target value for a given module.
+Retrieves the last reported “last set” value for a given module.
 </p>
 
 </div>
@@ -4607,10 +4624,10 @@ Stes the target value for a given module.
 		<td class="col0 centeralign">  <code>moduleCode</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> module code </td>
 	</tr>
 	<tr class="row2">
-		<td class="col0 centeralign">  <code>value</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2 leftalign"> value to set  </td>
+		<td class="col0 centeralign">  <code>value</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2"> last set value is copied to <code>*value</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT173 TABLE [68454-68583] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table106&quot;,&quot;secid&quot;:173,&quot;range&quot;:&quot;69155-69310&quot;} -->
 </div>
 
 <h4 id="return_value62">Return value</h4>
@@ -4631,7 +4648,7 @@ Stes the target value for a given module.
 		<td class="col0 leftalign"> <code>TwOutOfBounds</code>             </td><td class="col1"> module does not exist </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT174 TABLE [68606-68864] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table107&quot;,&quot;secid&quot;:174,&quot;range&quot;:&quot;69333-69591&quot;} --><hr>
 
 <p>
 <br>
@@ -4639,15 +4656,15 @@ Stes the target value for a given module.
 </p>
 
 </div>
-<!-- EDIT172 SECTION "TwTpsSetTargetValue" [68245-68874] -->
-<h3 class="sectionedit175" id="twtpsgetnbrmodules">TwTpsGetNbrModules</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwTpsGetLastSetValue&quot;,&quot;hid&quot;:&quot;twtpsgetlastsetvalue&quot;,&quot;codeblockOffset&quot;:62,&quot;secid&quot;:172,&quot;range&quot;:&quot;68920-69601&quot;} -->
+<h3 class="sectionedit175" id="twtpssettargetvalue">TwTpsSetTargetValue</h3>
 <div class="level3">
 
 </div>
 <div class="level4">
 
 <p>
-</p><pre class="code c">TOFWERK_DAQ_API TwRetVal TwTpsGetNbrModules<span class="br0">(</span><span class="kw4">int</span><span class="sy0">*</span> nbrModules<span class="br0">)</span><span class="sy0">;</span></pre>
+</p><pre class="code c">TOFWERK_DAQ_API TwRetVal TwTpsSetTargetValue<span class="br0">(</span><span class="kw4">int</span> moduleCode<span class="sy0">,</span> <span class="kw4">double</span> value<span class="br0">)</span><span class="sy0">;</span></pre>
 
 <p></p>
 
@@ -4657,7 +4674,7 @@ Stes the target value for a given module.
 <div class="level4">
 
 <p>
-Reports the number of controllable modules.
+Stes the target value for a given module.
 </p>
 
 </div>
@@ -4671,10 +4688,13 @@ Reports the number of controllable modules.
 	</tr>
 	</thead>
 	<tbody><tr class="row1">
-		<td class="col0 centeralign">  <code>nbrModules</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> number of modules is copied to <code>*nbrModules</code> </td>
+		<td class="col0 centeralign">  <code>moduleCode</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> module code </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>value</code>  </td><td class="col1 centeralign">  <code>double</code>  </td><td class="col2 leftalign"> value to set  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT176 TABLE [69071-69189] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table108&quot;,&quot;secid&quot;:176,&quot;range&quot;:&quot;69811-69940&quot;} -->
 </div>
 
 <h4 id="return_value63">Return value</h4>
@@ -4686,13 +4706,16 @@ Reports the number of controllable modules.
 	</tr>
 	</thead>
 	<tbody><tr class="row1">
-		<td class="col0" rowspan="2"> <code>TwRetVal</code> </td><td class="col1 leftalign"> <code>TwSuccess</code>           </td><td class="col2"> success </td>
+		<td class="col0" rowspan="3"> <code>TwRetVal</code> </td><td class="col1 leftalign"> <code>TwSuccess</code>           </td><td class="col2"> success </td>
 	</tr>
 	<tr class="row2">
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> not connected</td>
 	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <code>TwOutOfBounds</code>             </td><td class="col1"> module does not exist </td>
+	</tr>
 </tbody></table></div>
-<!-- EDIT177 TABLE [69212-69397] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table109&quot;,&quot;secid&quot;:177,&quot;range&quot;:&quot;69963-70221&quot;} --><hr>
 
 <p>
 <br>
@@ -4700,15 +4723,15 @@ Reports the number of controllable modules.
 </p>
 
 </div>
-<!-- EDIT175 SECTION "TwTpsGetNbrModules" [68875-69407] -->
-<h3 class="sectionedit178" id="twtpsgetmodulecodes">TwTpsGetModuleCodes</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwTpsSetTargetValue&quot;,&quot;hid&quot;:&quot;twtpssettargetvalue&quot;,&quot;codeblockOffset&quot;:63,&quot;secid&quot;:175,&quot;range&quot;:&quot;69602-70231&quot;} -->
+<h3 class="sectionedit178" id="twtpsgetnbrmodules">TwTpsGetNbrModules</h3>
 <div class="level3">
 
 </div>
 <div class="level4">
 
 <p>
-</p><pre class="code c">TOFWERK_DAQ_API TwRetVal TwTpsGetModuleCodes<span class="br0">(</span><span class="kw4">int</span><span class="sy0">*</span> moduleCodeBuffer<span class="sy0">,</span> <span class="kw4">int</span> bufferLength<span class="br0">)</span><span class="sy0">;</span></pre>
+</p><pre class="code c">TOFWERK_DAQ_API TwRetVal TwTpsGetNbrModules<span class="br0">(</span><span class="kw4">int</span><span class="sy0">*</span> nbrModules<span class="br0">)</span><span class="sy0">;</span></pre>
 
 <p></p>
 
@@ -4718,7 +4741,7 @@ Reports the number of controllable modules.
 <div class="level4">
 
 <p>
-Gets module codes of all controllable <abbr title="TOFMS Power Supply">TPS</abbr> modules.
+Reports the number of controllable modules.
 </p>
 
 </div>
@@ -4732,13 +4755,10 @@ Gets module codes of all controllable <abbr title="TOFMS Power Supply">TPS</abbr
 	</tr>
 	</thead>
 	<tbody><tr class="row1">
-		<td class="col0 centeralign">  <code>moduleCodeBuffer</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> array of ints of length <code>bufferLength</code> </td>
-	</tr>
-	<tr class="row2">
-		<td class="col0 centeralign">  <code>bufferLength</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> length of array <code>moduleCodeBuffer</code> </td>
+		<td class="col0 centeralign">  <code>nbrModules</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> number of modules is copied to <code>*nbrModules</code> </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT179 TABLE [69637-69829] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table110&quot;,&quot;secid&quot;:179,&quot;range&quot;:&quot;70428-70546&quot;} -->
 </div>
 
 <h4 id="return_value64">Return value</h4>
@@ -4756,7 +4776,7 @@ Gets module codes of all controllable <abbr title="TOFMS Power Supply">TPS</abbr
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> not connected</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT180 TABLE [69852-70037] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table111&quot;,&quot;secid&quot;:180,&quot;range&quot;:&quot;70569-70754&quot;} --><hr>
 
 <p>
 <br>
@@ -4764,15 +4784,15 @@ Gets module codes of all controllable <abbr title="TOFMS Power Supply">TPS</abbr
 </p>
 
 </div>
-<!-- EDIT178 SECTION "TwTpsGetModuleCodes" [69408-70047] -->
-<h3 class="sectionedit181" id="twtpsinitialize">TwTpsInitialize</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwTpsGetNbrModules&quot;,&quot;hid&quot;:&quot;twtpsgetnbrmodules&quot;,&quot;codeblockOffset&quot;:64,&quot;secid&quot;:178,&quot;range&quot;:&quot;70232-70764&quot;} -->
+<h3 class="sectionedit181" id="twtpsgetmodulecodes">TwTpsGetModuleCodes</h3>
 <div class="level3">
 
 </div>
 <div class="level4">
 
 <p>
-</p><pre class="code c">TOFWERK_DAQ_API TwRetVal TwTpsInitialize<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span><span class="sy0">;</span></pre>
+</p><pre class="code c">TOFWERK_DAQ_API TwRetVal TwTpsGetModuleCodes<span class="br0">(</span><span class="kw4">int</span><span class="sy0">*</span> moduleCodeBuffer<span class="sy0">,</span> <span class="kw4">int</span> bufferLength<span class="br0">)</span><span class="sy0">;</span></pre>
 
 <p></p>
 
@@ -4782,23 +4802,32 @@ Gets module codes of all controllable <abbr title="TOFMS Power Supply">TPS</abbr
 <div class="level4">
 
 <p>
-Initializes <abbr title="TOFMS Power Supply">TPS</abbr>.
+Gets module codes of all controllable <abbr title="TOFMS Power Supply">TPS</abbr> modules.
 </p>
 
 </div>
 
 <h4 id="parameters65">Parameters</h4>
 <div class="level4">
-
-<p>
-none
-</p>
-
+<div class="table sectionedit182"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>moduleCodeBuffer</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> array of ints of length <code>bufferLength</code> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  <code>bufferLength</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> length of array <code>moduleCodeBuffer</code> </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table112&quot;,&quot;secid&quot;:182,&quot;range&quot;:&quot;70994-71186&quot;} -->
 </div>
 
 <h4 id="return_value65">Return value</h4>
 <div class="level4">
-<div class="table sectionedit182"><table class="inline">
+<div class="table sectionedit183"><table class="inline">
 	<thead>
 	<tr class="row0">
 		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value                   </th><th class="col2 centeralign">  meaning                     </th>
@@ -4811,7 +4840,7 @@ none
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> not connected</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT182 TABLE [70227-70412] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table113&quot;,&quot;secid&quot;:183,&quot;range&quot;:&quot;71209-71394&quot;} --><hr>
 
 <p>
 <br>
@@ -4819,15 +4848,15 @@ none
 </p>
 
 </div>
-<!-- EDIT181 SECTION "TwTpsInitialize" [70048-70422] -->
-<h3 class="sectionedit183" id="twtpssetallvoltages">TwTpsSetAllVoltages</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwTpsGetModuleCodes&quot;,&quot;hid&quot;:&quot;twtpsgetmodulecodes&quot;,&quot;codeblockOffset&quot;:65,&quot;secid&quot;:181,&quot;range&quot;:&quot;70765-71404&quot;} -->
+<h3 class="sectionedit184" id="twtpsinitialize">TwTpsInitialize</h3>
 <div class="level3">
 
 </div>
 <div class="level4">
 
 <p>
-</p><pre class="code c">TOFWERK_DAQ_API TwRetVal TwTpsSetAllVoltages<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span><span class="sy0">;</span></pre>
+</p><pre class="code c">TOFWERK_DAQ_API TwRetVal TwTpsInitialize<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span><span class="sy0">;</span></pre>
 
 <p></p>
 
@@ -4837,7 +4866,7 @@ none
 <div class="level4">
 
 <p>
-Sets all voltages.
+Initializes <abbr title="TOFMS Power Supply">TPS</abbr>.
 </p>
 
 </div>
@@ -4853,7 +4882,7 @@ none
 
 <h4 id="return_value66">Return value</h4>
 <div class="level4">
-<div class="table sectionedit184"><table class="inline">
+<div class="table sectionedit185"><table class="inline">
 	<thead>
 	<tr class="row0">
 		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value                   </th><th class="col2 centeralign">  meaning                     </th>
@@ -4866,7 +4895,7 @@ none
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> not connected</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT184 TABLE [70612-70797] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table114&quot;,&quot;secid&quot;:185,&quot;range&quot;:&quot;71584-71769&quot;} --><hr>
 
 <p>
 <br>
@@ -4874,15 +4903,15 @@ none
 </p>
 
 </div>
-<!-- EDIT183 SECTION "TwTpsSetAllVoltages" [70423-70808] -->
-<h3 class="sectionedit185" id="twtpsshutdown">TwTpsShutdown</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwTpsInitialize&quot;,&quot;hid&quot;:&quot;twtpsinitialize&quot;,&quot;codeblockOffset&quot;:66,&quot;secid&quot;:184,&quot;range&quot;:&quot;71405-71779&quot;} -->
+<h3 class="sectionedit186" id="twtpssetallvoltages">TwTpsSetAllVoltages</h3>
 <div class="level3">
 
 </div>
 <div class="level4">
 
 <p>
-</p><pre class="code c">TOFWERK_DAQ_API TwRetVal TwTpsShutdown<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span><span class="sy0">;</span></pre>
+</p><pre class="code c">TOFWERK_DAQ_API TwRetVal TwTpsSetAllVoltages<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span><span class="sy0">;</span></pre>
 
 <p></p>
 
@@ -4892,7 +4921,7 @@ none
 <div class="level4">
 
 <p>
-Shuts down <abbr title="TOFMS Power Supply">TPS</abbr>.
+Sets all voltages.
 </p>
 
 </div>
@@ -4908,7 +4937,7 @@ none
 
 <h4 id="return_value67">Return value</h4>
 <div class="level4">
-<div class="table sectionedit186"><table class="inline">
+<div class="table sectionedit187"><table class="inline">
 	<thead>
 	<tr class="row0">
 		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value                   </th><th class="col2 centeralign">  meaning                     </th>
@@ -4921,7 +4950,7 @@ none
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> not connected</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT186 TABLE [70983-71168] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table115&quot;,&quot;secid&quot;:187,&quot;range&quot;:&quot;71969-72154&quot;} --><hr>
 
 <p>
 <br>
@@ -4929,8 +4958,63 @@ none
 </p>
 
 </div>
-<!-- EDIT185 SECTION "TwTpsShutdown" [70809-71178] -->
-<h3 class="sectionedit187" id="twtpsgetstatus">TwTpsGetStatus</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwTpsSetAllVoltages&quot;,&quot;hid&quot;:&quot;twtpssetallvoltages&quot;,&quot;codeblockOffset&quot;:67,&quot;secid&quot;:186,&quot;range&quot;:&quot;71780-72165&quot;} -->
+<h3 class="sectionedit188" id="twtpsshutdown">TwTpsShutdown</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_DAQ_API TwRetVal TwTpsShutdown<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose68">Purpose</h4>
+<div class="level4">
+
+<p>
+Shuts down <abbr title="TOFMS Power Supply">TPS</abbr>.
+</p>
+
+</div>
+
+<h4 id="parameters68">Parameters</h4>
+<div class="level4">
+
+<p>
+none
+</p>
+
+</div>
+
+<h4 id="return_value68">Return value</h4>
+<div class="level4">
+<div class="table sectionedit189"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value                   </th><th class="col2 centeralign">  meaning                     </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="2"> <code>TwRetVal</code> </td><td class="col1 leftalign"> <code>TwSuccess</code>           </td><td class="col2"> success </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> not connected</td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table116&quot;,&quot;secid&quot;:189,&quot;range&quot;:&quot;72340-72525&quot;} --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwTpsShutdown&quot;,&quot;hid&quot;:&quot;twtpsshutdown&quot;,&quot;codeblockOffset&quot;:68,&quot;secid&quot;:188,&quot;range&quot;:&quot;72166-72535&quot;} -->
+<h3 class="sectionedit190" id="twtpsgetstatus">TwTpsGetStatus</h3>
 <div class="level3">
 
 </div>
@@ -4943,7 +5027,7 @@ none
 
 </div>
 
-<h4 id="purpose68">Purpose</h4>
+<h4 id="purpose69">Purpose</h4>
 <div class="level4">
 
 <p>
@@ -4952,9 +5036,9 @@ Retrieves the status of the <abbr title="TOFMS Power Supply">TPS</abbr>.
 
 </div>
 
-<h4 id="parameters68">Parameters</h4>
+<h4 id="parameters69">Parameters</h4>
 <div class="level4">
-<div class="table sectionedit188"><table class="inline">
+<div class="table sectionedit191"><table class="inline">
 	<thead>
 	<tr class="row0">
 		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
@@ -4964,11 +5048,11 @@ Retrieves the status of the <abbr title="TOFMS Power Supply">TPS</abbr>.
 		<td class="col0 centeralign">  <code>status</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> pointer to int that will contain the status code of the <abbr title="TOFMS Power Supply">TPS</abbr>. </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT188 TABLE [71352-71480] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table117&quot;,&quot;secid&quot;:191,&quot;range&quot;:&quot;72709-72837&quot;} -->
 <p>
 The status int is a bitfield with the following meaning:
 </p>
-<div class="table sectionedit189"><table class="inline">
+<div class="table sectionedit192"><table class="inline">
 	<thead>
 	<tr class="row0">
 		<th class="col0">Bit(s) </th><th class="col1"> meaning </th>
@@ -4993,12 +5077,12 @@ The status int is a bitfield with the following meaning:
 		<td class="col0">5-6</td><td class="col1"> Current Ionmode (0=Inconsistent, 1=Undetermined, 2=Positive, 3=Negative) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT189 TABLE [71539-71743] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table118&quot;,&quot;secid&quot;:192,&quot;range&quot;:&quot;72896-73100&quot;} -->
 </div>
 
-<h4 id="return_value68">Return value</h4>
+<h4 id="return_value69">Return value</h4>
 <div class="level4">
-<div class="table sectionedit190"><table class="inline">
+<div class="table sectionedit193"><table class="inline">
 	<thead>
 	<tr class="row0">
 		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value                   </th><th class="col2 centeralign">  meaning                     </th>
@@ -5011,7 +5095,7 @@ The status int is a bitfield with the following meaning:
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> not connected</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT190 TABLE [71765-71950] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table119&quot;,&quot;secid&quot;:193,&quot;range&quot;:&quot;73122-73307&quot;} --><hr>
 
 <p>
 <br>
@@ -5019,8 +5103,8 @@ The status int is a bitfield with the following meaning:
 </p>
 
 </div>
-<!-- EDIT187 SECTION "TwTpsGetStatus" [71179-71961] -->
-<h3 class="sectionedit191" id="twtpsloadsetfile">TwTpsLoadSetFile</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwTpsGetStatus&quot;,&quot;hid&quot;:&quot;twtpsgetstatus&quot;,&quot;codeblockOffset&quot;:69,&quot;secid&quot;:190,&quot;range&quot;:&quot;72536-73318&quot;} -->
+<h3 class="sectionedit194" id="twtpsloadsetfile">TwTpsLoadSetFile</h3>
 <div class="level3">
 
 </div>
@@ -5033,7 +5117,7 @@ The status int is a bitfield with the following meaning:
 
 </div>
 
-<h4 id="purpose69">Purpose</h4>
+<h4 id="purpose70">Purpose</h4>
 <div class="level4">
 
 <p>
@@ -5042,9 +5126,9 @@ Loads a <abbr title="TOFMS Power Supply">TPS</abbr> Controller .set file from di
 
 </div>
 
-<h4 id="parameters69">Parameters</h4>
+<h4 id="parameters70">Parameters</h4>
 <div class="level4">
-<div class="table sectionedit192"><table class="inline">
+<div class="table sectionedit195"><table class="inline">
 	<thead>
 	<tr class="row0">
 		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
@@ -5054,12 +5138,12 @@ Loads a <abbr title="TOFMS Power Supply">TPS</abbr> Controller .set file from di
 		<td class="col0 centeralign">  <code>setFile</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2"> .set file to load and set </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT192 TABLE [72173-72268] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table120&quot;,&quot;secid&quot;:195,&quot;range&quot;:&quot;73530-73625&quot;} -->
 </div>
 
-<h4 id="return_value69">Return value</h4>
+<h4 id="return_value70">Return value</h4>
 <div class="level4">
-<div class="table sectionedit193"><table class="inline">
+<div class="table sectionedit196"><table class="inline">
 	<thead>
 	<tr class="row0">
 		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value                   </th><th class="col2 centeralign">  meaning                     </th>
@@ -5078,7 +5162,7 @@ Loads a <abbr title="TOFMS Power Supply">TPS</abbr> Controller .set file from di
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> not connected, <code>setFile</code>==NULL, no permission to access file</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT193 TABLE [72291-72708] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table121&quot;,&quot;secid&quot;:196,&quot;range&quot;:&quot;73648-74065&quot;} --><hr>
 
 <p>
 <br>
@@ -5086,8 +5170,8 @@ Loads a <abbr title="TOFMS Power Supply">TPS</abbr> Controller .set file from di
 </p>
 
 </div>
-<!-- EDIT191 SECTION "TwTpsLoadSetFile" [71962-72718] -->
-<h3 class="sectionedit194" id="twtpssavesetfile">TwTpsSaveSetFile</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwTpsLoadSetFile&quot;,&quot;hid&quot;:&quot;twtpsloadsetfile&quot;,&quot;codeblockOffset&quot;:70,&quot;secid&quot;:194,&quot;range&quot;:&quot;73319-74075&quot;} -->
+<h3 class="sectionedit197" id="twtpssavesetfile">TwTpsSaveSetFile</h3>
 <div class="level3">
 
 </div>
@@ -5100,72 +5184,11 @@ Loads a <abbr title="TOFMS Power Supply">TPS</abbr> Controller .set file from di
 
 </div>
 
-<h4 id="purpose70">Purpose</h4>
-<div class="level4">
-
-<p>
-Stores the current <abbr title="TOFMS Power Supply">TPS</abbr> settings to a .set file.
-</p>
-
-</div>
-
-<h4 id="parameters70">Parameters</h4>
-<div class="level4">
-<div class="table sectionedit195"><table class="inline">
-	<thead>
-	<tr class="row0">
-		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
-	</tr>
-	</thead>
-	<tbody><tr class="row1">
-		<td class="col0 centeralign">  <code>setFile</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2"> .set file to save </td>
-	</tr>
-</tbody></table></div>
-<!-- EDIT195 TABLE [72914-73001] -->
-</div>
-
-<h4 id="return_value70">Return value</h4>
-<div class="level4">
-<div class="table sectionedit196"><table class="inline">
-	<thead>
-	<tr class="row0">
-		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value                   </th><th class="col2 centeralign">  meaning                     </th>
-	</tr>
-	</thead>
-	<tbody><tr class="row1">
-		<td class="col0" rowspan="2"> <code>TwRetVal</code> </td><td class="col1 leftalign"> <code>TwSuccess</code>           </td><td class="col2"> success </td>
-	</tr>
-	<tr class="row2">
-		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> not connected, <code>setFile</code>==NULL, no permission to write file</td>
-	</tr>
-</tbody></table></div>
-<!-- EDIT196 TABLE [73024-73257] --><hr>
-
-<p>
-<br>
-
-</p>
-
-</div>
-<!-- EDIT194 SECTION "TwTpsSaveSetFile" [72719-73267] -->
-<h3 class="sectionedit197" id="twtpsgetactivefilament">TwTpsGetActiveFilament</h3>
-<div class="level3">
-
-</div>
-<div class="level4">
-
-<p>
-</p><pre class="code c">TOFWERK_DAQ_API TwRetVal TwTpsGetActiveFilament<span class="br0">(</span><span class="kw4">int</span><span class="sy0">*</span> activeFilament<span class="br0">)</span><span class="sy0">;</span></pre>
-
-<p></p>
-
-</div>
-
 <h4 id="purpose71">Purpose</h4>
 <div class="level4">
 
 <p>
-Retrieves the the currently active filament.
+Stores the current <abbr title="TOFMS Power Supply">TPS</abbr> settings to a .set file.
 </p>
 
 </div>
@@ -5179,10 +5202,10 @@ Retrieves the the currently active filament.
 	</tr>
 	</thead>
 	<tbody><tr class="row1">
-		<td class="col0 centeralign">  <code>activeFilament</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> pointer to int that will contain the currently active filament. </td>
+		<td class="col0 centeralign">  <code>setFile</code>  </td><td class="col1 centeralign">  <code>char*</code>  </td><td class="col2"> .set file to save </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT198 TABLE [73477-73616] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table122&quot;,&quot;secid&quot;:198,&quot;range&quot;:&quot;74271-74358&quot;} -->
 </div>
 
 <h4 id="return_value71">Return value</h4>
@@ -5197,10 +5220,10 @@ Retrieves the the currently active filament.
 		<td class="col0" rowspan="2"> <code>TwRetVal</code> </td><td class="col1 leftalign"> <code>TwSuccess</code>           </td><td class="col2"> success </td>
 	</tr>
 	<tr class="row2">
-		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> not connected</td>
+		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> not connected, <code>setFile</code>==NULL, no permission to write file</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT199 TABLE [73639-73824] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table123&quot;,&quot;secid&quot;:199,&quot;range&quot;:&quot;74381-74614&quot;} --><hr>
 
 <p>
 <br>
@@ -5208,15 +5231,15 @@ Retrieves the the currently active filament.
 </p>
 
 </div>
-<!-- EDIT197 SECTION "TwTpsGetActiveFilament" [73268-73833] -->
-<h3 class="sectionedit200" id="twtpssetactivefilament">TwTpsSetActiveFilament</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwTpsSaveSetFile&quot;,&quot;hid&quot;:&quot;twtpssavesetfile&quot;,&quot;codeblockOffset&quot;:71,&quot;secid&quot;:197,&quot;range&quot;:&quot;74076-74624&quot;} -->
+<h3 class="sectionedit200" id="twtpsgetactivefilament">TwTpsGetActiveFilament</h3>
 <div class="level3">
 
 </div>
 <div class="level4">
 
 <p>
-</p><pre class="code c">TOFWERK_DAQ_API TwRetVal TwTpsSetActiveFilament<span class="br0">(</span><span class="kw4">int</span> activeFilament<span class="br0">)</span><span class="sy0">;</span></pre>
+</p><pre class="code c">TOFWERK_DAQ_API TwRetVal TwTpsGetActiveFilament<span class="br0">(</span><span class="kw4">int</span><span class="sy0">*</span> activeFilament<span class="br0">)</span><span class="sy0">;</span></pre>
 
 <p></p>
 
@@ -5226,7 +5249,7 @@ Retrieves the the currently active filament.
 <div class="level4">
 
 <p>
-Sets the active filament.
+Retrieves the the currently active filament.
 </p>
 
 </div>
@@ -5240,15 +5263,76 @@ Sets the active filament.
 	</tr>
 	</thead>
 	<tbody><tr class="row1">
-		<td class="col0 centeralign">  <code>activeFilament</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> filament to set active </td>
+		<td class="col0 centeralign">  <code>activeFilament</code>  </td><td class="col1 centeralign">  <code>int*</code>  </td><td class="col2"> pointer to int that will contain the currently active filament. </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT201 TABLE [74023-74120] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table124&quot;,&quot;secid&quot;:201,&quot;range&quot;:&quot;74834-74973&quot;} -->
 </div>
 
 <h4 id="return_value72">Return value</h4>
 <div class="level4">
 <div class="table sectionedit202"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value                   </th><th class="col2 centeralign">  meaning                     </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0" rowspan="2"> <code>TwRetVal</code> </td><td class="col1 leftalign"> <code>TwSuccess</code>           </td><td class="col2"> success </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> not connected</td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table125&quot;,&quot;secid&quot;:202,&quot;range&quot;:&quot;74996-75181&quot;} --><hr>
+
+<p>
+<br>
+
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwTpsGetActiveFilament&quot;,&quot;hid&quot;:&quot;twtpsgetactivefilament&quot;,&quot;codeblockOffset&quot;:72,&quot;secid&quot;:200,&quot;range&quot;:&quot;74625-75190&quot;} -->
+<h3 class="sectionedit203" id="twtpssetactivefilament">TwTpsSetActiveFilament</h3>
+<div class="level3">
+
+</div>
+<div class="level4">
+
+<p>
+</p><pre class="code c">TOFWERK_DAQ_API TwRetVal TwTpsSetActiveFilament<span class="br0">(</span><span class="kw4">int</span> activeFilament<span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p></p>
+
+</div>
+
+<h4 id="purpose73">Purpose</h4>
+<div class="level4">
+
+<p>
+Sets the active filament.
+</p>
+
+</div>
+
+<h4 id="parameters73">Parameters</h4>
+<div class="level4">
+<div class="table sectionedit204"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
+	</tr>
+	</thead>
+	<tbody><tr class="row1">
+		<td class="col0 centeralign">  <code>activeFilament</code>  </td><td class="col1 centeralign">  <code>int</code>  </td><td class="col2"> filament to set active </td>
+	</tr>
+</tbody></table></div>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table126&quot;,&quot;secid&quot;:204,&quot;range&quot;:&quot;75380-75477&quot;} -->
+</div>
+
+<h4 id="return_value73">Return value</h4>
+<div class="level4">
+<div class="table sectionedit205"><table class="inline">
 	<thead>
 	<tr class="row0">
 		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value                   </th><th class="col2 centeralign">  meaning                     </th>
@@ -5264,7 +5348,7 @@ Sets the active filament.
 		<td class="col0 leftalign"> <code>TwError</code>             </td><td class="col1"> not connected</td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT202 TABLE [74144-74416] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table127&quot;,&quot;secid&quot;:205,&quot;range&quot;:&quot;75501-75773&quot;} --><hr>
 
 <p>
 <br>
@@ -5272,8 +5356,8 @@ Sets the active filament.
 </p>
 
 </div>
-<!-- EDIT200 SECTION "TwTpsSetActiveFilament" [73834-74426] -->
-<h3 class="sectionedit203" id="twtpsgetmodulelimits">TwTpsGetModuleLimits</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwTpsSetActiveFilament&quot;,&quot;hid&quot;:&quot;twtpssetactivefilament&quot;,&quot;codeblockOffset&quot;:73,&quot;secid&quot;:203,&quot;range&quot;:&quot;75191-75783&quot;} -->
+<h3 class="sectionedit206" id="twtpsgetmodulelimits">TwTpsGetModuleLimits</h3>
 <div class="level3">
 
 </div>
@@ -5286,7 +5370,7 @@ Sets the active filament.
 
 </div>
 
-<h4 id="purpose73">Purpose</h4>
+<h4 id="purpose74">Purpose</h4>
 <div class="level4">
 
 <p>
@@ -5295,9 +5379,9 @@ Queries the (ion mode dependent) limits for a given <abbr title="TOFMS Power Sup
 
 </div>
 
-<h4 id="parameters73">Parameters</h4>
+<h4 id="parameters74">Parameters</h4>
 <div class="level4">
-<div class="table sectionedit204"><table class="inline">
+<div class="table sectionedit207"><table class="inline">
 	<thead>
 	<tr class="row0">
 		<th class="col0 centeralign">  name  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  description  </th>
@@ -5313,12 +5397,12 @@ Queries the (ion mode dependent) limits for a given <abbr title="TOFMS Power Sup
 		<td class="col0 centeralign">  <code>maxLimit</code>  </td><td class="col1 centeralign">  <code>double*</code>  </td><td class="col2 leftalign"> minimum limit value (by reference)  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT204 TABLE [74799-75027] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table128&quot;,&quot;secid&quot;:207,&quot;range&quot;:&quot;76156-76384&quot;} -->
 </div>
 
-<h4 id="return_value73">Return value</h4>
+<h4 id="return_value74">Return value</h4>
 <div class="level4">
-<div class="table sectionedit205"><table class="inline">
+<div class="table sectionedit208"><table class="inline">
 	<thead>
 	<tr class="row0">
 		<th class="col0 centeralign">  type        </th><th class="col1 centeralign">  value                   </th><th class="col2 centeralign">  meaning                     </th>
@@ -5334,7 +5418,7 @@ Queries the (ion mode dependent) limits for a given <abbr title="TOFMS Power Sup
 		<td class="col0 leftalign"> <code>TwOutOfBounds</code>             </td><td class="col1"> module does not exist </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT205 TABLE [75050-75308] --><hr>
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table129&quot;,&quot;secid&quot;:208,&quot;range&quot;:&quot;76407-76665&quot;} --><hr>
 
 <p>
 <br>
@@ -5342,8 +5426,8 @@ Queries the (ion mode dependent) limits for a given <abbr title="TOFMS Power Sup
 </p>
 
 </div>
-<!-- EDIT203 SECTION "TwTpsGetModuleLimits" [74427-75318] -->
-<h2 class="sectionedit206" id="parameter_list">Parameter list</h2>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwTpsGetModuleLimits&quot;,&quot;hid&quot;:&quot;twtpsgetmodulelimits&quot;,&quot;codeblockOffset&quot;:74,&quot;secid&quot;:206,&quot;range&quot;:&quot;75784-76675&quot;} -->
+<h2 class="sectionedit209" id="parameter_list">Parameter list</h2>
 <div class="level2">
 
 <p>
@@ -5352,7 +5436,7 @@ This table lists all parameter names together with their data type and a
 TwGetDaqParameter..() and TwSetDaqParameter..() functions. Most of these
  parameters have a corresponding configuration file entry.
 </p>
-<div class="table sectionedit207"><table class="inline">
+<div class="table sectionedit210"><table class="inline">
 	<thead>
 	<tr class="row0">
 		<th class="col0 centeralign">  parameter name      </th><th class="col1 centeralign">  type    </th><th class="col2 centeralign">  description  </th>
@@ -5912,15 +5996,15 @@ for automatic generation of resolution dependent peak borders,
 		<td class="col0 leftalign"> <code>WaitForADC</code>                  </td><td class="col1 leftalign"> <code>bool</code>   </td><td class="col2"> configure timer card to suppress <abbr title="Data Acquisition">DAQ</abbr> trigger generation during data download (cable connection between TiGer and AP240 needed) </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT207 TABLE [75609-93554] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table130&quot;,&quot;secid&quot;:210,&quot;range&quot;:&quot;76966-94911&quot;} -->
 <p>
 <br>
 
 </p>
 
 </div>
-<!-- EDIT206 SECTION "Parameter list" [75319-93559] -->
-<h2 class="sectionedit208" id="data_structures">Data structures</h2>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Parameter list&quot;,&quot;hid&quot;:&quot;parameter_list&quot;,&quot;codeblockOffset&quot;:75,&quot;secid&quot;:209,&quot;range&quot;:&quot;76676-94916&quot;} -->
+<h2 class="sectionedit211" id="data_structures">Data structures</h2>
 <div class="level2">
 
 <p>
@@ -5938,14 +6022,14 @@ insert dummy variables to account for different alignment).
 </p>
 
 </div>
-<!-- EDIT208 SECTION "Data structures" [93560-93992] -->
-<h3 class="sectionedit209" id="twretval">TwRetVal</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Data structures&quot;,&quot;hid&quot;:&quot;data_structures&quot;,&quot;codeblockOffset&quot;:75,&quot;secid&quot;:211,&quot;range&quot;:&quot;94917-95349&quot;} -->
+<h3 class="sectionedit212" id="twretval">TwRetVal</h3>
 <div class="level3">
 
 <p>
 most TofDaq <abbr title="Atmospheric Pressure Interface / Application Programming Interface">API</abbr> functions return a value of type <code>TwRetVal</code> which is simply a C/C++ enumeration. In programming languages that do not have an equivalent to <code>enum</code> simply use the integer in the table:
 </p>
-<div class="table sectionedit210"><table class="inline">
+<div class="table sectionedit213"><table class="inline">
 	<thead>
 	<tr class="row0">
 		<th class="col0 centeralign">  TwRetVal  </th><th class="col1 centeralign">  integer  </th><th class="col2 centeralign">  meaning  </th>
@@ -5991,15 +6075,15 @@ most TofDaq <abbr title="Atmospheric Pressure Interface / Application Programmin
 		<td class="col0"> <code>TwAborted</code> </td><td class="col1 centeralign">  12  </td><td class="col2"> operation aborted </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT210 TABLE [94216-95336] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table131&quot;,&quot;secid&quot;:213,&quot;range&quot;:&quot;95573-96693&quot;} -->
 <p>
 <br>
 
 </p>
 
 </div>
-<!-- EDIT209 SECTION "TwRetVal" [93993-95341] -->
-<h3 class="sectionedit211" id="tsharedmemorypointer">TSharedMemoryPointer</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TwRetVal&quot;,&quot;hid&quot;:&quot;twretval&quot;,&quot;codeblockOffset&quot;:75,&quot;secid&quot;:212,&quot;range&quot;:&quot;95350-96698&quot;} -->
+<h3 class="sectionedit214" id="tsharedmemorypointer">TSharedMemoryPointer</h3>
 <div class="level3">
 
 <p>
@@ -6007,7 +6091,7 @@ The TSharedMemoryPointer structure contains pointers to the data buffers
  of the TofDaq recorder. Depending on the ProcessingLevel parameter some
  of these pointer may be <code>NULL</code>. In order to keep these pointers valid while working on them, use <code>KeepSharedMemoryMapped</code> option of corresponding functions. Direct use of these buffer pointers is discouraged, whenever possible use one of the <code>TwGet…FromShMem</code> functions. In version 1.88 a second pointer for <code>SumSpectrum</code>, <code>TofData</code> and <code>PeakData</code> was added to support bipolar TOFs (<code>SecondTof</code> option).
 </p>
-<div class="table sectionedit212"><table class="inline">
+<div class="table sectionedit215"><table class="inline">
 	<thead>
 	<tr class="row0">
 		<th class="col0 centeralign">  member  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  size (bytes)  </th><th class="col3 centeralign">  offset (bytes)  </th><th class="col4 centeralign">  description  </th>
@@ -6066,21 +6150,21 @@ NbrWaveforms*NbrBufs*NbrMemories. <code>NULL</code> for ProcessingLevel &lt; 4 o
 		<td class="col0 centeralign" colspan="2">  <em>Total size</em>            </td><td class="col2 centeralign">  <em>52</em>  </td><td class="col3 leftalign" colspan="2">   </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT212 TABLE [95939-98361] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table132&quot;,&quot;secid&quot;:215,&quot;range&quot;:&quot;97296-99718&quot;} -->
 <p>
 <br>
 
 </p>
 
 </div>
-<!-- EDIT211 SECTION "TSharedMemoryPointer" [95342-98365] -->
-<h3 class="sectionedit213" id="tpeakpar">TPeakPar</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TSharedMemoryPointer&quot;,&quot;hid&quot;:&quot;tsharedmemorypointer&quot;,&quot;codeblockOffset&quot;:75,&quot;secid&quot;:214,&quot;range&quot;:&quot;96699-99722&quot;} -->
+<h3 class="sectionedit216" id="tpeakpar">TPeakPar</h3>
 <div class="level3">
 
 <p>
 This structure is used by the <code>TwGetPeakParameters</code> function.
 </p>
-<div class="table sectionedit214"><table class="inline">
+<div class="table sectionedit217"><table class="inline">
 	<thead>
 	<tr class="row0">
 		<th class="col0 centeralign">  member  </th><th class="col1 centeralign">  type  </th><th class="col2 centeralign">  size (bytes)  </th><th class="col3 centeralign">  offset (bytes)  </th><th class="col4 centeralign">  description  </th>
@@ -6102,15 +6186,15 @@ This structure is used by the <code>TwGetPeakParameters</code> function.
 		<td class="col0 centeralign" colspan="2">  <em>Total size</em>            </td><td class="col2 centeralign">  <em>76</em>  </td><td class="col3 leftalign" colspan="2">   </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT214 TABLE [98449-98953] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table133&quot;,&quot;secid&quot;:217,&quot;range&quot;:&quot;99806-100310&quot;} -->
 <p>
 <br>
 
 </p>
 
 </div>
-<!-- EDIT213 SECTION "TPeakPar" [98366-98957] -->
-<h3 class="sectionedit215" id="tsharedmemorydesc">TSharedMemoryDesc</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TPeakPar&quot;,&quot;hid&quot;:&quot;tpeakpar&quot;,&quot;codeblockOffset&quot;:75,&quot;secid&quot;:216,&quot;range&quot;:&quot;99723-100314&quot;} -->
+<h3 class="sectionedit218" id="tsharedmemorydesc">TSharedMemoryDesc</h3>
 <div class="level3">
 
 <p>
@@ -6118,7 +6202,7 @@ This structure contains all information needed to access the data in the
  shared memory buffers (dimensions, acquisition progress, etc.). Used by
  <code>TwGetDescriptor</code> and  <code>TwWaitForNewData</code> functions.
 </p>
-<div class="table sectionedit216"><table class="inline">
+<div class="table sectionedit219"><table class="inline">
 	<thead>
 	<tr class="row0">
 		<th class="col0 centeralign">  member                          </th><th class="col1 centeralign">  type                </th><th class="col2 centeralign">  size (bytes)  </th><th class="col3 centeralign">  offset (bytes)           </th><th class="col4 centeralign">
@@ -6491,15 +6575,15 @@ allocated/filled
                          </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT216 TABLE [99188-122549] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table134&quot;,&quot;secid&quot;:219,&quot;range&quot;:&quot;100545-123906&quot;} -->
 <p>
 <br>
 
 </p>
 
 </div>
-<!-- EDIT215 SECTION "TSharedMemoryDesc" [98958-122554] -->
-<h2 class="sectionedit217" id="deprecated_functions">Deprecated functions</h2>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;TSharedMemoryDesc&quot;,&quot;hid&quot;:&quot;tsharedmemorydesc&quot;,&quot;codeblockOffset&quot;:75,&quot;secid&quot;:218,&quot;range&quot;:&quot;100315-123911&quot;} -->
+<h2 class="sectionedit220" id="deprecated_functions">Deprecated functions</h2>
 <div class="level2">
 
 <p>
@@ -6509,7 +6593,7 @@ software relies on one of these functions and cannot be modified to use a
  replacement function contact Tofwerk Software Development to 
 “undeprecate” your function:
 </p>
-<div class="table sectionedit218"><table class="inline">
+<div class="table sectionedit221"><table class="inline">
 	<thead>
 	<tr class="row0">
 		<th class="col0 centeralign">  deprecated function  </th><th class="col1 centeralign">  replacement function  </th><th class="col2 centeralign">  deprecation reason  </th>
@@ -6554,70 +6638,70 @@ interface and allows for other pressure gauge controllers. </td>
 		<td class="col0 leftalign"> <code>TwMass2Tof</code>  </td><td class="col1 leftalign"> <code>TwMass2Tof</code>  </td>
 	</tr>
 </tbody></table></div>
-<!-- EDIT218 TABLE [122894-124335] -->
+<!-- EDIT{&quot;target&quot;:&quot;table&quot;,&quot;name&quot;:&quot;&quot;,&quot;hid&quot;:&quot;table135&quot;,&quot;secid&quot;:221,&quot;range&quot;:&quot;124251-125692&quot;} -->
 </div>
-<!-- EDIT217 SECTION "Deprecated functions" [122555-124336] -->
-<h2 class="sectionedit219" id="previous_revisions">Previous revisions</h2>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Deprecated functions&quot;,&quot;hid&quot;:&quot;deprecated_functions&quot;,&quot;codeblockOffset&quot;:75,&quot;secid&quot;:220,&quot;range&quot;:&quot;123912-125693&quot;} -->
+<h2 class="sectionedit222" id="previous_revisions">Previous revisions</h2>
 <div class="level2">
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll198" class="wikilink1" title="manuals:daq:tofdaqdll198"> TofDaqDll 1.98</a>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll198" class="wikilink1" title="manuals:daq:tofdaqdll198"> TofDaqDll 1.98</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll197" class="wikilink1" title="manuals:daq:tofdaqdll197"> TofDaqDll 1.97</a>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll197" class="wikilink1" title="manuals:daq:tofdaqdll197"> TofDaqDll 1.97</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll196" class="wikilink1" title="manuals:daq:tofdaqdll196"> TofDaqDll 1.96</a>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll196" class="wikilink1" title="manuals:daq:tofdaqdll196"> TofDaqDll 1.96</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll195" class="wikilink1" title="manuals:daq:tofdaqdll195"> TofDaqDll 1.95</a>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll195" class="wikilink1" title="manuals:daq:tofdaqdll195"> TofDaqDll 1.95</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll194" class="wikilink1" title="manuals:daq:tofdaqdll194"> TofDaqDll 1.94</a>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll194" class="wikilink1" title="manuals:daq:tofdaqdll194"> TofDaqDll 1.94</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll193" class="wikilink1" title="manuals:daq:tofdaqdll193"> TofDaqDll 1.93</a>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll193" class="wikilink1" title="manuals:daq:tofdaqdll193"> TofDaqDll 1.93</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll192" class="wikilink1" title="manuals:daq:tofdaqdll192"> TofDaqDll 1.92</a>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll192" class="wikilink1" title="manuals:daq:tofdaqdll192"> TofDaqDll 1.92</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll191" class="wikilink1" title="manuals:daq:tofdaqdll191"> TofDaqDll 1.91</a>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll191" class="wikilink1" title="manuals:daq:tofdaqdll191"> TofDaqDll 1.91</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll190" class="wikilink1" title="manuals:daq:tofdaqdll190"> TofDaqDll 1.90</a>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll190" class="wikilink1" title="manuals:daq:tofdaqdll190"> TofDaqDll 1.90</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll189" class="wikilink1" title="manuals:daq:tofdaqdll189"> TofDaqDll 1.89</a>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll189" class="wikilink1" title="manuals:daq:tofdaqdll189"> TofDaqDll 1.89</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll188" class="wikilink1" title="manuals:daq:tofdaqdll188"> TofDaqDll 1.88</a>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll188" class="wikilink1" title="manuals:daq:tofdaqdll188"> TofDaqDll 1.88</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll187" class="wikilink1" title="manuals:daq:tofdaqdll187"> TofDaqDll 1.87</a>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll187" class="wikilink1" title="manuals:daq:tofdaqdll187"> TofDaqDll 1.87</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll186" class="wikilink1" title="manuals:daq:tofdaqdll186"> TofDaqDll 1.86</a>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll186" class="wikilink1" title="manuals:daq:tofdaqdll186"> TofDaqDll 1.86</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll185" class="wikilink1" title="manuals:daq:tofdaqdll185"> TofDaqDll 1.85</a>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll185" class="wikilink1" title="manuals:daq:tofdaqdll185"> TofDaqDll 1.85</a>
 </p>
 
 <p>
-<a href="http://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll184" class="wikilink1" title="manuals:daq:tofdaqdll184"> TofDaqDll 1.84</a>
+<a href="https://wiki.tofwerk.com/doku.php?id=manuals:daq:tofdaqdll184" class="wikilink1" title="manuals:daq:tofdaqdll184"> TofDaqDll 1.84</a>
 </p>
 
 <p>
@@ -6629,7 +6713,7 @@ In versions before 1.84 all <abbr title="Atmospheric Pressure Interface / Applic
 </p>
 
 </div>
-<!-- EDIT219 SECTION "Previous revisions" [124337-] --></div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Previous revisions&quot;,&quot;hid&quot;:&quot;previous_revisions&quot;,&quot;codeblockOffset&quot;:75,&quot;secid&quot;:222,&quot;range&quot;:&quot;125694-&quot;} --></div>
 
 
 </body></html>

@@ -23,7 +23,12 @@ if [ -f ./doc/TofDaqDll_files/jquery.php ] ; then
   rm ./doc/TwToolDll_files/js.php
 fi
 
-# remove /bin/macos_i386 files
+# remove /bin/macos_i386 and /bin/macos_x86_64 files
 if [ -f ./bin/macos_i386/libtwtool.dylib ] ; then
   rm -rf ./bin/macos_i386
+  rm -rf ./bin/macos_x86_64
+fi
+# remove /macos_universal/fixDependency.sh
+if [ -f ./bin/macos_universal/fixDependency.sh ] ; then
+  rm ./bin/macos_universal/fixDependency.sh
 fi

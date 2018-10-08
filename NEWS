@@ -1,10 +1,17 @@
-TofDaqR 0.3.7.901
+TofDaqR 0.3.8
 --------------------------------------------------------------------------------
 
 * `GetEventListSpectrumFromH5()` returns a zero length vector instead of an
   error if there is no event in the spectrum.
 
 * `DecodeEventList()` also works for events with more than 256 data samples.
+
+* Updated to TofDaq API 1.99r759.
+
+* Added additional API functions (`ConfigVarNbrMemories()`,
+  `ContinueAcquisition()`, `ManualContinueNeeded()`, `IssueDio4Pulse()`,
+  `SetDio4State()`, `GetSumSpectrumFromShMem2()`, `GetTofSpectrumFromShMem2()`,
+  `GetStickSpectrumFromShMem2()`, `GetSegmentProfileFromShMem2()`).
 
 
 TofDaqR 0.3.7

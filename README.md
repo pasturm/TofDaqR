@@ -24,7 +24,7 @@ install.packages("https://github.com/pasturm/TofDaqR/releases/download/v.0.3.7/T
 
 To install the latest development version from source (on Windows, macOS or Linux), run
 ```
-install.packages("devtools")
+if (!require("devtools")) { install.packages("devtools") }
 devtools::install_github("pasturm/TofDaqR", args = "--clean")
 ```
 Installing from source requires [Rtools](https://cran.r-project.org/bin/windows/Rtools/) on Windows,  [Xcode](https://developer.apple.com/xcode/) on macOS and `sudo apt-get install r-base-dev` (or similar) on Linux. 

@@ -151,12 +151,52 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+// ContinueAcquisition
+void ContinueAcquisition();
+RcppExport SEXP _TofDaqR_ContinueAcquisition() {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    ContinueAcquisition();
+    return R_NilValue;
+END_RCPP
+}
+// ManualContinueNeeded
+bool ManualContinueNeeded();
+RcppExport SEXP _TofDaqR_ManualContinueNeeded() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(ManualContinueNeeded());
+    return rcpp_result_gen;
+END_RCPP
+}
 // CloseTofDaqRec
 void CloseTofDaqRec();
 RcppExport SEXP _TofDaqR_CloseTofDaqRec() {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     CloseTofDaqRec();
+    return R_NilValue;
+END_RCPP
+}
+// IssueDio4Pulse
+void IssueDio4Pulse(int delay, int width);
+RcppExport SEXP _TofDaqR_IssueDio4Pulse(SEXP delaySEXP, SEXP widthSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type delay(delaySEXP);
+    Rcpp::traits::input_parameter< int >::type width(widthSEXP);
+    IssueDio4Pulse(delay, width);
+    return R_NilValue;
+END_RCPP
+}
+// SetDio4State
+void SetDio4State(int state);
+RcppExport SEXP _TofDaqR_SetDio4State(SEXP stateSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type state(stateSEXP);
+    SetDio4State(state);
     return R_NilValue;
 END_RCPP
 }
@@ -436,6 +476,18 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+// ConfigVarNbrMemories
+void ConfigVarNbrMemories(bool Enable, IntegerVector StepAtBuf, IntegerVector NbrMemoriesForStep);
+RcppExport SEXP _TofDaqR_ConfigVarNbrMemories(SEXP EnableSEXP, SEXP StepAtBufSEXP, SEXP NbrMemoriesForStepSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< bool >::type Enable(EnableSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type StepAtBuf(StepAtBufSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type NbrMemoriesForStep(NbrMemoriesForStepSEXP);
+    ConfigVarNbrMemories(Enable, StepAtBuf, NbrMemoriesForStep);
+    return R_NilValue;
+END_RCPP
+}
 // GetDescriptor
 List GetDescriptor();
 RcppExport SEXP _TofDaqR_GetDescriptor() {
@@ -498,6 +550,17 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// GetSumSpectrumFromShMem2
+NumericVector GetSumSpectrumFromShMem2(bool Normalize);
+RcppExport SEXP _TofDaqR_GetSumSpectrumFromShMem2(SEXP NormalizeSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< bool >::type Normalize(NormalizeSEXP);
+    rcpp_result_gen = Rcpp::wrap(GetSumSpectrumFromShMem2(Normalize));
+    return rcpp_result_gen;
+END_RCPP
+}
 // GetTofSpectrumFromShMem
 SEXP GetTofSpectrumFromShMem(int SegmentIndex, int SegmentEndIndex, int BufIndex, bool Normalize);
 RcppExport SEXP _TofDaqR_GetTofSpectrumFromShMem(SEXP SegmentIndexSEXP, SEXP SegmentEndIndexSEXP, SEXP BufIndexSEXP, SEXP NormalizeSEXP) {
@@ -509,6 +572,20 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< int >::type BufIndex(BufIndexSEXP);
     Rcpp::traits::input_parameter< bool >::type Normalize(NormalizeSEXP);
     rcpp_result_gen = Rcpp::wrap(GetTofSpectrumFromShMem(SegmentIndex, SegmentEndIndex, BufIndex, Normalize));
+    return rcpp_result_gen;
+END_RCPP
+}
+// GetTofSpectrumFromShMem2
+SEXP GetTofSpectrumFromShMem2(int SegmentIndex, int SegmentEndIndex, int BufIndex, bool Normalize);
+RcppExport SEXP _TofDaqR_GetTofSpectrumFromShMem2(SEXP SegmentIndexSEXP, SEXP SegmentEndIndexSEXP, SEXP BufIndexSEXP, SEXP NormalizeSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type SegmentIndex(SegmentIndexSEXP);
+    Rcpp::traits::input_parameter< int >::type SegmentEndIndex(SegmentEndIndexSEXP);
+    Rcpp::traits::input_parameter< int >::type BufIndex(BufIndexSEXP);
+    Rcpp::traits::input_parameter< bool >::type Normalize(NormalizeSEXP);
+    rcpp_result_gen = Rcpp::wrap(GetTofSpectrumFromShMem2(SegmentIndex, SegmentEndIndex, BufIndex, Normalize));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -536,6 +613,19 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// GetStickSpectrumFromShMem2
+List GetStickSpectrumFromShMem2(int SegmentIndex, int SegmentEndIndex, int BufIndex);
+RcppExport SEXP _TofDaqR_GetStickSpectrumFromShMem2(SEXP SegmentIndexSEXP, SEXP SegmentEndIndexSEXP, SEXP BufIndexSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type SegmentIndex(SegmentIndexSEXP);
+    Rcpp::traits::input_parameter< int >::type SegmentEndIndex(SegmentEndIndexSEXP);
+    Rcpp::traits::input_parameter< int >::type BufIndex(BufIndexSEXP);
+    rcpp_result_gen = Rcpp::wrap(GetStickSpectrumFromShMem2(SegmentIndex, SegmentEndIndex, BufIndex));
+    return rcpp_result_gen;
+END_RCPP
+}
 // GetSegmentProfileFromShMem
 SEXP GetSegmentProfileFromShMem(int PeakIndex, int BufIndex);
 RcppExport SEXP _TofDaqR_GetSegmentProfileFromShMem(SEXP PeakIndexSEXP, SEXP BufIndexSEXP) {
@@ -545,6 +635,18 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< int >::type PeakIndex(PeakIndexSEXP);
     Rcpp::traits::input_parameter< int >::type BufIndex(BufIndexSEXP);
     rcpp_result_gen = Rcpp::wrap(GetSegmentProfileFromShMem(PeakIndex, BufIndex));
+    return rcpp_result_gen;
+END_RCPP
+}
+// GetSegmentProfileFromShMem2
+SEXP GetSegmentProfileFromShMem2(int PeakIndex, int BufIndex);
+RcppExport SEXP _TofDaqR_GetSegmentProfileFromShMem2(SEXP PeakIndexSEXP, SEXP BufIndexSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type PeakIndex(PeakIndexSEXP);
+    Rcpp::traits::input_parameter< int >::type BufIndex(BufIndexSEXP);
+    rcpp_result_gen = Rcpp::wrap(GetSegmentProfileFromShMem2(PeakIndex, BufIndex));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -1792,7 +1894,11 @@ static const R_CallMethodDef CallEntries[] = {
     {"_TofDaqR_DaqActive", (DL_FUNC) &_TofDaqR_DaqActive, 0},
     {"_TofDaqR_StartAcquisition", (DL_FUNC) &_TofDaqR_StartAcquisition, 0},
     {"_TofDaqR_StopAcquisition", (DL_FUNC) &_TofDaqR_StopAcquisition, 0},
+    {"_TofDaqR_ContinueAcquisition", (DL_FUNC) &_TofDaqR_ContinueAcquisition, 0},
+    {"_TofDaqR_ManualContinueNeeded", (DL_FUNC) &_TofDaqR_ManualContinueNeeded, 0},
     {"_TofDaqR_CloseTofDaqRec", (DL_FUNC) &_TofDaqR_CloseTofDaqRec, 0},
+    {"_TofDaqR_IssueDio4Pulse", (DL_FUNC) &_TofDaqR_IssueDio4Pulse, 2},
+    {"_TofDaqR_SetDio4State", (DL_FUNC) &_TofDaqR_SetDio4State, 1},
     {"_TofDaqR_InitializeDaqDevice", (DL_FUNC) &_TofDaqR_InitializeDaqDevice, 0},
     {"_TofDaqR_SetTimeout", (DL_FUNC) &_TofDaqR_SetTimeout, 1},
     {"_TofDaqR_GetTimeout", (DL_FUNC) &_TofDaqR_GetTimeout, 0},
@@ -1819,16 +1925,21 @@ static const R_CallMethodDef CallEntries[] = {
     {"_TofDaqR_SetDaqParameterFloat", (DL_FUNC) &_TofDaqR_SetDaqParameterFloat, 2},
     {"_TofDaqR_SetDaqParameterInt64", (DL_FUNC) &_TofDaqR_SetDaqParameterInt64, 2},
     {"_TofDaqR_SetDaqParameterDouble", (DL_FUNC) &_TofDaqR_SetDaqParameterDouble, 2},
+    {"_TofDaqR_ConfigVarNbrMemories", (DL_FUNC) &_TofDaqR_ConfigVarNbrMemories, 3},
     {"_TofDaqR_GetDescriptor", (DL_FUNC) &_TofDaqR_GetDescriptor, 0},
     {"_TofDaqR_GetPeakParameters", (DL_FUNC) &_TofDaqR_GetPeakParameters, 1},
     {"_TofDaqR_ReleaseSharedMemory", (DL_FUNC) &_TofDaqR_ReleaseSharedMemory, 0},
     {"_TofDaqR_WaitForNewData", (DL_FUNC) &_TofDaqR_WaitForNewData, 2},
     {"_TofDaqR_WaitForEndOfAcquisition", (DL_FUNC) &_TofDaqR_WaitForEndOfAcquisition, 1},
     {"_TofDaqR_GetSumSpectrumFromShMem", (DL_FUNC) &_TofDaqR_GetSumSpectrumFromShMem, 1},
+    {"_TofDaqR_GetSumSpectrumFromShMem2", (DL_FUNC) &_TofDaqR_GetSumSpectrumFromShMem2, 1},
     {"_TofDaqR_GetTofSpectrumFromShMem", (DL_FUNC) &_TofDaqR_GetTofSpectrumFromShMem, 4},
+    {"_TofDaqR_GetTofSpectrumFromShMem2", (DL_FUNC) &_TofDaqR_GetTofSpectrumFromShMem2, 4},
     {"_TofDaqR_GetSpecXaxisFromShMem", (DL_FUNC) &_TofDaqR_GetSpecXaxisFromShMem, 1},
     {"_TofDaqR_GetStickSpectrumFromShMem", (DL_FUNC) &_TofDaqR_GetStickSpectrumFromShMem, 3},
+    {"_TofDaqR_GetStickSpectrumFromShMem2", (DL_FUNC) &_TofDaqR_GetStickSpectrumFromShMem2, 3},
     {"_TofDaqR_GetSegmentProfileFromShMem", (DL_FUNC) &_TofDaqR_GetSegmentProfileFromShMem, 2},
+    {"_TofDaqR_GetSegmentProfileFromShMem2", (DL_FUNC) &_TofDaqR_GetSegmentProfileFromShMem2, 2},
     {"_TofDaqR_GetBufTimeFromShMem", (DL_FUNC) &_TofDaqR_GetBufTimeFromShMem, 2},
     {"_TofDaqR_AddLogEntry", (DL_FUNC) &_TofDaqR_AddLogEntry, 2},
     {"_TofDaqR_AddAttributeInt", (DL_FUNC) &_TofDaqR_AddAttributeInt, 3},

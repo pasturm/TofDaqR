@@ -7,7 +7,7 @@
 #define TOFWERK_DAQ_API __declspec(dllimport)
 #endif
 
-#if defined(_WIN32) && !defined(__BORLANDC__)
+#if defined(_WIN32) && (!defined(__BORLANDC__) || defined(_WIN64))
 
 #define TwAddAttributeDouble          _TwAddAttributeDouble
 #define TwAddAttributeInt             _TwAddAttributeInt
@@ -113,11 +113,13 @@
 #define TwUnregisterUserData          _TwUnregisterUserData
 #define TwUpdateUserData              _TwUpdateUserData
 #define TwSetRegUserDataTarget        _TwSetRegUserDataTarget
+#define TwGetRegUserDataTargetRange   _TwGetRegUserDataTargetRange
 #define TwWaitForEndOfAcquisition     _TwWaitForEndOfAcquisition
 #define TwWaitForNewData              _TwWaitForNewData
 #define TwAutoSetupDaqDevice          _TwAutoSetupDaqDevice
 #define TwOnDemandMassCalibration     _TwOnDemandMassCalibration
 #define TwKeepFileOpen				  _TwKeepFileOpen
+#define TwSaturationWarning			  _TwSaturationWarning
 
 #endif
 
@@ -742,6 +744,8 @@ TOFWERK_DAQ_API TwRetVal TwUpdateUserData(char* Location, int NbrElements, doubl
 ////////////////////////////////////////////////////////////////////////////////
 TOFWERK_DAQ_API TwRetVal TwSetRegUserDataTarget(char* Location, int elementIndex, double elementValue, int blockTime);
 ////////////////////////////////////////////////////////////////////////////////
+TOFWERK_DAQ_API TwRetVal TwGetRegUserDataTargetRange(char* Location, int elementIndex, double* minValue, double* maxValue);
+////////////////////////////////////////////////////////////////////////////////
 TOFWERK_DAQ_API TwRetVal TwReadRegUserData(char* Location, int NbrElements, double* Data);
 //updates values in a shared memory region registered with TwRegisterUserDataBuf or TwRegisterUserDataWrite functions.
 //arguments: string giving the group that was used to register the shared memory, number elements and a pointer to the actual data (at least NbrElements long).
@@ -793,6 +797,8 @@ TOFWERK_DAQ_API TwRetVal TwOnDemandMassCalibration(int action);
 TOFWERK_DAQ_API TwRetVal TwKeepFileOpen(bool keepOpen);
 ////////////////////////////////////////////////////////////////////////////////
 TOFWERK_DAQ_API TwRetVal TwTpsChangeIonMode(int ionMode);
+////////////////////////////////////////////////////////////////////////////////
+TOFWERK_DAQ_API bool TwSaturationWarning(void);
 ////////////////////////////////////////////////////////////////////////////////
 
 #ifdef __cplusplus

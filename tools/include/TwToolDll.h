@@ -16,7 +16,7 @@
 #endif
 
 
-#if defined(_WIN32) && !defined(__BORLANDC__)
+#if defined(_WIN32) && (!defined(__BORLANDC__) || defined(_WIN64))
 
 #define TwBruteForceCalibrate          _TwBruteForceCalibrate
 #define TwDecomposeMass                _TwDecomposeMass
@@ -58,6 +58,7 @@
 #define TwImagePaletteOffset2Value    _TwImagePaletteOffset2Value
 #define TwImageValue2PaletteOffset    _TwImageValue2PaletteOffset
 #define TwImageGetPaletteRGB		  _TwImageGetPaletteRGB
+#define TwIntegrateTofSpectra		  _TwIntegrateTofSpectra
 
 #endif
 
@@ -164,6 +165,8 @@ TOFWERK_TOOL_API double TwImagePaletteOffset2Value(unsigned char pixelValue, dou
 TOFWERK_TOOL_API unsigned char TwImageValue2PaletteOffset(double dataValue, double min, double max, double gamma);
 //---------------------------------------------------------------------------
 TOFWERK_TOOL_API TwRetVal TwImageGetPaletteRGB(int palette, unsigned char paletteValue, unsigned char offset, bool invert, unsigned char* rgb);
+//---------------------------------------------------------------------------
+TOFWERK_TOOL_API TwRetVal TwIntegrateTofSpectra(float** tofSpec, int nbrSamples, int nbrSpectra, float scaleFactor, int mcMode, double* mcPar, int nbrPeaks, TPeakPar* peak, float** stickSpectra, int algorithm, double* algoPar);
 //---------------------------------------------------------------------------
 
 #ifdef __cplusplus
