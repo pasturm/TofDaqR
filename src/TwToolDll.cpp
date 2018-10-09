@@ -248,7 +248,7 @@ double GetMoleculeMass(std::string molecule) {
   return mass;
 }
 
-// MultiPeakFit ---------------------------------------------------------------
+// MultiPeakFit ----------------------------------------------------------------
 //' Performs a multi-peak fit.
 //'
 //' \code{MultiPeakFit} performs a multi-peak fit for (partially) overlapping
@@ -619,6 +619,43 @@ NumericVector MassCalibrate(int massCalibMode, NumericVector mass,
   }
 
   return param;
+}
+
+// GetMassCalibInfo ------------------------------------------------------------
+//' Gets the description and number of parameters of the available mass
+//' calibration functions.
+//'
+//' \code{GetMassCalibInfo} gets the description and number of parameters of the
+//' available mass calibration functions.
+//'
+//' Note: Modes 3 and 4 are flawed. Don't use them. In mode 3 the fit does not
+//' converge well, because of a bug (parameters not correctly initialized).
+//' Mode 4 is two sequential fits, first mode 0, then a quadratic fit to the
+//' residuals, which is an inferior implementation of mode 3. Mode 1 is for FTMS
+//' data.
+//'
+//' @param massCalibMode Mass calibration mode (0 to 5).
+//' @return List with the description and number of calibration parameters for
+//' the given \code{massCalibMode}.
+//' @export
+// [[Rcpp::export]]
+List GetMassCalibInfo(int massCalibMode) {
+
+  int nbrParams;
+  char *description = new char[64];
+
+  TwRetVal rv = TwGetMassCalibInfo(massCalibMode, description, &nbrParams);
+  if (rv != TwSuccess) {
+    stop(TwRetValString(rv));
+  }
+
+  std::string str(description);
+
+  List result;
+  result["description"] = wrap(str);
+  result["nbrParams"] = nbrParams;
+
+  return result;
 }
 
 // SiInitializeHistograms ------------------------------------------------------
@@ -1044,7 +1081,6 @@ String FindTpsIp(std::string TpsSerial, int timeout) {
 // Not implemented: TwNistLibrarySearch ----------------------------------------
 // Not implemented: TwNistLibraryQueryResult -----------------------------------
 // Not implemented: TwBruteForceCalibrate --------------------------------------
-// Not implemented: TwGetMassCalibInfo -----------------------------------------
 // Not implemented: TwEncImsCorrelateProfile -----------------------------------
 // Not implemented: TwEncImsCorrelateMultiProfiles -----------------------------
 // Not implemented: TwEncImsCleanup --------------------------------------------

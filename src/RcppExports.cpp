@@ -1780,6 +1780,17 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// GetMassCalibInfo
+List GetMassCalibInfo(int massCalibMode);
+RcppExport SEXP _TofDaqR_GetMassCalibInfo(SEXP massCalibModeSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type massCalibMode(massCalibModeSEXP);
+    rcpp_result_gen = Rcpp::wrap(GetMassCalibInfo(massCalibMode));
+    return rcpp_result_gen;
+END_RCPP
+}
 // SiInitializeHistograms
 void SiInitializeHistograms(NumericVector loMass, NumericVector hiMass, Nullable<IntegerVector> specType);
 RcppExport SEXP _TofDaqR_SiInitializeHistograms(SEXP loMassSEXP, SEXP hiMassSEXP, SEXP specTypeSEXP) {
@@ -2058,6 +2069,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_TofDaqR_Tof2Mass", (DL_FUNC) &_TofDaqR_Tof2Mass, 3},
     {"_TofDaqR_Mass2Tof", (DL_FUNC) &_TofDaqR_Mass2Tof, 3},
     {"_TofDaqR_MassCalibrate", (DL_FUNC) &_TofDaqR_MassCalibrate, 4},
+    {"_TofDaqR_GetMassCalibInfo", (DL_FUNC) &_TofDaqR_GetMassCalibInfo, 1},
     {"_TofDaqR_SiInitializeHistograms", (DL_FUNC) &_TofDaqR_SiInitializeHistograms, 3},
     {"_TofDaqR_SiSetProcessingOptions", (DL_FUNC) &_TofDaqR_SiSetProcessingOptions, 3},
     {"_TofDaqR_SiProcessSpectrum", (DL_FUNC) &_TofDaqR_SiProcessSpectrum, 2},

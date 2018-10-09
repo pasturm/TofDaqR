@@ -1,7 +1,7 @@
-TofDaqR 0.3.8.900
+TofDaqR 0.3.8.901
 --------------------------------------------------------------------------------
 
-* Added `MultiPeakFit()`and `EvalMultiPeak()`.
+* Added `MultiPeakFit()`, `EvalMultiPeak()`, `GetMassCalibInfo()`.
 
 
 TofDaqR 0.3.8

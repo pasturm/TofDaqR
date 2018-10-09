@@ -2549,6 +2549,26 @@ MassCalibrate <- function(massCalibMode, mass, tof, weight = NULL) {
     .Call('_TofDaqR_MassCalibrate', PACKAGE = 'TofDaqR', massCalibMode, mass, tof, weight)
 }
 
+#' Gets the description and number of parameters of the available mass
+#' calibration functions.
+#'
+#' \code{GetMassCalibInfo} gets the description and number of parameters of the
+#' available mass calibration functions.
+#'
+#' Note: Modes 3 and 4 are flawed. Don't use them. In mode 3 the fit does not
+#' converge well, because of a bug (parameters not correctly initialized).
+#' Mode 4 is two sequential fits, first mode 0, then a quadratic fit to the
+#' residuals, which is an inferior implementation of mode 3. Mode 1 is for FTMS
+#' data.
+#'
+#' @param massCalibMode Mass calibration mode (0 to 5).
+#' @return List with the description and number of calibration parameters for
+#' the given \code{massCalibMode}.
+#' @export
+GetMassCalibInfo <- function(massCalibMode) {
+    .Call('_TofDaqR_GetMassCalibInfo', PACKAGE = 'TofDaqR', massCalibMode)
+}
+
 #' Initializes the single ion histogramming.
 #'
 #' \code{SiInitializeHistograms} initializes the single ion histogramming.
