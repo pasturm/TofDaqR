@@ -586,7 +586,7 @@ SetDaqParameterDouble <- function(Parameter, Value) {
 #' \code{ConfigVarNbrMemories} enables and configures the "variable NbrMemories"
 #' feature.
 #'
-#' @param Enable \code{True} to enable or \code{False} to disable "variable NbrMemories"
+#' @param Enable \code{TRUE} to enable or \code{FALSE} to disable "variable NbrMemories"
 #' feature.
 #' @param StepAtBuf Buf indices for each step.
 #' @param NbrMemoriesForStep NbrMemories value for each step.
@@ -2215,8 +2215,8 @@ H5AddLogEntry <- function(Filename, LogEntryText, LogEntryTime) {
 #' point and its neighbors. It is used to automatically generate guess values
 #' for position, width and amplitude if all peak parameters are set to 0.
 #'
-#' @param yVals y axis data
-#' @param xVals x axis data
+#' @param yVals y axis data.
+#' @param xVals x axis data.
 #' @param peakType peak model to use.
 #' @param blOffset Initial value of baseline offset at first data point.
 #' @param blSlope Initial value of slope of baseline.
@@ -2262,8 +2262,8 @@ FitSinglePeak <- function(yVals, xVals, peakType = 0L, blOffset = 0, blSlope = 0
 #' point and its neighbors. It is used to automatically generate guess values
 #' for position, width and amplitude if all peak parameters are set to 0.
 #'
-#' @param yVals y axis data
-#' @param xVals x axis data
+#' @param yVals y axis data.
+#' @param xVals x axis data.
 #' @param peakType peak model to use.
 #' @param param Vector of initial values (blOffset, blSlope, amplitude, fwhmLo,
 #' fwhmHi, peakPos, mu).
@@ -2275,12 +2275,12 @@ FitSinglePeak2 <- function(yVals, xVals, peakType = 0L, param = as.numeric( c(0,
     .Call('_TofDaqR_FitSinglePeak2', PACKAGE = 'TofDaqR', yVals, xVals, peakType, param)
 }
 
-#' Evaluates a peak fit.
+#' Calculates the y-axis values for a given set of peak parameters.
 #'
 #' \code{EvalSinglePeak} calculates the y-axis values for a given set of peak
 #' parameters.
 #'
-#' @param xVals x axis data
+#' @param xVals x axis data.
 #' @param blOffset Baseline offset at first data point.
 #' @param blSlope Slope of baseline.
 #' @param amplitude Peak amplitude.
@@ -2324,6 +2324,72 @@ EvalSinglePeak <- function(xVals, blOffset = 0, blSlope = 0, amplitude = 0, fwhm
 #' @export
 GetMoleculeMass <- function(molecule) {
     .Call('_TofDaqR_GetMoleculeMass', PACKAGE = 'TofDaqR', molecule)
+}
+
+#' Performs a multi-peak fit.
+#'
+#' \code{MultiPeakFit} performs a multi-peak fit for (partially) overlapping
+#' peaks. All peaks in a multi-peak cluster share common peak parameters except
+#' amplitude and position. Various options allow for a more or less constrained
+#' fit (see description of options below).
+#'
+#' The peak positions are not optimized, but the common mass shift parameter in
+#' \code{commonPar} allows for minimal refinement of the peak positions due to
+#' imperfect mass calibration.
+#'
+#' \code{options} is a list containing:
+#' \tabular{rcl}{
+#' peakModel \tab = \tab 0 (Gauss) or 1 (Lorentz) or 2 (Pseudo-Voigt) \cr
+#' asymmetric \tab = \tab 0 (symmetric peak model) or 1 (asymmetric peak model) \cr
+#' baseline \tab = \tab 0 (no optimization of baseline parameters) or 1 (optimize baseline parameters) \cr
+#' width \tab = \tab 0 (no optimization of width parameters) or 1 (optimize width parameters) \cr
+#' peakShape \tab = \tab 0 (no optimization of peak shape (mu) parameter) or 1 (optimize peak shape (mu) parameter (applies only to pseudo-Voigt)) \cr
+#' massShift \tab = \tab 0 (no optimization of common mass shift parameters) or 1 (optimize common mass shift parameters) \cr
+#' amplitude \tab = \tab 0 (no constraint on amplitudes) or 1 (constrain sum of baseline and all peaks to total intensity in spectrum)
+#' } Note that if a given parameter is not activated for optimization, the
+#' supplied (guess) values are still used (e.g. specify a known baseline
+#' without optimizing the parameters).
+#'
+#' @param dataX x axis data.
+#' @param dataY y axis data.
+#' @param mass  Vector of the known positions of the peaks.
+#' @param intensity  Vector of initial guesses for intensities. If all values
+#' are 0 the guess values for peak intensities are generated automatically.
+#' @param commonPar Vector of guess values of common peak parameters. \code{commonPar}
+#' has 6 elements: [1] offset of common baseline, [2] slope of common baseline,
+#' [3] left FWHM, [4] right FWHM (same as left FWHM for symmetric peaks),
+#' [5] shape parameter mu (applies only for peak model Pseudo-Voigt),
+#' [6] common mass shift of peaks. \code{options} determines which of the
+#' common parameters are optimized.
+#' @param options List of peak model and optimization options (see Details).
+#'
+#' @return List with the optimized intensities and common peak parameters.
+#'
+#' @family Peak fitting functions
+#' @export
+MultiPeakFit <- function(dataX, dataY, mass, intensity, commonPar, options) {
+    .Call('_TofDaqR_MultiPeakFit', PACKAGE = 'TofDaqR', dataX, dataY, mass, intensity, commonPar, options)
+}
+
+#' Calculates the y-axis values for a given set of multi-peak parameters.
+#'
+#' \code{EvalMultiPeak} calculates the y-axis values for a given set of
+#' multi-peak parameters.
+#'
+#' @param dataX x axis data.
+#' @param mass  Vector of the peak positions.
+#' @param intensity  Vector of (fitted) intensities.
+#' @param commonPar Vector of (fitted) values of common peak parameters. \code{commonPar}
+#' has 6 elements: [1] offset of common baseline, [2] slope of common baseline,
+#' [3] left FWHM, [4] right FWHM, [5] shape parameter mu,
+#' [6] common mass shift of peaks.
+#'
+#' @return Vector with y axis data.
+#'
+#' @family Peak fitting functions
+#' @export
+EvalMultiPeak <- function(dataX, mass, intensity, commonPar) {
+    .Call('_TofDaqR_EvalMultiPeak', PACKAGE = 'TofDaqR', dataX, mass, intensity, commonPar)
 }
 
 #' Calculates the isotope pattern of a molecule.

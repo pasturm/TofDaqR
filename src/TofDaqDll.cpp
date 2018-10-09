@@ -790,7 +790,7 @@ void SetDaqParameterDouble(std::string Parameter, double Value) {
 //' \code{ConfigVarNbrMemories} enables and configures the "variable NbrMemories"
 //' feature.
 //'
-//' @param Enable \code{True} to enable or \code{False} to disable "variable NbrMemories"
+//' @param Enable \code{TRUE} to enable or \code{FALSE} to disable "variable NbrMemories"
 //' feature.
 //' @param StepAtBuf Buf indices for each step.
 //' @param NbrMemoriesForStep NbrMemories value for each step.

@@ -1686,6 +1686,36 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// MultiPeakFit
+List MultiPeakFit(NumericVector dataX, NumericVector dataY, NumericVector mass, NumericVector intensity, NumericVector commonPar, List options);
+RcppExport SEXP _TofDaqR_MultiPeakFit(SEXP dataXSEXP, SEXP dataYSEXP, SEXP massSEXP, SEXP intensitySEXP, SEXP commonParSEXP, SEXP optionsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type dataX(dataXSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type dataY(dataYSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type mass(massSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type intensity(intensitySEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type commonPar(commonParSEXP);
+    Rcpp::traits::input_parameter< List >::type options(optionsSEXP);
+    rcpp_result_gen = Rcpp::wrap(MultiPeakFit(dataX, dataY, mass, intensity, commonPar, options));
+    return rcpp_result_gen;
+END_RCPP
+}
+// EvalMultiPeak
+NumericVector EvalMultiPeak(NumericVector dataX, NumericVector mass, NumericVector intensity, NumericVector commonPar);
+RcppExport SEXP _TofDaqR_EvalMultiPeak(SEXP dataXSEXP, SEXP massSEXP, SEXP intensitySEXP, SEXP commonParSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type dataX(dataXSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type mass(massSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type intensity(intensitySEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type commonPar(commonParSEXP);
+    rcpp_result_gen = Rcpp::wrap(EvalMultiPeak(dataX, mass, intensity, commonPar));
+    return rcpp_result_gen;
+END_RCPP
+}
 // GetIsotopePattern
 List GetIsotopePattern(std::string molecule, double abundanceLimit);
 RcppExport SEXP _TofDaqR_GetIsotopePattern(SEXP moleculeSEXP, SEXP abundanceLimitSEXP) {
@@ -2021,6 +2051,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_TofDaqR_FitSinglePeak2", (DL_FUNC) &_TofDaqR_FitSinglePeak2, 4},
     {"_TofDaqR_EvalSinglePeak", (DL_FUNC) &_TofDaqR_EvalSinglePeak, 8},
     {"_TofDaqR_GetMoleculeMass", (DL_FUNC) &_TofDaqR_GetMoleculeMass, 1},
+    {"_TofDaqR_MultiPeakFit", (DL_FUNC) &_TofDaqR_MultiPeakFit, 6},
+    {"_TofDaqR_EvalMultiPeak", (DL_FUNC) &_TofDaqR_EvalMultiPeak, 4},
     {"_TofDaqR_GetIsotopePattern", (DL_FUNC) &_TofDaqR_GetIsotopePattern, 2},
     {"_TofDaqR_GetIsotopePattern2", (DL_FUNC) &_TofDaqR_GetIsotopePattern2, 2},
     {"_TofDaqR_Tof2Mass", (DL_FUNC) &_TofDaqR_Tof2Mass, 3},

@@ -7,7 +7,7 @@
 ConfigVarNbrMemories(Enable, StepAtBuf, NbrMemoriesForStep)
 }
 \arguments{
-\item{Enable}{\code{True} to enable or \code{False} to disable "variable NbrMemories"
+\item{Enable}{\code{TRUE} to enable or \code{FALSE} to disable "variable NbrMemories"
 feature.}
 
 \item{StepAtBuf}{Buf indices for each step.}

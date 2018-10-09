@@ -8,9 +8,9 @@ FitSinglePeak(yVals, xVals, peakType = 0L, blOffset = 0, blSlope = 0,
   amplitude = 0, fwhmLo = 0, fwhmHi = 0, peakPos = 0, mu = 0)
 }
 \arguments{
-\item{yVals}{y axis data}
+\item{yVals}{y axis data.}
 
-\item{xVals}{x axis data}
+\item{xVals}{x axis data.}
 
 \item{peakType}{peak model to use.}
 
@@ -59,6 +59,7 @@ point and its neighbors. It is used to automatically generate guess values
 for position, width and amplitude if all peak parameters are set to 0.
 }
 \seealso{
-Other Peak fitting functions: \code{\link{EvalSinglePeak}},
-  \code{\link{FitSinglePeak2}}
+Other Peak fitting functions: \code{\link{EvalMultiPeak}},
+  \code{\link{EvalSinglePeak}},
+  \code{\link{FitSinglePeak2}}, \code{\link{MultiPeakFit}}
 }

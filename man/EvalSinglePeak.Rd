@@ -2,13 +2,13 @@
 % Please edit documentation in R/RcppExports.R
 \name{EvalSinglePeak}
 \alias{EvalSinglePeak}
-\title{Evaluates a peak fit.}
+\title{Calculates the y-axis values for a given set of peak parameters.}
 \usage{
 EvalSinglePeak(xVals, blOffset = 0, blSlope = 0, amplitude = 0,
   fwhmLo = 0, fwhmHi = 0, peakPos = 0, mu = 0)
 }
 \arguments{
-\item{xVals}{x axis data}
+\item{xVals}{x axis data.}
 
 \item{blOffset}{Baseline offset at first data point.}
 
@@ -32,6 +32,7 @@ Vector with y axis data.
 parameters.
 }
 \seealso{
-Other Peak fitting functions: \code{\link{FitSinglePeak2}},
-  \code{\link{FitSinglePeak}}
+Other Peak fitting functions: \code{\link{EvalMultiPeak}},
+  \code{\link{FitSinglePeak2}},
+  \code{\link{FitSinglePeak}}, \code{\link{MultiPeakFit}}
 }
