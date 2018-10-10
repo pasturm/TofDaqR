@@ -35,7 +35,7 @@ List GetH5Descriptor(std::string Filename) {
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   List result;
@@ -111,7 +111,7 @@ void CloseH5(std::string Filename) {
   TwRetVal rv = TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -132,7 +132,7 @@ void CloseAll() {
   TwRetVal rv = TwCloseAll();
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -161,7 +161,7 @@ NumericVector GetSumSpectrumFromH5(std::string Filename, bool Normalize = false)
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
   if (rv != TwSuccess) {
     TwCloseH5(cFilename);
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   NumericVector Spectrum(descriptor.nbrSamples);
@@ -171,7 +171,7 @@ NumericVector GetSumSpectrumFromH5(std::string Filename, bool Normalize = false)
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return Spectrum;
@@ -219,7 +219,7 @@ SEXP GetTofSpectrumFromH5(std::string Filename, int SegmentIndex,
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
   if (rv != TwSuccess) {
     TwCloseH5(cFilename);
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   std::vector<float> Spectrum(descriptor.nbrSamples);
@@ -231,7 +231,7 @@ SEXP GetTofSpectrumFromH5(std::string Filename, int SegmentIndex,
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return wrap(Spectrum);
@@ -279,7 +279,7 @@ SEXP GetTofSpectrum2FromH5(std::string Filename, int SegmentIndex,
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
   if (rv != TwSuccess) {
     TwCloseH5(cFilename);
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   std::vector<float> Spectrum(descriptor.nbrSamples);
@@ -291,7 +291,7 @@ SEXP GetTofSpectrum2FromH5(std::string Filename, int SegmentIndex,
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return wrap(Spectrum);
@@ -339,7 +339,7 @@ SEXP GetStickSpectrumFromH5(std::string Filename, int SegmentIndex,
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
   if (rv != TwSuccess) {
     TwCloseH5(cFilename);
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   std::vector<float> Spectrum(descriptor.nbrPeaks);
@@ -351,7 +351,7 @@ SEXP GetStickSpectrumFromH5(std::string Filename, int SegmentIndex,
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return wrap(Spectrum);
@@ -399,7 +399,7 @@ SEXP GetStickSpectrum2FromH5(std::string Filename, int SegmentIndex,
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
   if (rv != TwSuccess) {
     TwCloseH5(cFilename);
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   std::vector<float> Spectrum(descriptor.nbrPeaks);
@@ -411,7 +411,7 @@ SEXP GetStickSpectrum2FromH5(std::string Filename, int SegmentIndex,
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return wrap(Spectrum);
@@ -443,7 +443,7 @@ List GetPeakParametersFromH5(std::string Filename, int PeakIndex = -1) {
     TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
     if (rv != TwSuccess) {
       TwCloseH5(cFilename);
-      stop(TwRetValString(rv));
+      stop(TranslateReturnValue(rv));
     }
     TPeakPar *PeakPar = new TPeakPar[descriptor.nbrPeaks];
 
@@ -451,7 +451,7 @@ List GetPeakParametersFromH5(std::string Filename, int PeakIndex = -1) {
     TwCloseH5(cFilename);
     if (rv != TwSuccess) {
       delete[] PeakPar;
-      stop(TwRetValString(rv));
+      stop(TranslateReturnValue(rv));
     }
 
     List result;
@@ -484,7 +484,7 @@ List GetPeakParametersFromH5(std::string Filename, int PeakIndex = -1) {
     TwCloseH5(cFilename);
 
     if (rv != TwSuccess) {
-      stop(TwRetValString(rv));
+      stop(TranslateReturnValue(rv));
     }
 
     List result;
@@ -524,7 +524,7 @@ double GetBufTimeFromH5(std::string Filename, int BufIndex, int WriteIndex) {
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return BufTime;
@@ -561,7 +561,7 @@ NumericVector GetSpecXaxisFromH5(std::string Filename, int Type = 1,
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
   if (rv != TwSuccess) {
     TwCloseH5(cFilename);
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   NumericVector SpecAxis(descriptor.nbrSamples);
@@ -571,7 +571,7 @@ NumericVector GetSpecXaxisFromH5(std::string Filename, int Type = 1,
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return SpecAxis;
@@ -613,7 +613,7 @@ SEXP GetSegmentProfileFromH5(std::string Filename, int PeakIndex,
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
   if (rv != TwSuccess) {
     TwCloseH5(cFilename);
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   if (PeakIndex != -1) {
@@ -625,7 +625,7 @@ SEXP GetSegmentProfileFromH5(std::string Filename, int PeakIndex,
                                    WriteEndIndex, BufWriteLinked);
     TwCloseH5(cFilename);
     if (rv != TwSuccess) {
-      stop(TwRetValString(rv));
+      stop(TranslateReturnValue(rv));
     }
 
     return wrap(SegmentProfile);
@@ -639,7 +639,7 @@ SEXP GetSegmentProfileFromH5(std::string Filename, int PeakIndex,
                                    WriteEndIndex, BufWriteLinked);
     TwCloseH5(cFilename);
     if (rv != TwSuccess) {
-      stop(TwRetValString(rv));
+      stop(TranslateReturnValue(rv));
     }
 
     return wrap(SegmentProfile);
@@ -682,7 +682,7 @@ SEXP GetSegmentProfile2FromH5(std::string Filename, int PeakIndex,
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
   if (rv != TwSuccess) {
     TwCloseH5(cFilename);
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   if (PeakIndex != -1) {
@@ -694,7 +694,7 @@ SEXP GetSegmentProfile2FromH5(std::string Filename, int PeakIndex,
                                     WriteEndIndex, BufWriteLinked);
     TwCloseH5(cFilename);
     if (rv != TwSuccess) {
-      stop(TwRetValString(rv));
+      stop(TranslateReturnValue(rv));
     }
 
     return wrap(SegmentProfile);
@@ -708,7 +708,7 @@ SEXP GetSegmentProfile2FromH5(std::string Filename, int PeakIndex,
                                     WriteEndIndex, BufWriteLinked);
     TwCloseH5(cFilename);
     if (rv != TwSuccess) {
-      stop(TwRetValString(rv));
+      stop(TranslateReturnValue(rv));
     }
 
     return wrap(SegmentProfile);
@@ -744,7 +744,7 @@ SEXP GetBufWriteProfileFromH5(std::string Filename, int PeakIndex,
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
   if (rv != TwSuccess) {
     TwCloseH5(cFilename);
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   if (PeakIndex != -1) {
@@ -755,7 +755,7 @@ SEXP GetBufWriteProfileFromH5(std::string Filename, int PeakIndex,
                                     SegmentStartIndex, SegmentEndIndex);
     TwCloseH5(cFilename);
     if (rv != TwSuccess) {
-      stop(TwRetValString(rv));
+      stop(TranslateReturnValue(rv));
     }
 
     return wrap(Profile);
@@ -769,7 +769,7 @@ SEXP GetBufWriteProfileFromH5(std::string Filename, int PeakIndex,
                                     SegmentStartIndex, SegmentEndIndex);
     TwCloseH5(cFilename);
     if (rv != TwSuccess) {
-      stop(TwRetValString(rv));
+      stop(TranslateReturnValue(rv));
     }
 
     return wrap(Profile);
@@ -805,7 +805,7 @@ SEXP GetBufWriteProfile2FromH5(std::string Filename, int PeakIndex,
   TwRetVal rv = TwGetH5Descriptor(cFilename, &descriptor);
   if (rv != TwSuccess) {
     TwCloseH5(cFilename);
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   if (PeakIndex != -1) {
@@ -816,7 +816,7 @@ SEXP GetBufWriteProfile2FromH5(std::string Filename, int PeakIndex,
                                     SegmentStartIndex, SegmentEndIndex);
     TwCloseH5(cFilename);
     if (rv != TwSuccess) {
-      stop(TwRetValString(rv));
+      stop(TranslateReturnValue(rv));
     }
 
     return wrap(Profile);
@@ -830,7 +830,7 @@ SEXP GetBufWriteProfile2FromH5(std::string Filename, int PeakIndex,
                                     SegmentStartIndex, SegmentEndIndex);
     TwCloseH5(cFilename);
     if (rv != TwSuccess) {
-      stop(TwRetValString(rv));
+      stop(TranslateReturnValue(rv));
     }
 
     return wrap(Profile);
@@ -867,7 +867,7 @@ List GetRegUserDataSourcesFromH5(std::string Filename) {
                                               NULL, NULL, NULL);
   if (rv != TwValueAdjusted) {
     TwCloseH5(cFilename);
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   char *sourceLocation = new char[256 * nbrSources];
@@ -887,7 +887,7 @@ List GetRegUserDataSourcesFromH5(std::string Filename) {
   if (rv != TwSuccess) {
     delete[] sourceLocation;
     delete[] hasDesc;
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   CharacterVector locationArray(nbrSources);
@@ -946,7 +946,7 @@ SEXP GetRegUserDataFromH5(std::string Filename, std::string location,
                                        writeIndex, &bufLength, NULL, NULL);
   if (rv != TwValueAdjusted) {
     TwCloseH5(cFilename);
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   NumericVector buffer(bufLength);
@@ -961,7 +961,7 @@ SEXP GetRegUserDataFromH5(std::string Filename, std::string location,
     TwCloseH5(cFilename);
     if (rv != TwSuccess) {
       delete[] description;
-      stop(TwRetValString(rv));
+      stop(TranslateReturnValue(rv));
     }
 
     CharacterVector descriptionArray(bufLength);
@@ -983,7 +983,7 @@ SEXP GetRegUserDataFromH5(std::string Filename, std::string location,
                                 &bufLength, &buffer[0], NULL);
     TwCloseH5(cFilename);
     if (rv != TwSuccess) {
-      stop(TwRetValString(rv));
+      stop(TranslateReturnValue(rv));
     }
 
     return buffer;
@@ -1022,7 +1022,7 @@ SEXP GetTofData(std::string Filename, int sampleOffset, int sampleCount,
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return wrap(dataBuffer);
@@ -1061,7 +1061,7 @@ SEXP GetTofData2(std::string Filename, int sampleOffset, int sampleCount,
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return wrap(dataBuffer);
@@ -1099,7 +1099,7 @@ SEXP GetPeakData(std::string Filename, int peakOffset, int peakCount,
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return wrap(dataBuffer);
@@ -1137,7 +1137,7 @@ SEXP GetPeakData2(std::string Filename, int peakOffset, int peakCount,
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return wrap(dataBuffer);
@@ -1169,7 +1169,7 @@ NumericVector GetTimingData(std::string Filename, int bufOffset, int bufCount,
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return dataBuffer;
@@ -1205,7 +1205,7 @@ int GetIntAttributeFromH5(std::string Filename, std::string location,
 
   TwCloseH5(cFilename);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return value;
@@ -1243,7 +1243,7 @@ unsigned int GetUintAttributeFromH5(std::string Filename, std::string location,
 
   TwCloseH5(cFilename);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return value;
@@ -1282,7 +1282,7 @@ CharacterVector GetInt64AttributeFromH5(std::string Filename,
 
   TwCloseH5(cFilename);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   CharacterVector out(1);
@@ -1322,7 +1322,7 @@ CharacterVector GetUint64AttributeFromH5(std::string Filename,
 
   TwCloseH5(cFilename);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   CharacterVector out(1);
@@ -1360,7 +1360,7 @@ float GetFloatAttributeFromH5(std::string Filename, std::string location,
 
   TwCloseH5(cFilename);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return value;
@@ -1396,7 +1396,7 @@ double GetDoubleAttributeFromH5(std::string Filename, std::string location,
 
   TwCloseH5(cFilename);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return value;
@@ -1432,7 +1432,7 @@ String GetStringAttributeFromH5(std::string Filename, std::string location,
 
   TwCloseH5(cFilename);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   std::string str(value);
@@ -1467,7 +1467,7 @@ void SetIntAttributeInH5(std::string Filename, std::string location,
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -1499,7 +1499,7 @@ void SetUintAttributeInH5(std::string Filename, std::string location,
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -1534,7 +1534,7 @@ void SetInt64AttributeInH5(std::string Filename, std::string location,
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -1570,7 +1570,7 @@ void SetUint64AttributeInH5(std::string Filename, std::string location,
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -1602,7 +1602,7 @@ void SetFloatAttributeInH5(std::string Filename, std::string location,
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -1633,7 +1633,7 @@ void SetDoubleAttributeInH5(std::string Filename, std::string location,
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -1665,7 +1665,7 @@ void SetStringAttributeInH5(std::string Filename, std::string location,
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -1702,7 +1702,7 @@ List GetUserDataFromH5(std::string Filename, std::string location, int rowIndex 
                                     NULL, NULL);
   if (rv != TwValueAdjusted) {
     TwCloseH5(cFilename);
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   NumericVector buffer(nbrElements);
@@ -1723,7 +1723,7 @@ List GetUserDataFromH5(std::string Filename, std::string location, int rowIndex 
       if (rv != TwSuccess) {
         delete[] elementDescription;
         TwCloseH5(cFilename);
-        stop(TwRetValString(rv));
+        stop(TranslateReturnValue(rv));
       }
 
       for (int i = 0; i < nbrElements; i++) {
@@ -1741,7 +1741,7 @@ List GetUserDataFromH5(std::string Filename, std::string location, int rowIndex 
     if (rv != TwSuccess) {
       delete[] elementDescription;
       TwCloseH5(cFilename);
-      stop(TwRetValString(rv));
+      stop(TranslateReturnValue(rv));
     }
 
     result["data"] = buffer;
@@ -1794,7 +1794,7 @@ List GetAcquisitionLogFromH5(std::string Filename, int index) {
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   CharacterVector time(1);
@@ -1841,7 +1841,7 @@ SEXP GetEventListSpectrumFromH5(std::string Filename, int segmentIndex,
                                              writeIndex, &bufferSize, NULL);
   if ((rv != TwValueAdjusted) & (rv != TwSuccess)) {
     TwCloseH5(cFilename);
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   std::vector<unsigned int> buffer(bufferSize);
@@ -1850,7 +1850,7 @@ SEXP GetEventListSpectrumFromH5(std::string Filename, int segmentIndex,
                                     writeIndex, &bufferSize, &buffer[0]);
   TwCloseH5(cFilename);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return wrap(buffer);
@@ -1884,7 +1884,7 @@ List H5GetMassCalibPar(std::string Filename, int writeIndex) {
                                     writeIndex, NULL, &nbrParams, NULL);
   if (rv != TwValueAdjusted) {
     TwCloseH5(cFilename);
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   int mode;
@@ -1894,7 +1894,7 @@ List H5GetMassCalibPar(std::string Filename, int writeIndex) {
                            writeIndex, &mode, &nbrParams, &p[0]);
   TwCloseH5(cFilename);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   List result;
@@ -1930,7 +1930,7 @@ void H5AddLogEntry(std::string Filename, std::string LogEntryText,
   TwRetVal rv = TwH5AddLogEntry(cFilename, cLogEntryText, cTime);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 

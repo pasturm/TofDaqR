@@ -4,7 +4,7 @@
 // convert std::string to char*
 char* StringToChar(std::string str);
 
-// convert TwRetVal to String
-String TwRetValString(TwRetVal rv);
+// convert TwRetVal to std::string
+std::string TranslateReturnValue(TwRetVal rv);
 
 #endif

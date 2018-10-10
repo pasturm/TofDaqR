@@ -18,7 +18,7 @@ void InitializeDll() {
   TwRetVal rv = TwInitializeDll();
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -88,7 +88,7 @@ void StartAcquisition() {
   TwRetVal rv = TwStartAcquisition();
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -103,7 +103,7 @@ void StopAcquisition() {
   TwRetVal rv = TwStopAcquisition();
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -119,7 +119,7 @@ void ContinueAcquisition() {
   TwRetVal rv = TwContinueAcquisition();
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -150,7 +150,7 @@ void CloseTofDaqRec() {
   TwRetVal rv = TwCloseTofDaqRec();
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -173,7 +173,7 @@ void IssueDio4Pulse(int delay, int width) {
   TwRetVal rv = TwIssueDio4Pulse(delay, width);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -194,7 +194,7 @@ void SetDio4State(int state) {
   TwRetVal rv = TwSetDio4State(state);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -211,7 +211,7 @@ void InitializeDaqDevice() {
   TwRetVal rv = TwInitializeDaqDevice();
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -254,7 +254,7 @@ void AutoSetupDaqDevice() {
   TwRetVal rv = TwAutoSetupDaqDevice();
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -273,7 +273,7 @@ void OnDemandMassCalibration(int action) {
   TwRetVal rv = TwOnDemandMassCalibration(action);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -291,7 +291,7 @@ void ShowConfigWindow(int ConfigWindowIndex) {
   TwRetVal rv = TwShowConfigWindow(ConfigWindowIndex);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -321,7 +321,7 @@ void LoadIniFile(Nullable<Rcpp::String> IniFile = R_NilValue) {
   TwRetVal rv = TwLoadIniFile(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -352,7 +352,7 @@ void SaveIniFile(Nullable<Rcpp::String> IniFile = R_NilValue) {
   TwRetVal rv = TwSaveIniFile(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -501,7 +501,7 @@ int GetDaqParameterIntRef(std::string Parameter) {
 
   TwRetVal rv = TwGetDaqParameterIntRef(cParameter, &Value);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return Value;
@@ -528,7 +528,7 @@ bool GetDaqParameterBoolRef(std::string Parameter) {
 
   TwRetVal rv = TwGetDaqParameterBoolRef(cParameter, &Value);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return Value;
@@ -555,7 +555,7 @@ float GetDaqParameterFloatRef(std::string Parameter) {
 
   TwRetVal rv = TwGetDaqParameterFloatRef(cParameter, &Value);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return Value;
@@ -582,7 +582,7 @@ String GetDaqParameterInt64Ref(std::string Parameter) {
 
   TwRetVal rv = TwGetDaqParameterInt64Ref(cParameter, &Value);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   std::stringstream ss;
@@ -612,7 +612,7 @@ double GetDaqParameterDoubleRef(std::string Parameter) {
 
   TwRetVal rv = TwGetDaqParameterDoubleRef(cParameter, &Value);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return Value;
@@ -638,7 +638,7 @@ String GetDaqParameterStringRef(std::string Parameter) {
 
   TwRetVal rv = TwGetDaqParameterStringRef(cParameter, Value);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   std::string str(Value);
@@ -665,7 +665,7 @@ void SetDaqParameter(std::string Parameter, std::string ValueString) {
   TwRetVal rv = TwSetDaqParameter(cParameter, cValueString);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -687,7 +687,7 @@ void SetDaqParameterInt(std::string Parameter, int Value) {
   TwRetVal rv = TwSetDaqParameterInt(cParameter, Value);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -709,7 +709,7 @@ void SetDaqParameterBool(std::string Parameter, bool Value) {
   TwRetVal rv = TwSetDaqParameterBool(cParameter, Value);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -731,7 +731,7 @@ void SetDaqParameterFloat(std::string Parameter, double Value) {
   TwRetVal rv = TwSetDaqParameterFloat(cParameter, (float)Value);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -758,7 +758,7 @@ void SetDaqParameterInt64(std::string Parameter, std::string Value) {
   TwRetVal rv = TwSetDaqParameterInt64(cParameter, int64value);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -780,7 +780,7 @@ void SetDaqParameterDouble(std::string Parameter, double Value) {
   TwRetVal rv = TwSetDaqParameterDouble(cParameter, Value);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -809,7 +809,7 @@ void ConfigVarNbrMemories(bool Enable, IntegerVector StepAtBuf,
                                        &NbrMemoriesForStep[0]);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -836,7 +836,7 @@ List GetDescriptor() {
   TSharedMemoryDesc pBufDesc;
   TwRetVal rv = TwGetDescriptor(&pBufDesc);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   std::stringstream ss;  // for converting int64 to string
@@ -943,7 +943,7 @@ List GetPeakParameters(int PeakIndex) {
   TwRetVal rv = TwGetPeakParameters(&PeakPar, PeakIndex);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   List result;
@@ -968,7 +968,7 @@ void ReleaseSharedMemory() {
   TwRetVal rv = TwReleaseSharedMemory();
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -991,7 +991,7 @@ void WaitForNewData(int timeout, bool WaitForEventReset = true) {
   TwRetVal rv = TwWaitForNewData(timeout, &pBufDesc, &pShMem, WaitForEventReset);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -1009,7 +1009,7 @@ void WaitForEndOfAcquisition(int timeout) {
   TwRetVal rv = TwWaitForEndOfAcquisition(timeout);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -1027,14 +1027,14 @@ NumericVector GetSumSpectrumFromShMem(bool Normalize = true) {
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   NumericVector Spectrum(desc.NbrSamples);
 
   rv = TwGetSumSpectrumFromShMem(&Spectrum[0], Normalize);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return Spectrum;
@@ -1054,14 +1054,14 @@ NumericVector GetSumSpectrumFromShMem2(bool Normalize = true) {
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   NumericVector Spectrum(desc.NbrSamples);
 
   rv = TwGetSumSpectrumFromShMem2(&Spectrum[0], Normalize);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return Spectrum;
@@ -1093,7 +1093,7 @@ SEXP GetTofSpectrumFromShMem(int SegmentIndex, int SegmentEndIndex,
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   int specLen;
@@ -1108,7 +1108,7 @@ SEXP GetTofSpectrumFromShMem(int SegmentIndex, int SegmentEndIndex,
                                  BufIndex, Normalize);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return wrap(Spectrum);
@@ -1140,7 +1140,7 @@ SEXP GetTofSpectrumFromShMem2(int SegmentIndex, int SegmentEndIndex,
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   int specLen;
@@ -1155,7 +1155,7 @@ SEXP GetTofSpectrumFromShMem2(int SegmentIndex, int SegmentEndIndex,
                                  BufIndex, Normalize);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return wrap(Spectrum);
@@ -1179,14 +1179,14 @@ NumericVector GetSpecXaxisFromShMem(int Type) {
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   NumericVector SpecAxis(desc.NbrSamples);
   double maxMass = 0.0;
   rv = TwGetSpecXaxisFromShMem(&SpecAxis[0], Type, NULL, maxMass);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return SpecAxis;
@@ -1210,7 +1210,7 @@ List GetStickSpectrumFromShMem(int SegmentIndex, int SegmentEndIndex,
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   std::vector<float> Spectrum(desc.NbrPeaks);
@@ -1219,7 +1219,7 @@ List GetStickSpectrumFromShMem(int SegmentIndex, int SegmentEndIndex,
   rv = TwGetStickSpectrumFromShMem(&Spectrum[0], &Masses[0], SegmentIndex,
                                    SegmentEndIndex, BufIndex);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   List result;
@@ -1247,7 +1247,7 @@ List GetStickSpectrumFromShMem2(int SegmentIndex, int SegmentEndIndex,
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   std::vector<float> Spectrum(desc.NbrPeaks);
@@ -1256,7 +1256,7 @@ List GetStickSpectrumFromShMem2(int SegmentIndex, int SegmentEndIndex,
   rv = TwGetStickSpectrumFromShMem2(&Spectrum[0], &Masses[0], SegmentIndex,
                                    SegmentEndIndex, BufIndex);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   List result;
@@ -1284,7 +1284,7 @@ SEXP GetSegmentProfileFromShMem(int PeakIndex, int BufIndex) {
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   int profileLen;
@@ -1297,7 +1297,7 @@ SEXP GetSegmentProfileFromShMem(int PeakIndex, int BufIndex) {
   std::vector<float> SegmentProfile(profileLen);
   rv = TwGetSegmentProfileFromShMem(&SegmentProfile[0], PeakIndex, BufIndex);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return wrap(SegmentProfile);
@@ -1321,7 +1321,7 @@ SEXP GetSegmentProfileFromShMem2(int PeakIndex, int BufIndex) {
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   int profileLen;
@@ -1334,7 +1334,7 @@ SEXP GetSegmentProfileFromShMem2(int PeakIndex, int BufIndex) {
   std::vector<float> SegmentProfile(profileLen);
   rv = TwGetSegmentProfileFromShMem2(&SegmentProfile[0], PeakIndex, BufIndex);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return wrap(SegmentProfile);
@@ -1357,7 +1357,7 @@ double GetBufTimeFromShMem(int BufIndex, int WriteIndex) {
 
   TwRetVal rv = TwGetBufTimeFromShMem(&BufTime, BufIndex, WriteIndex);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return BufTime;
@@ -1388,7 +1388,7 @@ void AddLogEntry(std::string LogEntryText, std::string LogEntryTime) {
   TwRetVal rv = TwAddLogEntry(cLogEntryText, cTime);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -1413,7 +1413,7 @@ void AddAttributeInt(std::string Object, std::string AttributeName, int Value) {
   TwRetVal rv = TwAddAttributeInt(cObject, cAttributeName, Value);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -1439,7 +1439,7 @@ void AddAttributeDouble(std::string Object, std::string AttributeName,
   TwRetVal rv = TwAddAttributeDouble(cObject, cAttributeName, Value);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -1466,7 +1466,7 @@ void AddAttributeString(std::string Object, std::string AttributeName,
   TwRetVal rv = TwAddAttributeString(cObject, cAttributeName, cValue);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -1506,7 +1506,7 @@ void AddUserData(std::string Location, int NbrElements, NumericVector Data,
   TwRetVal rv = TwAddUserData(cLocation, NbrElements, cElementDescription,
                               &Data[0], CompressionLevel);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -1554,7 +1554,7 @@ void AddUserDataMultiRow(std::string Location, int NbrElements, int NbrRows,
                                       cElementDescription, &Data[0],
                                       CompressionLevel);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -1595,7 +1595,7 @@ void RegisterUserDataBuf(std::string Location, int NbrElements,
   TwRetVal rv = TwRegisterUserDataBuf(cLocation, NbrElements,
                                       cElementDescription, CompressionLevel);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -1637,7 +1637,7 @@ void RegisterUserDataWrite(std::string Location, int NbrElements,
   TwRetVal rv = TwRegisterUserDataWrite(cLocation, NbrElements,
                                         cElementDescription, CompressionLevel);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -1675,7 +1675,7 @@ void RegisterUserDataNoStore(std::string Location, int NbrElements,
   TwRetVal rv = TwRegisterUserDataNoStore(cLocation, NbrElements,
                                         cElementDescription);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -1697,7 +1697,7 @@ void UnregisterUserData(std::string Location) {
   TwRetVal rv = TwUnregisterUserData(cLocation);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -1720,7 +1720,7 @@ void UpdateUserData(std::string Location, int NbrElements, NumericVector Data) {
   TwRetVal rv = TwUpdateUserData(cLocation, NbrElements, &Data[0]);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -1745,7 +1745,7 @@ NumericVector ReadRegUserData(std::string Location, int NbrElements) {
   TwRetVal rv = TwReadRegUserData(cLocation, NbrElements, &Data[0]);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return Data;
@@ -1771,7 +1771,7 @@ int QueryRegUserDataSize(std::string Location) {
   TwRetVal rv = TwQueryRegUserDataSize(cLocation, &NbrElements);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return NbrElements;
@@ -1796,7 +1796,7 @@ List GetRegUserDataSources() {
 
   TwRetVal rv = TwGetRegUserDataSources(&arrayLength, NULL, NULL, NULL);
   if (rv != TwValueAdjusted) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   char *location = new char[256 * arrayLength];
@@ -1809,7 +1809,7 @@ List GetRegUserDataSources() {
 
   if (rv != TwSuccess) {
     delete[] location;
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   CharacterVector locationArray(arrayLength);
@@ -1846,7 +1846,7 @@ CharacterVector GetRegUserDataDesc(std::string Location) {
 
   TwRetVal rv = TwGetRegUserDataDesc(cLocation, &nbrElements, NULL);
   if (rv != TwValueAdjusted) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   char *elementDescription = new char[256 * nbrElements];
@@ -1855,7 +1855,7 @@ CharacterVector GetRegUserDataDesc(std::string Location) {
   rv = TwGetRegUserDataDesc(cLocation, &nbrElements, elementDescription);
   if (rv != TwSuccess) {
     delete[] elementDescription;
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   CharacterVector descriptionArray(nbrElements);
@@ -1885,7 +1885,7 @@ void KeepFileOpen(bool keepOpen) {
   TwRetVal rv = TwKeepFileOpen(keepOpen);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -1903,7 +1903,7 @@ void TpsConnect() {
   TwRetVal rv = TwTpsConnect();
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -1926,7 +1926,7 @@ void TpsConnect2(std::string ip, int type) {
   TwRetVal rv = TwTpsConnect2(cFilename, type);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -1944,7 +1944,7 @@ void TpsDisconnect() {
   TwRetVal rv = TwTpsDisconnect();
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -1965,7 +1965,7 @@ double TpsGetMonitorValue(int moduleCode) {
 
   TwRetVal rv = TwTpsGetMonitorValue(moduleCode, &value);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return value;
@@ -1989,7 +1989,7 @@ double TpsGetTargetValue(int moduleCode) {
   TwRetVal rv = TwTpsGetTargetValue(moduleCode, &value);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return value;
@@ -2013,7 +2013,7 @@ double TpsGetLastSetValue(int moduleCode) {
   TwRetVal rv = TwTpsGetLastSetValue(moduleCode, &value);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return value;
@@ -2035,7 +2035,7 @@ void TpsSetTargetValue(int moduleCode, double value) {
   TwRetVal rv = TwTpsSetTargetValue(moduleCode, value);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -2054,7 +2054,7 @@ int TpsGetNbrModules() {
   TwRetVal rv = TwTpsGetNbrModules(&value);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return value;
@@ -2075,7 +2075,7 @@ IntegerVector TpsGetModuleCodes() {
   TwRetVal rv = TwTpsGetNbrModules(&nbrModules);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   IntegerVector moduleCodeBuffer(nbrModules);
@@ -2083,7 +2083,7 @@ IntegerVector TpsGetModuleCodes() {
   rv = TwTpsGetModuleCodes(&moduleCodeBuffer[0], nbrModules);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return moduleCodeBuffer;
@@ -2102,7 +2102,7 @@ void TpsInitialize() {
   TwRetVal rv = TwTpsInitialize();
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -2119,7 +2119,7 @@ void TpsSetAllVoltages() {
   TwRetVal rv = TwTpsSetAllVoltages();
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -2136,7 +2136,7 @@ void TpsShutdown() {
   TwRetVal rv = TwTpsShutdown();
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -2157,7 +2157,7 @@ List TpsGetStatus() {
 
   TwRetVal rv = TwTpsGetStatus(&status);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   bool connected = (status & 0x01); // hex for 0000 0001
@@ -2200,7 +2200,7 @@ void TpsLoadSetFile(std::string setFile) {
   TwRetVal rv = TwTpsLoadSetFile(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -2221,7 +2221,7 @@ void TpsSaveSetFile(std::string setFile) {
   TwRetVal rv = TwTpsSaveSetFile(cFilename);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -2245,7 +2245,7 @@ int TpsGetActiveFilament() {
   TwRetVal rv = TwTpsGetActiveFilament(&filament);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return filament;
@@ -2269,7 +2269,7 @@ void TpsSetActiveFilament(int activeFilament) {
   TwRetVal rv = TwTpsSetActiveFilament(activeFilament);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -2290,7 +2290,7 @@ NumericVector TpsGetModuleLimits(int moduleCode) {
 
   TwRetVal rv = TwTpsGetModuleLimits(moduleCode, &limit[0], &limit[1]);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return limit;
@@ -2313,7 +2313,7 @@ void TpsChangeIonMode(int ionMode) {
   TwRetVal rv = TwTpsChangeIonMode(ionMode);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 

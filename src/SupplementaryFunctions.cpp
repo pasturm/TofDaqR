@@ -403,7 +403,7 @@ List SiProcessSpectrumFromShMem(int specType, int BufIndex) {
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   int specLen = desc.NbrSamples;
@@ -416,7 +416,7 @@ List SiProcessSpectrumFromShMem(int specType, int BufIndex) {
   rv = TwSiProcessSpectrum(&spectrum[0], specLen, specType, &blFromData,
                            &thrFromData);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   List result;
@@ -451,7 +451,7 @@ void KeepSharedMemMapped() {
   TwRetVal rv = TwGetSharedMemory(&pShMem, keepMapped);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 #endif

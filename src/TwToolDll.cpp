@@ -12,23 +12,11 @@ char* StringToChar(std::string str) {
   return cstring;
 }
 
-// convert TwRetVal to String
-String TwRetValString(TwRetVal rv) {
-  StringVector str(13);
-  str[0] = "TwDaqRecNotRunning";
-  str[1] = "TwAcquisitionActive";
-  str[2] = "TwNoActiveAcquisition";
-  str[3] = "TwFileNotFound";
-  str[4] = "TwSuccess";
-  str[5] = "TwError";
-  str[6] = "TwOutOfBounds";
-  str[7] = "TwNoData";
-  str[8] = "TwTimeout";
-  str[9] = "TwValueAdjusted";
-  str[10] = "TwInvalidParameter";
-  str[11] = "TwInvalidValue";
-  str[12] = "TwAborted";
-  return str[(int)rv];
+// convert TwRetVal to std::string
+std::string TranslateReturnValue(TwRetVal rv) {
+  char *retval = TwTranslateReturnValue(rv);
+  std::string str(retval);
+  return str;
 }
 
 // FitSinglePeak ---------------------------------------------------------------
@@ -86,7 +74,7 @@ List FitSinglePeak(NumericVector yVals, NumericVector xVals, int peakType = 0,
                                 &fwhmHi, &peakPos, &mu);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   List result;
@@ -148,7 +136,7 @@ List FitSinglePeak2(NumericVector yVals, NumericVector xVals, int peakType = 0,
   TwRetVal rv = TwFitSinglePeak2(nbrDataPoints, &yVals[0], &xVals[0], peakType,
                                  &param[0]);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   List result;
@@ -243,7 +231,7 @@ double GetMoleculeMass(std::string molecule) {
   TwRetVal rv = TwGetMoleculeMass(cMolecule, &mass);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
   return mass;
 }
@@ -309,7 +297,7 @@ List MultiPeakFit(NumericVector dataX, NumericVector dataY, NumericVector mass,
                                &mass[0], &intensity[0], &commonPar[0], opt);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   List result;
@@ -393,7 +381,7 @@ List GetIsotopePattern(std::string molecule, double abundanceLimit) {
                                     NULL, NULL);
 
   if (rv != TwValueAdjusted) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   NumericVector isoMass(nbrIsotopes);
@@ -402,7 +390,7 @@ List GetIsotopePattern(std::string molecule, double abundanceLimit) {
   rv = TwGetIsotopePattern(cMolecule, abundanceLimit, &nbrIsotopes, &isoMass[0],
                            &isoAbundance[0]);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   List result;
@@ -451,7 +439,7 @@ List GetIsotopePattern2(std::string molecule, double abundanceLimit) {
                                     NULL, NULL);
 
   if (rv != TwValueAdjusted) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   NumericVector isoMass(nbrIsotopes);
@@ -460,7 +448,7 @@ List GetIsotopePattern2(std::string molecule, double abundanceLimit) {
   rv = TwGetIsotopePattern2(cMolecule, abundanceLimit, &nbrIsotopes, &isoMass[0],
                             &isoAbundance[0]);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   List result;
@@ -606,7 +594,7 @@ NumericVector MassCalibrate(int massCalibMode, NumericVector mass,
   char *description = new char[64];
   TwRetVal rv = TwGetMassCalibInfo(massCalibMode, description, &nbrParams);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   NumericVector param(nbrParams);
@@ -615,7 +603,7 @@ NumericVector MassCalibrate(int massCalibMode, NumericVector mass,
                        &nbrParams, &param[0], NULL, NULL);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   return param;
@@ -646,7 +634,7 @@ List GetMassCalibInfo(int massCalibMode) {
 
   TwRetVal rv = TwGetMassCalibInfo(massCalibMode, description, &nbrParams);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   std::string str(description);
@@ -693,7 +681,7 @@ void SiInitializeHistograms(NumericVector loMass, NumericVector hiMass,
   TwRetVal rv = TwSiInitializeHistograms(nbrHist, &loMass[0], &hiMass[0], p_specType);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -745,7 +733,7 @@ void SiSetProcessingOptions(std::string option, double value, int specType) {
   TwRetVal rv = TwSiSetProcessingOptions(coption, value, specType);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -778,7 +766,7 @@ List SiProcessSpectrum(NumericVector spectrum, int specType) {
                                     &blFromData, &thrFromData);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   List result;
@@ -816,7 +804,7 @@ List SiGetHistogram(int histogramIndex) {
   TwRetVal rv = TwSiGetHistogram(histogramIndex, NULL, NULL, &arrayLength,
                                  &spectrumCount, &meanValue);
   if (rv != TwValueAdjusted) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   NumericVector intensity(arrayLength);
@@ -828,7 +816,7 @@ List SiGetHistogram(int histogramIndex) {
   rv = TwSiGetHistogram(histogramIndex, &fintensity[0], &fcounts[0],
                         &arrayLength, &spectrumCount, &meanValue);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   List result;
@@ -871,7 +859,7 @@ List SiGetSumHistogram(int specType, double minMass, double maxMass,
                                     &spectrumCount, &meanValue, minMass, maxMass,
                                     minRate, maxRate);
   if (rv != TwValueAdjusted) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   NumericVector intensity(arrayLength);
@@ -884,7 +872,7 @@ List SiGetSumHistogram(int specType, double minMass, double maxMass,
                            &spectrumCount, &meanValue, minMass, maxMass,
                            minRate, maxRate);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   List result;
@@ -909,7 +897,7 @@ void SiResetHistograms() {
   TwRetVal rv = TwSiResetHistograms();
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -927,7 +915,7 @@ void SiCleanup() {
   TwRetVal rv = TwSiCleanup();
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 }
 
@@ -959,7 +947,7 @@ List SiFitPhd(NumericVector intensity, NumericVector counts) {
   TwRetVal rv = TwSiFitPhd(nbrPoints, &intensity[0], &counts[0], &fwhm[0],
                            &a[0], &par[0]);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   List result;
@@ -1022,7 +1010,7 @@ List SiFitRateFromPhd(NumericVector intensity, NumericVector counts,
   TwRetVal rv = TwSiFitRateFromPhd(nbrPoints, &intensity[0], &counts[0],
                                    &siPar[0], &rate, &fitCounts[0], 0, NULL);
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   List result;
@@ -1064,7 +1052,7 @@ String FindTpsIp(std::string TpsSerial, int timeout) {
   TwRetVal rv = TwFindTpsIp(cTpsSerial, timeout, &hostStrLen, buffer);
 
   if (rv != TwSuccess) {
-    stop(TwRetValString(rv));
+    stop(TranslateReturnValue(rv));
   }
 
   std::string str(buffer);
@@ -1073,7 +1061,6 @@ String FindTpsIp(std::string TpsSerial, int timeout) {
 }
 #endif
 
-// Not implemented: TwTranslateReturnValue -------------------------------------
 // Not implemented: TwFitResolution --------------------------------------------
 // Not implemented: TwEvalResolution -------------------------------------------
 // Not implemented: TwDecomposeMass --------------------------------------------
