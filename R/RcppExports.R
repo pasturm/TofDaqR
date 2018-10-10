@@ -2392,6 +2392,55 @@ EvalMultiPeak <- function(dataX, mass, intensity, commonPar) {
     .Call('_TofDaqR_EvalMultiPeak', PACKAGE = 'TofDaqR', dataX, mass, intensity, commonPar)
 }
 
+#' Fits mass versus resolution values to an empirical function.
+#'
+#' \code{FitResolution} fits mass versus resolution values to an empirical
+#' function (see Details).
+#'
+#' An empirical function that describes the mass resolution as a function of
+#' mass is: R(m) = R0 - R0/(1 + exp((m -m0)/dm)), where R0 is the nominal mass
+#' resolution, m0 is the mass at which the resolution is R0/2 and dm is a slope
+#' parameter.
+#'
+#' Reasonable initial guess values for R0, m0 and dm need to be provided.
+#'
+#' @param mass Vector of mass values.
+#' @param resolution Vector of resolution values.
+#' @param R0 Initial guess value of nominal mass resolution R0.
+#' @param m0 Initial guess value of m0 (mass where R(m) = 0.5*R0).
+#' @param dm Initial guess value of slope parameter dm.
+#' @return List with the fitted parameters R0, m0 and dm.
+#'
+#' @seealso \code{\link{EvalResolution}}
+#'
+#' @export
+FitResolution <- function(mass, resolution, R0, m0, dm) {
+    .Call('_TofDaqR_FitResolution', PACKAGE = 'TofDaqR', mass, resolution, R0, m0, dm)
+}
+
+#' Evaluates the fitted resolution function for given mass values.
+#'
+#' \code{EvalResolution} evaluates the fitted resolution function for given
+#' mass values.
+#'
+#' An empirical function that describes the mass resolution of TOFs as a
+#' function of mass is: R(m) = R0 - R0/(1 + exp((m -m0)/dm)), where
+#' R0 is the nominal mass resolution, m0 is the mass at which the resolution
+#' is R0/2 and dm is a slope parameter.
+#'
+#' @param R0 Nominal mass resolution.
+#' @param m0 Mass where R(m) = 0.5*R0.
+#' @param dm Slope parameter.
+#' @param mass Vector of mass values.
+#' @return Vector with resolution values.
+#'
+#' @seealso \code{\link{FitResolution}}
+#'
+#' @export
+EvalResolution <- function(R0, m0, dm, mass) {
+    .Call('_TofDaqR_EvalResolution', PACKAGE = 'TofDaqR', R0, m0, dm, mass)
+}
+
 #' Calculates the isotope pattern of a molecule.
 #'
 #' \code{GetIsotopePattern} parses the molecular formula and returns the

@@ -344,6 +344,82 @@ NumericVector EvalMultiPeak(NumericVector dataX, NumericVector mass,
   return yValsFit;
 }
 
+// FitResolution ---------------------------------------------------------------
+//' Fits mass versus resolution values to an empirical function.
+//'
+//' \code{FitResolution} fits mass versus resolution values to an empirical
+//' function (see Details).
+//'
+//' An empirical function that describes the mass resolution as a function of
+//' mass is: R(m) = R0 - R0/(1 + exp((m -m0)/dm)), where R0 is the nominal mass
+//' resolution, m0 is the mass at which the resolution is R0/2 and dm is a slope
+//' parameter.
+//'
+//' Reasonable initial guess values for R0, m0 and dm need to be provided.
+//'
+//' @param mass Vector of mass values.
+//' @param resolution Vector of resolution values.
+//' @param R0 Initial guess value of nominal mass resolution R0.
+//' @param m0 Initial guess value of m0 (mass where R(m) = 0.5*R0).
+//' @param dm Initial guess value of slope parameter dm.
+//' @return List with the fitted parameters R0, m0 and dm.
+//'
+//' @seealso \code{\link{EvalResolution}}
+//'
+//' @export
+// [[Rcpp::export]]
+List FitResolution(NumericVector mass, NumericVector resolution, double R0,
+                   double m0, double dm) {
+
+  int nbrPoints = mass.size();
+
+  TwRetVal rv = TwFitResolution(nbrPoints, &mass[0], &resolution[0], &R0, &m0, &dm);
+
+  if (rv != TwSuccess) {
+    stop(TranslateReturnValue(rv));
+  }
+
+  List result;
+  result["R0"] = R0;
+  result["m0"] = m0;
+  result["dm"] = dm;
+  return result;
+}
+
+// EvalResolution --------------------------------------------------------------
+//' Evaluates the fitted resolution function for given mass values.
+//'
+//' \code{EvalResolution} evaluates the fitted resolution function for given
+//' mass values.
+//'
+//' An empirical function that describes the mass resolution of TOFs as a
+//' function of mass is: R(m) = R0 - R0/(1 + exp((m -m0)/dm)), where
+//' R0 is the nominal mass resolution, m0 is the mass at which the resolution
+//' is R0/2 and dm is a slope parameter.
+//'
+//' @param R0 Nominal mass resolution.
+//' @param m0 Mass where R(m) = 0.5*R0.
+//' @param dm Slope parameter.
+//' @param mass Vector of mass values.
+//' @return Vector with resolution values.
+//'
+//' @seealso \code{\link{FitResolution}}
+//'
+//' @export
+// [[Rcpp::export]]
+NumericVector EvalResolution(double R0, double m0, double dm, NumericVector mass) {
+
+  int nbrPoints = mass.size();
+
+  NumericVector yValsFit(nbrPoints);
+
+  for (int j = 0; j<nbrPoints; ++j) {
+    yValsFit[j] = TwEvalResolution(R0, m0, dm, mass[j]);
+  }
+
+  return yValsFit;
+}
+
 // GetIsotopePattern -----------------------------------------------------------
 //' Calculates the isotope pattern of a molecule.
 //'

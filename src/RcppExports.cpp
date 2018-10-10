@@ -1716,6 +1716,35 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// FitResolution
+List FitResolution(NumericVector mass, NumericVector resolution, double R0, double m0, double dm);
+RcppExport SEXP _TofDaqR_FitResolution(SEXP massSEXP, SEXP resolutionSEXP, SEXP R0SEXP, SEXP m0SEXP, SEXP dmSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type mass(massSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type resolution(resolutionSEXP);
+    Rcpp::traits::input_parameter< double >::type R0(R0SEXP);
+    Rcpp::traits::input_parameter< double >::type m0(m0SEXP);
+    Rcpp::traits::input_parameter< double >::type dm(dmSEXP);
+    rcpp_result_gen = Rcpp::wrap(FitResolution(mass, resolution, R0, m0, dm));
+    return rcpp_result_gen;
+END_RCPP
+}
+// EvalResolution
+NumericVector EvalResolution(double R0, double m0, double dm, NumericVector mass);
+RcppExport SEXP _TofDaqR_EvalResolution(SEXP R0SEXP, SEXP m0SEXP, SEXP dmSEXP, SEXP massSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type R0(R0SEXP);
+    Rcpp::traits::input_parameter< double >::type m0(m0SEXP);
+    Rcpp::traits::input_parameter< double >::type dm(dmSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type mass(massSEXP);
+    rcpp_result_gen = Rcpp::wrap(EvalResolution(R0, m0, dm, mass));
+    return rcpp_result_gen;
+END_RCPP
+}
 // GetIsotopePattern
 List GetIsotopePattern(std::string molecule, double abundanceLimit);
 RcppExport SEXP _TofDaqR_GetIsotopePattern(SEXP moleculeSEXP, SEXP abundanceLimitSEXP) {
@@ -2064,6 +2093,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_TofDaqR_GetMoleculeMass", (DL_FUNC) &_TofDaqR_GetMoleculeMass, 1},
     {"_TofDaqR_MultiPeakFit", (DL_FUNC) &_TofDaqR_MultiPeakFit, 6},
     {"_TofDaqR_EvalMultiPeak", (DL_FUNC) &_TofDaqR_EvalMultiPeak, 4},
+    {"_TofDaqR_FitResolution", (DL_FUNC) &_TofDaqR_FitResolution, 5},
+    {"_TofDaqR_EvalResolution", (DL_FUNC) &_TofDaqR_EvalResolution, 4},
     {"_TofDaqR_GetIsotopePattern", (DL_FUNC) &_TofDaqR_GetIsotopePattern, 2},
     {"_TofDaqR_GetIsotopePattern2", (DL_FUNC) &_TofDaqR_GetIsotopePattern2, 2},
     {"_TofDaqR_Tof2Mass", (DL_FUNC) &_TofDaqR_Tof2Mass, 3},

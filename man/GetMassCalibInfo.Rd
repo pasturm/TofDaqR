@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcppExports.R
 \name{GetMassCalibInfo}
 \alias{GetMassCalibInfo}
-\title{Gets the description and number parameters of the available mass
+\title{Gets the description and number of parameters of the available mass
 calibration functions.}
 \usage{
 GetMassCalibInfo(massCalibMode)
@@ -15,7 +15,7 @@ List with the description and number of calibration parameters for
 the given \code{massCalibMode}.
 }
 \description{
-\code{GetMassCalibInfo} gets the description and number parameters of the
+\code{GetMassCalibInfo} gets the description and number of parameters of the
 available mass calibration functions.
 }
 \details{
