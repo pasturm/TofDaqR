@@ -1913,7 +1913,8 @@ List H5GetMassCalibPar(std::string Filename, int writeIndex) {
 //' @param Filename Path/filename of the HDF5 file.
 //' @param LogEntryText Log text (max. 255 characters).
 //' @param LogEntryTime Log entry time (number of 100-nanosecond intervals since
-//' January 1, 1601 UTC) passed as a string. Set it to "0" for "now".
+//' January 1, 1601 UTC, Windows FILETIME) passed as a string. Set it to "0" for
+//' "now".
 //'
 //' @export
 // [[Rcpp::export]]
@@ -1929,6 +1930,174 @@ void H5AddLogEntry(std::string Filename, std::string LogEntryText,
 
   TwRetVal rv = TwH5AddLogEntry(cFilename, cLogEntryText, cTime);
 
+  TwCloseH5(cFilename);
+  if (rv != TwSuccess) {
+    stop(TranslateReturnValue(rv));
+  }
+}
+
+// H5AddUserDataMultiRow -------------------------------------------------------
+//' Adds user data to a data file.
+//'
+//' \code{H5AddUserDataMultiRow} adds user data to a data file. Creates datasets
+//' "Data" and "Info" at \code{Location}.
+//'
+//' @param filename Path/filename of the HDF5 file.
+//' @param location Location of group in HDF5 file where the datasets are created.
+//' @param nbrElements Number of elements to store per row (if the dataset
+//' already exists this value must be the same as in the file).
+//' @param nbrRows Number of rows to store per call to this function (each row
+//' contains \code{NbrElements} entries).
+//' @param data Vector of length \code{nbrElements*nbrRows} containing the data to be
+//' stored in dataset "Data".
+//' @param elementDescription Vector of length \code{nbrElements} containing the
+//' text description of elements. If \code{ElementDescription} is \code{NULL}
+//' the dataset "Info" is not created.
+//' @param compressionLevel ZLIB compression level (0-9) for dataset creation.
+//' If the dataset at Location already exists this parameter has no effect.
+//'
+//' @export
+// [[Rcpp::export]]
+void H5AddUserDataMultiRow(std::string filename, std::string location,
+                           int nbrElements, int nbrRows, NumericVector data,
+                           Nullable<Rcpp::String> elementDescription = R_NilValue,
+                           int compressionLevel = 0) {
+
+  char *cFilename = StringToChar(filename);
+  char *cLocation = StringToChar(location);
+  char *cElementDescription;
+  if (elementDescription.isNotNull()) {
+    std::string str = as<std::string>(elementDescription);
+    cElementDescription = StringToChar(str);
+  } else {
+    cElementDescription = NULL;
+  }
+
+  TwRetVal rv = TwH5AddUserDataMultiRow(cFilename, cLocation, nbrElements, nbrRows,
+                                        cElementDescription, &data[0],
+                                        compressionLevel);
+  TwCloseH5(cFilename);
+  if (rv != TwSuccess) {
+    stop(TranslateReturnValue(rv));
+  }
+}
+
+// DeleteAttributeInH5 ---------------------------------------------------------
+//' Deletes an attribute.
+//'
+//' \code{DeleteAttributeInH5} deletes an attribute.
+//'
+//' WARNING: no sanity checking is performed! You can delete attributes that
+//' render the data file unusable.
+//'
+//' @param Filename Path/filename of the HDF5 file.
+//' @param location Location of the group or dataset the attribute is deleted from.
+//' @param name Attribute name.
+//'
+//' @export
+// [[Rcpp::export]]
+void DeleteAttributeInH5(std::string filename, std::string location,
+                         std::string name) {
+
+  char *cFilename = StringToChar(filename);
+  char *cLocation = StringToChar(location);
+  char *cName = StringToChar(name);
+
+  TwRetVal rv = TwDeleteAttributeInH5(cFilename, cLocation, cName);
+
+  TwCloseH5(cFilename);
+  if (rv != TwSuccess) {
+    stop(TranslateReturnValue(rv));
+  }
+}
+
+// WaitForExclusiveFileAccess --------------------------------------------------
+//' Checks whether a file can be opened with exclusive access rights.
+//'
+//' \code{WaitForExclusiveFileAccess} checks whether a file can be opened with
+//' exclusive access rights. This function can be used when opening a data file
+//' that just finished recording in order to make sure that the recording
+//' application as well as the OS have finished writing to the file. Available
+//' only under Windows, returns TwError on other platforms.
+//'
+//' @param filename Path/filename of the HDF5 file.
+//' @param timeoutMs Timeout (in ms) after which the function returns.
+//'
+//' @export
+// [[Rcpp::export]]
+void WaitForExclusiveFileAccess(std::string filename, int timeoutMs) {
+
+  char *cFilename = StringToChar(filename);
+
+  TwRetVal rv = TwWaitForExclusiveFileAccess(cFilename, timeoutMs);
+
+  TwCloseH5(cFilename);
+  if (rv != TwSuccess) {
+    stop(TranslateReturnValue(rv));
+  }
+}
+
+// WriteNetCdfTimeSeriesFile ---------------------------------------------------
+//' Writes a ANDI chromatography file.
+//'
+//' \code{WriteNetCdfTimeSeriesFile} writes a ANDI chromatography file.
+//'
+//' @param filename Path/filename of the HDF5 file.
+//' @param inject_ts Injection timestamp (number of 100-nanosecond intervals since
+//' January 1, 1601 UTC, Windows FILETIME) passed as a string.
+//' @param expTitle Experiment title.
+//' @param operator_name Operator name.
+//' @param company_method_name Company method name.
+//' @param source_file_reference Source file reference.
+//' @param retention_unit Retention unit, e.g. "[s]".
+//' @param detector_unit Detector unit, e.g. "[cps]".
+//' @param sample_name Sample name.
+//' @param raw_data_table_name Dataset name.
+//' @param retention Time axis data.
+//' @param ordinate Intensity axis data.
+//'
+//' @export
+// [[Rcpp::export]]
+void WriteNetCdfTimeSeriesFile(std::string filename,
+                               std::string inject_ts,
+                               std::string expTitle,
+                               std::string operator_name,
+                               std::string company_method_name,
+                               std::string source_file_reference,
+                               std::string retention_unit,
+                               std::string detector_unit,
+                               std::string sample_name,
+                               std::string raw_data_table_name,
+                               NumericVector retention,
+                               NumericVector ordinate) {
+
+  char *cFilename = StringToChar(filename);
+  std::stringstream ss(inject_ts);
+  uint64_t cTime;
+  ss >> cTime;
+  char *cExpTitle = StringToChar(expTitle);
+  char *cOperator_name = StringToChar(operator_name);
+  char *cCompany_method_name = StringToChar(company_method_name);
+  char *cSource_file_reference = StringToChar(source_file_reference);
+  char *cRetention_unit = StringToChar(retention_unit);
+  char *cDetector_unit = StringToChar(detector_unit);
+  char *cSample_name = StringToChar(sample_name);
+  char *cRaw_data_table_name = StringToChar(raw_data_table_name);
+  int nbrPoints = retention.size();
+  if (nbrPoints != ordinate.size()) {
+    stop("retention and ordinate must be the same length.");
+  }
+  std::vector<float> fretention = as<std::vector<float> >(retention);
+  std::vector<float> fordinate = as<std::vector<float> >(ordinate);
+
+  TwRetVal rv = TwWriteNetCdfTimeSeriesFile(cFilename, cTime, cExpTitle,
+                                            cOperator_name, cCompany_method_name,
+                                            cSource_file_reference,
+                                            cRetention_unit, cDetector_unit,
+                                            cSample_name, cRaw_data_table_name,
+                                            nbrPoints, &fretention[0], &fordinate[0]);
+
+  TwCloseH5(cFilename);
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }

@@ -10,7 +10,8 @@ AddLogEntry(LogEntryText, LogEntryTime)
 \item{LogEntryText}{Log text (max. 255 characters).}
 
 \item{LogEntryTime}{Log entry time (number of 100-nanosecond intervals since
-January 1, 1601 UTC) passed as a string. Set it to "0" for "now".}
+January 1, 1601 UTC, Windows FILETIME) passed as a string. Set it to "0" for
+"now".}
 }
 \description{
 \code{AddLogEntry} adds an entry to the acquisition log.

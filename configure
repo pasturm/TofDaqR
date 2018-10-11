@@ -195,6 +195,22 @@ sed -i.tmp '/WaitForEndOfAcquisition(/,/}/ d' ./src/RcppExports.cpp
 sed -i.tmp '/WaitForEndOfAcquisition"/ d' ./src/RcppExports.cpp
 sed -i.tmp '/WaitForNewData(/,/}/ d' ./src/RcppExports.cpp
 sed -i.tmp '/WaitForNewData"/ d' ./src/RcppExports.cpp
+sed -i.tmp '/GetMassCalib(/,/}/ d' ./src/RcppExports.cpp
+sed -i.tmp '/GetMassCalib"/ d' ./src/RcppExports.cpp
+sed -i.tmp '/GetMassCalib2(/,/}/ d' ./src/RcppExports.cpp
+sed -i.tmp '/GetMassCalib2"/ d' ./src/RcppExports.cpp
+sed -i.tmp '/GetMassCalibEx(/,/}/ d' ./src/RcppExports.cpp
+sed -i.tmp '/GetMassCalibEx"/ d' ./src/RcppExports.cpp
+sed -i.tmp '/GetMassCalib2Ex(/,/}/ d' ./src/RcppExports.cpp
+sed -i.tmp '/GetMassCalib2Ex"/ d' ./src/RcppExports.cpp
+sed -i.tmp '/SetMassCalib(/,/}/ d' ./src/RcppExports.cpp
+sed -i.tmp '/SetMassCalib"/ d' ./src/RcppExports.cpp
+sed -i.tmp '/SetMassCalib2(/,/}/ d' ./src/RcppExports.cpp
+sed -i.tmp '/SetMassCalib2"/ d' ./src/RcppExports.cpp
+sed -i.tmp '/SetMassCalibEx(/,/}/ d' ./src/RcppExports.cpp
+sed -i.tmp '/SetMassCalibEx"/ d' ./src/RcppExports.cpp
+sed -i.tmp '/SetMassCalib2Ex(/,/}/ d' ./src/RcppExports.cpp
+sed -i.tmp '/SetMassCalib2Ex"/ d' ./src/RcppExports.cpp
 
 # remove TofDaqDll help files from ./man
 mv ./man/AddAttributeDouble.Rd ./tools
@@ -289,6 +305,14 @@ mv ./man/UnregisterUserData.Rd ./tools
 mv ./man/UpdateUserData.Rd ./tools
 mv ./man/WaitForEndOfAcquisition.Rd ./tools
 mv ./man/WaitForNewData.Rd ./tools
+mv ./man/GetMassCalib.Rd ./tools
+mv ./man/GetMassCalib2.Rd ./tools
+mv ./man/GetMassCalibEx.Rd ./tools
+mv ./man/GetMassCalib2Ex.Rd ./tools
+mv ./man/SetMassCalib.Rd ./tools
+mv ./man/SetMassCalib2.Rd ./tools
+mv ./man/SetMassCalibEx.Rd ./tools
+mv ./man/SetMassCalib2Ex.Rd ./tools
 
 # remove TofDaqDll functions from NAMESPACE
 sed -i.windows '/AddAttributeDouble)/ d' NAMESPACE
@@ -383,6 +407,14 @@ sed -i.tmp '/UnregisterUserData)/ d' NAMESPACE
 sed -i.tmp '/UpdateUserData)/ d' NAMESPACE
 sed -i.tmp '/WaitForEndOfAcquisition)/ d' NAMESPACE
 sed -i.tmp '/WaitForNewData)/ d' NAMESPACE
+sed -i.tmp '/GetMassCalib)/ d' NAMESPACE
+sed -i.tmp '/GetMassCalib2)/ d' NAMESPACE
+sed -i.tmp '/GetMassCalibEx)/ d' NAMESPACE
+sed -i.tmp '/GetMassCalib2Ex)/ d' NAMESPACE
+sed -i.tmp '/SetMassCalib)/ d' NAMESPACE
+sed -i.tmp '/SetMassCalib2)/ d' NAMESPACE
+sed -i.tmp '/SetMassCalibEx)/ d' NAMESPACE
+sed -i.tmp '/SetMassCalib2Ex)/ d' NAMESPACE
 
 # remove CleanupDll() from zzz.R
 sed -i.windows '/CleanupDll(/ d' ./R/zzz.R

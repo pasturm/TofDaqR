@@ -488,6 +488,68 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+// SetMassCalib
+void SetMassCalib(int mode, int nbrParams, NumericVector p, NumericVector mass, NumericVector tof, NumericVector weight);
+RcppExport SEXP _TofDaqR_SetMassCalib(SEXP modeSEXP, SEXP nbrParamsSEXP, SEXP pSEXP, SEXP massSEXP, SEXP tofSEXP, SEXP weightSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type mode(modeSEXP);
+    Rcpp::traits::input_parameter< int >::type nbrParams(nbrParamsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type p(pSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type mass(massSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type tof(tofSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type weight(weightSEXP);
+    SetMassCalib(mode, nbrParams, p, mass, tof, weight);
+    return R_NilValue;
+END_RCPP
+}
+// SetMassCalib2
+void SetMassCalib2(int mode, int nbrParams, NumericVector p, NumericVector mass, NumericVector tof, NumericVector weight);
+RcppExport SEXP _TofDaqR_SetMassCalib2(SEXP modeSEXP, SEXP nbrParamsSEXP, SEXP pSEXP, SEXP massSEXP, SEXP tofSEXP, SEXP weightSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type mode(modeSEXP);
+    Rcpp::traits::input_parameter< int >::type nbrParams(nbrParamsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type p(pSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type mass(massSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type tof(tofSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type weight(weightSEXP);
+    SetMassCalib2(mode, nbrParams, p, mass, tof, weight);
+    return R_NilValue;
+END_RCPP
+}
+// SetMassCalibEx
+void SetMassCalibEx(int mode, int nbrParams, NumericVector p, NumericVector mass, NumericVector tof, NumericVector weight, StringVector label);
+RcppExport SEXP _TofDaqR_SetMassCalibEx(SEXP modeSEXP, SEXP nbrParamsSEXP, SEXP pSEXP, SEXP massSEXP, SEXP tofSEXP, SEXP weightSEXP, SEXP labelSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type mode(modeSEXP);
+    Rcpp::traits::input_parameter< int >::type nbrParams(nbrParamsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type p(pSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type mass(massSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type tof(tofSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type weight(weightSEXP);
+    Rcpp::traits::input_parameter< StringVector >::type label(labelSEXP);
+    SetMassCalibEx(mode, nbrParams, p, mass, tof, weight, label);
+    return R_NilValue;
+END_RCPP
+}
+// SetMassCalib2Ex
+void SetMassCalib2Ex(int mode, int nbrParams, NumericVector p, NumericVector mass, NumericVector tof, NumericVector weight, CharacterVector label);
+RcppExport SEXP _TofDaqR_SetMassCalib2Ex(SEXP modeSEXP, SEXP nbrParamsSEXP, SEXP pSEXP, SEXP massSEXP, SEXP tofSEXP, SEXP weightSEXP, SEXP labelSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type mode(modeSEXP);
+    Rcpp::traits::input_parameter< int >::type nbrParams(nbrParamsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type p(pSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type mass(massSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type tof(tofSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type weight(weightSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type label(labelSEXP);
+    SetMassCalib2Ex(mode, nbrParams, p, mass, tof, weight, label);
+    return R_NilValue;
+END_RCPP
+}
 // GetDescriptor
 List GetDescriptor();
 RcppExport SEXP _TofDaqR_GetDescriptor() {
@@ -537,6 +599,46 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< int >::type timeout(timeoutSEXP);
     WaitForEndOfAcquisition(timeout);
     return R_NilValue;
+END_RCPP
+}
+// GetMassCalib
+List GetMassCalib();
+RcppExport SEXP _TofDaqR_GetMassCalib() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(GetMassCalib());
+    return rcpp_result_gen;
+END_RCPP
+}
+// GetMassCalib2
+List GetMassCalib2();
+RcppExport SEXP _TofDaqR_GetMassCalib2() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(GetMassCalib2());
+    return rcpp_result_gen;
+END_RCPP
+}
+// GetMassCalibEx
+List GetMassCalibEx();
+RcppExport SEXP _TofDaqR_GetMassCalibEx() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(GetMassCalibEx());
+    return rcpp_result_gen;
+END_RCPP
+}
+// GetMassCalib2Ex
+List GetMassCalib2Ex();
+RcppExport SEXP _TofDaqR_GetMassCalib2Ex() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(GetMassCalib2Ex());
+    return rcpp_result_gen;
 END_RCPP
 }
 // GetSumSpectrumFromShMem
@@ -1623,6 +1725,66 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+// H5AddUserDataMultiRow
+void H5AddUserDataMultiRow(std::string filename, std::string location, int nbrElements, int nbrRows, NumericVector data, Nullable<Rcpp::String> elementDescription, int compressionLevel);
+RcppExport SEXP _TofDaqR_H5AddUserDataMultiRow(SEXP filenameSEXP, SEXP locationSEXP, SEXP nbrElementsSEXP, SEXP nbrRowsSEXP, SEXP dataSEXP, SEXP elementDescriptionSEXP, SEXP compressionLevelSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::string >::type filename(filenameSEXP);
+    Rcpp::traits::input_parameter< std::string >::type location(locationSEXP);
+    Rcpp::traits::input_parameter< int >::type nbrElements(nbrElementsSEXP);
+    Rcpp::traits::input_parameter< int >::type nbrRows(nbrRowsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type data(dataSEXP);
+    Rcpp::traits::input_parameter< Nullable<Rcpp::String> >::type elementDescription(elementDescriptionSEXP);
+    Rcpp::traits::input_parameter< int >::type compressionLevel(compressionLevelSEXP);
+    H5AddUserDataMultiRow(filename, location, nbrElements, nbrRows, data, elementDescription, compressionLevel);
+    return R_NilValue;
+END_RCPP
+}
+// DeleteAttributeInH5
+void DeleteAttributeInH5(std::string filename, std::string location, std::string name);
+RcppExport SEXP _TofDaqR_DeleteAttributeInH5(SEXP filenameSEXP, SEXP locationSEXP, SEXP nameSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::string >::type filename(filenameSEXP);
+    Rcpp::traits::input_parameter< std::string >::type location(locationSEXP);
+    Rcpp::traits::input_parameter< std::string >::type name(nameSEXP);
+    DeleteAttributeInH5(filename, location, name);
+    return R_NilValue;
+END_RCPP
+}
+// WaitForExclusiveFileAccess
+void WaitForExclusiveFileAccess(std::string filename, int timeoutMs);
+RcppExport SEXP _TofDaqR_WaitForExclusiveFileAccess(SEXP filenameSEXP, SEXP timeoutMsSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::string >::type filename(filenameSEXP);
+    Rcpp::traits::input_parameter< int >::type timeoutMs(timeoutMsSEXP);
+    WaitForExclusiveFileAccess(filename, timeoutMs);
+    return R_NilValue;
+END_RCPP
+}
+// WriteNetCdfTimeSeriesFile
+void WriteNetCdfTimeSeriesFile(std::string filename, std::string inject_ts, std::string expTitle, std::string operator_name, std::string company_method_name, std::string source_file_reference, std::string retention_unit, std::string detector_unit, std::string sample_name, std::string raw_data_table_name, NumericVector retention, NumericVector ordinate);
+RcppExport SEXP _TofDaqR_WriteNetCdfTimeSeriesFile(SEXP filenameSEXP, SEXP inject_tsSEXP, SEXP expTitleSEXP, SEXP operator_nameSEXP, SEXP company_method_nameSEXP, SEXP source_file_referenceSEXP, SEXP retention_unitSEXP, SEXP detector_unitSEXP, SEXP sample_nameSEXP, SEXP raw_data_table_nameSEXP, SEXP retentionSEXP, SEXP ordinateSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::string >::type filename(filenameSEXP);
+    Rcpp::traits::input_parameter< std::string >::type inject_ts(inject_tsSEXP);
+    Rcpp::traits::input_parameter< std::string >::type expTitle(expTitleSEXP);
+    Rcpp::traits::input_parameter< std::string >::type operator_name(operator_nameSEXP);
+    Rcpp::traits::input_parameter< std::string >::type company_method_name(company_method_nameSEXP);
+    Rcpp::traits::input_parameter< std::string >::type source_file_reference(source_file_referenceSEXP);
+    Rcpp::traits::input_parameter< std::string >::type retention_unit(retention_unitSEXP);
+    Rcpp::traits::input_parameter< std::string >::type detector_unit(detector_unitSEXP);
+    Rcpp::traits::input_parameter< std::string >::type sample_name(sample_nameSEXP);
+    Rcpp::traits::input_parameter< std::string >::type raw_data_table_name(raw_data_table_nameSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type retention(retentionSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type ordinate(ordinateSEXP);
+    WriteNetCdfTimeSeriesFile(filename, inject_ts, expTitle, operator_name, company_method_name, source_file_reference, retention_unit, detector_unit, sample_name, raw_data_table_name, retention, ordinate);
+    return R_NilValue;
+END_RCPP
+}
 // FitSinglePeak
 List FitSinglePeak(NumericVector yVals, NumericVector xVals, int peakType, double blOffset, double blSlope, double amplitude, double fwhmLo, double fwhmHi, double peakPos, double mu);
 RcppExport SEXP _TofDaqR_FitSinglePeak(SEXP yValsSEXP, SEXP xValsSEXP, SEXP peakTypeSEXP, SEXP blOffsetSEXP, SEXP blSlopeSEXP, SEXP amplitudeSEXP, SEXP fwhmLoSEXP, SEXP fwhmHiSEXP, SEXP peakPosSEXP, SEXP muSEXP) {
@@ -1996,11 +2158,19 @@ static const R_CallMethodDef CallEntries[] = {
     {"_TofDaqR_SetDaqParameterInt64", (DL_FUNC) &_TofDaqR_SetDaqParameterInt64, 2},
     {"_TofDaqR_SetDaqParameterDouble", (DL_FUNC) &_TofDaqR_SetDaqParameterDouble, 2},
     {"_TofDaqR_ConfigVarNbrMemories", (DL_FUNC) &_TofDaqR_ConfigVarNbrMemories, 3},
+    {"_TofDaqR_SetMassCalib", (DL_FUNC) &_TofDaqR_SetMassCalib, 6},
+    {"_TofDaqR_SetMassCalib2", (DL_FUNC) &_TofDaqR_SetMassCalib2, 6},
+    {"_TofDaqR_SetMassCalibEx", (DL_FUNC) &_TofDaqR_SetMassCalibEx, 7},
+    {"_TofDaqR_SetMassCalib2Ex", (DL_FUNC) &_TofDaqR_SetMassCalib2Ex, 7},
     {"_TofDaqR_GetDescriptor", (DL_FUNC) &_TofDaqR_GetDescriptor, 0},
     {"_TofDaqR_GetPeakParameters", (DL_FUNC) &_TofDaqR_GetPeakParameters, 1},
     {"_TofDaqR_ReleaseSharedMemory", (DL_FUNC) &_TofDaqR_ReleaseSharedMemory, 0},
     {"_TofDaqR_WaitForNewData", (DL_FUNC) &_TofDaqR_WaitForNewData, 2},
     {"_TofDaqR_WaitForEndOfAcquisition", (DL_FUNC) &_TofDaqR_WaitForEndOfAcquisition, 1},
+    {"_TofDaqR_GetMassCalib", (DL_FUNC) &_TofDaqR_GetMassCalib, 0},
+    {"_TofDaqR_GetMassCalib2", (DL_FUNC) &_TofDaqR_GetMassCalib2, 0},
+    {"_TofDaqR_GetMassCalibEx", (DL_FUNC) &_TofDaqR_GetMassCalibEx, 0},
+    {"_TofDaqR_GetMassCalib2Ex", (DL_FUNC) &_TofDaqR_GetMassCalib2Ex, 0},
     {"_TofDaqR_GetSumSpectrumFromShMem", (DL_FUNC) &_TofDaqR_GetSumSpectrumFromShMem, 1},
     {"_TofDaqR_GetSumSpectrumFromShMem2", (DL_FUNC) &_TofDaqR_GetSumSpectrumFromShMem2, 1},
     {"_TofDaqR_GetTofSpectrumFromShMem", (DL_FUNC) &_TofDaqR_GetTofSpectrumFromShMem, 4},
@@ -2087,6 +2257,10 @@ static const R_CallMethodDef CallEntries[] = {
     {"_TofDaqR_GetEventListSpectrumFromH5", (DL_FUNC) &_TofDaqR_GetEventListSpectrumFromH5, 4},
     {"_TofDaqR_H5GetMassCalibPar", (DL_FUNC) &_TofDaqR_H5GetMassCalibPar, 2},
     {"_TofDaqR_H5AddLogEntry", (DL_FUNC) &_TofDaqR_H5AddLogEntry, 3},
+    {"_TofDaqR_H5AddUserDataMultiRow", (DL_FUNC) &_TofDaqR_H5AddUserDataMultiRow, 7},
+    {"_TofDaqR_DeleteAttributeInH5", (DL_FUNC) &_TofDaqR_DeleteAttributeInH5, 3},
+    {"_TofDaqR_WaitForExclusiveFileAccess", (DL_FUNC) &_TofDaqR_WaitForExclusiveFileAccess, 2},
+    {"_TofDaqR_WriteNetCdfTimeSeriesFile", (DL_FUNC) &_TofDaqR_WriteNetCdfTimeSeriesFile, 12},
     {"_TofDaqR_FitSinglePeak", (DL_FUNC) &_TofDaqR_FitSinglePeak, 10},
     {"_TofDaqR_FitSinglePeak2", (DL_FUNC) &_TofDaqR_FitSinglePeak2, 4},
     {"_TofDaqR_EvalSinglePeak", (DL_FUNC) &_TofDaqR_EvalSinglePeak, 8},

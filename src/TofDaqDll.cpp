@@ -813,6 +813,216 @@ void ConfigVarNbrMemories(bool Enable, IntegerVector StepAtBuf,
   }
 }
 
+// SetMassCalib ----------------------------------------------------------------
+//' Configures the mass calibration that will be used for the next acquisition.
+//'
+//' \code{SetMassCalib} configures the mass calibration that will be used for
+//' the next acquisition(s). If \code{nbrParams} is 0, the calibration parameters are
+//' determined by the TofDaq recorder based on the mass, tof and weight arrays.
+//' If calibration parameters and calibration point information is supplied the
+//' calibration parameters define the calibration (no "sanity" check is
+//' performed whether the point information yields the same mass calibration
+//' parameters).
+//'
+//' \tabular{cl}{
+//' mode \tab Mass calibration function \cr
+//' 0 \tab \eqn{i = p_1 \sqrt(m) + p_2} \cr
+//' 1 \tab \eqn{i = p_1/\sqrt(m) + p_2} \cr
+//' 2 \tab \eqn{i = p_1 m^{p_3} + p_2} \cr
+//' 3 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 (m - p_4)^2} \cr
+//' 4 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 m^2 + p_4 m + p_5} \cr
+//' 5 \tab \eqn{m = p_1 i^2 + p_2 i + p_3}
+//' }
+//' Note: Modes 3 and 4 are flawed. Don't use them. In mode 3 the fit does not
+//' converge well, because of a bug (parameters not correctly initialized).
+//' Mode 4 is two sequential fits, first mode 0, then a quadratic fit to the
+//' residuals, which is an inferior implementation of mode 3. Mode 1 is for FTMS
+//' data.
+//'
+//' @param mode Mass calibration function to use.
+//' @param nbrParams Number of mass calibration parameters.
+//' @param p Vector with mass calibration parameters.
+//' @param mass Vector with mass of the calibration points.
+//' @param tof Vector with TOF sample index of the calibration points.
+//' @param weight Vector with weight of the calibration points.
+//'
+//' @export
+// [[Rcpp::export]]
+void SetMassCalib(int mode, int nbrParams, NumericVector p, NumericVector mass,
+                  NumericVector tof, NumericVector weight) {
+
+  int nbrPoints = mass.size();
+
+  TwRetVal rv = TwSetMassCalib(mode, nbrParams, &p[0], nbrPoints, &mass[0],
+                               &tof[0], &weight[0]);
+
+  if (rv != TwSuccess) {
+    stop(TranslateReturnValue(rv));
+  }
+}
+
+// SetMassCalib2 ---------------------------------------------------------------
+//' Configures the mass calibration that will be used for the next acquisition.
+//'
+//' \code{SetMassCalib2} configures the mass calibration that will be used for
+//' the next acquisition(s). If \code{nbrParams} is 0, the calibration parameters are
+//' determined by the TofDaq recorder based on the mass, tof and weight arrays.
+//' If calibration parameters and calibration point information is supplied the
+//' calibration parameters define the calibration (no "sanity" check is
+//' performed whether the point information yields the same mass calibration
+//' parameters).
+//'
+//' \tabular{cl}{
+//' mode \tab Mass calibration function \cr
+//' 0 \tab \eqn{i = p_1 \sqrt(m) + p_2} \cr
+//' 1 \tab \eqn{i = p_1/\sqrt(m) + p_2} \cr
+//' 2 \tab \eqn{i = p_1 m^{p_3} + p_2} \cr
+//' 3 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 (m - p_4)^2} \cr
+//' 4 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 m^2 + p_4 m + p_5} \cr
+//' 5 \tab \eqn{m = p_1 i^2 + p_2 i + p_3}
+//' }
+//' Note: Modes 3 and 4 are flawed. Don't use them. In mode 3 the fit does not
+//' converge well, because of a bug (parameters not correctly initialized).
+//' Mode 4 is two sequential fits, first mode 0, then a quadratic fit to the
+//' residuals, which is an inferior implementation of mode 3. Mode 1 is for FTMS
+//' data.
+//'
+//' @param mode Mass calibration function to use.
+//' @param nbrParams Number of mass calibration parameters.
+//' @param p Vector with mass calibration parameters.
+//' @param mass Vector with mass of the calibration points.
+//' @param tof Vector with TOF sample index of the calibration points.
+//' @param weight Vector with weight of the calibration points.
+//'
+//' @export
+// [[Rcpp::export]]
+void SetMassCalib2(int mode, int nbrParams, NumericVector p,
+                   NumericVector mass, NumericVector tof, NumericVector weight) {
+
+  int nbrPoints = mass.size();
+
+  TwRetVal rv = TwSetMassCalib2(mode, nbrParams, &p[0], nbrPoints, &mass[0],
+                      &tof[0], &weight[0]);
+
+  if (rv != TwSuccess) {
+    stop(TranslateReturnValue(rv));
+  }
+}
+
+// SetMassCalibEx --------------------------------------------------------------
+//' Configures the mass calibration that will be used for the next acquisition.
+//'
+//' \code{SetMassCalibEx} configures the mass calibration that will be used for
+//' the next acquisition(s). If \code{nbrParams} is 0, the calibration parameters are
+//' determined by the TofDaq recorder based on the mass, tof and weight arrays.
+//' If calibration parameters and calibration point information is supplied the
+//' calibration parameters define the calibration (no "sanity" check is
+//' performed whether the point information yields the same mass calibration
+//' parameters). Labels to identify compound names/formulas used for
+//' calibration have a maximum length of 255 characters.
+//'
+//' \tabular{cl}{
+//' mode \tab Mass calibration function \cr
+//' 0 \tab \eqn{i = p_1 \sqrt(m) + p_2} \cr
+//' 1 \tab \eqn{i = p_1/\sqrt(m) + p_2} \cr
+//' 2 \tab \eqn{i = p_1 m^{p_3} + p_2} \cr
+//' 3 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 (m - p_4)^2} \cr
+//' 4 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 m^2 + p_4 m + p_5} \cr
+//' 5 \tab \eqn{m = p_1 i^2 + p_2 i + p_3}
+//' }
+//' Note: Modes 3 and 4 are flawed. Don't use them. In mode 3 the fit does not
+//' converge well, because of a bug (parameters not correctly initialized).
+//' Mode 4 is two sequential fits, first mode 0, then a quadratic fit to the
+//' residuals, which is an inferior implementation of mode 3. Mode 1 is for FTMS
+//' data.
+//'
+//' @param mode Mass calibration function to use.
+//' @param nbrParams Number of mass calibration parameters.
+//' @param p Vector with mass calibration parameters.
+//' @param mass Vector with mass of the calibration points.
+//' @param tof Vector with TOF sample index of the calibration points.
+//' @param weight Vector with weight of the calibration points.
+//' @param label Vector with labels of the calibration points.
+//'
+//' @export
+// [[Rcpp::export]]
+void SetMassCalibEx(int mode, int nbrParams, NumericVector p,
+                    NumericVector mass, NumericVector tof, NumericVector weight,
+                    StringVector label) {
+
+  int nbrPoints = mass.size();
+
+  std::string s (nbrPoints*256, ' ');
+  for( int i=0; i < nbrPoints; i++ ) {
+    s.replace(i*256, label[i].size(), label[i]);
+  }
+  char *cLabel = StringToChar(s);
+
+  TwRetVal rv = TwSetMassCalibEx(mode, nbrParams, &p[0], nbrPoints, &mass[0],
+                      &tof[0], &weight[0], cLabel);
+
+  if (rv != TwSuccess) {
+    stop(TranslateReturnValue(rv));
+  }
+}
+
+// SetMassCalib2Ex -------------------------------------------------------------
+//' Configures the mass calibration that will be used for the next acquisition.
+//'
+//' \code{SetMassCalib2Ex} configures the mass calibration that will be used for
+//' the next acquisition(s). If \code{nbrParams} is 0, the calibration parameters are
+//' determined by the TofDaq recorder based on the mass, tof and weight arrays.
+//' If calibration parameters and calibration point information is supplied the
+//' calibration parameters define the calibration (no "sanity" check is
+//' performed whether the point information yields the same mass calibration
+//' parameters). Labels to identify compound names/formulas used for
+//' calibration have a maximum length of 255 characters.
+//'
+//' \tabular{cl}{
+//' mode \tab Mass calibration function \cr
+//' 0 \tab \eqn{i = p_1 \sqrt(m) + p_2} \cr
+//' 1 \tab \eqn{i = p_1/\sqrt(m) + p_2} \cr
+//' 2 \tab \eqn{i = p_1 m^{p_3} + p_2} \cr
+//' 3 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 (m - p_4)^2} \cr
+//' 4 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 m^2 + p_4 m + p_5} \cr
+//' 5 \tab \eqn{m = p_1 i^2 + p_2 i + p_3}
+//' }
+//' Note: Modes 3 and 4 are flawed. Don't use them. In mode 3 the fit does not
+//' converge well, because of a bug (parameters not correctly initialized).
+//' Mode 4 is two sequential fits, first mode 0, then a quadratic fit to the
+//' residuals, which is an inferior implementation of mode 3. Mode 1 is for FTMS
+//' data.
+//'
+//' @param mode Mass calibration function to use.
+//' @param nbrParams Number of mass calibration parameters.
+//' @param p Vector with mass calibration parameters.
+//' @param mass Vector with mass of the calibration points.
+//' @param tof Vector with TOF sample index of the calibration points.
+//' @param weight Vector with weight of the calibration points.
+//' @param label Vector with labels of the calibration points.
+//'
+//' @export
+// [[Rcpp::export]]
+void SetMassCalib2Ex(int mode, int nbrParams, NumericVector p,
+                     NumericVector mass, NumericVector tof, NumericVector weight,
+                     StringVector label) {
+
+  int nbrPoints = mass.size();
+
+  std::string s (nbrPoints*256, ' ');
+  for( int i=0; i < nbrPoints; i++ ) {
+    s.replace(i*256, label[i].size(), label[i]);
+  }
+  char *cLabel = StringToChar(s);
+
+  TwRetVal rv = TwSetMassCalib2Ex(mode, nbrParams, &p[0], nbrPoints, &mass[0],
+                                 &tof[0], &weight[0], cLabel);
+
+  if (rv != TwSuccess) {
+    stop(TranslateReturnValue(rv));
+  }
+}
+
 // GetDescriptor ---------------------------------------------------------------
 //' Gets various information about the active acquisition.
 //'
@@ -1011,6 +1221,210 @@ void WaitForEndOfAcquisition(int timeout) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+}
+
+// GetMassCalib ----------------------------------------------------------------
+//' Returns information about the current mass calibration.
+//'
+//' \code{GetMassCalib} returns information about the mass calibration currently
+//' used in TofDaq recorder.
+//'
+//' @return List with calibration parameters and calibration points.
+//'
+//' @export
+// [[Rcpp::export]]
+List GetMassCalib() {
+
+  int mode;
+  int nbrParams = 0;
+  int nbrPoints = 0;
+
+  TwRetVal rv = TwGetMassCalib(&mode, &nbrParams, NULL, &nbrPoints, NULL, NULL, NULL);
+
+  if (rv != TwValueAdjusted) {
+    stop(TranslateReturnValue(rv));
+  }
+
+  NumericVector p(nbrParams);
+  NumericVector mass(nbrPoints);
+  NumericVector tof(nbrPoints);
+  NumericVector weight(nbrPoints);
+
+  rv = TwGetMassCalib(&mode, &nbrParams, &p[0], &nbrPoints, &mass[0], &tof[0],
+                      &weight[0]);
+
+  if (rv != TwSuccess) {
+    stop(TranslateReturnValue(rv));
+  }
+
+  List result;
+  result["mode"] = mode;
+  result["p"] = p;
+  result["mass"] = mass;
+  result["tof"] = tof;
+  result["weight"] = weight;
+  return result;
+}
+
+// GetMassCalib2 ---------------------------------------------------------------
+//' Returns information about the current mass calibration.
+//'
+//' \code{GetMassCalib2} returns information about the mass calibration currently
+//' used in TofDaq recorder.
+//'
+//' @return List with calibration parameters and calibration points.
+//'
+//' @export
+// [[Rcpp::export]]
+List GetMassCalib2() {
+
+  int mode;
+  int nbrParams = 0;
+  int nbrPoints = 0;
+
+  TwRetVal rv = TwGetMassCalib2(&mode, &nbrParams, NULL, &nbrPoints, NULL, NULL, NULL);
+
+  if (rv != TwValueAdjusted) {
+    stop(TranslateReturnValue(rv));
+  }
+
+  NumericVector p(nbrParams);
+  NumericVector mass(nbrPoints);
+  NumericVector tof(nbrPoints);
+  NumericVector weight(nbrPoints);
+
+  rv = TwGetMassCalib2(&mode, &nbrParams, &p[0], &nbrPoints, &mass[0], &tof[0],
+                      &weight[0]);
+
+  if (rv != TwSuccess) {
+    stop(TranslateReturnValue(rv));
+  }
+
+  List result;
+  result["mode"] = mode;
+  result["p"] = p;
+  result["mass"] = mass;
+  result["tof"] = tof;
+  result["weight"] = weight;
+  return result;
+}
+
+// GetMassCalibEx --------------------------------------------------------------
+//' Returns information about the current mass calibration.
+//'
+//' \code{GetMassCalibEx} returns information about the mass calibration currently
+//' used in TofDaq recorder.
+//'
+//' This is the same as \code{\link{GetMassCalib}}, but additionally also returns
+//' the labels of the calibration points.
+//'
+//' @return List with calibration parameters, calibration points and labels.
+//'
+//' @export
+// [[Rcpp::export]]
+List GetMassCalibEx() {
+
+  int mode;
+  int nbrParams = 0;
+  int nbrPoints = 0;
+
+  TwRetVal rv = TwGetMassCalibEx(&mode, &nbrParams, NULL, &nbrPoints, NULL, NULL,
+                                 NULL, NULL);
+
+  if (rv != TwValueAdjusted) {
+    stop(TranslateReturnValue(rv));
+  }
+
+  NumericVector p(nbrParams);
+  NumericVector mass(nbrPoints);
+  NumericVector tof(nbrPoints);
+  NumericVector weight(nbrPoints);
+  char *label = new char[256 * nbrPoints];
+  memset(label, 0, 256 * nbrPoints);
+
+  rv = TwGetMassCalibEx(&mode, &nbrParams, &p[0], &nbrPoints, &mass[0], &tof[0],
+                      &weight[0], label);
+
+  if (rv != TwSuccess) {
+    delete[] label;
+    stop(TranslateReturnValue(rv));
+  }
+
+  CharacterVector labelArray(nbrPoints);
+  std::string str(label, 256 * nbrPoints);
+  delete[] label;
+
+  for (int i = 0; i < nbrPoints; ++i) {
+    labelArray[i] = str.substr(i*256, 256);
+  }
+
+  List result;
+  result["mode"] = mode;
+  result["p"] = p;
+  result["mass"] = mass;
+  result["tof"] = tof;
+  result["weight"] = weight;
+  result["label"] = labelArray;
+  return result;
+}
+
+// GetMassCalib2Ex -------------------------------------------------------------
+//' Returns information about the current mass calibration.
+//'
+//' \code{GetMassCalib2Ex} returns information about the mass calibration currently
+//' used in TofDaq recorder.
+//'
+//' This is the same as \code{\link{GetMassCalib2}}, but additionally also returns
+//' the labels of the calibration points.
+//'
+//' @return List with calibration parameters, calibration points and labels.
+//'
+//' @export
+// [[Rcpp::export]]
+List GetMassCalib2Ex() {
+
+  int mode;
+  int nbrParams = 0;
+  int nbrPoints = 0;
+
+  TwRetVal rv = TwGetMassCalib2Ex(&mode, &nbrParams, NULL, &nbrPoints, NULL, NULL,
+                                 NULL, NULL);
+
+  if (rv != TwValueAdjusted) {
+    stop(TranslateReturnValue(rv));
+  }
+
+  NumericVector p(nbrParams);
+  NumericVector mass(nbrPoints);
+  NumericVector tof(nbrPoints);
+  NumericVector weight(nbrPoints);
+  char *label = new char[256 * nbrPoints];
+  memset(label, 0, 256 * nbrPoints);
+
+  rv = TwGetMassCalib2Ex(&mode, &nbrParams, &p[0], &nbrPoints, &mass[0], &tof[0],
+                        &weight[0], label);
+
+  if (rv != TwSuccess) {
+    delete[] label;
+    stop(TranslateReturnValue(rv));
+  }
+
+  CharacterVector labelArray(nbrPoints);
+  std::string str(label, 256 * nbrPoints);
+  delete[] label;
+
+  for (int i = 0; i < nbrPoints; ++i) {
+    labelArray[i] = str.substr(i*256, 256);
+  }
+
+  List result;
+  result["mode"] = mode;
+  result["p"] = p;
+  result["mass"] = mass;
+  result["tof"] = tof;
+  result["weight"] = weight;
+  result["label"] = labelArray;
+  return result;
 }
 
 // GetSumSpectrumFromShMem -----------------------------------------------------
@@ -1372,7 +1786,8 @@ double GetBufTimeFromShMem(int BufIndex, int WriteIndex) {
 //'
 //' @param LogEntryText Log text (max. 255 characters).
 //' @param LogEntryTime Log entry time (number of 100-nanosecond intervals since
-//' January 1, 1601 UTC) passed as a string. Set it to "0" for "now".
+//' January 1, 1601 UTC, Windows FILETIME) passed as a string. Set it to "0" for
+//' "now".
 //'
 //' @family Data storage functions
 //' @export
@@ -1525,7 +1940,7 @@ void AddUserData(std::string Location, int NbrElements, NumericVector Data,
 //' maximum is 1048575.
 //' @param NbrRows Number of rows to store per call to this function (each row
 //' contains \code{NbrElements} entries), maximum is 2047.
-//' @param Data Vector of length \code{NbrElements} containing the data to be
+//' @param Data Vector of length \code{NbrElements*NbrRows} containing the data to be
 //' stored in dataset "Data".
 //' @param ElementDescription Vector of length \code{NbrElements} containing the
 //' text description of elements. If \code{ElementDescription} is \code{NULL}
@@ -2326,10 +2741,6 @@ void TpsChangeIonMode(int ionMode) {
 // Not implemented: TwSetMassCalibEx -------------------------------------------
 // Not implemented: TwSetMassCalib2Ex ------------------------------------------
 // Not implemented: TwGetSharedMemory ------------------------------------------
-// Not implemented: TwGetMassCalib ---------------------------------------------
-// Not implemented: TwGetMassCalib2 --------------------------------------------
-// Not implemented: TwGetMassCalibEx -------------------------------------------
-// Not implemented: TwGetMassCalib2Ex ------------------------------------------
 // Not implemented: TwDioStartDelayActive --------------------------------------
 // Not implemented: TwSetRegUserDataTarget -------------------------------------
 // Not implemented: TwSaturationWarning ----------------------------------------

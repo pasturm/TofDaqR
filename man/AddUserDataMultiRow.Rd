@@ -16,7 +16,7 @@ maximum is 1048575.}
 \item{NbrRows}{Number of rows to store per call to this function (each row
 contains \code{NbrElements} entries), maximum is 2047.}
 
-\item{Data}{Vector of length \code{NbrElements} containing the data to be
+\item{Data}{Vector of length \code{NbrElements*NbrRows} containing the data to be
 stored in dataset "Data".}
 
 \item{ElementDescription}{Vector of length \code{NbrElements} containing the

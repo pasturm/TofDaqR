@@ -595,6 +595,158 @@ ConfigVarNbrMemories <- function(Enable, StepAtBuf, NbrMemoriesForStep) {
     invisible(.Call('_TofDaqR_ConfigVarNbrMemories', PACKAGE = 'TofDaqR', Enable, StepAtBuf, NbrMemoriesForStep))
 }
 
+#' Configures the mass calibration that will be used for the next acquisition.
+#'
+#' \code{SetMassCalib} configures the mass calibration that will be used for
+#' the next acquisition(s). If \code{nbrParams} is 0, the calibration parameters are
+#' determined by the TofDaq recorder based on the mass, tof and weight arrays.
+#' If calibration parameters and calibration point information is supplied the
+#' calibration parameters define the calibration (no "sanity" check is
+#' performed whether the point information yields the same mass calibration
+#' parameters).
+#'
+#' \tabular{cl}{
+#' mode \tab Mass calibration function \cr
+#' 0 \tab \eqn{i = p_1 \sqrt(m) + p_2} \cr
+#' 1 \tab \eqn{i = p_1/\sqrt(m) + p_2} \cr
+#' 2 \tab \eqn{i = p_1 m^{p_3} + p_2} \cr
+#' 3 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 (m - p_4)^2} \cr
+#' 4 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 m^2 + p_4 m + p_5} \cr
+#' 5 \tab \eqn{m = p_1 i^2 + p_2 i + p_3}
+#' }
+#' Note: Modes 3 and 4 are flawed. Don't use them. In mode 3 the fit does not
+#' converge well, because of a bug (parameters not correctly initialized).
+#' Mode 4 is two sequential fits, first mode 0, then a quadratic fit to the
+#' residuals, which is an inferior implementation of mode 3. Mode 1 is for FTMS
+#' data.
+#'
+#' @param mode Mass calibration function to use.
+#' @param nbrParams Number of mass calibration parameters.
+#' @param p Vector with mass calibration parameters.
+#' @param mass Vector with mass of the calibration points.
+#' @param tof Vector with TOF sample index of the calibration points.
+#' @param weight Vector with weight of the calibration points.
+#'
+#' @export
+SetMassCalib <- function(mode, nbrParams, p, mass, tof, weight) {
+    invisible(.Call('_TofDaqR_SetMassCalib', PACKAGE = 'TofDaqR', mode, nbrParams, p, mass, tof, weight))
+}
+
+#' Configures the mass calibration that will be used for the next acquisition.
+#'
+#' \code{SetMassCalib2} configures the mass calibration that will be used for
+#' the next acquisition(s). If \code{nbrParams} is 0, the calibration parameters are
+#' determined by the TofDaq recorder based on the mass, tof and weight arrays.
+#' If calibration parameters and calibration point information is supplied the
+#' calibration parameters define the calibration (no "sanity" check is
+#' performed whether the point information yields the same mass calibration
+#' parameters).
+#'
+#' \tabular{cl}{
+#' mode \tab Mass calibration function \cr
+#' 0 \tab \eqn{i = p_1 \sqrt(m) + p_2} \cr
+#' 1 \tab \eqn{i = p_1/\sqrt(m) + p_2} \cr
+#' 2 \tab \eqn{i = p_1 m^{p_3} + p_2} \cr
+#' 3 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 (m - p_4)^2} \cr
+#' 4 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 m^2 + p_4 m + p_5} \cr
+#' 5 \tab \eqn{m = p_1 i^2 + p_2 i + p_3}
+#' }
+#' Note: Modes 3 and 4 are flawed. Don't use them. In mode 3 the fit does not
+#' converge well, because of a bug (parameters not correctly initialized).
+#' Mode 4 is two sequential fits, first mode 0, then a quadratic fit to the
+#' residuals, which is an inferior implementation of mode 3. Mode 1 is for FTMS
+#' data.
+#'
+#' @param mode Mass calibration function to use.
+#' @param nbrParams Number of mass calibration parameters.
+#' @param p Vector with mass calibration parameters.
+#' @param mass Vector with mass of the calibration points.
+#' @param tof Vector with TOF sample index of the calibration points.
+#' @param weight Vector with weight of the calibration points.
+#'
+#' @export
+SetMassCalib2 <- function(mode, nbrParams, p, mass, tof, weight) {
+    invisible(.Call('_TofDaqR_SetMassCalib2', PACKAGE = 'TofDaqR', mode, nbrParams, p, mass, tof, weight))
+}
+
+#' Configures the mass calibration that will be used for the next acquisition.
+#'
+#' \code{SetMassCalibEx} configures the mass calibration that will be used for
+#' the next acquisition(s). If \code{nbrParams} is 0, the calibration parameters are
+#' determined by the TofDaq recorder based on the mass, tof and weight arrays.
+#' If calibration parameters and calibration point information is supplied the
+#' calibration parameters define the calibration (no "sanity" check is
+#' performed whether the point information yields the same mass calibration
+#' parameters). Labels to identify compound names/formulas used for
+#' calibration have a maximum length of 255 characters.
+#'
+#' \tabular{cl}{
+#' mode \tab Mass calibration function \cr
+#' 0 \tab \eqn{i = p_1 \sqrt(m) + p_2} \cr
+#' 1 \tab \eqn{i = p_1/\sqrt(m) + p_2} \cr
+#' 2 \tab \eqn{i = p_1 m^{p_3} + p_2} \cr
+#' 3 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 (m - p_4)^2} \cr
+#' 4 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 m^2 + p_4 m + p_5} \cr
+#' 5 \tab \eqn{m = p_1 i^2 + p_2 i + p_3}
+#' }
+#' Note: Modes 3 and 4 are flawed. Don't use them. In mode 3 the fit does not
+#' converge well, because of a bug (parameters not correctly initialized).
+#' Mode 4 is two sequential fits, first mode 0, then a quadratic fit to the
+#' residuals, which is an inferior implementation of mode 3. Mode 1 is for FTMS
+#' data.
+#'
+#' @param mode Mass calibration function to use.
+#' @param nbrParams Number of mass calibration parameters.
+#' @param p Vector with mass calibration parameters.
+#' @param mass Vector with mass of the calibration points.
+#' @param tof Vector with TOF sample index of the calibration points.
+#' @param weight Vector with weight of the calibration points.
+#' @param label Vector with labels of the calibration points.
+#'
+#' @export
+SetMassCalibEx <- function(mode, nbrParams, p, mass, tof, weight, label) {
+    invisible(.Call('_TofDaqR_SetMassCalibEx', PACKAGE = 'TofDaqR', mode, nbrParams, p, mass, tof, weight, label))
+}
+
+#' Configures the mass calibration that will be used for the next acquisition.
+#'
+#' \code{SetMassCalib2Ex} configures the mass calibration that will be used for
+#' the next acquisition(s). If \code{nbrParams} is 0, the calibration parameters are
+#' determined by the TofDaq recorder based on the mass, tof and weight arrays.
+#' If calibration parameters and calibration point information is supplied the
+#' calibration parameters define the calibration (no "sanity" check is
+#' performed whether the point information yields the same mass calibration
+#' parameters). Labels to identify compound names/formulas used for
+#' calibration have a maximum length of 255 characters.
+#'
+#' \tabular{cl}{
+#' mode \tab Mass calibration function \cr
+#' 0 \tab \eqn{i = p_1 \sqrt(m) + p_2} \cr
+#' 1 \tab \eqn{i = p_1/\sqrt(m) + p_2} \cr
+#' 2 \tab \eqn{i = p_1 m^{p_3} + p_2} \cr
+#' 3 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 (m - p_4)^2} \cr
+#' 4 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 m^2 + p_4 m + p_5} \cr
+#' 5 \tab \eqn{m = p_1 i^2 + p_2 i + p_3}
+#' }
+#' Note: Modes 3 and 4 are flawed. Don't use them. In mode 3 the fit does not
+#' converge well, because of a bug (parameters not correctly initialized).
+#' Mode 4 is two sequential fits, first mode 0, then a quadratic fit to the
+#' residuals, which is an inferior implementation of mode 3. Mode 1 is for FTMS
+#' data.
+#'
+#' @param mode Mass calibration function to use.
+#' @param nbrParams Number of mass calibration parameters.
+#' @param p Vector with mass calibration parameters.
+#' @param mass Vector with mass of the calibration points.
+#' @param tof Vector with TOF sample index of the calibration points.
+#' @param weight Vector with weight of the calibration points.
+#' @param label Vector with labels of the calibration points.
+#'
+#' @export
+SetMassCalib2Ex <- function(mode, nbrParams, p, mass, tof, weight, label) {
+    invisible(.Call('_TofDaqR_SetMassCalib2Ex', PACKAGE = 'TofDaqR', mode, nbrParams, p, mass, tof, weight, label))
+}
+
 #' Gets various information about the active acquisition.
 #'
 #' \code{GetDescriptor} retrieves the current TSharedMemoryDesc structure.
@@ -657,6 +809,60 @@ WaitForNewData <- function(timeout, WaitForEventReset = TRUE) {
 #' @export
 WaitForEndOfAcquisition <- function(timeout) {
     invisible(.Call('_TofDaqR_WaitForEndOfAcquisition', PACKAGE = 'TofDaqR', timeout))
+}
+
+#' Returns information about the current mass calibration.
+#'
+#' \code{GetMassCalib} returns information about the mass calibration currently
+#' used in TofDaq recorder.
+#'
+#' @return List with calibration parameters and calibration points.
+#'
+#' @export
+GetMassCalib <- function() {
+    .Call('_TofDaqR_GetMassCalib', PACKAGE = 'TofDaqR')
+}
+
+#' Returns information about the current mass calibration.
+#'
+#' \code{GetMassCalib2} returns information about the mass calibration currently
+#' used in TofDaq recorder.
+#'
+#' @return List with calibration parameters and calibration points.
+#'
+#' @export
+GetMassCalib2 <- function() {
+    .Call('_TofDaqR_GetMassCalib2', PACKAGE = 'TofDaqR')
+}
+
+#' Returns information about the current mass calibration.
+#'
+#' \code{GetMassCalibEx} returns information about the mass calibration currently
+#' used in TofDaq recorder.
+#'
+#' This is the same as \code{\link{GetMassCalib}}, but additionally also returns
+#' the labels of the calibration points.
+#'
+#' @return List with calibration parameters, calibration points and labels.
+#'
+#' @export
+GetMassCalibEx <- function() {
+    .Call('_TofDaqR_GetMassCalibEx', PACKAGE = 'TofDaqR')
+}
+
+#' Returns information about the current mass calibration.
+#'
+#' \code{GetMassCalib2Ex} returns information about the mass calibration currently
+#' used in TofDaq recorder.
+#'
+#' This is the same as \code{\link{GetMassCalib2}}, but additionally also returns
+#' the labels of the calibration points.
+#'
+#' @return List with calibration parameters, calibration points and labels.
+#'
+#' @export
+GetMassCalib2Ex <- function() {
+    .Call('_TofDaqR_GetMassCalib2Ex', PACKAGE = 'TofDaqR')
 }
 
 #' Sum spectrum from shared memory.
@@ -816,7 +1022,8 @@ GetBufTimeFromShMem <- function(BufIndex, WriteIndex) {
 #'
 #' @param LogEntryText Log text (max. 255 characters).
 #' @param LogEntryTime Log entry time (number of 100-nanosecond intervals since
-#' January 1, 1601 UTC) passed as a string. Set it to "0" for "now".
+#' January 1, 1601 UTC, Windows FILETIME) passed as a string. Set it to "0" for
+#' "now".
 #'
 #' @family Data storage functions
 #' @export
@@ -906,7 +1113,7 @@ AddUserData <- function(Location, NbrElements, Data, ElementDescription = NULL, 
 #' maximum is 1048575.
 #' @param NbrRows Number of rows to store per call to this function (each row
 #' contains \code{NbrElements} entries), maximum is 2047.
-#' @param Data Vector of length \code{NbrElements} containing the data to be
+#' @param Data Vector of length \code{NbrElements*NbrRows} containing the data to be
 #' stored in dataset "Data".
 #' @param ElementDescription Vector of length \code{NbrElements} containing the
 #' text description of elements. If \code{ElementDescription} is \code{NULL}
@@ -2181,11 +2388,91 @@ H5GetMassCalibPar <- function(Filename, writeIndex) {
 #' @param Filename Path/filename of the HDF5 file.
 #' @param LogEntryText Log text (max. 255 characters).
 #' @param LogEntryTime Log entry time (number of 100-nanosecond intervals since
-#' January 1, 1601 UTC) passed as a string. Set it to "0" for "now".
+#' January 1, 1601 UTC, Windows FILETIME) passed as a string. Set it to "0" for
+#' "now".
 #'
 #' @export
 H5AddLogEntry <- function(Filename, LogEntryText, LogEntryTime) {
     invisible(.Call('_TofDaqR_H5AddLogEntry', PACKAGE = 'TofDaqR', Filename, LogEntryText, LogEntryTime))
+}
+
+#' Adds user data to a data file.
+#'
+#' \code{H5AddUserDataMultiRow} adds user data to a data file. Creates datasets
+#' "Data" and "Info" at \code{Location}.
+#'
+#' @param filename Path/filename of the HDF5 file.
+#' @param location Location of group in HDF5 file where the datasets are created.
+#' @param nbrElements Number of elements to store per row (if the dataset
+#' already exists this value must be the same as in the file).
+#' @param nbrRows Number of rows to store per call to this function (each row
+#' contains \code{NbrElements} entries).
+#' @param data Vector of length \code{nbrElements*nbrRows} containing the data to be
+#' stored in dataset "Data".
+#' @param elementDescription Vector of length \code{nbrElements} containing the
+#' text description of elements. If \code{ElementDescription} is \code{NULL}
+#' the dataset "Info" is not created.
+#' @param compressionLevel ZLIB compression level (0-9) for dataset creation.
+#' If the dataset at Location already exists this parameter has no effect.
+#'
+#' @export
+H5AddUserDataMultiRow <- function(filename, location, nbrElements, nbrRows, data, elementDescription = NULL, compressionLevel = 0L) {
+    invisible(.Call('_TofDaqR_H5AddUserDataMultiRow', PACKAGE = 'TofDaqR', filename, location, nbrElements, nbrRows, data, elementDescription, compressionLevel))
+}
+
+#' Deletes an attribute.
+#'
+#' \code{DeleteAttributeInH5} deletes an attribute.
+#'
+#' WARNING: no sanity checking is performed! You can delete attributes that
+#' render the data file unusable.
+#'
+#' @param Filename Path/filename of the HDF5 file.
+#' @param location Location of the group or dataset the attribute is deleted from.
+#' @param name Attribute name.
+#'
+#' @export
+DeleteAttributeInH5 <- function(filename, location, name) {
+    invisible(.Call('_TofDaqR_DeleteAttributeInH5', PACKAGE = 'TofDaqR', filename, location, name))
+}
+
+#' Checks whether a file can be opened with exclusive access rights.
+#'
+#' \code{WaitForExclusiveFileAccess} checks whether a file can be opened with
+#' exclusive access rights. This function can be used when opening a data file
+#' that just finished recording in order to make sure that the recording
+#' application as well as the OS have finished writing to the file. Available
+#' only under Windows, returns TwError on other platforms.
+#'
+#' @param filename Path/filename of the HDF5 file.
+#' @param timeoutMs Timeout (in ms) after which the function returns.
+#'
+#' @export
+WaitForExclusiveFileAccess <- function(filename, timeoutMs) {
+    invisible(.Call('_TofDaqR_WaitForExclusiveFileAccess', PACKAGE = 'TofDaqR', filename, timeoutMs))
+}
+
+#' Writes a ANDI chromatography file.
+#'
+#' \code{WriteNetCdfTimeSeriesFile} writes a ANDI chromatography file.
+#'
+#' @param filename Path/filename of the HDF5 file.
+#' @param inject_ts Injection timestamp (number of 100-nanosecond intervals since
+#' January 1, 1601 UTC, Windows FILETIME) passed as a string.
+#' @param expTitle Experiment title.
+#' @param operator_name Operator name.
+#' @param company_method_name Company method name.
+#' @param source_file_reference Source file reference.
+#' @param retention_unit Retention unit, e.g. "[s]".
+#' @param detector_unit Detector unit, e.g. "[cps]".
+#' @param sample_name Sample name.
+#' @param raw_data_table_name Dataset name.
+#' @param retention Time axis data.
+#' @param ordinate Intensity axis data.
+#'
+#' @export
+WriteNetCdfTimeSeriesFile <- function(filename, inject_ts, expTitle, operator_name, company_method_name, source_file_reference, retention_unit, detector_unit, sample_name, raw_data_table_name, retention, ordinate) {
+    invisible(.Call('_TofDaqR_WriteNetCdfTimeSeriesFile', PACKAGE = 'TofDaqR', filename, inject_ts, expTitle, operator_name, company_method_name, source_file_reference, retention_unit, detector_unit, sample_name, raw_data_table_name, retention, ordinate))
 }
 
 #' Performs a peak fit.

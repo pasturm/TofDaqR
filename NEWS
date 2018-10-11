@@ -1,11 +1,4 @@
-TofDaqR 0.3.8.903
---------------------------------------------------------------------------------
-
-* Added `MultiPeakFit()`, `EvalMultiPeak()`, `GetMassCalibInfo()`,
-  `FitResolution()`, `EvalResolution()`.
-
-
-TofDaqR 0.3.8
+TofDaqR 0.3.7.903
 --------------------------------------------------------------------------------
 
 * `GetEventListSpectrumFromH5()` returns a zero length vector instead of an
@@ -15,10 +8,18 @@ TofDaqR 0.3.8
 
 * Updated to TofDaq API 1.99r759.
 
-* Added additional API functions (`ConfigVarNbrMemories()`,
-  `ContinueAcquisition()`, `ManualContinueNeeded()`, `IssueDio4Pulse()`,
-  `SetDio4State()`, `GetSumSpectrumFromShMem2()`, `GetTofSpectrumFromShMem2()`,
-  `GetStickSpectrumFromShMem2()`, `GetSegmentProfileFromShMem2()`).
+* Added TofDaqDll functions `ConfigVarNbrMemories()`, `ContinueAcquisition()`,
+  `ManualContinueNeeded()`, `IssueDio4Pulse()`, `SetDio4State()`,
+  `GetSumSpectrumFromShMem2()`, `GetTofSpectrumFromShMem2()`,
+  `GetStickSpectrumFromShMem2()`, `GetSegmentProfileFromShMem2()`,
+  `GetMassCalib()`, `GetMassCalib2()`, `GetMassCalibEx()`, `GetMassCalib2Ex()`,
+  `SetMassCalib()`, `SetMassCalib2()`, `SetMassCalibEx()`, `SetMassCalib2Ex()`.
+
+* Added TwToolDll functions `MultiPeakFit()`, `EvalMultiPeak()`,
+  `GetMassCalibInfo()`, `FitResolution()`, `EvalResolution()`.
+
+* Added TwH5Dll functions `H5AddUserDataMultiRow()`, `DeleteAttributeInH5()`,
+  `WaitForExclusiveFileAccess()`, `WriteNetCdfTimeSeriesFile()`.
 
 
 TofDaqR 0.3.7
