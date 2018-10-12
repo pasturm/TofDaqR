@@ -1960,7 +1960,7 @@ void H5AddLogEntry(std::string Filename, std::string LogEntryText,
 // [[Rcpp::export]]
 void H5AddUserDataMultiRow(std::string filename, std::string location,
                            int nbrElements, int nbrRows, NumericVector data,
-                           Nullable<Rcpp::StringVector> elementDescription_ = R_NilValue,
+                           Nullable<Rcpp::StringVector> elementDescription = R_NilValue,
                            int compressionLevel = 0) {
 
   char *cFilename = StringToChar(filename);
@@ -1968,10 +1968,10 @@ void H5AddUserDataMultiRow(std::string filename, std::string location,
   char *cElementDescription = new char[256 * nbrElements];
   memset(cElementDescription, 0, 256 * nbrElements);
 
-  if (elementDescription_.isNotNull()) {
-    StringVector elementDescription(elementDescription_); // https://stackoverflow.com/questions/43388698/rcpp-how-can-i-get-the-size-of-a-rcppnullable-numericvector
+  if (elementDescription.isNotNull()) {
+    StringVector strvec(elementDescription); // https://stackoverflow.com/questions/43388698/rcpp-how-can-i-get-the-size-of-a-rcppnullable-numericvector
     for( int i=0; i < nbrElements; i++ ) {
-      std::string str(elementDescription[i]);
+      std::string str(strvec[i]);
       strcpy(&cElementDescription[i*256], str.c_str());
     }
   } else {
@@ -2105,6 +2105,230 @@ void WriteNetCdfTimeSeriesFile(std::string filename,
                                             nbrPoints, &fretention[0], &fordinate[0]);
 
   TwCloseH5(cFilename);
+  if (rv != TwSuccess) {
+    stop(TranslateReturnValue(rv));
+  }
+}
+
+// H5SetMassCalib ----------------------------------------------------------------
+//' Changes the global mass calibration in the data file.
+//'
+//' \code{H5SetMassCalib} changes the global mass calibration in the data file.
+//' If \code{nbrParams} is 0, the calibration parameters will be determined from
+//' \code{mass}, \code{tof} and \code{weight}. If calibration parameters and
+//' calibration points are provided, the calibration is given by the parameters
+//' (no sanity check is performed whether the points yield the same parameters).
+//'
+//' \tabular{cl}{
+//' mode \tab Mass calibration function \cr
+//' 0 \tab \eqn{i = p_1 \sqrt(m) + p_2} \cr
+//' 1 \tab \eqn{i = p_1/\sqrt(m) + p_2} \cr
+//' 2 \tab \eqn{i = p_1 m^{p_3} + p_2} \cr
+//' 3 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 (m - p_4)^2} \cr
+//' 4 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 m^2 + p_4 m + p_5} \cr
+//' 5 \tab \eqn{m = p_1 i^2 + p_2 i + p_3}
+//' }
+//' Note: Modes 3 and 4 are flawed. Don't use them. In mode 3 the fit does not
+//' converge well, because of a bug (parameters not correctly initialized).
+//' Mode 4 is two sequential fits, first mode 0, then a quadratic fit to the
+//' residuals, which is an inferior implementation of mode 3. Mode 1 is for FTMS
+//' data.
+//'
+//' @param Filename Path/filename of the HDF5 file.
+//' @param mode Mass calibration function to use.
+//' @param nbrParams Number of mass calibration parameters.
+//' @param p Vector with mass calibration parameters.
+//' @param mass Vector with mass of the calibration points.
+//' @param tof Vector with TOF sample index of the calibration points.
+//' @param weight Vector with weight of the calibration points.
+//'
+//' @export
+// [[Rcpp::export]]
+void H5SetMassCalib(std::string Filename, int mode, int nbrParams,
+                    NumericVector p, NumericVector mass, NumericVector tof,
+                    NumericVector weight) {
+
+  char *cFilename = StringToChar(Filename);
+  int nbrPoints = mass.size();
+
+  TwRetVal rv = TwH5SetMassCalib(cFilename, mode, nbrParams, &p[0], nbrPoints,
+                                 &mass[0], &tof[0], &weight[0]);
+
+  if (rv != TwSuccess) {
+    stop(TranslateReturnValue(rv));
+  }
+}
+
+// H5SetMassCalib2 ----------------------------------------------------------------
+//' Changes the global mass calibration in the data file.
+//'
+//' \code{H5SetMassCalib2} changes the global mass calibration in the data file.
+//' If \code{nbrParams} is 0, the calibration parameters will be determined from
+//' \code{mass}, \code{tof} and \code{weight}. If calibration parameters and
+//' calibration points are provided, the calibration is given by the parameters
+//' (no sanity check is performed whether the points yield the same parameters).
+//'
+//' \tabular{cl}{
+//' mode \tab Mass calibration function \cr
+//' 0 \tab \eqn{i = p_1 \sqrt(m) + p_2} \cr
+//' 1 \tab \eqn{i = p_1/\sqrt(m) + p_2} \cr
+//' 2 \tab \eqn{i = p_1 m^{p_3} + p_2} \cr
+//' 3 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 (m - p_4)^2} \cr
+//' 4 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 m^2 + p_4 m + p_5} \cr
+//' 5 \tab \eqn{m = p_1 i^2 + p_2 i + p_3}
+//' }
+//' Note: Modes 3 and 4 are flawed. Don't use them. In mode 3 the fit does not
+//' converge well, because of a bug (parameters not correctly initialized).
+//' Mode 4 is two sequential fits, first mode 0, then a quadratic fit to the
+//' residuals, which is an inferior implementation of mode 3. Mode 1 is for FTMS
+//' data.
+//'
+//' @param Filename Path/filename of the HDF5 file.
+//' @param mode Mass calibration function to use.
+//' @param nbrParams Number of mass calibration parameters.
+//' @param p Vector with mass calibration parameters.
+//' @param mass Vector with mass of the calibration points.
+//' @param tof Vector with TOF sample index of the calibration points.
+//' @param weight Vector with weight of the calibration points.
+//'
+//' @export
+// [[Rcpp::export]]
+void H5SetMassCalib2(std::string Filename, int mode, int nbrParams,
+                    NumericVector p, NumericVector mass, NumericVector tof,
+                    NumericVector weight) {
+
+  char *cFilename = StringToChar(Filename);
+  int nbrPoints = mass.size();
+
+  TwRetVal rv = TwH5SetMassCalib2(cFilename, mode, nbrParams, &p[0], nbrPoints,
+                                 &mass[0], &tof[0], &weight[0]);
+
+  if (rv != TwSuccess) {
+    stop(TranslateReturnValue(rv));
+  }
+}
+
+// H5SetMassCalibEx ----------------------------------------------------------------
+//' Changes the global mass calibration in the data file.
+//'
+//' \code{H5SetMassCalibEx} changes the global mass calibration in the data file.
+//' If \code{nbrParams} is 0, the calibration parameters will be determined from
+//' \code{mass}, \code{tof} and \code{weight}. If calibration parameters and
+//' calibration points are provided, the calibration is given by the parameters
+//' (no sanity check is performed whether the points yield the same parameters).
+//' Labels to identify compound names/formulas used for calibration have a
+//' maximum length of 255 characters.
+//'
+//' \tabular{cl}{
+//' mode \tab Mass calibration function \cr
+//' 0 \tab \eqn{i = p_1 \sqrt(m) + p_2} \cr
+//' 1 \tab \eqn{i = p_1/\sqrt(m) + p_2} \cr
+//' 2 \tab \eqn{i = p_1 m^{p_3} + p_2} \cr
+//' 3 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 (m - p_4)^2} \cr
+//' 4 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 m^2 + p_4 m + p_5} \cr
+//' 5 \tab \eqn{m = p_1 i^2 + p_2 i + p_3}
+//' }
+//' Note: Modes 3 and 4 are flawed. Don't use them. In mode 3 the fit does not
+//' converge well, because of a bug (parameters not correctly initialized).
+//' Mode 4 is two sequential fits, first mode 0, then a quadratic fit to the
+//' residuals, which is an inferior implementation of mode 3. Mode 1 is for FTMS
+//' data.
+//'
+//' @param Filename Path/filename of the HDF5 file.
+//' @param mode Mass calibration function to use.
+//' @param nbrParams Number of mass calibration parameters.
+//' @param p Vector with mass calibration parameters.
+//' @param mass Vector with mass of the calibration points.
+//' @param tof Vector with TOF sample index of the calibration points.
+//' @param weight Vector with weight of the calibration points.
+//' @param label Vector with labels/names/sum formula of the calibration points.
+//'
+//' @export
+// [[Rcpp::export]]
+void H5SetMassCalibEx(std::string Filename, int mode, int nbrParams,
+                    NumericVector p, NumericVector mass, NumericVector tof,
+                    NumericVector weight, StringVector label) {
+
+  char *cFilename = StringToChar(Filename);
+  int nbrPoints = mass.size();
+
+  if (nbrPoints != label.size()) {
+    stop("mass, tof, weight and label must be the same length.");
+  }
+  char *cLabel = new char[256 * nbrPoints];
+  memset(cLabel, 0, 256 * nbrPoints);
+  for( int i=0; i < nbrPoints; i++ ) {
+    std::string str(label[i]);
+    strcpy(&cLabel[i*256], str.c_str());
+  }
+
+  TwRetVal rv = TwH5SetMassCalibEx(cFilename, mode, nbrParams, &p[0], nbrPoints,
+                                 &mass[0], &tof[0], &weight[0], cLabel);
+  delete[] cLabel;
+
+  if (rv != TwSuccess) {
+    stop(TranslateReturnValue(rv));
+  }
+}
+
+// H5SetMassCalib2Ex ----------------------------------------------------------------
+//' Changes the global mass calibration in the data file.
+//'
+//' \code{H5SetMassCalib2Ex} changes the global mass calibration in the data file.
+//' If \code{nbrParams} is 0, the calibration parameters will be determined from
+//' \code{mass}, \code{tof} and \code{weight}. If calibration parameters and
+//' calibration points are provided, the calibration is given by the parameters
+//' (no sanity check is performed whether the points yield the same parameters).
+//' Labels to identify compound names/formulas used for calibration have a
+//' maximum length of 255 characters.
+//'
+//' \tabular{cl}{
+//' mode \tab Mass calibration function \cr
+//' 0 \tab \eqn{i = p_1 \sqrt(m) + p_2} \cr
+//' 1 \tab \eqn{i = p_1/\sqrt(m) + p_2} \cr
+//' 2 \tab \eqn{i = p_1 m^{p_3} + p_2} \cr
+//' 3 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 (m - p_4)^2} \cr
+//' 4 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 m^2 + p_4 m + p_5} \cr
+//' 5 \tab \eqn{m = p_1 i^2 + p_2 i + p_3}
+//' }
+//' Note: Modes 3 and 4 are flawed. Don't use them. In mode 3 the fit does not
+//' converge well, because of a bug (parameters not correctly initialized).
+//' Mode 4 is two sequential fits, first mode 0, then a quadratic fit to the
+//' residuals, which is an inferior implementation of mode 3. Mode 1 is for FTMS
+//' data.
+//'
+//' @param Filename Path/filename of the HDF5 file.
+//' @param mode Mass calibration function to use.
+//' @param nbrParams Number of mass calibration parameters.
+//' @param p Vector with mass calibration parameters.
+//' @param mass Vector with mass of the calibration points.
+//' @param tof Vector with TOF sample index of the calibration points.
+//' @param weight Vector with weight of the calibration points.
+//' @param label Vector with labels/names/sum formula of the calibration points.
+//'
+//' @export
+// [[Rcpp::export]]
+void H5SetMassCalib2Ex(std::string Filename, int mode, int nbrParams,
+                      NumericVector p, NumericVector mass, NumericVector tof,
+                      NumericVector weight, StringVector label) {
+
+  char *cFilename = StringToChar(Filename);
+  int nbrPoints = mass.size();
+
+  if (nbrPoints != label.size()) {
+    stop("mass, tof, weight and label must be the same length.");
+  }
+  char *cLabel = new char[256 * nbrPoints];
+  memset(cLabel, 0, 256 * nbrPoints);
+  for( int i=0; i < nbrPoints; i++ ) {
+    std::string str(label[i]);
+    strcpy(&cLabel[i*256], str.c_str());
+  }
+
+  TwRetVal rv = TwH5SetMassCalib2Ex(cFilename, mode, nbrParams, &p[0], nbrPoints,
+                                   &mass[0], &tof[0], &weight[0], cLabel);
+  delete[] cLabel;
+
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }

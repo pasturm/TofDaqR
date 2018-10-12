@@ -1095,8 +1095,8 @@ AddAttributeString <- function(Object, AttributeName, Value) {
 #'
 #' @family Data storage functions
 #' @export
-AddUserData <- function(Location, NbrElements, Data, ElementDescription_ = NULL, CompressionLevel = 0L) {
-    invisible(.Call('_TofDaqR_AddUserData', PACKAGE = 'TofDaqR', Location, NbrElements, Data, ElementDescription_, CompressionLevel))
+AddUserData <- function(Location, NbrElements, Data, ElementDescription = NULL, CompressionLevel = 0L) {
+    invisible(.Call('_TofDaqR_AddUserData', PACKAGE = 'TofDaqR', Location, NbrElements, Data, ElementDescription, CompressionLevel))
 }
 
 #' Stores (asynchronous) user supplied data.
@@ -1123,8 +1123,8 @@ AddUserData <- function(Location, NbrElements, Data, ElementDescription_ = NULL,
 #'
 #' @family Data storage functions
 #' @export
-AddUserDataMultiRow <- function(Location, NbrElements, NbrRows, Data, ElementDescription_ = NULL, CompressionLevel = 0L) {
-    invisible(.Call('_TofDaqR_AddUserDataMultiRow', PACKAGE = 'TofDaqR', Location, NbrElements, NbrRows, Data, ElementDescription_, CompressionLevel))
+AddUserDataMultiRow <- function(Location, NbrElements, NbrRows, Data, ElementDescription = NULL, CompressionLevel = 0L) {
+    invisible(.Call('_TofDaqR_AddUserDataMultiRow', PACKAGE = 'TofDaqR', Location, NbrElements, NbrRows, Data, ElementDescription, CompressionLevel))
 }
 
 #' Registers a data source to store (synchronous) user supplied data.
@@ -1146,8 +1146,8 @@ AddUserDataMultiRow <- function(Location, NbrElements, NbrRows, Data, ElementDes
 #'
 #' @family Data storage functions
 #' @export
-RegisterUserDataBuf <- function(Location, NbrElements, ElementDescription_ = NULL, CompressionLevel = 0L) {
-    invisible(.Call('_TofDaqR_RegisterUserDataBuf', PACKAGE = 'TofDaqR', Location, NbrElements, ElementDescription_, CompressionLevel))
+RegisterUserDataBuf <- function(Location, NbrElements, ElementDescription = NULL, CompressionLevel = 0L) {
+    invisible(.Call('_TofDaqR_RegisterUserDataBuf', PACKAGE = 'TofDaqR', Location, NbrElements, ElementDescription, CompressionLevel))
 }
 
 #' Registers a data source to store (synchronous) user supplied data.
@@ -1170,8 +1170,8 @@ RegisterUserDataBuf <- function(Location, NbrElements, ElementDescription_ = NUL
 #'
 #' @family Data storage functions
 #' @export
-RegisterUserDataWrite <- function(Location, NbrElements, ElementDescription_ = NULL, CompressionLevel = 0L) {
-    invisible(.Call('_TofDaqR_RegisterUserDataWrite', PACKAGE = 'TofDaqR', Location, NbrElements, ElementDescription_, CompressionLevel))
+RegisterUserDataWrite <- function(Location, NbrElements, ElementDescription = NULL, CompressionLevel = 0L) {
+    invisible(.Call('_TofDaqR_RegisterUserDataWrite', PACKAGE = 'TofDaqR', Location, NbrElements, ElementDescription, CompressionLevel))
 }
 
 #' Registers a data source for (synchronous) user supplied data.
@@ -1191,8 +1191,8 @@ RegisterUserDataWrite <- function(Location, NbrElements, ElementDescription_ = N
 #'
 #' @family Data storage functions
 #' @export
-RegisterUserDataNoStore <- function(Location, NbrElements, ElementDescription_ = NULL) {
-    invisible(.Call('_TofDaqR_RegisterUserDataNoStore', PACKAGE = 'TofDaqR', Location, NbrElements, ElementDescription_))
+RegisterUserDataNoStore <- function(Location, NbrElements, ElementDescription = NULL) {
+    invisible(.Call('_TofDaqR_RegisterUserDataNoStore', PACKAGE = 'TofDaqR', Location, NbrElements, ElementDescription))
 }
 
 #' Unregisters a data source.
@@ -2416,8 +2416,8 @@ H5AddLogEntry <- function(Filename, LogEntryText, LogEntryTime) {
 #' If the dataset at Location already exists this parameter has no effect.
 #'
 #' @export
-H5AddUserDataMultiRow <- function(filename, location, nbrElements, nbrRows, data, elementDescription_ = NULL, compressionLevel = 0L) {
-    invisible(.Call('_TofDaqR_H5AddUserDataMultiRow', PACKAGE = 'TofDaqR', filename, location, nbrElements, nbrRows, data, elementDescription_, compressionLevel))
+H5AddUserDataMultiRow <- function(filename, location, nbrElements, nbrRows, data, elementDescription = NULL, compressionLevel = 0L) {
+    invisible(.Call('_TofDaqR_H5AddUserDataMultiRow', PACKAGE = 'TofDaqR', filename, location, nbrElements, nbrRows, data, elementDescription, compressionLevel))
 }
 
 #' Deletes an attribute.
@@ -2473,6 +2473,156 @@ WaitForExclusiveFileAccess <- function(filename, timeoutMs) {
 #' @export
 WriteNetCdfTimeSeriesFile <- function(filename, inject_ts, expTitle, operator_name, company_method_name, source_file_reference, retention_unit, detector_unit, sample_name, raw_data_table_name, retention, ordinate) {
     invisible(.Call('_TofDaqR_WriteNetCdfTimeSeriesFile', PACKAGE = 'TofDaqR', filename, inject_ts, expTitle, operator_name, company_method_name, source_file_reference, retention_unit, detector_unit, sample_name, raw_data_table_name, retention, ordinate))
+}
+
+#' Changes the global mass calibration in the data file.
+#'
+#' \code{H5SetMassCalib} changes the global mass calibration in the data file.
+#' If \code{nbrParams} is 0, the calibration parameters will be determined from
+#' \code{mass}, \code{tof} and \code{weight}. If calibration parameters and
+#' calibration points are provided, the calibration is given by the parameters
+#' (no sanity check is performed whether the points yield the same parameters).
+#'
+#' \tabular{cl}{
+#' mode \tab Mass calibration function \cr
+#' 0 \tab \eqn{i = p_1 \sqrt(m) + p_2} \cr
+#' 1 \tab \eqn{i = p_1/\sqrt(m) + p_2} \cr
+#' 2 \tab \eqn{i = p_1 m^{p_3} + p_2} \cr
+#' 3 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 (m - p_4)^2} \cr
+#' 4 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 m^2 + p_4 m + p_5} \cr
+#' 5 \tab \eqn{m = p_1 i^2 + p_2 i + p_3}
+#' }
+#' Note: Modes 3 and 4 are flawed. Don't use them. In mode 3 the fit does not
+#' converge well, because of a bug (parameters not correctly initialized).
+#' Mode 4 is two sequential fits, first mode 0, then a quadratic fit to the
+#' residuals, which is an inferior implementation of mode 3. Mode 1 is for FTMS
+#' data.
+#'
+#' @param Filename Path/filename of the HDF5 file.
+#' @param mode Mass calibration function to use.
+#' @param nbrParams Number of mass calibration parameters.
+#' @param p Vector with mass calibration parameters.
+#' @param mass Vector with mass of the calibration points.
+#' @param tof Vector with TOF sample index of the calibration points.
+#' @param weight Vector with weight of the calibration points.
+#'
+#' @export
+H5SetMassCalib <- function(Filename, mode, nbrParams, p, mass, tof, weight) {
+    invisible(.Call('_TofDaqR_H5SetMassCalib', PACKAGE = 'TofDaqR', Filename, mode, nbrParams, p, mass, tof, weight))
+}
+
+#' Changes the global mass calibration in the data file.
+#'
+#' \code{H5SetMassCalib2} changes the global mass calibration in the data file.
+#' If \code{nbrParams} is 0, the calibration parameters will be determined from
+#' \code{mass}, \code{tof} and \code{weight}. If calibration parameters and
+#' calibration points are provided, the calibration is given by the parameters
+#' (no sanity check is performed whether the points yield the same parameters).
+#'
+#' \tabular{cl}{
+#' mode \tab Mass calibration function \cr
+#' 0 \tab \eqn{i = p_1 \sqrt(m) + p_2} \cr
+#' 1 \tab \eqn{i = p_1/\sqrt(m) + p_2} \cr
+#' 2 \tab \eqn{i = p_1 m^{p_3} + p_2} \cr
+#' 3 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 (m - p_4)^2} \cr
+#' 4 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 m^2 + p_4 m + p_5} \cr
+#' 5 \tab \eqn{m = p_1 i^2 + p_2 i + p_3}
+#' }
+#' Note: Modes 3 and 4 are flawed. Don't use them. In mode 3 the fit does not
+#' converge well, because of a bug (parameters not correctly initialized).
+#' Mode 4 is two sequential fits, first mode 0, then a quadratic fit to the
+#' residuals, which is an inferior implementation of mode 3. Mode 1 is for FTMS
+#' data.
+#'
+#' @param Filename Path/filename of the HDF5 file.
+#' @param mode Mass calibration function to use.
+#' @param nbrParams Number of mass calibration parameters.
+#' @param p Vector with mass calibration parameters.
+#' @param mass Vector with mass of the calibration points.
+#' @param tof Vector with TOF sample index of the calibration points.
+#' @param weight Vector with weight of the calibration points.
+#'
+#' @export
+H5SetMassCalib2 <- function(Filename, mode, nbrParams, p, mass, tof, weight) {
+    invisible(.Call('_TofDaqR_H5SetMassCalib2', PACKAGE = 'TofDaqR', Filename, mode, nbrParams, p, mass, tof, weight))
+}
+
+#' Changes the global mass calibration in the data file.
+#'
+#' \code{H5SetMassCalibEx} changes the global mass calibration in the data file.
+#' If \code{nbrParams} is 0, the calibration parameters will be determined from
+#' \code{mass}, \code{tof} and \code{weight}. If calibration parameters and
+#' calibration points are provided, the calibration is given by the parameters
+#' (no sanity check is performed whether the points yield the same parameters).
+#' Labels to identify compound names/formulas used for calibration have a
+#' maximum length of 255 characters.
+#'
+#' \tabular{cl}{
+#' mode \tab Mass calibration function \cr
+#' 0 \tab \eqn{i = p_1 \sqrt(m) + p_2} \cr
+#' 1 \tab \eqn{i = p_1/\sqrt(m) + p_2} \cr
+#' 2 \tab \eqn{i = p_1 m^{p_3} + p_2} \cr
+#' 3 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 (m - p_4)^2} \cr
+#' 4 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 m^2 + p_4 m + p_5} \cr
+#' 5 \tab \eqn{m = p_1 i^2 + p_2 i + p_3}
+#' }
+#' Note: Modes 3 and 4 are flawed. Don't use them. In mode 3 the fit does not
+#' converge well, because of a bug (parameters not correctly initialized).
+#' Mode 4 is two sequential fits, first mode 0, then a quadratic fit to the
+#' residuals, which is an inferior implementation of mode 3. Mode 1 is for FTMS
+#' data.
+#'
+#' @param Filename Path/filename of the HDF5 file.
+#' @param mode Mass calibration function to use.
+#' @param nbrParams Number of mass calibration parameters.
+#' @param p Vector with mass calibration parameters.
+#' @param mass Vector with mass of the calibration points.
+#' @param tof Vector with TOF sample index of the calibration points.
+#' @param weight Vector with weight of the calibration points.
+#' @param label Vector with labels/names/sum formula of the calibration points.
+#'
+#' @export
+H5SetMassCalibEx <- function(Filename, mode, nbrParams, p, mass, tof, weight, label) {
+    invisible(.Call('_TofDaqR_H5SetMassCalibEx', PACKAGE = 'TofDaqR', Filename, mode, nbrParams, p, mass, tof, weight, label))
+}
+
+#' Changes the global mass calibration in the data file.
+#'
+#' \code{H5SetMassCalib2Ex} changes the global mass calibration in the data file.
+#' If \code{nbrParams} is 0, the calibration parameters will be determined from
+#' \code{mass}, \code{tof} and \code{weight}. If calibration parameters and
+#' calibration points are provided, the calibration is given by the parameters
+#' (no sanity check is performed whether the points yield the same parameters).
+#' Labels to identify compound names/formulas used for calibration have a
+#' maximum length of 255 characters.
+#'
+#' \tabular{cl}{
+#' mode \tab Mass calibration function \cr
+#' 0 \tab \eqn{i = p_1 \sqrt(m) + p_2} \cr
+#' 1 \tab \eqn{i = p_1/\sqrt(m) + p_2} \cr
+#' 2 \tab \eqn{i = p_1 m^{p_3} + p_2} \cr
+#' 3 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 (m - p_4)^2} \cr
+#' 4 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 m^2 + p_4 m + p_5} \cr
+#' 5 \tab \eqn{m = p_1 i^2 + p_2 i + p_3}
+#' }
+#' Note: Modes 3 and 4 are flawed. Don't use them. In mode 3 the fit does not
+#' converge well, because of a bug (parameters not correctly initialized).
+#' Mode 4 is two sequential fits, first mode 0, then a quadratic fit to the
+#' residuals, which is an inferior implementation of mode 3. Mode 1 is for FTMS
+#' data.
+#'
+#' @param Filename Path/filename of the HDF5 file.
+#' @param mode Mass calibration function to use.
+#' @param nbrParams Number of mass calibration parameters.
+#' @param p Vector with mass calibration parameters.
+#' @param mass Vector with mass of the calibration points.
+#' @param tof Vector with TOF sample index of the calibration points.
+#' @param weight Vector with weight of the calibration points.
+#' @param label Vector with labels/names/sum formula of the calibration points.
+#'
+#' @export
+H5SetMassCalib2Ex <- function(Filename, mode, nbrParams, p, mass, tof, weight, label) {
+    invisible(.Call('_TofDaqR_H5SetMassCalib2Ex', PACKAGE = 'TofDaqR', Filename, mode, nbrParams, p, mass, tof, weight, label))
 }
 
 #' Performs a peak fit.
