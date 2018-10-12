@@ -535,7 +535,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // SetMassCalib2Ex
-void SetMassCalib2Ex(int mode, int nbrParams, NumericVector p, NumericVector mass, NumericVector tof, NumericVector weight, CharacterVector label);
+void SetMassCalib2Ex(int mode, int nbrParams, NumericVector p, NumericVector mass, NumericVector tof, NumericVector weight, StringVector label);
 RcppExport SEXP _TofDaqR_SetMassCalib2Ex(SEXP modeSEXP, SEXP nbrParamsSEXP, SEXP pSEXP, SEXP massSEXP, SEXP tofSEXP, SEXP weightSEXP, SEXP labelSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -545,7 +545,7 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< NumericVector >::type mass(massSEXP);
     Rcpp::traits::input_parameter< NumericVector >::type tof(tofSEXP);
     Rcpp::traits::input_parameter< NumericVector >::type weight(weightSEXP);
-    Rcpp::traits::input_parameter< CharacterVector >::type label(labelSEXP);
+    Rcpp::traits::input_parameter< StringVector >::type label(labelSEXP);
     SetMassCalib2Ex(mode, nbrParams, p, mass, tof, weight, label);
     return R_NilValue;
 END_RCPP
@@ -812,69 +812,69 @@ BEGIN_RCPP
 END_RCPP
 }
 // AddUserData
-void AddUserData(std::string Location, int NbrElements, NumericVector Data, Nullable<Rcpp::String> ElementDescription, int CompressionLevel);
-RcppExport SEXP _TofDaqR_AddUserData(SEXP LocationSEXP, SEXP NbrElementsSEXP, SEXP DataSEXP, SEXP ElementDescriptionSEXP, SEXP CompressionLevelSEXP) {
+void AddUserData(std::string Location, int NbrElements, NumericVector Data, Nullable<Rcpp::StringVector> ElementDescription_, int CompressionLevel);
+RcppExport SEXP _TofDaqR_AddUserData(SEXP LocationSEXP, SEXP NbrElementsSEXP, SEXP DataSEXP, SEXP ElementDescription_SEXP, SEXP CompressionLevelSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Location(LocationSEXP);
     Rcpp::traits::input_parameter< int >::type NbrElements(NbrElementsSEXP);
     Rcpp::traits::input_parameter< NumericVector >::type Data(DataSEXP);
-    Rcpp::traits::input_parameter< Nullable<Rcpp::String> >::type ElementDescription(ElementDescriptionSEXP);
+    Rcpp::traits::input_parameter< Nullable<Rcpp::StringVector> >::type ElementDescription_(ElementDescription_SEXP);
     Rcpp::traits::input_parameter< int >::type CompressionLevel(CompressionLevelSEXP);
-    AddUserData(Location, NbrElements, Data, ElementDescription, CompressionLevel);
+    AddUserData(Location, NbrElements, Data, ElementDescription_, CompressionLevel);
     return R_NilValue;
 END_RCPP
 }
 // AddUserDataMultiRow
-void AddUserDataMultiRow(std::string Location, int NbrElements, int NbrRows, NumericVector Data, Nullable<Rcpp::String> ElementDescription, int CompressionLevel);
-RcppExport SEXP _TofDaqR_AddUserDataMultiRow(SEXP LocationSEXP, SEXP NbrElementsSEXP, SEXP NbrRowsSEXP, SEXP DataSEXP, SEXP ElementDescriptionSEXP, SEXP CompressionLevelSEXP) {
+void AddUserDataMultiRow(std::string Location, int NbrElements, int NbrRows, NumericVector Data, Nullable<Rcpp::StringVector> ElementDescription_, int CompressionLevel);
+RcppExport SEXP _TofDaqR_AddUserDataMultiRow(SEXP LocationSEXP, SEXP NbrElementsSEXP, SEXP NbrRowsSEXP, SEXP DataSEXP, SEXP ElementDescription_SEXP, SEXP CompressionLevelSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Location(LocationSEXP);
     Rcpp::traits::input_parameter< int >::type NbrElements(NbrElementsSEXP);
     Rcpp::traits::input_parameter< int >::type NbrRows(NbrRowsSEXP);
     Rcpp::traits::input_parameter< NumericVector >::type Data(DataSEXP);
-    Rcpp::traits::input_parameter< Nullable<Rcpp::String> >::type ElementDescription(ElementDescriptionSEXP);
+    Rcpp::traits::input_parameter< Nullable<Rcpp::StringVector> >::type ElementDescription_(ElementDescription_SEXP);
     Rcpp::traits::input_parameter< int >::type CompressionLevel(CompressionLevelSEXP);
-    AddUserDataMultiRow(Location, NbrElements, NbrRows, Data, ElementDescription, CompressionLevel);
+    AddUserDataMultiRow(Location, NbrElements, NbrRows, Data, ElementDescription_, CompressionLevel);
     return R_NilValue;
 END_RCPP
 }
 // RegisterUserDataBuf
-void RegisterUserDataBuf(std::string Location, int NbrElements, Nullable<Rcpp::String> ElementDescription, int CompressionLevel);
-RcppExport SEXP _TofDaqR_RegisterUserDataBuf(SEXP LocationSEXP, SEXP NbrElementsSEXP, SEXP ElementDescriptionSEXP, SEXP CompressionLevelSEXP) {
+void RegisterUserDataBuf(std::string Location, int NbrElements, Nullable<Rcpp::StringVector> ElementDescription_, int CompressionLevel);
+RcppExport SEXP _TofDaqR_RegisterUserDataBuf(SEXP LocationSEXP, SEXP NbrElementsSEXP, SEXP ElementDescription_SEXP, SEXP CompressionLevelSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Location(LocationSEXP);
     Rcpp::traits::input_parameter< int >::type NbrElements(NbrElementsSEXP);
-    Rcpp::traits::input_parameter< Nullable<Rcpp::String> >::type ElementDescription(ElementDescriptionSEXP);
+    Rcpp::traits::input_parameter< Nullable<Rcpp::StringVector> >::type ElementDescription_(ElementDescription_SEXP);
     Rcpp::traits::input_parameter< int >::type CompressionLevel(CompressionLevelSEXP);
-    RegisterUserDataBuf(Location, NbrElements, ElementDescription, CompressionLevel);
+    RegisterUserDataBuf(Location, NbrElements, ElementDescription_, CompressionLevel);
     return R_NilValue;
 END_RCPP
 }
 // RegisterUserDataWrite
-void RegisterUserDataWrite(std::string Location, int NbrElements, Nullable<Rcpp::String> ElementDescription, int CompressionLevel);
-RcppExport SEXP _TofDaqR_RegisterUserDataWrite(SEXP LocationSEXP, SEXP NbrElementsSEXP, SEXP ElementDescriptionSEXP, SEXP CompressionLevelSEXP) {
+void RegisterUserDataWrite(std::string Location, int NbrElements, Nullable<Rcpp::StringVector> ElementDescription_, int CompressionLevel);
+RcppExport SEXP _TofDaqR_RegisterUserDataWrite(SEXP LocationSEXP, SEXP NbrElementsSEXP, SEXP ElementDescription_SEXP, SEXP CompressionLevelSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Location(LocationSEXP);
     Rcpp::traits::input_parameter< int >::type NbrElements(NbrElementsSEXP);
-    Rcpp::traits::input_parameter< Nullable<Rcpp::String> >::type ElementDescription(ElementDescriptionSEXP);
+    Rcpp::traits::input_parameter< Nullable<Rcpp::StringVector> >::type ElementDescription_(ElementDescription_SEXP);
     Rcpp::traits::input_parameter< int >::type CompressionLevel(CompressionLevelSEXP);
-    RegisterUserDataWrite(Location, NbrElements, ElementDescription, CompressionLevel);
+    RegisterUserDataWrite(Location, NbrElements, ElementDescription_, CompressionLevel);
     return R_NilValue;
 END_RCPP
 }
 // RegisterUserDataNoStore
-void RegisterUserDataNoStore(std::string Location, int NbrElements, Nullable<Rcpp::String> ElementDescription);
-RcppExport SEXP _TofDaqR_RegisterUserDataNoStore(SEXP LocationSEXP, SEXP NbrElementsSEXP, SEXP ElementDescriptionSEXP) {
+void RegisterUserDataNoStore(std::string Location, int NbrElements, Nullable<Rcpp::StringVector> ElementDescription_);
+RcppExport SEXP _TofDaqR_RegisterUserDataNoStore(SEXP LocationSEXP, SEXP NbrElementsSEXP, SEXP ElementDescription_SEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type Location(LocationSEXP);
     Rcpp::traits::input_parameter< int >::type NbrElements(NbrElementsSEXP);
-    Rcpp::traits::input_parameter< Nullable<Rcpp::String> >::type ElementDescription(ElementDescriptionSEXP);
-    RegisterUserDataNoStore(Location, NbrElements, ElementDescription);
+    Rcpp::traits::input_parameter< Nullable<Rcpp::StringVector> >::type ElementDescription_(ElementDescription_SEXP);
+    RegisterUserDataNoStore(Location, NbrElements, ElementDescription_);
     return R_NilValue;
 END_RCPP
 }
@@ -1726,8 +1726,8 @@ BEGIN_RCPP
 END_RCPP
 }
 // H5AddUserDataMultiRow
-void H5AddUserDataMultiRow(std::string filename, std::string location, int nbrElements, int nbrRows, NumericVector data, Nullable<Rcpp::String> elementDescription, int compressionLevel);
-RcppExport SEXP _TofDaqR_H5AddUserDataMultiRow(SEXP filenameSEXP, SEXP locationSEXP, SEXP nbrElementsSEXP, SEXP nbrRowsSEXP, SEXP dataSEXP, SEXP elementDescriptionSEXP, SEXP compressionLevelSEXP) {
+void H5AddUserDataMultiRow(std::string filename, std::string location, int nbrElements, int nbrRows, NumericVector data, Nullable<Rcpp::StringVector> elementDescription_, int compressionLevel);
+RcppExport SEXP _TofDaqR_H5AddUserDataMultiRow(SEXP filenameSEXP, SEXP locationSEXP, SEXP nbrElementsSEXP, SEXP nbrRowsSEXP, SEXP dataSEXP, SEXP elementDescription_SEXP, SEXP compressionLevelSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type filename(filenameSEXP);
@@ -1735,9 +1735,9 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< int >::type nbrElements(nbrElementsSEXP);
     Rcpp::traits::input_parameter< int >::type nbrRows(nbrRowsSEXP);
     Rcpp::traits::input_parameter< NumericVector >::type data(dataSEXP);
-    Rcpp::traits::input_parameter< Nullable<Rcpp::String> >::type elementDescription(elementDescriptionSEXP);
+    Rcpp::traits::input_parameter< Nullable<Rcpp::StringVector> >::type elementDescription_(elementDescription_SEXP);
     Rcpp::traits::input_parameter< int >::type compressionLevel(compressionLevelSEXP);
-    H5AddUserDataMultiRow(filename, location, nbrElements, nbrRows, data, elementDescription, compressionLevel);
+    H5AddUserDataMultiRow(filename, location, nbrElements, nbrRows, data, elementDescription_, compressionLevel);
     return R_NilValue;
 END_RCPP
 }

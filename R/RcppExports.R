@@ -1095,8 +1095,8 @@ AddAttributeString <- function(Object, AttributeName, Value) {
 #'
 #' @family Data storage functions
 #' @export
-AddUserData <- function(Location, NbrElements, Data, ElementDescription = NULL, CompressionLevel = 0L) {
-    invisible(.Call('_TofDaqR_AddUserData', PACKAGE = 'TofDaqR', Location, NbrElements, Data, ElementDescription, CompressionLevel))
+AddUserData <- function(Location, NbrElements, Data, ElementDescription_ = NULL, CompressionLevel = 0L) {
+    invisible(.Call('_TofDaqR_AddUserData', PACKAGE = 'TofDaqR', Location, NbrElements, Data, ElementDescription_, CompressionLevel))
 }
 
 #' Stores (asynchronous) user supplied data.
@@ -1123,8 +1123,8 @@ AddUserData <- function(Location, NbrElements, Data, ElementDescription = NULL, 
 #'
 #' @family Data storage functions
 #' @export
-AddUserDataMultiRow <- function(Location, NbrElements, NbrRows, Data, ElementDescription = NULL, CompressionLevel = 0L) {
-    invisible(.Call('_TofDaqR_AddUserDataMultiRow', PACKAGE = 'TofDaqR', Location, NbrElements, NbrRows, Data, ElementDescription, CompressionLevel))
+AddUserDataMultiRow <- function(Location, NbrElements, NbrRows, Data, ElementDescription_ = NULL, CompressionLevel = 0L) {
+    invisible(.Call('_TofDaqR_AddUserDataMultiRow', PACKAGE = 'TofDaqR', Location, NbrElements, NbrRows, Data, ElementDescription_, CompressionLevel))
 }
 
 #' Registers a data source to store (synchronous) user supplied data.
@@ -1146,8 +1146,8 @@ AddUserDataMultiRow <- function(Location, NbrElements, NbrRows, Data, ElementDes
 #'
 #' @family Data storage functions
 #' @export
-RegisterUserDataBuf <- function(Location, NbrElements, ElementDescription = NULL, CompressionLevel = 0L) {
-    invisible(.Call('_TofDaqR_RegisterUserDataBuf', PACKAGE = 'TofDaqR', Location, NbrElements, ElementDescription, CompressionLevel))
+RegisterUserDataBuf <- function(Location, NbrElements, ElementDescription_ = NULL, CompressionLevel = 0L) {
+    invisible(.Call('_TofDaqR_RegisterUserDataBuf', PACKAGE = 'TofDaqR', Location, NbrElements, ElementDescription_, CompressionLevel))
 }
 
 #' Registers a data source to store (synchronous) user supplied data.
@@ -1170,8 +1170,8 @@ RegisterUserDataBuf <- function(Location, NbrElements, ElementDescription = NULL
 #'
 #' @family Data storage functions
 #' @export
-RegisterUserDataWrite <- function(Location, NbrElements, ElementDescription = NULL, CompressionLevel = 0L) {
-    invisible(.Call('_TofDaqR_RegisterUserDataWrite', PACKAGE = 'TofDaqR', Location, NbrElements, ElementDescription, CompressionLevel))
+RegisterUserDataWrite <- function(Location, NbrElements, ElementDescription_ = NULL, CompressionLevel = 0L) {
+    invisible(.Call('_TofDaqR_RegisterUserDataWrite', PACKAGE = 'TofDaqR', Location, NbrElements, ElementDescription_, CompressionLevel))
 }
 
 #' Registers a data source for (synchronous) user supplied data.
@@ -1191,8 +1191,8 @@ RegisterUserDataWrite <- function(Location, NbrElements, ElementDescription = NU
 #'
 #' @family Data storage functions
 #' @export
-RegisterUserDataNoStore <- function(Location, NbrElements, ElementDescription = NULL) {
-    invisible(.Call('_TofDaqR_RegisterUserDataNoStore', PACKAGE = 'TofDaqR', Location, NbrElements, ElementDescription))
+RegisterUserDataNoStore <- function(Location, NbrElements, ElementDescription_ = NULL) {
+    invisible(.Call('_TofDaqR_RegisterUserDataNoStore', PACKAGE = 'TofDaqR', Location, NbrElements, ElementDescription_))
 }
 
 #' Unregisters a data source.
@@ -2416,8 +2416,8 @@ H5AddLogEntry <- function(Filename, LogEntryText, LogEntryTime) {
 #' If the dataset at Location already exists this parameter has no effect.
 #'
 #' @export
-H5AddUserDataMultiRow <- function(filename, location, nbrElements, nbrRows, data, elementDescription = NULL, compressionLevel = 0L) {
-    invisible(.Call('_TofDaqR_H5AddUserDataMultiRow', PACKAGE = 'TofDaqR', filename, location, nbrElements, nbrRows, data, elementDescription, compressionLevel))
+H5AddUserDataMultiRow <- function(filename, location, nbrElements, nbrRows, data, elementDescription_ = NULL, compressionLevel = 0L) {
+    invisible(.Call('_TofDaqR_H5AddUserDataMultiRow', PACKAGE = 'TofDaqR', filename, location, nbrElements, nbrRows, data, elementDescription_, compressionLevel))
 }
 
 #' Deletes an attribute.

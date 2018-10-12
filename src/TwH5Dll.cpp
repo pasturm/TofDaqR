@@ -1960,15 +1960,20 @@ void H5AddLogEntry(std::string Filename, std::string LogEntryText,
 // [[Rcpp::export]]
 void H5AddUserDataMultiRow(std::string filename, std::string location,
                            int nbrElements, int nbrRows, NumericVector data,
-                           Nullable<Rcpp::String> elementDescription = R_NilValue,
+                           Nullable<Rcpp::StringVector> elementDescription_ = R_NilValue,
                            int compressionLevel = 0) {
 
   char *cFilename = StringToChar(filename);
   char *cLocation = StringToChar(location);
-  char *cElementDescription;
-  if (elementDescription.isNotNull()) {
-    std::string str = as<std::string>(elementDescription);
-    cElementDescription = StringToChar(str);
+  char *cElementDescription = new char[256 * nbrElements];
+  memset(cElementDescription, 0, 256 * nbrElements);
+
+  if (elementDescription_.isNotNull()) {
+    StringVector elementDescription(elementDescription_); // https://stackoverflow.com/questions/43388698/rcpp-how-can-i-get-the-size-of-a-rcppnullable-numericvector
+    for( int i=0; i < nbrElements; i++ ) {
+      std::string str(elementDescription[i]);
+      strcpy(&cElementDescription[i*256], str.c_str());
+    }
   } else {
     cElementDescription = NULL;
   }
@@ -1976,6 +1981,8 @@ void H5AddUserDataMultiRow(std::string filename, std::string location,
   TwRetVal rv = TwH5AddUserDataMultiRow(cFilename, cLocation, nbrElements, nbrRows,
                                         cElementDescription, &data[0],
                                         compressionLevel);
+  delete[] cElementDescription;
+
   TwCloseH5(cFilename);
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));

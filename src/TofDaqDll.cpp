@@ -952,14 +952,19 @@ void SetMassCalibEx(int mode, int nbrParams, NumericVector p,
 
   int nbrPoints = mass.size();
 
-  std::string s (nbrPoints*256, ' ');
-  for( int i=0; i < nbrPoints; i++ ) {
-    s.replace(i*256, label[i].size(), label[i]);
+  if (nbrPoints != label.size()) {
+    stop("mass, tof, weight and label must be the same length.");
   }
-  char *cLabel = StringToChar(s);
+  char *cLabel = new char[256 * nbrPoints];
+  memset(cLabel, 0, 256 * nbrPoints);
+  for( int i=0; i < nbrPoints; i++ ) {
+    std::string str(label[i]);
+    strcpy(&cLabel[i*256], str.c_str());
+  }
 
   TwRetVal rv = TwSetMassCalibEx(mode, nbrParams, &p[0], nbrPoints, &mass[0],
                       &tof[0], &weight[0], cLabel);
+  delete[] cLabel;
 
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
@@ -1009,14 +1014,19 @@ void SetMassCalib2Ex(int mode, int nbrParams, NumericVector p,
 
   int nbrPoints = mass.size();
 
-  std::string s (nbrPoints*256, ' ');
-  for( int i=0; i < nbrPoints; i++ ) {
-    s.replace(i*256, label[i].size(), label[i]);
+  if (nbrPoints != label.size()) {
+    stop("mass, tof, weight and label must be the same length.");
   }
-  char *cLabel = StringToChar(s);
+  char *cLabel = new char[256 * nbrPoints];
+  memset(cLabel, 0, 256 * nbrPoints);
+  for( int i=0; i < nbrPoints; i++ ) {
+    std::string str(label[i]);
+    strcpy(&cLabel[i*256], str.c_str());
+  }
 
   TwRetVal rv = TwSetMassCalib2Ex(mode, nbrParams, &p[0], nbrPoints, &mass[0],
                                  &tof[0], &weight[0], cLabel);
+  delete[] cLabel;
 
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
@@ -1907,19 +1917,26 @@ void AddAttributeString(std::string Object, std::string AttributeName,
 //' @export
 // [[Rcpp::export]]
 void AddUserData(std::string Location, int NbrElements, NumericVector Data,
-                 Nullable<Rcpp::String> ElementDescription = R_NilValue,
+                 Nullable<Rcpp::StringVector> ElementDescription_ = R_NilValue,
                  int CompressionLevel = 0) {
 
   char *cLocation = StringToChar(Location);
-  char *cElementDescription;
-  if (ElementDescription.isNotNull()) {
-    std::string str = as<std::string>(ElementDescription);
-    cElementDescription = StringToChar(str);
+  char *cElementDescription = new char[256 * NbrElements];
+  memset(cElementDescription, 0, 256 * NbrElements);
+
+  if (ElementDescription_.isNotNull()) {
+    StringVector ElementDescription(ElementDescription_); // https://stackoverflow.com/questions/43388698/rcpp-how-can-i-get-the-size-of-a-rcppnullable-numericvector
+    for( int i=0; i < NbrElements; i++ ) {
+      std::string str(ElementDescription[i]);
+      strcpy(&cElementDescription[i*256], str.c_str());
+    }
   } else {
     cElementDescription = NULL;
   }
   TwRetVal rv = TwAddUserData(cLocation, NbrElements, cElementDescription,
                               &Data[0], CompressionLevel);
+  delete[] cElementDescription;
+
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
@@ -1953,14 +1970,19 @@ void AddUserData(std::string Location, int NbrElements, NumericVector Data,
 // [[Rcpp::export]]
 void AddUserDataMultiRow(std::string Location, int NbrElements, int NbrRows,
                          NumericVector Data,
-                         Nullable<Rcpp::String> ElementDescription = R_NilValue,
+                         Nullable<Rcpp::StringVector> ElementDescription_ = R_NilValue,
                          int CompressionLevel = 0) {
 
   char *cLocation = StringToChar(Location);
-  char *cElementDescription;
-  if (ElementDescription.isNotNull()) {
-    std::string str = as<std::string>(ElementDescription);
-    cElementDescription = StringToChar(str);
+  char *cElementDescription = new char[256 * NbrElements];
+  memset(cElementDescription, 0, 256 * NbrElements);
+
+  if (ElementDescription_.isNotNull()) {
+    StringVector ElementDescription(ElementDescription_); // https://stackoverflow.com/questions/43388698/rcpp-how-can-i-get-the-size-of-a-rcppnullable-numericvector
+    for( int i=0; i < NbrElements; i++ ) {
+      std::string str(ElementDescription[i]);
+      strcpy(&cElementDescription[i*256], str.c_str());
+    }
   } else {
     cElementDescription = NULL;
   }
@@ -1968,6 +1990,8 @@ void AddUserDataMultiRow(std::string Location, int NbrElements, int NbrRows,
   TwRetVal rv = TwAddUserDataMultiRow(cLocation, NbrElements, NbrRows,
                                       cElementDescription, &Data[0],
                                       CompressionLevel);
+  delete[] cElementDescription;
+
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
@@ -1995,20 +2019,27 @@ void AddUserDataMultiRow(std::string Location, int NbrElements, int NbrRows,
 //' @export
 // [[Rcpp::export]]
 void RegisterUserDataBuf(std::string Location, int NbrElements,
-                         Nullable<Rcpp::String> ElementDescription = R_NilValue,
+                         Nullable<Rcpp::StringVector> ElementDescription_ = R_NilValue,
                          int CompressionLevel = 0) {
 
   char *cLocation = StringToChar(Location);
-  char *cElementDescription;
-  if (ElementDescription.isNotNull()) {
-    std::string str = as<std::string>(ElementDescription);
-    cElementDescription = StringToChar(str);
+  char *cElementDescription = new char[256 * NbrElements];
+  memset(cElementDescription, 0, 256 * NbrElements);
+
+  if (ElementDescription_.isNotNull()) {
+    StringVector ElementDescription(ElementDescription_); // https://stackoverflow.com/questions/43388698/rcpp-how-can-i-get-the-size-of-a-rcppnullable-numericvector
+    for( int i=0; i < NbrElements; i++ ) {
+      std::string str(ElementDescription[i]);
+      strcpy(&cElementDescription[i*256], str.c_str());
+    }
   } else {
     cElementDescription = NULL;
   }
 
   TwRetVal rv = TwRegisterUserDataBuf(cLocation, NbrElements,
                                       cElementDescription, CompressionLevel);
+  delete[] cElementDescription;
+
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
@@ -2037,20 +2068,27 @@ void RegisterUserDataBuf(std::string Location, int NbrElements,
 //' @export
 // [[Rcpp::export]]
 void RegisterUserDataWrite(std::string Location, int NbrElements,
-                           Nullable<Rcpp::String> ElementDescription = R_NilValue,
+                           Nullable<Rcpp::StringVector> ElementDescription_ = R_NilValue,
                            int CompressionLevel = 0) {
 
   char *cLocation = StringToChar(Location);
-  char *cElementDescription;
-  if (ElementDescription.isNotNull()) {
-    std::string str = as<std::string>(ElementDescription);
-    cElementDescription = StringToChar(str);
+  char *cElementDescription = new char[256 * NbrElements];
+  memset(cElementDescription, 0, 256 * NbrElements);
+
+  if (ElementDescription_.isNotNull()) {
+    StringVector ElementDescription(ElementDescription_); // https://stackoverflow.com/questions/43388698/rcpp-how-can-i-get-the-size-of-a-rcppnullable-numericvector
+    for( int i=0; i < NbrElements; i++ ) {
+      std::string str(ElementDescription[i]);
+      strcpy(&cElementDescription[i*256], str.c_str());
+    }
   } else {
     cElementDescription = NULL;
   }
 
   TwRetVal rv = TwRegisterUserDataWrite(cLocation, NbrElements,
                                         cElementDescription, CompressionLevel);
+  delete[] cElementDescription;
+
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
@@ -2076,19 +2114,26 @@ void RegisterUserDataWrite(std::string Location, int NbrElements,
 //' @export
 // [[Rcpp::export]]
 void RegisterUserDataNoStore(std::string Location, int NbrElements,
-                             Nullable<Rcpp::String> ElementDescription = R_NilValue) {
+                             Nullable<Rcpp::StringVector> ElementDescription_ = R_NilValue) {
 
   char *cLocation = StringToChar(Location);
-  char *cElementDescription;
-  if (ElementDescription.isNotNull()) {
-    std::string str = as<std::string>(ElementDescription);
-    cElementDescription = StringToChar(str);
+  char *cElementDescription = new char[256 * NbrElements];
+  memset(cElementDescription, 0, 256 * NbrElements);
+
+  if (ElementDescription_.isNotNull()) {
+    StringVector ElementDescription(ElementDescription_); // https://stackoverflow.com/questions/43388698/rcpp-how-can-i-get-the-size-of-a-rcppnullable-numericvector
+    for( int i=0; i < NbrElements; i++ ) {
+      std::string str(ElementDescription[i]);
+      strcpy(&cElementDescription[i*256], str.c_str());
+    }
   } else {
     cElementDescription = NULL;
   }
 
   TwRetVal rv = TwRegisterUserDataNoStore(cLocation, NbrElements,
-                                        cElementDescription);
+                                          cElementDescription);
+  delete[] cElementDescription;
+
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }

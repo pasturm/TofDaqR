@@ -21,6 +21,9 @@ TofDaqR 0.3.7.903
 * Added TwH5Dll functions `H5AddUserDataMultiRow()`, `DeleteAttributeInH5()`,
   `WaitForExclusiveFileAccess()`, `WriteNetCdfTimeSeriesFile()`.
 
+* Corrected bug in functions which have an array of strings as an input
+  parameter.
+
 
 TofDaqR 0.3.7
 --------------------------------------------------------------------------------
