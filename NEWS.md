@@ -1,5 +1,4 @@
-TofDaqR 0.3.7.903
---------------------------------------------------------------------------------
+# Changes in version 0.3.7.904
 
 * `GetEventListSpectrumFromH5()` returns a zero length vector instead of an
   error if there is no event in the spectrum.
@@ -25,10 +24,11 @@ TofDaqR 0.3.7.903
 
 * Corrected bug in functions which have an array of strings as an input
   parameter.
+  
+* Using NEWS.md format for this NEWS file.
 
 
-TofDaqR 0.3.7
---------------------------------------------------------------------------------
+# Changes in version 0.3.7
 
 * Corrected bug in `DecodeEventList()`.
 
@@ -41,8 +41,7 @@ TofDaqR 0.3.7
 * Removed the macos_i386 TofDaq libraries.
 
 
-TofDaqR 0.3.6
---------------------------------------------------------------------------------
+# Changes in version 0.3.6
 
 * Corrected cstring to std::string conversion bug in `GetRegUserData...()`
   functions.
@@ -52,8 +51,7 @@ TofDaqR 0.3.6
 * Corrected bug in `configure` script (MacOS and Linux version).
 
 
-TofDaqR 0.3.5
---------------------------------------------------------------------------------
+# Changes in version 0.3.5
 
 * Updated `configure` script to work with Rcpp >=0.12.12.
 
@@ -64,15 +62,13 @@ TofDaqR 0.3.5
 * Corrected bug in `GetUserDataFromH5()` and added the option to read all rows.
 
 
-TofDaqR 0.3.4
---------------------------------------------------------------------------------
+# Changes in version 0.3.4
 
 * Corrected bug in `configure.win` script which made source package installation
   on 32-bit Windows to fail.
 
 
-TofDaqR 0.3.3
---------------------------------------------------------------------------------
+# Changes in version 0.3.3
 
 * Corrected bugs in `LoadIniFile()` and `SaveIniFile()`.
 
@@ -81,8 +77,7 @@ TofDaqR 0.3.3
 * Added wrapper functions `GetTofDataSinglePeak()` and `FitTofDataSinglePeak()`.
 
 
-TofDaqR 0.3.2
---------------------------------------------------------------------------------
+# Changes in version 0.3.2
 
 * Corrected bug in internal std::string to char* conversion (introduced in
   TofDaqR 0.3.0).
@@ -94,8 +89,7 @@ TofDaqR 0.3.2
 * Updated some help pages.
 
 
-TofDaqR 0.3.1
---------------------------------------------------------------------------------
+# Changes in version 0.3.1
 
 * `GetDescriptor()` returns int64 and uint64 values as strings.
 
@@ -106,16 +100,14 @@ TofDaqR 0.3.1
   `H5AddLogEntry()`, `H5GetMassCalibPar()`, `GetBufWriteProfileFromH5()`)
 
 
-TofDaqR 0.3.0
---------------------------------------------------------------------------------
+# Changes in version 0.3.0
 
 * Another major code refactoring: Rcpp is used for all C/C++ code.
 
 * Added all `Get...2FromH5()` functions.
 
 
-TofDaqR 0.2.0
---------------------------------------------------------------------------------
+# Changes in version 0.2.0
 
 * Updated to TofDaq API 1.99r450.
 
@@ -130,15 +122,13 @@ TofDaqR 0.2.0
   twh5 functions)!
 
 
-TofDaqR 0.1.7
---------------------------------------------------------------------------------
+# Changes in version 0.1.7
 
 * Removed dependency on Rcpp package by moving `DecodeEventList()` and
   `EventList2TofSpec()` to TofDaqWrapR.dll.
 
 
-TofDaqR 0.1.6
---------------------------------------------------------------------------------
+# Changes in version 0.1.6
 
 * Corrected bug when package was unloaded.
 
@@ -151,16 +141,14 @@ TofDaqR 0.1.6
 * Published TofDaqR to GitHub: https://github.com/pasturm/TofDaqR
 
 
-TofDaqR 0.1.5
---------------------------------------------------------------------------------
+# Changes in version 0.1.5
 
 * Updated to TofDaq API 1.98.
 
 * Added `GetRegUserDataSourcesFromH5()`.
 
 
-TofDaqR 0.1.4
---------------------------------------------------------------------------------
+# Changes in version 0.1.4
 
 * Extended `Tof2Mass()` and `Mass2Tof()` to work with vectors as first argument.
 
@@ -179,8 +167,7 @@ TofDaqR 0.1.4
 * Added additional TPS1 codes in `Tps1rc`.
 
 
-TofDaqR 0.1.3
---------------------------------------------------------------------------------
+# Changes in version 0.1.3
 
 * Added all single ion histogramming functions (`Si...`) of TwToolDll.
   Additionally, `SiProcessSpectrumFromShMem()` takes the spectrum directly from
@@ -194,8 +181,7 @@ TofDaqR 0.1.3
   mass table file.
 
 
-TofDaqR 0.1.2
---------------------------------------------------------------------------------
+# Changes in version 0.1.2
 
 * Renamed all functions, i.e. the `Tw` (and `Tx`) has been removed. (This is a
   breaking change, but because this package has currently no users (except the
@@ -205,8 +191,7 @@ TofDaqR 0.1.2
   format NEWS/NEWS.md.
 
 
-TofDaqR 0.1.1
---------------------------------------------------------------------------------
+# Changes in version 0.1.1
 
 * Made DESCRIPTION to work in RStudio (description field is longer).
 
@@ -233,8 +218,7 @@ TofDaqR 0.1.1
   and `TwGetUserDataFromH5()`.
 
 
-TofDaqR 0.1.0
---------------------------------------------------------------------------------
+# Changes in version 0.1.0
 
 * First release of TofDaqR as a package.
 
