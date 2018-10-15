@@ -2334,6 +2334,45 @@ void H5SetMassCalib2Ex(std::string Filename, int mode, int nbrParams,
   }
 }
 
+// H5SetMassCalibDynamic -------------------------------------------------------
+//' Stores dynamic mass calibration for a given spectrum in the data file.
+//'
+//' \code{H5SetMassCalibDynamic} stores dynamic mass calibration for a given
+//' spectrum in the data file.
+//'
+//' This function can be used to delete the dynamic calibration information by
+//' passing the special parameter set: \code{writeIndex} = -1, \code{nbrParams}
+//' = \code{nbrStat} = 0 and \code{par} = \code{stat} = \code{NULL}. With the
+//' \code{stat} array additional information can be stored in the dataset
+//' \code{/FullSpectra/MassCalibrationStats} (no official format definition or
+//' supporting API functions).
+//'
+//' @param filename Path/filename of the HDF5 file.
+//' @param writeIndex Write index of the calibration to store.
+//' @param par Numeric vector holding the actual calibration values.
+//' @param stat Numeric vector with additional information on how the parameters
+//' were obtained (typically).
+//'
+//' @export
+// [[Rcpp::export]]
+void H5SetMassCalibDynamic(std::string filename, int writeIndex,
+                           NumericVector par, NumericVector stat) {
+
+  char *cFilename = StringToChar(filename);
+  int nbrParams = par.size();
+  int nbrStat = stat.size();
+  int segmentIndex = -1;
+  int bufIndex = -1;
+
+  TwRetVal rv = TwH5SetMassCalibDynamic(cFilename, segmentIndex, bufIndex,
+                                        writeIndex, nbrParams, &par[0], nbrStat,
+                                        &stat[0]);
+
+  if (rv != TwSuccess) {
+    stop(TranslateReturnValue(rv));
+  }
+}
+
 // Not implemented -------------------------------------------------------------
 // TwGetBufWriteProfileFromH5_2
 // TwChangePeakTable

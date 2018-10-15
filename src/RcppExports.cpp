@@ -1851,6 +1851,19 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+// H5SetMassCalibDynamic
+void H5SetMassCalibDynamic(std::string filename, int writeIndex, NumericVector par, NumericVector stat);
+RcppExport SEXP _TofDaqR_H5SetMassCalibDynamic(SEXP filenameSEXP, SEXP writeIndexSEXP, SEXP parSEXP, SEXP statSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::string >::type filename(filenameSEXP);
+    Rcpp::traits::input_parameter< int >::type writeIndex(writeIndexSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type par(parSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type stat(statSEXP);
+    H5SetMassCalibDynamic(filename, writeIndex, par, stat);
+    return R_NilValue;
+END_RCPP
+}
 // FitSinglePeak
 List FitSinglePeak(NumericVector yVals, NumericVector xVals, int peakType, double blOffset, double blSlope, double amplitude, double fwhmLo, double fwhmHi, double peakPos, double mu);
 RcppExport SEXP _TofDaqR_FitSinglePeak(SEXP yValsSEXP, SEXP xValsSEXP, SEXP peakTypeSEXP, SEXP blOffsetSEXP, SEXP blSlopeSEXP, SEXP amplitudeSEXP, SEXP fwhmLoSEXP, SEXP fwhmHiSEXP, SEXP peakPosSEXP, SEXP muSEXP) {
@@ -2331,6 +2344,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_TofDaqR_H5SetMassCalib2", (DL_FUNC) &_TofDaqR_H5SetMassCalib2, 7},
     {"_TofDaqR_H5SetMassCalibEx", (DL_FUNC) &_TofDaqR_H5SetMassCalibEx, 8},
     {"_TofDaqR_H5SetMassCalib2Ex", (DL_FUNC) &_TofDaqR_H5SetMassCalib2Ex, 8},
+    {"_TofDaqR_H5SetMassCalibDynamic", (DL_FUNC) &_TofDaqR_H5SetMassCalibDynamic, 4},
     {"_TofDaqR_FitSinglePeak", (DL_FUNC) &_TofDaqR_FitSinglePeak, 10},
     {"_TofDaqR_FitSinglePeak2", (DL_FUNC) &_TofDaqR_FitSinglePeak2, 4},
     {"_TofDaqR_EvalSinglePeak", (DL_FUNC) &_TofDaqR_EvalSinglePeak, 8},

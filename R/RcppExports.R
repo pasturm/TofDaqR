@@ -2625,6 +2625,29 @@ H5SetMassCalib2Ex <- function(Filename, mode, nbrParams, p, mass, tof, weight, l
     invisible(.Call('_TofDaqR_H5SetMassCalib2Ex', PACKAGE = 'TofDaqR', Filename, mode, nbrParams, p, mass, tof, weight, label))
 }
 
+#' Stores dynamic mass calibration for a given spectrum in the data file.
+#'
+#' \code{H5SetMassCalibDynamic} stores dynamic mass calibration for a given
+#' spectrum in the data file.
+#'
+#' This function can be used to delete the dynamic calibration information by
+#' passing the special parameter set: \code{writeIndex} = -1, \code{nbrParams}
+#' = \code{nbrStat} = 0 and \code{par} = \code{stat} = \code{NULL}. With the
+#' \code{stat} array additional information can be stored in the dataset
+#' \code{/FullSpectra/MassCalibrationStats} (no official format definition or
+#' supporting API functions).
+#'
+#' @param filename Path/filename of the HDF5 file.
+#' @param writeIndex Write index of the calibration to store.
+#' @param par Numeric vector holding the actual calibration values.
+#' @param stat Numeric vector with additional information on how the parameters
+#' were obtained (typically).
+#'
+#' @export
+H5SetMassCalibDynamic <- function(filename, writeIndex, par, stat) {
+    invisible(.Call('_TofDaqR_H5SetMassCalibDynamic', PACKAGE = 'TofDaqR', filename, writeIndex, par, stat))
+}
+
 #' Performs a peak fit.
 #'
 #' \code{FitSinglePeak} performs a peak fit. Gaussian, Lorentzian and
