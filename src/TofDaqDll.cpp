@@ -2781,10 +2781,6 @@ void TpsChangeIonMode(int ionMode) {
 
 // Not implemented: TwLockBuf --------------------------------------------------
 // Not implemented: TwUnLockBuf ------------------------------------------------
-// Not implemented: TwSetMassCalib ---------------------------------------------
-// Not implemented: TwSetMassCalib2 --------------------------------------------
-// Not implemented: TwSetMassCalibEx -------------------------------------------
-// Not implemented: TwSetMassCalib2Ex ------------------------------------------
 // Not implemented: TwGetSharedMemory ------------------------------------------
 // Not implemented: TwDioStartDelayActive --------------------------------------
 // Not implemented: TwSetRegUserDataTarget -------------------------------------

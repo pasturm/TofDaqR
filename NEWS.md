@@ -1,4 +1,4 @@
-# Changes in version 0.3.7.904
+# Changes in version 0.3.8
 
 * `GetEventListSpectrumFromH5()` returns a zero length vector instead of an
   error if there is no event in the spectrum.
@@ -20,7 +20,8 @@
 * Added TwH5Dll functions `H5AddUserDataMultiRow()`, `DeleteAttributeInH5()`,
   `WaitForExclusiveFileAccess()`, `WriteNetCdfTimeSeriesFile()`,
   `H5SetMassCalib()`, `H5SetMassCalib2()`, `H5SetMassCalibEx()`,
-  `H5SetMassCalib2Ex()`, `H5SetMassCalibDynamic()`.
+  `H5SetMassCalib2Ex()`, `H5SetMassCalibDynamic()`, `ChangePeakTable()`,
+  `ChangePeakTableFromFile()`.
 
 * Corrected bug in functions which have an array of strings as an input
   parameter.

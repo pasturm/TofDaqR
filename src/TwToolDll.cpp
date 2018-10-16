@@ -1137,8 +1137,6 @@ String FindTpsIp(std::string TpsSerial, int timeout) {
 }
 #endif
 
-// Not implemented: TwFitResolution --------------------------------------------
-// Not implemented: TwEvalResolution -------------------------------------------
 // Not implemented: TwDecomposeMass --------------------------------------------
 // Not implemented: TwGetComposition -------------------------------------------
 // Not implemented: TwNistLibrarySearch ----------------------------------------
@@ -1147,7 +1145,10 @@ String FindTpsIp(std::string TpsSerial, int timeout) {
 // Not implemented: TwEncImsCorrelateProfile -----------------------------------
 // Not implemented: TwEncImsCorrelateMultiProfiles -----------------------------
 // Not implemented: TwEncImsCleanup --------------------------------------------
+// Not implemented: TwSiGetHistogramAmp ----------------------------------------
+// Not implemented: TwSiGetSumHistogramAmp -------------------------------------
 // Not implemented: TwGenerateImageData ----------------------------------------
 // Not implemented: TwImagePaletteOffset2Value ---------------------------------
 // Not implemented: TwImageValue2PaletteOffset ---------------------------------
 // Not implemented: TwImageGetPaletteRGB ---------------------------------------
+// Not implemented: TwIntegrateTofSpectra --------------------------------------

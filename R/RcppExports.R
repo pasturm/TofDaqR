@@ -2648,6 +2648,42 @@ H5SetMassCalibDynamic <- function(filename, writeIndex, par, stat) {
     invisible(.Call('_TofDaqR_H5SetMassCalibDynamic', PACKAGE = 'TofDaqR', filename, writeIndex, par, stat))
 }
 
+#' Changes the PeakTable and recomputes the PeakData.
+#'
+#' \code{ChangePeakTable} changes the entries in the dataset \code{/PeakData/PeakTable}
+#' and recomputes \code{/PeakData/PeakData} accordingly.
+#'
+#' Depending on data file size recomputing the peak data can take a long time.
+#'
+#' @param Filename Path/filename of the HDF5 file.
+#' @param PeakPar List with the new peak paramters \emph{label}, \emph{mass},
+#' \emph{loMass} and \emph{hiMass}.
+#' @param compressionLevel Compression Level (1..9).
+#'
+#' @export
+ChangePeakTable <- function(Filename, PeakPar, compressionLevel) {
+    invisible(.Call('_TofDaqR_ChangePeakTable', PACKAGE = 'TofDaqR', Filename, PeakPar, compressionLevel))
+}
+
+#' Changes the PeakTable and recomputes the PeakData.
+#'
+#' \code{ChangePeakTableFromFile} changes the entries in the dataset \code{/PeakData/PeakTable}
+#' and recomputes \code{/PeakData/PeakData} accordingly. This is a convenience
+#' function for \code{\link{ChangePeakTable}}. Instead of specifiying directly
+#' peak parameters the information is taken from a mass table (text file) or a
+#' Tofwerk HDF5 file.
+#'
+#' Depending on data file size  recomputing the peak data can take a long time.
+#'
+#' @param Filename Path/filename of the HDF5 file.
+#' @param massTable Path/filename to mass table or HDF5 file.
+#' @param compressionLevel Compression Level (1..9).
+#'
+#' @export
+ChangePeakTableFromFile <- function(Filename, massTable, compressionLevel) {
+    invisible(.Call('_TofDaqR_ChangePeakTableFromFile', PACKAGE = 'TofDaqR', Filename, massTable, compressionLevel))
+}
+
 #' Performs a peak fit.
 #'
 #' \code{FitSinglePeak} performs a peak fit. Gaussian, Lorentzian and

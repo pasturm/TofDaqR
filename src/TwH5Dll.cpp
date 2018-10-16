@@ -2373,11 +2373,84 @@ void H5SetMassCalibDynamic(std::string filename, int writeIndex,
   }
 }
 
+// ChangePeakTable -------------------------------------------------------------
+//' Changes the PeakTable and recomputes the PeakData.
+//'
+//' \code{ChangePeakTable} changes the entries in the dataset \code{/PeakData/PeakTable}
+//' and recomputes \code{/PeakData/PeakData} accordingly.
+//'
+//' Depending on data file size recomputing the peak data can take a long time.
+//'
+//' @param Filename Path/filename of the HDF5 file.
+//' @param PeakPar List with the new peak paramters \emph{label}, \emph{mass},
+//' \emph{loMass} and \emph{hiMass}.
+//' @param compressionLevel Compression Level (1..9).
+//'
+//' @export
+// [[Rcpp::export]]
+void ChangePeakTable(std::string Filename, List PeakPar, int compressionLevel) {
+
+  char *cFilename = StringToChar(Filename);
+
+  CharacterVector label = PeakPar["label"];
+  NumericVector mass = PeakPar["mass"];
+  NumericVector loMass = PeakPar["loMass"];
+  NumericVector hiMass = PeakPar["hiMass"];
+
+  int nbrNewPeakPar = mass.size();
+  TPeakPar *newPeakPar = new TPeakPar[nbrNewPeakPar];
+
+  for (int i=0; i<nbrNewPeakPar; ++i) {
+    std::string str(label[i]);
+    memcpy(newPeakPar[i].label, str.c_str(), 64);
+    newPeakPar[i].mass = (float)mass[i];
+    newPeakPar[i].loMass = (float)loMass[i];
+    newPeakPar[i].hiMass = (float)hiMass[i];
+  }
+
+  TwRetVal rv = TwChangePeakTable(cFilename, newPeakPar, nbrNewPeakPar,
+                                  compressionLevel, NULL);
+  delete[] newPeakPar;
+
+  if (rv != TwSuccess) {
+    stop(TranslateReturnValue(rv));
+  }
+}
+
+// ChangePeakTableFromFile -----------------------------------------------------
+//' Changes the PeakTable and recomputes the PeakData.
+//'
+//' \code{ChangePeakTableFromFile} changes the entries in the dataset \code{/PeakData/PeakTable}
+//' and recomputes \code{/PeakData/PeakData} accordingly. This is a convenience
+//' function for \code{\link{ChangePeakTable}}. Instead of specifiying directly
+//' peak parameters the information is taken from a mass table (text file) or a
+//' Tofwerk HDF5 file.
+//'
+//' Depending on data file size  recomputing the peak data can take a long time.
+//'
+//' @param Filename Path/filename of the HDF5 file.
+//' @param massTable Path/filename to mass table or HDF5 file.
+//' @param compressionLevel Compression Level (1..9).
+//'
+//' @export
+// [[Rcpp::export]]
+void ChangePeakTableFromFile(std::string Filename, std::string massTable,
+                             int compressionLevel) {
+
+  char *cFilename = StringToChar(Filename);
+  char *cMassTable = StringToChar(massTable);
+
+  TwRetVal rv = TwChangePeakTableFromFile(cFilename, cMassTable,
+                                          compressionLevel, NULL);
+
+  if (rv != TwSuccess) {
+    stop(TranslateReturnValue(rv));
+  }
+}
+
 // Not implemented -------------------------------------------------------------
 // TwGetBufWriteProfileFromH5_2
-// TwChangePeakTable
 // TwChangePeakTable2
-// TwChangePeakFromFile
 // TwChangePeakFromFile2
 // TwProgressCallback
 // TwProgressCallback2
@@ -2385,14 +2458,11 @@ void H5SetMassCalibDynamic(std::string filename, int writeIndex,
 // TwChangePeakDataWrite
 // TwChangePeakDataFinalize
 // TwReadRawData
-// TwH5SetMassCalib
-// TwH5SetMassCalibEx
 // TwGetEventListDataFromH5
 // TwGetEventListBlobFromH5
 // TwFreeEventListData
 // TwFreeEventListData2
 // TwMultiPeakFitIntegration
-// TwH5SetMassCalibDynamic
 // TwGenerateSegmentProfilesFromEventList
 // TwH5MakePaletteImage
 // TwH5MakeTrueColorImage

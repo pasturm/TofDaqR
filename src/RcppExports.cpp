@@ -1864,6 +1864,30 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+// ChangePeakTable
+void ChangePeakTable(std::string Filename, List PeakPar, int compressionLevel);
+RcppExport SEXP _TofDaqR_ChangePeakTable(SEXP FilenameSEXP, SEXP PeakParSEXP, SEXP compressionLevelSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::string >::type Filename(FilenameSEXP);
+    Rcpp::traits::input_parameter< List >::type PeakPar(PeakParSEXP);
+    Rcpp::traits::input_parameter< int >::type compressionLevel(compressionLevelSEXP);
+    ChangePeakTable(Filename, PeakPar, compressionLevel);
+    return R_NilValue;
+END_RCPP
+}
+// ChangePeakTableFromFile
+void ChangePeakTableFromFile(std::string Filename, std::string massTable, int compressionLevel);
+RcppExport SEXP _TofDaqR_ChangePeakTableFromFile(SEXP FilenameSEXP, SEXP massTableSEXP, SEXP compressionLevelSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::string >::type Filename(FilenameSEXP);
+    Rcpp::traits::input_parameter< std::string >::type massTable(massTableSEXP);
+    Rcpp::traits::input_parameter< int >::type compressionLevel(compressionLevelSEXP);
+    ChangePeakTableFromFile(Filename, massTable, compressionLevel);
+    return R_NilValue;
+END_RCPP
+}
 // FitSinglePeak
 List FitSinglePeak(NumericVector yVals, NumericVector xVals, int peakType, double blOffset, double blSlope, double amplitude, double fwhmLo, double fwhmHi, double peakPos, double mu);
 RcppExport SEXP _TofDaqR_FitSinglePeak(SEXP yValsSEXP, SEXP xValsSEXP, SEXP peakTypeSEXP, SEXP blOffsetSEXP, SEXP blSlopeSEXP, SEXP amplitudeSEXP, SEXP fwhmLoSEXP, SEXP fwhmHiSEXP, SEXP peakPosSEXP, SEXP muSEXP) {
@@ -2345,6 +2369,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_TofDaqR_H5SetMassCalibEx", (DL_FUNC) &_TofDaqR_H5SetMassCalibEx, 8},
     {"_TofDaqR_H5SetMassCalib2Ex", (DL_FUNC) &_TofDaqR_H5SetMassCalib2Ex, 8},
     {"_TofDaqR_H5SetMassCalibDynamic", (DL_FUNC) &_TofDaqR_H5SetMassCalibDynamic, 4},
+    {"_TofDaqR_ChangePeakTable", (DL_FUNC) &_TofDaqR_ChangePeakTable, 3},
+    {"_TofDaqR_ChangePeakTableFromFile", (DL_FUNC) &_TofDaqR_ChangePeakTableFromFile, 3},
     {"_TofDaqR_FitSinglePeak", (DL_FUNC) &_TofDaqR_FitSinglePeak, 10},
     {"_TofDaqR_FitSinglePeak2", (DL_FUNC) &_TofDaqR_FitSinglePeak2, 4},
     {"_TofDaqR_EvalSinglePeak", (DL_FUNC) &_TofDaqR_EvalSinglePeak, 8},
