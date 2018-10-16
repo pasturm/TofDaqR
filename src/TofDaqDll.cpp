@@ -959,7 +959,7 @@ void SetMassCalibEx(int mode, int nbrParams, NumericVector p,
   memset(cLabel, 0, 256 * nbrPoints);
   for( int i=0; i < nbrPoints; i++ ) {
     std::string str(label[i]);
-    strcpy(&cLabel[i*256], str.c_str());
+    strncpy(&cLabel[i*256], str.c_str(), 256);
   }
 
   TwRetVal rv = TwSetMassCalibEx(mode, nbrParams, &p[0], nbrPoints, &mass[0],
@@ -1021,7 +1021,7 @@ void SetMassCalib2Ex(int mode, int nbrParams, NumericVector p,
   memset(cLabel, 0, 256 * nbrPoints);
   for( int i=0; i < nbrPoints; i++ ) {
     std::string str(label[i]);
-    strcpy(&cLabel[i*256], str.c_str());
+    strncpy(&cLabel[i*256], str.c_str(), 256);
   }
 
   TwRetVal rv = TwSetMassCalib2Ex(mode, nbrParams, &p[0], nbrPoints, &mass[0],
@@ -1928,7 +1928,7 @@ void AddUserData(std::string Location, int NbrElements, NumericVector Data,
     StringVector strvec(ElementDescription); // https://stackoverflow.com/questions/43388698/rcpp-how-can-i-get-the-size-of-a-rcppnullable-numericvector
     for( int i=0; i < NbrElements; i++ ) {
       std::string str(strvec[i]);
-      strcpy(&cElementDescription[i*256], str.c_str());
+      strncpy(&cElementDescription[i*256], str.c_str(), 256);
     }
   } else {
     cElementDescription = NULL;
@@ -1981,7 +1981,7 @@ void AddUserDataMultiRow(std::string Location, int NbrElements, int NbrRows,
     StringVector strvec(ElementDescription); // https://stackoverflow.com/questions/43388698/rcpp-how-can-i-get-the-size-of-a-rcppnullable-numericvector
     for( int i=0; i < NbrElements; i++ ) {
       std::string str(strvec[i]);
-      strcpy(&cElementDescription[i*256], str.c_str());
+      strncpy(&cElementDescription[i*256], str.c_str(), 256);
     }
   } else {
     cElementDescription = NULL;
@@ -2030,7 +2030,7 @@ void RegisterUserDataBuf(std::string Location, int NbrElements,
     StringVector strvec(ElementDescription); // https://stackoverflow.com/questions/43388698/rcpp-how-can-i-get-the-size-of-a-rcppnullable-numericvector
     for( int i=0; i < NbrElements; i++ ) {
       std::string str(strvec[i]);
-      strcpy(&cElementDescription[i*256], str.c_str());
+      strncpy(&cElementDescription[i*256], str.c_str(), 256);
     }
   } else {
     cElementDescription = NULL;
@@ -2079,7 +2079,7 @@ void RegisterUserDataWrite(std::string Location, int NbrElements,
     StringVector strvec(ElementDescription); // https://stackoverflow.com/questions/43388698/rcpp-how-can-i-get-the-size-of-a-rcppnullable-numericvector
     for( int i=0; i < NbrElements; i++ ) {
       std::string str(strvec[i]);
-      strcpy(&cElementDescription[i*256], str.c_str());
+      strncpy(&cElementDescription[i*256], str.c_str(), 256);
     }
   } else {
     cElementDescription = NULL;
@@ -2124,7 +2124,7 @@ void RegisterUserDataNoStore(std::string Location, int NbrElements,
     StringVector strvec(ElementDescription); // https://stackoverflow.com/questions/43388698/rcpp-how-can-i-get-the-size-of-a-rcppnullable-numericvector
     for( int i=0; i < NbrElements; i++ ) {
       std::string str(strvec[i]);
-      strcpy(&cElementDescription[i*256], str.c_str());
+      strncpy(&cElementDescription[i*256], str.c_str(), 256);
     }
   } else {
     cElementDescription = NULL;

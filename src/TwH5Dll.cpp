@@ -1972,7 +1972,7 @@ void H5AddUserDataMultiRow(std::string filename, std::string location,
     StringVector strvec(elementDescription); // https://stackoverflow.com/questions/43388698/rcpp-how-can-i-get-the-size-of-a-rcppnullable-numericvector
     for( int i=0; i < nbrElements; i++ ) {
       std::string str(strvec[i]);
-      strcpy(&cElementDescription[i*256], str.c_str());
+      strncpy(&cElementDescription[i*256], str.c_str(), 256);
     }
   } else {
     cElementDescription = NULL;
@@ -2259,7 +2259,7 @@ void H5SetMassCalibEx(std::string Filename, int mode, int nbrParams,
   memset(cLabel, 0, 256 * nbrPoints);
   for( int i=0; i < nbrPoints; i++ ) {
     std::string str(label[i]);
-    strcpy(&cLabel[i*256], str.c_str());
+    strncpy(&cLabel[i*256], str.c_str(), 256);
   }
 
   TwRetVal rv = TwH5SetMassCalibEx(cFilename, mode, nbrParams, &p[0], nbrPoints,
@@ -2322,7 +2322,7 @@ void H5SetMassCalib2Ex(std::string Filename, int mode, int nbrParams,
   memset(cLabel, 0, 256 * nbrPoints);
   for( int i=0; i < nbrPoints; i++ ) {
     std::string str(label[i]);
-    strcpy(&cLabel[i*256], str.c_str());
+    strncpy(&cLabel[i*256], str.c_str(), 256);
   }
 
   TwRetVal rv = TwH5SetMassCalib2Ex(cFilename, mode, nbrParams, &p[0], nbrPoints,
@@ -2402,7 +2402,7 @@ void ChangePeakTable(std::string Filename, List PeakPar, int compressionLevel) {
 
   for (int i=0; i<nbrNewPeakPar; ++i) {
     std::string str(label[i]);
-    memcpy(newPeakPar[i].label, str.c_str(), 64);
+    strncpy(newPeakPar[i].label, str.c_str(), 64);
     newPeakPar[i].mass = (float)mass[i];
     newPeakPar[i].loMass = (float)loMass[i];
     newPeakPar[i].hiMass = (float)hiMass[i];

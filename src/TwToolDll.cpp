@@ -6,9 +6,8 @@ using namespace Rcpp;
 // convert std::string to char*
 char* StringToChar(std::string str) {
   char *cstring;
-  cstring = R_alloc(str.length() + 1, sizeof(char));  // stringlength + 1 to account for null termination
+  cstring = R_alloc(str.length() + 1, sizeof(char));  // + 1 to account for null termination
   strcpy(cstring, str.c_str());  // copy string to cstring
-  cstring[str.length()] = '\0';  // null terminate for safety
   return cstring;
 }
 
