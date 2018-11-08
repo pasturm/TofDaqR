@@ -7,11 +7,11 @@
 DeleteAttributeInH5(filename, location, name)
 }
 \arguments{
+\item{filename}{Path/filename of the HDF5 file.}
+
 \item{location}{Location of the group or dataset the attribute is deleted from.}
 
 \item{name}{Attribute name.}
-
-\item{Filename}{Path/filename of the HDF5 file.}
 }
 \description{
 \code{DeleteAttributeInH5} deletes an attribute.

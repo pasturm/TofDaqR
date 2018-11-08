@@ -1997,7 +1997,7 @@ void H5AddUserDataMultiRow(std::string filename, std::string location,
 //' WARNING: no sanity checking is performed! You can delete attributes that
 //' render the data file unusable.
 //'
-//' @param Filename Path/filename of the HDF5 file.
+//' @param filename Path/filename of the HDF5 file.
 //' @param location Location of the group or dataset the attribute is deleted from.
 //' @param name Attribute name.
 //'
