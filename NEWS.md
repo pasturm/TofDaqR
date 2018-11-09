@@ -1,3 +1,15 @@
+# Changes in version 0.3.8.902
+
+* `DeleteAttributeInH5()`, `WaitForExclusiveFileAccess()` and 
+  `WriteNetCdfTimeSeriesFile()` are not supported for MacOS and Linux in 
+  TofDaq API 1.99r759. Removed them for non-Windows installations.
+  
+* Corrected `configure` script (MacOS and Linux version).
+
+* Using `copylibs.R` (invoked from `makevars`) instead of `configure` to copy
+  the appropriate TofDaq libraries to the `/libs` directory.
+
+
 # Changes in version 0.3.8
 
 * `GetEventListSpectrumFromH5()` returns a zero length vector instead of an

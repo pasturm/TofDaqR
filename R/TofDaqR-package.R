@@ -15,5 +15,5 @@
 #' @author Patrick Sturm <sturm@tofwerk.com>
 #' @importFrom Rcpp evalCpp
 #' @name TofDaqR
-#' @useDynLib TofDaqR
+#' @useDynLib TofDaqR, .registration = TRUE
 NULL
