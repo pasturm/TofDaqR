@@ -1989,6 +1989,7 @@ void H5AddUserDataMultiRow(std::string filename, std::string location,
   }
 }
 
+#ifdef _WIN32
 // DeleteAttributeInH5 ---------------------------------------------------------
 //' Deletes an attribute.
 //'
@@ -2109,6 +2110,7 @@ void WriteNetCdfTimeSeriesFile(std::string filename,
     stop(TranslateReturnValue(rv));
   }
 }
+#endif
 
 // H5SetMassCalib ----------------------------------------------------------------
 //' Changes the global mass calibration in the data file.
