@@ -1,3 +1,10 @@
 PKG_LIBS = -L"${R_PACKAGE_DIR}/libs" -Wl,-rpath,"${R_PACKAGE_DIR}/libs" -ltwh5 -ltwtool
 PKG_CPPFLAGS =  -I../tools/include
 CXX_STD = CXX11
+
+PACKAGE_DIR = ${R_PACKAGE_DIR}
+
+all: copylibs
+
+copylibs:
+	"${R_HOME}/bin/Rscript" --vanilla "../tools/copylibs.R" $(PACKAGE_DIR)

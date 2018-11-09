@@ -1,15 +1,5 @@
 #! /bin/bash
 
-# copy the relevant dynamic libraries to ${R_PACKAGE_DIR}/libs
-mkdir -p "${R_PACKAGE_DIR}/libs"
-if [[ "$OSTYPE" == "darwin"* ]]; then
-cp ./tools/bin/macos_universal/* "${R_PACKAGE_DIR}/libs"
-elif [[ "$OSTYPE" = "linux-gnu" && "$HOSTTYPE" == "x86_64" ]]; then
-cp ./tools/bin/linux_x86_64/* "${R_PACKAGE_DIR}/libs"
-else
-echo "OS not supported."
-fi
-
 # remove TofDaqDll functions from RcppExports.cpp
 sed -i.windows '/ FindTpsIp(/,/}/ d' ./src/RcppExports.cpp
 sed -i.tmp '/_FindTpsIp"/ d' ./src/RcppExports.cpp
