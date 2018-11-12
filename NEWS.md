@@ -1,13 +1,14 @@
-# Changes in version 0.3.8.902
+# Changes in version 0.3.8.904
 
 * `DeleteAttributeInH5()`, `WaitForExclusiveFileAccess()` and 
-  `WriteNetCdfTimeSeriesFile()` are not supported for MacOS and Linux in 
-  TofDaq API 1.99r759. Removed them for non-Windows installations.
+  `WriteNetCdfTimeSeriesFile()` are missing in libtwh5 of TofDaq API 1.99r759
+  (MacOS and Linux), causing package installation on non-Windows systems to fail.
+  Removed these functions for non-Windows installations.
   
 * Corrected `configure` script (MacOS and Linux version).
 
-* Using `copylibs.R` (invoked from `makevars`) instead of `configure` to copy
-  the appropriate TofDaq libraries to the `/libs` directory.
+* The TofDaq API libraries are not included any more in the source package, but 
+  downloaded from https://soft.tofwerk.com/ during installation.
 
 
 # Changes in version 0.3.8

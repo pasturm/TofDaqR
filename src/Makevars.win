@@ -4,7 +4,7 @@ CXX_STD = CXX11
 
 PACKAGE_DIR = ${R_PACKAGE_DIR}
 
-all: copylibs
+all: install_libs
 
-copylibs:
-	"${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" --vanilla "../tools/copylibs.R" $(PACKAGE_DIR)
+install_libs:
+	"${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" --vanilla "../tools/install_libs.R" $(PACKAGE_DIR)

@@ -1,0 +1,5 @@
+^tools/doc$
+^tools/include$
+^tools/update_TofDaqAPI_doc.R$
+^.*\.Rproj$
+^\.Rproj\.user$
