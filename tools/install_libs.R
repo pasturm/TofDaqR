@@ -9,7 +9,7 @@ dir.create(tmpdir)
 download.file(paste0("https://soft.tofwerk.com/", TofDaqAPI, ".zip"), tmpzip)
 unzip(tmpzip, exdir = tmpdir)
 
-# copy include/ to /tools ------------------------------------------------------
+# copy include to tools/ -------------------------------------------------------
 rv = file.copy(file.path(tmpdir, "include"), "../tools/", recursive = TRUE)
 
 # add ChangeIonMode (which does not exist by default) to TofDaqDll.h
@@ -20,8 +20,7 @@ TofDaqDll.h[n]  = "TOFWERK_DAQ_API bool TwSaturationWarning(void);
 TOFWERK_DAQ_API TwRetVal TwTpsChangeIonMode(int ionMode);"
 writeLines(TofDaqDll.h, con = "../tools/include/TofDaqDll.h" )
 
-
-# copy the appropriate dynamic libraries to ${R_PACKAGE_DIR}/libs --------------
+# copy the appropriate dynamic libraries to R_PACKAGE_DIR/libs -----------------
 
 R_PACKAGE_DIR = commandArgs(TRUE)  # passed by Makevars
 R_ARCH = Sys.getenv("R_ARCH")

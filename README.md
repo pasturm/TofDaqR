@@ -17,12 +17,16 @@ Features:
 * Single ion analysis functions
 
 ## Installation
-To install the latest binary version on Windows, run
+To install the latest binary version on Windows, run:
 ```
 install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.8/TofDaqR_0.3.8.zip", repos = NULL)
 ```
+On macOS run:
+```
+install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.8/TofDaqR_0.3.8.904.tgz", repos = NULL)
+```
 
-To install the latest development version from source (on Windows, macOS or Linux), run
+To install the latest development version from source (on Windows, macOS and Linux), run:
 ```
 if (!require("devtools")) { install.packages("devtools") }
 devtools::install_github("pasturm/TofDaqR", args = "--clean")
