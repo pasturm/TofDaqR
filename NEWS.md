@@ -12,6 +12,9 @@
   
 * Added a binary version for macOS.
 
+* Updated the source installation instructions to account for the changes in 
+  devtools >= 2.0.0.
+
 
 # Changes in version 0.3.8
 

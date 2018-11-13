@@ -1,0 +1,18 @@
+---
+title: "TofDaq API documentation"
+#author: "Patrick Sturm"
+#date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{TofDaq API documentation}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+[TOFWERK HDF5 data format](http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofwerkHDF5.htm)
+
+[TofDaqDll functions](http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm)
+
+[TwH5Dll functions](http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TwH5Dll.htm)
+
+[TwToolDll functions](http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TwToolDll.htm)
