@@ -107,7 +107,6 @@ DecodeEventListThreshold <- function(events, clockPeriod, sampleInterval, thresh
 #' @param BufIndex Buf index of data to fetch.
 #' @return A list with the baseline and threshold value.
 #'
-#' @family Single ion histogramming functions
 #' @export
 SiProcessSpectrumFromShMem <- function(specType, BufIndex) {
     .Call(`_TofDaqR_SiProcessSpectrumFromShMem`, specType, BufIndex)
@@ -3130,7 +3129,6 @@ GetMassCalibInfo <- function(massCalibMode) {
 #' @param specType Vector of spectrum type indices (non-negative integers). If
 #' specType is \code{NULL}, all mass ranges get a default spectrum type of 0.
 #'
-#' @family Single ion histogramming functions
 #' @export
 SiInitializeHistograms <- function(loMass, hiMass, specType = NULL) {
     invisible(.Call(`_TofDaqR_SiInitializeHistograms`, loMass, hiMass, specType))
@@ -3173,7 +3171,6 @@ SiInitializeHistograms <- function(loMass, hiMass, specType = NULL) {
 #' @param value Value to set the for the given option.
 #' @param specType Spectrum type index. -1 is a wildcard for all spectrum types.
 #'
-#' @family Single ion histogramming functions
 #' @export
 SiSetProcessingOptions <- function(option, value, specType) {
     invisible(.Call(`_TofDaqR_SiSetProcessingOptions`, option, value, specType))
@@ -3191,7 +3188,6 @@ SiSetProcessingOptions <- function(option, value, specType) {
 #' @param specType Spectrum type index (non-negative integer).
 #' @return A list with the baseline and threshold value.
 #'
-#' @family Single ion histogramming functions
 #' @export
 SiProcessSpectrum <- function(spectrum, specType) {
     .Call(`_TofDaqR_SiProcessSpectrum`, spectrum, specType)
@@ -3211,7 +3207,6 @@ SiProcessSpectrum <- function(spectrum, specType) {
 #' y-values), the number of spectra that were processed for this histogram and
 #' the mean histogram value i.e. sum(intensity[i]*counts[i])/sum(counts[i]).
 #'
-#' @family Single ion histogramming functions
 #' @export
 SiGetHistogram <- function(histogramIndex) {
     .Call(`_TofDaqR_SiGetHistogram`, histogramIndex)
@@ -3232,7 +3227,6 @@ SiGetHistogram <- function(histogramIndex) {
 #' y-values), the number of spectra that were processed for this histogram and
 #' the mean histogram value i.e. sum(intensity[i]*counts[i])/sum(counts[i]).
 #'
-#' @family Single ion histogramming functions
 #' @export
 SiGetSumHistogram <- function(specType, minMass, maxMass, minRate, maxRate) {
     .Call(`_TofDaqR_SiGetSumHistogram`, specType, minMass, maxMass, minRate, maxRate)
@@ -3242,7 +3236,6 @@ SiGetSumHistogram <- function(specType, minMass, maxMass, minRate, maxRate) {
 #'
 #' \code{SiResetHistograms} resets all histograms and spectrum counters to zero.
 #'
-#' @family Single ion histogramming functions
 #' @export
 SiResetHistograms <- function() {
     invisible(.Call(`_TofDaqR_SiResetHistograms`))
@@ -3253,7 +3246,6 @@ SiResetHistograms <- function() {
 #' \code{SiCleanup} cleans up the state in the DLL. After a call to this
 #' function \code{\link{SiInitializeHistograms}} can be called again.
 #'
-#' @family Single ion histogramming functions
 #' @export
 SiCleanup <- function() {
     invisible(.Call(`_TofDaqR_SiCleanup`))
@@ -3272,7 +3264,6 @@ SiCleanup <- function() {
 #' @return A list with the FWHM of the distribution, the position of the fitted
 #' maximum and a vector with the values of the four fitting parameters.
 #'
-#' @family Single ion histogramming functions
 #' @export
 SiFitPhd <- function(intensity, counts) {
     .Call(`_TofDaqR_SiFitPhd`, intensity, counts)
@@ -3286,7 +3277,6 @@ SiFitPhd <- function(intensity, counts) {
 #' @param intensity Vector of intensities (histogram x-axis data).
 #' @return Vector with y-axis data.
 #'
-#' @family Single ion histogramming functions
 #' @export
 SiEvalPhd <- function(par, intensity) {
     .Call(`_TofDaqR_SiEvalPhd`, par, intensity)
@@ -3304,7 +3294,6 @@ SiEvalPhd <- function(par, intensity) {
 #' @return A list with the fitted rate (ions/extraction) and vector with the
 #' fitted multi-ion distribution.
 #'
-#' @family Single ion histogramming functions
 #' @export
 SiFitRateFromPhd <- function(intensity, counts, siPar) {
     .Call(`_TofDaqR_SiFitRateFromPhd`, intensity, counts, siPar)

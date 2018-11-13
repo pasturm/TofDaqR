@@ -2,7 +2,6 @@
 configure text eol=lf
 cleanup text eol=lf
 Makevars text eol=lf
-TofDaqAPI_update text eol=lf
 *.Rd text eol=crlf
 *.h text eol=crlf
 *.cpp text eol=crlf
@@ -13,7 +12,6 @@ TofDaqAPI_update text eol=lf
 .gitattributes text eol=crlf
 DESCRIPTION text eol=crlf
 NAMESPACE text eol=crlf
-NEWS text eol=crlf
 *.md text eol=crlf
 
 # Don't include in language statistics of repository on Github.

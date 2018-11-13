@@ -17,14 +17,3 @@ Vector with y-axis data.
 \description{
 \code{SiEvalPhd} evaluates the fitted single ion distribution.
 }
-\seealso{
-Other Single ion histogramming functions: \code{\link{SiCleanup}},
-  \code{\link{SiFitPhd}}, \code{\link{SiFitRateFromPhd}},
-  \code{\link{SiGetHistogram}},
-  \code{\link{SiGetSumHistogram}},
-  \code{\link{SiInitializeHistograms}},
-  \code{\link{SiProcessSpectrumFromShMem}},
-  \code{\link{SiProcessSpectrum}},
-  \code{\link{SiResetHistograms}},
-  \code{\link{SiSetProcessingOptions}}
-}

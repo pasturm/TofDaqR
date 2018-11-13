@@ -23,14 +23,3 @@ histogram data.
 The following equation with the parameters A, w, x0 and xc is fitted: \cr
 \eqn{A/(\sqrt(2*pi)*w*(x-x0))*exp(-(log((x-x0)/xc)^2)/(2*w^2))}
 }
-\seealso{
-Other Single ion histogramming functions: \code{\link{SiCleanup}},
-  \code{\link{SiEvalPhd}}, \code{\link{SiFitRateFromPhd}},
-  \code{\link{SiGetHistogram}},
-  \code{\link{SiGetSumHistogram}},
-  \code{\link{SiInitializeHistograms}},
-  \code{\link{SiProcessSpectrumFromShMem}},
-  \code{\link{SiProcessSpectrum}},
-  \code{\link{SiResetHistograms}},
-  \code{\link{SiSetProcessingOptions}}
-}

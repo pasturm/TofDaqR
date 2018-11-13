@@ -21,14 +21,3 @@ memory according to the options set for it's spectrum type.
 \details{
 This function is a variant of the original TwToolDll function \code{\link{SiProcessSpectrum}}.
 }
-\seealso{
-Other Single ion histogramming functions: \code{\link{SiCleanup}},
-  \code{\link{SiEvalPhd}}, \code{\link{SiFitPhd}},
-  \code{\link{SiFitRateFromPhd}},
-  \code{\link{SiGetHistogram}},
-  \code{\link{SiGetSumHistogram}},
-  \code{\link{SiInitializeHistograms}},
-  \code{\link{SiProcessSpectrum}},
-  \code{\link{SiResetHistograms}},
-  \code{\link{SiSetProcessingOptions}}
-}

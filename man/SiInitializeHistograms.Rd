@@ -25,14 +25,3 @@ This function must be called before calling the functions
 get separate statistics for multi-spectrum acquisitions (bipolar or pulsed
 experiments).
 }
-\seealso{
-Other Single ion histogramming functions: \code{\link{SiCleanup}},
-  \code{\link{SiEvalPhd}}, \code{\link{SiFitPhd}},
-  \code{\link{SiFitRateFromPhd}},
-  \code{\link{SiGetHistogram}},
-  \code{\link{SiGetSumHistogram}},
-  \code{\link{SiProcessSpectrumFromShMem}},
-  \code{\link{SiProcessSpectrum}},
-  \code{\link{SiResetHistograms}},
-  \code{\link{SiSetProcessingOptions}}
-}

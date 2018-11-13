@@ -394,7 +394,6 @@ List DecodeEventListThreshold(NumericVector events, double clockPeriod,
 //' @param BufIndex Buf index of data to fetch.
 //' @return A list with the baseline and threshold value.
 //'
-//' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
 List SiProcessSpectrumFromShMem(int specType, int BufIndex) {

@@ -738,7 +738,6 @@ List GetMassCalibInfo(int massCalibMode) {
 //' @param specType Vector of spectrum type indices (non-negative integers). If
 //' specType is \code{NULL}, all mass ranges get a default spectrum type of 0.
 //'
-//' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
 void SiInitializeHistograms(NumericVector loMass, NumericVector hiMass,
@@ -798,7 +797,6 @@ void SiInitializeHistograms(NumericVector loMass, NumericVector hiMass,
 //' @param value Value to set the for the given option.
 //' @param specType Spectrum type index. -1 is a wildcard for all spectrum types.
 //'
-//' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
 void SiSetProcessingOptions(std::string option, double value, int specType) {
@@ -825,7 +823,6 @@ void SiSetProcessingOptions(std::string option, double value, int specType) {
 //' @param specType Spectrum type index (non-negative integer).
 //' @return A list with the baseline and threshold value.
 //'
-//' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
 List SiProcessSpectrum(NumericVector spectrum, int specType) {
@@ -866,7 +863,6 @@ List SiProcessSpectrum(NumericVector spectrum, int specType) {
 //' y-values), the number of spectra that were processed for this histogram and
 //' the mean histogram value i.e. sum(intensity[i]*counts[i])/sum(counts[i]).
 //'
-//' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
 List SiGetHistogram(int histogramIndex) {
@@ -919,7 +915,6 @@ List SiGetHistogram(int histogramIndex) {
 //' y-values), the number of spectra that were processed for this histogram and
 //' the mean histogram value i.e. sum(intensity[i]*counts[i])/sum(counts[i]).
 //'
-//' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
 List SiGetSumHistogram(int specType, double minMass, double maxMass,
@@ -964,7 +959,6 @@ List SiGetSumHistogram(int specType, double minMass, double maxMass,
 //'
 //' \code{SiResetHistograms} resets all histograms and spectrum counters to zero.
 //'
-//' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
 void SiResetHistograms() {
@@ -982,7 +976,6 @@ void SiResetHistograms() {
 //' \code{SiCleanup} cleans up the state in the DLL. After a call to this
 //' function \code{\link{SiInitializeHistograms}} can be called again.
 //'
-//' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
 void SiCleanup() {
@@ -1008,7 +1001,6 @@ void SiCleanup() {
 //' @return A list with the FWHM of the distribution, the position of the fitted
 //' maximum and a vector with the values of the four fitting parameters.
 //'
-//' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
 List SiFitPhd(NumericVector intensity, NumericVector counts) {
@@ -1042,7 +1034,6 @@ List SiFitPhd(NumericVector intensity, NumericVector counts) {
 //' @param intensity Vector of intensities (histogram x-axis data).
 //' @return Vector with y-axis data.
 //'
-//' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
 NumericVector SiEvalPhd(NumericVector par, NumericVector intensity) {
@@ -1071,7 +1062,6 @@ NumericVector SiEvalPhd(NumericVector par, NumericVector intensity) {
 //' @return A list with the fitted rate (ions/extraction) and vector with the
 //' fitted multi-ion distribution.
 //'
-//' @family Single ion histogramming functions
 //' @export
 // [[Rcpp::export]]
 List SiFitRateFromPhd(NumericVector intensity, NumericVector counts,

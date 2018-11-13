@@ -23,14 +23,3 @@ mass range defined with \code{\link{SiInitializeHistograms}}.
 Note: R crashes if \code{histogramIndex} is set to max(histogramIndex)+1
 (API bug).
 }
-\seealso{
-Other Single ion histogramming functions: \code{\link{SiCleanup}},
-  \code{\link{SiEvalPhd}}, \code{\link{SiFitPhd}},
-  \code{\link{SiFitRateFromPhd}},
-  \code{\link{SiGetSumHistogram}},
-  \code{\link{SiInitializeHistograms}},
-  \code{\link{SiProcessSpectrumFromShMem}},
-  \code{\link{SiProcessSpectrum}},
-  \code{\link{SiResetHistograms}},
-  \code{\link{SiSetProcessingOptions}}
-}
