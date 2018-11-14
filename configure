@@ -201,13 +201,9 @@ sed -i.tmp '/ SetMassCalibEx(/,/}/ d' ./src/RcppExports.cpp
 sed -i.tmp '/_SetMassCalibEx"/ d' ./src/RcppExports.cpp
 sed -i.tmp '/ SetMassCalib2Ex(/,/}/ d' ./src/RcppExports.cpp
 sed -i.tmp '/_SetMassCalib2Ex"/ d' ./src/RcppExports.cpp
-
 sed -i.tmp '/ DeleteAttributeInH5(/,/}/ d' ./src/RcppExports.cpp
 sed -i.tmp '/_DeleteAttributeInH5"/ d' ./src/RcppExports.cpp
 sed -i.tmp '/ WaitForExclusiveFileAccess(/,/}/ d' ./src/RcppExports.cpp
 sed -i.tmp '/_WaitForExclusiveFileAccess"/ d' ./src/RcppExports.cpp
 sed -i.tmp '/ WriteNetCdfTimeSeriesFile(/,/}/ d' ./src/RcppExports.cpp
 sed -i.tmp '/_WriteNetCdfTimeSeriesFile"/ d' ./src/RcppExports.cpp
-
-# remove CleanupDll() from zzz.R
-sed -i.windows '/CleanupDll(/ d' ./R/zzz.R

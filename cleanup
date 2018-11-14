@@ -10,6 +10,3 @@ fi
 # restore RcppExport.cpp
 mv ./src/RcppExports.cpp.windows ./src/RcppExports.cpp
 rm ./src/RcppExports.cpp.tmp
-
-# restore zzz.R
-mv ./R/zzz.R.windows ./R/zzz.R

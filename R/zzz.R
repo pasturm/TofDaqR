@@ -4,6 +4,5 @@
 }
 
 .onUnload = function(libpath) {
-  CleanupDll()
   library.dynam.unload("TofDaqR", libpath)
 }
