@@ -1,9 +1,9 @@
-#ifdef _WIN32
-
 #include <Rcpp.h>
 using namespace Rcpp;
+#ifdef _WIN32
 #include <TofDaqDll.h>
 #include "TofDaqR.h"
+#endif
 
 // InitializeDll ---------------------------------------------------------------
 //' Initializes the TofDaqDll.dll.
@@ -14,12 +14,13 @@ using namespace Rcpp;
 //' @export
 // [[Rcpp::export]]
 void InitializeDll() {
-
+#ifdef _WIN32
   TwRetVal rv = TwInitializeDll();
 
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // CleanupDll ------------------------------------------------------------------
@@ -31,8 +32,9 @@ void InitializeDll() {
 //' @export
 // [[Rcpp::export]]
 void CleanupDll() {
-
+#ifdef _WIN32
   TwCleanupDll();
+#endif
 }
 
 // GetDllVersion ---------------------------------------------------------------
@@ -42,9 +44,12 @@ void CleanupDll() {
 //' @export
 // [[Rcpp::export]]
 double GetDllVersion() {
-
+#ifdef _WIN32
   double rv = TwGetDllVersion();
   return rv;
+#else
+  return 0.0;
+#endif
 }
 
 // TofDaqRunning ---------------------------------------------------------------
@@ -56,10 +61,13 @@ double GetDllVersion() {
 //' @export
 // [[Rcpp::export]]
 bool TofDaqRunning() {
-
+#ifdef _WIN32
   bool rv = TwTofDaqRunning();
 
   return rv;
+#else
+  return false;
+#endif
 }
 
 // DaqActive -------------------------------------------------------------------
@@ -71,10 +79,13 @@ bool TofDaqRunning() {
 //' @export
 // [[Rcpp::export]]
 bool DaqActive() {
-
+#ifdef _WIN32
   bool rv = TwDaqActive();
 
   return rv;
+#else
+  return false;
+#endif
 }
 
 // StartAcquisition ------------------------------------------------------------
@@ -84,12 +95,13 @@ bool DaqActive() {
 //' @export
 // [[Rcpp::export]]
 void StartAcquisition() {
-
+#ifdef _WIN32
   TwRetVal rv = TwStartAcquisition();
 
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // StopAcquisition -------------------------------------------------------------
@@ -99,12 +111,13 @@ void StartAcquisition() {
 //' @export
 // [[Rcpp::export]]
 void StopAcquisition() {
-
+#ifdef _WIN32
   TwRetVal rv = TwStopAcquisition();
 
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // ContinueAcquisition ---------------------------------------------------------
@@ -115,12 +128,13 @@ void StopAcquisition() {
 //' @export
 // [[Rcpp::export]]
 void ContinueAcquisition() {
-
+#ifdef _WIN32
   TwRetVal rv = TwContinueAcquisition();
 
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // ManualContinueNeeded --------------------------------------------------------
@@ -133,10 +147,13 @@ void ContinueAcquisition() {
 //' @export
 // [[Rcpp::export]]
 bool ManualContinueNeeded() {
-
+#ifdef _WIN32
   bool rv = TwManualContinueNeeded();
 
   return rv;
+#else
+  return false;
+#endif
 }
 
 // CloseTofDaqRec --------------------------------------------------------------
@@ -146,12 +163,13 @@ bool ManualContinueNeeded() {
 //' @export
 // [[Rcpp::export]]
 void CloseTofDaqRec() {
-
+#ifdef _WIN32
   TwRetVal rv = TwCloseTofDaqRec();
 
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // IssueDio4Pulse --------------------------------------------------------------
@@ -169,12 +187,13 @@ void CloseTofDaqRec() {
 //' @export
 // [[Rcpp::export]]
 void IssueDio4Pulse(int delay, int width) {
-
+#ifdef _WIN32
   TwRetVal rv = TwIssueDio4Pulse(delay, width);
 
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // SetDio4State ----------------------------------------------------------------
@@ -190,12 +209,13 @@ void IssueDio4Pulse(int delay, int width) {
 //' @export
 // [[Rcpp::export]]
 void SetDio4State(int state) {
-
+#ifdef _WIN32
   TwRetVal rv = TwSetDio4State(state);
 
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // InitializeDaqDevice ---------------------------------------------------------
@@ -207,12 +227,13 @@ void SetDio4State(int state) {
 //' @export
 // [[Rcpp::export]]
 void InitializeDaqDevice() {
-
+#ifdef _WIN32
   TwRetVal rv = TwInitializeDaqDevice();
 
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // SetTimeout ------------------------------------------------------------------
@@ -225,8 +246,9 @@ void InitializeDaqDevice() {
 //' @export
 // [[Rcpp::export]]
 void SetTimeout(int timeout) {
-
+#ifdef _WIN32
   TwSetTimeout(timeout);
+#endif
 }
 
 // GetTimeout ------------------------------------------------------------------
@@ -236,10 +258,13 @@ void SetTimeout(int timeout) {
 //' @export
 // [[Rcpp::export]]
 int GetTimeout() {
-
+#ifdef _WIN32
   int rv = TwGetTimeout();
 
   return rv;
+#else
+  return 0;
+#endif
 }
 
 // AutoSetupDaqDevice ----------------------------------------------------------
@@ -250,12 +275,13 @@ int GetTimeout() {
 //' @export
 // [[Rcpp::export]]
 void AutoSetupDaqDevice() {
-
+#ifdef _WIN32
   TwRetVal rv = TwAutoSetupDaqDevice();
 
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // OnDemandMassCalibration -----------------------------------------------------
@@ -269,12 +295,13 @@ void AutoSetupDaqDevice() {
 //' @export
 // [[Rcpp::export]]
 void OnDemandMassCalibration(int action) {
-
+#ifdef _WIN32
   TwRetVal rv = TwOnDemandMassCalibration(action);
 
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // ShowConfigWindow ------------------------------------------------------------
@@ -287,12 +314,13 @@ void OnDemandMassCalibration(int action) {
 //' @export
 // [[Rcpp::export]]
 void ShowConfigWindow(int ConfigWindowIndex) {
-
+#ifdef _WIN32
   TwRetVal rv = TwShowConfigWindow(ConfigWindowIndex);
 
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // LoadIniFile -----------------------------------------------------------------
@@ -306,7 +334,7 @@ void ShowConfigWindow(int ConfigWindowIndex) {
 //' @export
 // [[Rcpp::export]]
 void LoadIniFile(Nullable<Rcpp::String> IniFile = R_NilValue) {
-
+#ifdef _WIN32
   char *cFilename;
   if (IniFile.isNotNull()) {
     std::string str = as<std::string>(IniFile);
@@ -323,6 +351,7 @@ void LoadIniFile(Nullable<Rcpp::String> IniFile = R_NilValue) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // SaveIniFile -----------------------------------------------------------------
@@ -337,7 +366,7 @@ void LoadIniFile(Nullable<Rcpp::String> IniFile = R_NilValue) {
 //' @export
 // [[Rcpp::export]]
 void SaveIniFile(Nullable<Rcpp::String> IniFile = R_NilValue) {
-
+#ifdef _WIN32
   char *cFilename;
   if (IniFile.isNotNull()) {
     std::string str = as<std::string>(IniFile);
@@ -354,6 +383,7 @@ void SaveIniFile(Nullable<Rcpp::String> IniFile = R_NilValue) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // GetDaqParameter -------------------------------------------------------------
@@ -367,7 +397,7 @@ void SaveIniFile(Nullable<Rcpp::String> IniFile = R_NilValue) {
 //' @export
 // [[Rcpp::export]]
 String GetDaqParameter(std::string Parameter) {
-
+#ifdef _WIN32
   char *cParameter = StringToChar(Parameter);
 
   char *buffer = new char[256];
@@ -377,6 +407,9 @@ String GetDaqParameter(std::string Parameter) {
   std::string str(buffer);
 
   return str;
+#else
+  return String();
+#endif
 }
 
 // GetDaqParameterInt ----------------------------------------------------------
@@ -390,12 +423,15 @@ String GetDaqParameter(std::string Parameter) {
 //' @export
 // [[Rcpp::export]]
 int GetDaqParameterInt(std::string Parameter) {
-
+#ifdef _WIN32
   char *cParameter = StringToChar(Parameter);
 
   int result = TwGetDaqParameterInt(cParameter);
 
   return result;
+#else
+  return 0;
+#endif
 }
 
 // GetDaqParameterBool ---------------------------------------------------------
@@ -409,12 +445,15 @@ int GetDaqParameterInt(std::string Parameter) {
 //' @export
 // [[Rcpp::export]]
 bool GetDaqParameterBool(std::string Parameter) {
-
+#ifdef _WIN32
   char *cParameter = StringToChar(Parameter);
 
   bool result = TwGetDaqParameterBool(cParameter);
 
   return result;
+#else
+  return false;
+#endif
 }
 
 // GetDaqParameterFloat --------------------------------------------------------
@@ -428,12 +467,15 @@ bool GetDaqParameterBool(std::string Parameter) {
 //' @export
 // [[Rcpp::export]]
 double GetDaqParameterFloat(std::string Parameter) {
-
+#ifdef _WIN32
   char *cParameter = StringToChar(Parameter);
 
   float result = TwGetDaqParameterFloat(cParameter);
 
   return (double)result;
+#else
+  return 0.0;
+#endif
 }
 
 // GetDaqParameterInt64 --------------------------------------------------------
@@ -450,7 +492,7 @@ double GetDaqParameterFloat(std::string Parameter) {
 //' @export
 // [[Rcpp::export]]
 String GetDaqParameterInt64(std::string Parameter) {
-
+#ifdef _WIN32
   char *cParameter = StringToChar(Parameter);
 
   __int64 result = TwGetDaqParameterInt64(cParameter);
@@ -459,6 +501,9 @@ String GetDaqParameterInt64(std::string Parameter) {
   ss << result;
 
   return ss.str();
+#else
+  return String();
+#endif
 }
 
 // GetDaqParameterDouble -------------------------------------------------------
@@ -472,12 +517,15 @@ String GetDaqParameterInt64(std::string Parameter) {
 //' @export
 // [[Rcpp::export]]
 double GetDaqParameterDouble(std::string Parameter) {
-
+#ifdef _WIN32
   char *cParameter = StringToChar(Parameter);
 
   double result = TwGetDaqParameterDouble(cParameter);
 
   return result;
+#else
+  return 0.0;
+#endif
 }
 
 // GetDaqParameterIntRef -------------------------------------------------------
@@ -494,7 +542,7 @@ double GetDaqParameterDouble(std::string Parameter) {
 //' @export
 // [[Rcpp::export]]
 int GetDaqParameterIntRef(std::string Parameter) {
-
+#ifdef _WIN32
   char *cParameter = StringToChar(Parameter);
 
   int Value;
@@ -505,6 +553,9 @@ int GetDaqParameterIntRef(std::string Parameter) {
   }
 
   return Value;
+#else
+  return 0;
+#endif
 }
 
 // GetDaqParameterBoolRef ------------------------------------------------------
@@ -521,7 +572,7 @@ int GetDaqParameterIntRef(std::string Parameter) {
 //' @export
 // [[Rcpp::export]]
 bool GetDaqParameterBoolRef(std::string Parameter) {
-
+#ifdef _WIN32
   char *cParameter = StringToChar(Parameter);
 
   bool Value;
@@ -532,6 +583,9 @@ bool GetDaqParameterBoolRef(std::string Parameter) {
   }
 
   return Value;
+#else
+  return false;
+#endif
 }
 
 // GetDaqParameterFloatRef -----------------------------------------------------
@@ -548,7 +602,7 @@ bool GetDaqParameterBoolRef(std::string Parameter) {
 //' @export
 // [[Rcpp::export]]
 float GetDaqParameterFloatRef(std::string Parameter) {
-
+#ifdef _WIN32
   char *cParameter = StringToChar(Parameter);
 
   float Value;
@@ -559,6 +613,9 @@ float GetDaqParameterFloatRef(std::string Parameter) {
   }
 
   return Value;
+#else
+  return 0.0;
+#endif
 }
 
 // GetDaqParameterInt64Ref -----------------------------------------------------
@@ -575,7 +632,7 @@ float GetDaqParameterFloatRef(std::string Parameter) {
 //' @export
 // [[Rcpp::export]]
 String GetDaqParameterInt64Ref(std::string Parameter) {
-
+#ifdef _WIN32
   char *cParameter = StringToChar(Parameter);
 
   __int64 Value;
@@ -589,6 +646,9 @@ String GetDaqParameterInt64Ref(std::string Parameter) {
   ss << Value;
 
   return wrap(ss.str());
+#else
+  return String();
+#endif
 }
 
 // GetDaqParameterDoubleRef ----------------------------------------------------
@@ -605,7 +665,7 @@ String GetDaqParameterInt64Ref(std::string Parameter) {
 //' @export
 // [[Rcpp::export]]
 double GetDaqParameterDoubleRef(std::string Parameter) {
-
+#ifdef _WIN32
   char *cParameter = StringToChar(Parameter);
 
   double Value;
@@ -616,6 +676,9 @@ double GetDaqParameterDoubleRef(std::string Parameter) {
   }
 
   return Value;
+#else
+  return 0.0;
+#endif
 }
 
 // GetDaqParameterStringRef -----------------------------------------------------
@@ -632,7 +695,7 @@ double GetDaqParameterDoubleRef(std::string Parameter) {
 //' @export
 // [[Rcpp::export]]
 String GetDaqParameterStringRef(std::string Parameter) {
-
+#ifdef _WIN32
   char *cParameter = StringToChar(Parameter);
   char *Value = new char[256];
 
@@ -644,6 +707,9 @@ String GetDaqParameterStringRef(std::string Parameter) {
   std::string str(Value);
 
   return wrap(str);
+#else
+  return String();
+#endif
 }
 
 // SetDaqParameter -------------------------------------------------------------
@@ -658,7 +724,7 @@ String GetDaqParameterStringRef(std::string Parameter) {
 //' @export
 // [[Rcpp::export]]
 void SetDaqParameter(std::string Parameter, std::string ValueString) {
-
+#ifdef _WIN32
   char *cParameter = StringToChar(Parameter);
   char *cValueString = StringToChar(ValueString);
 
@@ -667,6 +733,7 @@ void SetDaqParameter(std::string Parameter, std::string ValueString) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // SetDaqParameterInt ----------------------------------------------------------
@@ -681,7 +748,7 @@ void SetDaqParameter(std::string Parameter, std::string ValueString) {
 //' @export
 // [[Rcpp::export]]
 void SetDaqParameterInt(std::string Parameter, int Value) {
-
+#ifdef _WIN32
   char *cParameter = StringToChar(Parameter);
 
   TwRetVal rv = TwSetDaqParameterInt(cParameter, Value);
@@ -689,6 +756,7 @@ void SetDaqParameterInt(std::string Parameter, int Value) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // SetDaqParameterBool ---------------------------------------------------------
@@ -703,7 +771,7 @@ void SetDaqParameterInt(std::string Parameter, int Value) {
 //' @export
 // [[Rcpp::export]]
 void SetDaqParameterBool(std::string Parameter, bool Value) {
-
+#ifdef _WIN32
   char *cParameter = StringToChar(Parameter);
 
   TwRetVal rv = TwSetDaqParameterBool(cParameter, Value);
@@ -711,6 +779,7 @@ void SetDaqParameterBool(std::string Parameter, bool Value) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // SetDaqParameterFloat --------------------------------------------------------
@@ -725,7 +794,7 @@ void SetDaqParameterBool(std::string Parameter, bool Value) {
 //' @export
 // [[Rcpp::export]]
 void SetDaqParameterFloat(std::string Parameter, double Value) {
-
+#ifdef _WIN32
   char *cParameter = StringToChar(Parameter);
 
   TwRetVal rv = TwSetDaqParameterFloat(cParameter, (float)Value);
@@ -733,6 +802,7 @@ void SetDaqParameterFloat(std::string Parameter, double Value) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // SetDaqParameterInt64 ----------------------------------------------------------
@@ -748,7 +818,7 @@ void SetDaqParameterFloat(std::string Parameter, double Value) {
 //' @export
 // [[Rcpp::export]]
 void SetDaqParameterInt64(std::string Parameter, std::string Value) {
-
+#ifdef _WIN32
   char *cParameter = StringToChar(Parameter);
 
   std::stringstream ss(Value);
@@ -760,6 +830,7 @@ void SetDaqParameterInt64(std::string Parameter, std::string Value) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // SetDaqParameterDouble -------------------------------------------------------
@@ -774,7 +845,7 @@ void SetDaqParameterInt64(std::string Parameter, std::string Value) {
 //' @export
 // [[Rcpp::export]]
 void SetDaqParameterDouble(std::string Parameter, double Value) {
-
+#ifdef _WIN32
   char *cParameter = StringToChar(Parameter);
 
   TwRetVal rv = TwSetDaqParameterDouble(cParameter, Value);
@@ -782,6 +853,7 @@ void SetDaqParameterDouble(std::string Parameter, double Value) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // ConfigVarNbrMemories --------------------------------------------------------
@@ -798,7 +870,7 @@ void SetDaqParameterDouble(std::string Parameter, double Value) {
 // [[Rcpp::export]]
 void ConfigVarNbrMemories(bool Enable, IntegerVector StepAtBuf,
                           IntegerVector NbrMemoriesForStep) {
-
+#ifdef _WIN32
   int NbrSteps = StepAtBuf.size();
   int NbrSteps2 = NbrMemoriesForStep.size();
   if (NbrSteps != NbrSteps2) {
@@ -811,6 +883,7 @@ void ConfigVarNbrMemories(bool Enable, IntegerVector StepAtBuf,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // SetMassCalib ----------------------------------------------------------------
@@ -850,7 +923,7 @@ void ConfigVarNbrMemories(bool Enable, IntegerVector StepAtBuf,
 // [[Rcpp::export]]
 void SetMassCalib(int mode, int nbrParams, NumericVector p, NumericVector mass,
                   NumericVector tof, NumericVector weight) {
-
+#ifdef _WIN32
   int nbrPoints = mass.size();
 
   TwRetVal rv = TwSetMassCalib(mode, nbrParams, &p[0], nbrPoints, &mass[0],
@@ -859,6 +932,7 @@ void SetMassCalib(int mode, int nbrParams, NumericVector p, NumericVector mass,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // SetMassCalib2 ---------------------------------------------------------------
@@ -898,7 +972,7 @@ void SetMassCalib(int mode, int nbrParams, NumericVector p, NumericVector mass,
 // [[Rcpp::export]]
 void SetMassCalib2(int mode, int nbrParams, NumericVector p,
                    NumericVector mass, NumericVector tof, NumericVector weight) {
-
+#ifdef _WIN32
   int nbrPoints = mass.size();
 
   TwRetVal rv = TwSetMassCalib2(mode, nbrParams, &p[0], nbrPoints, &mass[0],
@@ -907,6 +981,7 @@ void SetMassCalib2(int mode, int nbrParams, NumericVector p,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // SetMassCalibEx --------------------------------------------------------------
@@ -949,7 +1024,7 @@ void SetMassCalib2(int mode, int nbrParams, NumericVector p,
 void SetMassCalibEx(int mode, int nbrParams, NumericVector p,
                     NumericVector mass, NumericVector tof, NumericVector weight,
                     StringVector label) {
-
+#ifdef _WIN32
   int nbrPoints = mass.size();
 
   if (nbrPoints != label.size()) {
@@ -969,6 +1044,7 @@ void SetMassCalibEx(int mode, int nbrParams, NumericVector p,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // SetMassCalib2Ex -------------------------------------------------------------
@@ -1011,7 +1087,7 @@ void SetMassCalibEx(int mode, int nbrParams, NumericVector p,
 void SetMassCalib2Ex(int mode, int nbrParams, NumericVector p,
                      NumericVector mass, NumericVector tof, NumericVector weight,
                      StringVector label) {
-
+#ifdef _WIN32
   int nbrPoints = mass.size();
 
   if (nbrPoints != label.size()) {
@@ -1031,6 +1107,7 @@ void SetMassCalib2Ex(int mode, int nbrParams, NumericVector p,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // GetDescriptor ---------------------------------------------------------------
@@ -1051,7 +1128,7 @@ void SetMassCalib2Ex(int mode, int nbrParams, NumericVector p,
 //' @export
 // [[Rcpp::export]]
 List GetDescriptor() {
-
+#ifdef _WIN32
   //get the current TSharedMemoryDesc structure.
   TSharedMemoryDesc pBufDesc;
   TwRetVal rv = TwGetDescriptor(&pBufDesc);
@@ -1146,6 +1223,9 @@ List GetDescriptor() {
   result["NbrMemoriesForCurrentStep"] = pBufDesc.NbrMemoriesForCurrentStep;
 
   return result;
+#else
+  return List();
+#endif
 }
 
 // GetPeakParameters -----------------------------------------------------------
@@ -1158,7 +1238,7 @@ List GetDescriptor() {
 //' @export
 // [[Rcpp::export]]
 List GetPeakParameters(int PeakIndex) {
-
+#ifdef _WIN32
   TPeakPar PeakPar;
   TwRetVal rv = TwGetPeakParameters(&PeakPar, PeakIndex);
 
@@ -1173,6 +1253,9 @@ List GetPeakParameters(int PeakIndex) {
   result["hiMass"] = PeakPar.hiMass;
 
   return result;
+#else
+  return List();
+#endif
 }
 
 // ReleaseSharedMemory ---------------------------------------------------------
@@ -1184,12 +1267,13 @@ List GetPeakParameters(int PeakIndex) {
 //' @export
 // [[Rcpp::export]]
 void ReleaseSharedMemory() {
-
+#ifdef _WIN32
   TwRetVal rv = TwReleaseSharedMemory();
 
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // WaitForNewData --------------------------------------------------------------
@@ -1204,7 +1288,7 @@ void ReleaseSharedMemory() {
 //' @export
 // [[Rcpp::export]]
 void WaitForNewData(int timeout, bool WaitForEventReset = true) {
-
+#ifdef _WIN32
   TSharedMemoryDesc pBufDesc;
   TSharedMemoryPointer pShMem;
 
@@ -1213,6 +1297,7 @@ void WaitForNewData(int timeout, bool WaitForEventReset = true) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // WaitForEndOfAcquisition -----------------------------------------------------
@@ -1225,12 +1310,13 @@ void WaitForNewData(int timeout, bool WaitForEventReset = true) {
 //' @export
 // [[Rcpp::export]]
 void WaitForEndOfAcquisition(int timeout) {
-
+#ifdef _WIN32
   TwRetVal rv = TwWaitForEndOfAcquisition(timeout);
 
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // GetMassCalib ----------------------------------------------------------------
@@ -1244,7 +1330,7 @@ void WaitForEndOfAcquisition(int timeout) {
 //' @export
 // [[Rcpp::export]]
 List GetMassCalib() {
-
+#ifdef _WIN32
   int mode;
   int nbrParams = 0;
   int nbrPoints = 0;
@@ -1274,6 +1360,9 @@ List GetMassCalib() {
   result["tof"] = tof;
   result["weight"] = weight;
   return result;
+#else
+  return List();
+#endif
 }
 
 // GetMassCalib2 ---------------------------------------------------------------
@@ -1287,7 +1376,7 @@ List GetMassCalib() {
 //' @export
 // [[Rcpp::export]]
 List GetMassCalib2() {
-
+#ifdef _WIN32
   int mode;
   int nbrParams = 0;
   int nbrPoints = 0;
@@ -1317,6 +1406,9 @@ List GetMassCalib2() {
   result["tof"] = tof;
   result["weight"] = weight;
   return result;
+#else
+  return List();
+#endif
 }
 
 // GetMassCalibEx --------------------------------------------------------------
@@ -1333,7 +1425,7 @@ List GetMassCalib2() {
 //' @export
 // [[Rcpp::export]]
 List GetMassCalibEx() {
-
+#ifdef _WIN32
   int mode;
   int nbrParams = 0;
   int nbrPoints = 0;
@@ -1376,6 +1468,9 @@ List GetMassCalibEx() {
   result["weight"] = weight;
   result["label"] = labelArray;
   return result;
+#else
+  return List();
+#endif
 }
 
 // GetMassCalib2Ex -------------------------------------------------------------
@@ -1392,7 +1487,7 @@ List GetMassCalibEx() {
 //' @export
 // [[Rcpp::export]]
 List GetMassCalib2Ex() {
-
+#ifdef _WIN32
   int mode;
   int nbrParams = 0;
   int nbrPoints = 0;
@@ -1435,6 +1530,9 @@ List GetMassCalib2Ex() {
   result["weight"] = weight;
   result["label"] = labelArray;
   return result;
+#else
+  return List();
+#endif
 }
 
 // GetSumSpectrumFromShMem -----------------------------------------------------
@@ -1447,7 +1545,7 @@ List GetMassCalib2Ex() {
 //' @export
 // [[Rcpp::export]]
 NumericVector GetSumSpectrumFromShMem(bool Normalize = true) {
-
+#ifdef _WIN32
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
   if (rv != TwSuccess) {
@@ -1462,6 +1560,9 @@ NumericVector GetSumSpectrumFromShMem(bool Normalize = true) {
   }
 
   return Spectrum;
+#else
+  return NumericVector();
+#endif
 }
 
 // GetSumSpectrumFromShMem2 ----------------------------------------------------
@@ -1474,7 +1575,7 @@ NumericVector GetSumSpectrumFromShMem(bool Normalize = true) {
 //' @export
 // [[Rcpp::export]]
 NumericVector GetSumSpectrumFromShMem2(bool Normalize = true) {
-
+#ifdef _WIN32
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
   if (rv != TwSuccess) {
@@ -1489,6 +1590,9 @@ NumericVector GetSumSpectrumFromShMem2(bool Normalize = true) {
   }
 
   return Spectrum;
+#else
+  return NumericVector();
+#endif
 }
 
 // GetTofSpectrumFromShMem -----------------------------------------------------
@@ -1513,7 +1617,7 @@ NumericVector GetSumSpectrumFromShMem2(bool Normalize = true) {
 // [[Rcpp::export]]
 SEXP GetTofSpectrumFromShMem(int SegmentIndex, int SegmentEndIndex,
                              int BufIndex, bool Normalize = true) {
-
+#ifdef _WIN32
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
   if (rv != TwSuccess) {
@@ -1536,6 +1640,9 @@ SEXP GetTofSpectrumFromShMem(int SegmentIndex, int SegmentEndIndex,
   }
 
   return wrap(Spectrum);
+#else
+  return nullptr;
+#endif
 }
 
 // GetTofSpectrumFromShMem2 ----------------------------------------------------
@@ -1560,7 +1667,7 @@ SEXP GetTofSpectrumFromShMem(int SegmentIndex, int SegmentEndIndex,
 // [[Rcpp::export]]
 SEXP GetTofSpectrumFromShMem2(int SegmentIndex, int SegmentEndIndex,
                              int BufIndex, bool Normalize = true) {
-
+#ifdef _WIN32
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
   if (rv != TwSuccess) {
@@ -1583,6 +1690,9 @@ SEXP GetTofSpectrumFromShMem2(int SegmentIndex, int SegmentEndIndex,
   }
 
   return wrap(Spectrum);
+#else
+  return nullptr;
+#endif
 }
 
 // GetSpecXaxisFromShMem -------------------------------------------------------
@@ -1598,7 +1708,7 @@ SEXP GetTofSpectrumFromShMem2(int SegmentIndex, int SegmentEndIndex,
 //' @export
 // [[Rcpp::export]]
 NumericVector GetSpecXaxisFromShMem(int Type) {
-
+#ifdef _WIN32
   //get descriptor of file
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
@@ -1614,6 +1724,9 @@ NumericVector GetSpecXaxisFromShMem(int Type) {
   }
 
   return SpecAxis;
+#else
+  return NumericVector();
+#endif
 }
 
 // GetStickSpectrumFromShMem ---------------------------------------------------
@@ -1630,7 +1743,7 @@ NumericVector GetSpecXaxisFromShMem(int Type) {
 // [[Rcpp::export]]
 List GetStickSpectrumFromShMem(int SegmentIndex, int SegmentEndIndex,
                                int BufIndex) {
-
+#ifdef _WIN32
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
   if (rv != TwSuccess) {
@@ -1651,6 +1764,9 @@ List GetStickSpectrumFromShMem(int SegmentIndex, int SegmentEndIndex,
   result["Masses"] = Masses;
 
   return result;
+#else
+  return List();
+#endif
 }
 
 // GetStickSpectrumFromShMem2 --------------------------------------------------
@@ -1667,7 +1783,7 @@ List GetStickSpectrumFromShMem(int SegmentIndex, int SegmentEndIndex,
 // [[Rcpp::export]]
 List GetStickSpectrumFromShMem2(int SegmentIndex, int SegmentEndIndex,
                                int BufIndex) {
-
+#ifdef _WIN32
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
   if (rv != TwSuccess) {
@@ -1688,6 +1804,9 @@ List GetStickSpectrumFromShMem2(int SegmentIndex, int SegmentEndIndex,
   result["Masses"] = Masses;
 
   return result;
+#else
+  return List();
+#endif
 }
 
 // GetSegmentProfileFromShMem --------------------------------------------------
@@ -1704,7 +1823,7 @@ List GetStickSpectrumFromShMem2(int SegmentIndex, int SegmentEndIndex,
 //' @export
 // [[Rcpp::export]]
 SEXP GetSegmentProfileFromShMem(int PeakIndex, int BufIndex) {
-
+#ifdef _WIN32
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
   if (rv != TwSuccess) {
@@ -1725,6 +1844,9 @@ SEXP GetSegmentProfileFromShMem(int PeakIndex, int BufIndex) {
   }
 
   return wrap(SegmentProfile);
+#else
+  return nullptr;
+#endif
 }
 
 // GetSegmentProfileFromShMem2 -------------------------------------------------
@@ -1741,7 +1863,7 @@ SEXP GetSegmentProfileFromShMem(int PeakIndex, int BufIndex) {
 //' @export
 // [[Rcpp::export]]
 SEXP GetSegmentProfileFromShMem2(int PeakIndex, int BufIndex) {
-
+#ifdef _WIN32
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
   if (rv != TwSuccess) {
@@ -1762,6 +1884,9 @@ SEXP GetSegmentProfileFromShMem2(int PeakIndex, int BufIndex) {
   }
 
   return wrap(SegmentProfile);
+#else
+  return nullptr;
+#endif
 }
 
 // GetBufTimeFromShMem ---------------------------------------------------------
@@ -1776,7 +1901,7 @@ SEXP GetSegmentProfileFromShMem2(int PeakIndex, int BufIndex) {
 //' @export
 // [[Rcpp::export]]
 double GetBufTimeFromShMem(int BufIndex, int WriteIndex) {
-
+#ifdef _WIN32
   double BufTime;
 
   TwRetVal rv = TwGetBufTimeFromShMem(&BufTime, BufIndex, WriteIndex);
@@ -1785,6 +1910,9 @@ double GetBufTimeFromShMem(int BufIndex, int WriteIndex) {
   }
 
   return BufTime;
+#else
+  return 0.0;
+#endif
 }
 
 // Data storage functions ------------------------------------------------------
@@ -1803,7 +1931,7 @@ double GetBufTimeFromShMem(int BufIndex, int WriteIndex) {
 //' @export
 // [[Rcpp::export]]
 void AddLogEntry(std::string LogEntryText, std::string LogEntryTime) {
-
+#ifdef _WIN32
   char *cLogEntryText = StringToChar(LogEntryText);
 
   std::stringstream ss(LogEntryTime);
@@ -1815,6 +1943,7 @@ void AddLogEntry(std::string LogEntryText, std::string LogEntryTime) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // AddAttributeInt -------------------------------------------------------------
@@ -1831,7 +1960,7 @@ void AddLogEntry(std::string LogEntryText, std::string LogEntryTime) {
 //' @export
 // [[Rcpp::export]]
 void AddAttributeInt(std::string Object, std::string AttributeName, int Value) {
-
+#ifdef _WIN32
   char *cObject = StringToChar(Object);
   char *cAttributeName = StringToChar(AttributeName);
 
@@ -1840,6 +1969,7 @@ void AddAttributeInt(std::string Object, std::string AttributeName, int Value) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // AddAttributeDouble ----------------------------------------------------------
@@ -1857,7 +1987,7 @@ void AddAttributeInt(std::string Object, std::string AttributeName, int Value) {
 // [[Rcpp::export]]
 void AddAttributeDouble(std::string Object, std::string AttributeName,
                         double Value) {
-
+#ifdef _WIN32
   char *cObject = StringToChar(Object);
   char *cAttributeName = StringToChar(AttributeName);
 
@@ -1866,6 +1996,7 @@ void AddAttributeDouble(std::string Object, std::string AttributeName,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // AddAttributeString ----------------------------------------------------------
@@ -1883,7 +2014,7 @@ void AddAttributeDouble(std::string Object, std::string AttributeName,
 // [[Rcpp::export]]
 void AddAttributeString(std::string Object, std::string AttributeName,
                         std::string Value) {
-
+#ifdef _WIN32
   char *cObject = StringToChar(Object);
   char *cAttributeName = StringToChar(AttributeName);
   char *cValue = StringToChar(Value);
@@ -1893,6 +2024,7 @@ void AddAttributeString(std::string Object, std::string AttributeName,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // AddUserData -----------------------------------------------------------------
@@ -1919,7 +2051,7 @@ void AddAttributeString(std::string Object, std::string AttributeName,
 void AddUserData(std::string Location, int NbrElements, NumericVector Data,
                  Nullable<Rcpp::StringVector> ElementDescription = R_NilValue,
                  int CompressionLevel = 0) {
-
+#ifdef _WIN32
   char *cLocation = StringToChar(Location);
   char *cElementDescription = new char[256 * NbrElements];
   memset(cElementDescription, 0, 256 * NbrElements);
@@ -1940,6 +2072,7 @@ void AddUserData(std::string Location, int NbrElements, NumericVector Data,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // AddUserDataMultiRow ---------------------------------------------------------
@@ -1972,7 +2105,7 @@ void AddUserDataMultiRow(std::string Location, int NbrElements, int NbrRows,
                          NumericVector Data,
                          Nullable<Rcpp::StringVector> ElementDescription = R_NilValue,
                          int CompressionLevel = 0) {
-
+#ifdef _WIN32
   char *cLocation = StringToChar(Location);
   char *cElementDescription = new char[256 * NbrElements];
   memset(cElementDescription, 0, 256 * NbrElements);
@@ -1995,6 +2128,7 @@ void AddUserDataMultiRow(std::string Location, int NbrElements, int NbrRows,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // RegisterUserDataBuf ---------------------------------------------------------
@@ -2021,7 +2155,7 @@ void AddUserDataMultiRow(std::string Location, int NbrElements, int NbrRows,
 void RegisterUserDataBuf(std::string Location, int NbrElements,
                          Nullable<Rcpp::StringVector> ElementDescription = R_NilValue,
                          int CompressionLevel = 0) {
-
+#ifdef _WIN32
   char *cLocation = StringToChar(Location);
   char *cElementDescription = new char[256 * NbrElements];
   memset(cElementDescription, 0, 256 * NbrElements);
@@ -2043,6 +2177,7 @@ void RegisterUserDataBuf(std::string Location, int NbrElements,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // RegisterUserDataWrite -------------------------------------------------------
@@ -2070,7 +2205,7 @@ void RegisterUserDataBuf(std::string Location, int NbrElements,
 void RegisterUserDataWrite(std::string Location, int NbrElements,
                            Nullable<Rcpp::StringVector> ElementDescription = R_NilValue,
                            int CompressionLevel = 0) {
-
+#ifdef _WIN32
   char *cLocation = StringToChar(Location);
   char *cElementDescription = new char[256 * NbrElements];
   memset(cElementDescription, 0, 256 * NbrElements);
@@ -2092,6 +2227,7 @@ void RegisterUserDataWrite(std::string Location, int NbrElements,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // RegisterUserDataNoStore -----------------------------------------------------
@@ -2115,7 +2251,7 @@ void RegisterUserDataWrite(std::string Location, int NbrElements,
 // [[Rcpp::export]]
 void RegisterUserDataNoStore(std::string Location, int NbrElements,
                              Nullable<Rcpp::StringVector> ElementDescription = R_NilValue) {
-
+#ifdef _WIN32
   char *cLocation = StringToChar(Location);
   char *cElementDescription = new char[256 * NbrElements];
   memset(cElementDescription, 0, 256 * NbrElements);
@@ -2137,6 +2273,7 @@ void RegisterUserDataNoStore(std::string Location, int NbrElements,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // UnregisterUserData ----------------------------------------------------------
@@ -2151,7 +2288,7 @@ void RegisterUserDataNoStore(std::string Location, int NbrElements,
 //' @export
 // [[Rcpp::export]]
 void UnregisterUserData(std::string Location) {
-
+#ifdef _WIN32
   char *cLocation = StringToChar(Location);
 
   TwRetVal rv = TwUnregisterUserData(cLocation);
@@ -2159,6 +2296,7 @@ void UnregisterUserData(std::string Location) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // UpdateUserData --------------------------------------------------------------
@@ -2174,7 +2312,7 @@ void UnregisterUserData(std::string Location) {
 //' @export
 // [[Rcpp::export]]
 void UpdateUserData(std::string Location, int NbrElements, NumericVector Data) {
-
+#ifdef _WIN32
   char *cLocation = StringToChar(Location);
 
   TwRetVal rv = TwUpdateUserData(cLocation, NbrElements, &Data[0]);
@@ -2182,6 +2320,7 @@ void UpdateUserData(std::string Location, int NbrElements, NumericVector Data) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // ReadRegUserData -------------------------------------------------------------
@@ -2197,7 +2336,7 @@ void UpdateUserData(std::string Location, int NbrElements, NumericVector Data) {
 //' @export
 // [[Rcpp::export]]
 NumericVector ReadRegUserData(std::string Location, int NbrElements) {
-
+#ifdef _WIN32
   char *cLocation = StringToChar(Location);
 
   NumericVector Data(NbrElements);
@@ -2209,6 +2348,9 @@ NumericVector ReadRegUserData(std::string Location, int NbrElements) {
   }
 
   return Data;
+#else
+  return NumericVector();
+#endif
 
 }
 
@@ -2223,7 +2365,7 @@ NumericVector ReadRegUserData(std::string Location, int NbrElements) {
 //' @export
 // [[Rcpp::export]]
 int QueryRegUserDataSize(std::string Location) {
-
+#ifdef _WIN32
   char *cLocation = StringToChar(Location);
 
   int NbrElements;
@@ -2235,6 +2377,9 @@ int QueryRegUserDataSize(std::string Location) {
   }
 
   return NbrElements;
+#else
+  return 0;
+#endif
 }
 
 // GetRegUserDataSources -------------------------------------------------------
@@ -2251,7 +2396,7 @@ int QueryRegUserDataSize(std::string Location) {
 //' @export
 // [[Rcpp::export]]
 List GetRegUserDataSources() {
-
+#ifdef _WIN32
   int arrayLength = 0;
 
   TwRetVal rv = TwGetRegUserDataSources(&arrayLength, NULL, NULL, NULL);
@@ -2286,6 +2431,9 @@ List GetRegUserDataSources() {
   result["type"] = type;
 
   return result;
+#else
+  return List();
+#endif
 }
 
 // GetRegUserDataDesc ----------------------------------------------------------
@@ -2299,7 +2447,7 @@ List GetRegUserDataSources() {
 //' @export
 // [[Rcpp::export]]
 CharacterVector GetRegUserDataDesc(std::string Location) {
-
+#ifdef _WIN32
   char *cLocation = StringToChar(Location);
 
   int nbrElements = 0;
@@ -2327,6 +2475,9 @@ CharacterVector GetRegUserDataDesc(std::string Location) {
   }
 
   return descriptionArray;
+#else
+  return CharacterVector();
+#endif
 }
 
 //' Allows to keep the data file open at the end of an acquisition.
@@ -2341,12 +2492,13 @@ CharacterVector GetRegUserDataDesc(std::string Location) {
 //' @export
 // [[Rcpp::export]]
 void KeepFileOpen(bool keepOpen) {
-
+#ifdef _WIN32
   TwRetVal rv = TwKeepFileOpen(keepOpen);
 
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // TpsConnect ------------------------------------------------------------------
@@ -2359,12 +2511,13 @@ void KeepFileOpen(bool keepOpen) {
 //' @export
 // [[Rcpp::export]]
 void TpsConnect() {
-
+#ifdef _WIN32
   TwRetVal rv = TwTpsConnect();
 
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // TpsConnect2 -----------------------------------------------------------------
@@ -2380,7 +2533,7 @@ void TpsConnect() {
 //' @export
 // [[Rcpp::export]]
 void TpsConnect2(std::string ip, int type) {
-
+#ifdef _WIN32
   char *cFilename = StringToChar(ip);
 
   TwRetVal rv = TwTpsConnect2(cFilename, type);
@@ -2388,6 +2541,7 @@ void TpsConnect2(std::string ip, int type) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // TpsDisconnect ---------------------------------------------------------------
@@ -2400,12 +2554,13 @@ void TpsConnect2(std::string ip, int type) {
 //' @export
 // [[Rcpp::export]]
 void TpsDisconnect() {
-
+#ifdef _WIN32
   TwRetVal rv = TwTpsDisconnect();
 
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // TpsGetMonitorVal ------------------------------------------------------------
@@ -2420,7 +2575,7 @@ void TpsDisconnect() {
 //' @export
 // [[Rcpp::export]]
 double TpsGetMonitorValue(int moduleCode) {
-
+#ifdef _WIN32
   double value;
 
   TwRetVal rv = TwTpsGetMonitorValue(moduleCode, &value);
@@ -2429,6 +2584,9 @@ double TpsGetMonitorValue(int moduleCode) {
   }
 
   return value;
+#else
+  return 0.0;
+#endif
 }
 
 // TpsGetTargetValue -----------------------------------------------------------
@@ -2443,7 +2601,7 @@ double TpsGetMonitorValue(int moduleCode) {
 //' @export
 // [[Rcpp::export]]
 double TpsGetTargetValue(int moduleCode) {
-
+#ifdef _WIN32
   double value;
 
   TwRetVal rv = TwTpsGetTargetValue(moduleCode, &value);
@@ -2453,6 +2611,9 @@ double TpsGetTargetValue(int moduleCode) {
   }
 
   return value;
+#else
+  return 0.0;
+#endif
 }
 
 // TpsGetLastSetValue ----------------------------------------------------------
@@ -2467,7 +2628,7 @@ double TpsGetTargetValue(int moduleCode) {
 //' @export
 // [[Rcpp::export]]
 double TpsGetLastSetValue(int moduleCode) {
-
+#ifdef _WIN32
   double value;
 
   TwRetVal rv = TwTpsGetLastSetValue(moduleCode, &value);
@@ -2477,6 +2638,9 @@ double TpsGetLastSetValue(int moduleCode) {
   }
 
   return value;
+#else
+  return 0.0;
+#endif
 }
 
 // TpsSetTargetValue -----------------------------------------------------------
@@ -2491,12 +2655,13 @@ double TpsGetLastSetValue(int moduleCode) {
 //' @export
 // [[Rcpp::export]]
 void TpsSetTargetValue(int moduleCode, double value) {
-
+#ifdef _WIN32
   TwRetVal rv = TwTpsSetTargetValue(moduleCode, value);
 
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // TpsGetNbrModules ------------------------------------------------------------
@@ -2508,7 +2673,7 @@ void TpsSetTargetValue(int moduleCode, double value) {
 //' @export
 // [[Rcpp::export]]
 int TpsGetNbrModules() {
-
+#ifdef _WIN32
   int value;
 
   TwRetVal rv = TwTpsGetNbrModules(&value);
@@ -2518,6 +2683,9 @@ int TpsGetNbrModules() {
   }
 
   return value;
+#else
+  return 0;
+#endif
 }
 
 // TpsGetModuleCodes -----------------------------------------------------------
@@ -2529,7 +2697,7 @@ int TpsGetNbrModules() {
 //' @export
 // [[Rcpp::export]]
 IntegerVector TpsGetModuleCodes() {
-
+#ifdef _WIN32
   int nbrModules;
 
   TwRetVal rv = TwTpsGetNbrModules(&nbrModules);
@@ -2547,6 +2715,9 @@ IntegerVector TpsGetModuleCodes() {
   }
 
   return moduleCodeBuffer;
+#else
+  return IntegerVector();
+#endif
 }
 
 // TpsInitialize ---------------------------------------------------------------
@@ -2558,12 +2729,13 @@ IntegerVector TpsGetModuleCodes() {
 //' @export
 // [[Rcpp::export]]
 void TpsInitialize() {
-
+#ifdef _WIN32
   TwRetVal rv = TwTpsInitialize();
 
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // TpsSetAllVoltages -----------------------------------------------------------
@@ -2575,12 +2747,13 @@ void TpsInitialize() {
 //' @export
 // [[Rcpp::export]]
 void TpsSetAllVoltages() {
-
+#ifdef _WIN32
   TwRetVal rv = TwTpsSetAllVoltages();
 
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // TpsShutdown -----------------------------------------------------------------
@@ -2592,12 +2765,13 @@ void TpsSetAllVoltages() {
 //' @export
 // [[Rcpp::export]]
 void TpsShutdown() {
-
+#ifdef _WIN32
   TwRetVal rv = TwTpsShutdown();
 
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // TpsGetStatus ----------------------------------------------------------------
@@ -2612,7 +2786,7 @@ void TpsShutdown() {
 //' @export
 // [[Rcpp::export]]
 List TpsGetStatus() {
-
+#ifdef _WIN32
   int status;
 
   TwRetVal rv = TwTpsGetStatus(&status);
@@ -2638,6 +2812,9 @@ List TpsGetStatus() {
   result["current_ionmode"] = as<std::string>(string[current_ionmode-1]);
 
   return result;
+#else
+  return List();
+#endif
 }
 
 // TpsLoadSetFile --------------------------------------------------------------
@@ -2654,7 +2831,7 @@ List TpsGetStatus() {
 //' @export
 // [[Rcpp::export]]
 void TpsLoadSetFile(std::string setFile) {
-
+#ifdef _WIN32
   char *cFilename = StringToChar(setFile);
 
   TwRetVal rv = TwTpsLoadSetFile(cFilename);
@@ -2662,6 +2839,7 @@ void TpsLoadSetFile(std::string setFile) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // TpsSaveSetFile --------------------------------------------------------------
@@ -2675,7 +2853,7 @@ void TpsLoadSetFile(std::string setFile) {
 //' @export
 // [[Rcpp::export]]
 void TpsSaveSetFile(std::string setFile) {
-
+#ifdef _WIN32
   char *cFilename = StringToChar(setFile);
 
   TwRetVal rv = TwTpsSaveSetFile(cFilename);
@@ -2683,6 +2861,7 @@ void TpsSaveSetFile(std::string setFile) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // TpsGetActiveFilament --------------------------------------------------------
@@ -2699,7 +2878,7 @@ void TpsSaveSetFile(std::string setFile) {
 //' @export
 // [[Rcpp::export]]
 int TpsGetActiveFilament() {
-
+#ifdef _WIN32
   int filament;
 
   TwRetVal rv = TwTpsGetActiveFilament(&filament);
@@ -2709,6 +2888,9 @@ int TpsGetActiveFilament() {
   }
 
   return filament;
+#else
+  return 0;
+#endif
 }
 
 // TpsSetActiveFilament --------------------------------------------------------
@@ -2725,12 +2907,13 @@ int TpsGetActiveFilament() {
 //' @export
 // [[Rcpp::export]]
 void TpsSetActiveFilament(int activeFilament) {
-
+#ifdef _WIN32
   TwRetVal rv = TwTpsSetActiveFilament(activeFilament);
 
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // TpsGetModuleLimits ----------------------------------------------------------
@@ -2745,7 +2928,7 @@ void TpsSetActiveFilament(int activeFilament) {
 //' @export
 // [[Rcpp::export]]
 NumericVector TpsGetModuleLimits(int moduleCode) {
-
+#ifdef _WIN32
   NumericVector limit(2);
 
   TwRetVal rv = TwTpsGetModuleLimits(moduleCode, &limit[0], &limit[1]);
@@ -2754,6 +2937,9 @@ NumericVector TpsGetModuleLimits(int moduleCode) {
   }
 
   return limit;
+#else
+  return NumericVector();
+#endif
 }
 
 // TpsChangeIonMode ------------------------------------------------------------
@@ -2769,15 +2955,14 @@ NumericVector TpsGetModuleLimits(int moduleCode) {
 //' @export
 // [[Rcpp::export]]
 void TpsChangeIonMode(int ionMode) {
-
+#ifdef _WIN32
   TwRetVal rv = TwTpsChangeIonMode(ionMode);
 
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
-}
-
 #endif
+}
 
 // Not implemented: TwLockBuf --------------------------------------------------
 // Not implemented: TwUnLockBuf ------------------------------------------------

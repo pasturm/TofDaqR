@@ -1,19 +1,19 @@
-# Changes in version 0.3.8.904
+# Changes in version 0.3.8.905
 
 * `DeleteAttributeInH5()`, `WaitForExclusiveFileAccess()` and 
   `WriteNetCdfTimeSeriesFile()` are missing in libtwh5 of TofDaq API 1.99r759
-  (macOS and Linux), causing package installation on non-Windows systems to fail.
+  (Mac and Linux), causing package installation on non-Windows systems to fail.
   Removed these functions for non-Windows installations.
-  
-* Corrected `configure` script (macOS and Linux version).
 
 * The TofDaq API libraries are not included any more in the source package, but 
   downloaded from https://soft.tofwerk.com/ during installation.
   
-* Added a binary version for macOS.
+* Added a binary version for Mac.
 
 * Updated the source installation instructions to account for the changes in 
   devtools >= 2.0.0.
+  
+* Internal changes for simpler platform-dependent installations. 
 
 
 # Changes in version 0.3.8
@@ -67,7 +67,7 @@
 
 * Corrected off-by-one bug in `GetPeakParametersFromH5()`.
 
-* Corrected bug in `configure` script (MacOS and Linux version).
+* Corrected bug in `configure` script (Mac and Linux version).
 
 
 # Changes in version 0.3.5
@@ -91,7 +91,7 @@
 
 * Corrected bugs in `LoadIniFile()` and `SaveIniFile()`.
 
-* Corrected bug in `configure` script (MacOS and Linux version).
+* Corrected bug in `configure` script (Mac and Linux version).
 
 * Added wrapper functions `GetTofDataSinglePeak()` and `FitTofDataSinglePeak()`.
 
@@ -137,7 +137,7 @@
   included in the package source and compiled with the GCC compiler. This makes
   package maintenance easier and allows the same workflow for all platforms.
 
-* TofDaqR can also be installed on Linux and macOS (for using the twtool and
+* TofDaqR can also be installed on Linux and Mac (for using the twtool and
   twh5 functions)!
 
 

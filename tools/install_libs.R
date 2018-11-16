@@ -2,12 +2,17 @@
 
 TofDaqAPI = "TofDaq_1.99r759_API_20180912"
 
-# download TofDaq API files from https://soft.tofwerk.com/ and unzip -----------
-tmpzip = tempfile()
-tmpdir = file.path(tempdir(), TofDaqAPI)
-dir.create(tmpdir)
-download.file(paste0("https://soft.tofwerk.com/", TofDaqAPI, ".zip"), tmpzip)
-unzip(tmpzip, exdir = tmpdir)
+# download TofDaq API files from https://soft.tofwerk.com/ ---------------------
+if (dir.exists(file.path("../..", TofDaqAPI))) {  # debug
+  print("*** install_libs.R: using local TofDaqAPI")
+  tmpdir = file.path("../..", TofDaqAPI)
+} else {
+  tmpzip = tempfile()
+  tmpdir = file.path(tempdir(), TofDaqAPI)
+  dir.create(tmpdir)
+  download.file(paste0("https://soft.tofwerk.com/", TofDaqAPI, ".zip"), tmpzip)
+  unzip(tmpzip, exdir = tmpdir)
+}
 
 # copy include to tools/ -------------------------------------------------------
 rv = file.copy(file.path(tmpdir, "include"), "../tools/", recursive = TRUE)
@@ -47,4 +52,6 @@ dir.create(dest, recursive = TRUE, showWarnings = FALSE)
 rv = file.copy(files, dest, overwrite = TRUE)
 
 # remove temporary files -------------------------------------------------------
-unlink(c(tmpzip, tmpdir), recursive = TRUE)
+if (!dir.exists(file.path("../..", TofDaqAPI))) {
+  unlink(c(tmpzip, tmpdir), recursive = TRUE)
+}

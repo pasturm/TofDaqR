@@ -1,12 +1,8 @@
 #! /bin/bash
 
-# fix the paths in the dylibs for macOS
 if [[ "$OSTYPE" == "darwin"* ]]; then
+echo "*** cleanup: fixing the paths in the dylibs for macOS"
 install_name_tool -change libtwh5.dylib @loader_path/libtwh5.dylib ${R_PACKAGE_DIR}/libs/TofDaqR.so
 install_name_tool -change libtwtool.dylib @loader_path/libtwtool.dylib ${R_PACKAGE_DIR}/libs/TofDaqR.so
 install_name_tool -change libtwtool.dylib @loader_path/libtwtool.dylib ${R_PACKAGE_DIR}/libs/libtwh5.dylib
 fi
-
-# restore RcppExport.cpp
-mv ./src/RcppExports.cpp.windows ./src/RcppExports.cpp
-rm ./src/RcppExports.cpp.tmp

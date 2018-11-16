@@ -381,7 +381,6 @@ List DecodeEventListThreshold(NumericVector events, double clockPeriod,
   return result;
 }
 
-#ifdef _WIN32
 // SiProcessSpectrumFromShMem --------------------------------------------------
 //' Processes a spectrum taken from shared memory.
 //'
@@ -397,7 +396,7 @@ List DecodeEventListThreshold(NumericVector events, double clockPeriod,
 //' @export
 // [[Rcpp::export]]
 List SiProcessSpectrumFromShMem(int specType, int BufIndex) {
-
+#ifdef _WIN32
   //get descriptor of file
   TSharedMemoryDesc desc;
   TwRetVal rv = TwGetDescriptor(&desc);
@@ -423,6 +422,9 @@ List SiProcessSpectrumFromShMem(int specType, int BufIndex) {
   result["threshold"] = wrap(thrFromData);
 
   return result;
+#else
+  return List();
+#endif
 }
 
 // KeepSharedMemMapped ---------------------------------------------------------
@@ -440,7 +442,7 @@ List SiProcessSpectrumFromShMem(int specType, int BufIndex) {
 //' @export
 // [[Rcpp::export]]
 void KeepSharedMemMapped() {
-
+#ifdef _WIN32
   // Note: This is part of TwGetSharedMemory, but here extracted as an
   // independent function.
 
@@ -452,5 +454,5 @@ void KeepSharedMemMapped() {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
-}
 #endif
+}

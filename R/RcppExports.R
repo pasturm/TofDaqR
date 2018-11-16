@@ -3181,9 +3181,6 @@ SiSetProcessingOptions <- function(option, value, specType) {
 #' \code{SiProcessSpectrum} processes a spectrum according to the options set for
 #' it's spectrum type.
 #'
-#' See \code{\link{SiProcessSpectrumFromShMem}} for another variant of this
-#' function, where the spectrum is directly read from shared memory.
-#'
 #' @param spectrum Vector holding the spectrum to process.
 #' @param specType Spectrum type index (non-negative integer).
 #' @return A list with the baseline and threshold value.

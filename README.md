@@ -21,18 +21,18 @@ To install the latest binary version on Windows, run:
 ```
 install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.8/TofDaqR_0.3.8.zip", repos = NULL)
 ```
-On macOS run:
+On Mac run:
 ```
 install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.8/TofDaqR_0.3.8.904.tgz", repos = NULL)
 ```
 
 ### Source installation
-To install the latest development version from source (on Windows, macOS and Linux), run:
+To install the latest development version from source (on Windows, Mac and Linux), run:
 ```
 install.packages("devtools")
 devtools::install_github("pasturm/TofDaqR", clean = TRUE)
 ```
-Installing from source requires [Rtools](https://cran.r-project.org/bin/windows/Rtools/) on Windows,  [Xcode](https://developer.apple.com/xcode/) on macOS and `sudo apt-get install r-base-dev` (or similar) on Linux. 
+Installing from source requires [Rtools](https://cran.r-project.org/bin/windows/Rtools/) on Windows,  [Xcode](https://developer.apple.com/xcode/) on Mac and `sudo apt-get install r-base-dev` (or similar) on Linux. 
 
 ### Release notes
 See [NEWS](https://github.com/pasturm/TofDaqR/blob/master/NEWS.md) for release notes.

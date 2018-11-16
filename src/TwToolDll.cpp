@@ -816,9 +816,6 @@ void SiSetProcessingOptions(std::string option, double value, int specType) {
 //' \code{SiProcessSpectrum} processes a spectrum according to the options set for
 //' it's spectrum type.
 //'
-//' See \code{\link{SiProcessSpectrumFromShMem}} for another variant of this
-//' function, where the spectrum is directly read from shared memory.
-//'
 //' @param spectrum Vector holding the spectrum to process.
 //' @param specType Spectrum type index (non-negative integer).
 //' @return A list with the baseline and threshold value.
@@ -1085,7 +1082,6 @@ List SiFitRateFromPhd(NumericVector intensity, NumericVector counts,
   return result;
 }
 
-#ifdef _WIN32
 // FindTpsIp -------------------------------------------------------------------
 //' Gets IP address of TPS2.
 //'
@@ -1107,7 +1103,7 @@ List SiFitRateFromPhd(NumericVector intensity, NumericVector counts,
 //' @export
 // [[Rcpp::export]]
 String FindTpsIp(std::string TpsSerial, int timeout) {
-
+#ifdef _WIN32
   char *cTpsSerial = StringToChar(TpsSerial);
 
   int hostStrLen = 15;
@@ -1123,8 +1119,10 @@ String FindTpsIp(std::string TpsSerial, int timeout) {
   std::string str(buffer);
 
   return wrap(str);
-}
+#else
+  return String();
 #endif
+}
 
 // Not implemented: TwDecomposeMass --------------------------------------------
 // Not implemented: TwGetComposition -------------------------------------------

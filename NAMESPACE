@@ -187,4 +187,5 @@ export(Tof2Mass)
 export(tof)
 
 importFrom(Rcpp,evalCpp)
+import(bit64)
 useDynLib(TofDaqR, .registration = TRUE)

@@ -18,7 +18,3 @@ A list with the baseline and threshold value.
 \code{SiProcessSpectrum} processes a spectrum according to the options set for
 it's spectrum type.
 }
-\details{
-See \code{\link{SiProcessSpectrumFromShMem}} for another variant of this
-function, where the spectrum is directly read from shared memory.
-}

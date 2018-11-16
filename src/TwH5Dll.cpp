@@ -1989,7 +1989,6 @@ void H5AddUserDataMultiRow(std::string filename, std::string location,
   }
 }
 
-#ifdef _WIN32
 // DeleteAttributeInH5 ---------------------------------------------------------
 //' Deletes an attribute.
 //'
@@ -2006,7 +2005,7 @@ void H5AddUserDataMultiRow(std::string filename, std::string location,
 // [[Rcpp::export]]
 void DeleteAttributeInH5(std::string filename, std::string location,
                          std::string name) {
-
+#ifdef _WIN32
   char *cFilename = StringToChar(filename);
   char *cLocation = StringToChar(location);
   char *cName = StringToChar(name);
@@ -2017,6 +2016,7 @@ void DeleteAttributeInH5(std::string filename, std::string location,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // WaitForExclusiveFileAccess --------------------------------------------------
@@ -2034,7 +2034,7 @@ void DeleteAttributeInH5(std::string filename, std::string location,
 //' @export
 // [[Rcpp::export]]
 void WaitForExclusiveFileAccess(std::string filename, int timeoutMs) {
-
+#ifdef _WIN32
   char *cFilename = StringToChar(filename);
 
   TwRetVal rv = TwWaitForExclusiveFileAccess(cFilename, timeoutMs);
@@ -2043,6 +2043,7 @@ void WaitForExclusiveFileAccess(std::string filename, int timeoutMs) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#endif
 }
 
 // WriteNetCdfTimeSeriesFile ---------------------------------------------------
@@ -2078,7 +2079,7 @@ void WriteNetCdfTimeSeriesFile(std::string filename,
                                std::string raw_data_table_name,
                                NumericVector retention,
                                NumericVector ordinate) {
-
+#ifdef _WIN32
   char *cFilename = StringToChar(filename);
   std::stringstream ss(inject_ts);
   uint64_t cTime;
@@ -2109,8 +2110,8 @@ void WriteNetCdfTimeSeriesFile(std::string filename,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
-}
 #endif
+}
 
 // H5SetMassCalib ----------------------------------------------------------------
 //' Changes the global mass calibration in the data file.
