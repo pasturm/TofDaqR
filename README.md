@@ -1,4 +1,6 @@
 # TofDaqR
+[![Travis build status](https://travis-ci.org/pasturm/TofDaqR.svg?branch=master)](https://travis-ci.org/pasturm/TofDaqR)
+
 R Interface to the [TOFWERK TofDaq API](https://www.tofwerk.com/software/tofdaq/).
 
 The TofDaqR package provides a R interface to the TOFWERK TofDaq API, which consists of libraries for communication with the TofDAQ recorder application, data file access and general (time-of-flight) mass spectrometry related utility functions. 
@@ -27,12 +29,12 @@ install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.8/To
 ```
 
 ### Source installation
-To install the latest development version from source (on Windows, Mac and Linux), run:
+To install the latest development version from source (on Windows, Mac and Linux), 
+have the newest devtools package installed, then run:
 ```
-install.packages("devtools")
 devtools::install_github("pasturm/TofDaqR", clean = TRUE)
 ```
 Installing from source requires [Rtools](https://cran.r-project.org/bin/windows/Rtools/) on Windows,  [Xcode](https://developer.apple.com/xcode/) on Mac and `sudo apt-get install r-base-dev` (or similar) on Linux. 
 
 ### Release notes
-See [NEWS](https://github.com/pasturm/TofDaqR/blob/master/NEWS.md) for release notes.
+See the [NEWS file](https://github.com/pasturm/TofDaqR/blob/master/NEWS.md) for latest release notes.

@@ -1,4 +1,4 @@
-# Changes in version 0.3.8.906
+# Changes in version 0.3.8.907
 
 * `DeleteAttributeInH5()`, `WaitForExclusiveFileAccess()` and 
   `WriteNetCdfTimeSeriesFile()` are missing in libtwh5 of TofDaq API 1.99r759
@@ -13,7 +13,9 @@
 * Updated the source installation instructions to account for the changes in 
   devtools >= 2.0.0.
   
-* Internal changes for simpler source installations on Mac and Linux. 
+* Internal changes for simpler source installations on Mac and Linux.
+
+* Using Travis CI.
 
 
 # Changes in version 0.3.8
