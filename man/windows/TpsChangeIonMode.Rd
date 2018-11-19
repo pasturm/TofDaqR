@@ -13,7 +13,9 @@ TpsChangeIonMode(ionMode)
 \code{TpsChangeIonMode} changes ion mode (and sets target values to 0).
 }
 \details{
-Note: this is an undocumented function of TofDaqDll.dll.
+Note: This is an undocumented function of TofDaqDll.dll which must be used
+with care. First shut the TPS down, then wait >30 s before changing the ion
+mode. Not conforming to this might cause hardware damage.
 }
 \seealso{
 Other TPS functions: \code{\link{TpsConnect2}},
