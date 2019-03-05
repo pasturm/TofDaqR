@@ -1,15 +1,25 @@
 #' TofDaqR: R Interface to the TOFWERK TofDaq API.
 #'
-#' The TofDaqR package is a wrapper for the TofDaq API functions provided by the
-#' shared libraries TofDaqDll, TwH5Dll and TwToolDll (Windows) and libtwh5 and
-#' libtwtool (macOS and Linux).
+#' The TofDaqR package provides a R interface to the TOFWERK TofDaq API, which
+#' consists of libraries for communication with the TofDAQ recorder application,
+#' data file access and general (time-of-flight) mass spectrometry related
+#' utility functions.
 #'
-#' @section TofDaqR functions: TofDaqR functions can be used to configure the TofDaq recorder
-#' application, control running acquisitions, access the data in realtime and
-#' store arbitrary data synchronously or asynchronously to the recorded mass
-#' spectra. Further, there are functions for controling the TOF Power
-#' Supply and to access and modify recorded data stored in HDF5 files. The
-#' package also contains additional "tool" functions, e.g. for peak fitting.
+#' Features:
+#' \itemize{
+#'   \item Acquisition setup and control
+#'   \item Real-time data access
+#'   \item Adding (structured) custom data to the data file alongside the TOF data
+#'   \item Control of the TOF Power Supply
+#'   \item Quick access to TOFWERK HDF5 data files without the need to study the file format details
+#'   \item Add additional data to existing data files (e.g. post-processing results)
+#'   \item Peak fitting functions
+#'   \item Mass calibration
+#'   \item Chemistry functions (molecular mass and isotope pattern calculation)
+#'   \item Single ion analysis functions
+#' }
+#'
+#' @seealso \link[=API-documentation]{TofDaq API documentation}.
 #'
 #' @docType package
 #' @author Patrick Sturm <sturm@tofwerk.com>

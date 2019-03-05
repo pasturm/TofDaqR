@@ -1,5 +1,7 @@
 # TofDaqR
 [![Travis build status](https://travis-ci.org/pasturm/TofDaqR.svg?branch=master)](https://travis-ci.org/pasturm/TofDaqR)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+<!---[![CRAN version](https://www.r-pkg.org/badges/version-last-release/TofDaqR)](https://cran.r-project.org/package=TofDaqR)-->
 
 R Interface to the [TOFWERK TofDaq API](https://www.tofwerk.com/software/tofdaq/).
 
@@ -20,18 +22,18 @@ Features:
 
 ## Installation
 To install the latest binary version on Windows, run:
-```
+```r
 install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.8/TofDaqR_0.3.8.zip", repos = NULL)
 ```
 On Mac run:
-```
+```r
 install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.8/TofDaqR_0.3.8.904.tgz", repos = NULL)
 ```
 
 ### Source installation
 To install the latest development version from source (on Windows, Mac and Linux), 
 have the newest devtools package installed, then run:
-```
+```r
 devtools::install_github("pasturm/TofDaqR", clean = TRUE)
 ```
 Installing from source requires [Rtools](https://cran.r-project.org/bin/windows/Rtools/) on Windows,  [Xcode](https://developer.apple.com/xcode/) on Mac and `sudo apt-get install r-base-dev` (or similar) on Linux. 

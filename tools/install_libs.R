@@ -26,7 +26,6 @@ TOFWERK_DAQ_API TwRetVal TwTpsChangeIonMode(int ionMode);"
 writeLines(TofDaqDll.h, con = "../tools/include/TofDaqDll.h" )
 
 # copy the appropriate dynamic libraries to R_PACKAGE_DIR/libs -----------------
-
 R_PACKAGE_DIR = commandArgs(TRUE)  # passed by Makevars
 R_ARCH = Sys.getenv("R_ARCH")
 libarch = if (nzchar(R_ARCH)) paste0("libs", R_ARCH) else "libs"
@@ -44,7 +43,7 @@ if (Sys.info()["sysname"] == "Windows") {
   } else if (Sys.info()["sysname"] == "Darwin" & Sys.info()["machine"] == "x86_64") {
     files = Sys.glob(file.path(tmpdir, "bin/macos_universal", "*.dylib"))
   } else {
-    print("OS not supported.")
+    stop("OS not supported.")
   }
 }
 

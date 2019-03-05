@@ -259,3 +259,16 @@ FitTofDataSinglePeak = function(PeakTofData, peakType) {
   return(list(fit_time = fit1, fit_mass = fit2))
 }
 
+# API documentation -----------------------------------------------------------
+#' TofDaq API documentation
+#'
+#' Documentation of the TofDaq API:
+#' \itemize{
+#'   \item \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofwerkHDF5.htm}{TOFWERK HDF5 data format}
+#'   \item \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm}{TofDaqDll functions}
+#'   \item \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TwH5Dll.htm}{TwH5Dll functions}
+#'   \item \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TwToolDll.htm}{TwToolDll functions}
+#' }
+#'
+#' @name API-documentation
+NULL
