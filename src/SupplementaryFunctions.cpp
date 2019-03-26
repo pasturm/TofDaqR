@@ -423,7 +423,7 @@ List SiProcessSpectrumFromShMem(int specType, int BufIndex) {
 
   return result;
 #else
-  return List();
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -454,5 +454,7 @@ void KeepSharedMemMapped() {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }

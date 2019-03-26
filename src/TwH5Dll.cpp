@@ -2016,6 +2016,8 @@ void DeleteAttributeInH5(std::string filename, std::string location,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2043,6 +2045,8 @@ void WaitForExclusiveFileAccess(std::string filename, int timeoutMs) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2110,6 +2114,8 @@ void WriteNetCdfTimeSeriesFile(std::string filename,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 

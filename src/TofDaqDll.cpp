@@ -20,6 +20,8 @@ void InitializeDll() {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -34,6 +36,8 @@ void InitializeDll() {
 void CleanupDll() {
 #ifdef _WIN32
   TwCleanupDll();
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -48,7 +52,7 @@ double GetDllVersion() {
   double rv = TwGetDllVersion();
   return rv;
 #else
-  return 0.0;
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -66,7 +70,7 @@ bool TofDaqRunning() {
 
   return rv;
 #else
-  return false;
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -84,7 +88,7 @@ bool DaqActive() {
 
   return rv;
 #else
-  return false;
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -101,6 +105,8 @@ void StartAcquisition() {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -117,6 +123,8 @@ void StopAcquisition() {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -134,6 +142,8 @@ void ContinueAcquisition() {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -152,7 +162,7 @@ bool ManualContinueNeeded() {
 
   return rv;
 #else
-  return false;
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -169,6 +179,8 @@ void CloseTofDaqRec() {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -193,6 +205,8 @@ void IssueDio4Pulse(int delay, int width) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -215,6 +229,8 @@ void SetDio4State(int state) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -233,6 +249,8 @@ void InitializeDaqDevice() {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -248,6 +266,8 @@ void InitializeDaqDevice() {
 void SetTimeout(int timeout) {
 #ifdef _WIN32
   TwSetTimeout(timeout);
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -263,7 +283,7 @@ int GetTimeout() {
 
   return rv;
 #else
-  return 0;
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -281,6 +301,8 @@ void AutoSetupDaqDevice() {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -301,6 +323,8 @@ void OnDemandMassCalibration(int action) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -320,6 +344,8 @@ void ShowConfigWindow(int ConfigWindowIndex) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -351,6 +377,8 @@ void LoadIniFile(Nullable<Rcpp::String> IniFile = R_NilValue) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -383,6 +411,8 @@ void SaveIniFile(Nullable<Rcpp::String> IniFile = R_NilValue) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -408,7 +438,7 @@ String GetDaqParameter(std::string Parameter) {
 
   return str;
 #else
-  return String();
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -430,7 +460,7 @@ int GetDaqParameterInt(std::string Parameter) {
 
   return result;
 #else
-  return 0;
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -452,7 +482,7 @@ bool GetDaqParameterBool(std::string Parameter) {
 
   return result;
 #else
-  return false;
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -474,7 +504,7 @@ double GetDaqParameterFloat(std::string Parameter) {
 
   return (double)result;
 #else
-  return 0.0;
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -502,7 +532,7 @@ String GetDaqParameterInt64(std::string Parameter) {
 
   return ss.str();
 #else
-  return String();
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -524,7 +554,7 @@ double GetDaqParameterDouble(std::string Parameter) {
 
   return result;
 #else
-  return 0.0;
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -554,7 +584,7 @@ int GetDaqParameterIntRef(std::string Parameter) {
 
   return Value;
 #else
-  return 0;
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -584,7 +614,7 @@ bool GetDaqParameterBoolRef(std::string Parameter) {
 
   return Value;
 #else
-  return false;
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -614,7 +644,7 @@ float GetDaqParameterFloatRef(std::string Parameter) {
 
   return Value;
 #else
-  return 0.0;
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -647,7 +677,7 @@ String GetDaqParameterInt64Ref(std::string Parameter) {
 
   return wrap(ss.str());
 #else
-  return String();
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -677,7 +707,7 @@ double GetDaqParameterDoubleRef(std::string Parameter) {
 
   return Value;
 #else
-  return 0.0;
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -708,7 +738,7 @@ String GetDaqParameterStringRef(std::string Parameter) {
 
   return wrap(str);
 #else
-  return String();
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -733,6 +763,8 @@ void SetDaqParameter(std::string Parameter, std::string ValueString) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -756,6 +788,8 @@ void SetDaqParameterInt(std::string Parameter, int Value) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -779,6 +813,8 @@ void SetDaqParameterBool(std::string Parameter, bool Value) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -802,6 +838,8 @@ void SetDaqParameterFloat(std::string Parameter, double Value) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -830,6 +868,8 @@ void SetDaqParameterInt64(std::string Parameter, std::string Value) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -853,6 +893,8 @@ void SetDaqParameterDouble(std::string Parameter, double Value) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -883,6 +925,8 @@ void ConfigVarNbrMemories(bool Enable, IntegerVector StepAtBuf,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -932,6 +976,8 @@ void SetMassCalib(int mode, int nbrParams, NumericVector p, NumericVector mass,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -981,6 +1027,8 @@ void SetMassCalib2(int mode, int nbrParams, NumericVector p,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -1044,6 +1092,8 @@ void SetMassCalibEx(int mode, int nbrParams, NumericVector p,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -1107,6 +1157,8 @@ void SetMassCalib2Ex(int mode, int nbrParams, NumericVector p,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -1224,7 +1276,7 @@ List GetDescriptor() {
 
   return result;
 #else
-  return List();
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -1254,7 +1306,7 @@ List GetPeakParameters(int PeakIndex) {
 
   return result;
 #else
-  return List();
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -1273,6 +1325,8 @@ void ReleaseSharedMemory() {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -1297,6 +1351,8 @@ void WaitForNewData(int timeout, bool WaitForEventReset = true) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -1316,6 +1372,8 @@ void WaitForEndOfAcquisition(int timeout) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -1361,7 +1419,7 @@ List GetMassCalib() {
   result["weight"] = weight;
   return result;
 #else
-  return List();
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -1407,7 +1465,7 @@ List GetMassCalib2() {
   result["weight"] = weight;
   return result;
 #else
-  return List();
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -1469,7 +1527,7 @@ List GetMassCalibEx() {
   result["label"] = labelArray;
   return result;
 #else
-  return List();
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -1531,7 +1589,7 @@ List GetMassCalib2Ex() {
   result["label"] = labelArray;
   return result;
 #else
-  return List();
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -1561,7 +1619,7 @@ NumericVector GetSumSpectrumFromShMem(bool Normalize = true) {
 
   return Spectrum;
 #else
-  return NumericVector();
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -1591,7 +1649,7 @@ NumericVector GetSumSpectrumFromShMem2(bool Normalize = true) {
 
   return Spectrum;
 #else
-  return NumericVector();
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -1641,7 +1699,7 @@ SEXP GetTofSpectrumFromShMem(int SegmentIndex, int SegmentEndIndex,
 
   return wrap(Spectrum);
 #else
-  return nullptr;
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -1691,7 +1749,7 @@ SEXP GetTofSpectrumFromShMem2(int SegmentIndex, int SegmentEndIndex,
 
   return wrap(Spectrum);
 #else
-  return nullptr;
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -1725,7 +1783,7 @@ NumericVector GetSpecXaxisFromShMem(int Type) {
 
   return SpecAxis;
 #else
-  return NumericVector();
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -1765,7 +1823,7 @@ List GetStickSpectrumFromShMem(int SegmentIndex, int SegmentEndIndex,
 
   return result;
 #else
-  return List();
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -1805,7 +1863,7 @@ List GetStickSpectrumFromShMem2(int SegmentIndex, int SegmentEndIndex,
 
   return result;
 #else
-  return List();
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -1845,7 +1903,7 @@ SEXP GetSegmentProfileFromShMem(int PeakIndex, int BufIndex) {
 
   return wrap(SegmentProfile);
 #else
-  return nullptr;
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -1885,7 +1943,7 @@ SEXP GetSegmentProfileFromShMem2(int PeakIndex, int BufIndex) {
 
   return wrap(SegmentProfile);
 #else
-  return nullptr;
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -1911,7 +1969,7 @@ double GetBufTimeFromShMem(int BufIndex, int WriteIndex) {
 
   return BufTime;
 #else
-  return 0.0;
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -1943,6 +2001,8 @@ void AddLogEntry(std::string LogEntryText, std::string LogEntryTime) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -1969,6 +2029,8 @@ void AddAttributeInt(std::string Object, std::string AttributeName, int Value) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -1996,6 +2058,8 @@ void AddAttributeDouble(std::string Object, std::string AttributeName,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2024,6 +2088,8 @@ void AddAttributeString(std::string Object, std::string AttributeName,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2072,6 +2138,8 @@ void AddUserData(std::string Location, int NbrElements, NumericVector Data,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2128,6 +2196,8 @@ void AddUserDataMultiRow(std::string Location, int NbrElements, int NbrRows,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2177,6 +2247,8 @@ void RegisterUserDataBuf(std::string Location, int NbrElements,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2227,6 +2299,8 @@ void RegisterUserDataWrite(std::string Location, int NbrElements,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2273,6 +2347,8 @@ void RegisterUserDataNoStore(std::string Location, int NbrElements,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2296,6 +2372,8 @@ void UnregisterUserData(std::string Location) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2320,6 +2398,8 @@ void UpdateUserData(std::string Location, int NbrElements, NumericVector Data) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2349,7 +2429,7 @@ NumericVector ReadRegUserData(std::string Location, int NbrElements) {
 
   return Data;
 #else
-  return NumericVector();
+  stop("This function is only implemented on Windows.");
 #endif
 
 }
@@ -2378,7 +2458,7 @@ int QueryRegUserDataSize(std::string Location) {
 
   return NbrElements;
 #else
-  return 0;
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2432,7 +2512,7 @@ List GetRegUserDataSources() {
 
   return result;
 #else
-  return List();
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2476,7 +2556,7 @@ CharacterVector GetRegUserDataDesc(std::string Location) {
 
   return descriptionArray;
 #else
-  return CharacterVector();
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2498,6 +2578,8 @@ void KeepFileOpen(bool keepOpen) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2517,6 +2599,8 @@ void TpsConnect() {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2541,6 +2625,8 @@ void TpsConnect2(std::string ip, int type) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2560,6 +2646,8 @@ void TpsDisconnect() {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2585,7 +2673,7 @@ double TpsGetMonitorValue(int moduleCode) {
 
   return value;
 #else
-  return 0.0;
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2612,7 +2700,7 @@ double TpsGetTargetValue(int moduleCode) {
 
   return value;
 #else
-  return 0.0;
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2639,7 +2727,7 @@ double TpsGetLastSetValue(int moduleCode) {
 
   return value;
 #else
-  return 0.0;
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2661,6 +2749,8 @@ void TpsSetTargetValue(int moduleCode, double value) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2684,7 +2774,7 @@ int TpsGetNbrModules() {
 
   return value;
 #else
-  return 0;
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2716,7 +2806,7 @@ IntegerVector TpsGetModuleCodes() {
 
   return moduleCodeBuffer;
 #else
-  return IntegerVector();
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2735,6 +2825,8 @@ void TpsInitialize() {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2753,6 +2845,8 @@ void TpsSetAllVoltages() {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2771,6 +2865,8 @@ void TpsShutdown() {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2813,7 +2909,7 @@ List TpsGetStatus() {
 
   return result;
 #else
-  return List();
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2839,6 +2935,8 @@ void TpsLoadSetFile(std::string setFile) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2861,6 +2959,8 @@ void TpsSaveSetFile(std::string setFile) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2889,7 +2989,7 @@ int TpsGetActiveFilament() {
 
   return filament;
 #else
-  return 0;
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2913,6 +3013,8 @@ void TpsSetActiveFilament(int activeFilament) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2938,7 +3040,7 @@ NumericVector TpsGetModuleLimits(int moduleCode) {
 
   return limit;
 #else
-  return NumericVector();
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
@@ -2963,6 +3065,8 @@ void TpsChangeIonMode(int ionMode) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
 #endif
 }
 

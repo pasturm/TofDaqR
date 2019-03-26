@@ -1120,7 +1120,7 @@ String FindTpsIp(std::string TpsSerial, int timeout) {
 
   return wrap(str);
 #else
-  return String();
+  stop("This function is only implemented on Windows.");
 #endif
 }
 
