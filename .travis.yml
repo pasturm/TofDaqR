@@ -8,6 +8,4 @@ os:
   - linux
   - osx
 
-r_build_args: '--no-build-vignettes'
-
 r_check_args: '--install-args="--clean"'
