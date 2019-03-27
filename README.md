@@ -3,9 +3,8 @@
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 <!---[![CRAN version](https://www.r-pkg.org/badges/version-last-release/TofDaqR)](https://cran.r-project.org/package=TofDaqR)-->
 
-R Interface to the [TOFWERK TofDaq API](https://www.tofwerk.com/software/tofdaq/).
-
-The TofDaqR package provides a R interface to the TOFWERK TofDaq API, which consists of libraries for communication with the TofDAQ recorder application, data file access and general (time-of-flight) mass spectrometry related utility functions. 
+## R Interface to the TOFWERK TofDaq API
+The TofDaqR package provides a R interface to the [TOFWERK TofDaq API](https://www.tofwerk.com/software/tofdaq/), which consists of libraries for communication with the TofDAQ recorder application, data file access and general (time-of-flight) mass spectrometry related utility functions. 
 
 Features:
 
@@ -21,23 +20,26 @@ Features:
 * Single ion analysis functions
 
 ## Installation
-To install the latest binary version on Windows, run:
 ```r
-install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.8/TofDaqR_0.3.8.zip", repos = NULL)
-```
-On Mac run:
-```r
-install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.8/TofDaqR_0.3.8.904.tgz", repos = NULL)
-```
+# On Windows:
+install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.8/TofDaqR_0.3.8.zip",
+  repos = NULL)
 
-### Source installation
-To install the latest development version from source (on Windows, Mac or Linux), 
-run:
-```r
+# On Mac:
+install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.8/TofDaqR_0.3.8.904.tgz",
+  repos = NULL)
+
+# Alternatively, the latest development version can be installed from source on Windows, Mac and Linux:
 if (!require("remotes")) { install.packages("remotes") }
 remotes::install_github("pasturm/TofDaqR", clean = TRUE)
 ```
-Installing from source requires [Rtools](https://cran.r-project.org/bin/windows/Rtools/) on Windows,  [Xcode](https://developer.apple.com/xcode/) on Mac and `sudo apt-get install r-base-dev` (or similar) on Linux. 
+Note: Installing from source requires [Rtools](https://cran.r-project.org/bin/windows/Rtools/) on Windows, [Xcode](https://developer.apple.com/xcode/) on Mac and `sudo apt-get install r-base-dev` (or similar) on Linux. 
 
-### Release notes
+## Documentation
+```r
+help(package="TofDaqR")  # Index of help pages
+help("API-documentation", package="TofDaqR")  # Links to the TOFWERK TofDaq API documentation
+```
+
+## Release notes
 See the [NEWS file](https://github.com/pasturm/TofDaqR/blob/master/NEWS.md) for latest release notes.
