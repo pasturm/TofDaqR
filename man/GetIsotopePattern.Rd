@@ -36,3 +36,4 @@ GetIsotopePattern("CO2", 1e-5)
 Other Chemistry functions: \code{\link{GetIsotopePattern2}},
   \code{\link{GetMoleculeMass}}
 }
+\concept{Chemistry functions}

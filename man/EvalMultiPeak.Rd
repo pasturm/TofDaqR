@@ -30,3 +30,4 @@ Other Peak fitting functions: \code{\link{EvalSinglePeak}},
   \code{\link{FitSinglePeak2}},
   \code{\link{FitSinglePeak}}, \code{\link{MultiPeakFit}}
 }
+\concept{Peak fitting functions}

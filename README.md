@@ -37,8 +37,8 @@ Note: Installing from source requires [Rtools](https://cran.r-project.org/bin/wi
 
 ## Documentation
 ```r
-help(package="TofDaqR")  # Index of help pages
-help("API-documentation", package="TofDaqR")  # Links to the TOFWERK TofDaq API documentation
+help(package = "TofDaqR")  # Index of help pages
+help("API-documentation", package = "TofDaqR")  # Links to the TOFWERK TofDaq API documentation
 ```
 
 ## Release notes

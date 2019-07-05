@@ -41,3 +41,4 @@ Other Data storage functions: \code{\link{AddAttributeDouble}},
   \code{\link{UnregisterUserData}},
   \code{\link{UpdateUserData}}
 }
+\concept{Data storage functions}

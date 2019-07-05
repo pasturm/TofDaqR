@@ -36,3 +36,4 @@ Other TPS functions: \code{\link{TpsConnect2}},
   \code{\link{TpsSetTargetValue}},
   \code{\link{TpsShutdown}}
 }
+\concept{TPS functions}

@@ -5,8 +5,8 @@
 \title{Writes a ANDI chromatography file.}
 \usage{
 WriteNetCdfTimeSeriesFile(filename, inject_ts, expTitle, operator_name,
-  company_method_name, source_file_reference, retention_unit, detector_unit,
-  sample_name, raw_data_table_name, retention, ordinate)
+  company_method_name, source_file_reference, retention_unit,
+  detector_unit, sample_name, raw_data_table_name, retention, ordinate)
 }
 \arguments{
 \item{filename}{Path/filename of the HDF5 file.}

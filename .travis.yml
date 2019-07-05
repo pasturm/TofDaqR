@@ -8,4 +8,6 @@ os:
   - linux
   - osx
 
+warnings_are_errors: false
+
 r_check_args: '--install-args="--clean"'

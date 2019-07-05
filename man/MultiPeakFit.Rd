@@ -57,3 +57,4 @@ Other Peak fitting functions: \code{\link{EvalMultiPeak}},
   \code{\link{EvalSinglePeak}},
   \code{\link{FitSinglePeak2}}, \code{\link{FitSinglePeak}}
 }
+\concept{Peak fitting functions}

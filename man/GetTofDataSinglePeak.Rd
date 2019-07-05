@@ -33,3 +33,4 @@ package for convenience.
 \seealso{
 Other wrapper functions: \code{\link{FitTofDataSinglePeak}}
 }
+\concept{wrapper functions}

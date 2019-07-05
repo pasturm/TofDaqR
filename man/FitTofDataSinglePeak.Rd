@@ -45,3 +45,4 @@ package for convenience.
 \seealso{
 Other wrapper functions: \code{\link{GetTofDataSinglePeak}}
 }
+\concept{wrapper functions}
