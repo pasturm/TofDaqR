@@ -4,8 +4,7 @@
 \alias{GetTofDataSinglePeak}
 \title{Gets TofData of a single peak from a HDF5 data file.}
 \usage{
-GetTofDataSinglePeak(filename, peakIndex, massRange = NULL,
-  secondTOF = FALSE)
+GetTofDataSinglePeak(filename, peakIndex, massRange = NULL, secondTOF = FALSE)
 }
 \arguments{
 \item{filename}{Path/filename.}
@@ -31,6 +30,7 @@ Note: this function is not part of the TofDaq API, but is included in the
 package for convenience.
 }
 \seealso{
-Other wrapper functions: \code{\link{FitTofDataSinglePeak}}
+Other wrapper functions: 
+\code{\link{FitTofDataSinglePeak}()}
 }
 \concept{wrapper functions}

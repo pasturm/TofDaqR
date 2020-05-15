@@ -4,8 +4,17 @@
 \alias{GetTofData}
 \title{Gets data stored in /FullSpectra/TofData from HDF5 data file.}
 \usage{
-GetTofData(Filename, sampleOffset, sampleCount, segOffset, segCount,
-  bufOffset, bufCount, writeOffset, writeCount)
+GetTofData(
+  Filename,
+  sampleOffset,
+  sampleCount,
+  segOffset,
+  segCount,
+  bufOffset,
+  bufCount,
+  writeOffset,
+  writeCount
+)
 }
 \arguments{
 \item{Filename}{Path/filename of the HDF5 file.}

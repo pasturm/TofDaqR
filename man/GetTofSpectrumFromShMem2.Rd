@@ -4,8 +4,12 @@
 \alias{GetTofSpectrumFromShMem2}
 \title{Single TOF spectrum from shared memory.}
 \usage{
-GetTofSpectrumFromShMem2(SegmentIndex, SegmentEndIndex, BufIndex,
-  Normalize = TRUE)
+GetTofSpectrumFromShMem2(
+  SegmentIndex,
+  SegmentEndIndex,
+  BufIndex,
+  Normalize = TRUE
+)
 }
 \arguments{
 \item{SegmentIndex}{Segment start index of data to fetch (or -1 for complete

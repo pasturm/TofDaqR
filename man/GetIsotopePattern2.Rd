@@ -12,15 +12,21 @@ GetIsotopePattern2(molecule, abundanceLimit)
 \item{abundanceLimit}{Absolute abundance limit for the generated pattern.}
 }
 \value{
-List with mass and abundace vectors.
+List with mass and abundace vectors. Abundances are normalized
+relative to the most abundant peak of the isotope pattern.
 }
 \description{
 \code{GetIsotopePattern2} parses the molecular formula and returns the
 isotope pattern (mass and abundance).
 }
 \details{
-Same as \code{GetIsotopePattern} but using an exact algorithm and is
-therefore suitable only for rather small molecules.
+\code{GetIsotopePattern2} is the same as \code{GetIsotopePattern} but uses an
+exact algorithm and is suitable only for small molecules.
+See also \code{\link[enviPat:isopattern]{enviPat::isopattern()}}
+for an alternative function to calculate accurate isotope patterns.
+
+Note that abundances are returned relative to the most abundant peak of the isotope
+pattern. The \code{abundanceLimit}, however, is an absolute abundance.
 
 The formula parser for the molecule string understands the (case sensitive)
 element labels and round and curly brackets (square brackets are reserved for
@@ -36,7 +42,8 @@ singly charged calcium dimer).
 GetIsotopePattern2("CO2", 1e-5)
 }
 \seealso{
-Other Chemistry functions: \code{\link{GetIsotopePattern}},
-  \code{\link{GetMoleculeMass}}
+Other Chemistry functions: 
+\code{\link{GetIsotopePattern}()},
+\code{\link{GetMoleculeMass}()}
 }
 \concept{Chemistry functions}

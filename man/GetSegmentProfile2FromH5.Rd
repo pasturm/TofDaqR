@@ -4,8 +4,15 @@
 \alias{GetSegmentProfile2FromH5}
 \title{Segment profile from HDF5 data file.}
 \usage{
-GetSegmentProfile2FromH5(Filename, PeakIndex, BufStartIndex, BufEndIndex,
-  WriteStartIndex, WriteEndIndex, BufWriteLinked = FALSE)
+GetSegmentProfile2FromH5(
+  Filename,
+  PeakIndex,
+  BufStartIndex,
+  BufEndIndex,
+  WriteStartIndex,
+  WriteEndIndex,
+  BufWriteLinked = FALSE
+)
 }
 \arguments{
 \item{Filename}{Path/filename of the HDF5 file.}

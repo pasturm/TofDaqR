@@ -34,7 +34,8 @@ GetMoleculeMass("[13C]O2+")
 GetMoleculeMass("[13C][18O]2")
 }
 \seealso{
-Other Chemistry functions: \code{\link{GetIsotopePattern2}},
-  \code{\link{GetIsotopePattern}}
+Other Chemistry functions: 
+\code{\link{GetIsotopePattern2}()},
+\code{\link{GetIsotopePattern}()}
 }
 \concept{Chemistry functions}

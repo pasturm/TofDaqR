@@ -26,8 +26,10 @@ Vector with y axis data.
 multi-peak parameters.
 }
 \seealso{
-Other Peak fitting functions: \code{\link{EvalSinglePeak}},
-  \code{\link{FitSinglePeak2}},
-  \code{\link{FitSinglePeak}}, \code{\link{MultiPeakFit}}
+Other Peak fitting functions: 
+\code{\link{EvalSinglePeak}()},
+\code{\link{FitSinglePeak2}()},
+\code{\link{FitSinglePeak}()},
+\code{\link{MultiPeakFit}()}
 }
 \concept{Peak fitting functions}

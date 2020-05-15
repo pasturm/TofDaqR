@@ -4,8 +4,17 @@
 \alias{GetPeakData2}
 \title{Gets data stored in /PeakData2/PeakData from HDF5 data file.}
 \usage{
-GetPeakData2(Filename, peakOffset, peakCount, segOffset, segCount,
-  bufOffset, bufCount, writeOffset, writeCount)
+GetPeakData2(
+  Filename,
+  peakOffset,
+  peakCount,
+  segOffset,
+  segCount,
+  bufOffset,
+  bufCount,
+  writeOffset,
+  writeCount
+)
 }
 \arguments{
 \item{Filename}{Path/filename of the HDF5 file.}

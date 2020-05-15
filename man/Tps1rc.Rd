@@ -4,7 +4,9 @@
 \name{Tps1rc}
 \alias{Tps1rc}
 \title{TPS1 RC codes and names.}
-\format{An object of class \code{data.frame} with 78 rows and 2 columns.}
+\format{
+An object of class \code{data.frame} with 78 rows and 2 columns.
+}
 \usage{
 Tps1rc
 }

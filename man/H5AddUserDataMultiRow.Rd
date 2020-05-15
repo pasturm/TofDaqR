@@ -4,8 +4,15 @@
 \alias{H5AddUserDataMultiRow}
 \title{Adds user data to a data file.}
 \usage{
-H5AddUserDataMultiRow(filename, location, nbrElements, nbrRows, data,
-  elementDescription = NULL, compressionLevel = 0L)
+H5AddUserDataMultiRow(
+  filename,
+  location,
+  nbrElements,
+  nbrRows,
+  data,
+  elementDescription = NULL,
+  compressionLevel = 0L
+)
 }
 \arguments{
 \item{filename}{Path/filename of the HDF5 file.}

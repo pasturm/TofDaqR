@@ -13,20 +13,21 @@ QueryRegUserDataSize(Location)
 \code{QueryRegUserDataSize} queries the size (nbrElements) of a registered data source.
 }
 \seealso{
-Other Data storage functions: \code{\link{AddAttributeDouble}},
-  \code{\link{AddAttributeInt}},
-  \code{\link{AddAttributeString}},
-  \code{\link{AddLogEntry}},
-  \code{\link{AddUserDataMultiRow}},
-  \code{\link{AddUserData}},
-  \code{\link{GetRegUserDataDesc}},
-  \code{\link{GetRegUserDataSources}},
-  \code{\link{KeepFileOpen}},
-  \code{\link{ReadRegUserData}},
-  \code{\link{RegisterUserDataBuf}},
-  \code{\link{RegisterUserDataNoStore}},
-  \code{\link{RegisterUserDataWrite}},
-  \code{\link{UnregisterUserData}},
-  \code{\link{UpdateUserData}}
+Other Data storage functions: 
+\code{\link{AddAttributeDouble}()},
+\code{\link{AddAttributeInt}()},
+\code{\link{AddAttributeString}()},
+\code{\link{AddLogEntry}()},
+\code{\link{AddUserDataMultiRow}()},
+\code{\link{AddUserData}()},
+\code{\link{GetRegUserDataDesc}()},
+\code{\link{GetRegUserDataSources}()},
+\code{\link{KeepFileOpen}()},
+\code{\link{ReadRegUserData}()},
+\code{\link{RegisterUserDataBuf}()},
+\code{\link{RegisterUserDataNoStore}()},
+\code{\link{RegisterUserDataWrite}()},
+\code{\link{UnregisterUserData}()},
+\code{\link{UpdateUserData}()}
 }
 \concept{Data storage functions}

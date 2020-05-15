@@ -4,9 +4,17 @@
 \alias{GetStickSpectrum2FromH5}
 \title{Single (averaged) stick spectrum from HDF5 data file.}
 \usage{
-GetStickSpectrum2FromH5(Filename, SegmentIndex, SegmentEndIndex, BufIndex,
-  BufEndIndex, WriteIndex, WriteEndIndex, BufWriteLinked = FALSE,
-  Normalize = TRUE)
+GetStickSpectrum2FromH5(
+  Filename,
+  SegmentIndex,
+  SegmentEndIndex,
+  BufIndex,
+  BufEndIndex,
+  WriteIndex,
+  WriteEndIndex,
+  BufWriteLinked = FALSE,
+  Normalize = TRUE
+)
 }
 \arguments{
 \item{Filename}{Path/filename of the HDF5 file.}

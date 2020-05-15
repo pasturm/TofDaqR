@@ -4,9 +4,17 @@
 \alias{GetTofSpectrumFromH5}
 \title{Single (averaged) TOF spectrum from HDF5 data file.}
 \usage{
-GetTofSpectrumFromH5(Filename, SegmentIndex, SegmentEndIndex, BufIndex,
-  BufEndIndex, WriteIndex, WriteEndIndex, BufWriteLinked = FALSE,
-  Normalize = TRUE)
+GetTofSpectrumFromH5(
+  Filename,
+  SegmentIndex,
+  SegmentEndIndex,
+  BufIndex,
+  BufEndIndex,
+  WriteIndex,
+  WriteEndIndex,
+  BufWriteLinked = FALSE,
+  Normalize = TRUE
+)
 }
 \arguments{
 \item{Filename}{Path/filename of the HDF5 file.}

@@ -10,22 +10,24 @@ TpsGetNbrModules()
 \code{TpsGetNbrModules} gets the number of controllable modules.
 }
 \seealso{
-Other TPS functions: \code{\link{TpsChangeIonMode}},
-  \code{\link{TpsConnect2}}, \code{\link{TpsConnect}},
-  \code{\link{TpsDisconnect}},
-  \code{\link{TpsGetActiveFilament}},
-  \code{\link{TpsGetLastSetValue}},
-  \code{\link{TpsGetModuleCodes}},
-  \code{\link{TpsGetModuleLimits}},
-  \code{\link{TpsGetMonitorValue}},
-  \code{\link{TpsGetStatus}},
-  \code{\link{TpsGetTargetValue}},
-  \code{\link{TpsInitialize}},
-  \code{\link{TpsLoadSetFile}},
-  \code{\link{TpsSaveSetFile}},
-  \code{\link{TpsSetActiveFilament}},
-  \code{\link{TpsSetAllVoltages}},
-  \code{\link{TpsSetTargetValue}},
-  \code{\link{TpsShutdown}}
+Other TPS functions: 
+\code{\link{TpsChangeIonMode}()},
+\code{\link{TpsConnect2}()},
+\code{\link{TpsConnect}()},
+\code{\link{TpsDisconnect}()},
+\code{\link{TpsGetActiveFilament}()},
+\code{\link{TpsGetLastSetValue}()},
+\code{\link{TpsGetModuleCodes}()},
+\code{\link{TpsGetModuleLimits}()},
+\code{\link{TpsGetMonitorValue}()},
+\code{\link{TpsGetStatus}()},
+\code{\link{TpsGetTargetValue}()},
+\code{\link{TpsInitialize}()},
+\code{\link{TpsLoadSetFile}()},
+\code{\link{TpsSaveSetFile}()},
+\code{\link{TpsSetActiveFilament}()},
+\code{\link{TpsSetAllVoltages}()},
+\code{\link{TpsSetTargetValue}()},
+\code{\link{TpsShutdown}()}
 }
 \concept{TPS functions}

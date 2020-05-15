@@ -43,6 +43,7 @@ Note: this function is not part of the TofDaq API, but is included in the
 package for convenience.
 }
 \seealso{
-Other wrapper functions: \code{\link{GetTofDataSinglePeak}}
+Other wrapper functions: 
+\code{\link{GetTofDataSinglePeak}()}
 }
 \concept{wrapper functions}

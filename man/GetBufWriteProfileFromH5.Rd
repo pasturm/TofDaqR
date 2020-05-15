@@ -4,8 +4,12 @@
 \alias{GetBufWriteProfileFromH5}
 \title{Gets a linked buf/write profile.}
 \usage{
-GetBufWriteProfileFromH5(Filename, PeakIndex, SegmentStartIndex,
-  SegmentEndIndex)
+GetBufWriteProfileFromH5(
+  Filename,
+  PeakIndex,
+  SegmentStartIndex,
+  SegmentEndIndex
+)
 }
 \arguments{
 \item{Filename}{Path/filename of the HDF5 file.}

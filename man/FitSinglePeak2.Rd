@@ -4,8 +4,12 @@
 \alias{FitSinglePeak2}
 \title{Performs a peak fit (Initial values as vector).}
 \usage{
-FitSinglePeak2(yVals, xVals, peakType = 0L, param = as.numeric(c(0, 0,
-  0, 0, 0, 0, 0)))
+FitSinglePeak2(
+  yVals,
+  xVals,
+  peakType = 0L,
+  param = as.numeric(c(0, 0, 0, 0, 0, 0, 0))
+)
 }
 \arguments{
 \item{yVals}{y axis data.}
@@ -50,8 +54,10 @@ point and its neighbors. It is used to automatically generate guess values
 for position, width and amplitude if all peak parameters are set to 0.
 }
 \seealso{
-Other Peak fitting functions: \code{\link{EvalMultiPeak}},
-  \code{\link{EvalSinglePeak}},
-  \code{\link{FitSinglePeak}}, \code{\link{MultiPeakFit}}
+Other Peak fitting functions: 
+\code{\link{EvalMultiPeak}()},
+\code{\link{EvalSinglePeak}()},
+\code{\link{FitSinglePeak}()},
+\code{\link{MultiPeakFit}()}
 }
 \concept{Peak fitting functions}

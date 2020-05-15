@@ -16,20 +16,21 @@ type 2: data source values are written to disk for every buf.
 data sources currently registered in TofDaq recorder.
 }
 \seealso{
-Other Data storage functions: \code{\link{AddAttributeDouble}},
-  \code{\link{AddAttributeInt}},
-  \code{\link{AddAttributeString}},
-  \code{\link{AddLogEntry}},
-  \code{\link{AddUserDataMultiRow}},
-  \code{\link{AddUserData}},
-  \code{\link{GetRegUserDataDesc}},
-  \code{\link{KeepFileOpen}},
-  \code{\link{QueryRegUserDataSize}},
-  \code{\link{ReadRegUserData}},
-  \code{\link{RegisterUserDataBuf}},
-  \code{\link{RegisterUserDataNoStore}},
-  \code{\link{RegisterUserDataWrite}},
-  \code{\link{UnregisterUserData}},
-  \code{\link{UpdateUserData}}
+Other Data storage functions: 
+\code{\link{AddAttributeDouble}()},
+\code{\link{AddAttributeInt}()},
+\code{\link{AddAttributeString}()},
+\code{\link{AddLogEntry}()},
+\code{\link{AddUserDataMultiRow}()},
+\code{\link{AddUserData}()},
+\code{\link{GetRegUserDataDesc}()},
+\code{\link{KeepFileOpen}()},
+\code{\link{QueryRegUserDataSize}()},
+\code{\link{ReadRegUserData}()},
+\code{\link{RegisterUserDataBuf}()},
+\code{\link{RegisterUserDataNoStore}()},
+\code{\link{RegisterUserDataWrite}()},
+\code{\link{UnregisterUserData}()},
+\code{\link{UpdateUserData}()}
 }
 \concept{Data storage functions}

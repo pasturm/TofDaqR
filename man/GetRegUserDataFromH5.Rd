@@ -4,8 +4,13 @@
 \alias{GetRegUserDataFromH5}
 \title{Reads entries from a registered data source dataset.}
 \usage{
-GetRegUserDataFromH5(Filename, location, bufIndex, writeIndex,
-  readDescription = TRUE)
+GetRegUserDataFromH5(
+  Filename,
+  location,
+  bufIndex,
+  writeIndex,
+  readDescription = TRUE
+)
 }
 \arguments{
 \item{Filename}{Path/filename of the HDF5 file.}

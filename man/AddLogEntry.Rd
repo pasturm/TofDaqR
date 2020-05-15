@@ -17,20 +17,21 @@ January 1, 1601 UTC, Windows FILETIME) passed as a string. Set it to "0" for
 \code{AddLogEntry} adds an entry to the acquisition log.
 }
 \seealso{
-Other Data storage functions: \code{\link{AddAttributeDouble}},
-  \code{\link{AddAttributeInt}},
-  \code{\link{AddAttributeString}},
-  \code{\link{AddUserDataMultiRow}},
-  \code{\link{AddUserData}},
-  \code{\link{GetRegUserDataDesc}},
-  \code{\link{GetRegUserDataSources}},
-  \code{\link{KeepFileOpen}},
-  \code{\link{QueryRegUserDataSize}},
-  \code{\link{ReadRegUserData}},
-  \code{\link{RegisterUserDataBuf}},
-  \code{\link{RegisterUserDataNoStore}},
-  \code{\link{RegisterUserDataWrite}},
-  \code{\link{UnregisterUserData}},
-  \code{\link{UpdateUserData}}
+Other Data storage functions: 
+\code{\link{AddAttributeDouble}()},
+\code{\link{AddAttributeInt}()},
+\code{\link{AddAttributeString}()},
+\code{\link{AddUserDataMultiRow}()},
+\code{\link{AddUserData}()},
+\code{\link{GetRegUserDataDesc}()},
+\code{\link{GetRegUserDataSources}()},
+\code{\link{KeepFileOpen}()},
+\code{\link{QueryRegUserDataSize}()},
+\code{\link{ReadRegUserData}()},
+\code{\link{RegisterUserDataBuf}()},
+\code{\link{RegisterUserDataNoStore}()},
+\code{\link{RegisterUserDataWrite}()},
+\code{\link{UnregisterUserData}()},
+\code{\link{UpdateUserData}()}
 }
 \concept{Data storage functions}

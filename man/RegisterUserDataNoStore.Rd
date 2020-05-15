@@ -25,20 +25,21 @@ Needs to be executed before starting the acquisition.
 Use \code{\link{UpdateUserData}} to update the data.
 }
 \seealso{
-Other Data storage functions: \code{\link{AddAttributeDouble}},
-  \code{\link{AddAttributeInt}},
-  \code{\link{AddAttributeString}},
-  \code{\link{AddLogEntry}},
-  \code{\link{AddUserDataMultiRow}},
-  \code{\link{AddUserData}},
-  \code{\link{GetRegUserDataDesc}},
-  \code{\link{GetRegUserDataSources}},
-  \code{\link{KeepFileOpen}},
-  \code{\link{QueryRegUserDataSize}},
-  \code{\link{ReadRegUserData}},
-  \code{\link{RegisterUserDataBuf}},
-  \code{\link{RegisterUserDataWrite}},
-  \code{\link{UnregisterUserData}},
-  \code{\link{UpdateUserData}}
+Other Data storage functions: 
+\code{\link{AddAttributeDouble}()},
+\code{\link{AddAttributeInt}()},
+\code{\link{AddAttributeString}()},
+\code{\link{AddLogEntry}()},
+\code{\link{AddUserDataMultiRow}()},
+\code{\link{AddUserData}()},
+\code{\link{GetRegUserDataDesc}()},
+\code{\link{GetRegUserDataSources}()},
+\code{\link{KeepFileOpen}()},
+\code{\link{QueryRegUserDataSize}()},
+\code{\link{ReadRegUserData}()},
+\code{\link{RegisterUserDataBuf}()},
+\code{\link{RegisterUserDataWrite}()},
+\code{\link{UnregisterUserData}()},
+\code{\link{UpdateUserData}()}
 }
 \concept{Data storage functions}

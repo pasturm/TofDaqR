@@ -3,7 +3,6 @@
 \docType{package}
 \name{TofDaqR}
 \alias{TofDaqR}
-\alias{TofDaqR-package}
 \title{TofDaqR: R Interface to the TOFWERK TofDaq API.}
 \description{
 The TofDaqR package provides a R interface to the TOFWERK TofDaq API, which

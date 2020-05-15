@@ -2943,6 +2943,15 @@ EvalResolution <- function(R0, m0, dm, mass) {
 #' \code{GetIsotopePattern} parses the molecular formula and returns the
 #' isotope pattern (mass and abundance).
 #'
+#' The isotope pattern returned by this function may be quite inaccurate. A more
+#' accurate pattern is obtained with \code{GetIsotopePattern2}, which however
+#' only works for small molecules. See also
+#' \code{\link[enviPat:isopattern]{enviPat::isopattern()}}
+#' for an alternative function to calculate accurate isotope patterns.
+#'
+#' Note that abundances are returned relative to the most abundant peak of the isotope
+#' pattern. The \code{abundanceLimit}, however, is an absolute abundance.
+#'
 #' The formula parser for the molecule string understands the (case sensitive)
 #' element labels and round and curly brackets (square brackets are reserved for
 #' isotope specification). Numbers (multipliers) have to follow either directly
@@ -2955,7 +2964,8 @@ EvalResolution <- function(R0, m0, dm, mass) {
 #'
 #' @param molecule Molecule string.
 #' @param abundanceLimit Absolute abundance limit for the generated pattern.
-#' @return List with mass and abundace vectors.
+#' @return List with mass and abundace vectors. Abundances are normalized
+#' relative to the most abundant peak of the isotope pattern.
 #'
 #' @family Chemistry functions
 #'
@@ -2971,8 +2981,13 @@ GetIsotopePattern <- function(molecule, abundanceLimit) {
 #' \code{GetIsotopePattern2} parses the molecular formula and returns the
 #' isotope pattern (mass and abundance).
 #'
-#' Same as \code{GetIsotopePattern} but using an exact algorithm and is
-#' therefore suitable only for rather small molecules.
+#' \code{GetIsotopePattern2} is the same as \code{GetIsotopePattern} but uses an
+#' exact algorithm and is suitable only for small molecules.
+#' See also \code{\link[enviPat:isopattern]{enviPat::isopattern()}}
+#' for an alternative function to calculate accurate isotope patterns.
+#'
+#' Note that abundances are returned relative to the most abundant peak of the isotope
+#' pattern. The \code{abundanceLimit}, however, is an absolute abundance.
 #'
 #' The formula parser for the molecule string understands the (case sensitive)
 #' element labels and round and curly brackets (square brackets are reserved for
@@ -2986,7 +3001,8 @@ GetIsotopePattern <- function(molecule, abundanceLimit) {
 #'
 #' @param molecule Molecule string.
 #' @param abundanceLimit Absolute abundance limit for the generated pattern.
-#' @return List with mass and abundace vectors.
+#' @return List with mass and abundace vectors. Abundances are normalized
+#' relative to the most abundant peak of the isotope pattern.
 #'
 #' @family Chemistry functions
 #'

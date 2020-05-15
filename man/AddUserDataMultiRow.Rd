@@ -4,8 +4,14 @@
 \alias{AddUserDataMultiRow}
 \title{Stores (asynchronous) user supplied data.}
 \usage{
-AddUserDataMultiRow(Location, NbrElements, NbrRows, Data,
-  ElementDescription = NULL, CompressionLevel = 0L)
+AddUserDataMultiRow(
+  Location,
+  NbrElements,
+  NbrRows,
+  Data,
+  ElementDescription = NULL,
+  CompressionLevel = 0L
+)
 }
 \arguments{
 \item{Location}{Location of group in HDF5 file where the datasets are created.}
@@ -36,19 +42,21 @@ Same as \code{AddUserData}, but adds argument \code{NbrRows} to add several
 lines of user data at once.
 }
 \seealso{
-Other Data storage functions: \code{\link{AddAttributeDouble}},
-  \code{\link{AddAttributeInt}},
-  \code{\link{AddAttributeString}},
-  \code{\link{AddLogEntry}}, \code{\link{AddUserData}},
-  \code{\link{GetRegUserDataDesc}},
-  \code{\link{GetRegUserDataSources}},
-  \code{\link{KeepFileOpen}},
-  \code{\link{QueryRegUserDataSize}},
-  \code{\link{ReadRegUserData}},
-  \code{\link{RegisterUserDataBuf}},
-  \code{\link{RegisterUserDataNoStore}},
-  \code{\link{RegisterUserDataWrite}},
-  \code{\link{UnregisterUserData}},
-  \code{\link{UpdateUserData}}
+Other Data storage functions: 
+\code{\link{AddAttributeDouble}()},
+\code{\link{AddAttributeInt}()},
+\code{\link{AddAttributeString}()},
+\code{\link{AddLogEntry}()},
+\code{\link{AddUserData}()},
+\code{\link{GetRegUserDataDesc}()},
+\code{\link{GetRegUserDataSources}()},
+\code{\link{KeepFileOpen}()},
+\code{\link{QueryRegUserDataSize}()},
+\code{\link{ReadRegUserData}()},
+\code{\link{RegisterUserDataBuf}()},
+\code{\link{RegisterUserDataNoStore}()},
+\code{\link{RegisterUserDataWrite}()},
+\code{\link{UnregisterUserData}()},
+\code{\link{UpdateUserData}()}
 }
 \concept{Data storage functions}

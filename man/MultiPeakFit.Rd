@@ -53,8 +53,10 @@ supplied (guess) values are still used (e.g. specify a known baseline
 without optimizing the parameters).
 }
 \seealso{
-Other Peak fitting functions: \code{\link{EvalMultiPeak}},
-  \code{\link{EvalSinglePeak}},
-  \code{\link{FitSinglePeak2}}, \code{\link{FitSinglePeak}}
+Other Peak fitting functions: 
+\code{\link{EvalMultiPeak}()},
+\code{\link{EvalSinglePeak}()},
+\code{\link{FitSinglePeak2}()},
+\code{\link{FitSinglePeak}()}
 }
 \concept{Peak fitting functions}

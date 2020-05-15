@@ -4,8 +4,14 @@
 \alias{DecodeEventListThreshold}
 \title{Decodes an event list using thresholding.}
 \usage{
-DecodeEventListThreshold(events, clockPeriod, sampleInterval, threshold,
-  presamples, postsamples)
+DecodeEventListThreshold(
+  events,
+  clockPeriod,
+  sampleInterval,
+  threshold,
+  presamples,
+  postsamples
+)
 }
 \arguments{
 \item{events}{Event data, e.g. from \code{GetEventList...FromH5}.}

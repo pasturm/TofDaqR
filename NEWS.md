@@ -1,4 +1,4 @@
-# Changes in version 0.3.8.912
+# Changes in version 0.3.8.913
 
 * `DeleteAttributeInH5()`, `WaitForExclusiveFileAccess()` and 
   `WriteNetCdfTimeSeriesFile()` are missing in libtwh5 of TofDaq API 1.99r759
@@ -22,8 +22,10 @@
 * Simplified the cross-platform maintenance: the TofDaqDll functions are always
   exported, but they just give an error message on non-Windows platforms.
 
-* Turned off staged installation (a R version >=3.6.0 feature) to be able to
+* Turned off staged installation (a feature of R >= 3.6.0) to be able to
   dynamically link to the TofDaq libraries.
+  
+* Updated help pages of `GetIsotopePattern()` and `GetIsotopePattern2()`.
 
 
 # Changes in version 0.3.8
