@@ -1,4 +1,4 @@
-# Changes in version 0.3.8.913
+# Changes in version 0.3.9
 
 * `DeleteAttributeInH5()`, `WaitForExclusiveFileAccess()` and 
   `WriteNetCdfTimeSeriesFile()` are missing in libtwh5 of TofDaq API 1.99r759
@@ -26,6 +26,9 @@
   dynamically link to the TofDaq libraries.
   
 * Updated help pages of `GetIsotopePattern()` and `GetIsotopePattern2()`.
+
+* `GetStringAttributeFromH5()` can also read strings which are longer than 256
+  characters.
 
 
 # Changes in version 0.3.8

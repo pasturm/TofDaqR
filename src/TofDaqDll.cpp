@@ -430,11 +430,13 @@ String GetDaqParameter(std::string Parameter) {
 #ifdef _WIN32
   char *cParameter = StringToChar(Parameter);
 
-  char *buffer = new char[256];
+  char *buffer = new char[256]();
 
   buffer = TwGetDaqParameter(cParameter);
 
   std::string str(buffer);
+
+  delete[] buffer;
 
   return str;
 #else
@@ -727,14 +729,17 @@ double GetDaqParameterDoubleRef(std::string Parameter) {
 String GetDaqParameterStringRef(std::string Parameter) {
 #ifdef _WIN32
   char *cParameter = StringToChar(Parameter);
-  char *Value = new char[256];
+  char *Value = new char[256]();
 
   TwRetVal rv = TwGetDaqParameterStringRef(cParameter, Value);
   if (rv != TwSuccess) {
+    delete[] Value;
     stop(TranslateReturnValue(rv));
   }
 
   std::string str(Value);
+
+  delete[] Value;
 
   return wrap(str);
 #else
@@ -1078,8 +1083,7 @@ void SetMassCalibEx(int mode, int nbrParams, NumericVector p,
   if (nbrPoints != label.size()) {
     stop("mass, tof, weight and label must be the same length.");
   }
-  char *cLabel = new char[256 * nbrPoints];
-  memset(cLabel, 0, 256 * nbrPoints);
+  char *cLabel = new char[256 * nbrPoints]();
   for( int i=0; i < nbrPoints; i++ ) {
     std::string str(label[i]);
     strncpy(&cLabel[i*256], str.c_str(), 256);
@@ -1143,8 +1147,7 @@ void SetMassCalib2Ex(int mode, int nbrParams, NumericVector p,
   if (nbrPoints != label.size()) {
     stop("mass, tof, weight and label must be the same length.");
   }
-  char *cLabel = new char[256 * nbrPoints];
-  memset(cLabel, 0, 256 * nbrPoints);
+  char *cLabel = new char[256 * nbrPoints]();
   for( int i=0; i < nbrPoints; i++ ) {
     std::string str(label[i]);
     strncpy(&cLabel[i*256], str.c_str(), 256);
@@ -1499,8 +1502,7 @@ List GetMassCalibEx() {
   NumericVector mass(nbrPoints);
   NumericVector tof(nbrPoints);
   NumericVector weight(nbrPoints);
-  char *label = new char[256 * nbrPoints];
-  memset(label, 0, 256 * nbrPoints);
+  char *label = new char[256 * nbrPoints]();
 
   rv = TwGetMassCalibEx(&mode, &nbrParams, &p[0], &nbrPoints, &mass[0], &tof[0],
                       &weight[0], label);
@@ -1561,8 +1563,7 @@ List GetMassCalib2Ex() {
   NumericVector mass(nbrPoints);
   NumericVector tof(nbrPoints);
   NumericVector weight(nbrPoints);
-  char *label = new char[256 * nbrPoints];
-  memset(label, 0, 256 * nbrPoints);
+  char *label = new char[256 * nbrPoints]();
 
   rv = TwGetMassCalib2Ex(&mode, &nbrParams, &p[0], &nbrPoints, &mass[0], &tof[0],
                         &weight[0], label);
@@ -2119,8 +2120,7 @@ void AddUserData(std::string Location, int NbrElements, NumericVector Data,
                  int CompressionLevel = 0) {
 #ifdef _WIN32
   char *cLocation = StringToChar(Location);
-  char *cElementDescription = new char[256 * NbrElements];
-  memset(cElementDescription, 0, 256 * NbrElements);
+  char *cElementDescription = new char[256 * NbrElements]();
 
   if (ElementDescription.isNotNull()) {
     StringVector strvec(ElementDescription); // https://stackoverflow.com/questions/43388698/rcpp-how-can-i-get-the-size-of-a-rcppnullable-numericvector
@@ -2175,8 +2175,7 @@ void AddUserDataMultiRow(std::string Location, int NbrElements, int NbrRows,
                          int CompressionLevel = 0) {
 #ifdef _WIN32
   char *cLocation = StringToChar(Location);
-  char *cElementDescription = new char[256 * NbrElements];
-  memset(cElementDescription, 0, 256 * NbrElements);
+  char *cElementDescription = new char[256 * NbrElements]();
 
   if (ElementDescription.isNotNull()) {
     StringVector strvec(ElementDescription); // https://stackoverflow.com/questions/43388698/rcpp-how-can-i-get-the-size-of-a-rcppnullable-numericvector
@@ -2227,8 +2226,7 @@ void RegisterUserDataBuf(std::string Location, int NbrElements,
                          int CompressionLevel = 0) {
 #ifdef _WIN32
   char *cLocation = StringToChar(Location);
-  char *cElementDescription = new char[256 * NbrElements];
-  memset(cElementDescription, 0, 256 * NbrElements);
+  char *cElementDescription = new char[256 * NbrElements]();
 
   if (ElementDescription.isNotNull()) {
     StringVector strvec(ElementDescription); // https://stackoverflow.com/questions/43388698/rcpp-how-can-i-get-the-size-of-a-rcppnullable-numericvector
@@ -2279,8 +2277,7 @@ void RegisterUserDataWrite(std::string Location, int NbrElements,
                            int CompressionLevel = 0) {
 #ifdef _WIN32
   char *cLocation = StringToChar(Location);
-  char *cElementDescription = new char[256 * NbrElements];
-  memset(cElementDescription, 0, 256 * NbrElements);
+  char *cElementDescription = new char[256 * NbrElements]();
 
   if (ElementDescription.isNotNull()) {
     StringVector strvec(ElementDescription); // https://stackoverflow.com/questions/43388698/rcpp-how-can-i-get-the-size-of-a-rcppnullable-numericvector
@@ -2327,8 +2324,7 @@ void RegisterUserDataNoStore(std::string Location, int NbrElements,
                              Nullable<Rcpp::StringVector> ElementDescription = R_NilValue) {
 #ifdef _WIN32
   char *cLocation = StringToChar(Location);
-  char *cElementDescription = new char[256 * NbrElements];
-  memset(cElementDescription, 0, 256 * NbrElements);
+  char *cElementDescription = new char[256 * NbrElements]();
 
   if (ElementDescription.isNotNull()) {
     StringVector strvec(ElementDescription); // https://stackoverflow.com/questions/43388698/rcpp-how-can-i-get-the-size-of-a-rcppnullable-numericvector
@@ -2484,8 +2480,7 @@ List GetRegUserDataSources() {
     stop(TranslateReturnValue(rv));
   }
 
-  char *location = new char[256 * arrayLength];
-  memset(location, 0, 256 * arrayLength);
+  char *location = new char[256 * arrayLength]();
 
   IntegerVector nbrElements(arrayLength);
   IntegerVector type(arrayLength);
@@ -2537,8 +2532,7 @@ CharacterVector GetRegUserDataDesc(std::string Location) {
     stop(TranslateReturnValue(rv));
   }
 
-  char *elementDescription = new char[256 * nbrElements];
-  memset(elementDescription, 0, 256 * nbrElements);
+  char *elementDescription = new char[256 * nbrElements]();
 
   rv = TwGetRegUserDataDesc(cLocation, &nbrElements, elementDescription);
   if (rv != TwSuccess) {

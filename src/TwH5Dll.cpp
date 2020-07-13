@@ -870,15 +870,13 @@ List GetRegUserDataSourcesFromH5(std::string Filename) {
     stop(TranslateReturnValue(rv));
   }
 
-  char *sourceLocation = new char[256 * nbrSources];
-  memset(sourceLocation, 0, 256 * nbrSources);
+  char *sourceLocation = new char[256 * nbrSources]();
 
   IntegerVector sourceLength(nbrSources);
   // LogicalVector hasDesc(nbrSources);  // does not work
   // std::vector<bool> hasDesc(nbrSources);  // does not work either
   bool *hasDesc = new bool[nbrSources];
   IntegerVector type(nbrSources);
-
 
   rv = TwGetRegUserDataSourcesFromH5(cFilename, &nbrSources, sourceLocation,
                                      &sourceLength[0], hasDesc, &type[0]);
@@ -953,8 +951,7 @@ SEXP GetRegUserDataFromH5(std::string Filename, std::string location,
 
   if (readDescription) {
 
-    char *description = new char[256 * bufLength];
-    memset(description, 0, 256 * bufLength);
+    char *description = new char[256 * bufLength]();
 
     rv = TwGetRegUserDataFromH5(cFilename, cLocation, bufIndex, writeIndex,
                                 &bufLength, &buffer[0], description);
@@ -1426,16 +1423,16 @@ String GetStringAttributeFromH5(std::string Filename, std::string location,
   char *cFilename = StringToChar(Filename);
   char *cLocation = StringToChar(location);
   char *cName = StringToChar(name);
-  char *value = new char[256];
+  std::vector<char> value(8192);
 
-  TwRetVal rv = TwGetStringAttributeFromH5(cFilename, cLocation, cName, value);
+  TwRetVal rv = TwGetStringAttributeFromH5(cFilename, cLocation, cName, &value[0]);
 
   TwCloseH5(cFilename);
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
 
-  std::string str(value);
+  std::string str(value.begin(), value.end());
 
   return wrap(str);
 }
@@ -1707,8 +1704,7 @@ List GetUserDataFromH5(std::string Filename, std::string location, int rowIndex 
 
   NumericVector buffer(nbrElements);
   // CharacterVector elementDescription(nbrElements);
-  char *elementDescription = new char[256 * nbrElements];
-  memset(elementDescription, 0, 256 * nbrElements);
+  char *elementDescription = new char[256 * nbrElements]();
 
   List result;
 
@@ -1788,12 +1784,13 @@ List GetAcquisitionLogFromH5(std::string Filename, int index) {
   char *cFilename = StringToChar(Filename);
 
   int64_t timestamp;
-  char *logText = new char[256];
+  char *logText = new char[256]();
 
   TwRetVal rv = TwGetAcquisitionLogFromH5(cFilename, index, &timestamp, logText);
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
+    delete[] logText;
     stop(TranslateReturnValue(rv));
   }
 
@@ -1801,6 +1798,8 @@ List GetAcquisitionLogFromH5(std::string Filename, int index) {
   time[0] = std::to_string(timestamp);
 
   std::string str(logText);
+
+  delete[] logText;
 
   List result;
   result["timestamp"] = time;
@@ -1965,8 +1964,7 @@ void H5AddUserDataMultiRow(std::string filename, std::string location,
 
   char *cFilename = StringToChar(filename);
   char *cLocation = StringToChar(location);
-  char *cElementDescription = new char[256 * nbrElements];
-  memset(cElementDescription, 0, 256 * nbrElements);
+  char *cElementDescription = new char[256 * nbrElements]();
 
   if (elementDescription.isNotNull()) {
     StringVector strvec(elementDescription); // https://stackoverflow.com/questions/43388698/rcpp-how-can-i-get-the-size-of-a-rcppnullable-numericvector
@@ -2264,8 +2262,7 @@ void H5SetMassCalibEx(std::string Filename, int mode, int nbrParams,
   if (nbrPoints != label.size()) {
     stop("mass, tof, weight and label must be the same length.");
   }
-  char *cLabel = new char[256 * nbrPoints];
-  memset(cLabel, 0, 256 * nbrPoints);
+  char *cLabel = new char[256 * nbrPoints]();
   for( int i=0; i < nbrPoints; i++ ) {
     std::string str(label[i]);
     strncpy(&cLabel[i*256], str.c_str(), 256);
@@ -2327,8 +2324,7 @@ void H5SetMassCalib2Ex(std::string Filename, int mode, int nbrParams,
   if (nbrPoints != label.size()) {
     stop("mass, tof, weight and label must be the same length.");
   }
-  char *cLabel = new char[256 * nbrPoints];
-  memset(cLabel, 0, 256 * nbrPoints);
+  char *cLabel = new char[256 * nbrPoints]();
   for( int i=0; i < nbrPoints; i++ ) {
     std::string str(label[i]);
     strncpy(&cLabel[i*256], str.c_str(), 256);

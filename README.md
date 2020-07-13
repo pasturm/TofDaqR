@@ -20,20 +20,25 @@ Features:
 * Single ion analysis functions
 
 ## Installation
+
+On Windows:
 ```r
-# On Windows:
-install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.8/TofDaqR_0.3.8.zip",
+install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.9/TofDaqR_0.3.9.zip",
   repos = NULL)
+```
 
-# On Mac:
-install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.8/TofDaqR_0.3.8.904.tgz",
+On macOS:
+```r
+install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.9/TofDaqR_0.3.9.tgz",
   repos = NULL)
+```
 
-# Alternatively, the latest development version can be installed from source on Windows, Mac and Linux:
+Alternatively, the latest development version can be installed from source on Windows, macOS and Linux:
+```r
 if (!require("remotes")) { install.packages("remotes") }
 remotes::install_github("pasturm/TofDaqR", clean = TRUE)
 ```
-Note: Installing from source requires [Rtools](https://cran.r-project.org/bin/windows/Rtools/) on Windows, [Xcode](https://developer.apple.com/xcode/) on Mac and `sudo apt-get install r-base-dev` (or similar) on Linux. 
+Installing from source requires [Rtools](https://cran.r-project.org/bin/windows/Rtools/) on Windows, [Xcode](https://developer.apple.com/xcode/) on Mac and `sudo apt-get install r-base-dev` (or similar) on Linux. 
 
 ## Documentation
 ```r

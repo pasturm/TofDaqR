@@ -183,12 +183,15 @@ NumericVector EvalSinglePeak(NumericVector xVals, double blOffset = 0,
   param[4] = fwhmHi;
   param[5] = peakPos;
   param[6] = mu;
+  // auto *param{ new double[7]{ blOffset, blSlope, amplitude, fwhmLo, fwhmHi, peakPos, mu } };  // the C++11 way
 
   NumericVector yValsFit(nbrDataPoints);
 
   for (int j = 0; j<nbrDataPoints; ++j) {
     yValsFit[j] = TwEvalSinglePeak(xVals[j], param);
   }
+
+  delete[] param;
 
   return yValsFit;
 }
@@ -682,8 +685,9 @@ NumericVector MassCalibrate(int massCalibMode, NumericVector mass,
   int nbrParams;
 
   // get the number of parameters
-  char *description = new char[64];
+  char *description = new char[64]();
   TwRetVal rv = TwGetMassCalibInfo(massCalibMode, description, &nbrParams);
+  delete[] description;
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
@@ -721,14 +725,16 @@ NumericVector MassCalibrate(int massCalibMode, NumericVector mass,
 List GetMassCalibInfo(int massCalibMode) {
 
   int nbrParams;
-  char *description = new char[64];
+  char *description = new char[64]();
 
   TwRetVal rv = TwGetMassCalibInfo(massCalibMode, description, &nbrParams);
   if (rv != TwSuccess) {
+    delete[] description;
     stop(TranslateReturnValue(rv));
   }
 
   std::string str(description);
+  delete[] description;
 
   List result;
   result["description"] = wrap(str);
@@ -1124,15 +1130,17 @@ String FindTpsIp(std::string TpsSerial, int timeout) {
 
   int hostStrLen = 15;
 
-  char *buffer = new char[15];
+  char *buffer = new char[15]();
 
   TwRetVal rv = TwFindTpsIp(cTpsSerial, timeout, &hostStrLen, buffer);
 
   if (rv != TwSuccess) {
+    delete[] buffer;
     stop(TranslateReturnValue(rv));
   }
 
   std::string str(buffer);
+  delete[] buffer;
 
   return wrap(str);
 #else

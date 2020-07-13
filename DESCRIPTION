@@ -1,6 +1,6 @@
 Package: TofDaqR
 Title: R Interface to the TOFWERK TofDaq API
-Version: 0.3.8.913
+Version: 0.3.9
 Authors@R: c(
   person("Patrick", "Sturm", role = c("aut", "cre"), 
          email = "sturm@tofwerk.com"), 
@@ -15,7 +15,7 @@ URL: https://github.com/pasturm/TofDaqR
 BugReports: https://github.com/pasturm/TofDaqR/issues
 Imports: Rcpp (>= 0.12.7)
 LinkingTo: Rcpp
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Encoding: UTF-8
 Suggests: knitr,
     rmarkdown
