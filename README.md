@@ -23,14 +23,12 @@ Features:
 
 On Windows:
 ```r
-install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.9/TofDaqR_0.3.9.zip",
-  repos = NULL)
+install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.9/TofDaqR_0.3.9.zip", repos = NULL)
 ```
 
 On macOS:
 ```r
-install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.9/TofDaqR_0.3.9.tgz",
-  repos = NULL)
+install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.9/TofDaqR_0.3.9.tgz", repos = NULL)
 ```
 
 Alternatively, the latest development version can be installed from source on Windows, macOS and Linux:
@@ -38,7 +36,7 @@ Alternatively, the latest development version can be installed from source on Wi
 if (!require("remotes")) { install.packages("remotes") }
 remotes::install_github("pasturm/TofDaqR", clean = TRUE)
 ```
-Installing from source requires [Rtools](https://cran.r-project.org/bin/windows/Rtools/) on Windows, [Xcode](https://developer.apple.com/xcode/) on Mac and `sudo apt-get install r-base-dev` (or similar) on Linux. 
+Installing from source requires [Rtools](https://cran.r-project.org/bin/windows/Rtools/) on Windows, [Xcode](https://developer.apple.com/xcode/) on macOS and `sudo apt-get install r-base-dev` (or similar) on Linux. 
 
 ## Documentation
 ```r

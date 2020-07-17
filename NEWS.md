@@ -1,3 +1,9 @@
+# Changes in version 0.3.9.9000
+
+* Fixed a bug, where the initialization of char arrays could cause R to crash in
+  some versions of R (regression from TofDaqR version 0.3.9).
+
+
 # Changes in version 0.3.9
 
 * `DeleteAttributeInH5()`, `WaitForExclusiveFileAccess()` and 

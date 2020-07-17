@@ -685,7 +685,7 @@ NumericVector MassCalibrate(int massCalibMode, NumericVector mass,
   int nbrParams;
 
   // get the number of parameters
-  char *description = new char[64]();
+  char *description = new char[64];
   TwRetVal rv = TwGetMassCalibInfo(massCalibMode, description, &nbrParams);
   delete[] description;
   if (rv != TwSuccess) {
@@ -725,7 +725,7 @@ NumericVector MassCalibrate(int massCalibMode, NumericVector mass,
 List GetMassCalibInfo(int massCalibMode) {
 
   int nbrParams;
-  char *description = new char[64]();
+  char *description = new char[64];
 
   TwRetVal rv = TwGetMassCalibInfo(massCalibMode, description, &nbrParams);
   if (rv != TwSuccess) {
@@ -1130,7 +1130,7 @@ String FindTpsIp(std::string TpsSerial, int timeout) {
 
   int hostStrLen = 15;
 
-  char *buffer = new char[15]();
+  char *buffer = new char[15];
 
   TwRetVal rv = TwFindTpsIp(cTpsSerial, timeout, &hostStrLen, buffer);
 
