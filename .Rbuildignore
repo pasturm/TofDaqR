@@ -4,3 +4,4 @@
 ^tools/update_TofDaqAPI_doc.R$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^\.github$

@@ -1,7 +1,9 @@
 # TofDaqR
-[![Travis build status](https://travis-ci.org/pasturm/TofDaqR.svg?branch=master)](https://travis-ci.org/pasturm/TofDaqR)
+<!-- badges: start -->
+[![R build status](https://github.com/pasturm/TofDaqR/workflows/R-CMD-check/badge.svg)](https://github.com/pasturm/TofDaqR/actions)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-<!---[![CRAN version](https://www.r-pkg.org/badges/version-last-release/TofDaqR)](https://cran.r-project.org/package=TofDaqR)-->
+<!-- badges: end -->
+
 
 ## R Interface to the TOFWERK TofDaq API
 The TofDaqR package provides a R interface to the [TOFWERK TofDaq API](https://www.tofwerk.com/software/tofdaq/), which consists of libraries for communication with the TofDAQ recorder application, data file access and general (time-of-flight) mass spectrometry related utility functions. 
@@ -23,12 +25,12 @@ Features:
 
 On Windows:
 ```r
-install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.9/TofDaqR_0.3.9.zip", repos = NULL)
+install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.10/TofDaqR_0.3.10.zip", repos = NULL)
 ```
 
 On macOS:
 ```r
-install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.9/TofDaqR_0.3.9.tgz", repos = NULL)
+install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.10/TofDaqR_0.3.10.tgz", repos = NULL)
 ```
 
 Alternatively, the latest development version can be installed from source on Windows, macOS and Linux:
@@ -36,7 +38,7 @@ Alternatively, the latest development version can be installed from source on Wi
 if (!require("remotes")) { install.packages("remotes") }
 remotes::install_github("pasturm/TofDaqR", clean = TRUE)
 ```
-Installing from source requires [Rtools](https://cran.r-project.org/bin/windows/Rtools/) on Windows, [Xcode](https://developer.apple.com/xcode/) on macOS and `sudo apt-get install r-base-dev` (or similar) on Linux. 
+Installing from source requires [Rtools](https://cran.r-project.org/bin/windows/Rtools/) on Windows, [Xcode Command Line Tools](https://developer.apple.com/xcode/resources/) (`xcode-select --install`) on macOS and `sudo apt-get install r-base-dev` (or similar) on Linux. 
 
 ## Documentation
 ```r
