@@ -1,7 +1,9 @@
-# Changes in version 0.3.9.9000
+# Changes in version 0.3.10
 
 * Fixed a bug, where the initialization of char arrays could cause R to crash in
   some versions of R (regression from TofDaqR version 0.3.9).
+  
+* Using GitHub Actions instead of Travis CI for continuous integration.
 
 
 # Changes in version 0.3.9
