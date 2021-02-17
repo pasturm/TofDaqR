@@ -1001,6 +1001,7 @@ SEXP GetRegUserDataFromH5(std::string Filename, std::string location,
 //' @param bufCount Buf count.
 //' @param writeOffset Write offset.
 //' @param writeCount Write count.
+//' @return A vector of length sampleCount*segCount*bufCount*writeCount.
 //' @export
 // [[Rcpp::export]]
 SEXP GetTofData(std::string Filename, int sampleOffset, int sampleCount,
@@ -1040,6 +1041,7 @@ SEXP GetTofData(std::string Filename, int sampleOffset, int sampleCount,
 //' @param bufCount Buf count.
 //' @param writeOffset Write offset.
 //' @param writeCount Write count.
+//' @return A vector of length sampleCount*segCount*bufCount*writeCount.
 //' @export
 // [[Rcpp::export]]
 SEXP GetTofData2(std::string Filename, int sampleOffset, int sampleCount,
@@ -1078,6 +1080,7 @@ SEXP GetTofData2(std::string Filename, int sampleOffset, int sampleCount,
 //' @param bufCount Buf count.
 //' @param writeOffset Write offset.
 //' @param writeCount Write count.
+//' @return A vector of length peakCount*segCount*bufCount*writeCount.
 //' @export
 // [[Rcpp::export]]
 SEXP GetPeakData(std::string Filename, int peakOffset, int peakCount,
@@ -1116,6 +1119,7 @@ SEXP GetPeakData(std::string Filename, int peakOffset, int peakCount,
 //' @param bufCount Buf count.
 //' @param writeOffset Write offset.
 //' @param writeCount Write count.
+//' @return A vector of length peakCount*segCount*bufCount*writeCount.
 //' @export
 // [[Rcpp::export]]
 SEXP GetPeakData2(std::string Filename, int peakOffset, int peakCount,
@@ -1150,6 +1154,7 @@ SEXP GetPeakData2(std::string Filename, int peakOffset, int peakCount,
 //' @param bufCount Buf count.
 //' @param writeOffset Write offset.
 //' @param writeCount Write count.
+//' @return A vector of length bufCount*writeCount.
 //' @export
 // [[Rcpp::export]]
 NumericVector GetTimingData(std::string Filename, int bufOffset, int bufCount,

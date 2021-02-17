@@ -1950,6 +1950,7 @@ GetRegUserDataFromH5 <- function(Filename, location, bufIndex, writeIndex, readD
 #' @param bufCount Buf count.
 #' @param writeOffset Write offset.
 #' @param writeCount Write count.
+#' @return A vector of length sampleCount*segCount*bufCount*writeCount.
 #' @export
 GetTofData <- function(Filename, sampleOffset, sampleCount, segOffset, segCount, bufOffset, bufCount, writeOffset, writeCount) {
     .Call(`_TofDaqR_GetTofData`, Filename, sampleOffset, sampleCount, segOffset, segCount, bufOffset, bufCount, writeOffset, writeCount)
@@ -1968,6 +1969,7 @@ GetTofData <- function(Filename, sampleOffset, sampleCount, segOffset, segCount,
 #' @param bufCount Buf count.
 #' @param writeOffset Write offset.
 #' @param writeCount Write count.
+#' @return A vector of length sampleCount*segCount*bufCount*writeCount.
 #' @export
 GetTofData2 <- function(Filename, sampleOffset, sampleCount, segOffset, segCount, bufOffset, bufCount, writeOffset, writeCount) {
     .Call(`_TofDaqR_GetTofData2`, Filename, sampleOffset, sampleCount, segOffset, segCount, bufOffset, bufCount, writeOffset, writeCount)
@@ -1986,6 +1988,7 @@ GetTofData2 <- function(Filename, sampleOffset, sampleCount, segOffset, segCount
 #' @param bufCount Buf count.
 #' @param writeOffset Write offset.
 #' @param writeCount Write count.
+#' @return A vector of length peakCount*segCount*bufCount*writeCount.
 #' @export
 GetPeakData <- function(Filename, peakOffset, peakCount, segOffset, segCount, bufOffset, bufCount, writeOffset, writeCount) {
     .Call(`_TofDaqR_GetPeakData`, Filename, peakOffset, peakCount, segOffset, segCount, bufOffset, bufCount, writeOffset, writeCount)
@@ -2004,6 +2007,7 @@ GetPeakData <- function(Filename, peakOffset, peakCount, segOffset, segCount, bu
 #' @param bufCount Buf count.
 #' @param writeOffset Write offset.
 #' @param writeCount Write count.
+#' @return A vector of length peakCount*segCount*bufCount*writeCount.
 #' @export
 GetPeakData2 <- function(Filename, peakOffset, peakCount, segOffset, segCount, bufOffset, bufCount, writeOffset, writeCount) {
     .Call(`_TofDaqR_GetPeakData2`, Filename, peakOffset, peakCount, segOffset, segCount, bufOffset, bufCount, writeOffset, writeCount)
@@ -2018,6 +2022,7 @@ GetPeakData2 <- function(Filename, peakOffset, peakCount, segOffset, segCount, b
 #' @param bufCount Buf count.
 #' @param writeOffset Write offset.
 #' @param writeCount Write count.
+#' @return A vector of length bufCount*writeCount.
 #' @export
 GetTimingData <- function(Filename, bufOffset, bufCount, writeOffset, writeCount) {
     .Call(`_TofDaqR_GetTimingData`, Filename, bufOffset, bufCount, writeOffset, writeCount)

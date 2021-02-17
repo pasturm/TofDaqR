@@ -1,3 +1,8 @@
+# Changes in version 0.3.10.9000
+
+* Fixed a bug in `GetTofDataSinglePeak()`.
+
+
 # Changes in version 0.3.10
 
 * Fixed a bug, where the initialization of char arrays could cause R to crash in

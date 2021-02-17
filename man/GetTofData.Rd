@@ -35,6 +35,9 @@ GetTofData(
 
 \item{writeCount}{Write count.}
 }
+\value{
+A vector of length sampleCount*segCount*bufCount*writeCount.
+}
 \description{
 \code{GetTofData} gets data stored in \code{/FullSpectra/TofData} from HDF5 data file.
 }

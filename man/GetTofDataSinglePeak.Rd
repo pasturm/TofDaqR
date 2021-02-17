@@ -19,11 +19,13 @@ range is taken from the peak parameter list.}
 }
 \value{
 A list containing the mass axis, time axis, TofData and averaged
-spectrum of the peak, and the descriptor of the data file.
+spectrum of the peak, and the descriptor of the data file. TofData is a
+matrix with the peak spectrum for every buf as columns and the unit of
+TofData is mV (at the MCP signal out, before external preamps).
 }
 \description{
-\code{GetTofDataSinglePeak} gets TofData of a single peak or a specified mass
-range from a HDF5 data file.
+\code{GetTofDataSinglePeak} gets TofData and the averaged spectrum of a
+single peak or a specified mass range from a HDF5 data file.
 }
 \details{
 Note: this function is not part of the TofDaq API, but is included in the

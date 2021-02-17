@@ -35,6 +35,9 @@ GetPeakData2(
 
 \item{writeCount}{Write count.}
 }
+\value{
+A vector of length peakCount*segCount*bufCount*writeCount.
+}
 \description{
 \code{GetPeakData2} gets data stored in \code{/PeakData2/PeakData} from HDF5 data file.
 }

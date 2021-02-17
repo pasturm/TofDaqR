@@ -117,8 +117,8 @@ SaveMassTableToFile = function(filename = "TmpMassTable.txt") {
 # GetTofDataSinglePeak ---------------------------------------------------------
 #' Gets TofData of a single peak from a HDF5 data file.
 #'
-#' \code{GetTofDataSinglePeak} gets TofData of a single peak or a specified mass
-#' range from a HDF5 data file.
+#' \code{GetTofDataSinglePeak} gets TofData and the averaged spectrum of a
+#' single peak or a specified mass range from a HDF5 data file.
 #'
 #' Note: this function is not part of the TofDaq API, but is included in the
 #' package for convenience.
@@ -130,7 +130,9 @@ SaveMassTableToFile = function(filename = "TmpMassTable.txt") {
 #' range is taken from the peak parameter list.
 #' @param secondTOF If \code{TRUE} the data are read from /FullSpectra2/TofData
 #' @return A list containing the mass axis, time axis, TofData and averaged
-#' spectrum of the peak, and the descriptor of the data file.
+#' spectrum of the peak, and the descriptor of the data file. TofData is a
+#' matrix with the peak spectrum for every buf as columns and the unit of
+#' TofData is mV (at the MCP signal out, before external preamps).
 #'
 #' @family wrapper functions
 #'
@@ -165,11 +167,11 @@ GetTofDataSinglePeak = function(filename, peakIndex, massRange = NULL,
     TofData = GetTofData(filename,  idx[1]-1, length(idx), 0, desc$nbrSegments, 0, desc$nbrBufs, 0, desc$nbrWrites)
   }
   # convert units to mV
-  TofData = TofData/desc$nbrWaveforms
-
-  # average over buf and write dimension
-  TofData = matrix(TofData, ncol = desc$nbrBufs*desc$nbrWrites)
-  AverageSpectrum = rowSums(TofData)/(desc$nbrBufs*desc$nbrWrites)
+  TofData = TofData/(desc$nbrWaveforms*desc$nbrBlocks*desc$nbrMemories)
+  # convert to matrix with length(idx) rows and nbrSegments*nbrBufs*nbrWrites columns
+  TofData = matrix(TofData, ncol = desc$nbrSegments*desc$nbrBufs*desc$nbrWrites)
+  # average over seg, buf and write dimension
+  AverageSpectrum = rowSums(TofData)/(desc$nbrSegments*desc$nbrBufs*desc$nbrWrites)
 
   return(list(MassAxis = MassAxis[idx], TimeAxis = TimeAxis[idx],
               TofData = TofData, AverageSpectrum = AverageSpectrum,
