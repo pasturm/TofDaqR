@@ -4,12 +4,16 @@
 \alias{FitTofDataSinglePeak}
 \title{Wrapper function for FitSinglePeak().}
 \usage{
-FitTofDataSinglePeak(PeakTofData, peakType)
+FitTofDataSinglePeak(PeakTofData, peakType, SpecNo = NULL)
 }
 \arguments{
 \item{PeakTofData}{List from the output of \code{\link{GetTofDataSinglePeak}}.}
 
 \item{peakType}{Peak model to use.}
+
+\item{SpecNo}{Spectrum to use. If \code{SpecNo=NULL} (default) then the averaged
+spectrum is used, with \code{SpecNo=i}, the i-th spectrum from TofData is
+be used.}
 }
 \value{
 A list with fitted parameters.
@@ -18,7 +22,7 @@ A list with fitted parameters.
 \code{FitTofDataSinglePeak} is a wrapper for \code{\link{FitSinglePeak}}
 and also reports fitted resolving power, area and count rates. It takes the
 output of \code{\link{GetTofDataSinglePeak}} as input parameter and calculates
-a peak fit of the averaged spectrum.
+a peak fit of the averaged spectrum or of a single spectrum.
 }
 \details{
 Peak types:

@@ -184,7 +184,7 @@ GetTofDataSinglePeak = function(filename, peakIndex, massRange = NULL,
 #' \code{FitTofDataSinglePeak} is a wrapper for \code{\link{FitSinglePeak}}
 #' and also reports fitted resolving power, area and count rates. It takes the
 #' output of \code{\link{GetTofDataSinglePeak}} as input parameter and calculates
-#' a peak fit of the averaged spectrum.
+#' a peak fit of the averaged spectrum or of a single spectrum.
 #'
 #' Peak types:
 #' \tabular{cccc}{
@@ -209,23 +209,34 @@ GetTofDataSinglePeak = function(filename, peakIndex, massRange = NULL,
 #'
 #' @param PeakTofData List from the output of \code{\link{GetTofDataSinglePeak}}.
 #' @param peakType Peak model to use.
+#' @param SpecNo Spectrum to use. If \code{SpecNo=NULL} (default) then the averaged
+#' spectrum is used, with \code{SpecNo=i}, the i-th spectrum from TofData is
+#' be used.
 #' @return A list with fitted parameters.
 #'
 #' @family wrapper functions
 #'
 #' @export
-FitTofDataSinglePeak = function(PeakTofData, peakType) {
+FitTofDataSinglePeak = function(PeakTofData, peakType, SpecNo = NULL) {
+
+  if (is.null(SpecNo)) {
+    spec = PeakTofData$AverageSpectrum
+  } else if (SpecNo > 0 & SpecNo <= dim(PeakTofData$TofData)[2]) {
+    spec = PeakTofData$TofData[,SpecNo]
+  } else {
+    stop("SpecNo is out of bounds.")
+  }
 
   # initial values
   mu = 0.5 # mixing parameter
-  amplitude = max(PeakTofData$AverageSpectrum) # amplitude
+  amplitude = max(spec) # amplitude
 
   # TimeAxis
-  peakPos = PeakTofData$TimeAxis[PeakTofData$AverageSpectrum==amplitude] # position in tof (ns)
-  fwhm = diff(range(PeakTofData$TimeAxis[PeakTofData$AverageSpectrum>amplitude/2], na.rm=TRUE)) # FWHM in tof (ns)
+  peakPos = PeakTofData$TimeAxis[spec==amplitude] # position in tof (ns)
+  fwhm = diff(range(PeakTofData$TimeAxis[spec>amplitude/2], na.rm=TRUE)) # FWHM in tof (ns)
   fwhm = max(fwhm, min(diff(PeakTofData$TimeAxis))) # make it > 0
 
-  fit1 = FitSinglePeak(yVals = PeakTofData$AverageSpectrum, xVals = PeakTofData$TimeAxis, peakType = peakType,
+  fit1 = FitSinglePeak(yVals = spec, xVals = PeakTofData$TimeAxis, peakType = peakType,
                        amplitude = amplitude, fwhmLo = fwhm, fwhmHi = fwhm,
                        peakPos = peakPos, mu = mu)
 
@@ -247,11 +258,11 @@ FitTofDataSinglePeak = function(PeakTofData, peakType) {
   fit1$cps = fit1$cpe/PeakTofData$desc$tofPeriod
 
   # MassAxis
-  peakPos = PeakTofData$MassAxis[PeakTofData$AverageSpectrum==amplitude] # position in m/Q (Th)
-  fwhm = diff(range(PeakTofData$MassAxis[PeakTofData$AverageSpectrum>amplitude/2], na.rm=TRUE)) # FWHM in m/Q (Th)
+  peakPos = PeakTofData$MassAxis[spec==amplitude] # position in m/Q (Th)
+  fwhm = diff(range(PeakTofData$MassAxis[spec>amplitude/2], na.rm=TRUE)) # FWHM in m/Q (Th)
   fwhm = max(fwhm, min(diff(PeakTofData$MassAxis))) # make it > 0
 
-  fit2 = FitSinglePeak(yVals = PeakTofData$AverageSpectrum, xVals = PeakTofData$MassAxis, peakType = peakType,
+  fit2 = FitSinglePeak(yVals = spec, xVals = PeakTofData$MassAxis, peakType = peakType,
                        amplitude = amplitude, fwhmLo = fwhm, fwhmHi = fwhm,
                        peakPos = peakPos, mu = mu)
 
