@@ -43,6 +43,7 @@ GetIsotopePattern2("CO2", 1e-5)
 }
 \seealso{
 Other Chemistry functions: 
+\code{\link{DecomposeMass}()},
 \code{\link{GetIsotopePattern}()},
 \code{\link{GetMoleculeMass}()}
 }

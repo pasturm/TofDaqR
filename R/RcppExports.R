@@ -3341,3 +3341,50 @@ FindTpsIp <- function(TpsSerial, timeout) {
     .Call(`_TofDaqR_FindTpsIp`, TpsSerial, timeout)
 }
 
+#' Calculates possible sum formulas from a list of fragment masses.
+#'
+#' \code{DecomposeMass} calculates possible sum formulas from a list of fragment
+#' masses.
+#'
+#' Calculates possible sum formulas that amount to target mass +/- tolerance
+#' given a target mass, mass tolerance and a list of fragment masses. Filters
+#' specifying min/max values for absolute counts of a fragment or for ratios
+#' between fragments can be specified in order to reduce the amount of results
+#' and restrict hits to chemically reasonable sum formulae. Typically atomMass
+#' and atomLabels are the masses/labels of elements but you are free to use
+#' whatever you like (isotopes, amino acids, common fragments etc.).
+#'
+#' @param targetMass Target mass.
+#' @param tolerance Tolerance of target mass.
+#' @param atomMass Numeric vector with fragment masses.
+#' @param atomLabel String Vector of fragment labels.
+#' @param elementIndex1 Element index for count filters, first element index for ratio filters.
+#' @param elementIndex2 -1 for count filters, second element for ratio filters.
+#' @param filterMinVal Counts or ratios that are smaller than this value are filtered out.
+#' @param filterMaxVal Counts or ratios that are larger than this value are filtered out.
+#'
+#' @return List with sum formula strings and the mass and mass errors of the sum
+#' formulas.
+#'
+#' @family Chemistry functions
+#'
+#' @examples
+#' targetMass = 314
+#' tolerance = 0.5
+#' atomLabel = c("C", "H", "O")
+#' n = length(atomLabel)
+#' atomMass = rep(0, n)
+#'for (i in 1:n) {
+#'  atomMass[i] = GetMoleculeMass(atomLabel[i])
+#' }
+#' elementIndex1 = seq(along.with = atomLabel)-1
+#' elementIndex2 = rep(-1, n)
+#' filterMinVal = c(20, 20, 0)
+#' filterMaxVal = c(22, 40, 5)
+#' DecomposeMass(targetMass, tolerance, atomMass, atomLabel, elementIndex1,
+#'               elementIndex2, filterMinVal, filterMaxVal)
+#' @export
+DecomposeMass <- function(targetMass, tolerance, atomMass, atomLabel, elementIndex1, elementIndex2, filterMinVal, filterMaxVal) {
+    .Call(`_TofDaqR_DecomposeMass`, targetMass, tolerance, atomMass, atomLabel, elementIndex1, elementIndex2, filterMinVal, filterMaxVal)
+}
+

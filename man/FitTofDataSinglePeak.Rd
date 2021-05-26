@@ -13,7 +13,7 @@ FitTofDataSinglePeak(PeakTofData, peakType, SpecNo = NULL)
 
 \item{SpecNo}{Spectrum to use. If \code{SpecNo=NULL} (default) then the averaged
 spectrum is used, with \code{SpecNo=i}, the i-th spectrum from TofData is
-be used.}
+used.}
 }
 \value{
 A list with fitted parameters.

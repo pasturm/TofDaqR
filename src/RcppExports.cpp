@@ -2214,6 +2214,24 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// DecomposeMass
+List DecomposeMass(double targetMass, double tolerance, NumericVector atomMass, StringVector atomLabel, IntegerVector elementIndex1, IntegerVector elementIndex2, NumericVector filterMinVal, NumericVector filterMaxVal);
+RcppExport SEXP _TofDaqR_DecomposeMass(SEXP targetMassSEXP, SEXP toleranceSEXP, SEXP atomMassSEXP, SEXP atomLabelSEXP, SEXP elementIndex1SEXP, SEXP elementIndex2SEXP, SEXP filterMinValSEXP, SEXP filterMaxValSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type targetMass(targetMassSEXP);
+    Rcpp::traits::input_parameter< double >::type tolerance(toleranceSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type atomMass(atomMassSEXP);
+    Rcpp::traits::input_parameter< StringVector >::type atomLabel(atomLabelSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type elementIndex1(elementIndex1SEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type elementIndex2(elementIndex2SEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type filterMinVal(filterMinValSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type filterMaxVal(filterMaxValSEXP);
+    rcpp_result_gen = Rcpp::wrap(DecomposeMass(targetMass, tolerance, atomMass, atomLabel, elementIndex1, elementIndex2, filterMinVal, filterMaxVal));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_TofDaqR_tof", (DL_FUNC) &_TofDaqR_tof, 6},
@@ -2396,6 +2414,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_TofDaqR_SiEvalPhd", (DL_FUNC) &_TofDaqR_SiEvalPhd, 2},
     {"_TofDaqR_SiFitRateFromPhd", (DL_FUNC) &_TofDaqR_SiFitRateFromPhd, 3},
     {"_TofDaqR_FindTpsIp", (DL_FUNC) &_TofDaqR_FindTpsIp, 2},
+    {"_TofDaqR_DecomposeMass", (DL_FUNC) &_TofDaqR_DecomposeMass, 8},
     {NULL, NULL, 0}
 };
 

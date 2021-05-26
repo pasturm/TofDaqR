@@ -211,7 +211,7 @@ GetTofDataSinglePeak = function(filename, peakIndex, massRange = NULL,
 #' @param peakType Peak model to use.
 #' @param SpecNo Spectrum to use. If \code{SpecNo=NULL} (default) then the averaged
 #' spectrum is used, with \code{SpecNo=i}, the i-th spectrum from TofData is
-#' be used.
+#' used.
 #' @return A list with fitted parameters.
 #'
 #' @family wrapper functions

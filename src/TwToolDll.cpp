@@ -1148,8 +1148,119 @@ String FindTpsIp(std::string TpsSerial, int timeout) {
 #endif
 }
 
-// Not implemented: TwDecomposeMass --------------------------------------------
-// Not implemented: TwGetComposition -------------------------------------------
+// DecomposeMass -----------------------------------------------------------
+//' Calculates possible sum formulas from a list of fragment masses.
+//'
+//' \code{DecomposeMass} calculates possible sum formulas from a list of fragment
+//' masses.
+//'
+//' Calculates possible sum formulas that amount to target mass +/- tolerance
+//' given a target mass, mass tolerance and a list of fragment masses. Filters
+//' specifying min/max values for absolute counts of a fragment or for ratios
+//' between fragments can be specified in order to reduce the amount of results
+//' and restrict hits to chemically reasonable sum formulae. Typically atomMass
+//' and atomLabels are the masses/labels of elements but you are free to use
+//' whatever you like (isotopes, amino acids, common fragments etc.).
+//'
+//' @param targetMass Target mass.
+//' @param tolerance Tolerance of target mass.
+//' @param atomMass Numeric vector with fragment masses.
+//' @param atomLabel String Vector of fragment labels.
+//' @param elementIndex1 Element index for count filters, first element index for ratio filters.
+//' @param elementIndex2 -1 for count filters, second element for ratio filters.
+//' @param filterMinVal Counts or ratios that are smaller than this value are filtered out.
+//' @param filterMaxVal Counts or ratios that are larger than this value are filtered out.
+//'
+//' @return List with sum formula strings and the mass and mass errors of the sum
+//' formulas.
+//'
+//' @family Chemistry functions
+//'
+//' @examples
+//' targetMass = 314
+//' tolerance = 0.5
+//' atomLabel = c("C", "H", "O")
+//' n = length(atomLabel)
+//' atomMass = rep(0, n)
+//'for (i in 1:n) {
+//'  atomMass[i] = GetMoleculeMass(atomLabel[i])
+//' }
+//' elementIndex1 = seq(along.with = atomLabel)-1
+//' elementIndex2 = rep(-1, n)
+//' filterMinVal = c(20, 20, 0)
+//' filterMaxVal = c(22, 40, 5)
+//' DecomposeMass(targetMass, tolerance, atomMass, atomLabel, elementIndex1,
+//'               elementIndex2, filterMinVal, filterMaxVal)
+//' @export
+// [[Rcpp::export]]
+List DecomposeMass(double targetMass, double tolerance, NumericVector atomMass,
+                   StringVector atomLabel, IntegerVector elementIndex1,
+                   IntegerVector elementIndex2, NumericVector filterMinVal,
+                   NumericVector filterMaxVal) {
+
+  int nbrAtoms = atomMass.size();
+
+  // get size of atomLabel
+  int sizeLabel = 0;
+  for( int i=0; i < nbrAtoms; i++ ) {
+    for(int j=0; j < atomLabel[i].size(); j++){
+      sizeLabel += 1;
+    }
+    sizeLabel += 1;  // null termination
+  }
+
+  char *catomLabel = new char[sizeLabel];
+
+  int pos = 0;
+  for( int i=0; i < nbrAtoms; i++ ) {
+    std::string str(atomLabel[i]);
+    strncpy(&catomLabel[pos], str.c_str(), atomLabel[i].size());
+    pos += atomLabel[i].size() + 1;
+    catomLabel[pos-1] = '\0';
+  }
+
+  int nbrCompomers;
+  int nbrFilters = elementIndex1.size();
+
+  TwRetVal rv = TwDecomposeMass(targetMass, tolerance, nbrAtoms, &atomMass[0],
+                       catomLabel, nbrFilters, &elementIndex1[0], &elementIndex2[0],
+                       &filterMinVal[0], &filterMaxVal[0], &nbrCompomers);
+  if (rv != TwSuccess) {
+    delete[] catomLabel;
+    stop(TranslateReturnValue(rv));
+  }
+  delete[] catomLabel;
+
+  // get composition
+  int sumFormulaLength = 256; // assuming all formulas are <256 characters long
+  double mass;
+  double massError;
+  NumericVector massVector(nbrCompomers);
+  NumericVector massErrorVector(nbrCompomers);
+  StringVector sumFormulaVector(nbrCompomers);
+
+  for( int i=0; i < nbrCompomers; i++ ) {
+    char *sumFormula = new char[sumFormulaLength];
+    rv = TwGetComposition(i, sumFormula, &sumFormulaLength, &mass, &massError);
+    if (rv != TwSuccess) {
+      delete[] sumFormula;
+      stop(TranslateReturnValue(rv));
+    }
+    std::string str(sumFormula);
+    delete[] sumFormula;
+    massVector[i] = mass;
+    massErrorVector[i] = massError;
+    sumFormulaVector[i] = str;
+  }
+
+  List result;
+  result["sumFormula"] = sumFormulaVector;
+  result["mass"] = massVector;
+  result["massError"] = massErrorVector;
+  return result;
+}
+
+
 // Not implemented: TwNistLibrarySearch ----------------------------------------
 // Not implemented: TwNistLibraryQueryResult -----------------------------------
 // Not implemented: TwBruteForceCalibrate --------------------------------------

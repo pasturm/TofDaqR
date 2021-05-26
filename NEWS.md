@@ -1,6 +1,11 @@
-# Changes in version 0.3.10.9000
+# Changes in version 0.3.10.9002
 
 * Fixed a bug in `GetTofDataSinglePeak()`.
+
+* `FitTofDataSinglePeak()` can also fit single spectra (and not only the averaged
+  spectrum).
+  
+* Added TwToolDll function `DecomposeMass()`.
 
 
 # Changes in version 0.3.10
