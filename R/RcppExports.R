@@ -2637,8 +2637,8 @@ H5SetMassCalib2Ex <- function(Filename, mode, nbrParams, p, mass, tof, weight, l
 #' spectrum in the data file.
 #'
 #' This function can be used to delete the dynamic calibration information by
-#' passing the special parameter set: \code{writeIndex} = -1, \code{nbrParams}
-#' = \code{nbrStat} = 0 and \code{par} = \code{stat} = \code{NULL}. With the
+#' passing the special parameter set: \code{writeIndex} = -1 and \code{par} =
+#' \code{stat} = \code{NULL}. With the
 #' \code{stat} array additional information can be stored in the dataset
 #' \code{/FullSpectra/MassCalibrationStats} (no official format definition or
 #' supporting API functions).

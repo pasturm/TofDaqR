@@ -5,6 +5,11 @@
 
 using namespace Rcpp;
 
+#ifdef RCPP_USE_GLOBAL_ROSTREAM
+Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
+Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
+#endif
+
 // tof
 NumericVector tof(std::string toftype, double drift, double pulse, double massToCharge, NumericVector x, NumericVector v);
 RcppExport SEXP _TofDaqR_tof(SEXP toftypeSEXP, SEXP driftSEXP, SEXP pulseSEXP, SEXP massToChargeSEXP, SEXP xSEXP, SEXP vSEXP) {
@@ -1852,14 +1857,14 @@ BEGIN_RCPP
 END_RCPP
 }
 // H5SetMassCalibDynamic
-void H5SetMassCalibDynamic(std::string filename, int writeIndex, NumericVector par, NumericVector stat);
+void H5SetMassCalibDynamic(std::string filename, int writeIndex, Nullable<Rcpp::NumericVector> par, Nullable<Rcpp::NumericVector> stat);
 RcppExport SEXP _TofDaqR_H5SetMassCalibDynamic(SEXP filenameSEXP, SEXP writeIndexSEXP, SEXP parSEXP, SEXP statSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type filename(filenameSEXP);
     Rcpp::traits::input_parameter< int >::type writeIndex(writeIndexSEXP);
-    Rcpp::traits::input_parameter< NumericVector >::type par(parSEXP);
-    Rcpp::traits::input_parameter< NumericVector >::type stat(statSEXP);
+    Rcpp::traits::input_parameter< Nullable<Rcpp::NumericVector> >::type par(parSEXP);
+    Rcpp::traits::input_parameter< Nullable<Rcpp::NumericVector> >::type stat(statSEXP);
     H5SetMassCalibDynamic(filename, writeIndex, par, stat);
     return R_NilValue;
 END_RCPP

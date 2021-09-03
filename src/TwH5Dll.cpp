@@ -2351,8 +2351,8 @@ void H5SetMassCalib2Ex(std::string Filename, int mode, int nbrParams,
 //' spectrum in the data file.
 //'
 //' This function can be used to delete the dynamic calibration information by
-//' passing the special parameter set: \code{writeIndex} = -1, \code{nbrParams}
-//' = \code{nbrStat} = 0 and \code{par} = \code{stat} = \code{NULL}. With the
+//' passing the special parameter set: \code{writeIndex} = -1 and \code{par} =
+//' \code{stat} = \code{NULL}. With the
 //' \code{stat} array additional information can be stored in the dataset
 //' \code{/FullSpectra/MassCalibrationStats} (no official format definition or
 //' supporting API functions).
@@ -2366,18 +2366,32 @@ void H5SetMassCalib2Ex(std::string Filename, int mode, int nbrParams,
 //' @export
 // [[Rcpp::export]]
 void H5SetMassCalibDynamic(std::string filename, int writeIndex,
-                           NumericVector par, NumericVector stat) {
-
+                           Nullable<Rcpp::NumericVector> par,
+                           Nullable<Rcpp::NumericVector> stat) {
   char *cFilename = StringToChar(filename);
-  int nbrParams = par.size();
-  int nbrStat = stat.size();
   int segmentIndex = -1;
   int bufIndex = -1;
+  int nbrParams;
+  int nbrStat;
+  double *p_par;
+  double *p_stat;
+  if (par.isNotNull() && stat.isNotNull()) {
+    NumericVector par_(par);
+    NumericVector stat_(stat);
+    nbrParams = par_.size();
+    nbrStat = stat_.size();
+    p_par = &par_[0];
+    p_stat = &stat_[0];
+  } else {
+    nbrParams = 0;
+    nbrStat = 0;
+    p_par = nullptr;
+    p_stat = nullptr;
+  }
 
   TwRetVal rv = TwH5SetMassCalibDynamic(cFilename, segmentIndex, bufIndex,
-                                        writeIndex, nbrParams, &par[0], nbrStat,
-                                        &stat[0]);
-
+                                        writeIndex, nbrParams, p_par, nbrStat,
+                                        p_stat);
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }

@@ -1,4 +1,4 @@
-# Changes in version 0.3.10.9002
+# Changes in version 0.3.10.9003
 
 * Fixed a bug in `GetTofDataSinglePeak()`.
 
@@ -6,6 +6,8 @@
   spectrum).
   
 * Added TwToolDll function `DecomposeMass()`.
+
+* Fixed a bug in `H5SetMassCalibDynamic()`.
 
 
 # Changes in version 0.3.10
