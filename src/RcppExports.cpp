@@ -1857,15 +1857,14 @@ BEGIN_RCPP
 END_RCPP
 }
 // H5SetMassCalibDynamic
-void H5SetMassCalibDynamic(std::string filename, int writeIndex, Nullable<Rcpp::NumericVector> par, Nullable<Rcpp::NumericVector> stat);
-RcppExport SEXP _TofDaqR_H5SetMassCalibDynamic(SEXP filenameSEXP, SEXP writeIndexSEXP, SEXP parSEXP, SEXP statSEXP) {
+void H5SetMassCalibDynamic(std::string filename, int writeIndex, Nullable<Rcpp::NumericVector> par);
+RcppExport SEXP _TofDaqR_H5SetMassCalibDynamic(SEXP filenameSEXP, SEXP writeIndexSEXP, SEXP parSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type filename(filenameSEXP);
     Rcpp::traits::input_parameter< int >::type writeIndex(writeIndexSEXP);
     Rcpp::traits::input_parameter< Nullable<Rcpp::NumericVector> >::type par(parSEXP);
-    Rcpp::traits::input_parameter< Nullable<Rcpp::NumericVector> >::type stat(statSEXP);
-    H5SetMassCalibDynamic(filename, writeIndex, par, stat);
+    H5SetMassCalibDynamic(filename, writeIndex, par);
     return R_NilValue;
 END_RCPP
 }
@@ -2391,7 +2390,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_TofDaqR_H5SetMassCalib2", (DL_FUNC) &_TofDaqR_H5SetMassCalib2, 7},
     {"_TofDaqR_H5SetMassCalibEx", (DL_FUNC) &_TofDaqR_H5SetMassCalibEx, 8},
     {"_TofDaqR_H5SetMassCalib2Ex", (DL_FUNC) &_TofDaqR_H5SetMassCalib2Ex, 8},
-    {"_TofDaqR_H5SetMassCalibDynamic", (DL_FUNC) &_TofDaqR_H5SetMassCalibDynamic, 4},
+    {"_TofDaqR_H5SetMassCalibDynamic", (DL_FUNC) &_TofDaqR_H5SetMassCalibDynamic, 3},
     {"_TofDaqR_ChangePeakTable", (DL_FUNC) &_TofDaqR_ChangePeakTable, 3},
     {"_TofDaqR_ChangePeakTableFromFile", (DL_FUNC) &_TofDaqR_ChangePeakTableFromFile, 3},
     {"_TofDaqR_FitSinglePeak", (DL_FUNC) &_TofDaqR_FitSinglePeak, 10},

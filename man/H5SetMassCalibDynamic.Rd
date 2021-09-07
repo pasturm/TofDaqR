@@ -4,17 +4,15 @@
 \alias{H5SetMassCalibDynamic}
 \title{Stores dynamic mass calibration for a given spectrum in the data file.}
 \usage{
-H5SetMassCalibDynamic(filename, writeIndex, par, stat)
+H5SetMassCalibDynamic(filename, writeIndex, par)
 }
 \arguments{
 \item{filename}{Path/filename of the HDF5 file.}
 
 \item{writeIndex}{Write index of the calibration to store.}
 
-\item{par}{Numeric vector holding the actual calibration values.}
-
-\item{stat}{Numeric vector with additional information on how the parameters
-were obtained (typically).}
+\item{par}{Numeric vector holding the actual calibration values. It
+must be the same number of parameters as the global mass calibration.}
 }
 \description{
 \code{H5SetMassCalibDynamic} stores dynamic mass calibration for a given
@@ -23,8 +21,5 @@ spectrum in the data file.
 \details{
 This function can be used to delete the dynamic calibration information by
 passing the special parameter set: \code{writeIndex} = -1 and \code{par} =
-\code{stat} = \code{NULL}. With the
-\code{stat} array additional information can be stored in the dataset
-\code{/FullSpectra/MassCalibrationStats} (no official format definition or
-supporting API functions).
+\code{NULL}.
 }

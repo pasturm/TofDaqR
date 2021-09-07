@@ -18,7 +18,8 @@ range is taken from the peak parameter list.}
 \item{secondTOF}{If \code{TRUE} the data are read from /FullSpectra2/TofData}
 }
 \value{
-A list containing the mass axis, time axis, TofData and averaged
+A list containing x-axis data (mass/charge (Th), time-of-flight
+(microsec) and sample indices), TofData and averaged
 spectrum of the peak, and the descriptor of the data file. TofData is a
 matrix with the peak spectrum for every buf as columns and the unit of
 TofData is mV (at the MCP signal out, before external preamps).

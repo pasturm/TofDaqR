@@ -2352,46 +2352,34 @@ void H5SetMassCalib2Ex(std::string Filename, int mode, int nbrParams,
 //'
 //' This function can be used to delete the dynamic calibration information by
 //' passing the special parameter set: \code{writeIndex} = -1 and \code{par} =
-//' \code{stat} = \code{NULL}. With the
-//' \code{stat} array additional information can be stored in the dataset
-//' \code{/FullSpectra/MassCalibrationStats} (no official format definition or
-//' supporting API functions).
+//' \code{NULL}.
 //'
 //' @param filename Path/filename of the HDF5 file.
 //' @param writeIndex Write index of the calibration to store.
-//' @param par Numeric vector holding the actual calibration values.
-//' @param stat Numeric vector with additional information on how the parameters
-//' were obtained (typically).
+//' @param par Numeric vector holding the actual calibration values. It
+//' must be the same number of parameters as the global mass calibration.
 //'
 //' @export
 // [[Rcpp::export]]
 void H5SetMassCalibDynamic(std::string filename, int writeIndex,
-                           Nullable<Rcpp::NumericVector> par,
-                           Nullable<Rcpp::NumericVector> stat) {
+                           Nullable<Rcpp::NumericVector> par) {
   char *cFilename = StringToChar(filename);
   int segmentIndex = -1;
   int bufIndex = -1;
   int nbrParams;
-  int nbrStat;
   double *p_par;
-  double *p_stat;
-  if (par.isNotNull() && stat.isNotNull()) {
+  if (par.isNotNull()) {
     NumericVector par_(par);
-    NumericVector stat_(stat);
     nbrParams = par_.size();
-    nbrStat = stat_.size();
     p_par = &par_[0];
-    p_stat = &stat_[0];
   } else {
     nbrParams = 0;
-    nbrStat = 0;
     p_par = nullptr;
-    p_stat = nullptr;
   }
 
   TwRetVal rv = TwH5SetMassCalibDynamic(cFilename, segmentIndex, bufIndex,
-                                        writeIndex, nbrParams, p_par, nbrStat,
-                                        p_stat);
+                                        writeIndex, nbrParams, p_par, nbrParams,
+                                        p_par);
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }

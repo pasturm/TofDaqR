@@ -2638,20 +2638,16 @@ H5SetMassCalib2Ex <- function(Filename, mode, nbrParams, p, mass, tof, weight, l
 #'
 #' This function can be used to delete the dynamic calibration information by
 #' passing the special parameter set: \code{writeIndex} = -1 and \code{par} =
-#' \code{stat} = \code{NULL}. With the
-#' \code{stat} array additional information can be stored in the dataset
-#' \code{/FullSpectra/MassCalibrationStats} (no official format definition or
-#' supporting API functions).
+#' \code{NULL}.
 #'
 #' @param filename Path/filename of the HDF5 file.
 #' @param writeIndex Write index of the calibration to store.
-#' @param par Numeric vector holding the actual calibration values.
-#' @param stat Numeric vector with additional information on how the parameters
-#' were obtained (typically).
+#' @param par Numeric vector holding the actual calibration values. It
+#' must be the same number of parameters as the global mass calibration.
 #'
 #' @export
-H5SetMassCalibDynamic <- function(filename, writeIndex, par, stat) {
-    invisible(.Call(`_TofDaqR_H5SetMassCalibDynamic`, filename, writeIndex, par, stat))
+H5SetMassCalibDynamic <- function(filename, writeIndex, par) {
+    invisible(.Call(`_TofDaqR_H5SetMassCalibDynamic`, filename, writeIndex, par))
 }
 
 #' Changes the PeakTable and recomputes the PeakData.

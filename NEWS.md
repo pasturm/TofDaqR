@@ -1,4 +1,4 @@
-# Changes in version 0.3.10.9003
+# Changes in version 0.3.10.9004
 
 * Fixed a bug in `GetTofDataSinglePeak()`.
 
@@ -8,6 +8,9 @@
 * Added TwToolDll function `DecomposeMass()`.
 
 * Fixed a bug in `H5SetMassCalibDynamic()`.
+
+* Added sample index axis to the output of `GetTofDataSinglePeak()` and 
+  `FitTofDataSinglePeak()`.
 
 
 # Changes in version 0.3.10

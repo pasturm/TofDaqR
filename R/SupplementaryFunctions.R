@@ -129,7 +129,8 @@ SaveMassTableToFile = function(filename = "TmpMassTable.txt") {
 #' containing the low and high limit of the mass range. If \code{NULL} the mass
 #' range is taken from the peak parameter list.
 #' @param secondTOF If \code{TRUE} the data are read from /FullSpectra2/TofData
-#' @return A list containing the mass axis, time axis, TofData and averaged
+#' @return A list containing x-axis data (mass/charge (Th), time-of-flight
+#' (microsec) and sample indices), TofData and averaged
 #' spectrum of the peak, and the descriptor of the data file. TofData is a
 #' matrix with the peak spectrum for every buf as columns and the unit of
 #' TofData is mV (at the MCP signal out, before external preamps).
@@ -140,6 +141,9 @@ SaveMassTableToFile = function(filename = "TmpMassTable.txt") {
 GetTofDataSinglePeak = function(filename, peakIndex, massRange = NULL,
                                 secondTOF = FALSE) {
 
+  # Read H5descriptor
+  desc = GetH5Descriptor(filename)
+
   # read mass axis data
   if (secondTOF) {
     MassAxis = GetSpecXaxisFromH5(filename, Type = -1, writeIndex = 0)
@@ -147,6 +151,7 @@ GetTofDataSinglePeak = function(filename, peakIndex, massRange = NULL,
   } else {
     MassAxis = GetSpecXaxisFromH5(filename, Type = 1, writeIndex = 0)
     TimeAxis = GetSpecXaxisFromH5(filename, Type = 2, writeIndex = 0)
+    IndexAxis = GetSpecXaxisFromH5(filename, Type = 0, writeIndex = 0)
   }
 
   if (is.null(massRange)) {
@@ -156,9 +161,6 @@ GetTofDataSinglePeak = function(filename, peakIndex, massRange = NULL,
   }
 
   idx = which(MassAxis>(peakpar$loMass)&MassAxis<(peakpar$hiMass))  # sample indices
-
-  # Read H5descriptor
-  desc = GetH5Descriptor(filename)
 
   # read FullSpectra data of one mass
   if (secondTOF) {
@@ -173,7 +175,7 @@ GetTofDataSinglePeak = function(filename, peakIndex, massRange = NULL,
   # average over seg, buf and write dimension
   AverageSpectrum = rowSums(TofData)/(desc$nbrSegments*desc$nbrBufs*desc$nbrWrites)
 
-  return(list(MassAxis = MassAxis[idx], TimeAxis = TimeAxis[idx],
+  return(list(MassAxis = MassAxis[idx], TimeAxis = TimeAxis[idx], IndexAxis = IndexAxis[idx],
               TofData = TofData, AverageSpectrum = AverageSpectrum,
               desc = desc))
 }
@@ -269,7 +271,19 @@ FitTofDataSinglePeak = function(PeakTofData, peakType, SpecNo = NULL) {
   # resolution
   fit2$resolution = fit2$peakPos/(fit2$fwhmLo+fit2$fwhmHi)*2
 
-  return(list(fit_time = fit1, fit_mass = fit2))
+  # IndexAxis
+  peakPos = PeakTofData$IndexAxis[spec==amplitude] # position in m/Q (Th)
+  fwhm = diff(range(PeakTofData$IndexAxis[spec>amplitude/2], na.rm=TRUE)) # FWHM in m/Q (Th)
+  fwhm = max(fwhm, min(diff(PeakTofData$IndexAxis))) # make it > 0
+
+  fit3 = FitSinglePeak(yVals = spec, xVals = PeakTofData$IndexAxis, peakType = peakType,
+                       amplitude = amplitude, fwhmLo = fwhm, fwhmHi = fwhm,
+                       peakPos = peakPos, mu = mu)
+
+  # resolution
+  fit3$resolution = fit3$peakPos/(fit3$fwhmLo+fit3$fwhmHi)*2
+
+  return(list(fit_time = fit1, fit_mass = fit2, fit_index = fit3))
 }
 
 # API documentation -----------------------------------------------------------
