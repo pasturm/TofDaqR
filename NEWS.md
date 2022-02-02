@@ -1,4 +1,4 @@
-# Changes in version 0.3.10.9004
+# Changes in version 0.3.10.9005
 
 * Fixed a bug in `GetTofDataSinglePeak()`.
 
@@ -11,6 +11,8 @@
 
 * Added sample index axis to the output of `GetTofDataSinglePeak()` and 
   `FitTofDataSinglePeak()`.
+  
+* Fixed reading the description in `GetRegUserDataFromH5()`.
 
 
 # Changes in version 0.3.10

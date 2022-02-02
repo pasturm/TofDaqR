@@ -951,7 +951,21 @@ SEXP GetRegUserDataFromH5(std::string Filename, std::string location,
 
   if (readDescription) {
 
-    char *description = new char[256 * bufLength];
+    int descLength = 0;
+    if (bufIndex == -1 && writeIndex == -1) {
+      // get descLength
+      TwRetVal rv = TwGetRegUserDataFromH5(cFilename, cLocation, 0,
+                                           0, &descLength, NULL, NULL);
+      if (rv != TwValueAdjusted) {
+        TwCloseH5(cFilename);
+        stop(TranslateReturnValue(rv));
+      }
+    } else {
+      descLength = bufLength;
+    }
+
+
+    char *description = new char[256 * descLength];
 
     rv = TwGetRegUserDataFromH5(cFilename, cLocation, bufIndex, writeIndex,
                                 &bufLength, &buffer[0], description);
@@ -961,11 +975,11 @@ SEXP GetRegUserDataFromH5(std::string Filename, std::string location,
       stop(TranslateReturnValue(rv));
     }
 
-    CharacterVector descriptionArray(bufLength);
-    std::string str(description, 256 * bufLength);
+    CharacterVector descriptionArray(descLength);
+    std::string str(description, 256 * descLength);
     delete[] description;
 
-    for (int i = 0; i < bufLength; ++i) {
+    for (int i = 0; i < descLength; ++i) {
       descriptionArray[i] = str.substr(i*256, 256);
     }
 
