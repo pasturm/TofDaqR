@@ -1795,7 +1795,7 @@ GetSpecXaxisFromH5 <- function(Filename, Type = 1L, writeIndex = 0L) {
 #' Segment profile from HDF5 data file.
 #'
 #' \code{GetSegmentProfileFromH5} reads a segment profile for a given peak (or
-#' all peaks) and buf and write slice.
+#' all peaks) and averaged over a given buf and write range.
 #'
 #' @param Filename Path/filename of the HDF5 file.
 #' @param PeakIndex Index of peak to fetch segment profile from. All peaks are
@@ -1822,7 +1822,7 @@ GetSegmentProfileFromH5 <- function(Filename, PeakIndex, BufStartIndex, BufEndIn
 #' Segment profile from HDF5 data file.
 #'
 #' \code{GetSegmentProfile2FromH5} reads a segment profile for a given peak (or
-#' all peaks) and buf and write slice.
+#' all peaks) and averaged over a given buf and write range.
 #'
 #' @param Filename Path/filename of the HDF5 file.
 #' @param PeakIndex Index of peak to fetch segment profile from. All peaks are
@@ -1849,7 +1849,8 @@ GetSegmentProfile2FromH5 <- function(Filename, PeakIndex, BufStartIndex, BufEndI
 #' Gets a linked buf/write profile.
 #'
 #' \code{GetBufWriteProfileFromH5} gets a linked buf/write profile for a given
-#' peak (or all peaks) and segment slice.
+#' peak (or all peaks) and segment slice. If your data is not linked, use
+#' \code{\link{GetPeakData}} to get the buf and/or write profiles.
 #'
 #' @param Filename Path/filename of the HDF5 file.
 #' @param PeakIndex Index of peak to fetch buf/write profile from. All peaks are
@@ -1871,7 +1872,8 @@ GetBufWriteProfileFromH5 <- function(Filename, PeakIndex, SegmentStartIndex, Seg
 #' Gets a linked buf/write profile.
 #'
 #' \code{GetBufWriteProfile2FromH5} gets a linked buf/write profile for a given
-#' peak (or all peaks) and segment slice.
+#' peak (or all peaks) and segment slice. If your data is not linked, use
+#' \code{\link{GetPeakData2}} to get the buf and/or write profiles.
 #'
 #' @param Filename Path/filename of the HDF5 file.
 #' @param PeakIndex Index of peak to fetch buf/write profile from. All peaks are

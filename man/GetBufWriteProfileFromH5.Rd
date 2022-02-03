@@ -26,7 +26,8 @@ A vector containing the buf/write profile(s).
 }
 \description{
 \code{GetBufWriteProfileFromH5} gets a linked buf/write profile for a given
-peak (or all peaks) and segment slice.
+peak (or all peaks) and segment slice. If your data is not linked, use
+\code{\link{GetPeakData}} to get the buf and/or write profiles.
 }
 \examples{
 \dontrun{

@@ -37,7 +37,7 @@ A vector containing the segment profile(s).
 }
 \description{
 \code{GetSegmentProfileFromH5} reads a segment profile for a given peak (or
-all peaks) and buf and write slice.
+all peaks) and averaged over a given buf and write range.
 }
 \examples{
 \dontrun{
