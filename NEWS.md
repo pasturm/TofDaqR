@@ -1,4 +1,4 @@
-# Changes in version 0.3.10.9006
+# Changes in version 0.3.10.9007
 
 * Fixed a bug in `GetTofDataSinglePeak()`.
 
@@ -14,7 +14,8 @@
   
 * Fixed reading the description in `GetRegUserDataFromH5()`.
 
-* Updated help pages of `GetSegmentProfileFromH5()` and `GetBufWriteProfileFromH5()`.
+* Updated help pages of `GetSegmentProfileFromH5()`, `GetBufWriteProfileFromH5()`,
+  `ContinueAcquisition()` and `ManualContinueNeeded()`.
 
 
 # Changes in version 0.3.10

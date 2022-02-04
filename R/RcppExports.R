@@ -196,6 +196,13 @@ StopAcquisition <- function() {
 #'
 #' \code{ContinueAcquisition} signals to the TofDaq recorder to continue an
 #' acquisition.
+#'
+#' This is a legacy function that was used with some Acqiris DAQ cards,
+#' where every block was armed by software. The feature is enabled by setting
+#' the parameter ManualContinueEveryNMemories to a value > 0. All latest DAQ
+#' devices operate in a streaming mode in order to achieve 100 \% duty cycle and
+#' TofDaq recorder no longer has per block control of the DAQ progress.
+#'
 #' @export
 ContinueAcquisition <- function() {
     invisible(.Call(`_TofDaqR_ContinueAcquisition`))
@@ -204,7 +211,13 @@ ContinueAcquisition <- function() {
 #' Indicates if the TofDaq recorder expects a continue event.
 #'
 #' \code{ManualContinueNeeded} indicates if the TofDaq recorder expects a
-#' continue event.
+#' continue event (see \code{\link{ContinueAcquisition}}).
+#'
+#' This is a legacy function that was used with some Acqiris DAQ cards,
+#' where every block was armed by software. The feature is enabled by setting
+#' the parameter ManualContinueEveryNMemories to a value > 0. All latest DAQ
+#' devices operate in a streaming mode in order to achieve 100 \% duty cycle and
+#' TofDaq recorder no longer has per block control of the DAQ progress.
 #'
 #' @return \code{TRUE} or \code{FALSE}.
 #' @export
