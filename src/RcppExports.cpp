@@ -10,22 +10,6 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// tof
-NumericVector tof(std::string toftype, double drift, double pulse, double massToCharge, NumericVector x, NumericVector v);
-RcppExport SEXP _TofDaqR_tof(SEXP toftypeSEXP, SEXP driftSEXP, SEXP pulseSEXP, SEXP massToChargeSEXP, SEXP xSEXP, SEXP vSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< std::string >::type toftype(toftypeSEXP);
-    Rcpp::traits::input_parameter< double >::type drift(driftSEXP);
-    Rcpp::traits::input_parameter< double >::type pulse(pulseSEXP);
-    Rcpp::traits::input_parameter< double >::type massToCharge(massToChargeSEXP);
-    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
-    Rcpp::traits::input_parameter< NumericVector >::type v(vSEXP);
-    rcpp_result_gen = Rcpp::wrap(tof(toftype, drift, pulse, massToCharge, x, v));
-    return rcpp_result_gen;
-END_RCPP
-}
 // EventList2TofSpec
 NumericVector EventList2TofSpec(NumericVector events, double clockPeriod, double sampleInterval, int nbrSamples);
 RcppExport SEXP _TofDaqR_EventList2TofSpec(SEXP eventsSEXP, SEXP clockPeriodSEXP, SEXP sampleIntervalSEXP, SEXP nbrSamplesSEXP) {
@@ -2238,7 +2222,6 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_TofDaqR_tof", (DL_FUNC) &_TofDaqR_tof, 6},
     {"_TofDaqR_EventList2TofSpec", (DL_FUNC) &_TofDaqR_EventList2TofSpec, 4},
     {"_TofDaqR_DecodeEventList", (DL_FUNC) &_TofDaqR_DecodeEventList, 3},
     {"_TofDaqR_DecodeEventListThreshold", (DL_FUNC) &_TofDaqR_DecodeEventListThreshold, 6},
