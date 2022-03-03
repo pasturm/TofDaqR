@@ -6,9 +6,9 @@
 \description{
 Documentation of the TofDaq API:
 \itemize{
-  \item \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofwerkHDF5.htm}{TOFWERK HDF5 data format}
-  \item \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm}{TofDaqDll functions}
-  \item \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TwH5Dll.htm}{TwH5Dll functions}
-  \item \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TwToolDll.htm}{TwToolDll functions}
+  \item \href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofwerkHDF5.htm}{TOFWERK HDF5 data format}
+  \item \href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm}{TofDaqDll functions}
+  \item \href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TwH5Dll.htm}{TwH5Dll functions}
+  \item \href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TwToolDll.htm}{TwToolDll functions}
 }
 }

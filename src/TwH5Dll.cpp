@@ -13,7 +13,7 @@ using namespace Rcpp;
 //' available in the structure can be read using \code{Get...AttributeFromH5}
 //' functions.
 //' See
-//' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TwH5Dll.htm}{TofDaq API documentation}
+//' \href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TwH5Dll.htm}{TofDaq API documentation}
 //' for more details.
 //'
 //' @param Filename Path/filename of the HDF5 file.

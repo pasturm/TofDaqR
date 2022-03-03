@@ -8,7 +8,7 @@ GetDaqParameterIntRef(Parameter)
 }
 \arguments{
 \item{Parameter}{Parameter name as a string. See
-\href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+\href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
 for a list of all available parameters.}
 }
 \description{

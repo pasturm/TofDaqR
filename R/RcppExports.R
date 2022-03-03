@@ -323,7 +323,7 @@ SaveIniFile <- function(IniFile = NULL) {
 #' \code{GetDaqParameter} gets a single parameter as a string.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' \href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
 #' for a list of all available parameters.
 #' @export
 GetDaqParameter <- function(Parameter) {
@@ -335,7 +335,7 @@ GetDaqParameter <- function(Parameter) {
 #' \code{GetDaqParameterInt} gets a single integer parameter.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' \href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
 #' for a list of all available parameters.
 #' @export
 GetDaqParameterInt <- function(Parameter) {
@@ -347,7 +347,7 @@ GetDaqParameterInt <- function(Parameter) {
 #' \code{GetDaqParameterBool} gets a single boolean parameter.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' \href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
 #' for a list of all available parameters.
 #' @export
 GetDaqParameterBool <- function(Parameter) {
@@ -359,7 +359,7 @@ GetDaqParameterBool <- function(Parameter) {
 #' \code{GetDaqParameterFloat} gets a single float parameter.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' \href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
 #' for a list of all available parameters.
 #' @export
 GetDaqParameterFloat <- function(Parameter) {
@@ -374,7 +374,7 @@ GetDaqParameterFloat <- function(Parameter) {
 #' \code{\link[bit64:as.integer64.character]{bit64::as.integer64()}}.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' \href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
 #' for a list of all available parameters.
 #' @export
 GetDaqParameterInt64 <- function(Parameter) {
@@ -386,7 +386,7 @@ GetDaqParameterInt64 <- function(Parameter) {
 #' \code{GetDaqParameterDouble} gets a single double parameter.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' \href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
 #' for a list of all available parameters.
 #' @export
 GetDaqParameterDouble <- function(Parameter) {
@@ -401,7 +401,7 @@ GetDaqParameterDouble <- function(Parameter) {
 #' for success and a TwRetVal string is returned if it is not sucessful.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' \href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
 #' for a list of all available parameters.
 #' @export
 GetDaqParameterIntRef <- function(Parameter) {
@@ -416,7 +416,7 @@ GetDaqParameterIntRef <- function(Parameter) {
 #' for success and a TwRetVal string is returned if it is not sucessful.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' \href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
 #' for a list of all available parameters.
 #' @export
 GetDaqParameterBoolRef <- function(Parameter) {
@@ -431,7 +431,7 @@ GetDaqParameterBoolRef <- function(Parameter) {
 #' for success and a TwRetVal string is returned if it is not sucessful.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' \href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
 #' for a list of all available parameters.
 #' @export
 GetDaqParameterFloatRef <- function(Parameter) {
@@ -446,7 +446,7 @@ GetDaqParameterFloatRef <- function(Parameter) {
 #' for success and a TwRetVal string is returned if it is not sucessful.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' \href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
 #' for a list of all available parameters.
 #' @export
 GetDaqParameterInt64Ref <- function(Parameter) {
@@ -461,7 +461,7 @@ GetDaqParameterInt64Ref <- function(Parameter) {
 #' for success and a TwRetVal string is returned if it is not sucessful.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' \href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
 #' for a list of all available parameters.
 #' @export
 GetDaqParameterDoubleRef <- function(Parameter) {
@@ -476,7 +476,7 @@ GetDaqParameterDoubleRef <- function(Parameter) {
 #' if the type of the parameter is not a string.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' \href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
 #' for a list of all available parameters.
 #' @export
 GetDaqParameterStringRef <- function(Parameter) {
@@ -488,7 +488,7 @@ GetDaqParameterStringRef <- function(Parameter) {
 #' \code{SetDaqParameter} sets a single parameter.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' \href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
 #' for a list of all available parameters.
 #' @param ValueString Value as a string.
 #' @export
@@ -501,7 +501,7 @@ SetDaqParameter <- function(Parameter, ValueString) {
 #' \code{SetDaqParameterInt} sets a single parameter with an integer value.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' \href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
 #' for a list of all available parameters.
 #' @param Value Integer value.
 #' @export
@@ -514,7 +514,7 @@ SetDaqParameterInt <- function(Parameter, Value) {
 #' \code{SetDaqParameterBool} sets a single parameter with a boolean value.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' \href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
 #' for a list of all available parameters.
 #' @param Value \code{TRUE} or \code{FALSE}.
 #' @export
@@ -527,7 +527,7 @@ SetDaqParameterBool <- function(Parameter, Value) {
 #' \code{SetDaqParameterFloat} sets a single parameter with a float value.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' \href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
 #' for a list of all available parameters.
 #' @param Value Numeric value.
 #' @export
@@ -541,7 +541,7 @@ SetDaqParameterFloat <- function(Parameter, Value) {
 #' (passed as a string).
 #'
 #' @param Parameter Parameter name as a string. See
-#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' \href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
 #' for a list of all available parameters.
 #' @param Value int64 value passed as a string.
 #' @export
@@ -554,7 +554,7 @@ SetDaqParameterInt64 <- function(Parameter, Value) {
 #' \code{SetDaqParameterDouble} sets a single parameter with a double value.
 #'
 #' @param Parameter Parameter name as a string. See
-#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
+#' \href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm#parameter_list}{TofDaq API documentation}
 #' for a list of all available parameters.
 #' @param Value Numeric value.
 #' @export
@@ -735,7 +735,7 @@ SetMassCalib2Ex <- function(mode, nbrParams, p, mass, tof, weight, label) {
 #' acquisition that can be retrieved by \code{GetDaqParameter} functions but
 #' also information of DAQ progress.
 #' See
-#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm}{TofDaq API documentation}
+#' \href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TofDaqDll.htm}{TofDaq API documentation}
 #' for more details.
 #'
 #' int64 and unsigned int64 parameters are returned as string. They can be
@@ -1516,7 +1516,7 @@ TpsChangeIonMode <- function(ionMode) {
 #' available in the structure can be read using \code{Get...AttributeFromH5}
 #' functions.
 #' See
-#' \href{http://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TwH5Dll.htm}{TofDaq API documentation}
+#' \href{https://htmlpreview.github.io/?https://github.com/pasturm/TofDaqR/blob/master/tools/doc/TwH5Dll.htm}{TofDaq API documentation}
 #' for more details.
 #'
 #' @param Filename Path/filename of the HDF5 file.

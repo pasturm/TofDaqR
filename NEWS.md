@@ -1,4 +1,4 @@
-# Changes in version 0.3.10.9008
+# Changes in version 0.3.10.9009
 
 * Fixed a bug in `GetTofDataSinglePeak()`.
 
@@ -16,6 +16,8 @@
 
 * Updated help pages of `GetSegmentProfileFromH5()`, `GetBufWriteProfileFromH5()`,
   `ContinueAcquisition()` and `ManualContinueNeeded()`.
+  
+* Replaced HTTP links with HTTPS.
 
 
 # Changes in version 0.3.10
