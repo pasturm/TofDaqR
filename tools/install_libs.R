@@ -1,6 +1,6 @@
 # Script to install the TofDaq API libraries (invoked by Makevars).
 
-path = "https://github.com/pasturm/TofDaqR/blob/master/TofDaqAPI/"
+path = "https://github.com/pasturm/TofDaqR/raw/master/TofDaqAPI/"
 TofDaqAPI = "TofDaq_1.99r1369_API_20210930"
 
 # download TofDaq API files ----------------------------------------------------

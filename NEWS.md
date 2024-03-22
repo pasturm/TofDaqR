@@ -25,6 +25,8 @@
   
 * Updated to TofDaq API 1.99r1369.
 
+* Removed GitHub Actions workflows.
+
 
 # Changes in version 0.3.10
 
