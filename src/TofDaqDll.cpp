@@ -3077,10 +3077,26 @@ void TpsChangeIonMode(int ionMode) {
 #endif
 }
 
-// Not implemented: TwLockBuf --------------------------------------------------
-// Not implemented: TwUnLockBuf ------------------------------------------------
-// Not implemented: TwGetSharedMemory ------------------------------------------
-// Not implemented: TwDioStartDelayActive --------------------------------------
-// Not implemented: TwSetRegUserDataTarget -------------------------------------
-// Not implemented: TwSaturationWarning ----------------------------------------
-// Not implemented: TwGetRegUserDataTargetRange --------------------------------
+// Not implemented -------------------------------------------------------------
+// TwLockBuf (-> removed in 20231219)
+// TwUnLockBuf (-> removed in 20231219)
+// TwGetSharedMemory
+// TwSetRegUserDataTarget
+// TwGetRegUserDataTargetRange
+
+// from API_20231219:
+// TwAutoSetupDaqDevice
+// TwDioStartDelayActive
+// TwSendDioStartSignal
+// TwWaitingForDioStartSignal
+// TwSaturationWarning
+// TwConfigureForSingleIonMeasurement
+// TwSetMassCalibInShMem
+// TwGenerateSegmentProfilesFromEventData
+// TwGetMassCalibFromShMem
+// TwTpsLoadSetFile2
+// TwTpsSaveSetFileRc
+// TwTpsGetNmtState
+// TwTpsSetNmtCmd
+// TwTpsGetModuleProperties
+// TwTpsSendPdo

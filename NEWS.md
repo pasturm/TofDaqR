@@ -1,4 +1,4 @@
-# Changes in version 0.3.10.9009
+# Changes in version 0.3.10.9010
 
 * Fixed a bug in `GetTofDataSinglePeak()`.
 
@@ -18,6 +18,12 @@
   `ContinueAcquisition()` and `ManualContinueNeeded()`.
   
 * Replaced HTTP links with HTTPS.
+
+* New TofDaq API versions are no longer hosted on https://soft.tofwerk.com/.
+  Therefore, the API libraries are downloaded from 
+  https://github.com/pasturm/TofDaqR/blob/master/TofDaqAPI/.
+  
+* Updated to TofDaq API 1.99r1369.
 
 
 # Changes in version 0.3.10

@@ -1,23 +1,21 @@
 # Script to update the documentation files of the TofDaq API in tools/doc.
 # This needs to be run manually once if the TofDaq API version is updated.
 
-TofDaqAPI = "TofDaq_1.99r759_API_20180912"
+path = "./TofDaqAPI/"
+TofDaqAPI = "TofDaq_1.99r1369_API_20210930"
 
-# download TofDaq API files from https://soft.tofwerk.com/ and unzip -----------
-tmpzip = tempfile()
-tmpdir = file.path(tempdir(), TofDaqAPI)
-dir.create(tmpdir)
-download.file(paste0("https://soft.tofwerk.com/", TofDaqAPI, ".zip"), tmpzip)
-unzip(tmpzip, exdir = tmpdir)
+# unzip ------------------------------------------------------------------------
+tmpdir = tempdir()
+if (!dir.exists(tmpdir)) { dir.create(tmpdir) }
+unzip(paste0(path, TofDaqAPI, ".zip"), exdir = tmpdir)
 
-# copy the doc folder to tools/doc ---------------------------------------------
-
-# first remove unnecessary jquery.php and js.php from doc/
+# remove unnecessary jquery.php, js.php and prompt.js from doc/ ----------------
 unlink(file.path(tmpdir, list.files(tmpdir, "*.php", recursive = TRUE)))
+unlink(file.path(tmpdir, list.files(tmpdir, "*.js", recursive = TRUE)))
 
-# copy doc/ to /tools
+# copy doc/ to /tools ----------------------------------------------------------
 # (assuming the working directory is set to the package source directory)
 file.copy(file.path(tmpdir, "doc"), "./tools", recursive = TRUE)
 
 # remove temporary files -------------------------------------------------------
-unlink(c(tmpzip, tmpdir), recursive = TRUE)
+unlink(file.path(tmpdir, TofDaqAPI), recursive = TRUE)

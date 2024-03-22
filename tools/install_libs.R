@@ -1,8 +1,9 @@
 # Script to install the TofDaq API libraries (invoked by Makevars).
 
-TofDaqAPI = "TofDaq_1.99r759_API_20180912"
+path = "https://github.com/pasturm/TofDaqR/blob/master/TofDaqAPI/"
+TofDaqAPI = "TofDaq_1.99r1369_API_20210930"
 
-# download TofDaq API files from https://soft.tofwerk.com/ ---------------------
+# download TofDaq API files ----------------------------------------------------
 if (dir.exists(file.path("../..", TofDaqAPI))) {  # debug
   print("*** install_libs.R: using local TofDaqAPI")
   tmpdir = file.path("../..", TofDaqAPI)
@@ -10,7 +11,7 @@ if (dir.exists(file.path("../..", TofDaqAPI))) {  # debug
   tmpzip = tempfile()
   tmpdir = file.path(tempdir(), TofDaqAPI)
   dir.create(tmpdir)
-  download.file(paste0("https://soft.tofwerk.com/", TofDaqAPI, ".zip"), tmpzip)
+  download.file(paste0(path, TofDaqAPI, ".zip"), tmpzip)
   unzip(tmpzip, exdir = tmpdir)
 }
 
@@ -22,7 +23,8 @@ TofDaqDll.h = readLines(file("../tools/include/TofDaqDll.h"))
 n = which(TofDaqDll.h=="TOFWERK_DAQ_API bool TwSaturationWarning(void);")
 TofDaqDll.h[n]  = "TOFWERK_DAQ_API bool TwSaturationWarning(void);
 ////////////////////////////////////////////////////////////////////////////////
-TOFWERK_DAQ_API TwRetVal TwTpsChangeIonMode(int ionMode);"
+TOFWERK_DAQ_API TwRetVal TwTpsChangeIonMode(int ionMode);
+////////////////////////////////////////////////////////////////////////////////"
 writeLines(TofDaqDll.h, con = "../tools/include/TofDaqDll.h" )
 
 # copy the appropriate dynamic libraries to R_PACKAGE_DIR/libs -----------------
@@ -42,6 +44,8 @@ if (Sys.info()["sysname"] == "Windows") {
     files = Sys.glob(file.path(tmpdir, "bin/linux_x86_64", "*.so"))
   } else if (Sys.info()["sysname"] == "Darwin" & Sys.info()["machine"] == "x86_64") {
     files = Sys.glob(file.path(tmpdir, "bin/macos_universal", "*.dylib"))
+  } else if (Sys.info()["sysname"] == "Darwin" & Sys.info()["machine"] == "arm64") {
+    stop("ARM-based processors not supported.")
   } else {
     stop("OS not supported.")
   }

@@ -1261,16 +1261,23 @@ List DecomposeMass(double targetMass, double tolerance, NumericVector atomMass,
 }
 
 
-// Not implemented: TwNistLibrarySearch ----------------------------------------
-// Not implemented: TwNistLibraryQueryResult -----------------------------------
-// Not implemented: TwBruteForceCalibrate --------------------------------------
-// Not implemented: TwEncImsCorrelateProfile -----------------------------------
-// Not implemented: TwEncImsCorrelateMultiProfiles -----------------------------
-// Not implemented: TwEncImsCleanup --------------------------------------------
-// Not implemented: TwSiGetHistogramAmp ----------------------------------------
-// Not implemented: TwSiGetSumHistogramAmp -------------------------------------
-// Not implemented: TwGenerateImageData ----------------------------------------
-// Not implemented: TwImagePaletteOffset2Value ---------------------------------
-// Not implemented: TwImageValue2PaletteOffset ---------------------------------
-// Not implemented: TwImageGetPaletteRGB ---------------------------------------
-// Not implemented: TwIntegrateTofSpectra --------------------------------------
+// Not implemented -------------------------------------------------------------
+// TwNistLibrarySearch
+// TwNistLibraryQueryResult
+// TwBruteForceCalibrate
+// TwEncImsCorrelateProfile
+// TwEncImsCorrelateMultiProfiles 
+// TwEncImsCleanup
+// TwSiGetHistogramAmp
+// TwSiGetSumHistogramAmp
+// TwGenerateImageData
+// TwImagePaletteOffset2Value
+// TwImageValue2PaletteOffset
+// TwImageGetPaletteRGB
+// TwIntegrateTofSpectra
+
+// from API_20231219:
+// TwDecomposeMass2
+// TwMatchSpectra
+// TwMakeMqAxis
+// TwIntegrateTofSpectrum

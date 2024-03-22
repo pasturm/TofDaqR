@@ -2494,3 +2494,19 @@ void ChangePeakTableFromFile(std::string Filename, std::string massTable,
 // TwGenerateSegmentProfilesFromEventList
 // TwH5MakePaletteImage
 // TwH5MakeTrueColorImage
+
+// from API_20231219:
+// TwH5GetMassCalibDynamic
+// TwH5SetMassCalibDynamicExt
+// TwGenerateBufWriteProfilesFromEventList
+// TwH5DbExecuteRawSql
+// TwH5DbInitializeNewJob
+// TwH5DbFinalizeJob
+// TwH5DbAddSpectrumPeaks
+// TwH5DbQueryJob
+// TwH5DbGetSpecIds
+// TwH5DbGetPeaksForSpecIds
+// TwH5DbGetPeaksForSpecId
+// TwH5DbQuerySpectrum
+// TwH5DbExtract
+
