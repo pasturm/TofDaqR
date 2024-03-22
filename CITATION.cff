@@ -1,5 +1,5 @@
 # -----------------------------------------------------------
-# CITATION file created with {cffr} R package, v0.2.1
+# CITATION file created with {cffr} R package, v1.0.0
 # See also: https://docs.ropensci.org/cffr/
 # -----------------------------------------------------------
  
@@ -8,7 +8,7 @@ message: 'To cite package "TofDaqR" in publications use:'
 type: software
 license: GPL-3.0-only
 title: 'TofDaqR: R Interface to the TOFWERK TofDaq API'
-version: 0.3.10.9009
+version: 0.3.10.9010
 abstract: The TofDaqR package provides an interface to the TOFWERK TofDaq API, which
   consists of libraries for communication with the TofDAQ recorder application, data
   file access and general (time-of-flight) mass spectrometry related utility functions.
@@ -16,26 +16,6 @@ authors:
 - family-names: Sturm
   given-names: Patrick
   email: sturm@tofwerk.com
-preferred-citation:
-  type: manual
-  title: 'TofDaqR: R Interface to the TOFWERK TofDaq API'
-  authors:
-  - family-names: Sturm
-    given-names: Patrick
-    email: sturm@tofwerk.com
-  version: 0.3.10.9009
-  abstract: The TofDaqR package provides an interface to the TOFWERK TofDaq API, which
-    consists of libraries for communication with the TofDAQ recorder application,
-    data file access and general (time-of-flight) mass spectrometry related utility
-    functions.
-  repository-code: https://github.com/pasturm/TofDaqR
-  url: https://github.com/pasturm/TofDaqR
-  contact:
-  - family-names: Sturm
-    given-names: Patrick
-    email: sturm@tofwerk.com
-  license: GPL-3.0-only
-  year: '2022'
 repository-code: https://github.com/pasturm/TofDaqR
 url: https://github.com/pasturm/TofDaqR
 contact:
@@ -47,6 +27,8 @@ references:
   title: Rcpp
   abstract: 'Rcpp: Seamless R and C++ Integration'
   notes: Imports
+  url: http://www.rcpp.org
+  repository: https://CRAN.R-project.org/package=Rcpp
   authors:
   - family-names: Eddelbuettel
     given-names: Dirk
@@ -66,12 +48,14 @@ references:
     given-names: Douglas
   - family-names: Chambers
     given-names: John
-  year: '2022'
+  year: '2024'
   version: '>= 0.12.7'
 - type: software
   title: Rcpp
   abstract: 'Rcpp: Seamless R and C++ Integration'
   notes: Imports
+  url: http://www.rcpp.org
+  repository: https://CRAN.R-project.org/package=Rcpp
   authors:
   - family-names: Eddelbuettel
     given-names: Dirk
@@ -91,4 +75,4 @@ references:
     given-names: Douglas
   - family-names: Chambers
     given-names: John
-  year: '2022'
+  year: '2024'
