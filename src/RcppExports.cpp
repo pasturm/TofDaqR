@@ -2357,19 +2357,6 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// MakeMqAxis
-NumericVector MakeMqAxis(NumericVector tofSample, int massCalibMode, NumericVector p);
-RcppExport SEXP _TofDaqR_MakeMqAxis(SEXP tofSampleSEXP, SEXP massCalibModeSEXP, SEXP pSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< NumericVector >::type tofSample(tofSampleSEXP);
-    Rcpp::traits::input_parameter< int >::type massCalibMode(massCalibModeSEXP);
-    Rcpp::traits::input_parameter< NumericVector >::type p(pSEXP);
-    rcpp_result_gen = Rcpp::wrap(MakeMqAxis(tofSample, massCalibMode, p));
-    return rcpp_result_gen;
-END_RCPP
-}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_TofDaqR_EventList2TofSpec", (DL_FUNC) &_TofDaqR_EventList2TofSpec, 4},
@@ -2564,7 +2551,6 @@ static const R_CallMethodDef CallEntries[] = {
     {"_TofDaqR_DecomposeMass", (DL_FUNC) &_TofDaqR_DecomposeMass, 8},
     {"_TofDaqR_DecomposeMass2", (DL_FUNC) &_TofDaqR_DecomposeMass2, 10},
     {"_TofDaqR_MatchSpectra", (DL_FUNC) &_TofDaqR_MatchSpectra, 3},
-    {"_TofDaqR_MakeMqAxis", (DL_FUNC) &_TofDaqR_MakeMqAxis, 3},
     {NULL, NULL, 0}
 };
 

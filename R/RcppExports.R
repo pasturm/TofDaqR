@@ -3579,8 +3579,10 @@ DecomposeMass <- function(targetMass, tolerance, atomMass, atomLabel, elementInd
 #' elementIndex2 = rep(-1, n)
 #' filterMinVal = c(20, 20, 0)
 #' filterMaxVal = c(22, 40, 5)
+#' maxHits = 10
+#' maxSearch = 1000
 #' DecomposeMass2(targetMass, tolerance, atomMass, atomLabel, elementIndex1,
-#'               elementIndex2, filterMinVal, filterMaxVal)
+#'               elementIndex2, filterMinVal, filterMaxVal, maxHits, maxSearch)
 #' @export
 DecomposeMass2 <- function(targetMass, tolerance, atomMass, atomLabel, elementIndex1, elementIndex2, filterMinVal, filterMaxVal, maxHits, maxSearch) {
     .Call(`_TofDaqR_DecomposeMass2`, targetMass, tolerance, atomMass, atomLabel, elementIndex1, elementIndex2, filterMinVal, filterMaxVal, maxHits, maxSearch)
@@ -3603,36 +3605,5 @@ DecomposeMass2 <- function(targetMass, tolerance, atomMass, atomLabel, elementIn
 #' @export
 MatchSpectra <- function(spec1, spec2, matchMethod = 0L) {
     .Call(`_TofDaqR_MatchSpectra`, spec1, spec2, matchMethod)
-}
-
-#' Generates m/Q axis.
-#'
-#' \code{MakeMqAxis} generates m/Q axis from calibration parameters. This is
-#' basically the same as the \code{\link{Tof2Mass}} function.
-#'
-#' \tabular{cl}{
-#' massCalibMode \tab Mass calibration function \cr
-#' 0 \tab \eqn{i = p_1 \sqrt(m) + p_2} \cr
-#' 1 \tab \eqn{i = p_1/\sqrt(m) + p_2} \cr
-#' 2 \tab \eqn{i = p_1 m^{p_3} + p_2} \cr
-#' 3 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 (m - p_4)^2} \cr
-#' 4 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 m^2 + p_4 m + p_5} \cr
-#' 5 \tab \eqn{m = p_1 i^2 + p_2 i + p_3}
-#' }
-#' Note: Modes 3 and 4 are flawed. Don't use them. In mode 3 the fit does not
-#' converge well, because of a bug (parameters not correctly initialized).
-#' Mode 4 is two sequential fits, first mode 0, then a quadratic fit to the
-#' residuals, which is an inferior implementation of mode 3. Mode 1 is for FTMS
-#' data.
-#'
-#' @param tofSample Vector of sample indices to convert.
-#' @param massCalibMode Mass calibration function to use. See below.
-#' @param p Vector containing the calibration parameters (number depends on
-#' \code{MassCalibMode}, see below).
-#' @return Vector with mass/charge values.
-#'
-#' @export
-MakeMqAxis <- function(tofSample, massCalibMode, p) {
-    .Call(`_TofDaqR_MakeMqAxis`, tofSample, massCalibMode, p)
 }
 

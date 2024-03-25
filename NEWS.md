@@ -1,12 +1,12 @@
-# Changes in version 0.3.10.9011
+# Changes in version 0.3.11
 
 * Fixed a bug in `GetTofDataSinglePeak()`.
 
-* `FitTofDataSinglePeak()` can also fit single spectra (and not only the averaged
-  spectrum).
+* `FitTofDataSinglePeak()` can also fit single spectra (and not only the 
+  averaged spectrum).
   
 * Added TwToolDll functions `DecomposeMass()`, `DecomposeMass2()`, 
-  `MatchSpectra()`, `MakeMqAxis()`.
+  `MatchSpectra()`.
 
 * Fixed a bug in `H5SetMassCalibDynamic()`.
 
@@ -15,8 +15,9 @@
   
 * Fixed reading the description in `GetRegUserDataFromH5()`.
 
-* Updated help pages of `GetSegmentProfileFromH5()`, `GetBufWriteProfileFromH5()`,
-  `ContinueAcquisition()` and `ManualContinueNeeded()`.
+* Updated help pages of `GetSegmentProfileFromH5()`, 
+  `GetBufWriteProfileFromH5()`, `ContinueAcquisition()` and 
+  `ManualContinueNeeded()`.
   
 * Replaced HTTP links with HTTPS.
 
@@ -34,8 +35,9 @@
   
 * Added TofDaqDll functions `DioStartDelayActive()`, `SendDioStartSignal()`, 
   `WaitingForDioStartSignal()`, `SaturationWarning()`, 
-  `ConfigureForSingleIonMeasurement()`, `TpsLoadSetFile2()`, `TpsSaveSetFileRc()`,
-  `TpsGetNmtState()`, `TpsSetNmtState()`, `TpsGetModuleProperties()`.
+  `ConfigureForSingleIonMeasurement()`, `TpsLoadSetFile2()`, 
+  `TpsSaveSetFileRc()`, `TpsGetNmtState()`, `TpsSetNmtState()`, 
+  `TpsGetModuleProperties()`.
 
 
 # Changes in version 0.3.10

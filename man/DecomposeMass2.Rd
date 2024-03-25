@@ -70,8 +70,10 @@ elementIndex1 = seq(along.with = atomLabel)-1
 elementIndex2 = rep(-1, n)
 filterMinVal = c(20, 20, 0)
 filterMaxVal = c(22, 40, 5)
+maxHits = 10
+maxSearch = 1000
 DecomposeMass2(targetMass, tolerance, atomMass, atomLabel, elementIndex1,
-              elementIndex2, filterMinVal, filterMaxVal)
+              elementIndex2, filterMinVal, filterMaxVal, maxHits, maxSearch)
 }
 \seealso{
 Other Chemistry functions: 
