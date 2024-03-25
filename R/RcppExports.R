@@ -100,7 +100,7 @@ KeepSharedMemMapped <- function() {
 #' Initializes the TofDaqDll.dll.
 #'
 #' \code{InitializeDll} initializes the TofDaqDll.dll. It is usually not necessary
-#' to call \code{InitializeDll} explicitely, as it is called automatically by
+#' to call \code{InitializeDll} explicitly, as it is called automatically by
 #' functions that need the DLL to be in an initialized state.
 #' @export
 InitializeDll <- function() {
@@ -263,8 +263,11 @@ GetTimeout <- function() {
 
 #' Auto setup routine for the DAQ device.
 #'
-#' Auto setup routine for the DAQ device. Currently implemented only for
-#' AP240 averager and ndigo5G.
+#' \code{AutoSetupDaqDevice} sets up AP240 or Ndigo5G DAQ device.
+#'
+#' This function is only functional for AP240 and Ndigo5G hardware. For all
+#' other setups it returns success immediately but does not do anything.
+#'
 #' @export
 AutoSetupDaqDevice <- function() {
     invisible(.Call(`_TofDaqR_AutoSetupDaqDevice`))
@@ -280,6 +283,68 @@ AutoSetupDaqDevice <- function() {
 #' @export
 OnDemandMassCalibration <- function(action) {
     invisible(.Call(`_TofDaqR_OnDemandMassCalibration`, action))
+}
+
+#' Checks if TofDaq recorder has received a start signal.
+#'
+#' \code{DioStartDelayActive} checks if TofDaq recorder has received a start
+#' signal and is waiting for DioStartDelay to pass.
+#'
+#' Signals \code{TRUE} when a start signal was received and "DioStartDelay" is
+#' active. Goes \code{FALSE} when start delay has expired. In combination with
+#' "TwWaitingForDioStartSignal" can be used to indicate to the user what the
+#' current experiment state is when digital start signal (and delay) is used.
+#'
+#' @return \code{TRUE} or \code{FALSE}.
+#' @export
+DioStartDelayActive <- function() {
+    .Call(`_TofDaqR_DioStartDelayActive`)
+}
+
+#' Sends a digital start signal.
+#'
+#' \code{SendDioStartSignal} sends a digital start signal.
+#'
+#' Software override of digital start signal as configured with DioStart...
+#' TofDaq recorder parameters. See also \code{\link{WaitingForDioStartSignal}}
+#' for finding out when this function can be called successfully.
+#'
+#' @return \code{TRUE} or \code{FALSE}.
+#' @export
+SendDioStartSignal <- function() {
+    invisible(.Call(`_TofDaqR_SendDioStartSignal`))
+}
+
+#' Checks if TofDaq recorder is waiting for a start signal.
+#'
+#' \code{WaitingForDioStartSignal} checks if TofDaq recorder is waiting for a
+#' start signal.
+#'
+#' Allows to query whether TofDaq recorder is currently waiting for a digital
+#' start signal (or the SW override signal, see \code{\link{SendDioStartSignal}}). Note
+#' that a \code{\link{StartAcquisition}} needs to be issued before this function can return
+#' \code{TRUE}. It can take several seconds from the moment \code{\link{StartAcquisition}} is
+#' called until this function returns \code{TRUE}.
+#'
+#' @return \code{TRUE} or \code{FALSE}.
+#' @export
+WaitingForDioStartSignal <- function() {
+    .Call(`_TofDaqR_WaitingForDioStartSignal`)
+}
+
+#' Checks if the signal is saturating the DAQ system.
+#'
+#' \code{SaturationWarning} checks if the signal is saturating the analog input
+#' of the DAQ system.
+#'
+#' Signals saturation of the input signal (saturation due to analog input
+#' limitations, not MCP limit or non-linearity in signal which may happen at
+#' significantly lower signal values).
+#'
+#' @return \code{TRUE} or \code{FALSE}.
+#' @export
+SaturationWarning <- function() {
+    .Call(`_TofDaqR_SaturationWarning`)
 }
 
 #' Shows the TofDaq recorder configuration windows.
@@ -726,6 +791,23 @@ SetMassCalibEx <- function(mode, nbrParams, p, mass, tof, weight, label) {
 #' @export
 SetMassCalib2Ex <- function(mode, nbrParams, p, mass, tof, weight, label) {
     invisible(.Call(`_TofDaqR_SetMassCalib2Ex`, mode, nbrParams, p, mass, tof, weight, label))
+}
+
+#' Configures TofDaq recorder for single ion measurements.
+#'
+#' \code{ConfigureForSingleIonMeasurement} configures TofDaq recorder for single
+#' ion measurements.
+#'
+#' The function returns \code{nbrBits} and \code{negativeSignal} that need to be passed to
+#' the single ion setup function in the tool library (all other parameters can
+#' be read directly from TofDaq). Note that it is the user's responsibility to
+#' backup current recorder settings before calling this function (and to revert
+#' to this sertting after the SI run).
+#'
+#' @return List with \code{nbrBits} and \code{negativeSignal} to pass to SI config function.
+#' @export
+ConfigureForSingleIonMeasurement <- function() {
+    .Call(`_TofDaqR_ConfigureForSingleIonMeasurement`)
 }
 
 #' Gets various information about the active acquisition.
@@ -1436,6 +1518,28 @@ TpsLoadSetFile <- function(setFile) {
     invisible(.Call(`_TofDaqR_TpsLoadSetFile`, setFile))
 }
 
+#' Loads a TPS set file and sets some values.
+#'
+#' \code{TpsLoadSetFile2} loads a TPS set file and only sets whitelisted
+#' values or all values except blacklisted RC codes.
+#'
+#' The only 3 supported modes to call this function are:
+#' \enumerate{
+#'   \item \code{TpsLoadSetFile2(setFile, NULL, NULL)}, this is the same as \code{\link{TpsLoadSetFile}}
+#'   \item \code{TpsLoadSetFile2(setFile, blackListArray, NULL)} sets the values from setFile except RC codes in blackListArray
+#'   \item \code{TpsLoadSetFile2(setFile, NULL, whiteListArray)} sets only the values from setFile that are also in whiteListArray
+#' }
+#'
+#' @param setFile Path/filename of the set file to load.
+#' @param blackListArray RC code array for blacklist.
+#' @param whiteListArray RC code array for whitelist .
+#'
+#' @family TPS functions
+#' @export
+TpsLoadSetFile2 <- function(setFile, blackListArray, whiteListArray) {
+    invisible(.Call(`_TofDaqR_TpsLoadSetFile2`, setFile, blackListArray, whiteListArray))
+}
+
 #' Saves the current TPS settings to a file.
 #'
 #' \code{TpsSaveSetFile} saves the current TPS settings to a file.
@@ -1446,6 +1550,23 @@ TpsLoadSetFile <- function(setFile) {
 #' @export
 TpsSaveSetFile <- function(setFile) {
     invisible(.Call(`_TofDaqR_TpsSaveSetFile`, setFile))
+}
+
+#' Saves TPS set values with a RC code to a file.
+#'
+#' \code{TpsSaveSetFileRc} saves the current TPS settings to a file. Only
+#' values with assigned RC codes will be saved.
+#'
+#' Note: set files saved with this function can not be loaded through the TPS
+#' web GUI, only \code{\link{TpsLoadSetFile}} and \code{\link{TpsLoadSetFile2}}
+#' understand this format.
+#'
+#' @param setFile Path/filename of the set file to save.
+#'
+#' @family TPS functions
+#' @export
+TpsSaveSetFileRc <- function(setFile) {
+    invisible(.Call(`_TofDaqR_TpsSaveSetFileRc`, setFile))
 }
 
 #' Gets the currently active filament.
@@ -1505,6 +1626,52 @@ TpsGetModuleLimits <- function(moduleCode) {
 #' @export
 TpsChangeIonMode <- function(ionMode) {
     invisible(.Call(`_TofDaqR_TpsChangeIonMode`, ionMode))
+}
+
+#' Queries the NMT state of a CANopen node.
+#'
+#' \code{TpsGetNmtState} queries the NMT (Network Management) state of the
+#' CANopen node associated with RC code \code{moduleCode}. Possible returned
+#' NMT states are: 0 (0x00, boot up), 4 (0x04, stopped), 5 (0x05, operational)
+#' and 127 (0x7f, pre-operational).
+#'
+#' @param moduleCode Module code.
+#'
+#' @family TPS functions
+#' @export
+TpsGetNmtState <- function(moduleCode) {
+    .Call(`_TofDaqR_TpsGetNmtState`, moduleCode)
+}
+
+#' Sets the NMT state of a CANopen node.
+#'
+#' \code{TpsSetNmtCmd} sets the NMT (Network Management) state of the
+#' CANopen node associated with RC code \code{moduleCode}. Valid values for
+#' nmtState are 1 (0x01, operational), 2 (0x02, stop), 128 (0x80, pre-operational),
+#' 129 (0x81, reset node) or 130 (0x82, reset communication).
+#'
+#' @param moduleCode Module code.
+#' @param nmtState New NMT state for node .
+#'
+#' @family TPS functions
+#' @export
+TpsSetNmtCmd <- function(moduleCode, nmtState) {
+    invisible(.Call(`_TofDaqR_TpsSetNmtCmd`, moduleCode, nmtState))
+}
+
+#' Gets capabilities and label for a given RC code.
+#'
+#' \code{TpsGetModuleProperties} gets capabilities and label for a given RC code.
+#'
+#' @param moduleCode Module code.
+#'
+#' @return List with the properties (hasMonitor, isSettable, isTrigger) and
+#' the label associated with \code{moduleCode} (can come from HW or cfg).
+#'
+#' @family TPS functions
+#' @export
+TpsGetModuleProperties <- function(moduleCode) {
+    .Call(`_TofDaqR_TpsGetModuleProperties`, moduleCode)
 }
 
 #' Descriptor structure of Tofwerk HDF5 data file.
@@ -3366,5 +3533,106 @@ FindTpsIp <- function(TpsSerial, timeout) {
 #' @export
 DecomposeMass <- function(targetMass, tolerance, atomMass, atomLabel, elementIndex1, elementIndex2, filterMinVal, filterMaxVal) {
     .Call(`_TofDaqR_DecomposeMass`, targetMass, tolerance, atomMass, atomLabel, elementIndex1, elementIndex2, filterMinVal, filterMaxVal)
+}
+
+#' Calculates possible sum formulas from a list of fragment masses.
+#'
+#' \code{DecomposeMass2} calculates possible sum formulas from a list of fragment
+#' masses.
+#'
+#' Same as \code{\link{DecomposeMass}} but with additional parameters \code{maxHits}
+#' and \code{maxSearch} to better fine-tune when to abort a compomer search.
+#' Calculates possible sum formulas that amount to target mass +/- tolerance
+#' given a target mass, mass tolerance and a list of fragment masses. Filters
+#' specifying min/max values for absolute counts of a fragment or for ratios
+#' between fragments can be specified in order to reduce the amount of results
+#' and restrict hits to chemically reasonable sum formulae. Typically atomMass
+#' and atomLabels are the masses/labels of elements but you are free to use
+#' whatever you like (isotopes, amino acids, common fragments etc.).
+#'
+#' @param targetMass Target mass.
+#' @param tolerance Tolerance of target mass.
+#' @param atomMass Numeric vector with fragment masses.
+#' @param atomLabel String Vector of fragment labels.
+#' @param elementIndex1 Element index for count filters, first element index for ratio filters.
+#' @param elementIndex2 -1 for count filters, second element for ratio filters.
+#' @param filterMinVal Counts or ratios that are smaller than this value are filtered out.
+#' @param filterMaxVal Counts or ratios that are larger than this value are filtered out.
+#' @param maxHits Maximum number of candidate hits to report.
+#' @param maxSearch Maximum number of candidate formula to search.
+#'
+#' @return List with sum formula strings and the mass and mass errors of the sum
+#' formulas.
+#'
+#' @family Chemistry functions
+#'
+#' @examples
+#' targetMass = 314
+#' tolerance = 0.5
+#' atomLabel = c("C", "H", "O")
+#' n = length(atomLabel)
+#' atomMass = rep(0, n)
+#'for (i in 1:n) {
+#'  atomMass[i] = GetMoleculeMass(atomLabel[i])
+#' }
+#' elementIndex1 = seq(along.with = atomLabel)-1
+#' elementIndex2 = rep(-1, n)
+#' filterMinVal = c(20, 20, 0)
+#' filterMaxVal = c(22, 40, 5)
+#' DecomposeMass2(targetMass, tolerance, atomMass, atomLabel, elementIndex1,
+#'               elementIndex2, filterMinVal, filterMaxVal)
+#' @export
+DecomposeMass2 <- function(targetMass, tolerance, atomMass, atomLabel, elementIndex1, elementIndex2, filterMinVal, filterMaxVal, maxHits, maxSearch) {
+    .Call(`_TofDaqR_DecomposeMass2`, targetMass, tolerance, atomMass, atomLabel, elementIndex1, elementIndex2, filterMinVal, filterMaxVal, maxHits, maxSearch)
+}
+
+#' Checks two spectra for similarity.
+#'
+#' \code{MatchSpectra} matches two spectra and returns a similarity score
+#' (0 - 100 %).
+#'
+#' Values < 0.0 in spec1 or spec2 will be set to 0.0. Currently, only
+#' matchMethod 0 is implemented and relies on the euclidean distance between
+#' the spectra.
+#'
+#' @param spec1 First spectrum to match.
+#' @param spec2 Second spectrum to match.
+#' @param matchMethod Method to use. Currently only method 0 is implemented.
+#' @return Match score in units of percent.
+#'
+#' @export
+MatchSpectra <- function(spec1, spec2, matchMethod = 0L) {
+    .Call(`_TofDaqR_MatchSpectra`, spec1, spec2, matchMethod)
+}
+
+#' Generates m/Q axis.
+#'
+#' \code{MakeMqAxis} generates m/Q axis from calibration parameters. This is
+#' basically the same as the \code{\link{Tof2Mass}} function.
+#'
+#' \tabular{cl}{
+#' massCalibMode \tab Mass calibration function \cr
+#' 0 \tab \eqn{i = p_1 \sqrt(m) + p_2} \cr
+#' 1 \tab \eqn{i = p_1/\sqrt(m) + p_2} \cr
+#' 2 \tab \eqn{i = p_1 m^{p_3} + p_2} \cr
+#' 3 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 (m - p_4)^2} \cr
+#' 4 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 m^2 + p_4 m + p_5} \cr
+#' 5 \tab \eqn{m = p_1 i^2 + p_2 i + p_3}
+#' }
+#' Note: Modes 3 and 4 are flawed. Don't use them. In mode 3 the fit does not
+#' converge well, because of a bug (parameters not correctly initialized).
+#' Mode 4 is two sequential fits, first mode 0, then a quadratic fit to the
+#' residuals, which is an inferior implementation of mode 3. Mode 1 is for FTMS
+#' data.
+#'
+#' @param tofSample Vector of sample indices to convert.
+#' @param massCalibMode Mass calibration function to use. See below.
+#' @param p Vector containing the calibration parameters (number depends on
+#' \code{MassCalibMode}, see below).
+#' @return Vector with mass/charge values.
+#'
+#' @export
+MakeMqAxis <- function(tofSample, massCalibMode, p) {
+    .Call(`_TofDaqR_MakeMqAxis`, tofSample, massCalibMode, p)
 }
 

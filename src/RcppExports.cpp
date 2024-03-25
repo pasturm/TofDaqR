@@ -237,6 +237,45 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+// DioStartDelayActive
+bool DioStartDelayActive();
+RcppExport SEXP _TofDaqR_DioStartDelayActive() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(DioStartDelayActive());
+    return rcpp_result_gen;
+END_RCPP
+}
+// SendDioStartSignal
+void SendDioStartSignal();
+RcppExport SEXP _TofDaqR_SendDioStartSignal() {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    SendDioStartSignal();
+    return R_NilValue;
+END_RCPP
+}
+// WaitingForDioStartSignal
+bool WaitingForDioStartSignal();
+RcppExport SEXP _TofDaqR_WaitingForDioStartSignal() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(WaitingForDioStartSignal());
+    return rcpp_result_gen;
+END_RCPP
+}
+// SaturationWarning
+bool SaturationWarning();
+RcppExport SEXP _TofDaqR_SaturationWarning() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(SaturationWarning());
+    return rcpp_result_gen;
+END_RCPP
+}
 // ShowConfigWindow
 void ShowConfigWindow(int ConfigWindowIndex);
 RcppExport SEXP _TofDaqR_ShowConfigWindow(SEXP ConfigWindowIndexSEXP) {
@@ -537,6 +576,16 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< StringVector >::type label(labelSEXP);
     SetMassCalib2Ex(mode, nbrParams, p, mass, tof, weight, label);
     return R_NilValue;
+END_RCPP
+}
+// ConfigureForSingleIonMeasurement
+List ConfigureForSingleIonMeasurement();
+RcppExport SEXP _TofDaqR_ConfigureForSingleIonMeasurement() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(ConfigureForSingleIonMeasurement());
+    return rcpp_result_gen;
 END_RCPP
 }
 // GetDescriptor
@@ -1083,6 +1132,18 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+// TpsLoadSetFile2
+void TpsLoadSetFile2(std::string setFile, Nullable<Rcpp::IntegerVector> blackListArray, Nullable<Rcpp::IntegerVector> whiteListArray);
+RcppExport SEXP _TofDaqR_TpsLoadSetFile2(SEXP setFileSEXP, SEXP blackListArraySEXP, SEXP whiteListArraySEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::string >::type setFile(setFileSEXP);
+    Rcpp::traits::input_parameter< Nullable<Rcpp::IntegerVector> >::type blackListArray(blackListArraySEXP);
+    Rcpp::traits::input_parameter< Nullable<Rcpp::IntegerVector> >::type whiteListArray(whiteListArraySEXP);
+    TpsLoadSetFile2(setFile, blackListArray, whiteListArray);
+    return R_NilValue;
+END_RCPP
+}
 // TpsSaveSetFile
 void TpsSaveSetFile(std::string setFile);
 RcppExport SEXP _TofDaqR_TpsSaveSetFile(SEXP setFileSEXP) {
@@ -1090,6 +1151,16 @@ BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type setFile(setFileSEXP);
     TpsSaveSetFile(setFile);
+    return R_NilValue;
+END_RCPP
+}
+// TpsSaveSetFileRc
+void TpsSaveSetFileRc(std::string setFile);
+RcppExport SEXP _TofDaqR_TpsSaveSetFileRc(SEXP setFileSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::string >::type setFile(setFileSEXP);
+    TpsSaveSetFileRc(setFile);
     return R_NilValue;
 END_RCPP
 }
@@ -1132,6 +1203,39 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< int >::type ionMode(ionModeSEXP);
     TpsChangeIonMode(ionMode);
     return R_NilValue;
+END_RCPP
+}
+// TpsGetNmtState
+int TpsGetNmtState(int moduleCode);
+RcppExport SEXP _TofDaqR_TpsGetNmtState(SEXP moduleCodeSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type moduleCode(moduleCodeSEXP);
+    rcpp_result_gen = Rcpp::wrap(TpsGetNmtState(moduleCode));
+    return rcpp_result_gen;
+END_RCPP
+}
+// TpsSetNmtCmd
+void TpsSetNmtCmd(int moduleCode, int nmtState);
+RcppExport SEXP _TofDaqR_TpsSetNmtCmd(SEXP moduleCodeSEXP, SEXP nmtStateSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type moduleCode(moduleCodeSEXP);
+    Rcpp::traits::input_parameter< int >::type nmtState(nmtStateSEXP);
+    TpsSetNmtCmd(moduleCode, nmtState);
+    return R_NilValue;
+END_RCPP
+}
+// TpsGetModuleProperties
+List TpsGetModuleProperties(int moduleCode);
+RcppExport SEXP _TofDaqR_TpsGetModuleProperties(SEXP moduleCodeSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type moduleCode(moduleCodeSEXP);
+    rcpp_result_gen = Rcpp::wrap(TpsGetModuleProperties(moduleCode));
+    return rcpp_result_gen;
 END_RCPP
 }
 // GetH5Descriptor
@@ -2220,6 +2324,52 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// DecomposeMass2
+List DecomposeMass2(double targetMass, double tolerance, NumericVector atomMass, StringVector atomLabel, IntegerVector elementIndex1, IntegerVector elementIndex2, NumericVector filterMinVal, NumericVector filterMaxVal, int maxHits, int maxSearch);
+RcppExport SEXP _TofDaqR_DecomposeMass2(SEXP targetMassSEXP, SEXP toleranceSEXP, SEXP atomMassSEXP, SEXP atomLabelSEXP, SEXP elementIndex1SEXP, SEXP elementIndex2SEXP, SEXP filterMinValSEXP, SEXP filterMaxValSEXP, SEXP maxHitsSEXP, SEXP maxSearchSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type targetMass(targetMassSEXP);
+    Rcpp::traits::input_parameter< double >::type tolerance(toleranceSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type atomMass(atomMassSEXP);
+    Rcpp::traits::input_parameter< StringVector >::type atomLabel(atomLabelSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type elementIndex1(elementIndex1SEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type elementIndex2(elementIndex2SEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type filterMinVal(filterMinValSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type filterMaxVal(filterMaxValSEXP);
+    Rcpp::traits::input_parameter< int >::type maxHits(maxHitsSEXP);
+    Rcpp::traits::input_parameter< int >::type maxSearch(maxSearchSEXP);
+    rcpp_result_gen = Rcpp::wrap(DecomposeMass2(targetMass, tolerance, atomMass, atomLabel, elementIndex1, elementIndex2, filterMinVal, filterMaxVal, maxHits, maxSearch));
+    return rcpp_result_gen;
+END_RCPP
+}
+// MatchSpectra
+double MatchSpectra(NumericVector spec1, NumericVector spec2, int matchMethod);
+RcppExport SEXP _TofDaqR_MatchSpectra(SEXP spec1SEXP, SEXP spec2SEXP, SEXP matchMethodSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type spec1(spec1SEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type spec2(spec2SEXP);
+    Rcpp::traits::input_parameter< int >::type matchMethod(matchMethodSEXP);
+    rcpp_result_gen = Rcpp::wrap(MatchSpectra(spec1, spec2, matchMethod));
+    return rcpp_result_gen;
+END_RCPP
+}
+// MakeMqAxis
+NumericVector MakeMqAxis(NumericVector tofSample, int massCalibMode, NumericVector p);
+RcppExport SEXP _TofDaqR_MakeMqAxis(SEXP tofSampleSEXP, SEXP massCalibModeSEXP, SEXP pSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type tofSample(tofSampleSEXP);
+    Rcpp::traits::input_parameter< int >::type massCalibMode(massCalibModeSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(MakeMqAxis(tofSample, massCalibMode, p));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_TofDaqR_EventList2TofSpec", (DL_FUNC) &_TofDaqR_EventList2TofSpec, 4},
@@ -2244,6 +2394,10 @@ static const R_CallMethodDef CallEntries[] = {
     {"_TofDaqR_GetTimeout", (DL_FUNC) &_TofDaqR_GetTimeout, 0},
     {"_TofDaqR_AutoSetupDaqDevice", (DL_FUNC) &_TofDaqR_AutoSetupDaqDevice, 0},
     {"_TofDaqR_OnDemandMassCalibration", (DL_FUNC) &_TofDaqR_OnDemandMassCalibration, 1},
+    {"_TofDaqR_DioStartDelayActive", (DL_FUNC) &_TofDaqR_DioStartDelayActive, 0},
+    {"_TofDaqR_SendDioStartSignal", (DL_FUNC) &_TofDaqR_SendDioStartSignal, 0},
+    {"_TofDaqR_WaitingForDioStartSignal", (DL_FUNC) &_TofDaqR_WaitingForDioStartSignal, 0},
+    {"_TofDaqR_SaturationWarning", (DL_FUNC) &_TofDaqR_SaturationWarning, 0},
     {"_TofDaqR_ShowConfigWindow", (DL_FUNC) &_TofDaqR_ShowConfigWindow, 1},
     {"_TofDaqR_LoadIniFile", (DL_FUNC) &_TofDaqR_LoadIniFile, 1},
     {"_TofDaqR_SaveIniFile", (DL_FUNC) &_TofDaqR_SaveIniFile, 1},
@@ -2270,6 +2424,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_TofDaqR_SetMassCalib2", (DL_FUNC) &_TofDaqR_SetMassCalib2, 6},
     {"_TofDaqR_SetMassCalibEx", (DL_FUNC) &_TofDaqR_SetMassCalibEx, 7},
     {"_TofDaqR_SetMassCalib2Ex", (DL_FUNC) &_TofDaqR_SetMassCalib2Ex, 7},
+    {"_TofDaqR_ConfigureForSingleIonMeasurement", (DL_FUNC) &_TofDaqR_ConfigureForSingleIonMeasurement, 0},
     {"_TofDaqR_GetDescriptor", (DL_FUNC) &_TofDaqR_GetDescriptor, 0},
     {"_TofDaqR_GetPeakParameters", (DL_FUNC) &_TofDaqR_GetPeakParameters, 1},
     {"_TofDaqR_ReleaseSharedMemory", (DL_FUNC) &_TofDaqR_ReleaseSharedMemory, 0},
@@ -2319,11 +2474,16 @@ static const R_CallMethodDef CallEntries[] = {
     {"_TofDaqR_TpsShutdown", (DL_FUNC) &_TofDaqR_TpsShutdown, 0},
     {"_TofDaqR_TpsGetStatus", (DL_FUNC) &_TofDaqR_TpsGetStatus, 0},
     {"_TofDaqR_TpsLoadSetFile", (DL_FUNC) &_TofDaqR_TpsLoadSetFile, 1},
+    {"_TofDaqR_TpsLoadSetFile2", (DL_FUNC) &_TofDaqR_TpsLoadSetFile2, 3},
     {"_TofDaqR_TpsSaveSetFile", (DL_FUNC) &_TofDaqR_TpsSaveSetFile, 1},
+    {"_TofDaqR_TpsSaveSetFileRc", (DL_FUNC) &_TofDaqR_TpsSaveSetFileRc, 1},
     {"_TofDaqR_TpsGetActiveFilament", (DL_FUNC) &_TofDaqR_TpsGetActiveFilament, 0},
     {"_TofDaqR_TpsSetActiveFilament", (DL_FUNC) &_TofDaqR_TpsSetActiveFilament, 1},
     {"_TofDaqR_TpsGetModuleLimits", (DL_FUNC) &_TofDaqR_TpsGetModuleLimits, 1},
     {"_TofDaqR_TpsChangeIonMode", (DL_FUNC) &_TofDaqR_TpsChangeIonMode, 1},
+    {"_TofDaqR_TpsGetNmtState", (DL_FUNC) &_TofDaqR_TpsGetNmtState, 1},
+    {"_TofDaqR_TpsSetNmtCmd", (DL_FUNC) &_TofDaqR_TpsSetNmtCmd, 2},
+    {"_TofDaqR_TpsGetModuleProperties", (DL_FUNC) &_TofDaqR_TpsGetModuleProperties, 1},
     {"_TofDaqR_GetH5Descriptor", (DL_FUNC) &_TofDaqR_GetH5Descriptor, 1},
     {"_TofDaqR_CloseH5", (DL_FUNC) &_TofDaqR_CloseH5, 1},
     {"_TofDaqR_CloseAll", (DL_FUNC) &_TofDaqR_CloseAll, 0},
@@ -2402,6 +2562,9 @@ static const R_CallMethodDef CallEntries[] = {
     {"_TofDaqR_SiFitRateFromPhd", (DL_FUNC) &_TofDaqR_SiFitRateFromPhd, 3},
     {"_TofDaqR_FindTpsIp", (DL_FUNC) &_TofDaqR_FindTpsIp, 2},
     {"_TofDaqR_DecomposeMass", (DL_FUNC) &_TofDaqR_DecomposeMass, 8},
+    {"_TofDaqR_DecomposeMass2", (DL_FUNC) &_TofDaqR_DecomposeMass2, 10},
+    {"_TofDaqR_MatchSpectra", (DL_FUNC) &_TofDaqR_MatchSpectra, 3},
+    {"_TofDaqR_MakeMqAxis", (DL_FUNC) &_TofDaqR_MakeMqAxis, 3},
     {NULL, NULL, 0}
 };
 

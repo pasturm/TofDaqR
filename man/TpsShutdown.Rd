@@ -19,15 +19,20 @@ Other TPS functions:
 \code{\link{TpsGetLastSetValue}()},
 \code{\link{TpsGetModuleCodes}()},
 \code{\link{TpsGetModuleLimits}()},
+\code{\link{TpsGetModuleProperties}()},
 \code{\link{TpsGetMonitorValue}()},
 \code{\link{TpsGetNbrModules}()},
+\code{\link{TpsGetNmtState}()},
 \code{\link{TpsGetStatus}()},
 \code{\link{TpsGetTargetValue}()},
 \code{\link{TpsInitialize}()},
+\code{\link{TpsLoadSetFile2}()},
 \code{\link{TpsLoadSetFile}()},
+\code{\link{TpsSaveSetFileRc}()},
 \code{\link{TpsSaveSetFile}()},
 \code{\link{TpsSetActiveFilament}()},
 \code{\link{TpsSetAllVoltages}()},
+\code{\link{TpsSetNmtCmd}()},
 \code{\link{TpsSetTargetValue}()}
 }
 \concept{TPS functions}

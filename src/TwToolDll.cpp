@@ -1148,7 +1148,7 @@ String FindTpsIp(std::string TpsSerial, int timeout) {
 #endif
 }
 
-// DecomposeMass -----------------------------------------------------------
+// DecomposeMass ---------------------------------------------------------------
 //' Calculates possible sum formulas from a list of fragment masses.
 //'
 //' \code{DecomposeMass} calculates possible sum formulas from a list of fragment
@@ -1260,13 +1260,204 @@ List DecomposeMass(double targetMass, double tolerance, NumericVector atomMass,
   return result;
 }
 
+// DecomposeMass2 --------------------------------------------------------------
+//' Calculates possible sum formulas from a list of fragment masses.
+//'
+//' \code{DecomposeMass2} calculates possible sum formulas from a list of fragment
+//' masses.
+//'
+//' Same as \code{\link{DecomposeMass}} but with additional parameters \code{maxHits}
+//' and \code{maxSearch} to better fine-tune when to abort a compomer search.
+//' Calculates possible sum formulas that amount to target mass +/- tolerance
+//' given a target mass, mass tolerance and a list of fragment masses. Filters
+//' specifying min/max values for absolute counts of a fragment or for ratios
+//' between fragments can be specified in order to reduce the amount of results
+//' and restrict hits to chemically reasonable sum formulae. Typically atomMass
+//' and atomLabels are the masses/labels of elements but you are free to use
+//' whatever you like (isotopes, amino acids, common fragments etc.).
+//'
+//' @param targetMass Target mass.
+//' @param tolerance Tolerance of target mass.
+//' @param atomMass Numeric vector with fragment masses.
+//' @param atomLabel String Vector of fragment labels.
+//' @param elementIndex1 Element index for count filters, first element index for ratio filters.
+//' @param elementIndex2 -1 for count filters, second element for ratio filters.
+//' @param filterMinVal Counts or ratios that are smaller than this value are filtered out.
+//' @param filterMaxVal Counts or ratios that are larger than this value are filtered out.
+//' @param maxHits Maximum number of candidate hits to report.
+//' @param maxSearch Maximum number of candidate formula to search.
+//'
+//' @return List with sum formula strings and the mass and mass errors of the sum
+//' formulas.
+//'
+//' @family Chemistry functions
+//'
+//' @examples
+//' targetMass = 314
+//' tolerance = 0.5
+//' atomLabel = c("C", "H", "O")
+//' n = length(atomLabel)
+//' atomMass = rep(0, n)
+//'for (i in 1:n) {
+//'  atomMass[i] = GetMoleculeMass(atomLabel[i])
+//' }
+//' elementIndex1 = seq(along.with = atomLabel)-1
+//' elementIndex2 = rep(-1, n)
+//' filterMinVal = c(20, 20, 0)
+//' filterMaxVal = c(22, 40, 5)
+//' DecomposeMass2(targetMass, tolerance, atomMass, atomLabel, elementIndex1,
+//'               elementIndex2, filterMinVal, filterMaxVal)
+//' @export
+// [[Rcpp::export]]
+List DecomposeMass2(double targetMass, double tolerance, NumericVector atomMass,
+                  StringVector atomLabel, IntegerVector elementIndex1,
+                  IntegerVector elementIndex2, NumericVector filterMinVal,
+                  NumericVector filterMaxVal, int maxHits, int maxSearch) {
+
+  int nbrAtoms = atomMass.size();
+
+  // get size of atomLabel
+  int sizeLabel = 0;
+  for( int i=0; i < nbrAtoms; i++ ) {
+   for(int j=0; j < atomLabel[i].size(); j++){
+     sizeLabel += 1;
+   }
+   sizeLabel += 1;  // null termination
+  }
+
+  char *catomLabel = new char[sizeLabel];
+
+  int pos = 0;
+  for( int i=0; i < nbrAtoms; i++ ) {
+   std::string str(atomLabel[i]);
+   strncpy(&catomLabel[pos], str.c_str(), atomLabel[i].size());
+   pos += atomLabel[i].size() + 1;
+   catomLabel[pos-1] = '\0';
+  }
+
+  int nbrCompomers;
+  int nbrFilters = elementIndex1.size();
+
+  TwRetVal rv = TwDecomposeMass2(targetMass, tolerance, nbrAtoms, &atomMass[0],
+                                catomLabel, nbrFilters, &elementIndex1[0],
+                                &elementIndex2[0], &filterMinVal[0],
+                                &filterMaxVal[0], &nbrCompomers, maxHits, maxSearch);
+  if (rv != TwSuccess) {
+   delete[] catomLabel;
+   stop(TranslateReturnValue(rv));
+  }
+  delete[] catomLabel;
+
+  // get composition
+  int sumFormulaLength = 256; // assuming all formulas are <256 characters long
+  double mass;
+  double massError;
+  NumericVector massVector(nbrCompomers);
+  NumericVector massErrorVector(nbrCompomers);
+  StringVector sumFormulaVector(nbrCompomers);
+
+  for( int i=0; i < nbrCompomers; i++ ) {
+   char *sumFormula = new char[sumFormulaLength];
+   rv = TwGetComposition(i, sumFormula, &sumFormulaLength, &mass, &massError);
+   if (rv != TwSuccess) {
+     delete[] sumFormula;
+     stop(TranslateReturnValue(rv));
+   }
+   std::string str(sumFormula);
+   delete[] sumFormula;
+   massVector[i] = mass;
+   massErrorVector[i] = massError;
+   sumFormulaVector[i] = str;
+  }
+
+  List result;
+  result["sumFormula"] = sumFormulaVector;
+  result["mass"] = massVector;
+  result["massError"] = massErrorVector;
+  return result;
+}
+
+// MatchSpectra ----------------------------------------------------------------
+//' Checks two spectra for similarity.
+//'
+//' \code{MatchSpectra} matches two spectra and returns a similarity score
+//' (0 - 100 %).
+//'
+//' Values < 0.0 in spec1 or spec2 will be set to 0.0. Currently, only
+//' matchMethod 0 is implemented and relies on the euclidean distance between
+//' the spectra.
+//'
+//' @param spec1 First spectrum to match.
+//' @param spec2 Second spectrum to match.
+//' @param matchMethod Method to use. Currently only method 0 is implemented.
+//' @return Match score in units of percent.
+//'
+//' @export
+// [[Rcpp::export]]
+double MatchSpectra(NumericVector spec1, NumericVector spec2,
+                    int matchMethod = 0) {
+
+  int nbrPoints = spec1.size();
+  if (nbrPoints != spec2.size()) {
+    stop("spec1 and spec2 must be the same length.");
+  }
+  double matchScore;
+
+  TwRetVal rv = TwMatchSpectra(&spec1[0], &spec2[0], nbrPoints, matchMethod, &matchScore);
+  if (rv != TwSuccess) {
+    stop(TranslateReturnValue(rv));
+  }
+  return matchScore;
+}
+
+// MakeMqAxis --------------------------------------------------------------------
+//' Generates m/Q axis.
+//'
+//' \code{MakeMqAxis} generates m/Q axis from calibration parameters. This is
+//' basically the same as the \code{\link{Tof2Mass}} function.
+//'
+//' \tabular{cl}{
+//' massCalibMode \tab Mass calibration function \cr
+//' 0 \tab \eqn{i = p_1 \sqrt(m) + p_2} \cr
+//' 1 \tab \eqn{i = p_1/\sqrt(m) + p_2} \cr
+//' 2 \tab \eqn{i = p_1 m^{p_3} + p_2} \cr
+//' 3 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 (m - p_4)^2} \cr
+//' 4 \tab \eqn{i = p_1 \sqrt(m) + p_2 + p_3 m^2 + p_4 m + p_5} \cr
+//' 5 \tab \eqn{m = p_1 i^2 + p_2 i + p_3}
+//' }
+//' Note: Modes 3 and 4 are flawed. Don't use them. In mode 3 the fit does not
+//' converge well, because of a bug (parameters not correctly initialized).
+//' Mode 4 is two sequential fits, first mode 0, then a quadratic fit to the
+//' residuals, which is an inferior implementation of mode 3. Mode 1 is for FTMS
+//' data.
+//'
+//' @param tofSample Vector of sample indices to convert.
+//' @param massCalibMode Mass calibration function to use. See below.
+//' @param p Vector containing the calibration parameters (number depends on
+//' \code{MassCalibMode}, see below).
+//' @return Vector with mass/charge values.
+//'
+//' @export
+// [[Rcpp::export]]
+NumericVector MakeMqAxis(NumericVector tofSample, int massCalibMode,
+                         NumericVector p) {
+
+  int nbrPoints = tofSample.size();
+  NumericVector mqAxis(nbrPoints);
+
+  TwRetVal rv = TwMakeMqAxis(&mqAxis[0], nbrPoints, massCalibMode, &p[0]);
+  if (rv != TwSuccess) {
+   stop(TranslateReturnValue(rv));
+  }
+  return mqAxis;
+}
 
 // Not implemented -------------------------------------------------------------
 // TwNistLibrarySearch
 // TwNistLibraryQueryResult
 // TwBruteForceCalibrate
 // TwEncImsCorrelateProfile
-// TwEncImsCorrelateMultiProfiles 
+// TwEncImsCorrelateMultiProfiles
 // TwEncImsCleanup
 // TwSiGetHistogramAmp
 // TwSiGetSumHistogramAmp
@@ -1275,9 +1466,4 @@ List DecomposeMass(double targetMass, double tolerance, NumericVector atomMass,
 // TwImageValue2PaletteOffset
 // TwImageGetPaletteRGB
 // TwIntegrateTofSpectra
-
-// from API_20231219:
-// TwDecomposeMass2
-// TwMatchSpectra
-// TwMakeMqAxis
 // TwIntegrateTofSpectrum

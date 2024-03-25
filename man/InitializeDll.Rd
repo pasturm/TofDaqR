@@ -8,6 +8,6 @@ InitializeDll()
 }
 \description{
 \code{InitializeDll} initializes the TofDaqDll.dll. It is usually not necessary
-to call \code{InitializeDll} explicitely, as it is called automatically by
+to call \code{InitializeDll} explicitly, as it is called automatically by
 functions that need the DLL to be in an initialized state.
 }

@@ -9,7 +9,7 @@ using namespace Rcpp;
 //' Initializes the TofDaqDll.dll.
 //'
 //' \code{InitializeDll} initializes the TofDaqDll.dll. It is usually not necessary
-//' to call \code{InitializeDll} explicitely, as it is called automatically by
+//' to call \code{InitializeDll} explicitly, as it is called automatically by
 //' functions that need the DLL to be in an initialized state.
 //' @export
 // [[Rcpp::export]]
@@ -303,8 +303,11 @@ int GetTimeout() {
 // AutoSetupDaqDevice ----------------------------------------------------------
 //' Auto setup routine for the DAQ device.
 //'
-//' Auto setup routine for the DAQ device. Currently implemented only for
-//' AP240 averager and ndigo5G.
+//' \code{AutoSetupDaqDevice} sets up AP240 or Ndigo5G DAQ device.
+//'
+//' This function is only functional for AP240 and Ndigo5G hardware. For all
+//' other setups it returns success immediately but does not do anything.
+//'
 //' @export
 // [[Rcpp::export]]
 void AutoSetupDaqDevice() {
@@ -336,6 +339,102 @@ void OnDemandMassCalibration(int action) {
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
+#endif
+}
+
+// DioStartDelayActive ---------------------------------------------------------
+//' Checks if TofDaq recorder has received a start signal.
+//'
+//' \code{DioStartDelayActive} checks if TofDaq recorder has received a start
+//' signal and is waiting for DioStartDelay to pass.
+//'
+//' Signals \code{TRUE} when a start signal was received and "DioStartDelay" is
+//' active. Goes \code{FALSE} when start delay has expired. In combination with
+//' "TwWaitingForDioStartSignal" can be used to indicate to the user what the
+//' current experiment state is when digital start signal (and delay) is used.
+//'
+//' @return \code{TRUE} or \code{FALSE}.
+//' @export
+// [[Rcpp::export]]
+bool DioStartDelayActive() {
+#ifdef _WIN32
+  bool rv = TwDioStartDelayActive();
+
+  return rv;
+#else
+  stop("This function is only implemented on Windows.");
+#endif
+}
+
+// SendDioStartSignal ----------------------------------------------------------
+//' Sends a digital start signal.
+//'
+//' \code{SendDioStartSignal} sends a digital start signal.
+//'
+//' Software override of digital start signal as configured with DioStart...
+//' TofDaq recorder parameters. See also \code{\link{WaitingForDioStartSignal}}
+//' for finding out when this function can be called successfully.
+//'
+//' @return \code{TRUE} or \code{FALSE}.
+//' @export
+// [[Rcpp::export]]
+void SendDioStartSignal() {
+#ifdef _WIN32
+  TwRetVal rv = TwSendDioStartSignal();
+
+  if (rv != TwSuccess) {
+    stop(TranslateReturnValue(rv));
+  }
+#else
+  stop("This function is only implemented on Windows.");
+#endif
+}
+
+// WaitingForDioStartSignal ----------------------------------------------------
+//' Checks if TofDaq recorder is waiting for a start signal.
+//'
+//' \code{WaitingForDioStartSignal} checks if TofDaq recorder is waiting for a
+//' start signal.
+//'
+//' Allows to query whether TofDaq recorder is currently waiting for a digital
+//' start signal (or the SW override signal, see \code{\link{SendDioStartSignal}}). Note
+//' that a \code{\link{StartAcquisition}} needs to be issued before this function can return
+//' \code{TRUE}. It can take several seconds from the moment \code{\link{StartAcquisition}} is
+//' called until this function returns \code{TRUE}.
+//'
+//' @return \code{TRUE} or \code{FALSE}.
+//' @export
+// [[Rcpp::export]]
+bool WaitingForDioStartSignal() {
+#ifdef _WIN32
+  bool rv = TwWaitingForDioStartSignal();
+
+  return rv;
+#else
+  stop("This function is only implemented on Windows.");
+#endif
+}
+
+// SaturationWarning -----------------------------------------------------------
+//' Checks if the signal is saturating the DAQ system.
+//'
+//' \code{SaturationWarning} checks if the signal is saturating the analog input
+//' of the DAQ system.
+//'
+//' Signals saturation of the input signal (saturation due to analog input
+//' limitations, not MCP limit or non-linearity in signal which may happen at
+//' significantly lower signal values).
+//'
+//' @return \code{TRUE} or \code{FALSE}.
+//' @export
+// [[Rcpp::export]]
+bool SaturationWarning() {
+#ifdef _WIN32
+  bool rv = TwSaturationWarning();
+
+  return rv;
 #else
   stop("This function is only implemented on Windows.");
 #endif
@@ -1173,6 +1272,40 @@ void SetMassCalib2Ex(int mode, int nbrParams, NumericVector p,
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
   }
+#else
+  stop("This function is only implemented on Windows.");
+#endif
+}
+
+// ConfigureForSingleIonMeasurement --------------------------------------------
+//' Configures TofDaq recorder for single ion measurements.
+//'
+//' \code{ConfigureForSingleIonMeasurement} configures TofDaq recorder for single
+//' ion measurements.
+//'
+//' The function returns \code{nbrBits} and \code{negativeSignal} that need to be passed to
+//' the single ion setup function in the tool library (all other parameters can
+//' be read directly from TofDaq). Note that it is the user's responsibility to
+//' backup current recorder settings before calling this function (and to revert
+//' to this sertting after the SI run).
+//'
+//' @return List with \code{nbrBits} and \code{negativeSignal} to pass to SI config function.
+//' @export
+// [[Rcpp::export]]
+List ConfigureForSingleIonMeasurement() {
+#ifdef _WIN32
+  int nbrBits;
+  bool negativeSignal;
+
+  TwRetVal rv = TwConfigureForSingleIonMeasurement(&nbrBits, &negativeSignal);
+  if (rv != TwSuccess) {
+    stop(TranslateReturnValue(rv));
+  }
+
+  List result;
+  result["nbrBits"] = nbrBits;
+  result["negativeSignal"] = negativeSignal;
+  return result;
 #else
   stop("This function is only implemented on Windows.");
 #endif
@@ -2947,6 +3080,65 @@ void TpsLoadSetFile(std::string setFile) {
 #endif
 }
 
+// TpsLoadSetFile2 -------------------------------------------------------------
+//' Loads a TPS set file and sets some values.
+//'
+//' \code{TpsLoadSetFile2} loads a TPS set file and only sets whitelisted
+//' values or all values except blacklisted RC codes.
+//'
+//' The only 3 supported modes to call this function are:
+//' \enumerate{
+//'   \item \code{TpsLoadSetFile2(setFile, NULL, NULL)}, this is the same as \code{\link{TpsLoadSetFile}}
+//'   \item \code{TpsLoadSetFile2(setFile, blackListArray, NULL)} sets the values from setFile except RC codes in blackListArray
+//'   \item \code{TpsLoadSetFile2(setFile, NULL, whiteListArray)} sets only the values from setFile that are also in whiteListArray
+//' }
+//'
+//' @param setFile Path/filename of the set file to load.
+//' @param blackListArray RC code array for blacklist.
+//' @param whiteListArray RC code array for whitelist .
+//'
+//' @family TPS functions
+//' @export
+// [[Rcpp::export]]
+void TpsLoadSetFile2(std::string setFile,
+                     Nullable<Rcpp::IntegerVector> blackListArray,
+                     Nullable<Rcpp::IntegerVector> whiteListArray) {
+#ifdef _WIN32
+  char *cFilename = StringToChar(setFile);
+
+  // TODO: copied from H5SetMassCalibDynamic -> is IntegerVector blackListArray_(blackListArray); really needed?
+  int blackListLength;
+  int whiteListLength;
+  int *p_blackListArray;
+  int *p_whiteListArray;
+  if (blackListArray.isNotNull()) {
+    IntegerVector blackListArray_(blackListArray);
+    blackListLength = blackListArray_.size();
+    p_blackListArray = &blackListArray_[0];
+  } else {
+    blackListLength = 0;
+    p_blackListArray = nullptr;
+  }
+  if (whiteListArray.isNotNull()) {
+    IntegerVector whiteListArray_(whiteListArray);
+    whiteListLength = whiteListArray_.size();
+    p_whiteListArray = &whiteListArray_[0];
+  } else {
+    whiteListLength = 0;
+    p_whiteListArray = nullptr;
+  }
+
+  TwRetVal rv = TwTpsLoadSetFile2(cFilename, p_blackListArray, blackListLength,
+                                 p_whiteListArray, whiteListLength);
+
+  if (rv != TwSuccess) {
+    stop(TranslateReturnValue(rv));
+  }
+#else
+  stop("This function is only implemented on Windows.");
+#endif
+}
+
 // TpsSaveSetFile --------------------------------------------------------------
 //' Saves the current TPS settings to a file.
 //'
@@ -2965,6 +3157,35 @@ void TpsSaveSetFile(std::string setFile) {
 
   if (rv != TwSuccess) {
     stop(TranslateReturnValue(rv));
+  }
+#else
+  stop("This function is only implemented on Windows.");
+#endif
+}
+
+// TpsSaveSetFileRc ------------------------------------------------------------
+//' Saves TPS set values with a RC code to a file.
+//'
+//' \code{TpsSaveSetFileRc} saves the current TPS settings to a file. Only
+//' values with assigned RC codes will be saved.
+//'
+//' Note: set files saved with this function can not be loaded through the TPS
+//' web GUI, only \code{\link{TpsLoadSetFile}} and \code{\link{TpsLoadSetFile2}}
+//' understand this format.
+//'
+//' @param setFile Path/filename of the set file to save.
+//'
+//' @family TPS functions
+//' @export
+// [[Rcpp::export]]
+void TpsSaveSetFileRc(std::string setFile) {
+#ifdef _WIN32
+  char *cFilename = StringToChar(setFile);
+
+  TwRetVal rv = TwTpsSaveSetFileRc(cFilename);
+
+  if (rv != TwSuccess) {
+   stop(TranslateReturnValue(rv));
   }
 #else
   stop("This function is only implemented on Windows.");
@@ -3077,26 +3298,111 @@ void TpsChangeIonMode(int ionMode) {
 #endif
 }
 
+// TpsGetNmtState --------------------------------------------------------------
+//' Queries the NMT state of a CANopen node.
+//'
+//' \code{TpsGetNmtState} queries the NMT (Network Management) state of the
+//' CANopen node associated with RC code \code{moduleCode}. Possible returned
+//' NMT states are: 0 (0x00, boot up), 4 (0x04, stopped), 5 (0x05, operational)
+//' and 127 (0x7f, pre-operational).
+//'
+//' @param moduleCode Module code.
+//'
+//' @family TPS functions
+//' @export
+// [[Rcpp::export]]
+int TpsGetNmtState(int moduleCode) {
+#ifdef _WIN32
+  int nmtState;
+
+  TwRetVal rv = TwTpsGetNmtState(moduleCode, &nmtState);
+
+  if (rv != TwSuccess) {
+   stop(TranslateReturnValue(rv));
+  }
+
+ return nmtState;
+#else
+  stop("This function is only implemented on Windows.");
+#endif
+}
+
+// TpsSetNmtCmd --------------------------------------------------------------
+//' Sets the NMT state of a CANopen node.
+//'
+//' \code{TpsSetNmtCmd} sets the NMT (Network Management) state of the
+//' CANopen node associated with RC code \code{moduleCode}. Valid values for
+//' nmtState are 1 (0x01, operational), 2 (0x02, stop), 128 (0x80, pre-operational),
+//' 129 (0x81, reset node) or 130 (0x82, reset communication).
+//'
+//' @param moduleCode Module code.
+//' @param nmtState New NMT state for node .
+//'
+//' @family TPS functions
+//' @export
+// [[Rcpp::export]]
+void TpsSetNmtCmd(int moduleCode, int nmtState) {
+#ifdef _WIN32
+
+  TwRetVal rv = TwTpsSetNmtCmd(moduleCode, nmtState);
+
+  if (rv != TwSuccess) {
+   stop(TranslateReturnValue(rv));
+  }
+#else
+  stop("This function is only implemented on Windows.");
+#endif
+}
+
+// TpsGetModuleProperties ----------------------------------------------------------------
+//' Gets capabilities and label for a given RC code.
+//'
+//' \code{TpsGetModuleProperties} gets capabilities and label for a given RC code.
+//'
+//' @param moduleCode Module code.
+//'
+//' @return List with the properties (hasMonitor, isSettable, isTrigger) and
+//' the label associated with \code{moduleCode} (can come from HW or cfg).
+//'
+//' @family TPS functions
+//' @export
+// [[Rcpp::export]]
+List TpsGetModuleProperties(int moduleCode) {
+#ifdef _WIN32
+  int properties;
+  char *label = new char[256];
+
+  TwRetVal rv = TwTpsGetModuleProperties(moduleCode, &properties, label);
+  if (rv != TwSuccess) {
+    delete[] label;
+    stop(TranslateReturnValue(rv));
+  }
+
+  bool hasMonitor = (properties & 0x01); // hex for 0001
+  bool isSettable = (properties & 0x02); // hex for 0010
+  bool isTrigger = (properties & 0x04); // hex for 0100
+
+  std::string str(label);
+  delete[] label;
+
+  List result;
+  result["hasMonitor"] = hasMonitor;
+  result["isSettable"] = isSettable;
+  result["isTrigger"] = isTrigger;
+  result["label"] = wrap(str);
+
+return result;
+#else
+  stop("This function is only implemented on Windows.");
+#endif
+}
+
 // Not implemented -------------------------------------------------------------
-// TwLockBuf (-> removed in 20231219)
-// TwUnLockBuf (-> removed in 20231219)
 // TwGetSharedMemory
 // TwSetRegUserDataTarget
 // TwGetRegUserDataTargetRange
-
-// from API_20231219:
-// TwAutoSetupDaqDevice
-// TwDioStartDelayActive
-// TwSendDioStartSignal
-// TwWaitingForDioStartSignal
-// TwSaturationWarning
-// TwConfigureForSingleIonMeasurement
-// TwSetMassCalibInShMem
 // TwGenerateSegmentProfilesFromEventData
-// TwGetMassCalibFromShMem
-// TwTpsLoadSetFile2
-// TwTpsSaveSetFileRc
-// TwTpsGetNmtState
-// TwTpsSetNmtCmd
-// TwTpsGetModuleProperties
 // TwTpsSendPdo
+// from API 1.99r1586:
+// TwSetMassCalibInShMem
+// TwGetMassCalibFromShMem

@@ -1,11 +1,12 @@
-# Changes in version 0.3.10.9010
+# Changes in version 0.3.10.9011
 
 * Fixed a bug in `GetTofDataSinglePeak()`.
 
 * `FitTofDataSinglePeak()` can also fit single spectra (and not only the averaged
   spectrum).
   
-* Added TwToolDll function `DecomposeMass()`.
+* Added TwToolDll functions `DecomposeMass()`, `DecomposeMass2()`, 
+  `MatchSpectra()`, `MakeMqAxis()`.
 
 * Fixed a bug in `H5SetMassCalibDynamic()`.
 
@@ -26,6 +27,15 @@
 * Updated to TofDaq API 1.99r1369.
 
 * Removed GitHub Actions workflows.
+
+* Removed the binary version for macOS. The package can still be installed from 
+  source on Intel-based Macs. Unfortunately, TofDaq API libraries are not 
+  available for ARM-based processors.
+  
+* Added TofDaqDll functions `DioStartDelayActive()`, `SendDioStartSignal()`, 
+  `WaitingForDioStartSignal()`, `SaturationWarning()`, 
+  `ConfigureForSingleIonMeasurement()`, `TpsLoadSetFile2()`, `TpsSaveSetFileRc()`,
+  `TpsGetNmtState()`, `TpsSetNmtState()`, `TpsGetModuleProperties()`.
 
 
 # Changes in version 0.3.10

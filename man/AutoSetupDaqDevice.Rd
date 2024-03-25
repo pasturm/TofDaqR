@@ -7,6 +7,9 @@
 AutoSetupDaqDevice()
 }
 \description{
-Auto setup routine for the DAQ device. Currently implemented only for
-AP240 averager and ndigo5G.
+\code{AutoSetupDaqDevice} sets up AP240 or Ndigo5G DAQ device.
+}
+\details{
+This function is only functional for AP240 and Ndigo5G hardware. For all
+other setups it returns success immediately but does not do anything.
 }
