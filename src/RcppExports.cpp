@@ -53,18 +53,6 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// SiProcessSpectrumFromShMem
-List SiProcessSpectrumFromShMem(int specType, int BufIndex);
-RcppExport SEXP _TofDaqR_SiProcessSpectrumFromShMem(SEXP specTypeSEXP, SEXP BufIndexSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< int >::type specType(specTypeSEXP);
-    Rcpp::traits::input_parameter< int >::type BufIndex(BufIndexSEXP);
-    rcpp_result_gen = Rcpp::wrap(SiProcessSpectrumFromShMem(specType, BufIndex));
-    return rcpp_result_gen;
-END_RCPP
-}
 // KeepSharedMemMapped
 void KeepSharedMemMapped();
 RcppExport SEXP _TofDaqR_KeepSharedMemMapped() {
@@ -2362,7 +2350,6 @@ static const R_CallMethodDef CallEntries[] = {
     {"_TofDaqR_EventList2TofSpec", (DL_FUNC) &_TofDaqR_EventList2TofSpec, 4},
     {"_TofDaqR_DecodeEventList", (DL_FUNC) &_TofDaqR_DecodeEventList, 3},
     {"_TofDaqR_DecodeEventListThreshold", (DL_FUNC) &_TofDaqR_DecodeEventListThreshold, 6},
-    {"_TofDaqR_SiProcessSpectrumFromShMem", (DL_FUNC) &_TofDaqR_SiProcessSpectrumFromShMem, 2},
     {"_TofDaqR_KeepSharedMemMapped", (DL_FUNC) &_TofDaqR_KeepSharedMemMapped, 0},
     {"_TofDaqR_InitializeDll", (DL_FUNC) &_TofDaqR_InitializeDll, 0},
     {"_TofDaqR_CleanupDll", (DL_FUNC) &_TofDaqR_CleanupDll, 0},

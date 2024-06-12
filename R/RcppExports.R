@@ -65,22 +65,6 @@ DecodeEventListThreshold <- function(events, clockPeriod, sampleInterval, thresh
     .Call(`_TofDaqR_DecodeEventListThreshold`, events, clockPeriod, sampleInterval, threshold, presamples, postsamples)
 }
 
-#' Processes a spectrum taken from shared memory.
-#'
-#' \code{SiProcessSpectrumFromShMem} processes a spectrum taken from shared
-#' memory according to the options set for it's spectrum type.
-#'
-#' This function is a variant of the original TwToolDll function \code{\link{SiProcessSpectrum}}.
-#'
-#' @param specType Spectrum type index (non-negative integer).
-#' @param BufIndex Buf index of data to fetch.
-#' @return A list with the baseline and threshold value.
-#'
-#' @export
-SiProcessSpectrumFromShMem <- function(specType, BufIndex) {
-    .Call(`_TofDaqR_SiProcessSpectrumFromShMem`, specType, BufIndex)
-}
-
 #' Keeps the shared memory acquisition buffers mapped.
 #'
 #' \code{KeepSharedMemMapped} Keeps the shared memory acquisition buffers mapped.

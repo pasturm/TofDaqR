@@ -232,52 +232,6 @@ List DecodeEventListThreshold(NumericVector events, double clockPeriod,
   return result;
 }
 
-// SiProcessSpectrumFromShMem --------------------------------------------------
-//' Processes a spectrum taken from shared memory.
-//'
-//' \code{SiProcessSpectrumFromShMem} processes a spectrum taken from shared
-//' memory according to the options set for it's spectrum type.
-//'
-//' This function is a variant of the original TwToolDll function \code{\link{SiProcessSpectrum}}.
-//'
-//' @param specType Spectrum type index (non-negative integer).
-//' @param BufIndex Buf index of data to fetch.
-//' @return A list with the baseline and threshold value.
-//'
-//' @export
-// [[Rcpp::export]]
-List SiProcessSpectrumFromShMem(int specType, int BufIndex) {
-#ifdef _WIN32
-  //get descriptor of file
-  TSharedMemoryDesc desc;
-  TwRetVal rv = TwGetDescriptor(&desc);
-  if (rv != TwSuccess) {
-    stop(TranslateReturnValue(rv));
-  }
-
-  int specLen = desc.NbrSamples;
-
-  std::vector<float> spectrum(specLen);
-
-  float blFromData;
-  float thrFromData;
-
-  rv = TwSiProcessSpectrum(&spectrum[0], specLen, specType, &blFromData,
-                           &thrFromData);
-  if (rv != TwSuccess) {
-    stop(TranslateReturnValue(rv));
-  }
-
-  List result;
-  result["baseline"] = wrap(blFromData);
-  result["threshold"] = wrap(thrFromData);
-
-  return result;
-#else
-  stop("This function is only implemented on Windows.");
-#endif
-}
-
 // KeepSharedMemMapped ---------------------------------------------------------
 //' Keeps the shared memory acquisition buffers mapped.
 //'

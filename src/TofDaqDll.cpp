@@ -548,9 +548,9 @@ String GetDaqParameter(std::string Parameter) {
 
   std::string str(buffer);
 
-  delete[] buffer;
+  // delete[] buffer;
 
-  return str;
+  return wrap(str);
 #else
   stop("This function is only implemented on Windows.");
 #endif

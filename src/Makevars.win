@@ -1,6 +1,5 @@
 PKG_LIBS = -L"${R_PACKAGE_DIR}/libs${R_ARCH}" -lTofDaqDll -lTwH5Dll -lTwToolDll
 PKG_CPPFLAGS =  -I../tools/include
-CXX_STD = CXX11
 
 PACKAGE_DIR = ${R_PACKAGE_DIR}
 

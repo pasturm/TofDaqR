@@ -1,3 +1,8 @@
+# Changes in version 0.3.11.9000
+
+* Removed `SiProcessSpectrumFromShMem()`.
+
+
 # Changes in version 0.3.11
 
 * Fixed a bug in `GetTofDataSinglePeak()`.
