@@ -542,13 +542,7 @@ String GetDaqParameter(std::string Parameter) {
 #ifdef _WIN32
   char *cParameter = StringToChar(Parameter);
 
-  char *buffer = new char[256];
-
-  buffer = TwGetDaqParameter(cParameter);
-
-  std::string str(buffer);
-
-  // delete[] buffer;
+  std::string str = TwGetDaqParameter(cParameter);
 
   return wrap(str);
 #else
@@ -841,17 +835,14 @@ double GetDaqParameterDoubleRef(std::string Parameter) {
 String GetDaqParameterStringRef(std::string Parameter) {
 #ifdef _WIN32
   char *cParameter = StringToChar(Parameter);
-  char *Value = new char[256];
+  char *Value;
 
   TwRetVal rv = TwGetDaqParameterStringRef(cParameter, Value);
   if (rv != TwSuccess) {
-    delete[] Value;
     stop(TranslateReturnValue(rv));
   }
 
   std::string str(Value);
-
-  delete[] Value;
 
   return wrap(str);
 #else
@@ -3370,11 +3361,10 @@ void TpsSetNmtCmd(int moduleCode, int nmtState) {
 List TpsGetModuleProperties(int moduleCode) {
 #ifdef _WIN32
   int properties;
-  char *label = new char[256];
+  char *label;
 
   TwRetVal rv = TwTpsGetModuleProperties(moduleCode, &properties, label);
   if (rv != TwSuccess) {
-    delete[] label;
     stop(TranslateReturnValue(rv));
   }
 
@@ -3383,7 +3373,6 @@ List TpsGetModuleProperties(int moduleCode) {
   bool isTrigger = (properties & 0x04); // hex for 0100
 
   std::string str(label);
-  delete[] label;
 
   List result;
   result["hasMonitor"] = hasMonitor;

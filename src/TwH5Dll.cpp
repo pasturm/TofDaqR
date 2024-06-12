@@ -1805,13 +1805,12 @@ List GetAcquisitionLogFromH5(std::string Filename, int index) {
   char *cFilename = StringToChar(Filename);
 
   int64_t timestamp;
-  char *logText = new char[256];
+  char *logText;
 
   TwRetVal rv = TwGetAcquisitionLogFromH5(cFilename, index, &timestamp, logText);
   TwCloseH5(cFilename);
 
   if (rv != TwSuccess) {
-    delete[] logText;
     stop(TranslateReturnValue(rv));
   }
 
@@ -1819,8 +1818,6 @@ List GetAcquisitionLogFromH5(std::string Filename, int index) {
   time[0] = std::to_string(timestamp);
 
   std::string str(logText);
-
-  delete[] logText;
 
   List result;
   result["timestamp"] = time;
