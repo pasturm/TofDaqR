@@ -835,7 +835,7 @@ double GetDaqParameterDoubleRef(std::string Parameter) {
 String GetDaqParameterStringRef(std::string Parameter) {
 #ifdef _WIN32
   char *cParameter = StringToChar(Parameter);
-  char *Value;
+  char Value[256] = {};
 
   TwRetVal rv = TwGetDaqParameterStringRef(cParameter, Value);
   if (rv != TwSuccess) {
@@ -3361,7 +3361,7 @@ void TpsSetNmtCmd(int moduleCode, int nmtState) {
 List TpsGetModuleProperties(int moduleCode) {
 #ifdef _WIN32
   int properties;
-  char *label;
+  char label[256] = {};
 
   TwRetVal rv = TwTpsGetModuleProperties(moduleCode, &properties, label);
   if (rv != TwSuccess) {

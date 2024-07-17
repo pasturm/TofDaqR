@@ -1,8 +1,10 @@
-# Changes in version 0.3.11.9001
+# Changes in version 0.3.11.9002
 
 * Removed `SiProcessSpectrumFromShMem()`.
 
 * Fixed a bug in `GetDaqParameter()`.
+
+* Fixed a bug when unloading the package.
 
 
 # Changes in version 0.3.11

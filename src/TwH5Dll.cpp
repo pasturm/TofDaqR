@@ -1805,7 +1805,7 @@ List GetAcquisitionLogFromH5(std::string Filename, int index) {
   char *cFilename = StringToChar(Filename);
 
   int64_t timestamp;
-  char *logText;
+  char logText[256] = {};
 
   TwRetVal rv = TwGetAcquisitionLogFromH5(cFilename, index, &timestamp, logText);
   TwCloseH5(cFilename);
