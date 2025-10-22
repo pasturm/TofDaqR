@@ -1,10 +1,12 @@
-# Changes in version 0.3.11.9002
+# Changes in version 0.3.11.9003
 
 * Removed `SiProcessSpectrumFromShMem()`.
 
 * Fixed a bug in `GetDaqParameter()`.
 
 * Fixed a bug when unloading the package.
+
+* Added github workflow to update citation.cff.
 
 
 # Changes in version 0.3.11
