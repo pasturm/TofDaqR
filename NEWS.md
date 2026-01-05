@@ -1,4 +1,4 @@
-# Changes in version 0.3.11.9004
+# Changes in version 0.3.12
 
 * Removed `SiProcessSpectrumFromShMem()`.
 

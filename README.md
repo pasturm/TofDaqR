@@ -24,7 +24,7 @@ Features:
 
 On Windows:
 ```r
-install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.11/TofDaqR_0.3.11.zip", repos = NULL)
+install.packages("https://github.com/pasturm/TofDaqR/releases/download/v0.3.12/TofDaqR_0.3.12.zip", repos = NULL)
 ```
 
 Alternatively, the latest development version can be installed from source on Windows, macOS (with Intel-based processors) and Linux:
@@ -34,7 +34,7 @@ remotes::install_github("pasturm/TofDaqR", clean = TRUE)
 ```
 Installing from source requires [Rtools](https://cran.r-project.org/bin/windows/Rtools/) on Windows, [Xcode Command Line Tools](https://developer.apple.com/xcode/resources/) (`xcode-select --install`) on macOS and `sudo apt-get install r-base-dev` (or similar) on Linux. 
 
-Please note: the TofDaq API libraries are not (yet) available for ARM-based processors.
+Please note: the TofDaq API libraries are not available for ARM-based processors.
 
 ## Documentation
 ```r

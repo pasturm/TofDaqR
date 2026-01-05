@@ -8,7 +8,7 @@ message: 'To cite package "TofDaqR" in publications use:'
 type: software
 license: GPL-3.0-only
 title: 'TofDaqR: R Interface to the TOFWERK TofDaq API'
-version: 0.3.11.9004
+version: 0.3.12
 abstract: The TofDaqR package provides an interface to the TOFWERK TofDaq API, which
   consists of libraries for communication with the TofDAQ recorder application, data
   file access and general (time-of-flight) mass spectrometry related utility functions.
