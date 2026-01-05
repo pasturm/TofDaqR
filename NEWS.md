@@ -6,8 +6,6 @@
 
 * Fixed a bug when unloading the package.
 
-* Added github workflow to update citation.cff.
-
 * Fixed misleading error message in `GetRegUserDataSourcesFromH5()` 
   (workaround for bug in dll, TOFDAQ-67). 
 
