@@ -869,7 +869,8 @@ List GetRegUserDataSourcesFromH5(std::string Filename) {
                                               NULL, NULL, NULL);
   if (rv != TwValueAdjusted) {
     TwCloseH5(cFilename);
-    stop(TranslateReturnValue(rv));
+    // stop(TranslateReturnValue(rv));  // bug in dll (TOFDAQ-67): returns TwSuccess
+    stop(TranslateReturnValue(TwFileNotFound));  // return TwFileNotFound instead
   }
 
   char *sourceLocation = new char[256 * nbrSources];

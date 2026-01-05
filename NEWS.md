@@ -1,4 +1,4 @@
-# Changes in version 0.3.11.9003
+# Changes in version 0.3.11.9004
 
 * Removed `SiProcessSpectrumFromShMem()`.
 
@@ -7,6 +7,9 @@
 * Fixed a bug when unloading the package.
 
 * Added github workflow to update citation.cff.
+
+* Fixed misleading error message in `GetRegUserDataSourcesFromH5()` 
+  (workaround for bug in dll, TOFDAQ-67). 
 
 
 # Changes in version 0.3.11
